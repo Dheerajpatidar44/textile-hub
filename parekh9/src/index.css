@@ -1,0 +1,205 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Primary Terracotta/Dusty Rose Palette (Top banner, buttons) ── */
+  --color-primary-900: #772729;
+  --color-primary-800: #8C3336;
+  --color-primary-700: #983E41;
+  --color-primary-600: #A24E51; /* Base Terracotta/Dusty Rose */
+  --color-primary-500: #B26567;
+  --color-primary-400: #C37E80;
+  --color-primary-300: #D4989A;
+  --color-primary-100: #F8ECE9;
+
+  /* ── Deep Red / Accent (Logo text, highlights) ── */
+  --color-accent-700: #5F191B;
+  --color-accent-600: #772629; /* Brand Accent */
+  --color-accent-500: #8C3538;
+  --color-accent-400: #A34F52;
+  --color-accent-100: #F2E2E1;
+
+  /* ── Warm Backgrounds ── */
+  --color-cream-50: #FFFFFF;
+  --color-cream-100: #FCF5F0; /* Main Page Background */
+  --color-cream-200: #F5E8DF;
+  --color-cream-300: #EADCD2;
+  --color-cream-450: #DFCCBF;
+
+  /* ── Text / Dark Tones ── */
+  --color-dark-900: #231C18;
+  --color-dark-800: #3C3430;
+  --color-dark-700: #554D48;
+  --color-dark-600: #706863;
+
+  /* ── Muted ── */
+  --color-muted-600: #908882;
+  --color-muted-400: #B0A8A2;
+  --color-muted-200: #DCD5CF;
+
+  /* ── Font Families ── */
+  --font-serif: 'Marcellus', serif;
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans), sans-serif;
+    background-color: var(--color-cream-100);
+    color: var(--color-dark-800);
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif), serif;
+  }
+}
+
+/* ── Custom Scrollbar ── */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-cream-200);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary-400);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-600);
+}
+
+/* ── Hero Slider ── */
+@keyframes slideIn {
+  0%   { transform: translateX(100%); opacity: 0; }
+  100% { transform: translateX(0%); opacity: 1; }
+}
+@keyframes slideOut {
+  0%   { transform: translateX(0%); opacity: 1; }
+  100% { transform: translateX(-100%); opacity: 0; }
+}
+.slide-enter {
+  animation: slideIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+.slide-exit {
+  animation: slideOut 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* ── Ken Burns effect for hero ── */
+@keyframes kenBurns {
+  0%   { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+.ken-burns {
+  animation: kenBurns 6s ease forwards;
+}
+
+/* ── Preloader animations ── */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+.shimmer-text {
+  background: linear-gradient(
+    90deg,
+    #A24E51 0%,
+    #FFFFFF 40%,
+    #A24E51 60%,
+    #C37E80 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 2.5s linear infinite;
+}
+
+@keyframes fabricWave {
+  0%, 100% { transform: translateY(0px) scaleX(1); }
+  50%       { transform: translateY(-6px) scaleX(1.02); }
+}
+.fabric-wave {
+  animation: fabricWave 2s ease-in-out infinite;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-in-up {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes goldPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(162, 78, 81, 0.5); }
+  50%       { box-shadow: 0 0 0 10px rgba(162, 78, 81, 0); }
+}
+.gold-pulse {
+  animation: goldPulse 2s ease-in-out infinite;
+}
+
+/* ── Category Card Hover ── */
+.category-card:hover .cat-icon {
+  transform: scale(1.15) rotate(-5deg);
+  transition: transform 0.3s ease;
+}
+
+/* ── Navbar Underline ── */
+.nav-link-active::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #A24E51, #C37E80);
+  border-radius: 2px;
+  margin-top: 2px;
+}
+
+/* ── Accent Button ── */
+.btn-gold {
+  background: linear-gradient(135deg, #A24E51 0%, #C37E80 50%, #A24E51 100%);
+  background-size: 200% auto;
+  color: #fff;
+  transition: background-position 0.4s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+.btn-gold:hover {
+  background-position: right center;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(162, 78, 81, 0.4);
+}
+
+/* ── Primary Button ── */
+.btn-primary {
+  background: linear-gradient(135deg, #983E41 0%, #A24E51 100%);
+  color: #fff;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+.btn-primary:hover {
+  background: linear-gradient(135deg, #8C3336 0%, #983E41 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(152, 62, 65, 0.4);
+}
+
+/* ── Glass Card ── */
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(162, 78, 81, 0.2);
+}
+
+/* ── Section divider ── */
+.gold-divider {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #A24E51, #C37E80);
+  border-radius: 2px;
+}
+
+/* ── Responsive utilities ── */
+@media (max-width: 768px) {
+  .hero-text-responsive {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+  }
+}

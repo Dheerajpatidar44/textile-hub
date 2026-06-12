@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Outfit:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* ── Deep Royal Plum & Gold Palette ── */
+  --color-primary-900: #1C032B; /* Dark Plum Black */
+  --color-primary-800: #2A083E; /* Deep Royal Plum */
+  --color-primary-700: #C5A059; /* Champagne Gold */
+  --color-primary-600: #D4AF37; /* Bright Gold */
+  --color-primary-500: #EADBC8; /* Creamy Silk */
+  --color-primary-400: #D2B4DE; /* Lilac Rose */
+  --color-primary-300: #A370F7; /* Lavender Accent */
+  --color-primary-100: #FAF6F0; /* Ivory Cream Background */
+
+  /* ── Accent Gold & Rose ── */
+  --color-accent-700: #9B7E4B;
+  --color-accent-600: #C5A059; /* Brand Gold Accent */
+  --color-accent-500: #D4AF37;
+  --color-accent-400: #E5C07B;
+  --color-accent-100: #FAF6F0;
+
+  /* ── Backgrounds ── */
+  --color-cream-50: #FFFFFF;    /* Pure White for Card backgrounds */
+  --color-cream-100: #FAF6F0;   /* Ivory Cream Page Background */
+  --color-cream-200: #F3ECE3;   /* Muted Cream Background */
+  --color-cream-300: #EADBC8;   /* Silk Background */
+  --color-cream-450: #C5A059;
+
+  /* ── Dark Text Tones ── */
+  --color-dark-900: #1C032B;  /* Primary title - Dark Plum */
+  --color-dark-800: #301E3B;  /* Body text - Plum Charcoal */
+  --color-dark-700: #504257;  /* Secondary text */
+  --color-dark-600: #786B80;  /* Muted text */
+
+  /* ── Muted Tones ── */
+  --color-muted-600: #786B80;
+  --color-muted-400: #9B8E9F;
+  --color-muted-200: #E9E3EB;
+
+  /* ── Font Families ── */
+  --font-serif: 'Cormorant Garamond', 'Playfair Display', serif;
+  --font-sans: 'Outfit', sans-serif;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans), sans-serif;
+    background-color: var(--color-cream-100);
+    color: var(--color-dark-800);
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif), serif;
+  }
+}
+
+/* ── Custom Elegant Shapes ── */
+/* Cards and buttons have elegant premium rounded corners */
+.rounded-3xl {
+  border-radius: 20px !important;
+}
+.rounded-2xl {
+  border-radius: 14px !important;
+}
+.rounded-xl {
+  border-radius: 10px !important;
+}
+.rounded-lg {
+  border-radius: 8px !important;
+}
+.rounded-full {
+  border-radius: 9999px !important;
+}
+
+/* ── Class-level overrides for Tailwind Hardcoded Values ── */
+/* Override backgrounds to Ivory and Plum theme */
+.bg-white {
+  background-color: #FFFFFF !important;
+}
+.bg-\[\#FDFBF7\] {
+  background-color: #FAF6F0 !important;
+}
+.bg-\[\#F5EFE6\] {
+  background-color: #F3ECE3 !important;
+}
+.bg-\[\#FAF8F5\] {
+  background-color: #FAF6F0 !important;
+}
+.bg-\[\#ECF2EC\] {
+  background-color: rgba(42, 8, 62, 0.05) !important; /* Soft Plum tint */
+}
+.bg-\[\#121216\] {
+  background-color: #2A083E !important; /* Mapped to Deep Plum for dark panels */
+}
+.bg-\[\#0A0A0C\] {
+  background-color: #1C032B !important; /* Plum Black */
+}
+
+/* Override text colors to Deep Plum & Champagne Gold */
+.text-\[\#2C362B\] {
+  color: #2A083E !important;
+}
+.text-\[\#5D645D\] {
+  color: #504257 !important;
+}
+.text-\[\#8A6F4E\] {
+  color: #C5A059 !important;
+}
+.text-\[\#4E6C50\] {
+  color: #2A083E !important;
+}
+.text-\[\#5F6F5E\] {
+  color: #C5A059 !important;
+}
+.text-\[\#7E857E\] {
+  color: #786B80 !important;
+}
+.text-white {
+  color: #FFFFFF !important;
+}
+
+/* Border overrides to warm cream and plum accents */
+.border-\[\#EAE3D9\] {
+  border-color: #EADBC8 !important;
+}
+.border-\[\#E8E3D9\] {
+  border-color: #EADBC8 !important;
+}
+.border-gray-100 {
+  border-color: #F3ECE3 !important;
+}
+.border-gray-200 {
+  border-color: #EADBC8 !important;
+}
+.border-\[\#24252F\] {
+  border-color: rgba(197, 160, 89, 0.3) !important; /* Transparent Gold border */
+}
+
+/* Fix shadows to be soft and luxurious */
+.shadow-sm {
+  box-shadow: 0 2px 8px rgba(42, 8, 62, 0.04) !important;
+}
+.shadow-md {
+  box-shadow: 0 4px 16px rgba(42, 8, 62, 0.08) !important;
+}
+.shadow-lg {
+  box-shadow: 0 8px 32px rgba(42, 8, 62, 0.12) !important;
+}
+
+/* ── Custom Scrollbar ── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF6F0;
+}
+::-webkit-scrollbar-thumb {
+  background: #C5A059;
+  border-radius: 4px !important;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2A083E;
+}
+
+/* ── Shimmer & Wave Animations ── */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+.shimmer-text {
+  background: linear-gradient(
+    90deg,
+    #C5A059 0%,
+    #2A083E 40%,
+    #C5A059 60%,
+    #D4AF37 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
+
+@keyframes fabricWave {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50%       { transform: translateY(-5px) scale(1.01); }
+}
+.fabric-wave {
+  animation: fabricWave 2.5s ease-in-out infinite;
+}
+
+/* ── Buttons ── */
+.btn-gold {
+  background: linear-gradient(135deg, #C5A059 0%, #D4AF37 50%, #C5A059 100%);
+  background-size: 200% auto;
+  color: #FFFFFF;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  border-radius: 8px !important;
+}
+.btn-gold:hover {
+  background-position: right center;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(197, 160, 89, 0.4);
+}
+
+.btn-primary {
+  background: #2A083E !important;
+  border: 1.5px solid #C5A059 !important;
+  color: #FFFFFF !important;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  border-radius: 8px !important;
+}
+.btn-primary:hover {
+  background: #C5A059 !important;
+  color: #1C032B !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(197, 160, 89, 0.35);
+}
+
+/* ── Royal Arched Decoration ── */
+.royal-arch {
+  position: relative;
+  border-top-left-radius: 120px !important;
+  border-top-right-radius: 120px !important;
+  overflow: hidden;
+  border: 2px solid #C5A059;
+}
+
+/* ── Section divider ── */
+.gold-divider {
+  width: 80px;
+  height: 2px;
+  background: linear-gradient(90deg, #C5A059, #D4AF37, #C5A059);
+  margin: 1rem auto;
+}

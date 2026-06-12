@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@theme {
+  --color-vastram-brown: #332922;
+  --color-vastram-gold: #B59A72;
+  --color-vastram-gold-hover: #a38961;
+  --color-vastram-cream: #F9F6F0;
+  --color-vastram-light: #FFFFFF;
+  --color-vastram-text: #4A3C31;
+  --color-vastram-border: #E8E2D9;
+
+  --font-playfair: 'Playfair Display', serif;
+  --font-outfit: 'Outfit', sans-serif;
+}
+
+@layer base {
+  body {
+    @apply font-outfit bg-vastram-cream text-vastram-text m-0 p-0;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-playfair;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-vastram-gold;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-vastram-gold-hover;
+}

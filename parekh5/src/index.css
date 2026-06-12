@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@theme {
+  --color-sapphire-900: #1B484E;
+  --color-sapphire-800: #215A62;
+  --color-sapphire-700: #29747E;
+
+  --color-rosegold-500: #A8C6B6;
+  --color-rosegold-400: #C2D8CA;
+  --color-rosegold-300: #D8E5DD;
+
+  --color-pearl-50: #FAFAFA;
+  --color-pearl-100: #F3F4F6;
+
+  --font-playfair: 'Playfair Display', serif;
+  --font-outfit: 'Outfit', sans-serif;
+}
+
+@layer base {
+  body {
+    @apply font-outfit bg-pearl-50 text-sapphire-900 m-0 p-0;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-playfair;
+  }
+}
+
+/* Custom Scrollbar for sidebar and general */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-rosegold-300 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-rosegold-500;
+}
+
+/* Infinite Marquee Slider */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}

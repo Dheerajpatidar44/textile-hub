@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-beige: #F5F5DC;
+  --color-brand-darkbrown: #4A3728;
+  --color-brand-maroon: #800000;
+  
+  --color-brand-light: #FAF9F6;
+  --font-sans: "Inter", sans-serif;
+  --font-serif: "Merriweather", serif;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-brand-light);
+    color: #1f2937;
+    font-family: var(--font-sans);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    color: var(--color-brand-darkbrown);
+  }
+}

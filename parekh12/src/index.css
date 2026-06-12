@@ -1,0 +1,271 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* ── Primary Dark/Charcoal Palette (Headers, active states, buttons) ── */
+  --color-primary-900: #060608;
+  --color-primary-800: #0B0B0E;
+  --color-primary-700: #C89B5F; /* Primary brand color: luxurious gold */
+  --color-primary-600: #BCA374;
+  --color-primary-500: #D4AF37;
+  --color-primary-400: #A68A5D;
+  --color-primary-300: #374151;
+  --color-primary-100: #1C1D24;
+
+  /* ── Accent Warm Gold (Highlights, secondary actions) ── */
+  --color-accent-700: #8C734B;
+  --color-accent-600: #C89B5F; /* Brand Gold Accent */
+  --color-accent-500: #D4AF37;
+  --color-accent-400: #E5C07B;
+  --color-accent-100: #121216;
+
+  /* ── Dark Theme Backgrounds (Mapped to original cream names so layouts don't break) ── */
+  --color-cream-50: #121216;   /* Card backgrounds (formerly white) */
+  --color-cream-100: #0A0A0C;  /* Main Page Background */
+  --color-cream-200: #181920;  /* Card Accent background */
+  --color-cream-300: #24252F;
+  --color-cream-450: #30313E;
+
+  /* ── Light / Gray Text Tones for Dark Background ── */
+  --color-dark-900: #FFFFFF;  /* Primary titles */
+  --color-dark-800: #E5E7EB;  /* Primary Body Text */
+  --color-dark-700: #D1D5DB;  /* Secondary text */
+  --color-dark-600: #9CA3AF;  /* Muted text */
+
+  /* ── Muted Tones ── */
+  --color-muted-600: #9CA3AF;
+  --color-muted-400: #6B7280;
+  --color-muted-200: #374151;
+
+  /* ── Font Families ── */
+  --font-serif: 'Playfair Display', 'Cormorant Garamond', serif;
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans), sans-serif;
+    background-color: var(--color-cream-100);
+    color: var(--color-dark-800);
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif), serif;
+  }
+}
+
+/* ── Global Square Shapes Override ── */
+* {
+  border-radius: 0px !important;
+}
+
+/* ── Class-level overrides for Tailwind Hardcoded Values ── */
+/* Override white backgrounds to sleek dark backgrounds */
+.bg-white {
+  background-color: #121216 !important;
+}
+.bg-\[\#FDFBF7\] {
+  background-color: #0A0A0C !important;
+}
+.bg-\[\#F5EFE6\] {
+  background-color: #181920 !important;
+}
+.bg-\[\#FAF8F5\] {
+  background-color: #16171E !important;
+}
+.bg-\[\#ECF2EC\] {
+  background-color: rgba(200, 155, 95, 0.1) !important; /* Light gold tint in dark theme */
+}
+
+/* Override dark/green text colors to light gray or gold */
+.text-\[\#2C362B\] {
+  color: #F3F4F6 !important;
+}
+.text-\[\#5D645D\] {
+  color: #9CA3AF !important;
+}
+.text-\[\#8A6F4E\] {
+  color: #C89B5F !important;
+}
+.text-\[\#4E6C50\] {
+  color: #C89B5F !important;
+}
+.text-\[\#5F6F5E\] {
+  color: #C89B5F !important;
+}
+.text-\[\#7E857E\] {
+  color: #9CA3AF !important;
+}
+
+/* Border overrides to dark border colors instead of light cream */
+.border-\[\#EAE3D9\] {
+  border-color: #24252F !important;
+}
+.border-\[\#E8E3D9\] {
+  border-color: #24252F !important;
+}
+.border-gray-100 {
+  border-color: #1A1B22 !important;
+}
+.border-gray-200 {
+  border-color: #24252F !important;
+}
+
+/* Fix shadows for dark theme */
+.shadow-sm, .shadow-md, .shadow-lg, .shadow-xl, .shadow-2xl {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* ── Custom Scrollbar ── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-cream-200);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary-700);
+  border-radius: 0px !important;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-500);
+}
+
+/* ── Hero Slider ── */
+@keyframes slideIn {
+  0%   { transform: translateX(100%); opacity: 0; }
+  100% { transform: translateX(0%); opacity: 1; }
+}
+@keyframes slideOut {
+  0%   { transform: translateX(0%); opacity: 1; }
+  100% { transform: translateX(-100%); opacity: 0; }
+}
+.slide-enter {
+  animation: slideIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+.slide-exit {
+  animation: slideOut 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* ── Ken Burns effect for hero ── */
+@keyframes kenBurns {
+  0%   { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+.ken-burns {
+  animation: kenBurns 6s ease forwards;
+}
+
+/* ── Preloader animations ── */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+.shimmer-text {
+  background: linear-gradient(
+    90deg,
+    #C89B5F 0%,
+    #FFFFFF 40%,
+    #C89B5F 60%,
+    #D4AF37 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 2.5s linear infinite;
+}
+
+@keyframes fabricWave {
+  0%, 100% { transform: translateY(0px) scaleX(1); }
+  50%       { transform: translateY(-6px) scaleX(1.02); }
+}
+.fabric-wave {
+  animation: fabricWave 2s ease-in-out infinite;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-in-up {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes goldPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(200, 155, 95, 0.5); }
+  50%       { box-shadow: 0 0 0 10px rgba(200, 155, 95, 0); }
+}
+.gold-pulse {
+  animation: goldPulse 2s ease-in-out infinite;
+}
+
+/* ── Category Card Hover ── */
+.category-card:hover .cat-icon {
+  transform: scale(1.15) rotate(-5deg);
+  transition: transform 0.3s ease;
+}
+
+/* ── Navbar Underline ── */
+.nav-link-active::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #C89B5F, #D4AF37);
+  border-radius: 0px !important;
+  margin-top: 2px;
+}
+
+/* ── Accent Button ── */
+.btn-gold {
+  background: linear-gradient(135deg, #C89B5F 0%, #D4AF37 50%, #C89B5F 100%);
+  background-size: 200% auto;
+  color: #000;
+  font-weight: 800;
+  transition: background-position 0.4s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+.btn-gold:hover {
+  background-position: right center;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(200, 155, 95, 0.5);
+}
+
+/* ── Primary Button ── */
+.btn-primary {
+  background: linear-gradient(135deg, #121216 0%, #20212A 100%) !important;
+  border: 1px solid #C89B5F !important;
+  color: #C89B5F !important;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+.btn-primary:hover {
+  background: #C89B5F !important;
+  color: #0A0A0C !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(200, 155, 95, 0.4);
+}
+
+/* ── Glass Card ── */
+.glass-card {
+  background: rgba(18, 18, 22, 0.85) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(200, 155, 95, 0.2) !important;
+}
+
+/* ── Section divider ── */
+.gold-divider {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #C89B5F, #D4AF37);
+  border-radius: 0px !important;
+}
+
+/* ── Responsive utilities ── */
+@media (max-width: 768px) {
+  .hero-text-responsive {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+  }
+}

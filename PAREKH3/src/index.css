@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* LUMINA3 — Deep Navy & Warm Amber theme */
+  --color-navy:       #0B1C3E;   /* Deep Navy Blue – Primary */
+  --color-navy-deep:  #060F22;   /* Almost black navy */
+  --color-navy-mid:   #132452;   /* Mid navy */
+  --color-amber:      #D4A853;   /* Warm Amber Gold – Secondary */
+  --color-amber-soft: #E8C47A;   /* Light amber */
+  --color-amber-dark: #A37830;   /* Deep amber */
+  --color-ivory:      #FAF7F0;   /* Warm ivory background */
+  --color-ivory-dark: #F0EBE0;   /* Slightly darker ivory */
+  --color-charcoal:   #1E2A45;   /* Charcoal navy */
+  --color-muted:      #6B7A99;   /* Muted blue-grey text */
+
+  --font-sans: 'DM Sans', 'Inter', sans-serif;
+  --font-serif: 'Cormorant Garamond', 'Georgia', serif;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-ivory);
+    color: var(--color-navy);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    color: var(--color-navy);
+    letter-spacing: -0.01em;
+  }
+}
+
+@layer utilities {
+  /* Buttons */
+  .btn-navy {
+    @apply bg-[#0B1C3E] text-white px-7 py-3 text-sm font-medium tracking-wider uppercase hover:bg-[#D4A853] hover:text-[#0B1C3E] transition-all duration-300 shadow-md;
+  }
+  .btn-amber {
+    @apply bg-[#D4A853] text-[#0B1C3E] px-7 py-3 text-sm font-semibold tracking-wider uppercase hover:bg-[#0B1C3E] hover:text-white transition-all duration-300 shadow-md;
+  }
+  .btn-outline-navy {
+    @apply border-2 border-[#0B1C3E] text-[#0B1C3E] px-7 py-3 text-sm font-medium tracking-wider uppercase hover:bg-[#0B1C3E] hover:text-white transition-all duration-300;
+  }
+  .btn-outline-amber {
+    @apply border-2 border-[#D4A853] text-[#D4A853] px-7 py-3 text-sm font-medium tracking-wider uppercase hover:bg-[#D4A853] hover:text-[#0B1C3E] transition-all duration-300;
+  }
+
+  /* Cards */
+  .card-luxury {
+    @apply bg-white rounded-none border border-[#E8C47A]/20 shadow-[0_2px_20px_rgba(11,28,62,0.08)] hover:shadow-[0_8px_40px_rgba(11,28,62,0.16)] transition-all duration-500;
+  }
+  .card-glass {
+    @apply bg-white/10 backdrop-blur-md border border-white/20 rounded-none;
+  }
+
+  /* Hide scrollbar */
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Section divider */
+  .divider-amber {
+    @apply w-16 h-0.5 bg-[#D4A853];
+  }
+
+  /* Input styling */
+  .input-luxury {
+    @apply w-full border border-[#0B1C3E]/20 bg-white px-4 py-3 text-sm focus:outline-none focus:border-[#D4A853] focus:ring-1 focus:ring-[#D4A853] transition-all duration-200 placeholder-[#6B7A99];
+  }
+}

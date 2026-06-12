@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+@theme {
+  /* Mapped old semantic names to new Emerald & Copper theme to preserve component stability */
+  --color-brand-beige: #f1f5f9; /* Soft light background substitute */
+  --color-brand-darkbrown: #022c22; /* Very dark emerald for deep text */
+  --color-brand-maroon: #064e3b; /* Midnight Emerald - Primary brand color */
+  --color-brand-gold: #C48B5D; /* Warm Copper - Secondary highlight color */
+  
+  --color-brand-light: #ffffff;
+  --font-sans: "Outfit", "Inter", sans-serif;
+  --font-serif: "Playfair Display", "Merriweather", serif;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-brand-light);
+    color: var(--color-brand-darkbrown);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    color: var(--color-brand-maroon);
+    letter-spacing: -0.02em;
+  }
+}
+
+/* New Layout Utility Classes */
+@layer utilities {
+  .glass-nav {
+    @apply bg-white/80 backdrop-blur-md border-b border-gray-100 shadow-sm;
+  }
+  .card-premium {
+    @apply bg-white rounded-2xl shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_30px_-4px_rgba(6,78,59,0.15)] transition-all duration-500 border border-gray-50;
+  }
+  .btn-premium {
+    @apply bg-[#064e3b] text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-[#022c22] transition-colors shadow-md hover:shadow-lg transform hover:-translate-y-0.5 duration-300;
+  }
+  .btn-outline-premium {
+    @apply border-2 border-[#C48B5D] text-[#C48B5D] px-6 py-2.5 rounded-full text-sm font-medium hover:bg-[#C48B5D] hover:text-white transition-all duration-300;
+  }
+}

@@ -1,0 +1,158 @@
+@import "tailwindcss";
+
+@theme {
+  --color-sapphire-900: #111827; /* Primary dark text */
+  --color-sapphire-800: #1F2937; /* Secondary dark text */
+  --color-sapphire-700: #A37E58; /* Accent gold */
+
+  --color-rosegold-500: #A37E58; /* Gold Brand */
+  --color-rosegold-400: #B8936C; /* Muted Gold */
+  --color-rosegold-300: #CDA882; /* Light Gold */
+
+  --color-pearl-50: #FFFFFF;  /* Card / Sidebar Background */
+  --color-pearl-100: #F9FAFB; /* Page Background */
+
+  --font-playfair: 'Cinzel', serif;
+  --font-outfit: 'Outfit', sans-serif;
+}
+
+/* Force all corners to be square or rectangular across the entire site */
+* {
+  border-radius: 0px !important;
+}
+
+@layer base {
+  body {
+    @apply font-outfit bg-pearl-100 text-sapphire-900 m-0 p-0;
+  }
+
+  /* Unify headings style, font-weight, color, and layout on all pages */
+  h1 {
+    @apply font-playfair font-bold text-3xl lg:text-4xl text-rosegold-500 tracking-wider uppercase mb-2 border-b border-gray-200 pb-2 block w-full;
+  }
+
+  h2, h3, h4, h5, h6 {
+    @apply font-playfair;
+  }
+}
+
+/* Custom Scrollbar for sidebar and general */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-rosegold-500;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-rosegold-400;
+}
+
+/* Tailwind Overrides for translating hardcoded styles into the Light/Gold Theme */
+.bg-white {
+  background-color: #FFFFFF !important;
+}
+
+.bg-\[\#fcfbf9\] {
+  background-color: #FCFBF9 !important;
+}
+
+.bg-pearl-50 {
+  background-color: #FFFFFF !important;
+}
+
+.bg-pearl-100 {
+  background-color: #F9FAFB !important;
+}
+
+.text-\[\#2d0a4e\] {
+  color: #A37E58 !important;
+}
+
+.bg-\[\#2d0a4e\] {
+  background-color: #FFFFFF !important;
+  border-color: #E5E7EB !important;
+}
+
+.hover\:bg-\[\#2d0a4e\]:hover {
+  background-color: #F3F4F6 !important;
+}
+
+.hover\:text-\[\#2d0a4e\]:hover {
+  color: #A37E58 !important;
+}
+
+.border-\[\#2d0a4e\] {
+  border-color: #A37E58 !important;
+}
+
+.bg-\[\#d8a5ad\] {
+  background-color: #A37E58 !important;
+}
+
+.hover\:bg-\[\#d8a5ad\]:hover {
+  background-color: #B8936C !important;
+}
+
+.text-\[\#d8a5ad\] {
+  color: #A37E58 !important;
+}
+
+.hover\:text-\[\#d8a5ad\]:hover {
+  color: #B8936C !important;
+}
+
+.border-\[\#d8a5ad\] {
+  border-color: #A37E58 !important;
+}
+
+.hover\:border-\[\#d8a5ad\]:hover {
+  border-color: #A37E58 !important;
+}
+
+.bg-\[\#d8a5ad\]\/10 {
+  background-color: rgba(163, 126, 88, 0.1) !important;
+}
+
+.border-gray-100,
+.border-gray-200,
+.border-pearl-100 {
+  border-color: #E5E7EB !important;
+}
+
+.text-gray-900,
+.text-gray-800,
+.text-gray-700 {
+  color: #111827 !important;
+}
+
+.text-gray-650,
+.text-gray-600,
+.text-gray-500,
+.text-gray-400 {
+  color: #4B5563 !important;
+}
+
+/* Ensure form controls have readable text in light mode */
+input, select, textarea {
+  color: #111827 !important;
+}
+
+.hover\:text-gray-900:hover,
+.hover\:text-gray-800:hover {
+  color: #111827 !important;
+}
+
+/* Custom background helper for preloader and overlays */
+.bg-sapphire-900 {
+  background-color: #FFFFFF !important;
+}
+
+.bg-sapphire-800 {
+  background-color: #F3F4F6 !important;
+}
