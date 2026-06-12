@@ -16,7 +16,7 @@ const EAuction = () => {
     <div className="pb-20 -mt-8 max-w-7xl mx-auto px-4 md:px-8">
       {/* Page Header */}
       <div className="text-center pt-0 pb-2 mb-2">
-        <h1>e-Auction</h1>
+        <h1><span className="font-outfit font-normal lowercase">e</span>-Auction</h1>
         <p className="text-gray-650 text-xs md:text-sm uppercase tracking-wider mt-2 font-medium">
           Digital liquidation and transparent auction system across our corporate ecosystem.
         </p>
@@ -29,7 +29,9 @@ const EAuction = () => {
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-10">
           <div className="flex items-center gap-3 mb-4">
             <Gavel size={20} className="text-[#d8a5ad]" />
-            <h2 className="text-[#2d0a4e] font-playfair font-bold text-xl">Active e-Auctions</h2>
+            <h2 className="text-[#2d0a4e] font-playfair font-bold text-xl">
+              Active <span className="font-outfit font-normal lowercase">e</span>-Auctions
+            </h2>
           </div>
           
           <div className="bg-white rounded-2xl py-16 flex flex-col items-center justify-center border border-gray-100 shadow-sm">

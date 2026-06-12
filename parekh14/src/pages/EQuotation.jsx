@@ -7,7 +7,7 @@ const EQuotation = () => {
     <div className="pb-20 -mt-8 max-w-7xl mx-auto px-4 md:px-8">
       {/* Page Header */}
       <div className="text-center pt-0 pb-2 mb-2">
-        <h1>e-Quotation</h1>
+        <h1><span className="font-outfit font-normal lowercase">e</span>-Quotation</h1>
         <p className="text-gray-650 text-xs md:text-sm uppercase tracking-wider mt-2 font-medium">
           Request a Price Quote
         </p>
