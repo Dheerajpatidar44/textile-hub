@@ -54,43 +54,39 @@ export default function SocialSidebar() {
   ];
 
   return (
-    <div className="fixed right-0 top-1/2 -translate-y-1/2 z-50 flex items-center">
+    <motion.div
+      animate={{ x: isOpen ? 0 : 52 }}
+      transition={{ type: "spring", stiffness: 300, damping: 30 }}
+      className="fixed right-0 top-1/2 -translate-y-1/2 z-50 flex items-center"
+    >
       {/* Toggle Button */}
       <button 
         onClick={() => setIsOpen(!isOpen)}
-        className="bg-pearl-50 border border-r-0 border-gray-200 p-2 text-rosegold-500 hover:bg-gray-100 transition-colors shadow-lg cursor-pointer"
+        className="bg-pearl-50 border border-r-0 border-gray-200 p-2 text-rosegold-500 hover:bg-gray-100 transition-colors shadow-lg cursor-pointer shrink-0"
         aria-label="Toggle Social Media Sidebar"
       >
         {isOpen ? <ChevronRight size={18} /> : <ChevronLeft size={18} />}
       </button>
 
       {/* Social Icons Sidebar */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div 
-            initial={{ x: "100%", opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: "100%", opacity: 0 }}
-            transition={{ type: "spring", stiffness: 300, damping: 25 }}
-            className="bg-pearl-50 border-l border-y border-gray-200 py-4 px-3 flex flex-col gap-5 shadow-2xl"
-          >
-            {socialLinks.map((social) => {
-              return (
-                <a 
-                  key={social.name}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`text-gray-500 hover:scale-110 hover:text-rosegold-500 transition-all duration-300 flex items-center justify-center p-1.5`}
-                  title={social.name}
-                >
-                  {social.svg}
-                </a>
-              );
-            })}
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
+      <div 
+        className="w-[52px] bg-pearl-50 border-l border-y border-gray-200 py-4 flex flex-col items-center gap-5 shadow-2xl shrink-0"
+      >
+        {socialLinks.map((social) => {
+          return (
+            <a 
+              key={social.name}
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-500 hover:scale-110 hover:text-rosegold-500 transition-all duration-300 flex items-center justify-center p-1.5"
+              title={social.name}
+            >
+              {social.svg}
+            </a>
+          );
+        })}
+      </div>
+    </motion.div>
   );
 }

@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Gavel, Inbox, UploadCloud, Send, Mail } from 'lucide-react';
 
 const EAuction = () => {
+  const [selectedFile, setSelectedFile] = useState(null);
+  const fileInputRef = useRef(null);
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setSelectedFile(file);
+    }
+  };
   return (
     <div className="pb-20 -mt-8 max-w-7xl mx-auto px-4 md:px-8">
       {/* Page Header */}
@@ -89,10 +98,31 @@ const EAuction = () => {
               <label className="block text-[10px] uppercase tracking-widest text-[#2d0a4e] font-bold mb-3">
                 Upload GST Certificate
               </label>
-              <div className="w-full border-2 border-dashed border-gray-200 rounded-2xl py-12 flex flex-col items-center justify-center bg-white hover:bg-gray-50 transition-colors cursor-pointer group">
-                <UploadCloud size={32} className="text-gray-300 group-hover:text-[#d8a5ad] mb-3 transition-colors" />
-                <p className="text-gray-500 font-medium text-sm">Click to upload GST Certificate</p>
-                <p className="text-gray-400 text-xs mt-1 uppercase tracking-widest font-bold">PDF, JPG, PNG ACCEPTED</p>
+              
+              <input 
+                type="file" 
+                ref={fileInputRef} 
+                onChange={handleFileChange} 
+                accept=".pdf,.jpg,.jpeg,.png" 
+                className="hidden" 
+              />
+
+              <div 
+                onClick={() => fileInputRef.current.click()} 
+                className="w-full border-2 border-dashed border-gray-200 py-12 flex flex-col items-center justify-center bg-white hover:bg-gray-50 transition-colors cursor-pointer group"
+              >
+                <UploadCloud size={32} className="text-gray-300 group-hover:text-rosegold-500 mb-3 transition-colors" />
+                {selectedFile ? (
+                  <>
+                    <p className="text-rosegold-500 font-bold text-sm">Selected: {selectedFile.name}</p>
+                    <p className="text-gray-400 text-xs mt-1">Size: {(selectedFile.size / 1024).toFixed(1)} KB (Click to change)</p>
+                  </>
+                ) : (
+                  <>
+                    <p className="text-gray-500 font-medium text-sm">Click to upload GST Certificate</p>
+                    <p className="text-gray-400 text-xs mt-1 uppercase tracking-widest font-bold">PDF, JPG, PNG ACCEPTED</p>
+                  </>
+                )}
               </div>
             </div>
 
