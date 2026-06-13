@@ -121,8 +121,8 @@ const EQuotation = () => {
 
             <div className="pt-6 text-center flex items-center justify-center gap-2">
               <Mail size={14} className="text-rosegold-500" />
-              <a href="mailto:info@ethnicavenue.com" className="text-rosegold-500 text-[10px] font-semibold tracking-widest hover:underline uppercase">
-                info@ethnicavenue.com
+              <a href="mailto:info@urbantextilehub.com" className="text-rosegold-500 text-[10px] font-semibold tracking-widest hover:underline uppercase">
+                info@urbantextilehub.com
               </a>
             </div>
           </form>

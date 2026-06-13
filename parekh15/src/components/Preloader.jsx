@@ -10,7 +10,7 @@ export default function Preloader() {
         className="flex flex-col items-center"
       >
         <h1 className="font-playfair text-4xl md:text-6xl text-rosegold-500 tracking-widest mb-4 font-semibold text-center">
-          HERITAGE GARMENTS
+          URBAN TEXTILE HUB
         </h1>
         <motion.div
           className="w-32 h-1 bg-rosegold-500/20 rounded-full overflow-hidden"

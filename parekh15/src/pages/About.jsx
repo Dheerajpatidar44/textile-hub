@@ -25,7 +25,7 @@ export default function About() {
               A Legacy of <span className="text-rosegold-500 italic">Excellence</span>
             </h2>
             <p className="text-gray-650 leading-relaxed text-sm md:text-base">
-              Since 2026, HERITAGE GARMENTS has stood as a beacon of premium apparel and visionary design. We blend the richness of traditional Indian craftsmanship with modern manufacturing technology to weave elegance into every thread.
+              Since 2026, URBAN TEXTILE HUB has stood as a beacon of premium apparel and visionary design. We blend the richness of traditional Indian craftsmanship with modern manufacturing technology to weave elegance into every thread.
             </p>
             <p className="text-gray-650 leading-relaxed text-sm">
               Our commitment to sustainable sourcing, ethical labor practices, and zero-defect quality defines our corporate journey. We build apparel crafted to stand the test of time.
@@ -36,7 +36,7 @@ export default function About() {
           <div className="w-full relative h-64 md:h-80 lg:h-96 overflow-hidden border border-gray-200">
             <img
               src="images/about.png"
-              alt="About HERITAGE GARMENTS"
+              alt="About URBAN TEXTILE HUB"
               className="w-full h-full object-cover"
             />
           </div>

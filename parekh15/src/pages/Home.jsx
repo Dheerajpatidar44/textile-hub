@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 const slides = [
   {
     image: "images/hero.png",
-    subtitle: "OFFICIAL ETHNIC AVENUE",
+    subtitle: "OFFICIAL URBAN TEXTILE HUB",
     title: "Interweaving Tradition & Global Trade",
     desc: "Leading the global textile evolution by connecting artisans, manufacturers, and designers since 2007.",
     link: "/products"
@@ -289,7 +289,7 @@ export default function Home() {
           <p className="text-rosegold-500 font-semibold tracking-widest uppercase text-xs mb-3">Our Core Pillars</p>
           <h2 className="font-playfair text-3xl text-gray-900 font-semibold uppercase tracking-wide">Crafted For Modern Royalty</h2>
           <p className="text-gray-650 text-sm mt-3 leading-relaxed">
-            Every initiative by Ethnic Avenue is a testament to our three core values: quality, craftsmanship, and sustainability.
+            Every initiative by Urban Textile Hub is a testament to our three core values: quality, craftsmanship, and sustainability.
           </p>
         </div>
 

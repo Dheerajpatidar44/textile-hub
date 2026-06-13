@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 export default function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
-    { id: 1, text: "Hello! Welcome to Heritage Garments. How can I help you today?", isBot: true },
+    { id: 1, text: "Hello! Welcome to Urban Textile Hub. How can I help you today?", isBot: true },
     { id: 2, text: "You can ask about our fabrics, submit a trade enquiry, or enquire about Quotations and Auctions.", isBot: true }
   ]);
   const [inputVal, setInputVal] = useState("");
@@ -26,7 +26,7 @@ export default function Chatbot() {
 
     // Bot Response Logic
     setTimeout(() => {
-      let botText = "Thank you for reaching out. An executive from Heritage Garments will review your message and connect with you shortly.";
+      let botText = "Thank you for reaching out. An executive from Urban Textile Hub will review your message and connect with you shortly.";
       const lower = textToSend.toLowerCase();
 
       if (lower.includes("product") || lower.includes("saree") || lower.includes("fabric") || lower.includes("collection") || lower.includes("kurti")) {
@@ -75,12 +75,12 @@ export default function Chatbot() {
               <div className="flex items-center gap-3">
                 <div className="relative">
                   <div className="w-8 h-8 border border-white/20 flex items-center justify-center font-playfair font-bold text-sm bg-white/10">
-                    H
+                    U
                   </div>
                   <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-green-500 border-2 border-rosegold-500 rounded-full"></span>
                 </div>
                 <div>
-                  <h4 className="font-playfair text-xs tracking-wider uppercase font-semibold">Heritage Assistant</h4>
+                  <h4 className="font-playfair text-xs tracking-wider uppercase font-semibold">Urban Assistant</h4>
                   <p className="text-[9px] text-pearl-100/70 font-medium">Online & Ready to Help</p>
                 </div>
               </div>

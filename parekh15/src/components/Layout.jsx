@@ -13,7 +13,7 @@ export default function Layout() {
     <div className="flex min-h-screen bg-pearl-100 text-gray-800">
       {/* Mobile Header / Hamburger */}
       <div className="lg:hidden fixed top-0 w-full bg-pearl-50 text-sapphire-900 z-50 flex items-center justify-between px-6 py-4 shadow-sm border-b border-gray-200">
-        <span className="font-playfair text-lg tracking-wider font-bold text-rosegold-500 border-b-0 pb-0 mb-0">HERITAGE GARMENTS</span>
+        <span className="font-playfair text-lg tracking-wider font-bold text-rosegold-500 border-b-0 pb-0 mb-0">URBAN TEXTILE HUB</span>
         <button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="text-gray-600">
           {isSidebarOpen ? <X size={28} /> : <Menu size={28} />}
         </button>

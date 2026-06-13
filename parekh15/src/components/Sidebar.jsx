@@ -31,11 +31,11 @@ export default function Sidebar({ closeSidebar }) {
       <div className="px-8 pt-8 pb-6 border-b border-pearl-100 hidden lg:block">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 border-2 border-rosegold-500 flex items-center justify-center font-playfair font-bold text-xl text-rosegold-500 shrink-0">
-            H
+            U
           </div>
           <div className="flex flex-col justify-center">
-            <span className="block font-playfair text-base tracking-wider text-gray-900 font-bold leading-none border-b-0 pb-0 mb-0">HERITAGE</span>
-            <span className="block text-[9px] tracking-widest uppercase text-rosegold-500 font-outfit mt-1.5 font-bold leading-none">GARMENTS</span>
+            <span className="block font-playfair text-base tracking-wider text-gray-900 font-bold leading-none border-b-0 pb-0 mb-0">URBAN</span>
+            <span className="block text-[9px] tracking-widest uppercase text-rosegold-500 font-outfit mt-1.5 font-bold leading-none">TEXTILE HUB</span>
           </div>
         </div>
       </div>
@@ -73,7 +73,7 @@ export default function Sidebar({ closeSidebar }) {
 
       {/* Sidebar Footer */}
       <div className="p-6 border-t border-pearl-100 text-xs text-gray-400">
-        <p>© 2026 HERITAGE GARMENTS.</p>
+        <p>© 2026 URBAN TEXTILE HUB.</p>
         <p>All rights reserved.</p>
       </div>
     </div>

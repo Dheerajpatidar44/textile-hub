@@ -73,7 +73,7 @@ const Career = () => {
                 </div>
                 <div className="flex items-center gap-1.5 bg-pearl-100 px-3 py-1.5 border border-gray-200">
                   <Mail size={14} className="text-rosegold-500" />
-                  <a href="mailto:careers@ethnicavenue.com" className="hover:text-rosegold-400 transition-colors">Apply via Email</a>
+                  <a href="mailto:careers@urbantextilehub.com" className="hover:text-rosegold-400 transition-colors">Apply via Email</a>
                 </div>
               </div>
             </div>

@@ -73,8 +73,8 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-[9px] font-bold tracking-widest uppercase text-gray-400 mb-0.5">Email Enquiries</p>
-                  <p className="text-gray-800 text-xs md:text-sm">info@ethnicavenue.com</p>
-                  <p className="text-gray-800 text-xs md:text-sm">sales@ethnicavenue.com</p>
+                  <p className="text-gray-800 text-xs md:text-sm">info@urbantextilehub.com</p>
+                  <p className="text-gray-800 text-xs md:text-sm">sales@urbantextilehub.com</p>
                 </div>
               </div>
 

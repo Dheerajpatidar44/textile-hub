@@ -5,7 +5,7 @@ export default function CustomerReview() {
   const reviews = [
     {
       tag: "INSTITUTIONAL PARTNER",
-      text: "HERITAGE GARMENTS has redefined premium apparel standards for us. Their consistency in material and tailorship over 8 years is unmatched in India.",
+      text: "URBAN TEXTILE HUB has redefined premium apparel standards for us. Their consistency in material and tailorship over 8 years is unmatched in India.",
       name: "RAJESH SINGHANIA",
       role: "Director, Apex Logistics"
     },
