@@ -72,7 +72,7 @@ export default function Products() {
   return (
     <div className="pb-16 -mt-6 lg:-mt-10 max-w-7xl mx-auto px-4 relative">
       {/* Page Header Banner */}
-      <div className="w-full bg-rosegold-500 text-white py-10 px-6 mb-8 text-center relative overflow-hidden border-b-4 border-rosegold-400 shadow-md">
+      <div className="w-full bg-rosegold-500 text-white py-10 px-6 mb-8 text-center relative overflow-hidden border-b-4 border-rosegold-400 rounded-3xl shadow-md">
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900/40 via-transparent to-slate-900/40 z-0" />
         <div className="relative z-10">
           <h1 className="text-white border-0 pb-0 text-3xl md:text-4xl tracking-wider uppercase font-semibold m-0">Catalogue</h1>
