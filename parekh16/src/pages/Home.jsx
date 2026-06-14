@@ -331,8 +331,8 @@ export default function Home() {
       {/* 4. Row 2: Promo cards side by side in a 2-column grid */}
       <section className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
         
-        {/* Left Card: Exclusive Offer */}
-        <div className="bg-[#132C20] text-white p-8 rounded-3xl flex flex-col justify-between relative overflow-hidden min-h-[320px] shadow-sm border border-[#ebdcb9]/10 text-left">
+        {/* Left Card: Exclusive Offer (With matching green shadow) */}
+        <div className="bg-[#132C20] text-white p-8 rounded-3xl flex flex-col justify-between relative overflow-hidden min-h-[320px] shadow-[0_15px_35px_rgba(19,44,32,0.35)] border border-[#ebdcb9]/10 text-left">
           {/* Subtle gold floral corner background details */}
           <div className="absolute top-0 right-0 w-24 h-24 border-r-2 border-t-2 border-[#C3A87E]/10 rounded-tr-3xl"></div>
           
@@ -355,12 +355,14 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* Stacked folded fabrics image overlapping bottom right */}
-          <img 
-            src="https://images.unsplash.com/photo-1584184924103-e3114ad79717?w=400&auto=format&fit=crop&q=60" 
-            alt="Wholesale Fabrics Stack" 
-            className="absolute right-0 bottom-0 h-44 w-32 object-cover opacity-80 rounded-tl-3xl shadow-2xl border-l border-t border-[#ebdcb9]/20 z-0" 
-          />
+          {/* Luxury fabric bottom alignment */}
+          <div className="absolute right-0 bottom-0 left-0 h-44 overflow-hidden rounded-t-3xl z-0">
+            <img 
+              src="https://images.unsplash.com/photo-1623310658847-33f12eaab710?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGNsb3RoZXMlMjBmYWJyaWNzfGVufDB8fDB8fHww" 
+              alt="Wholesale Fabrics Stack" 
+              className="w-full h-full object-cover object-top border-t border-[#ebdcb9]/20 shadow-inner" 
+            />
+          </div>
         </div>
 
         {/* Right Card: New Arrivals */}
