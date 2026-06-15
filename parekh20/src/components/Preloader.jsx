@@ -83,7 +83,7 @@ export default function Preloader() {
         </motion.div>
 
         {/* Brand Name - Word by word animation */}
-        <div className="flex flex-col items-center gap-1 mb-2">
+        <div className="flex flex-row flex-wrap justify-center gap-3 mb-2">
           {words.map((word, wIdx) => (
             <motion.div
               key={wIdx}
@@ -97,7 +97,7 @@ export default function Preloader() {
               className="overflow-hidden"
             >
               <span
-                className="block text-3xl sm:text-5xl font-black tracking-[0.08em] text-[#2A3325] uppercase leading-tight"
+                className="inline-block text-3xl sm:text-5xl font-black tracking-[0.08em] text-[#2A3325] uppercase leading-tight"
               >
                 {word}
               </span>

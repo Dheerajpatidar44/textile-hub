@@ -3,15 +3,16 @@ import { motion } from 'framer-motion';
 
 export default function Contact() {
   return (
-    <div style={{ fontFamily: "'Outfit', sans-serif", background: '#FAF9F6' }}>
+    <div style={{ fontFamily: "'Outfit', sans-serif", background: '#F8F5EF' }}>
 
       {/* Hero Banner */}
-      <div className="relative h-36 sm:h-44 overflow-hidden flex items-center justify-center text-center">
+      <div className="relative h-36 sm:h-44 overflow-hidden flex items-center justify-center text-center"
+        style={{ background: 'linear-gradient(135deg, #EFF3EB 0%, #F8F5EF 100%)', borderBottom: '1px solid #E2D9CC' }}>
         <div className="relative max-w-7xl mx-auto px-6 sm:px-10 w-full">
-          <h1 className="font-bold text-4xl sm:text-5xl text-[#152E47]"
-            style={{ fontFamily: "'Playfair Display', serif" }}>
+          <h1 className="font-black text-4xl sm:text-5xl" style={{ color: '#2A3325' }}>
             Contact Us
           </h1>
+          <div className="w-12 h-[2.5px] mx-auto mt-3 rounded-full" style={{ background: '#5F6F5E' }} />
         </div>
       </div>
 
@@ -24,14 +25,13 @@ export default function Contact() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             className="rounded-3xl overflow-hidden shadow-sm text-left"
-            style={{ background: '#FFFFFF', border: '1.5px solid #E8E5DC' }}
+            style={{ background: '#FFFFFF', border: '1.5px solid #E2D9CC' }}
           >
             <div className="p-8 lg:p-10">
-              <h2 className="font-bold text-3xl text-[#152E47] mb-2"
-                style={{ fontFamily: "'Playfair Display', serif" }}>
+              <h2 className="font-black text-3xl mb-2" style={{ color: '#2A3325' }}>
                 Contact Details
               </h2>
-              <p className="text-[13px] mb-8 text-[#4B5563] font-medium">
+              <p className="text-[13px] mb-8 font-medium" style={{ color: '#4B5563' }}>
                 We're here to help. Reach out to us through any of the following channels.
               </p>
 
@@ -39,18 +39,18 @@ export default function Contact() {
                 {[
                   { icon: MapPin, label: 'Headquarters', lines: ['123 Premium Textile Avenue', 'Fashion District, Chennai, TN, India'] },
                   { icon: Phone, label: 'Call Us', lines: ['+91 6353778329'] },
-                  { icon: Mail, label: 'Email Enquiries', lines: ['info@urbanfashiontextile.com', 'sales@urbanfashiontextile.com'] },
+                  { icon: Mail, label: 'Email Enquiries', lines: ['info@grandtextilemart.com', 'sales@grandtextilemart.com'] },
                   { icon: Clock, label: 'Business Hours', lines: ['Mon - Sat: 9:00 AM - 6:00 PM', 'Sunday: Closed'] },
                 ].map(({ icon: Icon, label, lines }) => (
                   <div key={label} className="flex items-start gap-4">
                     <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
                       style={{ background: 'rgba(95,111,94,0.1)', border: '1px solid rgba(95,111,94,0.2)' }}>
-                      <Icon size={18} color="#244C73" />
+                      <Icon size={18} color="#5F6F5E" />
                     </div>
                     <div>
-                      <p className="text-[10px] font-bold tracking-[0.18em] uppercase mb-1" style={{ color: '#C5A880' }}>{label}</p>
+                      <p className="text-[10px] font-black tracking-[0.18em] uppercase mb-1" style={{ color: '#C5A880' }}>{label}</p>
                       {lines.map((line, i) => (
-                        <p key={i} className="text-[14px] text-[#393E46] font-semibold">{line}</p>
+                        <p key={i} className="text-[14px] font-semibold" style={{ color: '#3D3D30' }}>{line}</p>
                       ))}
                     </div>
                   </div>
@@ -67,7 +67,7 @@ export default function Contact() {
             className="h-full w-full"
           >
             <div className="w-full h-full rounded-3xl overflow-hidden shadow-sm min-h-[350px]"
-              style={{ border: '1.5px solid #E8E5DC' }}>
+              style={{ border: '1.5px solid #E2D9CC' }}>
               <iframe
                 src="https://maps.google.com/maps?q=Surat%20Textile%20Market&t=&z=13&ie=UTF8&iwloc=&output=embed"
                 width="100%"

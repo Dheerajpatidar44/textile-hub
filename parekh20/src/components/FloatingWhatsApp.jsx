@@ -14,9 +14,10 @@ const FloatingWhatsApp = () => {
         className="absolute right-16 top-1/2 -translate-y-1/2 whitespace-nowrap text-[11px] font-bold tracking-wide px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 pointer-events-none transition-all duration-200 group-hover:-translate-x-1"
         style={{
           background: '#FFFFFF',
-          color: '#152E47',
-          border: '1.5px solid #E8E5DC',
-          boxShadow: '0 4px 12px rgba(36,76,115,0.15)',
+          color: '#2A3325',
+          border: '1.5px solid #E2D9CC',
+          boxShadow: '0 4px 12px rgba(95,111,94,0.15)',
+          fontFamily: "'Outfit', sans-serif",
         }}
       >
         Chat on WhatsApp
@@ -24,11 +25,11 @@ const FloatingWhatsApp = () => {
 
       {/* Button */}
       <div
-        className="w-[52px] h-[52px] rounded-full flex items-center justify-center shadow-2xl"
+        className="w-[52px] h-[52px] rounded-full flex items-center justify-center shadow-2xl transition-transform duration-300 hover:scale-110"
         style={{
-          background: 'linear-gradient(135deg, #244C73 0%, #152E47 100%)',
+          background: 'linear-gradient(135deg, #5F6F5E 0%, #3B4A32 100%)',
           border: '2px solid rgba(255,255,255,0.3)',
-          boxShadow: '0 6px 20px rgba(36,76,115,0.35)',
+          boxShadow: '0 6px 20px rgba(95,111,94,0.35)',
         }}
       >
         <svg

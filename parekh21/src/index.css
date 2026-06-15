@@ -1,0 +1,178 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Primary Luxury Burgundy / Wine Palette ── */
+  --color-primary-900: #330A10;
+  --color-primary-800: #4A0E17;
+  --color-primary-700: #5C131F;
+  --color-primary-600: #721C2B; /* Base Luxury Burgundy */
+  --color-primary-500: #852538;
+  --color-primary-400: #9B3448;
+  --color-primary-300: #B95066;
+  --color-primary-100: #FCEEF1; /* Soft Blush/Rose Tint */
+
+  /* ── Accent Antique Gold / Champagne ── */
+  --color-accent-700: #A37E36;
+  --color-accent-600: #CDA75E; /* Refined Antique Gold Accent */
+  --color-accent-500: #DFBE7A;
+  --color-accent-400: #ECD2A2;
+  --color-accent-100: #FAF7EE;
+
+  /* ── Warm Ivory Linen / Neutral Backgrounds ── */
+  --color-cream-50: #FFFFFF;
+  --color-cream-100: #FAF6F0; /* Main Page Background */
+  --color-cream-200: #F3ECE2; /* Main Card / Component Background */
+  --color-cream-300: #E6D8C5;
+  --color-cream-450: #D8C2A8;
+
+  /* ── Dark Charcoal Burgundy Tones ── */
+  --color-dark-900: #1C1214;
+  --color-dark-800: #2E2224; /* Primary Body Text */
+  --color-dark-700: #423235;
+  --color-dark-600: #554447;
+
+  /* ── Muted Tones ── */
+  --color-muted-600: #7D6A6D;
+  --color-muted-400: #A28E91;
+  --color-muted-200: #EADFD0;
+
+  /* ── Font Family ── */
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+}
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #FAF6F0;
+    color: #2E2224;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6, .serif-title {
+    font-family: 'Playfair Display', serif !important;
+    font-weight: 700;
+  }
+
+  * {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+}
+
+/* ── Custom Scrollbar ── */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #F3ECE2;
+}
+::-webkit-scrollbar-thumb {
+  background: #CDA75E;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #721C2B;
+}
+
+/* ── Preloader animations ── */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+.shimmer-text {
+  background: linear-gradient(
+    90deg,
+    #721C2B 0%,
+    #FFFFFF 40%,
+    #721C2B 60%,
+    #CDA75E 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 2.5s linear infinite;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-in-up {
+  animation: fadeInUp 0.7s ease forwards;
+}
+
+@keyframes fadeInScale {
+  from { opacity: 0; transform: scale(0.85); }
+  to   { opacity: 1; transform: scale(1); }
+}
+.fade-in-scale {
+  animation: fadeInScale 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes letterDrop {
+  from { opacity: 0; transform: translateY(-30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.letter-drop {
+  display: inline-block;
+  animation: letterDrop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  opacity: 0;
+}
+
+@keyframes goldPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(114, 28, 43, 0.5); }
+  50%       { box-shadow: 0 0 0 10px rgba(114, 28, 43, 0); }
+}
+.green-pulse {
+  animation: goldPulse 2s ease-in-out infinite;
+}
+
+@keyframes slideInLeft {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(0); }
+}
+
+@keyframes slideOutUp {
+  from { transform: translateY(0); opacity: 1; }
+  to   { transform: translateY(-100%); opacity: 0; }
+}
+
+/* ── Navbar Underline ── */
+.nav-link-active::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #721C2B, #CDA75E);
+  border-radius: 2px;
+  margin-top: 2px;
+}
+
+/* ── Primary Button ── */
+.btn-primary {
+  background: linear-gradient(135deg, #5C131F 0%, #721C2B 100%);
+  color: #fff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+.btn-primary:hover {
+  background: linear-gradient(135deg, #4A0E17 0%, #5C131F 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(114, 28, 43, 0.4);
+}
+
+/* ── Category Card Hover ── */
+.category-card:hover .cat-icon {
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+}
+
+/* ── Responsive utilities ── */
+@media (max-width: 768px) {
+  .hero-text-responsive {
+    font-size: clamp(2rem, 7vw, 3.5rem);
+  }
+}

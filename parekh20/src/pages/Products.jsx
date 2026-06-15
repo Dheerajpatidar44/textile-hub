@@ -19,6 +19,16 @@ const allProducts = [
   { id: 104, name: 'Classic Men Suit Fabric', category: 'Suiting', image: 'https://images.unsplash.com/photo-1611937663641-5cef5189d71b?w=600&auto=format&fit=crop&q=60' },
 ];
 
+const C = {
+  primary: '#5F6F5E',
+  primaryDark: '#3B4A32',
+  accent: '#C5A880',
+  bg: '#F8F5EF',
+  border: '#E2D9CC',
+  textDark: '#2A3325',
+  textMid: '#3D3D30',
+};
+
 export default function Products() {
   const [searchParams, setSearchParams] = useSearchParams();
   const categoryParam = searchParams.get('category');
@@ -41,16 +51,16 @@ export default function Products() {
     : allProducts.filter(p => p.category === activeCategory);
 
   return (
-    <div style={{ fontFamily: "'Outfit', sans-serif", background: '#FAF9F6' }}>
+    <div style={{ fontFamily: "'Outfit', sans-serif", background: C.bg }}>
 
       {/* Hero Banner */}
-      <div className="relative h-36 sm:h-44 overflow-hidden flex items-center justify-center text-center">
+      <div className="relative h-36 sm:h-44 overflow-hidden flex items-center justify-center text-center"
+        style={{ background: 'linear-gradient(135deg, #EFF3EB 0%, #F8F5EF 100%)', borderBottom: `1px solid ${C.border}` }}>
         <div className="relative max-w-7xl mx-auto px-6 sm:px-10 w-full flex flex-col items-center justify-center gap-3">
-          <h1 className="font-bold text-4xl sm:text-5xl text-[#152E47]"
-              style={{ fontFamily: "'Playfair Display', serif" }}>
-              Our Collections
+          <h1 className="font-black text-4xl sm:text-5xl" style={{ color: C.textDark }}>
+            Our Collections
           </h1>
-          <div className="flex items-center gap-2 px-5 py-2 rounded-full shadow-sm bg-white border border-[#E8E5DC] text-[#244C73]">
+          <div className="flex items-center gap-2 px-5 py-2 rounded-full shadow-sm bg-white" style={{ border: `1px solid ${C.border}`, color: C.primary }}>
             <ShoppingBag size={14} className="shrink-0" />
             <span className="font-bold text-xs">{filteredProducts.length} Products Available</span>
           </div>
@@ -59,25 +69,27 @@ export default function Products() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 pb-20">
         <div className="flex flex-col lg:flex-row gap-8">
-          
+
           {/* Desktop Left Sidebar */}
           <aside className="hidden lg:block lg:w-1/4 shrink-0 text-left">
-            <div className="bg-white rounded-2xl border border-[#E8E5DC] p-6 sticky top-24 shadow-sm">
-              <h3 style={{ fontFamily: "'Playfair Display', serif" }} className="text-xl font-bold text-[#152E47] mb-5 border-b border-[#E8E5DC] pb-3 uppercase tracking-wider">
+            <div className="bg-white rounded-2xl p-6 sticky top-24 shadow-sm" style={{ border: `1px solid ${C.border}` }}>
+              <h3 className="text-xl font-black mb-5 pb-3 uppercase tracking-wider" style={{ color: C.textDark, borderBottom: `1px solid ${C.border}` }}>
                 Categories
               </h3>
-              <ul className="space-y-1 max-h-[350px] overflow-y-auto pr-1 scrollbar-thin">
+              <ul className="space-y-1 max-h-[350px] overflow-y-auto pr-1">
                 {['All', ...categories].map(cat => {
                   const isActive = activeCategory === cat;
                   return (
                     <li key={cat}>
                       <button
                         onClick={() => handleCategoryChange(cat)}
-                        className={`w-full text-left px-4 py-2.5 rounded-xl text-[12.5px] font-bold transition-all duration-150 flex items-center justify-between group ${
-                          isActive 
-                            ? 'bg-[#244C73] text-white shadow-sm' 
-                            : 'text-[#393E46] hover:bg-[#244C73]/5 hover:text-[#244C73]'
-                        }`}
+                        className="w-full text-left px-4 py-2.5 rounded-xl text-[12.5px] font-bold transition-all duration-150 flex items-center justify-between group"
+                        style={{
+                          background: isActive ? C.primary : 'transparent',
+                          color: isActive ? '#fff' : C.textMid,
+                        }}
+                        onMouseEnter={e => { if (!isActive) { e.currentTarget.style.background = `${C.primary}10`; e.currentTarget.style.color = C.primary; } }}
+                        onMouseLeave={e => { if (!isActive) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = C.textMid; } }}
                       >
                         <span className="truncate">{cat}</span>
                         <ChevronRight size={13} className={`transition-transform duration-200 shrink-0 ${isActive ? 'translate-x-0.5' : 'opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5'}`} />
@@ -91,19 +103,19 @@ export default function Products() {
 
           {/* Main Content Area */}
           <div className="flex-grow w-full">
-            
-            {/* Mobile Categories Horizontally Scrollable list */}
-            <div className="lg:hidden flex overflow-x-auto gap-2 pb-5 scrollbar-none snap-x snap-mandatory mb-4" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+
+            {/* Mobile Categories — horizontal scroll */}
+            <div className="lg:hidden flex overflow-x-auto gap-2 pb-5 mb-4" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
               {['All', ...categories].map(cat => {
                 const isActive = activeCategory === cat;
                 return (
                   <button
                     key={cat}
                     onClick={() => handleCategoryChange(cat)}
-                    className="px-4 py-2 rounded-full text-[12px] font-bold whitespace-nowrap transition-all duration-200 snap-start shrink-0"
+                    className="px-4 py-2 rounded-full text-[12px] font-bold whitespace-nowrap transition-all duration-200 shrink-0"
                     style={isActive
-                      ? { background: '#244C73', color: '#fff', boxShadow: '0 4px 12px rgba(95,111,94,0.25)' }
-                      : { background: '#FFFFFF', color: '#393E46', border: '1.5px solid #E8E5DC' }
+                      ? { background: C.primary, color: '#fff', boxShadow: '0 4px 12px rgba(95,111,94,0.25)' }
+                      : { background: '#FFFFFF', color: C.textMid, border: `1.5px solid ${C.border}` }
                     }
                   >
                     {cat}
@@ -122,7 +134,7 @@ export default function Products() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     className="group rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 bg-white"
-                    style={{ border: '1.5px solid #E8E5DC' }}
+                    style={{ border: `1.5px solid ${C.border}` }}
                   >
                     <div className="h-60 w-full relative overflow-hidden">
                       <img
@@ -130,15 +142,14 @@ export default function Products() {
                         alt={product.name}
                         className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                       />
-                      {/* Hover overlay */}
                       <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                        style={{ background: 'rgba(44,54,43,0.25)' }} />
+                        style={{ background: 'rgba(42,51,37,0.2)' }} />
                     </div>
-                    <div className="p-4 text-center border-t border-[#E8E5DC]">
-                      <p className="text-[10px] uppercase tracking-widest font-bold mb-1.5 text-[#C5A880]">
+                    <div className="p-4 text-center" style={{ borderTop: `1px solid ${C.border}` }}>
+                      <p className="text-[10px] uppercase tracking-widest font-black mb-1.5" style={{ color: C.accent }}>
                         {product.category}
                       </p>
-                      <h3 className="font-bold text-base text-[#152E47]" style={{ fontFamily: "'Playfair Display', serif" }}>
+                      <h3 className="font-black text-base" style={{ color: C.textDark }}>
                         {product.name}
                       </h3>
                     </div>
@@ -146,15 +157,13 @@ export default function Products() {
                 ))}
               </div>
             ) : (
-              <div className="text-center py-20 rounded-3xl bg-white"
-                style={{ border: '1.5px solid #E8E5DC' }}>
-                <p className="text-lg font-bold text-[#4B5563]" style={{ fontFamily: "'Playfair Display', serif" }}>
+              <div className="text-center py-20 rounded-3xl bg-white" style={{ border: `1.5px solid ${C.border}` }}>
+                <p className="text-lg font-black" style={{ color: '#4B5563' }}>
                   Products for this category will be available soon.
                 </p>
               </div>
             )}
           </div>
-
         </div>
       </div>
     </div>

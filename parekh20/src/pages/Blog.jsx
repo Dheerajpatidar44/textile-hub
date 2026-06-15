@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
+const C = { primary: '#5F6F5E', accent: '#C5A880', bg: '#F8F5EF', border: '#E2D9CC', textDark: '#2A3325', textMid: '#3D3D30' };
+
 const posts = [
   { title: "The Future of Sustainable Weaving", date: "June 10, 2026", category: "Innovation", author: "Priya Sharma", readTime: "5 min read", image: "https://images.unsplash.com/photo-1705412877691-70f6913aaa1e?w=600&auto=format&fit=crop&q=60" },
   { title: "Elegance in Threads: The Fall Collection", date: "May 28, 2026", category: "Collections", author: "Rajiv Kapoor", readTime: "4 min read", image: "https://images.unsplash.com/photo-1599753931952-654e960af582?w=600&auto=format&fit=crop&q=60" },
@@ -10,34 +12,29 @@ const posts = [
 
 export default function Blog() {
   return (
-    <div style={{ fontFamily: "'Outfit', sans-serif", background: '#FAF9F6' }}>
+    <div style={{ fontFamily: "'Outfit', sans-serif", background: C.bg }}>
 
       {/* Hero Banner */}
-      <div className="relative pt-16 sm:pt-24 pb-10 flex flex-col items-center justify-center text-center">
+      <div className="relative pt-16 sm:pt-24 pb-10 flex flex-col items-center justify-center text-center"
+        style={{ background: 'linear-gradient(135deg, #EFF3EB 0%, #F8F5EF 100%)', borderBottom: `1px solid ${C.border}` }}>
         <div className="max-w-4xl mx-auto px-6 sm:px-10 w-full flex flex-col items-center">
-          <h1 className="font-bold text-4xl sm:text-5xl text-[#152E47] mb-6"
-            style={{ fontFamily: "'Playfair Display', serif" }}>
+          <h1 className="font-black text-4xl sm:text-5xl mb-6" style={{ color: C.textDark }}>
             Blog & Articles
           </h1>
-          
-          <p className="text-[16px] sm:text-[18px] md:text-[20px] italic mb-8 text-[#4B5563] leading-relaxed max-w-3xl">
-            "Join and participate in our nation-wide campaign to digitalize the Textile<br className="hidden md:block"/> Sector, one of the largest sectors of India".
+          <p className="text-[16px] sm:text-[18px] italic mb-8 leading-relaxed max-w-3xl font-medium" style={{ color: '#4B5563' }}>
+            "Join and participate in our nation-wide campaign to digitalize the Textile<br className="hidden md:block"/>
+            Sector, one of the largest sectors of India."
           </p>
-
-          <h2 className="text-base sm:text-lg font-bold tracking-widest mb-2 uppercase text-[#152E47]"
-              style={{ fontFamily: "'Playfair Display', serif" }}>
-            Urban Fashion Textile
+          <h2 className="text-base sm:text-lg font-black tracking-widest mb-2 uppercase" style={{ color: C.textDark }}>
+            Grand Textile Mart
           </h2>
-          
-          <p className="text-[11px] sm:text-[13px] font-bold tracking-wide mb-1 text-[#C5A880]">
+          <p className="text-[11px] sm:text-[13px] font-black tracking-wide mb-1" style={{ color: C.accent }}>
             Textile Manufacturer & Entrepreneur
           </p>
-          
-          <p className="text-[10px] sm:text-[11px] font-bold tracking-widest uppercase mb-8 text-[#6B7280]">
+          <p className="text-[10px] sm:text-[11px] font-black tracking-widest uppercase mb-8" style={{ color: '#6B7280' }}>
             INDIA
           </p>
-
-          <div className="w-32 sm:w-48 h-[1px] bg-[#E8E5DC]" />
+          <div className="w-32 sm:w-48 h-[1px]" style={{ background: C.border }} />
         </div>
       </div>
 
@@ -51,29 +48,30 @@ export default function Blog() {
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
               className="group flex flex-col rounded-2xl overflow-hidden hover:shadow-md transition-all duration-300 bg-white"
-              style={{ border: '1.5px solid #E8E5DC' }}
+              style={{ border: `1.5px solid ${C.border}` }}
             >
               <div className="relative w-full aspect-[16/10] overflow-hidden">
                 <img src={post.image} alt={post.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter saturate-[0.9]" />
-                <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[9px] font-bold tracking-widest uppercase"
-                  style={{ background: 'rgba(95,111,94,0.1)', border: '1px solid rgba(95,111,94,0.3)', color: '#244C73', backdropFilter: 'blur(6px)' }}>
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[9px] font-black tracking-widest uppercase"
+                  style={{ background: 'rgba(95,111,94,0.15)', border: `1px solid rgba(95,111,94,0.3)`, color: C.primary, backdropFilter: 'blur(6px)' }}>
                   {post.category}
                 </div>
               </div>
               <div className="p-5 flex flex-col flex-1 text-left">
                 <div className="flex items-center gap-3 mb-3">
-                  <span className="text-[11px] font-semibold text-[#6B7280]">{post.date}</span>
-                  <span className="w-1 h-1 rounded-full bg-[#244C73]" />
-                  <span className="text-[11px] font-semibold text-[#6B7280]">{post.readTime}</span>
+                  <span className="text-[11px] font-semibold" style={{ color: '#6B7280' }}>{post.date}</span>
+                  <span className="w-1 h-1 rounded-full" style={{ background: C.primary }} />
+                  <span className="text-[11px] font-semibold" style={{ color: '#6B7280' }}>{post.readTime}</span>
                 </div>
-                <h3 className="font-bold text-lg mb-2 leading-snug group-hover:text-[#244C73] transition-colors"
-                  style={{ fontFamily: "'Playfair Display', serif", color: '#152E47' }}>
+                <h3 className="font-black text-lg mb-2 leading-snug transition-colors" style={{ color: C.textDark }}
+                  onMouseEnter={e => e.currentTarget.style.color = C.primary}
+                  onMouseLeave={e => e.currentTarget.style.color = C.textDark}>
                   {post.title}
                 </h3>
-                <p className="text-[12px] mb-4 text-[#4B5563] font-semibold">By {post.author}</p>
-                <div className="mt-auto pt-3 border-t border-[#E8E5DC]/60">
-                  <span className="flex items-center gap-1.5 text-[12px] font-bold tracking-wide text-[#244C73]">
+                <p className="text-[12px] mb-4 font-semibold" style={{ color: '#4B5563' }}>By {post.author}</p>
+                <div className="mt-auto pt-3" style={{ borderTop: `1px solid ${C.border}60` }}>
+                  <span className="flex items-center gap-1.5 text-[12px] font-black tracking-wide" style={{ color: C.primary }}>
                     Read More <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform duration-200" />
                   </span>
                 </div>

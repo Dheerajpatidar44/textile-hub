@@ -1,6 +1,12 @@
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown, Phone, ShieldCheck, Heart, User, ShoppingBag } from 'lucide-react';
+import { Menu, X, ChevronDown, Phone } from 'lucide-react';
 import { useState, useEffect } from 'react';
+
+const BRAND = {
+  name: 'Grand Textile Mart',
+  line1: 'Grand Textile',
+  line2: 'MART',
+};
 
 export default function Navbar() {
   const location = useLocation();
@@ -20,9 +26,7 @@ export default function Navbar() {
     } else {
       document.body.style.overflow = '';
     }
-    return () => {
-      document.body.style.overflow = '';
-    };
+    return () => { document.body.style.overflow = ''; };
   }, [isOpen]);
 
   const mainLinks = [
@@ -47,37 +51,44 @@ export default function Navbar() {
   const isMoreActive = moreLinks.some(l => location.pathname === l.path);
 
   return (
-    <header className="w-full sticky top-0 z-50 transition-all duration-300">
+    <header className="w-full sticky top-0 z-50 transition-all duration-300" style={{ fontFamily: "'Outfit', sans-serif" }}>
 
-      {/* ── BRAND HEADER ROW (Website name & Trade Enquiry CTA) ── */}
-      <div className={`w-full bg-white transition-all duration-300 ${scrolled ? 'shadow-sm py-1.5' : 'border-b border-[#E8E5DC]/55 py-2.5'}`}>
+      {/* ── BRAND HEADER ROW ── */}
+      <div className={`w-full bg-white transition-all duration-300 ${scrolled ? 'shadow-sm py-1.5' : 'border-b py-2.5'}`}
+        style={{ borderColor: '#E2D9CC' }}>
         <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+          
           {/* Logo & Brand Name */}
           <Link to="/" className="flex items-center gap-2.5 group shrink-0">
-            <div className="w-9 h-9 rounded-xl flex items-center justify-center border border-[#244C73]/20 bg-[#FAF9F6] group-hover:scale-105 transition-transform duration-300 shadow-sm">
-              <svg viewBox="0 0 100 100" className="w-5.5 h-5.5 text-[#244C73]" fill="none" xmlns="http://www.w3.org/2000/svg">
-                {/* Outer borders */}
-                <rect x="8" y="8" width="84" height="84" rx="10" stroke="currentColor" strokeWidth="3" />
-                <rect x="15" y="15" width="70" height="70" rx="6" stroke="currentColor" strokeWidth="1" strokeDasharray="3,3" className="opacity-75" />
-                {/* Stylized Serif Letter 'U' */}
-                <path d="M36 26 V58 C36 68, 42 74, 50 74 C58 74, 64 68, 64 58 V26" stroke="currentColor" strokeWidth="5.5" strokeLinecap="round" strokeLinejoin="round" />
+            <div
+              className="w-10 h-10 rounded-xl flex items-center justify-center border group-hover:scale-105 transition-transform duration-300 shadow-sm"
+              style={{ background: 'linear-gradient(135deg, #5F6F5E, #3B4A32)', borderColor: 'rgba(95,111,94,0.3)' }}
+            >
+              <svg viewBox="0 0 100 100" className="w-6 h-6 text-white" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 35 C20 35, 50 20, 80 35 L80 55 C80 70, 65 80, 50 80 C35 80, 20 70, 20 55 Z"
+                  stroke="currentColor" strokeWidth="4" fill="none" strokeLinejoin="round" />
+                <path d="M30 45 L50 55 L70 45" stroke="#C5A880" strokeWidth="3" strokeLinecap="round" />
+                <circle cx="50" cy="55" r="4" fill="#C5A880" />
               </svg>
             </div>
             <div className="flex flex-col text-left">
-              <span className="text-[#152E47] text-xl font-black tracking-[0.08em] leading-none uppercase font-serif">
-                URBAN FASHION
+              <span className="text-xl font-black tracking-[0.06em] leading-none uppercase" style={{ color: '#2A3325' }}>
+                Grand Textile Mart
               </span>
-              <span className="text-[8.5px] tracking-[0.22em] uppercase text-[#C5A880] leading-tight font-extrabold mt-1 font-sans">
-                TEXTILE
+              <span className="text-[8.5px] tracking-[0.28em] uppercase leading-tight font-extrabold mt-0.5" style={{ color: '#C5A880' }}>
+                textile hub
               </span>
             </div>
           </Link>
 
-          {/* Right Side: Trade Enquiry Button (Desktop) & Hamburger (Mobile) */}
+          {/* Right Side */}
           <div className="flex items-center gap-4">
             <Link
               to="/trade-enquiry"
-              className="hidden md:flex items-center gap-2 px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase text-white bg-[#244C73] hover:bg-[#1E3A5F] transition-all duration-300 shadow-sm hover:shadow-md font-sans border border-[#244C73]/30"
+              className="hidden md:flex items-center gap-2 px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase text-white transition-all duration-300 shadow-sm hover:shadow-md border"
+              style={{ background: '#5F6F5E', borderColor: 'rgba(95,111,94,0.3)' }}
+              onMouseEnter={e => e.currentTarget.style.background = '#4D6040'}
+              onMouseLeave={e => e.currentTarget.style.background = '#5F6F5E'}
             >
               <Phone size={12} />
               Trade Enquiry
@@ -86,7 +97,8 @@ export default function Navbar() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden text-[#152E47] hover:text-[#244C73] focus:outline-none p-1.5 rounded-lg hover:bg-[#FAF9F6] transition-colors"
+              className="md:hidden focus:outline-none p-1.5 rounded-lg transition-colors"
+              style={{ color: '#2A3325' }}
               aria-label="Toggle menu"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -95,8 +107,8 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* ── NAVIGATION LINKS BAR (Desktop bottom row: Solid Slate Navy color) ── */}
-      <nav className="hidden md:block w-full bg-[#244C73] border-b border-[#1E3A5F]/40 shadow-md">
+      {/* ── NAVIGATION LINKS BAR (Desktop) ── */}
+      <nav className="hidden md:block w-full shadow-md" style={{ background: '#5F6F5E', borderBottom: '1px solid rgba(43,51,37,0.3)' }}>
         <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-center items-center h-9">
             <div className="flex items-center gap-1">
@@ -106,13 +118,14 @@ export default function Navbar() {
                   <Link
                     key={link.name}
                     to={link.path}
-                    className={`relative px-4 py-1.5 text-[12px] font-bold tracking-wider transition-colors duration-200 font-sans ${
-                      isActive ? 'text-[#C5A880]' : 'text-white hover:text-[#C5A880]'
-                    }`}
+                    className="relative px-4 py-1.5 text-[11.5px] font-bold tracking-wider transition-colors duration-200"
+                    style={{ color: isActive ? '#C5A880' : 'rgba(255,255,255,0.92)' }}
+                    onMouseEnter={e => { if (!isActive) e.currentTarget.style.color = '#C5A880'; }}
+                    onMouseLeave={e => { if (!isActive) e.currentTarget.style.color = 'rgba(255,255,255,0.92)'; }}
                   >
                     {link.name}
                     {isActive && (
-                      <span className="absolute bottom-0 left-4 right-4 h-[2.5px] rounded-full bg-[#C5A880]" />
+                      <span className="absolute bottom-0 left-4 right-4 h-[2.5px] rounded-full" style={{ background: '#C5A880' }} />
                     )}
                   </Link>
                 );
@@ -125,9 +138,10 @@ export default function Navbar() {
                 onMouseLeave={() => setIsMoreOpen(false)}
               >
                 <button
-                  className={`relative flex items-center gap-1 px-4 py-1.5 text-[12px] font-bold tracking-wider transition-colors duration-200 font-sans ${
-                    isMoreActive ? 'text-[#C5A880]' : 'text-white hover:text-[#C5A880]'
-                  }`}
+                  className="relative flex items-center gap-1 px-4 py-1.5 text-[11.5px] font-bold tracking-wider transition-colors duration-200"
+                  style={{ color: isMoreActive ? '#C5A880' : 'rgba(255,255,255,0.92)' }}
+                  onMouseEnter={e => { if (!isMoreActive) e.currentTarget.style.color = '#C5A880'; }}
+                  onMouseLeave={e => { if (!isMoreActive) e.currentTarget.style.color = 'rgba(255,255,255,0.92)'; }}
                 >
                   MORE
                   <ChevronDown
@@ -135,23 +149,26 @@ export default function Navbar() {
                     className={`transition-transform duration-200 ${isMoreOpen ? 'rotate-180' : ''}`}
                   />
                   {isMoreActive && (
-                    <span className="absolute bottom-0 left-4 right-4 h-[2.5px] rounded-full bg-[#C5A880]" />
+                    <span className="absolute bottom-0 left-4 right-4 h-[2.5px] rounded-full" style={{ background: '#C5A880' }} />
                   )}
                 </button>
 
                 {isMoreOpen && (
-                  <div className="absolute top-[30px] right-0 w-56 bg-white border border-[#E8E5DC] rounded-xl shadow-xl overflow-hidden mt-0.5 py-1 z-50">
+                  <div className="absolute top-[30px] right-0 w-60 bg-white border rounded-xl shadow-xl overflow-hidden mt-0.5 py-1 z-50"
+                    style={{ borderColor: '#E2D9CC' }}>
                     {moreLinks.map((link) => {
                       const isActive = location.pathname === link.path;
                       return (
                         <Link
                           key={link.name}
                           to={link.path}
-                          className={`block px-4 py-2.5 text-[12px] font-bold tracking-wider transition-all duration-150 font-sans ${
-                            isActive
-                              ? 'bg-[#E8F1FA] text-[#244C73]'
-                              : 'text-[#152E47] hover:bg-[#FAF7F2] hover:text-[#244C73] hover:pl-5'
-                          }`}
+                          className="block px-4 py-2.5 text-[12px] font-bold tracking-wider transition-all duration-150"
+                          style={{
+                            background: isActive ? '#EFF3EB' : 'transparent',
+                            color: isActive ? '#5F6F5E' : '#2A3325',
+                          }}
+                          onMouseEnter={e => { if (!isActive) { e.currentTarget.style.background = '#F8F5EF'; e.currentTarget.style.color = '#5F6F5E'; e.currentTarget.style.paddingLeft = '20px'; } }}
+                          onMouseLeave={e => { if (!isActive) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#2A3325'; e.currentTarget.style.paddingLeft = '16px'; } }}
                         >
                           {link.name}
                         </Link>
@@ -167,9 +184,8 @@ export default function Navbar() {
 
       {/* ── MOBILE DRAWER NAVIGATION ── */}
       {isOpen && (
-        <div className="md:hidden fixed inset-0 top-[70px] bg-white z-40 flex flex-col animate-fade-in">
+        <div className="md:hidden fixed inset-0 top-[70px] bg-white z-40 flex flex-col" style={{ fontFamily: "'Outfit', sans-serif" }}>
           <div className="flex-1 overflow-y-auto px-4 py-6 pb-20 space-y-1">
-            {/* Main Links */}
             {mainLinks.map((link) => {
               const isActive = location.pathname === link.path;
               return (
@@ -177,22 +193,21 @@ export default function Navbar() {
                   key={link.name}
                   to={link.path}
                   onClick={() => setIsOpen(false)}
-                  className={`flex items-center justify-between px-4 py-3.5 rounded-xl text-[13px] font-bold tracking-wider transition-all duration-200 font-sans ${
-                    isActive
-                      ? 'bg-[#E8F1FA] text-[#244C73] border-l-4 border-[#244C73]'
-                      : 'text-[#152E47] hover:bg-[#FAF9F6] hover:text-[#244C73]'
-                  }`}
+                  className="flex items-center justify-between px-4 py-3.5 rounded-xl text-[13px] font-bold tracking-wider transition-all duration-200"
+                  style={{
+                    background: isActive ? '#EFF3EB' : 'transparent',
+                    color: isActive ? '#5F6F5E' : '#2A3325',
+                    borderLeft: isActive ? '4px solid #5F6F5E' : '4px solid transparent',
+                  }}
                 >
                   <span>{link.name}</span>
                 </Link>
               );
             })}
 
-            {/* Divider */}
-            <div className="h-px bg-[#E8E5DC] my-4" />
-            <p className="px-4 text-[9px] font-bold text-[#6B7280] tracking-[0.2em] uppercase mb-2">More Pages</p>
+            <div className="h-px my-4" style={{ background: '#E2D9CC' }} />
+            <p className="px-4 text-[9px] font-bold tracking-[0.2em] uppercase mb-2" style={{ color: '#6B7280' }}>More Pages</p>
 
-            {/* Dropdown Links */}
             <div className="space-y-1 pl-2">
               {moreLinks.map((link) => {
                 const isActive = location.pathname === link.path;
@@ -201,11 +216,11 @@ export default function Navbar() {
                     key={link.name}
                     to={link.path}
                     onClick={() => setIsOpen(false)}
-                    className={`flex items-center px-4 py-3 rounded-lg text-[13px] font-bold tracking-wider transition-all duration-200 font-sans ${
-                      isActive
-                        ? 'bg-[#FAF7F2] text-[#C5A880]'
-                        : 'text-[#6B7280] hover:bg-[#FAF9F6] hover:text-[#244C73]'
-                    }`}
+                    className="flex items-center px-4 py-3 rounded-lg text-[13px] font-bold tracking-wider transition-all duration-200"
+                    style={{
+                      background: isActive ? '#F8F5EF' : 'transparent',
+                      color: isActive ? '#C5A880' : '#6B7280',
+                    }}
                   >
                     <span>{link.name}</span>
                   </Link>
@@ -213,12 +228,12 @@ export default function Navbar() {
               })}
             </div>
 
-            {/* Mobile Trade Enquiry button */}
             <div className="pt-6 px-4">
               <Link
                 to="/trade-enquiry"
                 onClick={() => setIsOpen(false)}
-                className="flex items-center justify-center gap-2 py-3.5 rounded-full text-xs font-bold tracking-wider uppercase text-white bg-[#244C73] hover:bg-[#1E3A5F] transition-all duration-300 shadow-md font-sans w-full"
+                className="flex items-center justify-center gap-2 py-3.5 rounded-full text-xs font-bold tracking-wider uppercase text-white transition-all duration-300 shadow-md w-full"
+                style={{ background: '#5F6F5E' }}
               >
                 <Phone size={13} />
                 Trade Enquiry

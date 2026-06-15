@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 import { Briefcase, MapPin, Mail } from 'lucide-react';
 
+const C = { primary: '#5F6F5E', accent: '#C5A880', bg: '#F8F5EF', border: '#E2D9CC', textDark: '#2A3325', textMid: '#3D3D30' };
+
 const jobs = [
   { id: 1, title: 'Retail Operations Manager', location: 'Mumbai, India', type: 'Full-time', experience: '5-8 Years', description: 'Oversee daily store operations, manage staff, and ensure a premium customer experience across our flagship retail outlets.' },
   { id: 2, title: 'Senior Fabric Technologist', location: 'Surat, India', type: 'Full-time', experience: '7+ Years', description: 'Lead quality control for incoming fabrics, develop new textile blends, and maintain our high standards of material excellence.' },
@@ -10,15 +12,14 @@ const jobs = [
 
 const Career = () => {
   return (
-    <div style={{ fontFamily: "'Outfit', sans-serif", background: '#FAF9F6' }}>
+    <div style={{ fontFamily: "'Outfit', sans-serif", background: C.bg }}>
 
       {/* Hero Banner */}
-      <div className="relative h-36 sm:h-44 overflow-hidden flex items-center justify-center text-center">
+      <div className="relative h-36 sm:h-44 overflow-hidden flex items-center justify-center text-center"
+        style={{ background: 'linear-gradient(135deg, #EFF3EB 0%, #F8F5EF 100%)', borderBottom: `1px solid ${C.border}` }}>
         <div className="relative max-w-7xl mx-auto px-6 sm:px-10 w-full">
-          <h1 className="font-bold text-4xl sm:text-5xl text-[#152E47]"
-            style={{ fontFamily: "'Playfair Display', serif" }}>
-            Careers
-          </h1>
+          <h1 className="font-black text-4xl sm:text-5xl" style={{ color: C.textDark }}>Careers</h1>
+          <div className="w-12 h-[2.5px] mx-auto mt-3 rounded-full" style={{ background: C.primary }} />
         </div>
       </div>
 
@@ -31,35 +32,35 @@ const Career = () => {
               transition={{ delay: idx * 0.1 }}
               key={job.id}
               className="group flex flex-col lg:flex-row items-start lg:items-center justify-between rounded-2xl bg-white transition-all duration-300 hover:shadow-md p-6 md:p-8"
-              style={{ border: '1.5px solid #E8E5DC' }}
+              style={{ border: `1.5px solid ${C.border}` }}
             >
               <div className="flex-grow max-w-4xl lg:pr-8">
-                <h3 className="text-xl sm:text-2xl font-bold mb-3 leading-tight text-[#152E47]"
-                  style={{ fontFamily: "'Playfair Display', serif" }}>
+                <h3 className="text-xl sm:text-2xl font-black mb-3 leading-tight" style={{ color: C.textDark }}>
                   {job.title}
                 </h3>
-
                 <div className="flex flex-wrap items-center gap-4 md:gap-6 mb-4">
-                  <div className="flex items-center gap-2 text-[13px] font-semibold text-[#4B5563]">
-                    <MapPin size={14} color="#244C73" /> {job.location}
+                  <div className="flex items-center gap-2 text-[13px] font-semibold" style={{ color: '#4B5563' }}>
+                    <MapPin size={14} color={C.primary} /> {job.location}
                   </div>
-                  <div className="flex items-center gap-2 text-[13px] font-semibold text-[#4B5563]">
-                    <Briefcase size={14} color="#244C73" /> {job.type} · {job.experience}
+                  <div className="flex items-center gap-2 text-[13px] font-semibold" style={{ color: '#4B5563' }}>
+                    <Briefcase size={14} color={C.primary} /> {job.type} · {job.experience}
                   </div>
-                  <div className="flex items-center gap-2 text-[13px] font-semibold text-[#4B5563]">
-                    <Mail size={14} color="#244C73" />
-                    <a href="mailto:careers@urbanfashiontextile.com" className="hover:underline text-[#244C73]">
-                      careers@urbanfashiontextile.com
+                  <div className="flex items-center gap-2 text-[13px] font-semibold" style={{ color: '#4B5563' }}>
+                    <Mail size={14} color={C.primary} />
+                    <a href="mailto:careers@grandtextilemart.com" className="hover:underline" style={{ color: C.primary }}>
+                      careers@grandtextilemart.com
                     </a>
                   </div>
                 </div>
-
-                <p className="text-[13.5px] leading-relaxed mb-6 lg:mb-0 text-[#393E46] font-medium">{job.description}</p>
+                <p className="text-[13.5px] leading-relaxed mb-6 lg:mb-0 font-medium" style={{ color: C.textMid }}>{job.description}</p>
               </div>
 
-              <div className="w-full lg:w-auto shrink-0 border-t lg:border-t-0 lg:border-l pt-5 lg:pt-0 lg:pl-8 border-[#E8E5DC]/60">
+              <div className="w-full lg:w-auto shrink-0 border-t lg:border-t-0 lg:border-l pt-5 lg:pt-0 lg:pl-8" style={{ borderColor: `${C.border}60` }}>
                 <button
-                  className="w-full lg:w-44 py-3.5 rounded-xl text-[11px] font-bold uppercase tracking-widest transition-all duration-200 hover:opacity-95 text-white btn-primary shadow-sm animate-none"
+                  className="w-full lg:w-44 py-3.5 rounded-xl text-[11px] font-black uppercase tracking-widest transition-all duration-200 hover:opacity-95 text-white shadow-sm"
+                  style={{ background: C.primary }}
+                  onMouseEnter={e => e.currentTarget.style.background = '#3B4A32'}
+                  onMouseLeave={e => e.currentTarget.style.background = C.primary}
                 >
                   Apply Now
                 </button>

@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 
+const C = { primary: '#5F6F5E', accent: '#C5A880', bg: '#F8F5EF', border: '#E2D9CC', textDark: '#2A3325', textMid: '#3D3D30' };
+
 const galleryItems = [
   { title: "Global Textile Summit 2026", desc: "Our leadership team presenting the future of sustainable fabrics to international delegates and industry leaders.", category: "Event", image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&auto=format&fit=crop&q=60" },
   { title: "New Manufacturing Unit Inauguration", desc: "Expanding our footprint with a state-of-the-art facility in Gujarat, boosting our production capacity by 40%.", category: "Infrastructure", image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&auto=format&fit=crop&q=60" },
@@ -11,15 +13,16 @@ const galleryItems = [
 
 export default function BusinessMediaGallery() {
   return (
-    <div style={{ fontFamily: "'Outfit', sans-serif", background: '#FAF9F6' }}>
+    <div style={{ fontFamily: "'Outfit', sans-serif", background: C.bg }}>
 
       {/* Hero Banner */}
-      <div className="relative h-36 sm:h-44 overflow-hidden flex items-center justify-center text-center">
+      <div className="relative h-36 sm:h-44 overflow-hidden flex items-center justify-center text-center"
+        style={{ background: 'linear-gradient(135deg, #EFF3EB 0%, #F8F5EF 100%)', borderBottom: `1px solid ${C.border}` }}>
         <div className="relative max-w-7xl mx-auto px-6 sm:px-10 w-full">
-          <h1 className="font-bold text-4xl sm:text-5xl text-[#152E47]"
-            style={{ fontFamily: "'Playfair Display', serif" }}>
+          <h1 className="font-black text-4xl sm:text-5xl" style={{ color: C.textDark }}>
             Media Gallery
           </h1>
+          <div className="w-12 h-[2.5px] mx-auto mt-3 rounded-full" style={{ background: C.primary }} />
         </div>
       </div>
 
@@ -33,7 +36,7 @@ export default function BusinessMediaGallery() {
               viewport={{ once: true }}
               transition={{ delay: idx * 0.08 }}
               className="group rounded-2xl overflow-hidden flex flex-col bg-white cursor-pointer transition-all duration-300 hover:shadow-md"
-              style={{ border: '1.5px solid #E8E5DC' }}
+              style={{ border: `1.5px solid ${C.border}` }}
             >
               <div className="relative w-full aspect-[4/3] overflow-hidden">
                 <img
@@ -41,18 +44,18 @@ export default function BusinessMediaGallery() {
                   alt={item.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter saturate-[0.9]"
                 />
-                <div className="absolute top-2 left-2 px-2.5 py-1 rounded-full text-[9px] font-bold uppercase tracking-widest text-[#244C73]"
-                  style={{ background: 'rgba(95,111,94,0.1)', border: '1px solid rgba(95,111,94,0.3)', backdropFilter: 'blur(8px)' }}>
+                <div className="absolute top-2 left-2 px-2.5 py-1 rounded-full text-[9px] font-black uppercase tracking-widest text-white shadow-sm"
+                  style={{ background: 'rgba(42,51,37,0.7)', backdropFilter: 'blur(8px)' }}>
                   {item.category}
                 </div>
               </div>
 
-              <div className="p-4 flex flex-col flex-1">
-                <h3 className="font-bold text-base mb-1.5 leading-snug transition-colors text-[#152E47]"
-                  style={{ fontFamily: "'Playfair Display', serif" }}>
+              <div className="p-5 flex flex-col flex-1">
+                <h3 className="font-black text-base mb-2 leading-snug transition-colors"
+                  style={{ color: C.textDark }}>
                   {item.title}
                 </h3>
-                <p className="text-[12px] leading-relaxed line-clamp-3 text-[#4B5563] font-medium">
+                <p className="text-[12.5px] font-medium leading-relaxed line-clamp-3" style={{ color: C.textMid }}>
                   {item.desc}
                 </p>
               </div>

@@ -42,12 +42,17 @@ export default function FloatingSocials() {
 
   return (
     <div className="fixed left-0 top-[35%] z-[99] flex items-center">
-      {/* Social Icons Container */}
       <motion.div
         initial={{ x: 0 }}
         animate={{ x: isExpanded ? 0 : -60 }}
         transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-        className="flex flex-col items-center bg-[#244C73]/95 backdrop-blur-md rounded-r-2xl shadow-2xl py-5 px-3.5 border-y border-r border-white/10 relative"
+        className="flex flex-col items-center rounded-r-2xl shadow-2xl py-5 px-3.5 relative"
+        style={{
+          background: 'rgba(59,74,50,0.95)',
+          backdropFilter: 'blur(8px)',
+          border: '1px solid rgba(255,255,255,0.1)',
+          borderLeft: 'none',
+        }}
       >
         <div className="flex flex-col gap-5">
           {socials.map((social) => {
@@ -59,7 +64,8 @@ export default function FloatingSocials() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`Visit our ${social.name}`}
-                className={`text-white/80 transition-all duration-200 hover:scale-115 ${social.color} cursor-pointer`}
+                className={`transition-all duration-200 hover:scale-115 ${social.color} cursor-pointer`}
+                style={{ color: 'rgba(255,255,255,0.8)' }}
               >
                 <Icon />
               </a>
@@ -67,10 +73,17 @@ export default function FloatingSocials() {
           })}
         </div>
 
-        {/* Floating Toggle Arrow Button */}
+        {/* Toggle Arrow */}
         <button
           onClick={() => setIsExpanded(!isExpanded)}
-          className="absolute right-[-24px] top-1/2 -translate-y-1/2 w-6 h-10 bg-[#244C73] text-white flex items-center justify-center rounded-r-md border-y border-r border-white/10 hover:bg-[#1E3A5F] hover:text-[#C5A880] transition-colors focus:outline-none shadow-md cursor-pointer"
+          className="absolute right-[-24px] top-1/2 -translate-y-1/2 w-6 h-10 flex items-center justify-center rounded-r-md border-y border-r transition-colors focus:outline-none shadow-md cursor-pointer"
+          style={{
+            background: '#5F6F5E',
+            color: 'white',
+            borderColor: 'rgba(255,255,255,0.1)',
+          }}
+          onMouseEnter={e => { e.currentTarget.style.background = '#3B4A32'; e.currentTarget.style.color = '#C5A880'; }}
+          onMouseLeave={e => { e.currentTarget.style.background = '#5F6F5E'; e.currentTarget.style.color = 'white'; }}
           aria-label={isExpanded ? "Collapse socials" : "Expand socials"}
         >
           {isExpanded ? <ChevronLeft size={16} /> : <ChevronRight size={16} />}

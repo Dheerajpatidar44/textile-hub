@@ -3,7 +3,7 @@ import { MapPin, Phone, Mail } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer style={{ background: '#244C73', fontFamily: "'Outfit', sans-serif", borderTop: '1px solid rgba(255,255,255,0.1)' }}>
+    <footer style={{ background: '#3B4A32', fontFamily: "'Outfit', sans-serif", borderTop: '1px solid rgba(255,255,255,0.08)' }}>
       {/* Accent top gold bar */}
       <div className="h-0.5 w-full" style={{ background: '#C5A880' }} />
 
@@ -13,32 +13,34 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="col-span-2 lg:col-span-1">
             <div className="flex items-center gap-3 mb-5">
-              <div className="w-10 h-10 rounded-lg flex items-center justify-center border border-white/20 bg-white/10 shadow-md">
+              <div
+                className="w-10 h-10 rounded-lg flex items-center justify-center shadow-md"
+                style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.15)' }}
+              >
                 <svg viewBox="0 0 100 100" className="w-6 h-6 text-white" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  {/* Outer elegant borders */}
-                  <rect x="8" y="8" width="84" height="84" rx="6" stroke="currentColor" strokeWidth="3" />
-                  <rect x="14" y="14" width="72" height="72" rx="4" stroke="currentColor" strokeWidth="1" strokeDasharray="3,3" className="opacity-60" />
-                  {/* Stylized Serif Letter 'U' */}
-                  <path d="M36 26 V58 C36 68, 42 74, 50 74 C58 74, 64 68, 64 58 V26" stroke="currentColor" strokeWidth="5.5" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M20 35 C20 35, 50 20, 80 35 L80 55 C80 70, 65 80, 50 80 C35 80, 20 70, 20 55 Z"
+                    stroke="currentColor" strokeWidth="4" fill="none" strokeLinejoin="round" />
+                  <path d="M30 45 L50 55 L70 45" stroke="#C5A880" strokeWidth="3" strokeLinecap="round" />
+                  <circle cx="50" cy="55" r="4" fill="#C5A880" />
                 </svg>
               </div>
               <div>
-                <div style={{ fontFamily: "'Playfair Display', serif" }} className="text-white text-xl font-bold tracking-wider leading-none">
-                  URBAN FASHION
+                <div className="text-white text-xl font-black tracking-wider leading-none uppercase">
+                  Grand Textile
                 </div>
-                <div className="text-[8.5px] tracking-widest uppercase text-[#C5A880] mt-1 font-bold">
-                  TEXTILE MALL
+                <div className="text-[8.5px] tracking-widest uppercase mt-1 font-black" style={{ color: '#C5A880' }}>
+                  MART
                 </div>
               </div>
             </div>
-            <p className="text-[#FAF9F6]/80 text-sm leading-relaxed mb-6 font-medium">
+            <p className="text-sm leading-relaxed mb-6 font-medium" style={{ color: 'rgba(248,245,239,0.75)' }}>
               Your trusted partner in premium textiles, ethnic wear & home furnishing since generations. Spanning across 1200+ outlets in India.
             </p>
           </div>
 
           {/* Company links */}
-          <div className="col-span-1 lg:col-span-1">
-            <h3 style={{ fontFamily: "'Playfair Display', serif" }} className="text-white text-lg font-bold mb-5 tracking-wide">Company</h3>
+          <div className="col-span-1">
+            <h3 className="text-white text-base font-black mb-5 tracking-wide uppercase">Company</h3>
             <ul className="space-y-2.5">
               {[
                 { name: 'About Us', path: '/about' },
@@ -47,11 +49,15 @@ export default function Footer() {
                 { name: 'Contact Us', path: '/contact' },
               ].map(link => (
                 <li key={link.name}>
-                  <Link to={link.path}
-                    className="text-[#FAF9F6]/90 hover:text-[#C5A880] transition-colors duration-200 flex items-center gap-1.5 group font-medium"
+                  <Link
+                    to={link.path}
+                    className="flex items-center gap-1.5 group font-semibold transition-colors duration-200"
+                    style={{ color: 'rgba(248,245,239,0.85)' }}
+                    onMouseEnter={e => e.currentTarget.style.color = '#C5A880'}
+                    onMouseLeave={e => e.currentTarget.style.color = 'rgba(248,245,239,0.85)'}
                   >
-                    <span className="w-1 h-1 rounded-full bg-[#C5A880]/40 group-hover:bg-[#C5A880] transition-colors shrink-0" />
-                    <span className="truncate font-semibold">{link.name}</span>
+                    <span className="w-1 h-1 rounded-full shrink-0 transition-colors" style={{ background: 'rgba(197,168,128,0.4)' }} />
+                    <span className="truncate">{link.name}</span>
                   </Link>
                 </li>
               ))}
@@ -59,8 +65,8 @@ export default function Footer() {
           </div>
 
           {/* Services links */}
-          <div className="col-span-1 lg:col-span-1">
-            <h3 style={{ fontFamily: "'Playfair Display', serif" }} className="text-white text-lg font-bold mb-5 tracking-wide">Services</h3>
+          <div className="col-span-1">
+            <h3 className="text-white text-base font-black mb-5 tracking-wide uppercase">Services</h3>
             <ul className="space-y-2.5">
               {[
                 { name: 'e-Quotation', path: '/e-quotation' },
@@ -69,11 +75,15 @@ export default function Footer() {
                 { name: 'Blog Page', path: '/blog' },
               ].map(link => (
                 <li key={link.name}>
-                  <Link to={link.path}
-                    className="text-[#FAF9F6]/90 hover:text-[#C5A880] transition-colors duration-200 flex items-center gap-1.5 group font-medium"
+                  <Link
+                    to={link.path}
+                    className="flex items-center gap-1.5 group font-semibold transition-colors duration-200"
+                    style={{ color: 'rgba(248,245,239,0.85)' }}
+                    onMouseEnter={e => e.currentTarget.style.color = '#C5A880'}
+                    onMouseLeave={e => e.currentTarget.style.color = 'rgba(248,245,239,0.85)'}
                   >
-                    <span className="w-1 h-1 rounded-full bg-[#C5A880]/40 group-hover:bg-[#C5A880] transition-colors shrink-0" />
-                    <span className="truncate font-semibold">{link.name}</span>
+                    <span className="w-1 h-1 rounded-full shrink-0" style={{ background: 'rgba(197,168,128,0.4)' }} />
+                    <span className="truncate">{link.name}</span>
                   </Link>
                 </li>
               ))}
@@ -82,33 +92,36 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div className="col-span-2 lg:col-span-1">
-            <h3 style={{ fontFamily: "'Playfair Display', serif" }} className="text-white text-lg font-bold mb-5 tracking-wide">Contact Us</h3>
+            <h3 className="text-white text-base font-black mb-5 tracking-wide uppercase">Contact Us</h3>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <MapPin size={16} className="mt-0.5 shrink-0" color="#C5A880" />
-                <span className="text-[#FAF9F6]/90 text-sm leading-relaxed font-semibold">123 Premium Textile Avenue,<br />Fashion District, Chennai, TN, India</span>
+                <span className="text-sm leading-relaxed font-semibold" style={{ color: 'rgba(248,245,239,0.85)' }}>
+                  123 Premium Textile Avenue,<br />Fashion District, Chennai, TN, India
+                </span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={15} className="shrink-0" color="#C5A880" />
-                <span className="text-[#FAF9F6]/90 text-sm font-semibold">+91 6353778329</span>
+                <span className="text-sm font-semibold" style={{ color: 'rgba(248,245,239,0.85)' }}>+91 6353778329</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={15} className="shrink-0" color="#C5A880" />
-                <span className="text-[#FAF9F6]/90 text-sm font-semibold">info@urbanfashiontextile.com</span>
+                <span className="text-sm font-semibold" style={{ color: 'rgba(248,245,239,0.85)' }}>info@grandtextilemart.com</span>
               </li>
             </ul>
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 pt-6 border-t flex flex-col sm:flex-row justify-between items-center gap-3"
-          style={{ borderColor: 'rgba(255,255,255,0.1)' }}>
-          {/* Phone number placed on the left, copyright on the right */}
-          <a href="tel:+916353778329" className="text-[#C5A880] hover:underline text-xs font-bold flex items-center gap-1.5 order-2 sm:order-1">
+        <div
+          className="mt-12 pt-6 border-t flex flex-col sm:flex-row justify-between items-center gap-3"
+          style={{ borderColor: 'rgba(255,255,255,0.08)' }}
+        >
+          <a href="tel:+916353778329" className="hover:underline text-xs font-black flex items-center gap-1.5 order-2 sm:order-1 transition-colors" style={{ color: '#C5A880' }}>
             <Phone size={12} /> Call Us: +91 6353778329
           </a>
-          <p className="text-[#FAF9F6]/70 text-xs tracking-wide font-semibold order-1 sm:order-2">
-            © 2026 · All Rights Reserved · URBAN FASHION TEXTILE
+          <p className="text-xs tracking-wide font-semibold order-1 sm:order-2" style={{ color: 'rgba(248,245,239,0.6)' }}>
+            © 2026 · All Rights Reserved · GRAND TEXTILE MART
           </p>
         </div>
       </div>
