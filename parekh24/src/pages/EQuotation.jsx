@@ -28,6 +28,9 @@ const EQuotation = () => {
       </div>
 
       <div className="pb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <p className="text-center text-[14px] mb-10 font-semibold opacity-80" style={{ color: C.textDark }}>
+          Digital procurement and transparent quotation system across our corporate ecosystem.
+        </p>
 
         {/* Active Quotations */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-12 text-left">

@@ -36,7 +36,7 @@ const EAuction = () => {
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-12 text-left">
           <div className="flex items-center gap-3 mb-6">
             <Gavel size={20} color={C.primary} />
-            <h2 className="font-bold text-lg tracking-wide serif-title uppercase" style={{ color: C.textDark }}>Active e-Auctions</h2>
+            <h2 className="font-bold text-lg tracking-wide serif-title " style={{ color: C.textDark }}>Active e-Auctions</h2>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

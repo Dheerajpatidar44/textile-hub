@@ -195,7 +195,16 @@ export default function Home() {
       </section>
 
       {/* ── OUR BUSINESS SECTION (Legacy description) ── */}
-      <section className="border-b" style={{ borderColor: COLORS.border, background: '#FAF7F2' }}>
+      <section
+        className="border-b"
+        style={{
+          borderColor: COLORS.border,
+          backgroundImage: "linear-gradient(rgba(234, 230, 224, 0.85), rgba(206, 190, 162, 0.85)), url('/images/herobg.png')",
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
         <div className="max-w-4xl mx-auto px-6 py-16 text-center">
           <p className="text-[10px] tracking-[0.25em] font-extrabold uppercase mb-2.5" style={{ color: COLORS.primary }}>
             Our Business
