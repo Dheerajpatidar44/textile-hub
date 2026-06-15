@@ -1,0 +1,161 @@
+@import "tailwindcss";
+
+@theme {
+  --color-sapphire-900: #3D223B; /* Deep Plum / Eggplant - Primary headers / dark text */
+  --color-sapphire-800: #4D2D4B; /* Slightly lighter plum */
+  --color-sapphire-700: #BD7B88; /* Dusty Rose / Mauve - Accents */
+
+  --color-rosegold-500: #3D223B; /* Deep Plum brand color */
+  --color-rosegold-400: #BD7B88; /* Dusty Rose Accent */
+  --color-rosegold-300: #F6EDF0; /* Soft Pinkish Cream / Warm light beige */
+
+  --color-pearl-50: #FFFFFF;   /* Clean White Background for Card components */
+  --color-pearl-100: #FAF4F6;  /* Soft Warm Pinkish Cream for Page Backgrounds */
+
+  --font-playfair: 'Cormorant Garamond', serif;
+  --font-outfit: 'Outfit', sans-serif;
+}
+
+@layer base {
+  body {
+    @apply font-outfit bg-pearl-100 text-sapphire-900 m-0 p-0;
+  }
+
+  /* Unify headings style, font-weight, color, and layout on all pages */
+  h1 {
+    @apply font-playfair font-bold text-3xl lg:text-4xl text-sapphire-900 tracking-wider uppercase mb-2 border-b border-rosegold-400/30 pb-2 block w-full;
+  }
+
+  h2, h3, h4, h5, h6 {
+    @apply font-playfair font-semibold;
+  }
+}
+
+/* Custom Scrollbar for sidebar and general */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+@media (max-width: 1024px) {
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #BD7B88;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #A36471;
+}
+
+/* Tailwind Overrides for translating hardcoded styles into the Deep Plum/Dusty Rose Theme */
+.bg-white {
+  background-color: #FFFFFF !important;
+}
+
+.bg-\[\#fcfbf9\] {
+  background-color: #FAF4F6 !important;
+}
+
+.bg-pearl-50 {
+  background-color: #FFFFFF !important;
+}
+
+.bg-pearl-100 {
+  background-color: #FAF4F6 !important;
+}
+
+.text-\[\#2d0a4e\] {
+  color: #BD7B88 !important;
+}
+
+.bg-\[\#2d0a4e\] {
+  background-color: #F6EDF0 !important;
+  border-color: #BD7B88 !important;
+}
+
+.hover\:bg-\[\#2d0a4e\]:hover {
+  background-color: #EAD2D8 !important;
+}
+
+.hover\:text-\[\#2d0a4e\]:hover {
+  color: #3D223B !important;
+}
+
+.border-\[\#2d0a4e\] {
+  border-color: #BD7B88 !important;
+}
+
+.bg-\[\#d8a5ad\] {
+  background-color: #3D223B !important;
+}
+
+.hover\:bg-\[\#d8a5ad\]:hover {
+  background-color: #4E2E4B !important;
+}
+
+.text-\[\#d8a5ad\] {
+  color: #BD7B88 !important;
+}
+
+.hover\:text-\[\#d8a5ad\]:hover {
+  color: #F6EDF0 !important;
+}
+
+.border-\[\#d8a5ad\] {
+  border-color: #3D223B !important;
+}
+
+.hover\:border-\[\#d8a5ad\]:hover {
+  border-color: #BD7B88 !important;
+}
+
+.bg-\[\#d8a5ad\]\/10 {
+  background-color: rgba(189, 123, 136, 0.1) !important;
+}
+
+.border-gray-100,
+.border-gray-200,
+.border-pearl-100 {
+  border-color: #EAD2D8 !important;
+}
+
+.text-gray-900,
+.text-gray-850,
+.text-gray-800,
+.text-gray-700 {
+  color: #3D223B !important;
+}
+
+.text-gray-650,
+.text-gray-600,
+.text-gray-500,
+.text-gray-400 {
+  color: #7A6273 !important;
+}
+
+/* Ensure form controls have readable text in light mode */
+input, select, textarea {
+  color: #3D223B !important;
+}
+
+.hover\:text-gray-900:hover,
+.hover\:text-gray-800:hover {
+  color: #3D223B !important;
+}
+
+/* Custom background helper for preloader and overlays */
+.bg-sapphire-900 {
+  background-color: #3D223B !important;
+}
+
+.bg-sapphire-800 {
+  background-color: #4D2D4B !important;
+}
