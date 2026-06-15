@@ -1,0 +1,177 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Primary Olive/Sage Green Palette ── */
+  --color-primary-900: #2A3325;
+  --color-primary-800: #3B4A32;
+  --color-primary-700: #4D6040;
+  --color-primary-600: #5F6F5E; /* Base Olive Green */
+  --color-primary-500: #6B7A5E;
+  --color-primary-400: #8A9E7E;
+  --color-primary-300: #AABF9A;
+  --color-primary-100: #EFF3EB; /* Soft Green Tint */
+
+  /* ── Accent Warm Tan / Gold (Highlights, secondary actions) ── */
+  --color-accent-700: #B3946C;
+  --color-accent-600: #C5A880; /* Refined Gold/Tan Accent */
+  --color-accent-500: #D3BB99;
+  --color-accent-400: #E1CEB5;
+  --color-accent-100: #FAF7F2;
+
+  /* ── Warm Cream / Neutral Backgrounds ── */
+  --color-cream-50: #FFFFFF;
+  --color-cream-100: #F8F5EF; /* Main Page Background */
+  --color-cream-200: #F0EBE1; /* Main Card / Component Background */
+  --color-cream-300: #E2D9CC;
+  --color-cream-450: #D4CFC0;
+
+  /* ── Charcoal / Slate Text Tones ── */
+  --color-dark-900: #1A1A16;
+  --color-dark-800: #2C2C24; /* Primary Body Text */
+  --color-dark-700: #3D3D30;
+  --color-dark-600: #4B5563;
+
+  /* ── Muted Tones ── */
+  --color-muted-600: #6B7280;
+  --color-muted-400: #9CA3AF;
+  --color-muted-200: #E5E7EB;
+
+  /* ── Font Family ── */
+  --font-sans: 'Outfit', sans-serif;
+}
+
+@layer base {
+  body {
+    font-family: 'Outfit', sans-serif;
+    background-color: #F8F5EF;
+    color: #2C2C24;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+  }
+
+  * {
+    font-family: 'Outfit', sans-serif;
+  }
+}
+
+/* ── Custom Scrollbar ── */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #F0EBE1;
+}
+::-webkit-scrollbar-thumb {
+  background: #8A9E7E;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #5F6F5E;
+}
+
+/* ── Preloader animations ── */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+.shimmer-text {
+  background: linear-gradient(
+    90deg,
+    #5F6F5E 0%,
+    #FFFFFF 40%,
+    #5F6F5E 60%,
+    #C5A880 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 2.5s linear infinite;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-in-up {
+  animation: fadeInUp 0.7s ease forwards;
+}
+
+@keyframes fadeInScale {
+  from { opacity: 0; transform: scale(0.85); }
+  to   { opacity: 1; transform: scale(1); }
+}
+.fade-in-scale {
+  animation: fadeInScale 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes letterDrop {
+  from { opacity: 0; transform: translateY(-30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.letter-drop {
+  display: inline-block;
+  animation: letterDrop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  opacity: 0;
+}
+
+@keyframes goldPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(95, 111, 94, 0.5); }
+  50%       { box-shadow: 0 0 0 10px rgba(95, 111, 94, 0); }
+}
+.green-pulse {
+  animation: goldPulse 2s ease-in-out infinite;
+}
+
+@keyframes slideInLeft {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(0); }
+}
+
+@keyframes slideOutUp {
+  from { transform: translateY(0); opacity: 1; }
+  to   { transform: translateY(-100%); opacity: 0; }
+}
+
+/* ── Navbar Underline ── */
+.nav-link-active::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #5F6F5E, #C5A880);
+  border-radius: 2px;
+  margin-top: 2px;
+}
+
+/* ── Primary Button ── */
+.btn-primary {
+  background: linear-gradient(135deg, #4D6040 0%, #5F6F5E 100%);
+  color: #fff;
+  font-family: 'Outfit', sans-serif;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+.btn-primary:hover {
+  background: linear-gradient(135deg, #3B4A32 0%, #4D6040 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(95, 111, 94, 0.4);
+}
+
+/* ── Category Card Hover ── */
+.category-card:hover .cat-icon {
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+}
+
+/* ── Responsive utilities ── */
+@media (max-width: 768px) {
+  .hero-text-responsive {
+    font-size: clamp(2rem, 7vw, 3.5rem);
+  }
+}
