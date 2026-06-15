@@ -1,27 +1,27 @@
 import { motion } from 'framer-motion';
 
 const C = { 
-  primary: '#6E64B4', 
-  primaryDark: '#252131', 
-  accent: '#6E64B4', 
-  bg: '#FAF9F5', 
-  bgLight: '#FAF9F5', 
-  border: '#E1DFEB', 
-  textDark: '#252131', 
-  textMid: '#252131', 
-  textMuted: '#6E64B4' 
+  primary: '#C5A377', 
+  primaryDark: '#3D3025', 
+  accent: '#C5A377', 
+  bg: '#F6F1EA', 
+  bgLight: '#F6F1EA', 
+  border: '#E8E2D7', 
+  textDark: '#3D3025', 
+  textMid: '#3D3025', 
+  textMuted: '#C5A377' 
 };
 
 export default function TradeEnquiry() {
   return (
-    <div style={{ fontFamily: "'Urbanist', sans-serif", background: C.bg }}>
+    <div style={{ fontFamily: "'Jost', sans-serif", background: C.bg }}>
 
       {/* Hero Banner */}
-      <div className="relative h-36 sm:h-44 overflow-hidden flex items-center justify-center text-center"
-        style={{ background: 'linear-gradient(135deg, #FAF9F5 0%, #E1DFEB 100%)', borderBottom: `1px solid ${C.border}` }}>
+      <div className="relative h-36 sm:h-44 overflow-hidden flex items-center justify-center text-center animate-fade-in"
+        style={{ background: 'linear-gradient(135deg, #F6F1EA 0%, #E8E2D7 100%)', borderBottom: `1px solid ${C.border}` }}>
         <div className="relative max-w-7xl mx-auto px-6 sm:px-10 w-full">
-          <h1 className="font-black text-4xl sm:text-5xl serif-title" style={{ color: C.textDark }}>Trade Enquiry</h1>
-          <div className="w-12 h-[2.5px] mx-auto mt-3 rounded-full" style={{ background: C.primary }} />
+          <h1 className="font-normal text-4xl sm:text-5xl serif-title" style={{ color: C.textDark }}>Trade Enquiry</h1>
+          <div className="w-12 h-[2px] mx-auto mt-3 rounded-full" style={{ background: C.primary }} />
         </div>
       </div>
 

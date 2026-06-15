@@ -2,70 +2,75 @@ import { motion } from 'framer-motion';
 import { Mail } from 'lucide-react';
 
 const C = { 
-  primary: '#6E64B4', 
-  primaryDark: '#252131', 
-  accent: '#6E64B4', 
-  bg: '#FAF9F5', 
-  bgLight: '#FAF9F5', 
-  border: '#E1DFEB', 
-  textDark: '#252131', 
-  textMid: '#252131', 
-  textMuted: '#6E64B4' 
+  primary: '#C5A377', 
+  primaryDark: '#3D3025', 
+  accent: '#C5A377', 
+  bg: '#F6F1EA', 
+  bgLight: '#FAF7F2', 
+  border: '#E8E2D7', 
+  textDark: '#3D3025', 
+  textMid: '#3D3025', 
+  textMuted: '#C5A377' 
 };
 
 const teamMembers = [
-  { id: 1, name: 'Rajesh Sharma', role: 'Managing Director', image: null },
-  { id: 2, name: 'Ananya Sharma', role: 'Head of Retail Operations', image: null },
-  { id: 3, name: 'Vikram Mehta', role: 'Supply Chain Director', image: null },
+  { id: 1, name: 'Rajesh Sharma', role: 'Managing Director', image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80' },
+  { id: 2, name: 'Ananya Sharma', role: 'Head of Retail Operations', image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80' },
+  { id: 3, name: 'Vikram Mehta', role: 'Supply Chain Director', image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=300&q=80' },
 ];
 
 const RetailManagement = () => {
   return (
-    <div style={{ fontFamily: "'Urbanist', sans-serif", background: C.bg }}>
+    <div style={{ fontFamily: "'Jost', sans-serif", background: C.bg }}>
 
       {/* Hero Banner */}
       <div className="relative h-36 sm:h-44 overflow-hidden flex items-center justify-center text-center"
-        style={{ background: 'linear-gradient(135deg, #FAF9F5 0%, #E1DFEB 100%)', borderBottom: `1px solid ${C.border}` }}>
+        style={{ background: 'linear-gradient(135deg, #F6F1EA 0%, #E8E2D7 100%)', borderBottom: `1px solid ${C.border}` }}>
         <div className="relative max-w-7xl mx-auto px-6 sm:px-10 w-full">
-          <h1 className="font-black text-4xl sm:text-5xl serif-title" style={{ color: C.textDark }}>Our Retail Management</h1>
-          <div className="w-12 h-[2.5px] mx-auto mt-3 rounded-full" style={{ background: C.primary }} />
+          <h1 className="font-normal text-4xl sm:text-5xl serif-title" style={{ color: C.textDark }}>Our Retail Management</h1>
+          <div className="w-12 h-[2px] mx-auto mt-3 rounded-full" style={{ background: C.primary }} />
         </div>
       </div>
 
       <div className="pb-24 max-w-7xl mx-auto px-4 pt-10">
         <p className="text-center text-[15px] mb-12 max-w-2xl mx-auto leading-relaxed font-semibold opacity-80" style={{ color: C.textDark }}>
-          AURA LOOM is administered and governed by highly skilled, experienced and qualified Management.
+          SHREE TEXTILE MALL is administered and governed by highly skilled, experienced and qualified Management.
         </p>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto text-left"
+          className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-3xl mx-auto text-left px-4"
         >
           {teamMembers.map((member) => (
             <div key={member.id}
-              className="group overflow-hidden rounded-2xl transition-all duration-500 hover:-translate-y-1 hover:shadow-md bg-white border"
+              className="group flex flex-col items-center p-6 bg-white border rounded-2xl transition-all duration-300 hover:shadow-md hover:-translate-y-1 text-center"
               style={{ borderColor: C.border }}
             >
-              <div className="relative overflow-hidden aspect-[4/5]">
+              {/* Smaller Rounded Image container */}
+              <div 
+                className="relative w-24 h-24 rounded-full overflow-hidden border-2 mx-auto mb-4 group-hover:scale-105 transition-transform duration-300 shadow-sm"
+                style={{ borderColor: C.primary }}
+              >
                 <img
-                  src={member.image || 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80'}
+                  src={member.image}
                   alt={member.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4"
-                  style={{ background: 'rgba(37,33,49,0.7)' }}>
-                  <a href={`mailto:${member.name.toLowerCase().replace(' ', '')}@auraloom.com`}
-                    className="w-9 h-9 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110"
-                    style={{ background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.3)' }}
-                  >
-                    <Mail size={15} className="text-[#FAF9F5]" />
-                  </a>
-                </div>
               </div>
-              <div className="p-5 text-center border-t" style={{ borderColor: C.border }}>
-                <h3 className="text-base font-extrabold mb-0.5" style={{ color: C.textDark }}>{member.name}</h3>
-                <p className="text-[9px] uppercase tracking-widest font-extrabold" style={{ color: C.accent }}>{member.role}</p>
+
+              <div className="flex flex-col items-center">
+                <h3 className="text-base font-bold mb-0.5" style={{ color: C.textDark }}>{member.name}</h3>
+                <p className="text-[10px] uppercase tracking-widest font-bold mb-4" style={{ color: C.accent }}>{member.role}</p>
+                
+                <a href={`mailto:${member.name.toLowerCase().replace(' ', '')}@shreetextilemall.com`}
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-[10px] font-bold tracking-wider uppercase transition-all duration-200"
+                  style={{ background: 'rgba(197, 163, 119, 0.1)', color: C.primary }}
+                  onMouseEnter={e => { e.currentTarget.style.background = C.primary; e.currentTarget.style.color = '#FFFFFF'; }}
+                  onMouseLeave={e => { e.currentTarget.style.background = 'rgba(197, 163, 119, 0.1)'; e.currentTarget.style.color = C.primary; }}
+                >
+                  <Mail size={12} /> Contact
+                </a>
               </div>
             </div>
           ))}

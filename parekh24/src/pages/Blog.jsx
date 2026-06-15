@@ -2,13 +2,13 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
 const C = { 
-  primary: '#6E64B4', 
-  accent: '#6E64B4', 
-  bg: '#FAF9F5', 
-  border: '#E1DFEB', 
-  textDark: '#252131', 
-  textMid: '#252131', 
-  textMuted: '#6E64B4' 
+  primary: '#C5A377', 
+  accent: '#C5A377', 
+  bg: '#F6F1EA', 
+  border: '#E8E2D7', 
+  textDark: '#3D3025', 
+  textMid: '#3D3025', 
+  textMuted: '#C5A377' 
 };
 
 const posts = [
@@ -20,26 +20,26 @@ const posts = [
 
 export default function Blog() {
   return (
-    <div style={{ fontFamily: "'Urbanist', sans-serif", background: C.bg }}>
+    <div style={{ fontFamily: "'Jost', sans-serif", background: C.bg }}>
 
       {/* Hero Banner */}
       <div className="relative pt-16 sm:pt-24 pb-10 flex flex-col items-center justify-center text-center animate-fade-in"
-        style={{ background: 'linear-gradient(135deg, #FAF9F5 0%, #E1DFEB 100%)', borderBottom: `1px solid ${C.border}` }}>
+        style={{ background: 'linear-gradient(135deg, #F6F1EA 0%, #E8E2D7 100%)', borderBottom: `1px solid ${C.border}` }}>
         <div className="max-w-4xl mx-auto px-6 sm:px-10 w-full flex flex-col items-center">
-          <h1 className="font-black text-4xl sm:text-5xl mb-6 serif-title" style={{ color: C.textDark }}>
+          <h1 className="font-normal text-4xl sm:text-5xl mb-6 serif-title" style={{ color: C.textDark }}>
             Blog Page
           </h1>
           <p className="text-[16px] sm:text-[18px] italic mb-8 leading-relaxed max-w-3xl font-semibold opacity-80" style={{ color: C.textDark }}>
             "Join and participate in our nation-wide campaign to digitalize the Textile<br className="hidden md:block"/>
             Sector, one of the largest sectors of India."
           </p>
-          <h2 className="text-base sm:text-lg font-black tracking-widest mb-2 uppercase serif-title" style={{ color: C.textDark }}>
-            Aura Loom
+          <h2 className="text-base sm:text-lg font-bold tracking-widest mb-2 uppercase serif-title" style={{ color: C.textDark }}>
+            Shree Textile Mall
           </h2>
           <p className="text-[11px] sm:text-[13px] font-bold tracking-wide mb-1" style={{ color: C.accent }}>
             Textile Manufacturer & Entrepreneur
           </p>
-          <p className="text-[10px] sm:text-[11px] font-extrabold tracking-widest uppercase mb-8 opacity-70" style={{ color: C.textDark }}>
+          <p className="text-[10px] sm:text-[11px] font-bold tracking-widest uppercase mb-8 opacity-70" style={{ color: C.textDark }}>
             INDIA
           </p>
           <div className="w-32 sm:w-48 h-[1px]" style={{ background: C.border }} />

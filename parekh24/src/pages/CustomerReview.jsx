@@ -2,17 +2,17 @@ import { motion } from 'framer-motion';
 import { Quote, ArrowRight } from 'lucide-react';
 
 const C = { 
-  primary: '#6E64B4', 
-  accent: '#6E64B4', 
-  bg: '#FAF9F5', 
-  border: '#E1DFEB', 
-  textDark: '#252131', 
-  textMid: '#252131', 
-  textMuted: '#6E64B4' 
+  primary: '#C5A377', 
+  accent: '#C5A377', 
+  bg: '#F6F1EA', 
+  border: '#E8E2D7', 
+  textDark: '#3D3025', 
+  textMid: '#3D3025', 
+  textMuted: '#C5A377' 
 };
 
 const reviews = [
-  { text: "Aura Loom has been our trusted partner for years. The quality, prices and service are unmatched in the entire industry.", name: "Rajesh Sharma", role: "Retailer, Delhi", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" },
+  { text: "Shree Textile Mall has been our trusted partner for years. The quality, prices and service are unmatched in the entire industry.", name: "Rajesh Sharma", role: "Retailer, Delhi", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" },
   { text: "The export compliance and material quality are world-class. Their zero-defect policy has secured our global supply chain perfectly.", name: "Ahmed Al-Sayed", role: "Gulf Textiles, UAE", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop" },
   { text: "Highly impressed with their R&D. The custom high-tenacity fabric they developed exceeded all our durability benchmarks.", name: "Vikas Kulkarni", role: "National Solutions", image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop" },
   { text: "Incredible attention to detail. Every batch of fabric we receive is consistently perfect, saving us a lot of time.", name: "Anita Desai", role: "Design Head, Mumbai", image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop" },
@@ -20,14 +20,14 @@ const reviews = [
 
 export default function CustomerReview() {
   return (
-    <div style={{ fontFamily: "'Urbanist', sans-serif", background: C.bg }}>
+    <div style={{ fontFamily: "'Jost', sans-serif", background: C.bg }}>
 
       {/* Hero Banner */}
       <div className="relative h-36 sm:h-44 overflow-hidden flex items-center justify-center text-center animate-fade-in"
-        style={{ background: 'linear-gradient(135deg, #FAF9F5 0%, #E1DFEB 100%)', borderBottom: `1px solid ${C.border}` }}>
+        style={{ background: 'linear-gradient(135deg, #F6F1EA 0%, #E8E2D7 100%)', borderBottom: `1px solid ${C.border}` }}>
         <div className="relative max-w-7xl mx-auto px-6 sm:px-10 w-full">
-          <h1 className="font-black text-4xl sm:text-5xl serif-title" style={{ color: C.textDark }}>Customer Review</h1>
-          <div className="w-12 h-[2.5px] mx-auto mt-3 rounded-full" style={{ background: C.primary }} />
+          <h1 className="font-normal text-4xl sm:text-5xl serif-title" style={{ color: C.textDark }}>Customer Review</h1>
+          <div className="w-12 h-[2px] mx-auto mt-3 rounded-full" style={{ background: C.primary }} />
         </div>
       </div>
 
@@ -46,7 +46,7 @@ export default function CustomerReview() {
               onMouseLeave={e => { e.currentTarget.style.borderColor = C.border; }}
             >
               <div className="mb-5">
-                <Quote size={30} color={C.primary} className="rotate-180" fill="rgba(110,100,180,0.1)" />
+                <Quote size={30} color={C.primary} className="rotate-180" fill="rgba(197,163,119,0.1)" />
               </div>
               <p className="leading-relaxed text-[13.5px] mb-6 flex-grow line-clamp-4 font-medium italic opacity-95" style={{ color: C.textMid }}>
                 "{review.text}"
@@ -57,10 +57,10 @@ export default function CustomerReview() {
                     src={review.image}
                     alt={review.name}
                     className="w-11 h-11 rounded-full object-cover shadow-sm"
-                    style={{ border: `2px solid rgba(110,100,180,0.25)` }}
+                    style={{ border: `2px solid rgba(197,163,119,0.25)` }}
                   />
                   <div>
-                    <h4 className="font-black text-[14px] uppercase tracking-wide serif-title" style={{ color: C.textDark }}>{review.name}</h4>
+                    <h4 className="font-bold text-[14px] uppercase tracking-wide serif-title" style={{ color: C.textDark }}>{review.name}</h4>
                     <p className="text-[10px] mt-0.5 font-bold opacity-75" style={{ color: C.textDark }}>{review.role}</p>
                   </div>
                 </div>

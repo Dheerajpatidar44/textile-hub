@@ -1,15 +1,15 @@
 import { motion } from 'framer-motion';
 
 const C = { 
-  primary: '#6E64B4', 
-  primaryDark: '#252131', 
-  accent: '#6E64B4', 
-  bg: '#FAF9F5', 
-  bgLight: '#FAF9F5', 
-  border: '#E1DFEB', 
-  textDark: '#252131', 
-  textMid: '#252131', 
-  textMuted: '#6E64B4' 
+  primary: '#C5A377', 
+  primaryDark: '#3D3025', 
+  accent: '#C5A377', 
+  bg: '#F6F1EA', 
+  bgLight: '#FAF7F2', 
+  border: '#E8E2D7', 
+  textDark: '#3D3025', 
+  textMid: '#3D3025', 
+  textMuted: '#C5A377' 
 };
 
 const galleryItems = [
@@ -23,16 +23,16 @@ const galleryItems = [
 
 export default function BusinessMediaGallery() {
   return (
-    <div style={{ fontFamily: "'Urbanist', sans-serif", background: C.bg }}>
+    <div style={{ fontFamily: "'Jost', sans-serif", background: C.bg }}>
 
       {/* Hero Banner */}
       <div className="relative h-36 sm:h-44 overflow-hidden flex items-center justify-center text-center"
-        style={{ background: 'linear-gradient(135deg, #FAF9F5 0%, #E1DFEB 100%)', borderBottom: `1px solid ${C.border}` }}>
+        style={{ background: 'linear-gradient(135deg, #F6F1EA 0%, #E8E2D7 100%)', borderBottom: `1px solid ${C.border}` }}>
         <div className="relative max-w-7xl mx-auto px-6 sm:px-10 w-full">
-          <h1 className="font-black text-4xl sm:text-5xl serif-title" style={{ color: C.textDark }}>
+          <h1 className="font-normal text-4xl sm:text-5xl serif-title" style={{ color: C.textDark }}>
             Business Media Gallery
           </h1>
-          <div className="w-12 h-[2.5px] mx-auto mt-3 rounded-full" style={{ background: C.primary }} />
+          <div className="w-12 h-[2px] mx-auto mt-3 rounded-full" style={{ background: C.primary }} />
         </div>
       </div>
 
@@ -54,14 +54,14 @@ export default function BusinessMediaGallery() {
                   alt={item.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter saturate-[0.9]"
                 />
-                <div className="absolute top-2 left-2 px-2.5 py-1 rounded-full text-[9px] font-black uppercase tracking-widest text-[#FAF9F5] shadow-sm"
-                  style={{ background: 'rgba(37,33,49,0.7)', backdropFilter: 'blur(8px)' }}>
+                <div className="absolute top-2 left-2 px-2.5 py-1 rounded-full text-[9px] font-bold uppercase tracking-widest text-[#F6F1EA] shadow-sm"
+                  style={{ background: 'rgba(61,48,37,0.85)', backdropFilter: 'blur(8px)' }}>
                   {item.category}
                 </div>
               </div>
 
               <div className="p-5 flex flex-col flex-1">
-                <h3 className="font-black text-base mb-2 leading-snug transition-colors serif-title"
+                <h3 className="font-bold text-base mb-2 leading-snug transition-colors serif-title"
                   style={{ color: C.textDark }}>
                   {item.title}
                 </h3>

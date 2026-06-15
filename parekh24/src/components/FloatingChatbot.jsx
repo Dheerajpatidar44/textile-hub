@@ -6,32 +6,30 @@ const FloatingChatbot = () => {
   const [message, setMessage] = useState('');
 
   return (
-    <div className="fixed bottom-6 right-5 z-50 flex flex-col items-end" style={{ fontFamily: "'Urbanist', sans-serif" }}>
+    <div className="fixed bottom-6 right-5 z-50 flex flex-col items-end" style={{ fontFamily: "'Jost', sans-serif" }}>
       {isOpen && (
         <div
-          className="mb-4 w-[340px] sm:w-[370px] rounded-2xl overflow-hidden shadow-2xl"
-          style={{ border: '1.5px solid #E1DFEB', background: '#FFFFFF' }}
+          className="mb-4 w-[340px] sm:w-[370px] rounded-2xl overflow-hidden border"
+          style={{ borderColor: '#E8E2D7', background: '#FFFFFF' }}
         >
           {/* Header */}
           <div
             className="px-5 py-4 flex items-center justify-between relative"
-            style={{ background: 'linear-gradient(135deg, #6E64B4 0%, #252131 100%)' }}
+            style={{ background: '#C5A377' }}
           >
-            <div className="absolute top-0 left-0 right-0 h-0.5" style={{ background: '#6E64B4' }} />
-
             <div className="flex items-center gap-3">
               <div
                 className="w-9 h-9 rounded-full flex items-center justify-center shrink-0"
-                style={{ background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.2)' }}
+                style={{ background: '#3D3025' }}
               >
                 <Sparkles size={15} color="white" />
               </div>
               <div className="text-left">
                 <p className="text-white text-[13px] font-bold tracking-wide leading-tight">
-                  Aura Loom Assistant
+                  Shree Textile Mall Assistant
                 </p>
                 <div className="flex items-center gap-1.5 mt-0.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-purple-300" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-amber-200 animate-pulse" />
                   <span className="text-[10px] tracking-wide" style={{ color: 'rgba(255,255,255,0.6)' }}>
                     Online · Replies instantly
                   </span>
@@ -48,20 +46,20 @@ const FloatingChatbot = () => {
           </div>
 
           {/* Chat Body */}
-          <div className="p-5 h-64 overflow-y-auto" style={{ background: '#FAF9F5' }}>
+          <div className="p-5 h-64 overflow-y-auto" style={{ background: '#F6F1EA' }}>
             <div className="flex items-start gap-2.5 mb-4">
               <div
                 className="w-7 h-7 rounded-full flex items-center justify-center shrink-0 mt-0.5"
-                style={{ background: 'linear-gradient(135deg, #6E64B4 0%, #252131 100%)' }}
+                style={{ background: '#C5A377' }}
               >
                 <Sparkles size={11} color="white" />
               </div>
               <div
-                className="px-4 py-3 rounded-2xl rounded-tl-sm max-w-[82%] shadow-sm bg-white text-left"
-                style={{ border: '1px solid #E1DFEB' }}
+                className="px-4 py-3 rounded-2xl rounded-tl-sm max-w-[82%] bg-white text-left border"
+                style={{ borderColor: '#E8E2D7' }}
               >
-                <p className="text-[13px] leading-relaxed" style={{ color: '#252131' }}>
-                  Namaste! 🙏 Welcome to <strong>Aura Loom</strong>. How can I assist you today?
+                <p className="text-[13px] leading-relaxed" style={{ color: '#3D3025' }}>
+                  Namaste! 🙏 Welcome to <strong>Shree Textile Mall</strong>. How can I assist you today?
                 </p>
               </div>
             </div>
@@ -71,9 +69,9 @@ const FloatingChatbot = () => {
                 <button
                   key={chip}
                   className="text-[11px] font-bold px-3 py-1.5 rounded-full transition-all duration-200 hover:-translate-y-0.5 cursor-pointer"
-                  style={{ background: '#FFFFFF', border: '1.5px solid #E1DFEB', color: '#252131' }}
-                  onMouseEnter={e => { e.currentTarget.style.borderColor = '#6E64B4'; e.currentTarget.style.color = '#6E64B4'; e.currentTarget.style.background = '#FAF9F5'; }}
-                  onMouseLeave={e => { e.currentTarget.style.borderColor = '#E1DFEB'; e.currentTarget.style.color = '#252131'; e.currentTarget.style.background = '#FFFFFF'; }}
+                  style={{ background: '#FFFFFF', border: '1.5px solid #E8E2D7', color: '#3D3025' }}
+                  onMouseEnter={e => { e.currentTarget.style.borderColor = '#C5A377'; e.currentTarget.style.color = '#C5A377'; e.currentTarget.style.background = '#F6F1EA'; }}
+                  onMouseLeave={e => { e.currentTarget.style.borderColor = '#E8E2D7'; e.currentTarget.style.color = '#3D3025'; e.currentTarget.style.background = '#FFFFFF'; }}
                 >
                   {chip}
                 </button>
@@ -84,7 +82,7 @@ const FloatingChatbot = () => {
           {/* Input */}
           <div
             className="p-3 flex items-center gap-2.5 border-t bg-white"
-            style={{ borderColor: 'rgba(110,100,180,0.15)' }}
+            style={{ borderColor: 'rgba(197,163,119,0.15)' }}
           >
             <input
               type="text"
@@ -92,13 +90,13 @@ const FloatingChatbot = () => {
               value={message}
               onChange={e => setMessage(e.target.value)}
               className="flex-grow px-4 py-2.5 rounded-xl text-[13px] outline-none transition-all duration-200"
-              style={{ background: '#FAF9F5', border: '1.5px solid #E1DFEB', color: '#252131' }}
-              onFocus={e => e.target.style.borderColor = '#6E64B4'}
-              onBlur={e => e.target.style.borderColor = '#E1DFEB'}
+              style={{ background: '#F6F1EA', border: '1.5px solid #E8E2D7', color: '#3D3025' }}
+              onFocus={e => e.target.style.borderColor = '#C5A377'}
+              onBlur={e => e.target.style.borderColor = '#E8E2D7'}
             />
             <button
-              className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0 transition-all duration-200 hover:scale-110 hover:shadow-md cursor-pointer"
-              style={{ background: 'linear-gradient(135deg, #6E64B4 0%, #252131 100%)', boxShadow: '0 3px 10px rgba(110,100,180,0.25)' }}
+              className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0 transition-all duration-200 hover:scale-110 cursor-pointer border"
+              style={{ background: '#C5A377', borderColor: '#E8E2D7' }}
             >
               <Send size={15} color="white" />
             </button>
@@ -110,13 +108,10 @@ const FloatingChatbot = () => {
       <button
         onClick={() => setIsOpen(!isOpen)}
         aria-label="Open Chat Assistant"
-        className="w-[52px] h-[52px] rounded-full flex items-center justify-center shadow-2xl cursor-pointer transition-all duration-300"
+        className="w-[52px] h-[52px] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 border"
         style={{
-          background: isOpen
-            ? 'linear-gradient(135deg, #252131 0%, #6E64B4 100%)'
-            : 'linear-gradient(135deg, #6E64B4 0%, #252131 100%)',
-          border: '2px solid rgba(255,255,255,0.4)',
-          boxShadow: '0 6px 20px rgba(110,100,180,0.35)',
+          background: isOpen ? '#3D3025' : '#C5A377',
+          borderColor: '#E8E2D7',
         }}
       >
         {isOpen ? (

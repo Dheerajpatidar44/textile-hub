@@ -2,15 +2,15 @@ import { motion } from 'framer-motion';
 import { Briefcase, MapPin, Mail } from 'lucide-react';
 
 const C = { 
-  primary: '#6E64B4', 
-  primaryDark: '#252131', 
-  accent: '#6E64B4', 
-  bg: '#FAF9F5', 
-  bgLight: '#FAF9F5', 
-  border: '#E1DFEB', 
-  textDark: '#252131', 
-  textMid: '#252131', 
-  textMuted: '#6E64B4' 
+  primary: '#C5A377', 
+  primaryDark: '#3D3025', 
+  accent: '#C5A377', 
+  bg: '#F6F1EA', 
+  bgLight: '#FAF7F2', 
+  border: '#E8E2D7', 
+  textDark: '#3D3025', 
+  textMid: '#3D3025', 
+  textMuted: '#C5A377' 
 };
 
 const jobs = [
@@ -22,14 +22,14 @@ const jobs = [
 
 const Career = () => {
   return (
-    <div style={{ fontFamily: "'Urbanist', sans-serif", background: C.bg }}>
+    <div style={{ fontFamily: "'Jost', sans-serif", background: C.bg }}>
 
       {/* Hero Banner */}
       <div className="relative h-36 sm:h-44 overflow-hidden flex items-center justify-center text-center"
-        style={{ background: 'linear-gradient(135deg, #FAF9F5 0%, #E1DFEB 100%)', borderBottom: `1px solid ${C.border}` }}>
+        style={{ background: 'linear-gradient(135deg, #F6F1EA 0%, #E8E2D7 100%)', borderBottom: `1px solid ${C.border}` }}>
         <div className="relative max-w-7xl mx-auto px-6 sm:px-10 w-full">
-          <h1 className="font-black text-4xl sm:text-5xl serif-title" style={{ color: C.textDark }}>Career Page</h1>
-          <div className="w-12 h-[2.5px] mx-auto mt-3 rounded-full" style={{ background: C.primary }} />
+          <h1 className="font-normal text-4xl sm:text-5xl serif-title" style={{ color: C.textDark }}>Career Page</h1>
+          <div className="w-12 h-[2px] mx-auto mt-3 rounded-full" style={{ background: C.primary }} />
         </div>
       </div>
 
@@ -45,7 +45,7 @@ const Career = () => {
               style={{ borderColor: C.border }}
             >
               <div className="flex-grow max-w-4xl lg:pr-8">
-                <h3 className="text-xl sm:text-2xl font-black mb-3 leading-tight serif-title" style={{ color: C.textDark }}>
+                <h3 className="text-xl sm:text-2xl font-bold mb-3 leading-tight serif-title" style={{ color: C.textDark }}>
                   {job.title}
                 </h3>
                 <div className="flex flex-wrap items-center gap-4 md:gap-6 mb-4">
@@ -57,8 +57,8 @@ const Career = () => {
                   </div>
                   <div className="flex items-center gap-2 text-[13px] font-semibold opacity-75" style={{ color: C.textDark }}>
                     <Mail size={14} color={C.primary} />
-                    <a href="mailto:careers@auraloom.com" className="hover:underline" style={{ color: C.primary }}>
-                      careers@auraloom.com
+                    <a href="mailto:careers@shreetextilemall.com" className="hover:underline" style={{ color: C.primary }}>
+                      careers@shreetextilemall.com
                     </a>
                   </div>
                 </div>
@@ -67,10 +67,10 @@ const Career = () => {
 
               <div className="w-full lg:w-auto shrink-0 border-t lg:border-t-0 lg:border-l pt-5 lg:pt-0 lg:pl-8" style={{ borderColor: C.border }}>
                 <button
-                  className="w-full lg:w-44 py-3.5 rounded-xl text-[11px] font-black uppercase tracking-widest transition-all duration-200 hover:opacity-95 text-white shadow-sm cursor-pointer"
+                  className="w-full lg:w-44 py-3.5 rounded-xl text-[11px] font-bold uppercase tracking-widest transition-all duration-200 hover:opacity-95 text-white shadow-sm cursor-pointer"
                   style={{ background: C.primary }}
-                  onMouseEnter={e => e.currentTarget.style.background = C.primaryDark}
-                  onMouseLeave={e => e.currentTarget.style.background = C.primary}
+                  onMouseEnter={e => { e.currentTarget.style.background = C.primaryDark; e.currentTarget.style.color = '#F6F1EA'; }}
+                  onMouseLeave={e => { e.currentTarget.style.background = C.primary; e.currentTarget.style.color = '#3D3025'; }}
                 >
                   Apply Now
                 </button>

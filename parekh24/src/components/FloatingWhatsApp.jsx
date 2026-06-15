@@ -1,11 +1,11 @@
 import React from 'react';
 
 const COLORS = { 
-  primary: '#6E64B4', 
-  accent: '#252131', 
-  bg: '#FAF9F5', 
-  border: '#E1DFEB', 
-  textDark: '#252131' 
+  primary: '#C5A377', 
+  accent: '#3D3025', 
+  bg: '#F6F1EA', 
+  border: '#E8E2D7', 
+  textDark: '#3D3025' 
 };
 
 const FloatingWhatsApp = () => {
@@ -23,9 +23,8 @@ const FloatingWhatsApp = () => {
         style={{
           background: COLORS.bg,
           color: COLORS.textDark,
-          border: `1.5px solid ${COLORS.border}`,
-          boxShadow: '0 4px 12px rgba(110,100,180,0.15)',
-          fontFamily: "'Urbanist', sans-serif",
+          border: `1px solid ${COLORS.border}`,
+          fontFamily: "'Jost', sans-serif",
         }}
       >
         Chat on WhatsApp
@@ -33,11 +32,10 @@ const FloatingWhatsApp = () => {
 
       {/* Button */}
       <div
-        className="w-[52px] h-[52px] rounded-full flex items-center justify-center shadow-2xl transition-transform duration-300 hover:scale-110"
+        className="w-[52px] h-[52px] rounded-full flex items-center justify-center transition-transform duration-300 hover:scale-110 cursor-pointer border"
         style={{
-          background: `linear-gradient(135deg, ${COLORS.primary} 0%, ${COLORS.accent} 100%)`,
-          border: '2px solid rgba(255,255,255,0.3)',
-          boxShadow: '0 6px 20px rgba(110,100,180,0.35)',
+          background: COLORS.primary,
+          borderColor: COLORS.border,
         }}
       >
         <svg

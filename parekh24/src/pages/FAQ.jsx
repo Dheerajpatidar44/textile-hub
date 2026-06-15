@@ -3,15 +3,15 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus } from 'lucide-react';
 
 const C = { 
-  primary: '#6E64B4', 
-  primaryDark: '#252131', 
-  accent: '#6E64B4', 
-  bg: '#FAF9F5', 
-  bgLight: '#FAF9F5', 
-  border: '#E1DFEB', 
-  textDark: '#252131', 
-  textMid: '#252131', 
-  textMuted: '#6E64B4' 
+  primary: '#C5A377', 
+  primaryDark: '#3D3025', 
+  accent: '#C5A377', 
+  bg: '#F6F1EA', 
+  bgLight: '#FAF7F2', 
+  border: '#E8E2D7', 
+  textDark: '#3D3025', 
+  textMid: '#3D3025', 
+  textMuted: '#C5A377' 
 };
 
 const faqs = [
@@ -33,7 +33,7 @@ const faqs = [
   },
   {
     question: "Do you ship internationally?",
-    answer: "Yes, Aura Loom ships globally. International shipping charges and delivery times vary based on the destination and order volume."
+    answer: "Yes, Shree Textile Mall ships globally. International shipping charges and delivery times vary based on the destination and order volume."
   },
   {
     question: "Can I request custom fabric weaving or dyeing?",
@@ -49,15 +49,15 @@ export default function FAQ() {
   };
 
   return (
-    <div style={{ fontFamily: "'Urbanist', sans-serif", background: C.bg, minHeight: '100vh' }}>
+    <div style={{ fontFamily: "'Jost', sans-serif", background: C.bg, minHeight: '100vh' }}>
       {/* Hero Banner */}
       <div className="relative h-36 sm:h-44 overflow-hidden flex items-center justify-center text-center animate-fade-in"
-        style={{ background: 'linear-gradient(135deg, #FAF9F5 0%, #E1DFEB 100%)', borderBottom: `1px solid ${C.border}` }}>
+        style={{ background: 'linear-gradient(135deg, #F6F1EA 0%, #E8E2D7 100%)', borderBottom: `1px solid ${C.border}` }}>
         <div className="relative max-w-7xl mx-auto px-6 sm:px-10 w-full">
-          <h1 className="font-black text-4xl sm:text-5xl serif-title" style={{ color: C.textDark }}>
+          <h1 className="font-normal text-4xl sm:text-5xl serif-title" style={{ color: C.textDark }}>
             FAQ
           </h1>
-          <div className="w-12 h-[2.5px] mx-auto mt-3 rounded-full" style={{ background: C.primary }} />
+          <div className="w-12 h-[2px] mx-auto mt-3 rounded-full" style={{ background: C.primary }} />
         </div>
       </div>
 
@@ -83,8 +83,8 @@ export default function FAQ() {
                     {faq.question}
                   </h3>
                   <div className="shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors border"
-                    style={{ background: isOpen ? C.primary : 'rgba(110, 100, 180, 0.08)', borderColor: isOpen ? C.primary : C.border }}>
-                    {isOpen ? <Minus size={16} color="#FAF9F5" /> : <Plus size={16} color={C.primary} />}
+                    style={{ background: isOpen ? C.primary : 'rgba(197, 163, 119, 0.08)', borderColor: isOpen ? C.primary : C.border }}>
+                    {isOpen ? <Minus size={16} color="#F6F1EA" /> : <Plus size={16} color={C.primary} />}
                   </div>
                 </button>
 

@@ -86,13 +86,13 @@ const allProducts = [
 ];
 
 const C = {
-  primary: '#6E64B4',
-  primaryDark: '#252131',
-  accent: '#6E64B4',
-  bg: '#FAF9F5',
-  border: '#E1DFEB',
-  textDark: '#252131',
-  textMid: '#252131',
+  primary: '#C5A377',
+  primaryDark: '#3D3025',
+  accent: '#C5A377',
+  bg: '#F6F1EA',
+  border: '#E8E2D7',
+  textDark: '#3D3025',
+  textMid: '#3D3025',
 };
 
 export default function Products() {
@@ -117,11 +117,11 @@ export default function Products() {
     : allProducts.filter(p => p.category === activeCategory);
 
   return (
-    <div style={{ fontFamily: "'Urbanist', sans-serif", background: C.bg, minHeight: '100vh' }}>
+    <div style={{ fontFamily: "'Jost', sans-serif", background: C.bg, minHeight: '100vh' }}>
 
       {/* Hero Banner */}
       <div className="relative h-44 sm:h-52 overflow-hidden flex items-center justify-center text-center animate-fade-in"
-        style={{ background: 'linear-gradient(135deg, #FAF9F5 0%, #E1DFEB 100%)', borderBottom: `1px solid ${C.border}` }}>
+        style={{ background: 'linear-gradient(135deg, #F6F1EA 0%, #E8E2D7 100%)', borderBottom: `1px solid ${C.border}` }}>
         <div className="relative max-w-7xl mx-auto px-6 sm:px-10 w-full flex flex-col items-center justify-center gap-4 mt-4">
           <h1 className="font-normal text-4xl sm:text-5xl tracking-tight serif-title" style={{ color: C.textDark }}>
             Product Page
@@ -129,7 +129,7 @@ export default function Products() {
           <div>
             <div className="flex items-center gap-2 px-5 py-2.5 rounded-full shadow-sm bg-white border" style={{ borderColor: C.border, color: C.primary }}>
               <ShoppingBag size={15} className="shrink-0" />
-              <span className="font-extrabold text-[12px]">{filteredProducts.length} Designs Available</span>
+              <span className="font-bold text-[12px]">{filteredProducts.length} Designs Available</span>
             </div>
           </div>
         </div>

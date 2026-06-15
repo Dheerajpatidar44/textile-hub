@@ -3,11 +3,11 @@ import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const COLORS = { 
-  primary: '#6E64B4', 
-  accent: '#6E64B4', 
-  bg: '#FAF9F5', 
-  border: '#E1DFEB', 
-  textDark: '#252131' 
+  primary: '#C5A377', 
+  accent: '#C5A377', 
+  bg: '#F6F1EA', 
+  border: '#E8E2D7', 
+  textDark: '#3D3025' 
 };
 
 const InstagramIcon = () => (
@@ -56,7 +56,7 @@ export default function FloatingSocials() {
         transition={{ type: 'spring', stiffness: 300, damping: 30 }}
         className="flex flex-col items-center rounded-r-2xl shadow-2xl py-5 px-3.5 relative"
         style={{
-          background: 'rgba(37,33,49,0.95)', // #252131 with opacity
+          background: 'rgba(61,48,37,0.95)', // #3D3025 with opacity
           backdropFilter: 'blur(8px)',
           border: '1px solid rgba(255,255,255,0.1)',
           borderLeft: 'none',
@@ -92,7 +92,7 @@ export default function FloatingSocials() {
             color: '#FAF9F5',
             borderColor: 'rgba(255,255,255,0.1)',
           }}
-          onMouseEnter={e => { e.currentTarget.style.background = '#252131'; e.currentTarget.style.color = COLORS.primary; }}
+          onMouseEnter={e => { e.currentTarget.style.background = '#3D3025'; e.currentTarget.style.color = COLORS.primary; }}
           onMouseLeave={e => { e.currentTarget.style.background = COLORS.primary; e.currentTarget.style.color = '#FAF9F5'; }}
           aria-label={isExpanded ? "Collapse socials" : "Expand socials"}
         >

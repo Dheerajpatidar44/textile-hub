@@ -2,33 +2,33 @@ import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const COLORS = { 
-  primary: '#6E64B4', 
-  accent: '#6E64B4', 
-  bg: '#FAF9F5', 
-  border: '#E1DFEB', 
-  textDark: '#252131', 
-  textMid: '#252131', 
+  primary: '#C5A377', 
+  accent: '#C5A377', 
+  bg: '#F6F1EA', 
+  border: '#E8E2D7', 
+  textDark: '#3D3025', 
+  textMid: '#3D3025', 
 };
 
 export default function Contact() {
   const contactDetails = [
-    { icon: MapPin, label: 'Headquarters', lines: ['123 Premium Textile Avenue', 'Fashion District, Chennai, TN, India'] },
+    { icon: MapPin, label: 'Headquarters', lines: ['123 Shree Textile Avenue', 'Fashion & Weaving District, Ahmedabad, India'] },
     { icon: Phone, label: 'Call Us', lines: ['+91 6353778329'] },
-    { icon: Mail, label: 'Email Enquiries', lines: ['info@auraloom.com', 'sales@auraloom.com'] },
+    { icon: Mail, label: 'Email Enquiries', lines: ['info@shreetextilemall.com', 'sales@shreetextilemall.com'] },
     { icon: Clock, label: 'Business Hours', lines: ['Mon - Sat: 9:00 AM - 6:00 PM', 'Sunday: Closed'] },
   ];
 
   return (
-    <div style={{ fontFamily: "'Urbanist', sans-serif", background: COLORS.bg, minHeight: '100vh' }}>
+    <div style={{ fontFamily: "'Jost', sans-serif", background: COLORS.bg, minHeight: '100vh' }}>
 
       {/* Hero Banner */}
       <div className="relative h-36 sm:h-44 overflow-hidden flex items-center justify-center text-center animate-fade-in"
-        style={{ background: 'linear-gradient(135deg, #FAF9F5 0%, #E1DFEB 100%)', borderBottom: `1px solid ${COLORS.border}` }}>
+        style={{ background: 'linear-gradient(135deg, #F6F1EA 0%, #E8E2D7 100%)', borderBottom: `1px solid ${COLORS.border}` }}>
         <div className="relative max-w-7xl mx-auto px-6 sm:px-10 w-full">
-          <h1 className="font-black text-4xl sm:text-5xl serif-title" style={{ color: COLORS.textDark }}>
+          <h1 className="font-normal text-4xl sm:text-5xl serif-title" style={{ color: COLORS.textDark }}>
             Contact us
           </h1>
-          <div className="w-12 h-[2.5px] mx-auto mt-3 rounded-full" style={{ background: COLORS.primary }} />
+          <div className="w-12 h-[2px] mx-auto mt-3 rounded-full" style={{ background: COLORS.primary }} />
         </div>
       </div>
 
@@ -48,11 +48,11 @@ export default function Contact() {
               style={{ borderColor: COLORS.border }}
             >
               <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 border mb-4"
-                style={{ background: 'rgba(110, 100, 180, 0.06)', borderColor: 'rgba(110, 100, 180, 0.1)' }}>
+                style={{ background: 'rgba(197, 163, 119, 0.06)', borderColor: 'rgba(197, 163, 119, 0.1)' }}>
                 <Icon size={18} color={COLORS.primary} />
               </div>
               <div>
-                <p className="text-[10px] font-extrabold tracking-[0.18em] uppercase mb-1.5" style={{ color: COLORS.primary }}>
+                <p className="text-[10px] font-bold tracking-[0.18em] uppercase mb-1.5" style={{ color: COLORS.primary }}>
                   {label}
                 </p>
                 {lines.map((line, i) => (
@@ -80,7 +80,7 @@ export default function Contact() {
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Aura Loom Location Map"
+              title="Shree Textile Mall Location Map"
             />
           </div>
         </motion.div>

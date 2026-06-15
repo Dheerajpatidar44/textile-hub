@@ -3,9 +3,9 @@ import { Menu, X, ChevronDown, Phone } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 const BRAND = {
-  name: 'Aura Loom',
-  line1: 'Aura',
-  line2: 'LOOM',
+  name: 'Shree Textile Mall',
+  line1: 'Shree',
+  line2: 'Textile Mall',
 };
 
 export default function Navbar() {
@@ -54,32 +54,32 @@ export default function Navbar() {
   const isMoreActive = moreLinks.some(l => location.pathname === l.path);
 
   return (
-    <header className="w-full sticky top-0 z-50 transition-all duration-300" style={{ fontFamily: "'Urbanist', sans-serif" }}>
+    <header className="w-full fixed top-0 left-0 z-50 transition-all duration-300" style={{ fontFamily: "'Jost', sans-serif" }}>
 
       {/* ── SINGLE NAVBAR ROW ── */}
-      <div className={`w-full bg-[#FAF9F5] transition-all duration-300 ${scrolled ? 'shadow-md py-2' : 'border-b py-4'}`}
-        style={{ borderColor: '#E1DFEB' }}>
+      <div className={`w-full bg-[#F6F1EA] transition-all duration-300 border-b py-4 ${scrolled ? 'shadow-md' : ''}`}
+        style={{ borderColor: '#E8E2D7' }}>
         <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-12 flex justify-between items-center">
           
           {/* Logo & Brand Name */}
           <Link to="/" className="flex items-center gap-3 group shrink-0">
             <div
               className="w-10 h-10 rounded-xl flex items-center justify-center border group-hover:scale-105 transition-transform duration-300 shadow-sm"
-              style={{ background: 'linear-gradient(135deg, #6E64B4, #252131)', borderColor: 'rgba(110,100,180,0.3)' }}
+              style={{ background: 'linear-gradient(135deg, #C5A377, #3D3025)', borderColor: 'rgba(197,163,119,0.3)' }}
             >
-              <svg viewBox="0 0 100 100" className="w-6 h-6 text-[#FAF9F5]" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg viewBox="0 0 100 100" className="w-6 h-6 text-[#F6F1EA]" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M20 35 C20 35, 50 20, 80 35 L80 55 C80 70, 65 80, 50 80 C35 80, 20 70, 20 55 Z"
                   stroke="currentColor" strokeWidth="4" fill="none" strokeLinejoin="round" />
-                <path d="M30 45 L50 55 L70 45" stroke="#FAF9F5" strokeWidth="3" strokeLinecap="round" />
-                <circle cx="50" cy="55" r="4" fill="#6E64B4" />
+                <path d="M30 45 L50 55 L70 45" stroke="#F6F1EA" strokeWidth="3" strokeLinecap="round" />
+                <circle cx="50" cy="55" r="4" fill="#C5A377" />
               </svg>
             </div>
             <div className="flex flex-col text-left">
-              <span className="text-xl font-bold tracking-wide leading-none uppercase serif-title" style={{ color: '#252131' }}>
-                Aura Loom
+              <span className="text-xl font-bold tracking-wide leading-none uppercase serif-title" style={{ color: '#3D3025' }}>
+                Shree Textile Mall
               </span>
-              <span className="text-[8.5px] tracking-[0.3em] uppercase leading-tight font-bold mt-1" style={{ color: '#6E64B4' }}>
-                artisan loom
+              <span className="text-[8.5px] tracking-[0.3em] uppercase leading-tight font-bold mt-1" style={{ color: '#C5A377' }}>
+                premium textile hub
               </span>
             </div>
           </Link>
@@ -92,14 +92,14 @@ export default function Navbar() {
                 <Link
                   key={link.name}
                   to={link.path}
-                  className="relative text-[12px] font-bold tracking-wider transition-colors duration-200 py-2"
-                  style={{ color: isActive ? '#6E64B4' : '#252131' }}
-                  onMouseEnter={e => { if (!isActive) e.currentTarget.style.color = '#6E64B4'; }}
-                  onMouseLeave={e => { if (!isActive) e.currentTarget.style.color = '#252131'; }}
+                  className="relative text-[14px] font-bold tracking-wider transition-colors duration-200 py-2"
+                  style={{ color: isActive ? '#C5A377' : '#3D3025' }}
+                  onMouseEnter={e => { if (!isActive) e.currentTarget.style.color = '#C5A377'; }}
+                  onMouseLeave={e => { if (!isActive) e.currentTarget.style.color = '#3D3025'; }}
                 >
                   {link.name}
                   {isActive && (
-                    <span className="absolute bottom-0 left-0 right-0 h-[2px] rounded-full" style={{ background: '#6E64B4' }} />
+                    <span className="absolute bottom-0 left-0 right-0 h-[2px] rounded-full" style={{ background: '#C5A377' }} />
                   )}
                 </Link>
               );
@@ -112,10 +112,10 @@ export default function Navbar() {
               onMouseLeave={() => setIsMoreOpen(false)}
             >
               <button
-                className="relative flex items-center gap-1 text-[12px] font-bold tracking-wider transition-colors duration-200 py-2"
-                style={{ color: isMoreActive ? '#6E64B4' : '#252131' }}
-                onMouseEnter={e => { if (!isMoreActive) e.currentTarget.style.color = '#6E64B4'; }}
-                onMouseLeave={e => { if (!isMoreActive) e.currentTarget.style.color = '#252131'; }}
+                className="relative flex items-center gap-1 text-[14px] font-bold tracking-wider transition-colors duration-200 py-2"
+                style={{ color: isMoreActive ? '#C5A377' : '#3D3025' }}
+                onMouseEnter={e => { if (!isMoreActive) e.currentTarget.style.color = '#C5A377'; }}
+                onMouseLeave={e => { if (!isMoreActive) e.currentTarget.style.color = '#3D3025'; }}
               >
                 MORE
                 <ChevronDown
@@ -123,26 +123,26 @@ export default function Navbar() {
                   className={`transition-transform duration-200 ${isMoreOpen ? 'rotate-180' : ''}`}
                 />
                 {isMoreActive && (
-                  <span className="absolute bottom-0 left-0 right-0 h-[2px] rounded-full" style={{ background: '#6E64B4' }} />
+                  <span className="absolute bottom-0 left-0 right-0 h-[2px] rounded-full" style={{ background: '#C5A377' }} />
                 )}
               </button>
 
               {isMoreOpen && (
                 <div className="absolute top-full right-0 w-64 bg-white border rounded-xl shadow-xl overflow-hidden mt-1 py-2 z-50"
-                  style={{ borderColor: '#E1DFEB' }}>
+                  style={{ borderColor: '#E8E2D7' }}>
                   {moreLinks.map((link) => {
                     const isActive = location.pathname === link.path;
                     return (
                       <Link
                         key={link.name}
                         to={link.path}
-                        className="block px-5 py-2.5 text-[11px] font-bold tracking-wider transition-all duration-150 text-left"
+                        className="block px-5 py-2.5 text-[13px] font-bold tracking-wider transition-all duration-150 text-left"
                         style={{
-                          background: isActive ? '#FAF9F5' : 'transparent',
-                          color: isActive ? '#6E64B4' : '#252131',
+                          background: isActive ? '#F6F1EA' : 'transparent',
+                          color: isActive ? '#C5A377' : '#3D3025',
                         }}
-                        onMouseEnter={e => { if (!isActive) { e.currentTarget.style.background = '#FAF9F5'; e.currentTarget.style.color = '#6E64B4'; e.currentTarget.style.paddingLeft = '24px'; } }}
-                        onMouseLeave={e => { if (!isActive) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#252131'; e.currentTarget.style.paddingLeft = '20px'; } }}
+                        onMouseEnter={e => { if (!isActive) { e.currentTarget.style.background = '#F6F1EA'; e.currentTarget.style.color = '#C5A377'; e.currentTarget.style.paddingLeft = '24px'; } }}
+                        onMouseLeave={e => { if (!isActive) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#3D3025'; e.currentTarget.style.paddingLeft = '20px'; } }}
                       >
                         {link.name}
                       </Link>
@@ -167,7 +167,7 @@ export default function Navbar() {
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="lg:hidden focus:outline-none p-2 rounded-lg transition-colors border"
-              style={{ color: '#252131', borderColor: '#E1DFEB', background: '#FFFFFF' }}
+              style={{ color: '#3D3025', borderColor: '#E8E2D7', background: '#FFFFFF' }}
               aria-label="Toggle menu"
             >
               {isOpen ? <X size={20} /> : <Menu size={20} />}
@@ -178,10 +178,10 @@ export default function Navbar() {
 
       {/* ── MOBILE DRAWER NAVIGATION (All 15 sequential links) ── */}
       {isOpen && (
-        <div className="lg:hidden fixed inset-0 top-[76px] bg-[#FAF9F5] z-40 flex flex-col" style={{ fontFamily: "'Urbanist', sans-serif" }}>
+        <div className="lg:hidden fixed inset-0 top-[76px] bg-[#F6F1EA] z-40 flex flex-col" style={{ fontFamily: "'Jost', sans-serif" }}>
           <div className="flex-1 overflow-y-auto px-6 py-8 pb-24 space-y-1.5 text-left">
             
-            <p className="px-5 text-[10px] font-bold tracking-[0.2em] uppercase mb-3 text-opacity-70" style={{ color: '#252131' }}>Main Navigation</p>
+            <p className="px-5 text-[10px] font-bold tracking-[0.2em] uppercase mb-3 text-opacity-70" style={{ color: '#3D3025' }}>Main Navigation</p>
             {mainLinks.map((link) => {
               const isActive = location.pathname === link.path;
               return (
@@ -189,10 +189,10 @@ export default function Navbar() {
                   key={link.name}
                   to={link.path}
                   onClick={() => setIsOpen(false)}
-                  className="flex items-center justify-between px-5 py-3.5 rounded-xl text-[13px] font-bold tracking-wider transition-all duration-200 bg-white shadow-sm border"
+                  className="flex items-center justify-between px-5 py-3.5 rounded-xl text-[14px] font-bold tracking-wider transition-all duration-200 bg-white shadow-sm border"
                   style={{
-                    borderColor: isActive ? '#6E64B4' : '#E1DFEB',
-                    color: isActive ? '#6E64B4' : '#252131',
+                    borderColor: isActive ? '#C5A377' : '#E8E2D7',
+                    color: isActive ? '#C5A377' : '#3D3025',
                   }}
                 >
                   <span>{link.name}</span>
@@ -200,8 +200,8 @@ export default function Navbar() {
               );
             })}
 
-            <div className="h-px my-6" style={{ background: '#E1DFEB' }} />
-            <p className="px-5 text-[10px] font-bold tracking-[0.2em] uppercase mb-3 text-opacity-70" style={{ color: '#252131' }}>More Pages</p>
+            <div className="h-px my-6" style={{ background: '#E8E2D7' }} />
+            <p className="px-5 text-[10px] font-bold tracking-[0.2em] uppercase mb-3 text-opacity-70" style={{ color: '#3D3025' }}>More Pages</p>
 
             <div className="space-y-1.5 text-left">
               {moreLinks.map((link) => {
@@ -211,11 +211,11 @@ export default function Navbar() {
                     key={link.name}
                     to={link.path}
                     onClick={() => setIsOpen(false)}
-                    className="flex items-center px-5 py-3 rounded-lg text-[12px] font-bold tracking-wider transition-all duration-200 border"
+                    className="flex items-center px-5 py-3 rounded-lg text-[13px] font-bold tracking-wider transition-all duration-200 border"
                     style={{
                       background: isActive ? '#FFFFFF' : 'transparent',
-                      color: isActive ? '#6E64B4' : '#252131',
-                      borderColor: isActive ? '#6E64B4' : 'transparent',
+                      color: isActive ? '#C5A377' : '#3D3025',
+                      borderColor: isActive ? '#C5A377' : 'transparent',
                     }}
                   >
                     <span>{link.name}</span>

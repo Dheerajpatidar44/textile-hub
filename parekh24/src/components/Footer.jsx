@@ -31,45 +31,43 @@ const TwitterIcon = () => (
 
 export default function Footer() {
   return (
-    <footer style={{ background: '#252131', fontFamily: "'Urbanist', sans-serif", borderTop: '1px solid rgba(110,100,180,0.1)' }}>
-      {/* Accent top lavender bar */}
-      <div className="h-0.5 w-full" style={{ background: '#6E64B4' }} />
+    <footer style={{ background: '#3D3025', fontFamily: "'Jost', sans-serif" }}>
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 text-left">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-10">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 text-left">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-10">
 
           {/* Brand Column */}
           <div className="col-span-2 lg:col-span-1">
-            <div className="flex items-center gap-3 mb-5">
+            <div className="flex items-center gap-3 mb-6">
               <div
                 className="w-10 h-10 rounded-lg flex items-center justify-center shadow-md"
                 style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}
               >
-                <svg viewBox="0 0 100 100" className="w-6 h-6 text-[#FAF9F5]" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg viewBox="0 0 100 100" className="w-6 h-6 text-[#F6F1EA]" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M20 35 C20 35, 50 20, 80 35 L80 55 C80 70, 65 80, 50 80 C35 80, 20 70, 20 55 Z"
                     stroke="currentColor" strokeWidth="4" fill="none" strokeLinejoin="round" />
-                  <path d="M30 45 L50 55 L70 45" stroke="#FAF9F5" strokeWidth="3" strokeLinecap="round" />
-                  <circle cx="50" cy="55" r="4" fill="#6E64B4" />
+                  <path d="M30 45 L50 55 L70 45" stroke="#F6F1EA" strokeWidth="3" strokeLinecap="round" />
+                  <circle cx="50" cy="55" r="4" fill="#C5A377" />
                 </svg>
               </div>
               <div>
-                <div className="text-white text-xl font-black tracking-wider leading-none uppercase serif-title">
-                  Aura Loom
+                <div className="text-white text-xl font-bold tracking-wider leading-none uppercase serif-title">
+                  Shree Textile Mall
                 </div>
-                <div className="text-[8.5px] tracking-widest uppercase mt-1 font-black" style={{ color: '#6E64B4' }}>
-                  artisan loom
+                <div className="text-[8.5px] tracking-widest uppercase mt-1 font-bold" style={{ color: '#C5A377' }}>
+                  premium textile hub
                 </div>
               </div>
             </div>
-            <p className="text-sm leading-relaxed mb-6 font-medium" style={{ color: 'rgba(250,249,245,0.75)' }}>
-              Your trusted partner in premium artisan textiles, sustainable handlooms, and luxury apparel. Spanning across 1200+ outlets in India.
+            <p className="text-sm leading-relaxed mb-6 font-medium text-white/75">
+              Your trusted partner in premium artisan textiles, sustainable handlooms, and luxury apparel. Spanning across 1000+ outlets in India.
             </p>
           </div>
 
           {/* Company links */}
           <div className="col-span-1">
-            <h3 className="text-white text-base font-black mb-5 tracking-wide uppercase">Company</h3>
-            <ul className="space-y-2.5">
+            <h3 className="text-white text-base font-bold mb-6 tracking-wide uppercase serif-title">Company</h3>
+            <ul className="space-y-3">
               {[
                 { name: 'About Us', path: '/about' },
                 { name: 'Product Page', path: '/products' },
@@ -79,12 +77,11 @@ export default function Footer() {
                 <li key={link.name}>
                   <Link
                     to={link.path}
-                    className="flex items-center gap-1.5 group font-semibold transition-colors duration-200 text-left"
-                    style={{ color: 'rgba(250,249,245,0.85)' }}
-                    onMouseEnter={e => e.currentTarget.style.color = '#6E64B4'}
-                    onMouseLeave={e => e.currentTarget.style.color = 'rgba(250,249,245,0.85)'}
+                    className="flex items-center gap-2 group font-medium transition-colors duration-200 text-left text-white/80"
+                    onMouseEnter={e => e.currentTarget.style.color = '#C5A377'}
+                    onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.8)'}
                   >
-                    <span className="w-1 h-1 rounded-full shrink-0 transition-colors" style={{ background: 'rgba(110,100,180,0.4)' }} />
+                    <span className="w-1 h-1 rounded-full shrink-0 transition-colors bg-white/30 group-hover:bg-[#C5A377]" />
                     <span className="truncate">{link.name}</span>
                   </Link>
                 </li>
@@ -94,8 +91,8 @@ export default function Footer() {
 
           {/* Services links */}
           <div className="col-span-1">
-            <h3 className="text-white text-base font-black mb-5 tracking-wide uppercase">Services</h3>
-            <ul className="space-y-2.5">
+            <h3 className="text-white text-base font-bold mb-6 tracking-wide uppercase serif-title">Services</h3>
+            <ul className="space-y-3">
               {[
                 { name: 'e-Quotation', path: '/e-quotation' },
                 { name: 'e-Auction', path: '/e-auction' },
@@ -105,12 +102,11 @@ export default function Footer() {
                 <li key={link.name}>
                   <Link
                     to={link.path}
-                    className="flex items-center gap-1.5 group font-semibold transition-colors duration-200 text-left"
-                    style={{ color: 'rgba(250,249,245,0.85)' }}
-                    onMouseEnter={e => e.currentTarget.style.color = '#6E64B4'}
-                    onMouseLeave={e => e.currentTarget.style.color = 'rgba(250,249,245,0.85)'}
+                    className="flex items-center gap-2 group font-medium transition-colors duration-200 text-left text-white/80"
+                    onMouseEnter={e => e.currentTarget.style.color = '#C5A377'}
+                    onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.8)'}
                   >
-                    <span className="w-1 h-1 rounded-full shrink-0" style={{ background: 'rgba(110,100,180,0.4)' }} />
+                    <span className="w-1 h-1 rounded-full shrink-0 transition-colors bg-white/30 group-hover:bg-[#C5A377]" />
                     <span className="truncate">{link.name}</span>
                   </Link>
                 </li>
@@ -120,21 +116,21 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div className="col-span-2 lg:col-span-1">
-            <h3 className="text-white text-base font-black mb-5 tracking-wide uppercase">Contact Us</h3>
+            <h3 className="text-white text-base font-bold mb-6 tracking-wide uppercase serif-title">Contact Us</h3>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
-                <MapPin size={16} className="mt-0.5 shrink-0" color="#6E64B4" />
-                <span className="text-sm leading-relaxed font-semibold text-left" style={{ color: 'rgba(250,249,245,0.85)' }}>
-                  123 Premium Textile Avenue,<br />Fashion District, Chennai, TN, India
+                <MapPin size={16} className="mt-0.5 shrink-0" color="#C5A377" />
+                <span className="text-sm leading-relaxed font-medium text-left text-white/80">
+                  123 Shree Textile Avenue,<br />Fashion & Weaving District,<br />Ahmedabad, Gujarat, India
                 </span>
               </li>
               <li className="flex items-center gap-3">
-                <Phone size={15} className="shrink-0" color="#6E64B4" />
-                <span className="text-sm font-semibold" style={{ color: 'rgba(250,249,245,0.85)' }}>+91 6353778329</span>
+                <Phone size={15} className="shrink-0" color="#C5A377" />
+                <span className="text-sm font-medium text-white/80">+91 6353778329</span>
               </li>
               <li className="flex items-center gap-3">
-                <Mail size={15} className="shrink-0" color="#6E64B4" />
-                <span className="text-sm font-semibold" style={{ color: 'rgba(250,249,245,0.85)' }}>info@auraloom.com</span>
+                <Mail size={15} className="shrink-0" color="#C5A377" />
+                <span className="text-sm font-medium text-white/80">info@shreetextilemall.com</span>
               </li>
             </ul>
           </div>
@@ -142,22 +138,22 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div
-          className="mt-12 pt-6 border-t flex flex-col sm:flex-row justify-between items-center gap-4"
+          className="mt-16 pt-8 border-t flex flex-col sm:flex-row justify-between items-center gap-4"
           style={{ borderColor: 'rgba(255,255,255,0.08)' }}
         >
-          <a href="tel:+916353778329" className="hover:underline text-xs font-black flex items-center gap-1.5 transition-colors" style={{ color: '#6E64B4' }}>
+          <a href="tel:+916353778329" className="hover:underline text-xs font-bold flex items-center gap-1.5 transition-colors" style={{ color: '#C5A377' }}>
             <Phone size={12} /> Call Us: +91 6353778329
           </a>
           
           <div className="flex gap-5 items-center">
-             <a href="#" className="text-white opacity-60 hover:opacity-100 hover:text-[#6E64B4] transition-colors"><FacebookIcon /></a>
-             <a href="#" className="text-white opacity-60 hover:opacity-100 hover:text-[#6E64B4] transition-colors"><TwitterIcon /></a>
-             <a href="#" className="text-white opacity-60 hover:opacity-100 hover:text-[#6E64B4] transition-colors"><InstagramIcon /></a>
-             <a href="#" className="text-white opacity-60 hover:opacity-100 hover:text-[#6E64B4] transition-colors"><LinkedinIcon /></a>
+             <a href="#" className="text-white opacity-60 hover:opacity-100 hover:text-[#C5A377] transition-colors"><FacebookIcon /></a>
+             <a href="#" className="text-white opacity-60 hover:opacity-100 hover:text-[#C5A377] transition-colors"><TwitterIcon /></a>
+             <a href="#" className="text-white opacity-60 hover:opacity-100 hover:text-[#C5A377] transition-colors"><InstagramIcon /></a>
+             <a href="#" className="text-white opacity-60 hover:opacity-100 hover:text-[#C5A377] transition-colors"><LinkedinIcon /></a>
           </div>
 
-          <p className="text-xs tracking-wide font-semibold text-center sm:text-right" style={{ color: 'rgba(250,249,245,0.6)' }}>
-            © 2026 · All Rights Reserved · AURA LOOM
+          <p className="text-xs tracking-wide font-medium text-center sm:text-right text-white/60">
+            © 2026 · All Rights Reserved · SHREE TEXTILE MALL
           </p>
         </div>
       </div>

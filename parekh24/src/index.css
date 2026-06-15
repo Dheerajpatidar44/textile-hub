@@ -2,38 +2,38 @@
 
 @theme {
   /* ── 3-Color Strict Palette Mappings ── */
-  --color-primary: #6E64B4;      /* 1. Refined Lavender Accent */
-  --color-accent: #6E64B4;       /* 1. Refined Lavender Accent */
-  --color-cream-100: #FAF9F5;    /* 2. Ivory Silk Background */
+  --color-primary: #C5A377;      /* 1. Warm Gold/Bronze Accent */
+  --color-accent: #C5A377;       /* 1. Warm Gold/Bronze Accent */
+  --color-cream-100: #F6F1EA;    /* 2. Soft Ivory/Sand Background */
   --color-cream-200: #FFFFFF;    /* Pure White (Card bases) */
-  --color-cream-300: #FAF9F5;    /* Same background to maintain 3-color rules */
-  --color-cream-450: #FAF9F5;
-  --color-dark-800: #252131;     /* 3. Dark Amethyst (Typography, solid elements, borders) */
-  --color-border: #E1DFEB;       /* Light tint of Lavender/Dark for borders */
+  --color-cream-300: #FAF7F2;    /* Warm Cream Background */
+  --color-cream-450: #FCFAF7;
+  --color-dark-800: #3D3025;     /* 3. Deep Bronze Brown (Typography, solid elements, borders) */
+  --color-border: #E8E2D7;       /* Light Warm Sand for borders */
   
   /* ── Font Family ── */
-  --font-serif: 'Prata', serif;
-  --font-sans: 'Urbanist', sans-serif;
+  --font-serif: 'Cormorant Garamond', serif;
+  --font-sans: 'Jost', sans-serif;
 }
 
 @layer base {
   body {
-    font-family: 'Urbanist', sans-serif;
-    background-color: #FAF9F5;
-    color: #252131;
+    font-family: 'Jost', sans-serif;
+    background-color: #F6F1EA;
+    color: #3D3025;
     margin: 0;
     padding: 0;
     -webkit-font-smoothing: antialiased;
   }
 
   h1, h2, h3, h4, h5, h6, .serif-title {
-    font-family: 'Prata', serif !important;
-    font-weight: 400;
-    color: #252131;
+    font-family: 'Cormorant Garamond', serif !important;
+    font-weight: 500;
+    color: #3D3025;
   }
 
   * {
-    font-family: 'Urbanist', sans-serif;
+    font-family: 'Jost', sans-serif;
   }
 }
 
@@ -42,14 +42,14 @@
   width: 5px;
 }
 ::-webkit-scrollbar-track {
-  background: #FAF9F5;
+  background: #F6F1EA;
 }
 ::-webkit-scrollbar-thumb {
-  background: #6E64B4;
+  background: #C5A377;
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #252131;
+  background: #3D3025;
 }
 
 /* ── Shimmer Text animation for preloader ── */
@@ -60,10 +60,10 @@
 .shimmer-text {
   background: linear-gradient(
     90deg,
-    #252131 0%,
-    #6E64B4 40%,
-    #252131 60%,
-    #6E64B4 100%
+    #3D3025 0%,
+    #C5A377 40%,
+    #3D3025 60%,
+    #C5A377 100%
   );
   background-size: 200% auto;
   -webkit-background-clip: text;
@@ -95,49 +95,49 @@
   display: block;
   width: 100%;
   height: 2px;
-  background: #6E64B4;
+  background: #C5A377;
   border-radius: 2px;
   margin-top: 2px;
 }
 
 /* ── Solid Dark Button (3-Color) ── */
 .btn-primary {
-  background: #252131;
-  color: #FAF9F5;
+  background: #3D3025;
+  color: #F6F1EA;
   transition: all 0.3s ease;
-  border: 1px solid #252131;
+  border: 1px solid #3D3025;
 }
 .btn-primary:hover {
-  background: #6E64B4;
-  color: #FAF9F5;
-  border-color: #6E64B4;
+  background: #C5A377;
+  color: #FAF8F5;
+  border-color: #C5A377;
   transform: translateY(-1px);
 }
 
 /* ── Accent Button (3-Color) ── */
 .btn-accent {
-  background: #6E64B4;
-  color: #FAF9F5;
+  background: #C5A377;
+  color: #3D3025;
   transition: all 0.3s ease;
-  border: 1px solid #6E64B4;
+  border: 1px solid #C5A377;
 }
 .btn-accent:hover {
-  background: #252131;
-  color: #FAF9F5;
-  border-color: #252131;
+  background: #3D3025;
+  color: #F6F1EA;
+  border-color: #3D3025;
   transform: translateY(-1px);
 }
 
 /* ── Secondary Button ── */
 .btn-secondary {
   background: transparent;
-  color: #252131;
-  border: 1.5px solid #252131;
+  color: #3D3025;
+  border: 1.5px solid #3D3025;
   transition: all 0.3s ease;
 }
 .btn-secondary:hover {
-  background: #252131;
-  color: #FAF9F5;
+  background: #3D3025;
+  color: #F6F1EA;
   transform: translateY(-1px);
 }
 
@@ -148,18 +148,18 @@
 }
 
 /* ── Pulse animation ── */
-@keyframes lavenderPulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(110, 100, 180, 0.5); }
-  50%       { box-shadow: 0 0 0 10px rgba(110, 100, 180, 0); }
+@keyframes goldPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(197, 163, 119, 0.5); }
+  50%       { box-shadow: 0 0 0 10px rgba(197, 163, 119, 0); }
 }
 .green-pulse {
-  animation: lavenderPulse 2s ease-in-out infinite;
+  animation: goldPulse 2s ease-in-out infinite;
 }
 
 /* ── Custom Divider ── */
 .custom-divider {
   width: 60px;
   height: 2px;
-  background: #6E64B4;
+  background: #C5A377;
   border-radius: 2px;
 }

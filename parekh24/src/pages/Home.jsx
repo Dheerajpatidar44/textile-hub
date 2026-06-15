@@ -1,15 +1,21 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Box, Store, TrendingUp, HeartHandshake, FileText, Gavel, FileOutput, Users, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const categories = [
-  { name: 'SAREES', desc: 'Timeless Drape', image: 'https://plus.unsplash.com/premium_photo-1729038877169-1fed6a3f0c68?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEyfHx8ZW58MHx8fHx8', path: '/products?category=Sarees' },
-  { name: 'LEGGINGS', desc: 'Comfort & Style', image: 'https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=400&q=80', path: '/products?category=Leggings' },
-  { name: 'KURTIS', desc: 'Everyday Elegance', image: 'https://images.unsplash.com/photo-1752653425039-cf1ff22d61bc?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDV8fHxlbnwwfHx8fHw%3D', path: '/products?category=Kurtis' },
-  { name: 'DRESS SUITS', desc: 'Classic Wear', image: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400&q=80', path: '/products?category=Dress+Suits' },
-  { name: 'BEDSHEETS & LINEN', desc: 'Premium Home', image: 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=400&q=80', path: '/products?category=Bedsheets+%26+Linen' },
-  { name: 'SUITING & SHIRTING', desc: 'Refined Fabrics', image: 'https://images.unsplash.com/photo-1611937663641-5cef5189d71b?w=600&auto=format&fit=crop&q=60', path: '/products?category=Suiting' },
+  { name: 'Sarees', image: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=400&auto=format&fit=crop&q=80', path: '/products?category=Sarees' },
+  { name: 'Leggings', image: 'https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=400&auto=format&fit=crop&q=80', path: '/products?category=Leggings' },
+  { name: 'Kurtis', image: 'https://images.unsplash.com/photo-1741847639057-b51a25d42892?w=400&auto=format&fit=crop&q=80', path: '/products?category=Kurtis' },
+  { name: 'Dress Suits', image: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400&auto=format&fit=crop&q=80', path: '/products?category=Dress+Suits' },
+  { name: 'Bedsheets & Linen', image: 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=400&auto=format&fit=crop&q=80', path: '/products?category=Bedsheets+%26+Linen' },
+  { name: 'Hosiery Items', image: 'https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=400&auto=format&fit=crop&q=80', path: '/products?category=Hosiery+Items' },
+  { name: 'Suiting', image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=400&auto=format&fit=crop&q=80', path: '/products?category=Suiting' },
+  { name: 'Shirting', image: 'https://images.unsplash.com/photo-1603252109303-2751441dd157?w=400&auto=format&fit=crop&q=80', path: '/products?category=Shirting' },
+  { name: 'Formal & Ethnic Wear for Women', image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&auto=format&fit=crop&q=80', path: '/products?category=Formal+%26+Ethnic+Wear+for+Women' },
+  { name: 'Formal & Ethnic Wear for Men', image: 'https://images.unsplash.com/photo-1724856604249-ca73680262e8?w=400&auto=format&fit=crop&q=80', path: '/products?category=Formal+%26+Ethnic+Wear+for+Men' },
+  { name: 'Formal & Ethnic Wear for Children', image: 'https://images.unsplash.com/photo-1741992556912-3b2d62461e75?w=400&auto=format&fit=crop&q=80', path: '/products?category=Formal+%26+Ethnic+Wear+for+Children' },
+  { name: 'Home Upholstery & Furnishing', image: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=400&auto=format&fit=crop&q=80', path: '/products?category=Home+Upholstery+%26+Furnishing' },
 ];
 
 const sliderSlides = [
@@ -17,276 +23,231 @@ const sliderSlides = [
     tag: 'Artisan Handlooms',
     title: 'Timeless Weaves for Modern Living',
     desc: 'Experience the finest range of sustainable fabrics, handcrafted silks, and premium textiles curated with heritage techniques.',
-    image: '/images/hero1.png',
+    image: '/images/heroimages/hero.png',
+    position: 'object-top',
+    theme: 'dark'
   },
   {
     tag: 'Heritage Sarees',
     title: 'Exquisite Elegance in Silk & Cotton',
     desc: 'Adorn yourself with designer sarees and ethnic ensembles woven by India\'s master artisans.',
-    image: '/images/hero2.png',
+    image: '/images/heroimages/hero1.png',
+    position: 'object-top',
+    theme: 'dark'
   },
   {
     tag: 'Royal Suiting',
     title: 'Sophisticated Men\'s Suiting Fabrics',
     desc: 'Crafted for weddings, formal affairs, and heritage celebrations with premium longevity and soft textures.',
-    image: '/images/hero3.png',
+    image: '/images/heroimages/hero2.png',
+    position: 'object-center',
+    theme: 'light'
   },
   {
     tag: 'Luxe Home Linen',
     title: 'Premium Linens & Bedding Collections',
     desc: 'Transform your space with organic home textiles, designer upholstery, and luxury linen bedsheets.',
-    image: '/images/hero4.png',
+    image: '/images/heroimages/hero3.png',
+    position: 'object-center',
+    theme: 'light'
   }
 ];
 
 const COLORS = {
-  primary: '#6E64B4', 
-  primaryDark: '#252131',
-  bg: '#FAF9F5',
+  primary: '#C5A377',
+  primaryDark: '#3D3025',
+  bg: '#F6F1EA',
   cardBg: '#FFFFFF',
-  border: '#E1DFEB',
-  textDark: '#252131',
+  border: '#E8E2D7',
+  textDark: '#3D3025',
+};
+
+const slideVariants = {
+  enter: (direction) => ({
+    x: direction > 0 ? '100%' : '-100%',
+  }),
+  center: {
+    x: 0,
+  },
+  exit: (direction) => ({
+    x: direction < 0 ? '100%' : '-100%',
+  })
 };
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [direction, setDirection] = useState(1);
 
   useEffect(() => {
     const timer = setInterval(() => {
+      setDirection(1);
       setCurrentSlide((prev) => (prev + 1) % sliderSlides.length);
     }, 5500);
     return () => clearInterval(timer);
   }, []);
 
   const handlePrev = () => {
+    setDirection(-1);
     setCurrentSlide((prev) => (prev - 1 + sliderSlides.length) % sliderSlides.length);
   };
 
   const handleNext = () => {
+    setDirection(1);
     setCurrentSlide((prev) => (prev + 1) % sliderSlides.length);
   };
 
   return (
-    <div className="w-full pb-10" style={{ background: COLORS.bg, fontFamily: "'Urbanist', sans-serif" }}>
-      
-      {/* ── HERO SLIDER SECTION ── */}
-      <section className="relative w-full max-w-[90rem] mx-auto flex flex-col md:flex-row items-stretch h-auto min-h-[500px] md:h-[460px] lg:h-[500px] bg-[#FAF9F5] border-b" style={{ borderColor: COLORS.border }}>
-        
-        {/* Left Side: Content Div (Pure light theme, no overlay on images) */}
-        <div className="w-full md:w-[42%] flex flex-col justify-center px-6 sm:px-10 lg:px-16 py-10 md:py-8 bg-[#FAF9F5] z-10 relative text-left">
-          
+    <div className="w-full pb-10" style={{ background: COLORS.bg, fontFamily: "'Jost', sans-serif" }}>
+
+      {/* ── HERO SLIDER SECTION (Full width banner, content overlaid) ── */}
+      <section className="relative w-full h-[400px] sm:h-[460px] lg:h-[520px] overflow-hidden flex items-center justify-center bg-[#3D3025]">
+
+        {/* Animated Background Image */}
+        <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
+          <AnimatePresence initial={false} custom={direction}>
+            <motion.div
+              key={currentSlide}
+              custom={direction}
+              variants={slideVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={{
+                x: { type: "tween", ease: "easeInOut", duration: 0.6 }
+              }}
+              className="absolute inset-0 w-full h-full"
+            >
+              <img
+                src={sliderSlides[currentSlide].image}
+                alt={sliderSlides[currentSlide].title}
+                className={`w-full h-full object-cover ${sliderSlides[currentSlide].position || 'object-center'}`}
+              />
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        {/* Content Overlaid */}
+        <div className="absolute inset-0 z-20 flex flex-col justify-center max-w-[90rem] mx-auto px-6 sm:px-12 lg:px-16 text-left">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentSlide}
-              initial={{ opacity: 0, x: -15 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 15 }}
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -15 }}
               transition={{ duration: 0.4 }}
               className="flex flex-col"
             >
-              <p className="text-[12px] font-extrabold tracking-[0.25em] uppercase mb-2" style={{ color: COLORS.primary }}>
+              <p className="text-[11px] font-bold tracking-[0.25em] uppercase mb-3 text-[#C5A377] drop-shadow-md">
                 {sliderSlides[currentSlide].tag}
               </p>
-              
-              <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-normal leading-[1.15] mb-4 serif-title tracking-tight" style={{ color: COLORS.textDark }}>
+
+              <h1 className="text-4xl sm:text-5xl lg:text-[58px] font-normal leading-[1.12] mb-5 serif-title tracking-tight text-white max-w-3xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
                 {sliderSlides[currentSlide].title}
               </h1>
 
-              <div className="h-[1.5px] w-16 mb-4 rounded-full" style={{ background: COLORS.primary }} />
+              <div className="h-[2px] w-16 mb-5 rounded-full shadow-sm" style={{ background: COLORS.primary }} />
 
-              <p className="text-xs sm:text-sm mb-6 leading-relaxed opacity-80 font-medium" style={{ color: COLORS.textDark }}>
+              <p className="text-xs sm:text-sm lg:text-base mb-8 leading-relaxed max-w-xl text-white font-medium drop-shadow-[0_2px_6px_rgba(0,0,0,0.5)]">
                 {sliderSlides[currentSlide].desc}
               </p>
 
               <div>
-                <Link 
-                  to="/products" 
-                  className="inline-flex items-center gap-3 px-6 py-3 rounded-lg text-[10px] font-bold tracking-widest text-[#FAF9F5] transition-all shadow-sm btn-primary uppercase"
+                <Link
+                  to="/products"
+                  className="inline-flex items-center gap-3 px-8 py-3.5 rounded-lg text-[10px] font-bold tracking-widest text-[#3D3025] bg-[#C5A377] hover:bg-white hover:text-[#3D3025] hover:border-white transition-all shadow-md btn-accent uppercase border border-[#C5A377]"
                 >
                   Explore Now <ArrowRight size={14} />
                 </Link>
               </div>
             </motion.div>
           </AnimatePresence>
-
-          {/* Slide Indicator Dots inside content panel */}
-          <div className="flex gap-2 mt-8">
-            {sliderSlides.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentSlide(index)}
-                className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${currentSlide === index ? 'w-6' : 'w-2'}`}
-                style={{ background: currentSlide === index ? COLORS.primary : '#E1DFEB' }}
-                aria-label={`Go to slide ${index + 1}`}
-              />
-            ))}
-          </div>
-
-          {/* Premium Highlights Grid to cover bottom space */}
-          <div className="mt-8 pt-6 border-t grid grid-cols-2 gap-4" style={{ borderColor: COLORS.border }}>
-            <div>
-              <p className="text-[10px] font-extrabold uppercase tracking-widest" style={{ color: COLORS.primary }}>Craftsmanship</p>
-              <p className="text-xs font-bold mt-0.5" style={{ color: COLORS.textDark }}>100% Handloom Certified</p>
-            </div>
-            <div>
-              <p className="text-[10px] font-extrabold uppercase tracking-widest" style={{ color: COLORS.primary }}>Sustainable</p>
-              <p className="text-xs font-bold mt-0.5" style={{ color: COLORS.textDark }}>Organic Sourcing</p>
-            </div>
-          </div>
         </div>
 
-        {/* Right Side: Image Slider (Image is fully visible and not covered by text) */}
-        <div className="w-full md:w-[58%] relative h-[280px] md:h-auto overflow-hidden border-t md:border-t-0 md:border-l" style={{ borderColor: COLORS.border }}>
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentSlide}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.5 }}
-              className="absolute inset-0 w-full h-full"
-            >
-              <img 
-                src={sliderSlides[currentSlide].image} 
-                alt={sliderSlides[currentSlide].title} 
-                className="w-full h-full object-cover object-center"
-              />
-            </motion.div>
-          </AnimatePresence>
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+          {sliderSlides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => {
+                setDirection(index > currentSlide ? 1 : -1);
+                setCurrentSlide(index);
+              }}
+              className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${currentSlide === index ? 'w-6 bg-[#C5A377]' : 'w-2 bg-white/40'}`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
+        </div>
 
-          {/* Navigation Arrows on Image Side */}
-          <button 
-            onClick={handlePrev}
-            className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full flex items-center justify-center border transition-all bg-[#FAF9F5]/90 border-[#E1DFEB] text-[#252131] hover:bg-[#6E64B4] hover:text-white hover:border-[#6E64B4] cursor-pointer shadow-sm"
-            aria-label="Previous Slide"
-          >
-            <ChevronLeft size={18} />
-          </button>
-          <button 
-            onClick={handleNext}
-            className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full flex items-center justify-center border transition-all bg-[#FAF9F5]/90 border-[#E1DFEB] text-[#252131] hover:bg-[#6E64B4] hover:text-white hover:border-[#6E64B4] cursor-pointer shadow-sm"
-            aria-label="Next Slide"
-          >
-            <ChevronRight size={18} />
-          </button>
+        {/* Navigation Arrows */}
+        <button
+          onClick={handlePrev}
+          className="absolute left-4 sm:left-6 top-1/2 -translate-y-1/2 z-25 w-11 h-11 rounded-full flex items-center justify-center border transition-all bg-white/10 hover:bg-[#C5A377] border-white/20 text-white hover:border-[#C5A377] cursor-pointer shadow-sm"
+          aria-label="Previous Slide"
+        >
+          <ChevronLeft size={20} />
+        </button>
+        <button
+          onClick={handleNext}
+          className="absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 z-25 w-11 h-11 rounded-full flex items-center justify-center border transition-all bg-white/10 hover:bg-[#C5A377] border-white/20 text-white hover:border-[#C5A377] cursor-pointer shadow-sm"
+          aria-label="Next Slide"
+        >
+          <ChevronRight size={20} />
+        </button>
+      </section>
+
+      {/* ── OUR BUSINESS SECTION (Legacy description) ── */}
+      <section className="border-b" style={{ borderColor: COLORS.border, background: '#FAF7F2' }}>
+        <div className="max-w-4xl mx-auto px-6 py-16 text-center">
+          <p className="text-[10px] tracking-[0.25em] font-extrabold uppercase mb-2.5" style={{ color: COLORS.primary }}>
+            Our Business
+          </p>
+          <h2 className="text-3xl sm:text-4xl font-normal mb-5 serif-title tracking-tight" style={{ color: COLORS.textDark }}>
+            A Legacy Woven in Every Thread
+          </h2>
+          <div className="h-[1.5px] w-16 mx-auto mb-6 rounded-full" style={{ background: COLORS.primary }} />
+          <p className="text-sm sm:text-base leading-relaxed opacity-85 font-medium max-w-2xl mx-auto" style={{ color: COLORS.textDark }}>
+            Shree Textile Mall is one of India's largest and most trusted textile businesses, offering an extraordinary range of fabrics and fashion for every need. From ethnic elegance to everyday comfort — we bring exceptional quality, craftsmanship, and trust together.
+          </p>
+          <div className="mt-6">
+            <Link to="/about" className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest hover:underline" style={{ color: COLORS.primary }}>
+              KNOW MORE ABOUT US <ArrowRight size={14} />
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* ── EXPLORE OUR CATEGORIES ── */}
+      {/* ── SHOP BY CATEGORY SECTION (Vertically rounded arch grid) ── */}
       <section className="max-w-[90rem] mx-auto px-6 lg:px-12 py-16">
         <div className="text-center mb-12 flex items-center justify-center gap-4">
-          <div className="h-px w-16" style={{ background: COLORS.primary }} />
-          <h2 className="text-xl font-bold tracking-widest uppercase serif-title" style={{ color: COLORS.textDark }}>
-            EXPLORE OUR COLLECTIONS
+          <span className="text-xl" style={{ color: COLORS.primary }}>←</span>
+          <h2 className="text-2xl font-normal tracking-wider uppercase serif-title" style={{ color: COLORS.textDark }}>
+            Shop by Category
           </h2>
-          <div className="h-px w-16" style={{ background: COLORS.primary }} />
+          <span className="text-xl" style={{ color: COLORS.primary }}>→</span>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-x-6 gap-y-10">
           {categories.map((cat, idx) => (
-            <Link key={idx} to={cat.path} className="group flex flex-col bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border" style={{ borderColor: COLORS.border }}>
-              <div className="h-56 overflow-hidden">
-                <img src={cat.image} alt={cat.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <Link key={idx} to={cat.path} className="group flex flex-col items-center">
+              {/* Vertically rounded arch style */}
+              <div
+                className="w-full aspect-[3/4.2] rounded-t-full rounded-b-xl overflow-hidden border transition-all duration-300 shadow-sm group-hover:shadow-md"
+                style={{ borderColor: COLORS.border, background: '#FFFFFF' }}
+              >
+                <img
+                  src={cat.image}
+                  alt={cat.name}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
               </div>
-              <div className="p-4 text-center">
-                <h3 className="font-extrabold text-xs tracking-wider mb-1" style={{ color: COLORS.textDark }}>{cat.name}</h3>
-                <p className="text-[11px] opacity-70" style={{ color: COLORS.textDark }}>{cat.desc}</p>
-              </div>
+              <span className="mt-4 font-bold text-xs tracking-wider text-center uppercase group-hover:text-[#C5A377] transition-colors" style={{ color: COLORS.textDark }}>
+                {cat.name}
+              </span>
             </Link>
           ))}
         </div>
       </section>
 
-      {/* ── NOTICE BOARD HIGHLIGHTS ── */}
-      <section className="max-w-[90rem] mx-auto px-6 lg:px-12 py-8">
-        <div className="rounded-2xl overflow-hidden shadow-sm flex flex-col lg:flex-row border" style={{ borderColor: COLORS.border, minHeight: '350px' }}>
-          {/* Left Dark Side */}
-          <div className="lg:w-2/5 p-10 lg:p-14 flex flex-col justify-center text-white" style={{ background: COLORS.primaryDark }}>
-            <p className="text-[11px] font-bold tracking-widest uppercase mb-2" style={{ color: COLORS.primary }}>
-              Operational Updates
-            </p>
-            <h2 className="text-4xl lg:text-5xl font-normal mb-6 serif-title">Notice Board</h2>
-            <p className="text-xs opacity-80 mb-10 leading-relaxed max-w-sm">
-              Stay informed with our latest announcements, general meetings updates, and dispatch schedule notices.
-            </p>
-            <div>
-              <Link to="/notice-board" className="inline-flex items-center gap-2 bg-[#FAF9F5] text-[#252131] px-6 py-2.5 rounded-lg text-[11px] font-bold tracking-widest uppercase hover:bg-[#6E64B4] hover:text-white transition-all">
-                VIEW ALL NOTICES <ArrowRight size={16} />
-              </Link>
-            </div>
-          </div>
 
-          {/* Right Light Side: Notice Board Highlights */}
-          <div className="lg:w-3/5 bg-white p-10 lg:p-14 flex flex-col justify-center gap-6 border-l" style={{ borderColor: COLORS.border }}>
-            <h3 className="text-base font-extrabold uppercase tracking-wider mb-2 text-left" style={{ color: COLORS.textDark }}>Latest Announcements</h3>
-            
-            <div className="space-y-4 text-left">
-              {[
-                { title: 'Annual General Meeting 2026', date: 'Nov 01, 2026' },
-                { title: 'Warehouse Closure Notice for Maintenance (Mumbai Depot)', date: 'Oct 20, 2026' },
-                { title: 'Introduction of e-Way Bill Integration in Partner Portal', date: 'Sep 15, 2026' }
-              ].map((notice, i) => (
-                <Link 
-                  key={i} 
-                  to="/notice-board" 
-                  className="block p-4 rounded-xl border hover:shadow-md transition-all duration-200"
-                  style={{ borderColor: COLORS.border }}
-                >
-                  <div className="flex justify-between items-center gap-4">
-                    <div>
-                      <span className="text-[10px] font-extrabold opacity-60 uppercase" style={{ color: COLORS.textDark }}>{notice.date}</span>
-                      <h4 className="font-bold text-sm mt-1" style={{ color: COLORS.textDark }}>{notice.title}</h4>
-                    </div>
-                    <ArrowRight size={16} className="text-[#6E64B4] shrink-0" />
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── OUR B2B SERVICES ── */}
-      <section className="max-w-[90rem] mx-auto px-6 lg:px-12 py-16">
-        <div className="text-center mb-10 flex items-center justify-center gap-4">
-          <div className="h-px w-16" style={{ background: COLORS.primary }} />
-          <h2 className="text-xl font-bold tracking-widest uppercase serif-title" style={{ color: COLORS.textDark }}>
-            OUR B2B SERVICES
-          </h2>
-          <div className="h-px w-16" style={{ background: COLORS.primary }} />
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <Link to="/e-quotation" className="bg-white p-6 rounded-xl border flex items-start gap-4 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all group" style={{ borderColor: COLORS.border }}>
-            <FileText size={32} style={{ color: COLORS.primary }} className="group-hover:scale-110 transition-transform" />
-            <div>
-              <h4 className="font-extrabold text-xs tracking-wider mb-1" style={{ color: COLORS.textDark }}>e-QUOTATION</h4>
-              <p className="text-[11px] opacity-70" style={{ color: COLORS.textDark }}>Get digital price quotes for large scale orders</p>
-            </div>
-          </Link>
-          <Link to="/e-auction" className="bg-white p-6 rounded-xl border flex items-start gap-4 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all group" style={{ borderColor: COLORS.border }}>
-            <Gavel size={32} style={{ color: COLORS.primary }} className="group-hover:scale-110 transition-transform" />
-            <div>
-              <h4 className="font-extrabold text-xs tracking-wider mb-1" style={{ color: COLORS.textDark }}>e-AUCTION</h4>
-              <p className="text-[11px] opacity-70" style={{ color: COLORS.textDark }}>Participate in yarn and bulk fabric auctions online</p>
-            </div>
-          </Link>
-          <Link to="/trade-circular" className="bg-white p-6 rounded-xl border flex items-start gap-4 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all group" style={{ borderColor: COLORS.border }}>
-            <FileOutput size={32} style={{ color: COLORS.primary }} className="group-hover:scale-110 transition-transform" />
-            <div>
-              <h4 className="font-extrabold text-xs tracking-wider mb-1" style={{ color: COLORS.textDark }}>TRADE CIRCULAR</h4>
-              <p className="text-[11px] opacity-70" style={{ color: COLORS.textDark }}>Download governmental & import policies updates</p>
-            </div>
-          </Link>
-          <Link to="/trade-enquiry" className="bg-white p-6 rounded-xl border flex items-start gap-4 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all group" style={{ borderColor: COLORS.border }}>
-            <Users size={32} style={{ color: COLORS.primary }} className="group-hover:scale-110 transition-transform" />
-            <div>
-              <h4 className="font-extrabold text-xs tracking-wider mb-1" style={{ color: COLORS.textDark }}>TRADE ENQUIRY</h4>
-              <p className="text-[11px] opacity-70" style={{ color: COLORS.textDark }}>Reach out directly to our export managers</p>
-            </div>
-          </Link>
-        </div>
-      </section>
 
     </div>
   );

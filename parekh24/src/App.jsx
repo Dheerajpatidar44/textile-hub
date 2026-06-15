@@ -55,7 +55,7 @@ function WelcomePopup() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setIsOpen(false)}
-            className="absolute inset-0 bg-[#252131]/40 backdrop-blur-xs"
+            className="absolute inset-0 bg-[#3D3025]/40 backdrop-blur-xs"
           />
 
           {/* Modal Card */}
@@ -64,51 +64,51 @@ function WelcomePopup() {
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.95, opacity: 0, y: 15 }}
             transition={{ type: 'spring', duration: 0.6 }}
-            className="relative bg-[#FAF9F5] rounded-3xl overflow-hidden shadow-2xl max-w-2xl w-full flex flex-col md:flex-row border border-[#E1DFEB] text-left z-10"
-            style={{ fontFamily: "'Urbanist', sans-serif" }}
+            className="relative bg-[#F6F1EA] rounded-3xl overflow-hidden shadow-2xl max-w-2xl w-full flex flex-col md:flex-row border border-[#E8E2D7] text-left z-10"
+            style={{ fontFamily: "'Jost', sans-serif" }}
           >
             {/* Close trigger */}
             <button 
               onClick={() => setIsOpen(false)}
-              className="absolute top-4 right-4 z-20 w-8 h-8 rounded-full bg-[#FAF9F5] border border-[#E1DFEB] flex items-center justify-center text-[#252131] hover:bg-[#6E64B4] hover:text-white transition-colors cursor-pointer"
+              className="absolute top-4 right-4 z-20 w-8 h-8 rounded-full bg-[#F6F1EA] border border-[#E8E2D7] flex items-center justify-center text-[#3D3025] hover:bg-[#C5A377] hover:text-white transition-colors cursor-pointer"
             >
               <X size={15} />
             </button>
 
             {/* Left banner image */}
-            <div className="w-full md:w-1/2 h-40 md:h-auto relative bg-[#252131]">
+            <div className="w-full md:w-1/2 h-40 md:h-auto relative bg-[#3D3025]">
               <img 
-                src="https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?w=600&auto=format&fit=crop&q=60" 
-                alt="Artisan loom threads"
+                src="/images/heroimage.png" 
+                alt="Shree Textile Mall Weaving"
                 className="absolute inset-0 w-full h-full object-cover opacity-85"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#252131]/70 to-transparent" />
-              <div className="absolute bottom-5 left-5 right-5 text-[#FAF9F5]">
-                <span className="text-[9px] tracking-[0.25em] font-extrabold uppercase text-[#FAF9F5]/70 block mb-1">Eco-Luxe Heritage</span>
-                <h4 className="font-normal text-lg serif-title tracking-tight text-[#FAF9F5]">Artisanal Textile Luxury</h4>
+              <div className="absolute inset-0 bg-gradient-to-t from-[#3D3025]/70 to-transparent" />
+              <div className="absolute bottom-5 left-5 right-5 text-[#F6F1EA]">
+                <span className="text-[9px] tracking-[0.25em] font-extrabold uppercase text-[#F6F1EA]/70 block mb-1">Eco-Luxe Heritage</span>
+                <h4 className="font-normal text-lg serif-title tracking-tight text-[#F6F1EA]">Artisanal Textile Luxury</h4>
               </div>
             </div>
 
             {/* Right details content */}
             <div className="p-6 md:p-8 w-full md:w-1/2 flex flex-col justify-center">
               <div className="flex items-center gap-2 mb-2">
-                <Sparkles size={14} className="text-[#6E64B4]" />
-                <span className="text-[10px] font-extrabold tracking-[0.25em] uppercase text-[#6E64B4]">Special Greeting</span>
+                <Sparkles size={14} className="text-[#C5A377]" />
+                <span className="text-[10px] font-extrabold tracking-[0.25em] uppercase text-[#C5A377]">Special Greeting</span>
               </div>
               
-              <h3 className="text-2xl font-normal text-[#252131] mb-2.5 serif-title tracking-tight">
-                Welcome to Aura Loom
+              <h3 className="text-2xl font-normal text-[#3D3025] mb-2.5 serif-title tracking-tight">
+                Welcome to Shree Textile Mall
               </h3>
               
-              <p className="text-[11.5px] text-[#252131]/80 leading-relaxed mb-5">
+              <p className="text-[11.5px] text-[#3D3025]/80 leading-relaxed mb-5">
                 Explore our fine range of sustainable fabrics, handcrafted silks, and premium textiles curated with heritage techniques.
               </p>
 
-              <div className="p-4 rounded-xl border border-dashed border-[#6E64B4] bg-[#6E64B4]/5 text-center mb-5">
-                <span className="text-[9px] uppercase tracking-widest font-extrabold opacity-60 block text-[#252131]">Exclusive Launch Offer</span>
-                <span className="text-sm font-black tracking-widest text-[#6E64B4] uppercase block mt-1">15% Off Your First Order</span>
-                <span className="text-[11.5px] font-black tracking-widest text-[#252131] uppercase block mt-2.5 bg-white/60 py-1.5 rounded border border-[#E1DFEB]">
-                  CODE: AURALOOM15
+              <div className="p-4 rounded-xl border border-dashed border-[#C5A377] bg-[#C5A377]/5 text-center mb-5">
+                <span className="text-[9px] uppercase tracking-widest font-extrabold opacity-60 block text-[#3D3025]">Exclusive Launch Offer</span>
+                <span className="text-sm font-black tracking-widest text-[#C5A377] uppercase block mt-1">10% Off Your First Order</span>
+                <span className="text-[11.5px] font-black tracking-widest text-[#3D3025] uppercase block mt-2.5 bg-white/60 py-1.5 rounded border border-[#E8E2D7]">
+                  CODE: SHREETEXTILE10
                 </span>
               </div>
 
@@ -117,7 +117,7 @@ function WelcomePopup() {
                   setIsOpen(false);
                   navigate('/products');
                 }}
-                className="w-full py-3.5 rounded-xl font-bold tracking-widest uppercase text-white bg-[#6E64B4] hover:bg-[#252131] transition-all text-[10px] shadow-sm cursor-pointer"
+                className="w-full py-3.5 rounded-xl font-bold tracking-widest uppercase text-[#3D3025] bg-[#C5A377] hover:bg-[#3D3025] hover:text-white transition-all text-[10px] shadow-sm cursor-pointer border border-[#C5A377]"
               >
                 Explore Collections
               </button>
