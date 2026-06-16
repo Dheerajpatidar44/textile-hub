@@ -2,35 +2,33 @@ import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const C = {
-  primary: '#745b9f',       // Deep Teal
-  primaryLight: '#8e77b4',  // Medium Teal
-  accent: '#e37a6b',        // Terracotta / Rust
-  bg: '#faf8fc',            // Warm Cream
-  sand: '#f3ebf7',          // Light Sand
-  border: '#ebdff2',        // Beige Border
-  soil: '#2c1e43',          // Dark Teal Text
-  stone: '#66587c',         // Muted Brown Text
+  primary: '#475643',       // Deep Forest Green
+  primaryLight: '#586a53',  // Medium Forest Green
+  accent: '#b05742',        // Terracotta Accent
+  bg: '#faf8f5',            // Warm Cream
+  sand: '#efebdf',          // Light Sand
+  border: '#e2ddd5',        // Beige Border
+  soil: '#222b20',          // Dark Green-Charcoal Text
+  stone: '#5a6657',         // Muted Text
 };
 
 const contactDetails = [
-  { icon: MapPin, label: 'Headquarters', lines: ['123 Textile Avenue', 'Fashion & Weaving District, Ahmedabad, India'] },
-  { icon: Phone, label: 'Call Us', lines: ['+91 6353778329', '1800 120 4567'] },
-  { icon: Mail, label: 'Email Enquiries', lines: ['info@loomandluxury.com', 'sales@loomandluxury.com'] },
+  { icon: MapPin, label: 'Headquarters', lines: ['Indian Fabric House, Block A', 'Textile Park, Surat, Gujarat, India - 395002'] },
+  { icon: Phone, label: 'Call Us', lines: ['+91 6353778329', '1800 123 4567'] },
+  { icon: Mail, label: 'Email Enquiries', lines: ['info@indianfabrichouse.com', 'sales@indianfabrichouse.com'] },
   { icon: Clock, label: 'Business Hours', lines: ['Mon - Sat: 9:00 AM - 6:00 PM', 'Sunday: Closed'] },
 ];
 
 export default function Contact() {
   return (
-    <div style={{ fontFamily: "'DM Sans', sans-serif", background: C.bg, minHeight: '100vh' }}>
+    <div style={{ fontFamily: "'Outfit', sans-serif", background: C.bg, minHeight: '100vh' }}>
       
-      
-
-      {/* Main Content (2-Column Grid) */}
-      <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14 text-left pt-32 pb-24">
+      {/* Main Content */}
+      <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14 text-left pt-10 pb-20">
 
         {/* Page Title Section */}
         <div className="text-center mb-12">
-          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(30px, 4vw, 40px)', fontWeight: 500, color: C.soil, margin: '0 0 12px' }}>
+          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(30px, 4vw, 40px)', fontWeight: 600, color: C.soil, margin: '0 0 12px' }}>
             Contact Us
           </h1>
           <div style={{ width: 44, height: 2, background: `linear-gradient(90deg, ${C.primaryLight}, ${C.accent})`, borderRadius: 2, margin: '0 auto' }} />
@@ -55,8 +53,8 @@ export default function Contact() {
               >
                 <div 
                   style={{ 
-                    background: 'rgba(124, 142, 118, 0.08)',
-                    border: `1px solid rgba(163, 184, 157, 0.2)` 
+                    background: 'rgba(71, 86, 67, 0.08)',
+                    border: `1px solid rgba(71, 86, 67, 0.2)` 
                   }} 
                   className="w-10 h-10 rounded-lg flex items-center justify-center text-primary shrink-0"
                 >
@@ -85,7 +83,7 @@ export default function Contact() {
               style={{
                 borderRadius: '16px',
                 border: `1.5px solid ${C.border}`,
-                boxShadow: '0 8px 32px rgba(43, 31, 21, 0.06)',
+                boxShadow: '0 8px 32px rgba(34, 43, 32, 0.06)',
                 height: '100%',
                 minHeight: '400px'
               }}
@@ -97,7 +95,7 @@ export default function Contact() {
                 style={{ border: 0, display: 'block', filter: 'grayscale(0.6) contrast(1.05) opacity(0.95)', minHeight: '400px' }}
                 allowFullScreen loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Loom & Luxury Textile Mall Location"
+                title="Indian Fabric House Textile Mall Location"
               />
             </div>
           </motion.div>

@@ -2,13 +2,14 @@ import { motion } from 'framer-motion';
 import { Bell, ChevronRight, Calendar } from 'lucide-react';
 
 const C = {
-  primary: '#745b9f',
-  primaryLight: '#8e77b4',
-  soil: '#2c1e43',
-  sand: '#f3ebf7',
-  cream: '#faf8f5',
-  border: '#ebdff2',
-  stone: '#66587c',
+  primary: '#475643',       // Deep Forest Green
+  primaryLight: '#586a53',  // Medium Forest Green
+  soil: '#222b20',          // Deep Dark Charcoal Text
+  sand: '#efebdf',          // Soft Beige Background
+  cream: '#faf8f5',          // Warm Off-white base background
+  border: '#e2ddd5',        // Soft Warm Border
+  stone: '#5a6657',         // Muted Olive-Charcoal Text
+  accent: '#b05742',        // Terracotta Accent
 };
 
 const notices = [
@@ -20,15 +21,13 @@ const notices = [
 
 export default function NoticeBoard() {
   return (
-    <div style={{ fontFamily: "'DM Sans', sans-serif", background: C.cream }}>
+    <div style={{ fontFamily: "'Outfit', sans-serif", background: C.cream }}>
 
-      
-
-      <div className="max-w-[90rem] mx-auto px-6 lg:px-14 pt-32 pb-24">
+      <div className="max-w-[90rem] mx-auto px-6 lg:px-14 pt-10 pb-20">
 
         {/* Page Title Section */}
         <div className="text-center mb-12">
-          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(30px, 4vw, 44px)', fontWeight: 500, color: C.soil, margin: '0 0 12px' }}>
+          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(30px, 4vw, 44px)', fontWeight: 600, color: C.soil, margin: '0 0 12px' }}>
             Notice Board
           </h1>
           <div style={{ width: 44, height: 2, background: `linear-gradient(90deg, ${C.primaryLight}, ${C.primary})`, borderRadius: 2, margin: '0 auto' }} />
@@ -42,22 +41,22 @@ export default function NoticeBoard() {
           {notices.map((notice) => (
             <div
               key={notice.id}
-              className="card-hover"
+              className="card-hover text-left"
               style={{
                 borderRadius: 16, padding: '22px',
                 background: 'white', cursor: 'pointer',
                 display: 'flex', flexDirection: 'column',
-                border: `1.5px solid ${notice.isNew ? 'rgba(124, 142, 118,0.25)' : C.border}`,
+                border: `1.5px solid ${notice.isNew ? 'rgba(71, 86, 67, 0.25)' : C.border}`,
                 borderTop: notice.isNew ? `3px solid ${C.primary}` : `1.5px solid ${C.border}`,
               }}
             >
               <div>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 16 }}>
-                  <div style={{ width: 40, height: 40, borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(124, 142, 118,0.08)', border: `1px solid rgba(163, 184, 157,0.2)` }}>
+                  <div style={{ width: 40, height: 40, borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(71, 86, 67, 0.08)', border: `1px solid rgba(71, 86, 67, 0.2)` }}>
                     <Bell size={18} color={C.primary} />
                   </div>
                   {notice.isNew && (
-                    <span style={{ fontSize: 9, padding: '3px 10px', borderRadius: 20, color: C.primary, background: C.sand, letterSpacing: '0.15em', textTransform: 'uppercase', fontWeight: 400, border: `1px solid rgba(163, 184, 157,0.3)` }}>
+                    <span style={{ fontSize: 9, padding: '3px 10px', borderRadius: 20, color: C.accent, background: C.sand, letterSpacing: '0.15em', textTransform: 'uppercase', fontWeight: 600, border: `1px solid rgba(176, 87, 66, 0.2)` }}>
                       New
                     </span>
                   )}
@@ -66,12 +65,12 @@ export default function NoticeBoard() {
                   <Calendar size={12} color={C.stone} />
                   <span style={{ fontSize: 11, color: C.stone, fontWeight: 400 }}>{notice.date}</span>
                 </div>
-                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 15, fontWeight: 500, color: C.soil, lineHeight: 1.45, margin: '0 0 16px' }}>
+                <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 16, fontWeight: 600, color: C.soil, lineHeight: 1.45, margin: '0 0 16px' }}>
                   {notice.title}
                 </h3>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: 14, marginTop: 'auto', borderTop: `1px solid ${C.border}` }}>
-                <span style={{ fontSize: 12, color: C.primary, fontWeight: 400 }}>Read More</span>
+                <span style={{ fontSize: 12, color: C.primary, fontWeight: 500 }}>Read More</span>
                 <ChevronRight size={15} color={C.primary} />
               </div>
             </div>

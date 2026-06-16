@@ -2,13 +2,14 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
 const C = {
-  primary: '#745b9f',
-  primaryLight: '#8e77b4',
-  soil: '#2c1e43',
-  sand: '#f3ebf7',
+  primary: '#475643',
+  primaryLight: '#586a53',
+  soil: '#222b20',
+  sand: '#efebdf',
   cream: '#faf8f5',
-  border: '#ebdff2',
-  stone: '#66587c',
+  border: '#e2ddd5',
+  stone: '#5a6657',
+  accent: '#b05742',
 };
 
 const posts = [
@@ -20,15 +21,13 @@ const posts = [
 
 export default function Blog() {
   return (
-    <div style={{ fontFamily: "'DM Sans', sans-serif", background: C.cream }}>
+    <div style={{ fontFamily: "'Outfit', sans-serif", background: C.cream }}>
 
-      
-
-      <div className="max-w-[90rem] mx-auto px-6 lg:px-14 pt-32 pb-24">
+      <div className="max-w-[90rem] mx-auto px-6 lg:px-14 pt-10 pb-20">
 
         {/* Page Title Section */}
         <div className="text-center mb-12">
-          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(30px, 4vw, 44px)', fontWeight: 500, color: C.soil, margin: '0 0 12px' }}>Blog & Insights</h1>
+          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(30px, 4vw, 44px)', fontWeight: 600, color: C.soil, margin: '0 0 12px' }}>Blog & Insights</h1>
           <div style={{ width: 44, height: 2, background: `linear-gradient(90deg, ${C.primaryLight}, ${C.primary})`, borderRadius: 2, margin: '0 auto' }} />
         </div>
   
@@ -59,8 +58,8 @@ export default function Blog() {
                   <span style={{ width: 3, height: 3, borderRadius: '50%', background: C.primaryLight }} />
                   <span style={{ fontSize: 11, color: C.stone, fontWeight: 400 }}>{post.readTime}</span>
                 </div>
-                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 16, fontWeight: 500, color: C.soil, margin: '0 0 8px', lineHeight: 1.4, cursor: 'pointer' }}
-                  onMouseEnter={e => e.currentTarget.style.color = C.primary}
+                <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 18, fontWeight: 600, color: C.soil, margin: '0 0 8px', lineHeight: 1.4, cursor: 'pointer' }}
+                  onMouseEnter={e => e.currentTarget.style.color = C.accent}
                   onMouseLeave={e => e.currentTarget.style.color = C.soil}>
                   {post.title}
                 </h3>

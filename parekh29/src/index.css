@@ -1,29 +1,29 @@
 @import "tailwindcss";
 
 @theme {
-  /* ── Loom & Luxury Color Palette ── */
-  --color-primary: #745b9f;        /* Deep Lavender / Purple */
-  --color-primary-light: #8e77b4;  /* Medium Lavender */
-  --color-accent: #e37a6b;         /* Warm Coral Rose Accent */
-  --color-sand: #f3ebf7;           /* Soft Lavender background */
-  --color-linen: #fdfafd;          /* Pure Linen Cream with purple hint */
-  --color-cream: #faf8fc;          /* Warm Off-white with purple tint */
-  --color-sage: #fcf2f0;           /* Soft warm pinkish-rose background */
-  --color-terracotta: #d89487;     /* Soft Coral Rose */
-  --color-soil: #2c1e43;           /* Deep purple-tinted Dark Text */
-  --color-mist: #ebdff2;           /* Soft Lavender Border */
-  --color-stone: #66587c;          /* Muted Lavender-Grey Text */
+  /* ── Indian Fabric House Color Palette ── */
+  --color-primary: #475643;        /* Deep Forest Green */
+  --color-primary-light: #586a53;  /* Medium Forest Green */
+  --color-accent: #b05742;         /* Terracotta / Rust Accent */
+  --color-sand: #efebdf;           /* Soft Warm Sand/Beige background */
+  --color-linen: #faf8f5;          /* Warm Cream background */
+  --color-cream: #faf8f5;          /* Warm Off-white base background */
+  --color-sage: #f0f3ef;           /* Soft warm green-white background */
+  --color-terracotta: #b05742;     /* Terracotta */
+  --color-soil: #222b20;           /* Deep dark charcoal/green text */
+  --color-mist: #e2ddd5;           /* Warm soft border */
+  --color-stone: #5a6657;          /* Muted text color */
 
   /* ── Font Family ── */
-  --font-display: 'Playfair Display', serif;
-  --font-sans: 'DM Sans', sans-serif;
+  --font-display: 'Cormorant Garamond', serif;
+  --font-sans: 'Outfit', sans-serif;
 }
 
 @layer base {
   body {
-    font-family: 'DM Sans', sans-serif;
-    background-color: #faf8fc;
-    color: #2c1e43;
+    font-family: 'Outfit', sans-serif;
+    background-color: #faf8f5;
+    color: #222b20;
     margin: 0;
     padding: 0;
     -webkit-font-smoothing: antialiased;
@@ -31,9 +31,9 @@
   }
 
   h1, h2, h3, h4, h5, h6, .display-title {
-    font-family: 'Playfair Display', serif !important;
-    font-weight: 500;
-    color: #2c1e43;
+    font-family: 'Cormorant Garamond', serif !important;
+    font-weight: 600;
+    color: #222b20;
   }
 
   * {
@@ -41,7 +41,7 @@
   }
 
   p, span, a, button, input, textarea, select, label {
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Outfit', sans-serif;
   }
 }
 
@@ -50,14 +50,14 @@
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #faf8fc;
+  background: #faf8f5;
 }
 ::-webkit-scrollbar-thumb {
-  background: #745b9f;
+  background: #475643;
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #5e4587;
+  background: #384535;
 }
 
 /* ── Keyframe Animations ── */
@@ -93,13 +93,13 @@
   from { width: 0%; }
   to   { width: 100%; }
 }
-@keyframes goldGlow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(116, 91, 159, 0.3); }
-  50%       { box-shadow: 0 0 20px 8px rgba(116, 91, 159, 0); }
+@keyframes greenGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(71, 86, 67, 0.3); }
+  50%       { box-shadow: 0 0 20px 8px rgba(71, 86, 67, 0); }
 }
 
 .shimmer-text {
-  background: linear-gradient(90deg, #2c1e43 0%, #e37a6b 40%, #2c1e43 60%, #e37a6b 100%);
+  background: linear-gradient(90deg, #222b20 0%, #b05742 40%, #222b20 60%, #b05742 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -109,9 +109,9 @@
 .fade-in-up { animation: fadeInUp 0.7s ease forwards; }
 .fade-in-scale { animation: fadeInScale 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
 .float-up { animation: floatUp 3s ease-in-out infinite; }
-.gold-glow { animation: goldGlow 2.5s ease-in-out infinite; }
-.display-title { font-family: 'Playfair Display', serif !important; }
-.serif-title { font-family: 'Playfair Display', serif !important; }
+.gold-glow { animation: greenGlow 2.5s ease-in-out infinite; }
+.display-title { font-family: 'Cormorant Garamond', serif !important; }
+.serif-title { font-family: 'Cormorant Garamond', serif !important; }
 
 /* ── Navbar Active State ── */
 .nav-link-active::after {
@@ -119,47 +119,47 @@
   display: block;
   width: 100%;
   height: 2px;
-  background: #e37a6b;
+  background: #b05742;
   border-radius: 2px;
   margin-top: 2px;
 }
 
 /* ── Button Styles ── */
 .btn-primary {
-  background: #745b9f;
-  color: #faf8fc;
+  background: #475643;
+  color: #faf8f5;
   transition: all 0.3s ease;
-  border: 1.5px solid #745b9f;
+  border: 1.5px solid #475643;
 }
 .btn-primary:hover {
-  background: #e37a6b;
-  color: #faf8fc;
-  border-color: #e37a6b;
+  background: #b05742;
+  color: #faf8f5;
+  border-color: #b05742;
   transform: translateY(-1px);
 }
 
 .btn-accent {
-  background: #e37a6b;
-  color: #faf8fc;
+  background: #b05742;
+  color: #faf8f5;
   transition: all 0.3s ease;
-  border: 1.5px solid #e37a6b;
+  border: 1.5px solid #b05742;
 }
 .btn-accent:hover {
-  background: #745b9f;
-  color: #faf8fc;
-  border-color: #745b9f;
+  background: #475643;
+  color: #faf8f5;
+  border-color: #475643;
   transform: translateY(-1px);
 }
 
 .btn-outline {
   background: transparent;
-  color: #745b9f;
-  border: 1.5px solid #745b9f;
+  color: #475643;
+  border: 1.5px solid #475643;
   transition: all 0.3s ease;
 }
 .btn-outline:hover {
-  background: #745b9f;
-  color: #faf8fc;
+  background: #475643;
+  color: #faf8f5;
   transform: translateY(-1px);
 }
 
@@ -169,25 +169,25 @@
 }
 .card-hover:hover {
   transform: translateY(-4px);
-  box-shadow: 0 16px 40px rgba(44, 30, 67, 0.08);
+  box-shadow: 0 16px 40px rgba(34, 43, 32, 0.08);
 }
 
 /* ── Custom Divider ── */
 .divider-gold {
   width: 48px;
   height: 2px;
-  background: linear-gradient(90deg, #8e77b4, #e37a6b);
+  background: linear-gradient(90deg, #586a53, #b05742);
   border-radius: 2px;
 }
 
 /* ── Section Label ── */
 .section-label {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #e37a6b;
+  color: #b05742;
 }
 
 /* ── Preloader ── */
@@ -202,28 +202,28 @@
   width: 100%;
   padding: 12px 16px;
   border-radius: 10px;
-  border: 1.5px solid #ebdff2;
-  background: #faf8fc;
-  color: #2c1e43;
-  font-family: 'DM Sans', sans-serif;
+  border: 1.5px solid #e2ddd5;
+  background: #faf8f5;
+  color: #222b20;
+  font-family: 'Outfit', sans-serif;
   font-size: 14px;
   font-weight: 400;
   outline: none;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 .form-input:focus {
-  border-color: #745b9f;
-  box-shadow: 0 0 0 3px rgba(116, 91, 159, 0.08);
+  border-color: #475643;
+  box-shadow: 0 0 0 3px rgba(71, 86, 67, 0.08);
 }
 .form-input::placeholder {
-  color: #8e77b4;
+  color: #586a53;
   font-weight: 400;
 }
 
 /* ── Page Hero Banner ── */
 .page-hero {
-  background: linear-gradient(135deg, #f3ebf7 0%, #ebdff2 60%, #e5d6ed 100%);
-  border-bottom: 1px solid #ebdff2;
+  background: linear-gradient(135deg, #efebdf 0%, #e2ddd5 60%, #d5cdc0 100%);
+  border-bottom: 1px solid #e2ddd5;
   position: relative;
   overflow: hidden;
 }
@@ -232,13 +232,13 @@
   position: absolute;
   top: 0; right: 0;
   width: 300px; height: 100%;
-  background: radial-gradient(ellipse at right, rgba(142, 119, 180, 0.12), transparent 70%);
+  background: radial-gradient(ellipse at right, rgba(71, 86, 67, 0.12), transparent 70%);
 }
 
 /* ── Pulse animation for WhatsApp / social ── */
 @keyframes greenPulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(116, 91, 159, 0.3); }
-  50%       { box-shadow: 0 0 0 10px rgba(116, 91, 159, 0); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(71, 86, 67, 0.3); }
+  50%       { box-shadow: 0 0 0 10px rgba(71, 86, 67, 0); }
 }
 .green-pulse {
   animation: greenPulse 2s ease-in-out infinite;

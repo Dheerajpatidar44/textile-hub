@@ -3,13 +3,14 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus } from 'lucide-react';
 
 const C = {
-  primary: '#745b9f',
-  primaryLight: '#8e77b4',
-  soil: '#2c1e43',
-  sand: '#f3ebf7',
-  cream: '#faf8f5',
-  border: '#ebdff2',
-  stone: '#66587c',
+  primary: '#475643',       // Deep Forest Green
+  primaryLight: '#586a53',  // Medium Forest Green
+  soil: '#222b20',          // Deep Dark Charcoal Text
+  sand: '#efebdf',          // Soft Beige Background
+  cream: '#faf8f5',          // Warm Off-white base background
+  border: '#e2ddd5',        // Soft Warm Border
+  stone: '#5a6657',         // Muted Olive-Charcoal Text
+  accent: '#b05742',        // Terracotta Accent
 };
 
 const faqs = [
@@ -31,7 +32,7 @@ const faqs = [
   },
   {
     question: "Do you ship internationally?",
-    answer: "Yes, Loom & Luxury ships globally. International shipping charges and delivery times vary based on the destination and order volume."
+    answer: "Yes, Indian Fabric House ships globally. International shipping charges and delivery times vary based on the destination and order volume."
   },
   {
     question: "Can I request custom fabric weaving or dyeing?",
@@ -47,15 +48,13 @@ export default function FAQ() {
   };
 
   return (
-    <div style={{ fontFamily: "'DM Sans', sans-serif", background: C.cream, minHeight: '100vh' }}>
+    <div style={{ fontFamily: "'Outfit', sans-serif", background: C.cream, minHeight: '100vh' }}>
 
-      
-
-      <div className="max-w-3xl mx-auto px-6 pt-32 pb-24">
+      <div className="max-w-3xl mx-auto px-6 pt-10 pb-20">
 
         {/* Page Title Section */}
         <div className="text-center mb-12">
-          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(30px, 4vw, 44px)', fontWeight: 500, color: C.soil, margin: '0 0 12px' }}>
+          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(30px, 4vw, 44px)', fontWeight: 600, color: C.soil, margin: '0 0 12px' }}>
             Frequently Asked Questions
           </h1>
           <div style={{ width: 44, height: 2, background: `linear-gradient(90deg, ${C.primaryLight}, ${C.primary})`, borderRadius: 2, margin: '0 auto' }} />
@@ -89,13 +88,13 @@ export default function FAQ() {
                     border: 'none', transition: 'background 0.2s ease',
                   }}
                 >
-                  <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 16, fontWeight: 500, color: C.soil, margin: 0, lineHeight: 1.4 }}>
+                  <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 18, fontWeight: 600, color: C.soil, margin: 0, lineHeight: 1.4 }}>
                     {faq.question}
                   </h3>
                   <div style={{
                     flexShrink: 0, width: 32, height: 32, borderRadius: '50%',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    background: isOpen ? C.primary : 'rgba(124, 142, 118,0.08)',
+                    display: 'flex', alignItems: 'center', justify: 'center',
+                    background: isOpen ? C.primary : 'rgba(71, 86, 67,0.08)',
                     border: `1.5px solid ${isOpen ? C.primary : C.border}`,
                     transition: 'all 0.2s ease',
                   }}>

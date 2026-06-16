@@ -1,13 +1,13 @@
 import { motion } from 'framer-motion';
 
 const C = {
-  primary: '#745b9f',
-  primaryLight: '#8e77b4',
-  soil: '#2c1e43',
-  sand: '#f3ebf7',
+  primary: '#475643',
+  primaryLight: '#586a53',
+  soil: '#222b20',
+  sand: '#efebdf',
   cream: '#faf8f5',
-  border: '#ebdff2',
-  stone: '#66587c',
+  border: '#e2ddd5',
+  stone: '#5a6657',
 };
 
 const galleryItems = [
@@ -21,15 +21,13 @@ const galleryItems = [
 
 export default function BusinessMediaGallery() {
   return (
-    <div style={{ fontFamily: "'DM Sans', sans-serif", background: C.cream }}>
+    <div style={{ fontFamily: "'Outfit', sans-serif", background: C.cream }}>
 
-      
-
-      <div className="max-w-[90rem] mx-auto px-6 lg:px-14 pt-32 pb-24">
+      <div className="max-w-[90rem] mx-auto px-6 lg:px-14 pt-10 pb-20">
 
         {/* Page Title Section */}
         <div className="text-center mb-12">
-          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(30px, 4vw, 44px)', fontWeight: 500, color: C.soil, margin: '0 0 12px' }}>
+          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(30px, 4vw, 44px)', fontWeight: 600, color: C.soil, margin: '0 0 12px' }}>
             Media Gallery
           </h1>
           <div style={{ width: 44, height: 2, background: `linear-gradient(90deg, ${C.primaryLight}, ${C.primary})`, borderRadius: 2, margin: '0 auto' }} />
@@ -61,17 +59,17 @@ export default function BusinessMediaGallery() {
                 />
                 <div style={{
                   position: 'absolute', top: 12, left: 12,
-                  background: 'rgba(74,55,40,0.85)', backdropFilter: 'blur(6px)',
+                  background: 'rgba(71, 86, 67, 0.85)', backdropFilter: 'blur(6px)',
                   borderRadius: 20, padding: '4px 12px',
                 }}>
-                  <span style={{ fontSize: 9, color: '#f2ebe1', letterSpacing: '0.15em', textTransform: 'uppercase', fontWeight: 400 }}>
+                  <span style={{ fontSize: 9, color: '#fbfaf7', letterSpacing: '0.15em', textTransform: 'uppercase', fontWeight: 400 }}>
                     {item.category}
                   </span>
                 </div>
               </div>
 
-              <div style={{ padding: '20px', flex: 1 }}>
-                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 16, fontWeight: 500, color: C.soil, margin: '0 0 8px', lineHeight: 1.4 }}>
+              <div style={{ padding: '20px', flex: 1, textLeft: 'left', textAlign: 'left' }}>
+                <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 18, fontWeight: 600, color: C.soil, margin: '0 0 8px', lineHeight: 1.4 }}>
                   {item.title}
                 </h3>
                 <p style={{ fontSize: 13, color: C.stone, lineHeight: 1.6, margin: 0, fontWeight: 400 }}>

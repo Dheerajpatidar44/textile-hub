@@ -1,16 +1,16 @@
 import { motion } from 'framer-motion';
-import { Gavel, UploadCloud, Send, Mail, Clock, Tag, TrendingUp } from 'lucide-react';
+import { Gavel, UploadCloud, Send, Mail, Clock, TrendingUp } from 'lucide-react';
 
 const C = {
-  primary: '#745b9f',
-  primaryLight: '#8e77b4',
-  accent: '#e37a6b',
-  soil: '#2c1e43',
-  sand: '#f3ebf7',
-  cream: '#faf8f5',
-  linen: '#FAF5EC',
-  border: '#ebdff2',
-  stone: '#66587c',
+  primary: '#475643',       // Deep Forest Green
+  primaryLight: '#586a53',  // Medium Forest Green
+  accent: '#b05742',        // Terracotta Accent
+  bg: '#faf8f5',            // Warm Cream
+  sand: '#efebdf',          // Light Sand
+  border: '#e2ddd5',        // Beige Border
+  soil: '#222b20',          // Dark Green-Charcoal Text
+  stone: '#5a6657',         // Muted Text
+  linen: '#fbfaf7',          // Linen background
 };
 
 const auctions = [
@@ -54,15 +54,13 @@ const auctions = [
 
 export default function EAuction() {
   return (
-    <div style={{ fontFamily: "'DM Sans', sans-serif", background: C.cream }}>
+    <div style={{ fontFamily: "'Outfit', sans-serif", background: C.bg, minHeight: '100vh' }}>
 
-      
-
-      <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14 pt-32 pb-24">
+      <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14 pt-10 pb-20">
 
         {/* Page Title Section */}
         <div className="text-center mb-12">
-          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(30px, 4vw, 44px)', fontWeight: 500, color: C.soil, margin: '0 0 12px' }}>
+          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(30px, 4vw, 44px)', fontWeight: 600, color: C.soil, margin: '0 0 12px' }}>
             e-Auction
           </h1>
           <div style={{ width: 44, height: 2, background: `linear-gradient(90deg, ${C.primaryLight}, ${C.primary})`, borderRadius: 2, margin: '0 auto' }} />
@@ -74,18 +72,18 @@ export default function EAuction() {
  
         {/* Active Auctions */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 24 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 24 }} className="text-left">
             <Gavel size={20} color={C.primaryLight} />
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, fontWeight: 500, color: C.soil, margin: 0 }}>
+            <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 22, fontWeight: 600, color: C.soil, margin: 0 }}>
               Active e-Auctions
             </h2>
           </div>
- 
+  
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-14">
             {auctions.map((auction) => (
               <div
                 key={auction.id}
-                className="card-hover"
+                className="card-hover text-left"
                 style={{
                   borderRadius: 16, overflow: 'hidden',
                   background: 'white', border: `1px solid ${C.border}`,
@@ -112,7 +110,7 @@ export default function EAuction() {
                       <span style={{
                         fontSize: 9, textTransform: 'uppercase', letterSpacing: '0.15em',
                         padding: '3px 10px', borderRadius: 20,
-                        background: C.primary, color: 'white', fontWeight: 400,
+                        background: C.accent, color: 'white', fontWeight: 400,
                       }}>New</span>
                     )}
                   </div>
@@ -120,7 +118,7 @@ export default function EAuction() {
 
                 {/* Content */}
                 <div style={{ padding: '16px', flex: 1, display: 'flex', flexDirection: 'column' }}>
-                  <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 17, fontWeight: 500, color: C.soil, margin: '0 0 8px' }}>
+                  <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 18, fontWeight: 600, color: C.soil, margin: '0 0 8px' }}>
                     {auction.title}
                   </h3>
                   <p style={{ fontSize: 13, color: C.stone, lineHeight: 1.6, margin: '0 0 16px', fontWeight: 400 }}>
@@ -143,7 +141,7 @@ export default function EAuction() {
                         <span style={{ fontSize: 9, textTransform: 'uppercase', letterSpacing: '0.15em', color: C.stone, display: 'block', marginBottom: 2, fontWeight: 400 }}>
                           {label}
                         </span>
-                        <span style={{ fontSize: 13, color: highlight ? C.primary : C.soil, fontWeight: highlight ? 500 : 400 }}>
+                        <span style={{ fontSize: 13, color: highlight ? C.accent : C.soil, fontWeight: highlight ? 600 : 400 }}>
                           {val}
                         </span>
                       </div>
@@ -156,8 +154,8 @@ export default function EAuction() {
                       width: '100%', padding: '11px',
                       background: C.primary, color: 'white',
                       border: 'none', borderRadius: 10,
-                      fontSize: 13, fontWeight: 400,
-                      cursor: 'pointer', fontFamily: "'DM Sans', sans-serif",
+                      fontSize: 13, fontWeight: 500,
+                      cursor: 'pointer', fontFamily: "'Outfit', sans-serif",
                       transition: 'all 0.2s ease',
                       display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6,
                     }}
@@ -183,7 +181,7 @@ export default function EAuction() {
             background: 'white', borderRadius: 20,
             border: `1px solid ${C.border}`,
             overflow: 'hidden',
-            boxShadow: '0 8px 40px rgba(74,55,40,0.08)',
+            boxShadow: '0 8px 40px rgba(34,43,32,0.08)',
           }}>
             {/* Form header */}
             <div style={{
@@ -191,17 +189,17 @@ export default function EAuction() {
               borderBottom: `1px solid ${C.border}`,
               background: C.sand,
               display: 'flex', alignItems: 'center', gap: 14,
-            }}>
+            }} className="text-left">
               <div style={{
                 width: 46, height: 46, borderRadius: 12,
-                background: 'rgba(124, 142, 118,0.1)',
-                border: `1px solid rgba(163, 184, 157,0.25)`,
+                background: 'rgba(71, 86, 67, 0.1)',
+                border: `1px solid rgba(71, 86, 67, 0.25)`,
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
               }}>
                 <Gavel size={20} color={C.primary} />
               </div>
               <div>
-                <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 20, fontWeight: 500, color: C.soil, margin: '0 0 4px' }}>
+                <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 20, fontWeight: 600, color: C.soil, margin: '0 0 4px' }}>
                   Participation Registration
                 </h2>
                 <p style={{ fontSize: 12, color: C.stone, margin: 0, fontWeight: 400 }}>
@@ -210,7 +208,7 @@ export default function EAuction() {
               </div>
             </div>
 
-            <div style={{ padding: '32px' }}>
+            <div style={{ padding: '32px' }} className="text-left">
               <form className="space-y-5" onSubmit={e => e.preventDefault()}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   {[
@@ -242,7 +240,7 @@ export default function EAuction() {
                     cursor: 'pointer', background: C.linen,
                     transition: 'all 0.2s ease',
                   }}
-                    onMouseEnter={e => { e.currentTarget.style.borderColor = C.primaryLight; e.currentTarget.style.background = 'rgba(163, 184, 157,0.05)'; }}
+                    onMouseEnter={e => { e.currentTarget.style.borderColor = C.primaryLight; e.currentTarget.style.background = 'rgba(71, 86, 67, 0.05)'; }}
                     onMouseLeave={e => { e.currentTarget.style.borderColor = C.border; e.currentTarget.style.background = C.linen; }}
                   >
                     <input type="file" className="hidden" accept=".pdf,.jpg,.jpeg,.png" />
@@ -257,8 +255,8 @@ export default function EAuction() {
                   display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
                   background: C.accent, color: 'white',
                   border: 'none', borderRadius: 12,
-                  fontSize: 14, fontWeight: 400,
-                  cursor: 'pointer', fontFamily: "'DM Sans', sans-serif",
+                  fontSize: 14, fontWeight: 500,
+                  cursor: 'pointer', fontFamily: "'Outfit', sans-serif",
                   transition: 'all 0.2s ease',
                 }}
                   onMouseEnter={e => e.currentTarget.style.background = C.primary}
@@ -269,8 +267,8 @@ export default function EAuction() {
 
                 <div style={{ textAlign: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8 }}>
                   <Mail size={13} color={C.primaryLight} />
-                  <a href="mailto:info@loomandluxury.com" style={{ fontSize: 12, color: C.primary, fontWeight: 400, textDecoration: 'none' }}>
-                    info@loomandluxury.com
+                  <a href="mailto:info@indianfabrichouse.com" style={{ fontSize: 12, color: C.primary, fontWeight: 400, textDecoration: 'none' }}>
+                    info@indianfabrichouse.com
                   </a>
                 </div>
               </form>

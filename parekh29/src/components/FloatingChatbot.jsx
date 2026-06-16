@@ -2,14 +2,14 @@ import { useState } from 'react';
 import { MessageSquareText, X, Send, Sparkles } from 'lucide-react';
 
 const C = {
-  primary: '#745b9f',       // Deep Purple / Lavender
-  primaryLight: '#8e77b4',  // Medium Lavender
-  soil: '#2c1e43',          // Deep purple-tinted Dark Text
-  sand: '#f3ebf7',          // Soft Lavender Background
-  cream: '#faf8fc',          // Warm Off-white with purple tint
-  border: '#ebdff2',        // Soft Lavender Border
-  stone: '#66587c',         // Muted Lavender-Grey Text
-  accent: '#e37a6b',        // Warm Coral Rose Accent
+  primary: '#475643',       // Deep Forest Green
+  primaryLight: '#586a53',  // Medium Forest Green
+  soil: '#222b20',          // Deep Dark Charcoal Text
+  sand: '#efebdf',          // Soft Beige Background
+  cream: '#faf8f5',          // Warm Off-white base background
+  border: '#e2ddd5',        // Soft Warm Border
+  stone: '#5a6657',         // Muted Olive-Charcoal Text
+  accent: '#b05742',        // Terracotta Accent
 };
 
 const FloatingChatbot = () => {
@@ -17,11 +17,11 @@ const FloatingChatbot = () => {
   const [message, setMessage] = useState('');
 
   return (
-    <div className="fixed bottom-6 right-5 z-50 flex flex-col items-end" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+    <div className="fixed bottom-6 right-5 z-50 flex flex-col items-end" style={{ fontFamily: "'Outfit', sans-serif" }}>
       {isOpen && (
         <div
           className="mb-4 w-[340px] sm:w-[370px] rounded-2xl overflow-hidden border"
-          style={{ borderColor: C.border, background: '#FFFFFF', boxShadow: '0 12px 40px rgba(19,56,53,0.15)' }}
+          style={{ borderColor: C.border, background: '#FFFFFF', boxShadow: '0 12px 40px rgba(34,43,32,0.15)' }}
         >
           {/* Header */}
           <div
@@ -37,7 +37,7 @@ const FloatingChatbot = () => {
               </div>
               <div className="text-left">
                 <p className="text-white text-[13px] font-bold tracking-wide leading-tight">
-                  Loom & Luxury Assistant
+                  Indian Fabric House Assistant
                 </p>
                 <div className="flex items-center gap-1.5 mt-0.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
@@ -70,7 +70,7 @@ const FloatingChatbot = () => {
                 style={{ borderColor: C.border }}
               >
                 <p className="text-[13px] leading-relaxed" style={{ color: C.soil }}>
-                  Namaste! 🙏 Welcome to <strong>Loom & Luxury</strong>. How can I assist you today?
+                  Namaste! 🙏 Welcome to <strong>Indian Fabric House</strong>. How can I assist you today?
                 </p>
               </div>
             </div>
@@ -123,7 +123,7 @@ const FloatingChatbot = () => {
         style={{
           background: isOpen ? C.soil : C.primary,
           borderColor: C.border,
-          boxShadow: '0 4px 16px rgba(116,91,159,0.2)'
+          boxShadow: '0 4px 16px rgba(71,86,67,0.2)'
         }}
       >
         {isOpen ? (

@@ -2,13 +2,14 @@ import { motion } from 'framer-motion';
 import { Mail, Users, TrendingUp, Award } from 'lucide-react';
 
 const C = {
-  primary: '#745b9f',
-  primaryLight: '#8e77b4',
-  soil: '#2c1e43',
-  sand: '#f3ebf7',
-  cream: '#faf8f5',
-  border: '#ebdff2',
-  stone: '#66587c',
+  primary: '#475643',       // Deep Forest Green
+  primaryLight: '#586a53',  // Medium Forest Green
+  soil: '#222b20',          // Deep Dark Charcoal Text
+  sand: '#efebdf',          // Soft Beige Background
+  cream: '#faf8f5',          // Warm Off-white base background
+  border: '#e2ddd5',        // Soft Warm Border
+  stone: '#5a6657',         // Muted Olive-Charcoal Text
+  accent: '#b05742',        // Terracotta Accent
 };
 
 const teamMembers = [
@@ -25,24 +26,21 @@ const highlights = [
 
 export default function RetailManagement() {
   return (
-    <div style={{ fontFamily: "'DM Sans', sans-serif", background: C.cream }}>
+    <div style={{ fontFamily: "'Outfit', sans-serif", background: C.cream }}>
 
-      
-
-      <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14 pt-32 pb-24">
+      <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14 pt-10 pb-20">
 
         {/* Page Title Section */}
         <div className="text-center mb-12">
-          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(30px, 4vw, 44px)', fontWeight: 500, color: C.soil, margin: '0 0 12px' }}>
+          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(30px, 4vw, 44px)', fontWeight: 600, color: C.soil, margin: '0 0 12px' }}>
             Our Retail Management
           </h1>
           <div style={{ width: 44, height: 2, background: `linear-gradient(90deg, ${C.primaryLight}, ${C.primary})`, borderRadius: 2, margin: '0 auto' }} />
         </div>
   
         <p style={{ textAlign: 'center', fontSize: 15, color: C.stone, marginBottom: 40, fontWeight: 400, maxWidth: 560, margin: '0 auto 40px', lineHeight: 1.7 }}>
-          Loom & Luxury is administered and governed by highly skilled, experienced and qualified Management with decades of expertise in the textile industry.
+          Indian Fabric House is administered and governed by highly skilled, experienced and qualified Management with decades of expertise in the textile industry.
         </p>
-
 
         {/* Team Cards */}
         <motion.div
@@ -56,7 +54,7 @@ export default function RetailManagement() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
-              className="card-hover"
+              className="card-hover text-left"
               style={{
                 borderRadius: 16, background: 'white',
                 border: `1px solid ${C.border}`,
@@ -71,7 +69,7 @@ export default function RetailManagement() {
                   style={{
                     width: 90, height: 90, borderRadius: '50%',
                     objectFit: 'cover',
-                    border: `3px solid rgba(163, 184, 157,0.3)`,
+                    border: `3px solid rgba(71, 86, 67, 0.3)`,
                     display: 'block',
                   }}
                 />
@@ -85,10 +83,10 @@ export default function RetailManagement() {
                 </div>
               </div>
 
-              <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 17, fontWeight: 500, color: C.soil, margin: '0 0 4px' }}>
+              <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 17, fontWeight: 600, color: C.soil, margin: '0 0 4px' }}>
                 {member.name}
               </h3>
-              <p style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.18em', color: C.primary, margin: '0 0 8px', fontWeight: 400 }}>
+              <p style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.18em', color: C.accent, margin: '0 0 8px', fontWeight: 600 }}>
                 {member.role}
               </p>
               <p style={{ fontSize: 12, color: C.stone, margin: '0 0 18px', fontWeight: 400, lineHeight: 1.5 }}>
@@ -96,17 +94,17 @@ export default function RetailManagement() {
               </p>
 
               <a
-                href={`mailto:${member.name.toLowerCase().replace(' ', '')}@loomandluxury.com`}
+                href={`mailto:${member.name.toLowerCase().replace(' ', '')}@indianfabrichouse.com`}
                 style={{
                   display: 'inline-flex', alignItems: 'center', gap: 6,
                   padding: '8px 16px', borderRadius: 10,
-                  fontSize: 12, color: C.primary, textDecoration: 'none', fontWeight: 400,
-                  background: 'rgba(124, 142, 118,0.08)',
-                  border: `1px solid rgba(163, 184, 157,0.2)`,
+                  fontSize: 12, color: C.primary, textDecoration: 'none', fontWeight: 500,
+                  background: 'rgba(71, 86, 67, 0.08)',
+                  border: `1px solid rgba(71, 86, 67, 0.2)`,
                   transition: 'all 0.2s ease',
                 }}
                 onMouseEnter={e => { e.currentTarget.style.background = C.primary; e.currentTarget.style.color = 'white'; }}
-                onMouseLeave={e => { e.currentTarget.style.background = 'rgba(124, 142, 118,0.08)'; e.currentTarget.style.color = C.primary; }}
+                onMouseLeave={e => { e.currentTarget.style.background = 'rgba(71, 86, 67, 0.08)'; e.currentTarget.style.color = C.primary; }}
               >
                 <Mail size={13} /> Contact
               </a>

@@ -2,14 +2,14 @@ import { motion } from 'framer-motion';
 import { Briefcase, MapPin, Mail, Clock } from 'lucide-react';
 
 const C = {
-  primary: '#745b9f',       // Deep Teal
-  primaryLight: '#8e77b4',  // Medium Teal
-  accent: '#e37a6b',        // Terracotta / Rust
-  bg: '#faf8fc',            // Warm Cream
-  sand: '#f3ebf7',          // Light Sand
-  border: '#ebdff2',        // Beige Border
-  soil: '#2c1e43',          // Dark Teal Text
-  stone: '#66587c',         // Muted Brown Text
+  primary: '#475643',       // Deep Forest Green
+  primaryLight: '#586a53',  // Medium Forest Green
+  accent: '#b05742',        // Terracotta Accent
+  bg: '#faf8f5',            // Warm Cream
+  sand: '#efebdf',          // Light Sand
+  border: '#e2ddd5',        // Beige Border
+  soil: '#222b20',          // Dark Green-Charcoal Text
+  stone: '#5a6657',         // Muted Text
 };
 
 const jobs = [
@@ -21,16 +21,14 @@ const jobs = [
 
 export default function Career() {
   return (
-    <div style={{ fontFamily: "'DM Sans', sans-serif", background: C.bg, minHeight: '100vh' }}>
+    <div style={{ fontFamily: "'Outfit', sans-serif", background: C.bg, minHeight: '100vh' }}>
 
-      
-
-      {/* Main Content (4 Divs in 1 Row on desktop) */}
-      <div className="max-w-[90rem] mx-auto px-6 lg:px-14 text-left pt-32 pb-24">
+      {/* Main Content */}
+      <div className="max-w-[90rem] mx-auto px-6 lg:px-14 text-left pt-10 pb-20">
 
         {/* Page Title Section */}
         <div className="text-center mb-12">
-          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(30px, 4vw, 40px)', fontWeight: 500, color: C.soil, margin: '0 0 12px' }}>
+          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(30px, 4vw, 40px)', fontWeight: 600, color: C.soil, margin: '0 0 12px' }}>
             Career Opportunities
           </h1>
           <div style={{ width: 44, height: 2, background: `linear-gradient(90deg, ${C.primaryLight}, ${C.accent})`, borderRadius: 2, margin: '0 auto' }} />
@@ -49,7 +47,7 @@ export default function Career() {
               }}
             >
               <div>
-                <h3 style={{ fontFamily: "'Playfair Display', serif", color: C.soil }} className="text-[17px] font-bold mb-4 leading-snug">
+                <h3 style={{ fontFamily: "'Cormorant Garamond', serif", color: C.soil }} className="text-[17px] font-bold mb-4 leading-snug">
                   {job.title}
                 </h3>
                 <div className="flex flex-col gap-2.5 mb-5">
@@ -71,7 +69,7 @@ export default function Career() {
 
               <div className="pt-4 mt-4 border-t border-stone-150 flex flex-col gap-2.5">
                 <button
-                  className="w-full py-2.5 rounded-lg font-bold text-xs uppercase tracking-wider text-white transition-colors"
+                  className="w-full py-2.5 rounded-lg font-bold text-xs uppercase tracking-wider text-white transition-colors cursor-pointer"
                   style={{
                     background: C.primary,
                   }}
@@ -81,7 +79,7 @@ export default function Career() {
                   Apply Now
                 </button>
                 <a
-                  href="mailto:careers@loomandluxury.com"
+                  href="mailto:careers@indianfabrichouse.com"
                   style={{ color: C.accent }}
                   className="flex items-center justify-center gap-1.5 text-xs font-semibold hover:opacity-85"
                 >

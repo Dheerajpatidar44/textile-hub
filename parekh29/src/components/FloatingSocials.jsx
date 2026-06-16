@@ -3,11 +3,11 @@ import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const COLORS = { 
-  primary: '#b56b46', 
-  accent: '#e37a6b', 
-  bg: '#faf8fc', 
-  border: '#ebdff2', 
-  textDark: '#133835' 
+  primary: '#b05742', // Terracotta
+  accent: '#475643',  // Forest Green
+  bg: '#faf8f5', 
+  border: '#e2ddd5', 
+  textDark: '#222b20' 
 };
 
 const InstagramIcon = () => (

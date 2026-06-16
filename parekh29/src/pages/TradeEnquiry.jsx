@@ -1,28 +1,26 @@
 import { motion } from 'framer-motion';
-import { Send, Building2, Phone, Mail, ShoppingBag } from 'lucide-react';
+import { Send, Building2, ShoppingBag } from 'lucide-react';
 
 const C = {
-  primary: '#745b9f',
-  primaryLight: '#8e77b4',
-  soil: '#2c1e43',
-  sand: '#f3ebf7',
-  cream: '#faf8f5',
-  linen: '#FAF5EC',
-  border: '#ebdff2',
-  stone: '#66587c',
+  primary: '#475643',       // Deep Forest Green
+  primaryLight: '#586a53',  // Medium Forest Green
+  soil: '#222b20',          // Deep Dark Charcoal Text
+  sand: '#efebdf',          // Soft Beige Background
+  cream: '#faf8f5',          // Warm Off-white base background
+  border: '#e2ddd5',        // Soft Warm Border
+  stone: '#5a6657',         // Muted Olive-Charcoal Text
+  accent: '#b05742',        // Terracotta Accent
 };
 
 export default function TradeEnquiry() {
   return (
-    <div style={{ fontFamily: "'DM Sans', sans-serif", background: C.cream }}>
+    <div style={{ fontFamily: "'Outfit', sans-serif", background: C.cream, minHeight: '100vh' }}>
 
-      
-
-      <div className="max-w-3xl mx-auto px-6 pt-32 pb-24">
+      <div className="max-w-3xl mx-auto px-6 pt-10 pb-20">
 
         {/* Page Title Section */}
         <div className="text-center mb-12">
-          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(30px, 4vw, 44px)', fontWeight: 500, color: C.soil, margin: '0 0 12px' }}>
+          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(30px, 4vw, 44px)', fontWeight: 600, color: C.soil, margin: '0 0 12px' }}>
             Trade Enquiry
           </h1>
           <div style={{ width: 44, height: 2, background: `linear-gradient(90deg, ${C.primaryLight}, ${C.primary})`, borderRadius: 2, margin: '0 auto' }} />
@@ -41,15 +39,15 @@ export default function TradeEnquiry() {
             borderRadius: 20,
             border: `1px solid ${C.border}`,
             overflow: 'hidden',
-            boxShadow: '0 8px 40px rgba(74,55,40,0.08)',
+            boxShadow: '0 8px 40px rgba(34,43,32,0.08)',
           }}
         >
           <div style={{
             padding: '24px 32px',
             borderBottom: `1px solid ${C.border}`,
             background: C.sand,
-          }}>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 20, fontWeight: 500, color: C.soil, margin: '0 0 4px' }}>
+          }} className="text-left">
+            <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 20, fontWeight: 600, color: C.soil, margin: '0 0 4px' }}>
               Enquiry Form
             </h2>
             <p style={{ fontSize: 12, color: C.stone, margin: 0, fontWeight: 400 }}>
@@ -57,11 +55,11 @@ export default function TradeEnquiry() {
             </p>
           </div>
 
-          <div style={{ padding: '32px' }}>
+          <div style={{ padding: '32px' }} className="text-left">
             <form style={{ display: 'flex', flexDirection: 'column', gap: 20 }} onSubmit={e => e.preventDefault()}>
 
               <div>
-                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 16, fontWeight: 500, color: C.soil, margin: '0 0 16px', paddingBottom: 12, borderBottom: `1px solid ${C.border}`, display: 'flex', alignItems: 'center', gap: 8 }}>
+                <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 18, fontWeight: 600, color: C.soil, margin: '0 0 16px', paddingBottom: 12, borderBottom: `1px solid ${C.border}`, display: 'flex', alignItems: 'center', gap: 8 }}>
                   <Building2 size={16} color={C.primaryLight} /> Company Details
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -82,7 +80,7 @@ export default function TradeEnquiry() {
               </div>
 
               <div>
-                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 16, fontWeight: 500, color: C.soil, margin: '0 0 16px', paddingBottom: 12, borderBottom: `1px solid ${C.border}`, display: 'flex', alignItems: 'center', gap: 8 }}>
+                <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 18, fontWeight: 600, color: C.soil, margin: '0 0 16px', paddingBottom: 12, borderBottom: `1px solid ${C.border}`, display: 'flex', alignItems: 'center', gap: 8 }}>
                   <ShoppingBag size={16} color={C.primaryLight} /> Enquiry Details
                 </h3>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
@@ -127,14 +125,14 @@ export default function TradeEnquiry() {
                 type="submit"
                 style={{
                   width: '100%', padding: '14px',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
+                  display: 'flex', alignItems: 'center', justify: 'center', gap: 8,
                   background: C.soil, color: 'white',
                   border: 'none', borderRadius: 12,
-                  fontSize: 14, fontWeight: 400,
-                  cursor: 'pointer', fontFamily: "'DM Sans', sans-serif",
+                  fontSize: 14, fontWeight: 500,
+                  cursor: 'pointer', fontFamily: "'Outfit', sans-serif",
                   transition: 'all 0.2s ease',
                 }}
-                onMouseEnter={e => e.currentTarget.style.background = C.primary}
+                onMouseEnter={e => e.currentTarget.style.background = C.accent}
                 onMouseLeave={e => e.currentTarget.style.background = C.soil}
               >
                 <Send size={15} /> Submit Trade Enquiry

@@ -4,14 +4,14 @@ import { motion } from 'framer-motion';
 import { ShoppingBag, Filter } from 'lucide-react';
 
 const C = {
-  primary: '#745b9f',
-  primaryLight: '#8e77b4',
-  accent: '#e37a6b',
-  soil: '#2c1e43',
-  sand: '#f3ebf7',
-  cream: '#faf8f5',
-  border: '#ebdff2',
-  stone: '#66587c',
+  primary: '#475643',       // Deep Forest Green
+  primaryLight: '#586a53',  // Medium Forest Green
+  accent: '#b05742',        // Terracotta Accent
+  bg: '#faf8f5',            // Warm Cream
+  sand: '#efebdf',          // Light Sand
+  border: '#e2ddd5',        // Beige Border
+  soil: '#222b20',          // Dark Green-Charcoal Text
+  stone: '#5a6657',         // Muted Text
 };
 
 const categories = [
@@ -55,19 +55,18 @@ export default function Products() {
   });
 
   return (
-    <div style={{ fontFamily: "'DM Sans', sans-serif", background: C.cream, minHeight: '100vh' }}>
+    <div style={{ fontFamily: "'Outfit', sans-serif", background: C.bg, minHeight: '100vh' }}>
 
-      
-
-      <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14 pt-32 pb-24">
+      <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14 pt-10 pb-20">
 
         {/* Page Title Section */}
         <div className="text-center mb-12">
-          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(30px, 4vw, 44px)', fontWeight: 500, color: C.soil, margin: '0 0 12px' }}>
+          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(30px, 4vw, 44px)', fontWeight: 600, color: C.soil, margin: '0 0 12px' }}>
             Explore Our Collection
           </h1>
           <div style={{ width: 44, height: 2, background: `linear-gradient(90deg, ${C.primaryLight}, ${C.primary})`, borderRadius: 2, margin: '0 auto' }} />
         </div>
+        
         {/* Category Filters */}
         <div className="flex flex-wrap gap-2.5 justify-center mb-8">
           {["All", ...categories].map((cat) => {
@@ -115,7 +114,6 @@ export default function Products() {
           </div>
         </div>
 
-
         {/* Products Grid */}
         {filteredProducts.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
@@ -125,7 +123,7 @@ export default function Products() {
                 initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: Math.min(index * 0.04, 0.3) }}
-                className="card-hover"
+                className="card-hover text-left"
                 style={{
                   borderRadius: 16, overflow: 'hidden',
                   background: 'white',
@@ -145,18 +143,18 @@ export default function Products() {
                 <div style={{ padding: '16px 18px', borderTop: `1px solid ${C.border}` }}>
                   <span style={{
                     fontSize: 9, textTransform: 'uppercase', letterSpacing: '0.18em',
-                    color: C.primary, fontWeight: 400, display: 'block', marginBottom: 6,
+                    color: C.accent, fontWeight: 600, display: 'block', marginBottom: 6,
                   }}>
                     {product.category}
                   </span>
-                  <h3 style={{ fontSize: 14, fontWeight: 500, color: C.soil, margin: '0 0 12px', lineHeight: 1.4 }}>
+                  <h3 style={{ fontSize: 14, fontWeight: 600, color: C.soil, margin: '0 0 12px', lineHeight: 1.4, fontFamily: "'Cormorant Garamond', serif" }}>
                     {product.name}
                   </h3>
                   <button
                     style={{
                       width: '100%', padding: '9px 14px',
-                      borderRadius: 10, fontSize: 12, fontWeight: 400,
-                      cursor: 'pointer', fontFamily: "'DM Sans', sans-serif",
+                      borderRadius: 10, fontSize: 12, fontWeight: 500,
+                      cursor: 'pointer', fontFamily: "'Outfit', sans-serif",
                       border: `1.5px solid ${C.border}`,
                       background: 'transparent', color: C.stone,
                       transition: 'all 0.2s ease',
@@ -177,7 +175,7 @@ export default function Products() {
             border: `1px solid ${C.border}`,
           }}>
             <Filter size={44} style={{ margin: '0 auto 16px', color: C.primaryLight, display: 'block', opacity: 0.6 }} />
-            <p style={{ fontFamily: "'Playfair Display', serif", fontSize: 20, color: C.soil, marginBottom: 20 }}>
+            <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 20, color: C.soil, marginBottom: 20 }}>
               No products found for "{activeCategory}"
             </p>
             <button
@@ -185,8 +183,8 @@ export default function Products() {
               style={{
                 padding: '11px 24px', borderRadius: 12,
                 background: C.primary, color: 'white',
-                border: 'none', fontSize: 13, fontWeight: 400,
-                cursor: 'pointer', fontFamily: "'DM Sans', sans-serif",
+                border: 'none', fontSize: 13, fontWeight: 500,
+                cursor: 'pointer', fontFamily: "'Outfit', sans-serif",
                 transition: 'all 0.2s ease',
               }}
               onMouseEnter={e => e.currentTarget.style.background = C.accent}

@@ -9,323 +9,509 @@ import {
 import { motion, AnimatePresence } from 'framer-motion';
 
 const C = {
-  primary: '#745b9f',       // Deep Purple / Lavender
-  primaryDark: '#5e4587',   // Darker Purple
-  accent: '#e37a6b',        // Warm Coral Rose Accent
-  bg: '#faf8fc',            // Warm Off-white with purple tint
-  sand: '#f3ebf7',          // Soft Lavender Background
-  border: '#ebdff2',        // Soft Lavender Border
-  soil: '#2c1e43',          // Deep purple-tinted Dark Text
-  stone: '#66587c',         // Muted Lavender-Grey Text
+  primary: '#475643',       // Deep Forest Green
+  primaryDark: '#384535',   // Darker Forest Green
+  accent: '#b05742',        // Terracotta Accent
+  bg: '#faf8f5',            // Warm Cream Background
+  sand: '#efebdf',          // Soft Sand/Beige Background
+  border: '#e2ddd5',        // Soft Warm Border
+  soil: '#222b20',          // Deep Dark Charcoal-Green Text
+  stone: '#5a6657',         // Muted Olive-Charcoal Text
 };
 
-// 7 Categories matching original pages
-const categoriesList = [
-  {
-    name: 'Sarees',
-    subtitle: 'Timeless Elegance',
-    image: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=400&auto=format&fit=crop&q=80',
-    path: '/products?category=Sarees'
+// 5 Popular Collections matching mockup
+const popularCollections = [
+  { 
+    name: 'PRINTED FABRICS', 
+    image: '/images/printed_fabrics.png',
+    path: '/products?category=Printed Fabrics'
   },
-  {
-    name: 'Leggings',
-    subtitle: 'Comfortable Wear',
-    image: 'https://images.unsplash.com/photo-1506152983158-b4a74a01c721?w=400&auto=format&fit=crop&q=80',
-    path: '/products?category=Leggings'
+  { 
+    name: 'PLAIN FABRICS', 
+    image: '/images/plain_fabrics.png',
+    path: '/products?category=Plain Fabrics'
   },
-  {
-    name: 'Kurtis',
-    subtitle: 'Ethnic Chic',
-    image: 'https://images.unsplash.com/photo-1741847639057-b51a25d42892?w=400&auto=format&fit=crop&q=80',
-    path: '/products?category=Kurtis'
+  { 
+    name: 'ETHNIC WEAR', 
+    image: '/images/ethnic_wear.png',
+    path: '/products?category=Ethnic Wear'
   },
-  {
-    name: 'Dress Suits',
-    subtitle: 'Perfect Fit',
-    image: 'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?w=400&auto=format&fit=crop&q=80',
-    path: '/products?category=Dress Suits'
-  },
-  {
-    name: 'Bedsheets & Linen',
-    subtitle: 'Cozy & Soft',
-    image: 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=400&auto=format&fit=crop&q=80',
+  { 
+    name: 'HOME TEXTILES', 
+    image: '/images/home_textiles.png',
     path: '/products?category=Bedsheets & Linen'
   },
-  {
-    name: 'Hosiery Items',
-    subtitle: 'Premium Comfort',
-    image: 'https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=400&auto=format&fit=crop&q=80',
-    path: '/products?category=Hosiery Items'
-  },
-  {
-    name: 'Suiting',
-    subtitle: 'Fine Tailoring',
-    image: 'https://images.unsplash.com/photo-1593032465175-481ac7f401a0?w=400&auto=format&fit=crop&q=80',
-    path: '/products?category=Suiting'
+  { 
+    name: 'KIDS WEAR', 
+    image: '/images/kids_wear.png',
+    path: '/products?category=Hosiery Items' // mapping kids wear to hosiery/cotton items
   }
 ];
 
-// 6 Popular Collections for Carousel
-const popularCollections = [
-  { name: 'Ethnic Wear', image: 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=500&auto=format&fit=crop&q=80' },
-  { name: 'Fabric Collection', image: 'https://images.unsplash.com/photo-1603252109303-2751441dd157?w=500&auto=format&fit=crop&q=80' },
-  { name: 'Home Furnishing', image: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=500&auto=format&fit=crop&q=80' },
-  { name: 'Bedding Collection', image: 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=500&auto=format&fit=crop&q=80' },
-  { name: 'Kids Wear', image: 'https://images.unsplash.com/photo-1741992556912-3b2d62461e75?w=500&auto=format&fit=crop&q=80' },
-  { name: 'Men\'s Wear', image: 'https://images.unsplash.com/photo-1724856604249-ca73680262e8?w=500&auto=format&fit=crop&q=80' }
+// 3 Slides for Hero Carousel
+const heroSlides = [
+  {
+    titleLine1: "Elegance Woven",
+    titleLine2: "Into Every Thread.",
+    subtitle: "Premium Indian ethnic wear fabrics crafted with generations of artisan tradition.",
+    image: "https://images.unsplash.com/photo-1727784891998-5adcdb7cd8e7?q=80&w=1460&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    cta: "Explore Collections",
+    path: "/products"
+  },
+  {
+    titleLine1: "Luxury for Your",
+    titleLine2: "Home & Living.",
+    subtitle: "Premium cotton bedsheets, linen and home textiles that transform your living space.",
+    image: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=1600&q=85&fit=crop",
+    cta: "Shop Home Textiles",
+    path: "/products?category=Bedsheets & Linen"
+  },
+  {
+    titleLine1: "Vibrant Colors",
+    titleLine2: "For Little Ones.",
+    subtitle: "Soft, safe & colorful fabrics for children's clothing — comfort that parents trust.",
+    image: "https://images.unsplash.com/photo-1622290291468-a28f7a7dc6a8?w=1600&q=85&fit=crop",
+    cta: "View Kids Collection",
+    path: "/products?category=Hosiery Items"
+  }
 ];
 
-// Blogs from original Blog page
-const blogs = [
-  { title: "The Future of Sustainable Weaving", date: "June 10, 2026", image: "https://images.unsplash.com/photo-1705412877691-70f6913aaa1e?w=150&auto=format&fit=crop&q=80" },
-  { title: "Elegance in Threads: The Fall Collection", date: "May 28, 2026", image: "https://images.unsplash.com/photo-1599753931952-654e960af582?w=150&auto=format&fit=crop&q=80" },
-  { title: "Behind the Scenes: Crafting the Perfect Saree", date: "May 15, 2026", image: "https://plus.unsplash.com/premium_photo-1669977749819-d8737b4408f7?w=150&auto=format&fit=crop&q=80" },
-  { title: "Trends to Watch in Home Furnishing", date: "Apr 22, 2026", image: "https://images.unsplash.com/photo-1616046229478-9901c5536a45?w=150&auto=format&fit=crop&q=80" }
-];
-
-// Media Gallery Images
-const galleryImages = [
-  "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=300&auto=format&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=300&auto=format&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1561489422-45de3d015e3e?w=300&auto=format&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1515169067868-5387ec356754?w=300&auto=format&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=300&auto=format&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1528698827591-e19ccd7bc23d?w=300&auto=format&fit=crop&q=80"
-];
+const slideVariants = {
+  enter: (direction) => ({
+    x: direction > 0 ? '100%' : '-100%',
+    opacity: 0
+  }),
+  center: {
+    zIndex: 1,
+    x: 0,
+    opacity: 1
+  },
+  exit: (direction) => ({
+    zIndex: 0,
+    x: direction < 0 ? '100%' : '-100%',
+    opacity: 0
+  })
+};
 
 export default function Home() {
   const navigate = useNavigate();
-  const [carouselIndex, setCarouselIndex] = useState(0);
-  const [newsletterEmail, setNewsletterEmail] = useState('');
-  const [newsletterSubscribed, setNewsletterSubscribed] = useState(false);
+  const [slideIndex, setSlideIndex] = useState(0);
+  const [direction, setDirection] = useState(1);
 
   const nextSlide = () => {
-    setCarouselIndex((prev) => (prev + 1) % (popularCollections.length - 2));
+    setDirection(1);
+    setSlideIndex((prev) => (prev + 1) % heroSlides.length);
   };
 
   const prevSlide = () => {
-    setCarouselIndex((prev) => (prev - 1 + (popularCollections.length - 2)) % (popularCollections.length - 2));
+    setDirection(-1);
+    setSlideIndex((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
   };
 
-  const handleSubscribe = (e) => {
-    e.preventDefault();
-    if (!newsletterEmail) return;
-    setNewsletterSubscribed(true);
-    setNewsletterEmail('');
-  };
+  useEffect(() => {
+    const timer = setInterval(nextSlide, 7000); // Autoplay slide every 7 seconds
+    return () => clearInterval(timer);
+  }, []);
 
   return (
-    <div style={{ background: C.bg, fontFamily: "'DM Sans', sans-serif" }} className="w-full overflow-x-hidden pt-[30px] md:pt-[40px]">
+    <div style={{ background: C.bg, fontFamily: "'Outfit', sans-serif" }} className="w-full overflow-x-hidden pt-2 md:pt-4">
       
-      {/* ── 1. REDESIGNED HERO SECTION ── */}
-      <section className="relative pt-4 md:pt-6 pb-12 px-6 sm:px-8 lg:px-14 flex items-center min-h-[460px]" style={{ background: 'linear-gradient(135deg, #fdfafd 0%, #f7f3fb 100%)' }}>
-        {/* Background Subtle Shape Grid */}
-        <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#745b9f 1.5px, transparent 1.5px)', backgroundSize: '24px 24px' }} />
-
-        <div className="max-w-[90rem] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full relative z-10 text-left">
-          
-          {/* Left Column: Typography & CTAs */}
-          <div className="lg:col-span-5 flex flex-col justify-center">
-            <h1 
-              className="text-4xl sm:text-5xl lg:text-[58px] leading-tight font-medium mb-1"
-              style={{ color: C.soil, fontFamily: "'Playfair Display', serif" }}
-            >
-              Weave Stories.
-            </h1>
-            <h1 
-              className="text-4xl sm:text-5xl lg:text-[58px] leading-tight font-medium mb-4"
-              style={{ color: C.accent, fontFamily: "'Playfair Display', serif" }}
-            >
-              Wear Tradition.
-            </h1>
-            
-            {/* Elegant wavy divider line with centerpiece */}
-            <div className="flex items-center gap-3 my-4">
-              <div className="h-[1px] w-20" style={{ background: `linear-gradient(90deg, transparent, ${C.accent})` }} />
-              <div className="w-4 h-4 flex items-center justify-center rotate-45 border" style={{ borderColor: C.accent, borderRadius: '2px' }}>
-                <div className="w-1.5 h-1.5" style={{ background: C.accent }} />
-              </div>
-              <div className="h-[1px] w-20" style={{ background: `linear-gradient(90deg, ${C.accent}, transparent)` }} />
-            </div>
-
-            <p style={{ color: C.stone }} className="text-base sm:text-lg mb-8 max-w-md leading-relaxed font-normal">
-              India's largest destination for premium textile fabrics crafted with passion and perfection.
-            </p>
-            
-            <div className="flex flex-wrap gap-4">
-              <Link
-                to="/products"
-                className="px-8 py-4 rounded-full font-bold tracking-wider text-[11px] uppercase transition-all duration-300 shadow-md flex items-center gap-2"
-                style={{
-                  background: C.primary,
-                  color: '#ffffff',
-                  border: `1.5px solid ${C.primary}`
+      {/* ── 1. HERO SECTION CAROUSEL (Rounded card style) ── */}
+      <section className="relative px-4 sm:px-6 lg:px-14 py-2 mt-1">
+        <div 
+          className="max-w-[90rem] mx-auto rounded-[24px] md:rounded-[32px] overflow-hidden relative shadow-sm border h-[360px] sm:h-[420px] md:h-[460px] lg:h-[490px]"
+          style={{ 
+            borderColor: C.border
+          }}
+        >
+          {/* Sliding container covering the entire div */}
+          <div className="absolute inset-0 w-full h-full z-0 overflow-hidden bg-stone-100">
+            <AnimatePresence initial={false} custom={direction}>
+              <motion.div 
+                key={slideIndex}
+                custom={direction}
+                variants={slideVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{
+                  x: { type: "tween", ease: [0.16, 1, 0.3, 1], duration: 0.8 },
+                  opacity: { duration: 0.5 }
                 }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.background = C.accent;
-                  e.currentTarget.style.borderColor = C.accent;
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.background = C.primary;
-                  e.currentTarget.style.borderColor = C.primary;
-                }}
+                className="absolute inset-0 w-full h-full"
               >
-                Explore Collections
-                <span className="w-4 h-4 bg-white/20 rounded-full flex items-center justify-center font-normal">→</span>
-              </Link>
-            </div>
-          </div>
-
-          {/* Right Column: Premium Frame with Generated Saree / Fabrics Image */}
-          <div className="lg:col-span-7 flex justify-center lg:justify-end relative">
-            <div className="relative w-full max-w-[460px] aspect-[4/4] sm:aspect-[4/4] z-10 flex items-center justify-center">
-              
-              {/* Outer decorative soft color circle */}
-              <div 
-                className="absolute inset-0 border border-dashed rounded-full" 
-                style={{ 
-                  borderColor: C.accent,
-                  transform: 'scale(1.05)'
-                }}
-              />
-
-              {/* Decorative side dots */}
-              <div className="absolute left-[-20px] bottom-[20%] grid grid-cols-3 gap-1.5 opacity-30">
-                {[...Array(9)].map((_, i) => (
-                  <div key={i} className="w-1.5 h-1.5 rounded-full" style={{ background: C.primary }} />
-                ))}
-              </div>
-
-              {/* Main image container (Circular cutout like mockup) */}
-              <div 
-                className="w-full h-full overflow-hidden border-[6px] border-white shadow-2xl relative z-10 rounded-full"
-                style={{ 
-                  aspectRatio: '1/1',
-                  background: C.sand
-                }}
-              >
+                {/* Background image — full bleed */}
                 <img 
-                  src="/images/hero_loom_luxury.png" 
-                  alt="Loom & Luxury Traditional Saree Collection" 
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-103" 
+                  src={heroSlides[slideIndex].image} 
+                  alt="Heritage Fabric Backdrop" 
+                  className="absolute inset-0 w-full h-full object-cover" 
                 />
-              </div>
-            </div>
+
+                {/* Dark gradient overlay left→right so text sits cleanly on image */}
+                <div 
+                  className="absolute inset-0 z-10 pointer-events-none" 
+                  style={{ 
+                    background: 'linear-gradient(100deg, rgba(34,43,32,0.82) 0%, rgba(34,43,32,0.55) 45%, rgba(34,43,32,0.12) 75%, rgba(34,43,32,0) 100%)'
+                  }} 
+                />
+
+                {/* Text content — directly on top of image, no card wrapper */}
+                <div className="absolute inset-0 z-20 flex items-center px-8 sm:px-14 lg:px-20">
+                  <div className="max-w-lg text-left">
+                    <h1 
+                      className="text-3xl sm:text-4xl lg:text-[46px] leading-tight font-semibold drop-shadow-sm"
+                      style={{ color: '#ffffff', fontFamily: "'Cormorant Garamond', serif" }}
+                    >
+                      {heroSlides[slideIndex].titleLine1}
+                    </h1>
+                    <h1 
+                      className="text-3xl sm:text-4xl lg:text-[46px] leading-tight font-semibold mt-1 drop-shadow-sm"
+                      style={{ color: '#e8b49a', fontFamily: "'Cormorant Garamond', serif" }}
+                    >
+                      {heroSlides[slideIndex].titleLine2}
+                    </h1>
+                    
+                    {/* Decorative divider */}
+                    <div className="flex items-center gap-2.5 my-4">
+                      <div className="h-[1px] w-14" style={{ background: 'linear-gradient(90deg, transparent, rgba(232,180,154,0.8))' }} />
+                      <div className="w-2.5 h-2.5 rotate-45 border border-[#e8b49a]/70" style={{ borderRadius: '2px' }}>
+                        <div className="w-full h-full flex items-center justify-center">
+                          <div className="w-0.5 h-0.5 bg-[#e8b49a]" />
+                        </div>
+                      </div>
+                      <div className="h-[1px] w-14" style={{ background: 'linear-gradient(90deg, rgba(232,180,154,0.8), transparent)' }} />
+                    </div>
+
+                    <p className="text-[13px] sm:text-sm mb-7 max-w-sm leading-relaxed font-normal text-white/80">
+                      {heroSlides[slideIndex].subtitle}
+                    </p>
+                    
+                    <Link
+                      to={heroSlides[slideIndex].path}
+                      className="inline-flex items-center gap-2 px-7 py-3 rounded-full font-bold tracking-wider text-[11px] uppercase transition-all duration-300 shadow-lg hover:shadow-xl"
+                      style={{
+                        background: '#ffffff',
+                        color: C.primary,
+                        border: '1.5px solid rgba(255,255,255,0.9)'
+                      }}
+                      onMouseEnter={e => {
+                        e.currentTarget.style.background = C.accent;
+                        e.currentTarget.style.color = '#ffffff';
+                        e.currentTarget.style.borderColor = C.accent;
+                      }}
+                      onMouseLeave={e => {
+                        e.currentTarget.style.background = '#ffffff';
+                        e.currentTarget.style.color = C.primary;
+                        e.currentTarget.style.borderColor = 'rgba(255,255,255,0.9)';
+                      }}
+                    >
+                      {heroSlides[slideIndex].cta}
+                      <ArrowRight size={13} />
+                    </Link>
+                  </div>
+                </div>
+
+              </motion.div>
+            </AnimatePresence>
           </div>
 
+          {/* Left Arrow Button */}
+          <button 
+            onClick={prevSlide}
+            className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/70 hover:bg-white flex items-center justify-center text-[#222b20] transition-colors border border-white/20 z-20 cursor-pointer shadow-sm"
+          >
+            <ChevronLeft size={20} />
+          </button>
+
+          {/* Right Arrow Button */}
+          <button 
+            onClick={nextSlide}
+            className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/70 hover:bg-white flex items-center justify-center text-[#222b20] transition-colors border border-white/20 z-20 cursor-pointer shadow-sm"
+          >
+            <ChevronRight size={20} />
+          </button>
+        </div>
+
+        {/* Carousel Dots */}
+        <div className="flex justify-center gap-2.5 mt-4">
+          {heroSlides.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setSlideIndex(idx)}
+              className="w-2.5 h-2.5 rounded-full transition-all duration-300 cursor-pointer"
+              style={{
+                background: idx === slideIndex ? C.primary : 'rgba(71, 86, 67, 0.2)',
+                transform: idx === slideIndex ? 'scale(1.25)' : 'scale(1)'
+              }}
+              aria-label={`Go to slide ${idx + 1}`}
+            />
+          ))}
         </div>
       </section>
 
-      {/* ── 2. NEW ARRIVALS SECTION ── */}
-      <section className="py-16 px-6 sm:px-8 lg:px-14">
+      {/* ── 2. FEATURES ROW (Horizontal row in a white card) ── */}
+      <section className="px-4 sm:px-6 lg:px-14 py-8">
+        <div className="max-w-[90rem] mx-auto bg-white rounded-2xl p-6 sm:p-8 border shadow-sm flex flex-col md:flex-row justify-between items-stretch gap-6 md:gap-4" style={{ borderColor: C.border }}>
+          
+          {[
+            { icon: Award, label: "PREMIUM QUALITY", desc: "Finest fabrics with unmatched quality" },
+            { icon: Truck, label: "PAN INDIA DELIVERY", desc: "Timely delivery across the country" },
+            { icon: Layers, label: "WIDE RANGE", desc: "Thousands of fabrics for every need" },
+            { icon: Headphones, label: "DEDICATED SUPPORT", desc: "We are here to help you 24/7" },
+            { icon: ShieldCheck, label: "SECURE & TRUSTED", desc: "Safe transactions, complete peace of mind" }
+          ].map((feat, idx) => {
+            const Icon = feat.icon;
+            return (
+              <div key={idx} className="flex-1 flex gap-4 text-left md:items-start md:px-3">
+                <div className="w-12 h-12 rounded-full shrink-0 flex items-center justify-center" style={{ background: 'rgba(176, 87, 66, 0.06)' }}>
+                  <Icon size={20} style={{ color: C.accent }} />
+                </div>
+                <div>
+                  <h4 className="text-[11.5px] font-bold tracking-wider leading-tight" style={{ color: C.soil }}>{feat.label}</h4>
+                  <p className="text-[11px] leading-snug mt-1" style={{ color: C.stone }}>{feat.desc}</p>
+                </div>
+                {idx < 4 && <div className="hidden lg:block h-10 w-[1px] bg-[#e2ddd5] self-center ml-auto" />}
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* ── 3. POPULAR COLLECTIONS GRID ── */}
+      <section className="px-4 sm:px-6 lg:px-14 py-10">
         <div className="max-w-[90rem] mx-auto">
+          {/* Header */}
+          <div className="flex justify-between items-center mb-8 border-b pb-4" style={{ borderColor: C.border }}>
+            <h2 
+              className="text-2xl sm:text-3xl font-semibold text-left tracking-wide"
+              style={{ color: C.soil, fontFamily: "'Cormorant Garamond', serif" }}
+            >
+              POPULAR COLLECTIONS
+            </h2>
+            <Link 
+              to="/products"
+              className="group flex items-center gap-1 text-[11.5px] font-bold uppercase tracking-wider transition-colors hover:text-[#b05742]"
+              style={{ color: C.primary }}
+            >
+              <span>View All Collections</span>
+              <ArrowRight size={13} className="transition-transform group-hover:translate-x-1" />
+            </Link>
+          </div>
+
+          {/* Cards Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+            {popularCollections.map((col, idx) => (
+              <Link 
+                key={idx}
+                to={col.path}
+                className="group flex flex-col bg-white rounded-2xl overflow-hidden border shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1 text-left"
+                style={{ borderColor: C.border }}
+              >
+                {/* Product Image */}
+                <div className="relative aspect-[4/5] overflow-hidden bg-stone-100">
+                  <img 
+                    src={col.image} 
+                    alt={col.name} 
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-103"
+                  />
+                </div>
+
+                {/* Footer details */}
+                <div className="p-4 flex items-center justify-between border-t" style={{ borderColor: C.border }}>
+                  <span className="text-[11.5px] font-bold tracking-wider" style={{ color: C.soil }}>
+                    {col.name}
+                  </span>
+                  <div 
+                    className="w-7 h-7 rounded-full flex items-center justify-center border transition-all duration-300 group-hover:bg-[#475643] group-hover:text-white"
+                    style={{ borderColor: C.border, color: C.soil }}
+                  >
+                    <ArrowRight size={12} />
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── 4. BULK ORDERS BANNER (Forest green background card) ── */}
+      <section className="px-4 sm:px-6 lg:px-14 py-8">
+        <div 
+          className="max-w-[90rem] mx-auto rounded-[24px] overflow-hidden shadow-sm relative border grid grid-cols-1 lg:grid-cols-12 gap-8 items-center p-8 sm:p-10 lg:py-8 lg:px-14"
+          style={{ 
+            background: '#475643', // Dark forest green background
+            borderColor: 'rgba(255,255,255,0.08)'
+          }}
+        >
+          {/* Subtle line art patterns */}
+          <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#fff 1.5px, transparent 1.5px)', backgroundSize: '16px 16px' }} />
+
+          {/* Left Column (Logo & Title) */}
+          <div className="lg:col-span-4 flex items-center gap-4 text-left">
+            <div className="w-14 h-14 rounded-full border border-white/20 flex items-center justify-center shrink-0" style={{ background: 'rgba(255,255,255,0.05)' }}>
+              <Layers size={22} className="text-white" />
+            </div>
+            <div>
+              <h3 
+                className="text-white text-2xl font-bold leading-tight"
+                style={{ fontFamily: "'Cormorant Garamond', serif" }}
+              >
+                Bulk Orders<br />Made Simple
+              </h3>
+            </div>
+          </div>
+
+          {/* Middle Column (Description) */}
+          <div className="lg:col-span-5 text-left">
+            <p className="text-white/80 text-[13px] leading-relaxed max-w-md font-light">
+              Special pricing, dedicated support and seamless delivery for businesses of all sizes. Connect with our volume retail specialists.
+            </p>
+          </div>
+
+          {/* Right Column (CTA Button & Trolley Image) */}
+          <div className="lg:col-span-3 flex items-center justify-between sm:justify-start lg:justify-end gap-6 w-full">
+            <Link
+              to="/trade-enquiry"
+              className="px-6 py-2.5 rounded-lg border border-white/30 text-white font-bold text-xs uppercase tracking-wider transition-all hover:bg-white hover:text-[#475643] whitespace-nowrap shadow-sm hover:shadow"
+            >
+              Know More
+            </Link>
+
+            {/* Fabric Trolley Image bolting out */}
+            <div className="w-24 h-20 shrink-0 relative overflow-hidden hidden sm:block">
+              <img 
+                src="/images/bulk_orders_cart.png" 
+                alt="Bulk orders delivery trolley" 
+                className="w-full h-full object-contain"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 5. STATS SECTION (Soft Sand background) ── */}
+      <section className="px-4 sm:px-6 lg:px-14 py-8">
+        <div 
+          className="max-w-[90rem] mx-auto rounded-[24px] py-10 px-8 border shadow-sm"
+          style={{ background: C.sand, borderColor: C.border }}
+        >
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 justify-items-stretch items-center w-full">
+            
+            {/* Stat 1 */}
+            <div className="flex flex-col items-center sm:items-start sm:flex-row gap-3 text-left w-full pl-0 sm:pl-8">
+              <div className="w-12 h-12 rounded-full shrink-0 flex items-center justify-center bg-white/60">
+                <Award size={22} style={{ color: C.accent }} />
+              </div>
+              <div>
+                <span 
+                  className="text-3xl sm:text-4xl font-light leading-none block font-display" 
+                  style={{ color: C.soil, fontFamily: "'Cormorant Garamond', serif" }}
+                >
+                  20+
+                </span>
+                <span className="text-[10px] sm:text-[11px] font-bold tracking-wider text-[#5a6657] uppercase mt-1.5 block leading-tight">
+                  Years of<br />Excellence
+                </span>
+              </div>
+            </div>
+
+            {/* Stat 2 */}
+            <div className="flex flex-col items-center sm:items-start sm:flex-row gap-3 text-left w-full pl-0 sm:pl-8 lg:border-l border-black/5">
+              <div className="w-12 h-12 rounded-full shrink-0 flex items-center justify-center bg-white/60">
+                <Store size={22} style={{ color: C.accent }} />
+              </div>
+              <div>
+                <span 
+                  className="text-3xl sm:text-4xl font-light leading-none block font-display" 
+                  style={{ color: C.soil, fontFamily: "'Cormorant Garamond', serif" }}
+                >
+                  500+
+                </span>
+                <span className="text-[10px] sm:text-[11px] font-bold tracking-wider text-[#5a6657] uppercase mt-1.5 block leading-tight">
+                  Retail<br />Partners
+                </span>
+              </div>
+            </div>
+
+            {/* Stat 3 */}
+            <div className="flex flex-col items-center sm:items-start sm:flex-row gap-3 text-left w-full pl-0 sm:pl-8 lg:border-l border-black/5">
+              <div className="w-12 h-12 rounded-full shrink-0 flex items-center justify-center bg-white/60">
+                <MapPin size={22} style={{ color: C.accent }} />
+              </div>
+              <div>
+                <span 
+                  className="text-3xl sm:text-4xl font-light leading-none block font-display" 
+                  style={{ color: C.soil, fontFamily: "'Cormorant Garamond', serif" }}
+                >
+                  100+
+                </span>
+                <span className="text-[10px] sm:text-[11px] font-bold tracking-wider text-[#5a6657] uppercase mt-1.5 block leading-tight">
+                  Cities<br />Pan India
+                </span>
+              </div>
+            </div>
+
+            {/* Stat 4 */}
+            <div className="flex flex-col items-center sm:items-start sm:flex-row gap-3 text-left w-full pl-0 sm:pl-8 lg:border-l border-black/5">
+              <div className="w-12 h-12 rounded-full shrink-0 flex items-center justify-center bg-white/60">
+                <Smile size={22} style={{ color: C.accent }} />
+              </div>
+              <div>
+                <span 
+                  className="text-3xl sm:text-4xl font-light leading-none block font-display" 
+                  style={{ color: C.soil, fontFamily: "'Cormorant Garamond', serif" }}
+                >
+                  1,00,000+
+                </span>
+                <span className="text-[10px] sm:text-[11px] font-bold tracking-wider text-[#5a6657] uppercase mt-1.5 block leading-tight">
+                  Happy<br />Customers
+                </span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ── 6. WHY INDIAN FABRIC HOUSE? & SOLUTIONS ── */}
+      <section className="px-4 sm:px-6 lg:px-14 py-12">
+        <div className="max-w-[90rem] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          
+          {/* Left Block (Intro & Illustration) */}
           <div 
-            className="relative w-full rounded-[24px] lg:rounded-[32px] overflow-hidden shadow-lg border flex flex-col lg:flex-row" 
-            style={{ borderColor: C.border, background: '#8d75b6' }}
+            className="lg:col-span-5 text-left p-8 sm:p-10 rounded-[24px] border shadow-sm relative overflow-hidden flex flex-col justify-between"
+            style={{ background: 'linear-gradient(135deg, #fbf9f6 0%, #efebdf 100%)', borderColor: C.border, minHeight: '380px' }}
           >
-            {/* Wavy background curve and gold border for large screens */}
-            <div className="absolute inset-0 w-full h-full hidden lg:block pointer-events-none z-0">
-              <svg className="w-full h-full" viewBox="0 0 1200 380" preserveAspectRatio="none">
-                <path 
-                  d="M 0,0 L 460,0 C 500,80 390,190 380,240 C 370,290 430,340 480,380 L 0,380 Z" 
-                  fill="#745b9f" 
-                />
-                <path 
-                  d="M 460,0 C 500,80 390,190 380,240 C 370,290 430,340 480,380" 
-                  fill="none" 
-                  stroke="#e9c078" 
-                  strokeWidth="2.5" 
-                />
-              </svg>
-            </div>
-
-            {/* Left side decorative dots grid */}
-            <div className="absolute left-[34%] bottom-[12%] opacity-30 hidden lg:block pointer-events-none z-10">
-              <div className="grid grid-cols-3 gap-2">
-                {[...Array(9)].map((_, i) => (
-                  <div key={i} className="w-1.5 h-1.5 rounded-full bg-[#e9c078]" />
-                ))}
-              </div>
-            </div>
-
-            {/* Right side decorative dots grid */}
-            <div className="absolute right-8 top-8 opacity-20 pointer-events-none z-10">
-              <div className="grid grid-cols-3 gap-2">
-                {[...Array(9)].map((_, i) => (
-                  <div key={i} className="w-1 h-1 rounded-full bg-[#e9c078]" />
-                ))}
-              </div>
-            </div>
-
-            {/* Left side Content Column */}
-            <div className="lg:w-[42%] w-full p-8 sm:p-12 lg:p-14 relative z-10 flex flex-col justify-center items-start text-left bg-[#745b9f] lg:bg-transparent">
-              <span className="text-[10px] font-bold tracking-[0.25em] uppercase text-[#fdf2f0]/80 font-sans">New Arrivals</span>
-              
-              <h2 className="text-3xl sm:text-4xl font-semibold mt-4 mb-4 leading-tight text-[#fdf2f0] font-display" style={{ fontFamily: "'Playfair Display', serif" }}>
-                Latest Fabrics <br className="hidden sm:inline" />for Every Creation
+            <div className="relative z-10">
+              <span className="text-[11.5px] font-bold tracking-widest uppercase block" style={{ color: C.accent }}>
+                WHY INDIAN FABRIC HOUSE?
+              </span>
+              <h2 
+                className="text-3xl sm:text-4xl font-bold mt-4 mb-4 leading-tight"
+                style={{ color: C.soil, fontFamily: "'Cormorant Garamond', serif" }}
+              >
+                More Than Fabric,<br />A Relationship.
               </h2>
-              
-              <p className="text-[#fdf2f0]/90 text-[13px] leading-relaxed mb-8 max-w-sm font-normal font-sans">
-                From classic weaves to contemporary designs, explore our newest fabric collection.
+              <p style={{ color: C.stone }} className="text-[13px] leading-relaxed mb-6 font-normal max-w-sm">
+                Built on trust, craftsmanship and unwavering commitment to quality — for you, always. We work with weavers directly to assure genuine textile heritage.
               </p>
               
               <Link
-                to="/products"
-                className="px-7 py-3.5 bg-white text-[#745b9f] rounded-lg font-bold text-xs uppercase tracking-wider transition-all duration-300 shadow-md hover:shadow-lg hover:scale-103 cursor-pointer font-sans"
-                style={{ color: '#745b9f' }}
+                to="/about"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-[#b05742] hover:bg-[#475643] text-white rounded-lg font-bold text-xs uppercase tracking-wider transition-colors shadow-sm"
               >
-                View New Arrivals
+                About Us
               </Link>
             </div>
 
-            {/* Right side fabric swatches image */}
-            <div className="lg:w-[62%] lg:-ml-[4%] w-full h-[300px] lg:h-auto z-0 relative overflow-hidden">
+            {/* Floating Grass vase illustration layered behind or bottom-right */}
+            <div className="absolute right-0 bottom-0 w-36 h-48 opacity-25 lg:opacity-40 pointer-events-none z-0">
               <img 
-                src="/images/new_arrivals_fabrics.png" 
-                alt="Loom & Luxury Fabric Swatches" 
-                className="absolute inset-0 w-full h-full object-cover"
+                src="/images/about_pampas.png" 
+                alt="Vase illustration" 
+                className="w-full h-full object-contain object-bottom"
               />
             </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* ── 3. OUR SOLUTIONS SECTION (Empowering Your Textile Business) ── */}
-      <section className="py-20 px-6 sm:px-8 lg:px-14">
-        <div className="max-w-[90rem] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          
-          {/* Left Block */}
-          <div className="lg:col-span-5 text-left flex flex-col items-start">
-            <span style={{ color: C.accent }} className="text-[11px] font-bold tracking-[0.2em] uppercase">Our Solutions</span>
-            
-            <h2 style={{ fontFamily: "'Playfair Display', serif", color: C.soil }} className="text-3xl sm:text-4xl font-semibold mt-3 mb-6 leading-tight">
-              Empowering Your Textile Business
-            </h2>
-            
-            <p style={{ color: C.stone }} className="text-sm sm:text-base leading-relaxed mb-8 font-normal max-w-md">
-              End-to-end services and support designed to help your business thrive in the textile industry.
-            </p>
-
-            <Link
-              to="/retail-management"
-              className="px-7 py-3 rounded-full font-bold tracking-wider text-[11px] uppercase transition-all duration-300"
-              style={{
-                background: 'transparent',
-                color: C.primary,
-                border: `1.5px solid ${C.primary}`
-              }}
-              onMouseEnter={e => {
-                e.currentTarget.style.background = C.primary;
-                e.currentTarget.style.color = '#ffffff';
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.background = 'transparent';
-                e.currentTarget.style.color = C.primary;
-              }}
-            >
-              Explore Services
-            </Link>
           </div>
 
           {/* Right Block: 4 Solutions cards */}
@@ -333,44 +519,44 @@ export default function Home() {
             
             {/* Card 1: Trade Enquiry */}
             <Link to="/trade-enquiry" className="bg-white rounded-2xl p-6 border shadow-sm hover:shadow-md transition-all text-left flex gap-5 group" style={{ borderColor: C.border }}>
-              <div className="w-12 h-12 rounded-full flex items-center justify-center shrink-0 transition-transform group-hover:scale-105" style={{ background: 'rgba(116,91,159,0.06)' }}>
+              <div className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0 transition-transform group-hover:scale-105" style={{ background: 'rgba(71, 86, 67, 0.06)' }}>
                 <PhoneCall size={18} style={{ color: C.primary }} />
               </div>
               <div>
-                <h3 className="font-bold text-sm  tracking-wider mb-2 transition-colors group-hover:text-[#e37a6b]" style={{ color: C.soil }}>Trade Enquiry</h3>
+                <h3 className="font-bold text-sm tracking-wider mb-2 transition-colors group-hover:text-[#b05742]" style={{ color: C.soil }}>Trade Enquiry</h3>
                 <p className="text-xs leading-relaxed" style={{ color: C.stone }}>Connect with our textile experts</p>
               </div>
             </Link>
 
             {/* Card 2: E-Quotation */}
             <Link to="/e-quotation" className="bg-white rounded-2xl p-6 border shadow-sm hover:shadow-md transition-all text-left flex gap-5 group" style={{ borderColor: C.border }}>
-              <div className="w-12 h-12 rounded-full flex items-center justify-center shrink-0 transition-transform group-hover:scale-105" style={{ background: 'rgba(116,91,159,0.06)' }}>
+              <div className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0 transition-transform group-hover:scale-105" style={{ background: 'rgba(71, 86, 67, 0.06)' }}>
                 <FileText size={18} style={{ color: C.primary }} />
               </div>
               <div>
-                <h3 className="font-bold text-sm  tracking-wider mb-2 transition-colors group-hover:text-[#e37a6b]" style={{ color: C.soil }}>e-Quotation</h3>
+                <h3 className="font-bold text-sm tracking-wider mb-2 transition-colors group-hover:text-[#b05742]" style={{ color: C.soil }}>e-Quotation</h3>
                 <p className="text-xs leading-relaxed" style={{ color: C.stone }}>Quick & transparent quotations</p>
               </div>
             </Link>
 
             {/* Card 3: E-Auction */}
             <Link to="/e-auction" className="bg-white rounded-2xl p-6 border shadow-sm hover:shadow-md transition-all text-left flex gap-5 group" style={{ borderColor: C.border }}>
-              <div className="w-12 h-12 rounded-full flex items-center justify-center shrink-0 transition-transform group-hover:scale-105" style={{ background: 'rgba(116,91,159,0.06)' }}>
+              <div className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0 transition-transform group-hover:scale-105" style={{ background: 'rgba(71, 86, 67, 0.06)' }}>
                 <Gavel size={18} style={{ color: C.primary }} />
               </div>
               <div>
-                <h3 className="font-bold text-sm  tracking-wider mb-2 transition-colors group-hover:text-[#e37a6b]" style={{ color: C.soil }}>e-Auction</h3>
+                <h3 className="font-bold text-sm tracking-wider mb-2 transition-colors group-hover:text-[#b05742]" style={{ color: C.soil }}>e-Auction</h3>
                 <p className="text-xs leading-relaxed" style={{ color: C.stone }}>Participate in live textile auctions</p>
               </div>
             </Link>
 
             {/* Card 4: Retail Management */}
             <Link to="/retail-management" className="bg-white rounded-2xl p-6 border shadow-sm hover:shadow-md transition-all text-left flex gap-5 group" style={{ borderColor: C.border }}>
-              <div className="w-12 h-12 rounded-full flex items-center justify-center shrink-0 transition-transform group-hover:scale-105" style={{ background: 'rgba(116,91,159,0.06)' }}>
+              <div className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0 transition-transform group-hover:scale-105" style={{ background: 'rgba(71, 86, 67, 0.06)' }}>
                 <Store size={18} style={{ color: C.primary }} />
               </div>
               <div>
-                <h3 className="font-bold text-sm  tracking-wider mb-2 transition-colors group-hover:text-[#e37a6b]" style={{ color: C.soil }}>Retail Management</h3>
+                <h3 className="font-bold text-sm tracking-wider mb-2 transition-colors group-hover:text-[#b05742]" style={{ color: C.soil }}>Retail Management</h3>
                 <p className="text-xs leading-relaxed" style={{ color: C.stone }}>Grow your retail network with us</p>
               </div>
             </Link>
@@ -380,109 +566,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── 4. COUNTERS BANNER (Redesigned matching mockup) ── */}
-      <section className="py-10 px-6 sm:px-8 lg:px-14">
-        <div 
-          style={{ background: '#8869aeff' }} 
-          className="max-w-[90rem] mx-auto rounded-[32px] py-12 px-8 lg:px-16 relative overflow-hidden shadow-md"
-        >
-          {/* Subtle watermark grid */}
-          <div className="absolute inset-0 opacity-[0.02] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#fff 1.5px, transparent 1.5px)', backgroundSize: '16px 16px' }} />
-
-          <div className="grid grid-cols-2 lg:flex lg:flex-row justify-between items-stretch gap-y-12 gap-x-6 lg:gap-2 w-full relative z-10">
-            
-            {/* Stat 1 */}
-            <div className="flex flex-col items-start lg:pl-4">
-              <div className="flex items-center gap-3">
-                <span className="text-[#fae3da] shrink-0">
-                  <Award size={36} strokeWidth={1.2} />
-                </span>
-                <span 
-                  className="text-4xl sm:text-[42px] font-light text-[#fae3da] leading-none" 
-                  style={{ fontFamily: "'Playfair Display', serif" }}
-                >
-                  20+
-                </span>
-              </div>
-              <div className="mt-3 text-left">
-                <span className="text-[11px] sm:text-xs font-semibold tracking-wider text-[#fae3da]/90 uppercase block leading-tight">
-                  Years <br />Of Excellence
-                </span>
-              </div>
-            </div>
-
-            {/* Divider 1 */}
-            <div className="hidden lg:block h-14 w-[1px] bg-[#fae3da]/20 self-center" />
-
-            {/* Stat 2 */}
-            <div className="flex flex-col items-start lg:pl-6">
-              <div className="flex items-center gap-3">
-                <span className="text-[#fae3da] shrink-0">
-                  <Tag size={36} strokeWidth={1.2} />
-                </span>
-                <span 
-                  className="text-4xl sm:text-[42px] font-light text-[#fae3da] leading-none" 
-                  style={{ fontFamily: "'Playfair Display', serif" }}
-                >
-                  500+
-                </span>
-              </div>
-              <div className="mt-3 text-left">
-                <span className="text-[11px] sm:text-xs font-semibold tracking-wider text-[#fae3da]/90 uppercase block leading-tight">
-                  Retail <br />Partners
-                </span>
-              </div>
-            </div>
-
-            {/* Divider 2 */}
-            <div className="hidden lg:block h-14 w-[1px] bg-[#fae3da]/20 self-center" />
-
-            {/* Stat 3 */}
-            <div className="flex flex-col items-start lg:pl-6">
-              <div className="flex items-center gap-3">
-                <span className="text-[#fae3da] shrink-0">
-                  <MapPin size={36} strokeWidth={1.2} />
-                </span>
-                <span 
-                  className="text-4xl sm:text-[42px] font-light text-[#fae3da] leading-none" 
-                  style={{ fontFamily: "'Playfair Display', serif" }}
-                >
-                  100+
-                </span>
-              </div>
-              <div className="mt-3 text-left">
-                <span className="text-[11px] sm:text-xs font-semibold tracking-wider text-[#fae3da]/90 uppercase block leading-tight">
-                  Cities <br />Pan India
-                </span>
-              </div>
-            </div>
-
-            {/* Divider 3 */}
-            <div className="hidden lg:block h-14 w-[1px] bg-[#fae3da]/20 self-center" />
-
-            {/* Stat 4 */}
-            <div className="flex flex-col items-start lg:pl-6">
-              <div className="flex items-center gap-3">
-                <span className="text-[#fae3da] shrink-0">
-                  <MessageCircle size={36} strokeWidth={1.2} />
-                </span>
-                <span 
-                  className="text-4xl sm:text-[42px] font-light text-[#fae3da] leading-none" 
-                  style={{ fontFamily: "'Playfair Display', serif" }}
-                >
-                  1,00,000+
-                </span>
-              </div>
-              <div className="mt-3 text-left">
-                <span className="text-[11px] sm:text-xs font-semibold tracking-wider text-[#fae3da]/90 uppercase block leading-tight">
-                  Happy <br />Customers
-                </span>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
     </div>
   );
 }
