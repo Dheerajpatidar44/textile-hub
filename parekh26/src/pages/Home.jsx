@@ -28,46 +28,46 @@ const categoriesList = [
     path: '/products?category=Sarees'
   },
   {
-    name: 'Fabrics',
-    subtitle: 'Wide Variety',
+    name: 'Leggings',
+    subtitle: 'Comfortable Wear',
     color: '#ffecd6',
-    image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=400&auto=format&fit=crop&q=80',
-    path: '/products?category=Suiting'
+    image: 'https://images.unsplash.com/photo-1506152983158-b4a74a01c721?w=400&auto=format&fit=crop&q=80',
+    path: '/products?category=Leggings'
   },
   {
-    name: 'Kurtis & Suits',
-    subtitle: 'Style Redefined',
+    name: 'Kurtis',
+    subtitle: 'Ethnic Chic',
     color: '#fdf1de',
     image: 'https://images.unsplash.com/photo-1741847639057-b51a25d42892?w=400&auto=format&fit=crop&q=80',
     path: '/products?category=Kurtis'
   },
   {
-    name: 'Home Textiles',
-    subtitle: 'Comfort Living',
+    name: 'Dress Suits',
+    subtitle: 'Perfect Fit',
     color: '#e6f0ff',
-    image: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=400&auto=format&fit=crop&q=80',
-    path: '/products?category=Home Upholstery & Furnishing'
+    image: 'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?w=400&auto=format&fit=crop&q=80',
+    path: '/products?category=Dress Suits'
   },
   {
-    name: 'Bedding',
+    name: 'Bedsheets & Linen',
     subtitle: 'Cozy & Soft',
     color: '#ffebeb',
     image: 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=400&auto=format&fit=crop&q=80',
     path: '/products?category=Bedsheets & Linen'
   },
   {
-    name: 'Kids Wear',
-    subtitle: 'Made for Little Ones',
+    name: 'Hosiery Items',
+    subtitle: 'Premium Comfort',
     color: '#f3e8ff',
-    image: 'https://images.unsplash.com/photo-1741992556912-3b2d62461e75?w=400&auto=format&fit=crop&q=80',
-    path: '/products?category=Formal & Ethnic Wear for Children'
-  },
-  {
-    name: 'Accessories',
-    subtitle: 'Finishing Touch',
-    color: '#e9f6e6',
     image: 'https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=400&auto=format&fit=crop&q=80',
     path: '/products?category=Hosiery Items'
+  },
+  {
+    name: 'Suiting',
+    subtitle: 'Fine Tailoring',
+    color: '#e9f6e6',
+    image: 'https://images.unsplash.com/photo-1593032465175-481ac7f401a0?w=400&auto=format&fit=crop&q=80',
+    path: '/products?category=Suiting'
   }
 ];
 
@@ -163,7 +163,7 @@ export default function Home() {
         <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center w-full">
           
           {/* Left Column (Text & CTAs) */}
-          <div className="lg:col-span-5 text-left z-10 flex flex-col justify-center min-h-[380px]">
+          <div className="lg:col-span-5 order-2 lg:order-1 text-left z-10 flex flex-col justify-center min-h-[380px]">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeHeroSlide}
@@ -241,7 +241,7 @@ export default function Home() {
           </div>
 
           {/* Right Column (Wavy Organic Image Slider) */}
-          <div className="lg:col-span-7 flex justify-center lg:justify-end relative">
+          <div className="lg:col-span-7 order-1 lg:order-2 flex justify-center lg:justify-end relative">
             {/* Background organic shape */}
             <div 
               style={{ 
@@ -304,6 +304,21 @@ export default function Home() {
       {/* ── 2. CATEGORIES SECTION (7 Circular items, single border complete image feel) ── */}
       <section className="py-16" style={{ background: '#ffffff' }}>
         <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14">
+          
+          {/* Header Row */}
+          <div className="flex justify-between items-baseline mb-8 border-b pb-4" style={{ borderColor: C.border }}>
+            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 24, fontWeight: 500, color: C.soil }} className="margin-0">
+              Shop By Category
+            </h2>
+            <Link 
+              to="/products" 
+              style={{ color: C.accent, fontSize: 13, fontWeight: 600, display: 'flex', alignItems: 'center', gap: 4, textDecoration: 'none' }}
+              className="hover:underline transition-all"
+            >
+              View All <ArrowRight size={14} />
+            </Link>
+          </div>
+
           <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-6 justify-center">
             {categoriesList.map((cat, i) => (
               <div 
@@ -612,14 +627,18 @@ export default function Home() {
               </div>
               <div className="grid grid-cols-3 gap-3">
                 {galleryImages.map((img, i) => (
-                  <div key={i} className="aspect-square rounded-xl overflow-hidden bg-stone-100 relative group cursor-pointer shadow-sm border border-stone-100">
+                  <Link 
+                    key={i} 
+                    to="/gallery" 
+                    className="aspect-square rounded-xl overflow-hidden bg-stone-100 relative group cursor-pointer shadow-sm border border-stone-100 block"
+                  >
                     <img src={img} alt="Gallery item" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                     {(i === 0 || i === 4) && (
                       <div className="absolute inset-0 bg-black/20 flex items-center justify-center text-white">
                         <Play size={14} fill="currentColor" className="opacity-95" />
                       </div>
                     )}
-                  </div>
+                  </Link>
                 ))}
               </div>
             </div>

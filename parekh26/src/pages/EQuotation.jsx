@@ -4,6 +4,7 @@ import { ClipboardCheck, FileText, Send, Mail, Calendar, Package } from 'lucide-
 const C = {
   primary: '#7c8e76',
   primaryLight: '#a3b89d',
+  accent: '#d57e65',
   soil: '#2b1f15',
   sand: '#f2ebe1',
   cream: '#faf8f5',
@@ -116,14 +117,14 @@ export default function EQuotation() {
                   onClick={() => document.getElementById('quote-form-section')?.scrollIntoView({ behavior: 'smooth' })}
                   style={{
                     width: '100%', padding: '11px',
-                    background: C.soil, color: 'white',
+                    background: C.primary, color: 'white',
                     border: 'none', borderRadius: 10,
                     fontSize: 13, fontWeight: 400,
                     cursor: 'pointer', fontFamily: "'DM Sans', sans-serif",
                     transition: 'all 0.2s ease',
                   }}
-                  onMouseEnter={e => e.currentTarget.style.background = C.primary}
-                  onMouseLeave={e => e.currentTarget.style.background = C.soil}
+                  onMouseEnter={e => e.currentTarget.style.background = C.accent}
+                  onMouseLeave={e => e.currentTarget.style.background = C.primary}
                 >
                   Submit Bid
                 </button>
@@ -216,14 +217,14 @@ export default function EQuotation() {
                 <button type="submit" style={{
                   width: '100%', padding: '14px',
                   display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
-                  background: C.soil, color: 'white',
+                  background: C.accent, color: 'white',
                   border: 'none', borderRadius: 12,
                   fontSize: 14, fontWeight: 400,
                   cursor: 'pointer', fontFamily: "'DM Sans', sans-serif",
                   transition: 'all 0.2s ease',
                 }}
                   onMouseEnter={e => e.currentTarget.style.background = C.primary}
-                  onMouseLeave={e => e.currentTarget.style.background = C.soil}
+                  onMouseLeave={e => e.currentTarget.style.background = C.accent}
                 >
                   <Send size={15} /> Submit Quotation Request
                 </button>

@@ -3,10 +3,10 @@ import { motion } from 'framer-motion';
 export default function Preloader() {
   return (
     <motion.div
-      initial={{ opacity: 1 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.5, ease: 'easeOut' }}
+      initial={{ y: 0 }}
+      animate={{ y: 0 }}
+      exit={{ y: '-100%' }}
+      transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
       style={{
         position: 'fixed',
         inset: 0,
@@ -55,40 +55,26 @@ export default function Preloader() {
       <div style={{ position: 'relative', zIndex: 10, display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', gap: 0 }}>
 
         {/* Brand Name */}
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: 8 }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 8 }}>
           <motion.div
             initial={{ opacity: 0, y: 20, filter: 'blur(6px)' }}
             animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-            transition={{ duration: 0.7, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-          >
-            <span style={{
-              display: 'block',
+            transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+            style={{
               fontFamily: "'Playfair Display', serif",
-              fontSize: 48,
+              fontSize: 'clamp(28px, 6vw, 44px)',
               fontWeight: 600,
               color: '#2b1f15',
               lineHeight: 1.1,
               letterSpacing: '-0.01em',
-            }}>
-              Textile
-            </span>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 20, filter: 'blur(6px)' }}
-            animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-            transition={{ duration: 0.7, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+              display: 'flex',
+              gap: '12px',
+              whiteSpace: 'nowrap',
+            }}
           >
-            <span style={{
-              display: 'block',
-              fontFamily: "'Playfair Display', serif",
-              fontSize: 48,
-              fontWeight: 500,
-              fontStyle: 'italic',
-              color: '#7c8e76',
-              lineHeight: 1.1,
-              letterSpacing: '-0.01em',
-            }}>
-              Paradise
+            <span>Texmart</span>
+            <span style={{ fontStyle: 'italic', color: '#d57e65', fontWeight: 500 }}>
+              Retail Mall
             </span>
           </motion.div>
         </div>

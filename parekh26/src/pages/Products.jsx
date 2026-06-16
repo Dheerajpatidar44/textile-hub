@@ -6,6 +6,7 @@ import { ShoppingBag, Filter } from 'lucide-react';
 const C = {
   primary: '#7c8e76',
   primaryLight: '#a3b89d',
+  accent: '#d57e65',
   soil: '#2b1f15',
   sand: '#f2ebe1',
   cream: '#faf8f5',
@@ -152,10 +153,13 @@ export default function Products() {
               onClick={() => handleCategoryChange('All')}
               style={{
                 padding: '11px 24px', borderRadius: 12,
-                background: C.soil, color: 'white',
+                background: C.primary, color: 'white',
                 border: 'none', fontSize: 13, fontWeight: 400,
                 cursor: 'pointer', fontFamily: "'DM Sans', sans-serif",
+                transition: 'all 0.2s ease',
               }}
+              onMouseEnter={e => e.currentTarget.style.background = C.accent}
+              onMouseLeave={e => e.currentTarget.style.background = C.primary}
             >
               View All Products
             </button>

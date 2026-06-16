@@ -27,15 +27,11 @@ const footerLinks = {
     { name: 'Notice Board', path: '/notice-board' },
     { name: 'Careers', path: '/career' },
     { name: 'Customer Reviews', path: '/reviews' },
-    { name: 'FAQ', path: '/faq' }
   ],
   'Help & Support': [
     { name: 'Contact Us', path: '/contact' },
-    { name: 'Shipping Policy', path: '#' },
-    { name: 'Return Policy', path: '#' },
-    { name: 'Terms & Conditions', path: '#' },
-    { name: 'Privacy Policy', path: '#' }
-  ]
+    { name: 'FAQ', path: '/faq' }
+  ],
 };
 
 export default function Footer() {
@@ -45,10 +41,10 @@ export default function Footer() {
       <div style={{ height: 3, background: 'linear-gradient(90deg, #a3b89d, #d57e65, #7c8e76)' }} />
 
       <div className="max-w-[90rem] mx-auto px-6 lg:px-14 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 text-left">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-12 text-left">
           
           {/* Brand Column */}
-          <div className="col-span-1 lg:col-span-2">
+          <div className="col-span-2 lg:col-span-2">
             <div style={{ marginBottom: 24 }}>
               <div style={{ display: 'flex', alignItems: 'baseline', gap: 6, marginBottom: 4 }}>
                 <span style={{ fontFamily: "'Playfair Display', serif", fontSize: 24, fontWeight: 700, color: C.soil, lineHeight: 1.1 }}>

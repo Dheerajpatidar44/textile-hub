@@ -135,7 +135,7 @@ function WelcomePopup() {
                   lineHeight: 1.2, margin: 0,
                 }}>
                   Welcome to<br/>
-                  <span style={{ fontStyle: 'italic', color: '#f2ebe1' }}>Textile Paradise</span>
+                  <span style={{ fontStyle: 'italic', color: '#f2ebe1' }}>Texmart Retail Mall</span>
                 </h3>
               </div>
             </div>
@@ -190,7 +190,7 @@ function WelcomePopup() {
                   onClick={() => { setIsOpen(false); navigate('/products'); }}
                   style={{
                     flex: 1, padding: '12px 16px',
-                    background: C.soil, color: 'white',
+                    background: C.primary, color: 'white',
                     border: 'none', borderRadius: 12,
                     fontSize: 13, fontWeight: 500,
                     cursor: 'pointer', display: 'flex',
@@ -198,8 +198,8 @@ function WelcomePopup() {
                     fontFamily: "'DM Sans', sans-serif",
                     transition: 'all 0.2s ease',
                   }}
-                  onMouseEnter={e => e.currentTarget.style.background = C.primary}
-                  onMouseLeave={e => e.currentTarget.style.background = C.soil}
+                  onMouseEnter={e => e.currentTarget.style.background = C.accent}
+                  onMouseLeave={e => e.currentTarget.style.background = C.primary}
                 >
                   Explore Collections <ArrowRight size={14} />
                 </button>
