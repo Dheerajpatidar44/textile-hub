@@ -1,4 +1,4 @@
-﻿import { motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Gavel, UploadCloud, Send, Mail, Clock, TrendingUp } from 'lucide-react';
 
 const C = {
@@ -86,8 +86,18 @@ export default function EAuction() {
                 className="card-hover text-left"
                 style={{
                   borderRadius: 16, overflow: 'hidden',
-                  background: 'white', border: `1px solid ${C.border}`,
+                  background: 'white',
+                  border: `1px solid ${C.border}`, borderTop: `4px solid ${C.primaryLight}`,
                   display: 'flex', flexDirection: 'column',
+                  transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.transform = 'translateY(-4px)';
+                  e.currentTarget.style.boxShadow = '0 12px 30px rgba(14,107,107,0.08)';
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = 'none';
                 }}
               >
                 {/* Image */}
@@ -179,9 +189,9 @@ export default function EAuction() {
         >
           <div style={{
             background: 'white', borderRadius: 20,
-            border: `1px solid ${C.border}`,
+            border: `1px solid ${C.border}`, borderTop: `4px solid ${C.primaryLight}`,
             overflow: 'hidden',
-            boxShadow: '0 8px 40px rgba(34,43,32,0.08)',
+            boxShadow: '0 4px 20px rgba(14,107,107,0.04)',
           }}>
             {/* Form header */}
             <div style={{

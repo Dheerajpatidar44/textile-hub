@@ -1,4 +1,4 @@
-﻿import { motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Briefcase, MapPin, Mail, Clock } from 'lucide-react';
 
 const C = {
@@ -41,35 +41,46 @@ export default function Career() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.08 }}
               key={job.id}
-              className="card-hover flex flex-col justify-between p-6 rounded-xl bg-white shadow-sm"
+              className="flex flex-col justify-between p-8"
               style={{
-                border: `1.5px solid ${C.border}`,
+                background: 'white',
+                borderRadius: '16px',
+                border: `1px solid ${C.border}`, borderTop: `4px solid ${C.primaryLight}`,
+                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.transform = 'translateY(-4px)';
+                e.currentTarget.style.boxShadow = '0 12px 30px rgba(14,107,107,0.08)';
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = 'none';
               }}
             >
               <div>
-                <h3 style={{ fontFamily: "'Playfair Display', serif", color: C.soil }} className="text-[17px] font-bold mb-4 leading-snug">
+                <h3 style={{ fontFamily: "'Playfair Display', serif", color: C.soil }} className="text-[18px] font-bold mb-5 leading-snug">
                   {job.title}
                 </h3>
-                <div className="flex flex-col gap-2.5 mb-5">
+                <div className="flex flex-col gap-3 mb-6">
                   {[
                     { icon: MapPin, val: job.location },
                     { icon: Briefcase, val: `${job.type} · ${job.experience}` },
                     { icon: Clock, val: 'Apply by June 30, 2026' },
                   ].map(({ icon: Icon, val }) => (
-                    <div key={val} style={{ color: C.stone }} className="flex items-center gap-2 text-xs font-semibold">
-                      <Icon size={13} style={{ color: C.primaryLight }} className="shrink-0" />
+                    <div key={val} style={{ color: C.stone }} className="flex items-center gap-2.5 text-[13px] font-medium">
+                      <Icon size={14} style={{ color: C.primaryLight }} className="shrink-0" />
                       <span>{val}</span>
                     </div>
                   ))}
                 </div>
-                <p style={{ color: C.stone }} className="text-xs sm:text-[13px] leading-relaxed mb-4">
+                <p style={{ color: C.stone }} className="text-[13.5px] leading-relaxed mb-4">
                   {job.description}
                 </p>
               </div>
 
-              <div className="pt-4 mt-4 border-t border-stone-150 flex flex-col gap-2.5">
+              <div className="pt-6 mt-4 flex flex-col gap-3" style={{ borderTop: `1px solid rgba(200,224,224,0.4)` }}>
                 <button
-                  className="w-full py-2.5 rounded-lg font-bold text-xs uppercase tracking-wider text-white transition-colors cursor-pointer"
+                  className="w-full py-3 rounded-lg font-bold text-xs uppercase tracking-wider text-white transition-colors cursor-pointer"
                   style={{
                     background: C.primary,
                   }}
@@ -81,9 +92,9 @@ export default function Career() {
                 <a
                   href="mailto:careers@indianfabrichouse.com"
                   style={{ color: C.accent }}
-                  className="flex items-center justify-center gap-1.5 text-xs font-semibold hover:opacity-85"
+                  className="flex items-center justify-center gap-1.5 text-[13px] font-bold hover:opacity-85 mt-2"
                 >
-                  <Mail size={12} /> Email Us
+                  <Mail size={14} /> Email Us
                 </a>
               </div>
             </motion.div>

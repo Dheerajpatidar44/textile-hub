@@ -1,4 +1,4 @@
-﻿import { useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus } from 'lucide-react';
 
@@ -70,33 +70,33 @@ export default function FAQ() {
                 transition={{ delay: index * 0.08 }}
                 key={index}
                 style={{
-                  background: 'white', borderRadius: 14,
+                  background: isOpen ? 'white' : 'white',
+                  borderRadius: 0,
+                  border: `1px solid ${isOpen ? C.primaryLight : C.border}`,
                   overflow: 'hidden',
-                  border: `1.5px solid ${isOpen ? C.primaryLight : C.border}`,
-                  transition: 'border-color 0.2s ease',
+                  transition: 'all 0.3s ease',
                 }}
               >
                 <button
                   onClick={() => toggleFAQ(index)}
                   style={{
                     width: '100%', textAlign: 'left',
-                    padding: '18px 22px',
+                    padding: '24px 22px',
                     display: 'flex', alignItems: 'center',
                     justifyContent: 'space-between', gap: 16,
                     cursor: 'pointer',
-                    background: isOpen ? C.sand : 'transparent',
-                    border: 'none', transition: 'background 0.2s ease',
+                    background: 'transparent',
+                    border: 'none',
                   }}
                 >
-                  <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, fontWeight: 600, color: C.soil, margin: 0, lineHeight: 1.4 }}>
+                  <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, fontWeight: isOpen ? 700 : 600, color: C.soil, margin: 0, lineHeight: 1.4, transition: 'all 0.2s ease' }}>
                     {faq.question}
                   </h3>
                   <div style={{
                     flexShrink: 0, width: 32, height: 32, borderRadius: '50%',
-                    display: 'flex', alignItems: 'center', justify: 'center',
-                    background: isOpen ? C.primary : 'rgba(71, 86, 67,0.08)',
-                    border: `1.5px solid ${isOpen ? C.primary : C.border}`,
-                    transition: 'all 0.2s ease',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    background: isOpen ? C.primary : 'rgba(14,107,107,0.06)',
+                    transition: 'all 0.3s ease',
                   }}>
                     {isOpen ? <Minus size={15} color="white" /> : <Plus size={15} color={C.primary} />}
                   </div>

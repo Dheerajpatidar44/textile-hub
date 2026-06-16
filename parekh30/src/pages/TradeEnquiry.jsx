@@ -1,4 +1,4 @@
-﻿import { motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Send, Building2, ShoppingBag } from 'lucide-react';
 
 const C = {
@@ -37,9 +37,9 @@ export default function TradeEnquiry() {
           style={{
             background: 'white',
             borderRadius: 20,
-            border: `1px solid ${C.border}`,
+            border: `1px solid ${C.border}`, borderTop: `4px solid ${C.primaryLight}`,
             overflow: 'hidden',
-            boxShadow: '0 8px 40px rgba(34,43,32,0.08)',
+            boxShadow: '0 4px 20px rgba(14,107,107,0.04)',
           }}
         >
           <div style={{

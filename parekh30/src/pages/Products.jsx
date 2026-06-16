@@ -71,7 +71,7 @@ export default function Products() {
         <div className="flex flex-col md:flex-row gap-8 items-start">
           
           {/* Left Sidebar: Categories */}
-          <div className="w-full md:w-[260px] flex-shrink-0 sticky top-24 bg-white rounded-2xl border p-5 shadow-sm" style={{ borderColor: C.border }}>
+          <div className="w-full md:w-[260px] flex-shrink-0 sticky top-24 rounded-2xl p-6" style={{ background: 'white', border: `1px solid ${C.border}`, borderTop: `4px solid ${C.primaryLight}`, border: `1px solid ${C.border}` }}>
             <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, fontWeight: 700, color: C.soil, marginBottom: 16, paddingBottom: 12, borderBottom: `1px solid ${C.border}` }}>
               Categories
             </h3>
@@ -138,11 +138,20 @@ export default function Products() {
                     initial={{ opacity: 0, y: 14 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: Math.min(index * 0.04, 0.3) }}
-                    className="card-hover text-left"
+                    className="text-left"
                     style={{
                       borderRadius: 16, overflow: 'hidden',
                       background: 'white',
-                      border: `1px solid ${C.border}`,
+                      border: `1px solid ${C.border}`, borderTop: `4px solid ${C.primaryLight}`,
+                      transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                    }}
+                    onMouseEnter={e => {
+                      e.currentTarget.style.transform = 'translateY(-4px)';
+                      e.currentTarget.style.boxShadow = '0 12px 30px rgba(14,107,107,0.08)';
+                    }}
+                    onMouseLeave={e => {
+                      e.currentTarget.style.transform = 'translateY(0)';
+                      e.currentTarget.style.boxShadow = 'none';
                     }}
                   >
                     <div style={{ height: 240, overflow: 'hidden', position: 'relative' }}>

@@ -1,4 +1,4 @@
-﻿import { motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { FileText, Eye, Printer } from 'lucide-react';
 
 const C = {
@@ -38,8 +38,22 @@ const TradeCircular = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="card-hover group rounded-2xl p-6 bg-white flex flex-col justify-between border"
-              style={{ borderColor: C.border }}
+              className="group flex flex-col justify-between"
+              style={{ 
+                background: 'white',
+                borderRadius: '16px',
+                border: `1px solid ${C.border}`, borderTop: `4px solid ${C.primaryLight}`,
+                padding: '24px',
+                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.transform = 'translateY(-4px)';
+                e.currentTarget.style.boxShadow = '0 12px 30px rgba(14,107,107,0.08)';
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = 'none';
+              }}
             >
               <div className="flex flex-col items-start gap-4 mb-5">
                 <div style={{ width: 44, height: 44, borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(71, 86, 67,0.08)', border: `1px solid rgba(71, 86, 67,0.2)` }}>

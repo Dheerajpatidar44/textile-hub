@@ -1,4 +1,4 @@
-﻿import { motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Star } from 'lucide-react';
 
 const C = {
@@ -43,12 +43,21 @@ export default function CustomerReview() {
               className="card-hover text-left"
               style={{
                 background: 'white',
-                border: `1px solid ${C.border}`,
+                border: `1px solid ${C.border}`, borderTop: `4px solid ${C.primaryLight}`,
                 borderRadius: 16, padding: '26px 24px',
                 position: 'relative',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
+                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.transform = 'translateY(-4px)';
+                e.currentTarget.style.boxShadow = '0 12px 30px rgba(14,107,107,0.08)';
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = 'none';
               }}
             >
               <div>

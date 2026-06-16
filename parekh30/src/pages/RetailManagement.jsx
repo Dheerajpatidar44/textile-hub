@@ -1,4 +1,4 @@
-﻿import { motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Mail, Users, TrendingUp, Award } from 'lucide-react';
 
 const C = {
@@ -54,12 +54,20 @@ export default function RetailManagement() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
-              className="card-hover text-left"
               style={{
                 borderRadius: 16, background: 'white',
-                border: `1px solid ${C.border}`,
+                border: `1px solid ${C.border}`, borderTop: `4px solid ${C.primaryLight}`,
                 padding: '28px 22px',
                 textAlign: 'center',
+                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.transform = 'translateY(-4px)';
+                e.currentTarget.style.boxShadow = '0 12px 30px rgba(14,107,107,0.08)';
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = 'none';
               }}
             >
               <div style={{ position: 'relative', display: 'inline-block', marginBottom: 18 }}>

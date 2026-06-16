@@ -1,4 +1,4 @@
-﻿import { motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Bell, ChevronRight, Calendar } from 'lucide-react';
 
 const C = {
@@ -43,11 +43,23 @@ export default function NoticeBoard() {
               key={notice.id}
               className="card-hover text-left"
               style={{
-                borderRadius: 16, padding: '22px',
-                background: 'white', cursor: 'pointer',
+                borderRadius: 16, padding: '24px 22px',
+                background: notice.isNew ? 'rgba(71, 86, 67, 0.02)' : 'white',
+                cursor: 'pointer',
                 display: 'flex', flexDirection: 'column',
-                border: `1.5px solid ${notice.isNew ? 'rgba(71, 86, 67, 0.25)' : C.border}`,
-                borderTop: notice.isNew ? `3px solid ${C.primary}` : `1.5px solid ${C.border}`,
+                borderLeft: notice.isNew ? `4px solid ${C.primaryLight}` : '4px solid transparent',
+                border: `1px solid ${C.border}`,
+                transition: 'all 0.3s ease',
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.background = 'rgba(71, 86, 67, 0.05)';
+                e.currentTarget.style.borderLeftColor = C.primaryLight;
+                e.currentTarget.style.transform = 'translateX(4px)';
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.background = notice.isNew ? 'rgba(71, 86, 67, 0.02)' : 'white';
+                e.currentTarget.style.borderLeftColor = notice.isNew ? C.primaryLight : 'transparent';
+                e.currentTarget.style.transform = 'translateX(0)';
               }}
             >
               <div>
