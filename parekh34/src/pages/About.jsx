@@ -49,7 +49,7 @@ export default function About() {
               {/* Decorative hexagonal clip shape */}
               <div style={{ position: 'absolute', inset: 0, overflow: 'hidden' }}>
                 <img
-                  src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&auto=format&fit=crop&q=80"
+                  src="https://plus.unsplash.com/premium_photo-1663088624029-5886b4fe8960?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGRyZXNzJTIwc3VpdHN8ZW58MHx8MHx8fDA%3D"
                   alt="THREADORA Textile Artistry"
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 />
@@ -58,25 +58,6 @@ export default function About() {
                   position: 'absolute', inset: 0,
                   background: 'linear-gradient(135deg, rgba(74,25,66,0.15) 0%, transparent 60%)',
                 }} />
-              </div>
-              
-              {/* Stats overlay card */}
-              <div style={{
-                position: 'absolute', bottom: 20, left: 20, right: 20,
-                background: 'rgba(74,25,66,0.9)', backdropFilter: 'blur(10px)',
-                borderRadius: 16, padding: '16px 20px',
-                display: 'flex', justifyContent: 'space-around', gap: 16,
-              }}>
-                {[
-                  { val: '30+', label: 'Years' },
-                  { val: '500+', label: 'Partners' },
-                  { val: '25K+', label: 'Customers' },
-                ].map(({ val, label }) => (
-                  <div key={label} className="text-center">
-                    <p style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, fontWeight: 700, color: '#ffffff', margin: 0 }}>{val}</p>
-                    <p style={{ fontSize: 10, color: 'rgba(255,255,255,0.7)', margin: 0, letterSpacing: '0.1em', textTransform: 'uppercase' }}>{label}</p>
-                  </div>
-                ))}
               </div>
             </div>
 

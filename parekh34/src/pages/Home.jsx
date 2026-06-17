@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import {
-  ArrowRight, ChevronLeft, ChevronRight, Play
+  ArrowRight, ArrowLeft, ChevronLeft, ChevronRight, Play
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -53,8 +53,8 @@ const categoryImages = {
   ],
   "Dress Suits": [
     "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400&auto=format&fit=crop&q=80",
-    "https://images.unsplash.com/photo-1621786030484-4c8ec6b5151d?w=400&auto=format&fit=crop&q=80",
-    "https://images.unsplash.com/photo-1583391733975-d143c7bba8d8?w=400&auto=format&fit=crop&q=80"
+    "https://plus.unsplash.com/premium_photo-1661434624086-e02557c68815?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8ZHJlc3MlMjBzdWl0c3xlbnwwfHwwfHx8MA%3D%3D",
+    "https://images.unsplash.com/photo-1588186941799-f9a4fc54ff1e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8ZHJlc3MlMjBzdWl0cyUyMHdvbWVufGVufDB8MHwwfHx8MA%3D%3D"
   ],
   "Bedsheets & Linen": [
     "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=400&auto=format&fit=crop&q=80",
@@ -188,38 +188,50 @@ export default function Home() {
                   margin: '0 0 20px'
                 }}>
                   <span style={{ color: C.soil, display: 'block' }}>{slide.line1}</span>
-                  <span style={{ color: C.soil, fontStyle: 'italic', display: 'block' }}>{slide.line2}</span>
-                  <span style={{ color: C.soil, fontStyle: 'italic', display: 'block' }}>{slide.line3}</span>
+                  <span style={{ color: '#AE546C', display: 'block' }}>{slide.line2}</span>
+                  <span style={{ color: '#AE546C', display: 'block' }}>{slide.line3}</span>
                 </h1>
+
+                {/* Decorative Line */}
+                <div style={{ display: 'flex', alignItems: 'center', margin: '20px 0' }}>
+                  <div style={{ width: 40, height: 2, background: '#AE546C' }} />
+                  <div style={{ flex: 1, height: 1, background: 'rgba(174, 84, 108, 0.2)', maxWidth: 200 }} />
+                </div>
                 
-                <p style={{ color: C.stone, fontSize: '15px', lineHeight: 1.7, marginBottom: 32, maxWidth: 400 }}>
+                <p style={{ color: C.soil, fontSize: '15px', lineHeight: 1.7, marginBottom: 32, maxWidth: 400 }}>
                   {slide.desc}
                 </p>
 
-                <Link
-                  to="/products"
-                  className="inline-flex items-center transition-all duration-300 overflow-hidden shadow-md hover:shadow-lg"
-                  style={{
-                    background: C.primary,
-                    color: '#ffffff',
-                    borderRadius: 30,
-                    fontSize: 11,
-                    fontWeight: 700,
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.08em',
-                    textDecoration: 'none',
-                  }}
-                >
-                  <span className="pl-6 pr-4 py-3.5">{slide.btnText}</span>
-                  <span style={{
-                    background: C.accent,
-                    color: '#ffffff',
-                    width: 44, height: 44,
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  }}>
-                    <ArrowRight size={14} />
-                  </span>
-                </Link>
+                <div className="flex items-center gap-4">
+                  <Link
+                    to="/products"
+                    className="inline-flex items-center justify-center transition-all duration-300 shadow-sm hover:shadow-md"
+                    style={{
+                      background: C.primaryDark,
+                      color: '#ffffff',
+                      borderRadius: 8,
+                      fontSize: 11,
+                      fontWeight: 700,
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.08em',
+                      textDecoration: 'none',
+                      padding: '14px 24px',
+                    }}
+                  >
+                    {slide.btnText}
+                  </Link>
+                  <Link
+                    to="/products"
+                    className="flex items-center justify-center rounded-full transition-all hover:bg-[rgba(174,84,108,0.05)]"
+                    style={{
+                      width: 40, height: 40,
+                      border: '1px solid #AE546C',
+                      color: '#AE546C',
+                    }}
+                  >
+                    <ArrowRight size={16} />
+                  </Link>
+                </div>
 
                 {/* Mobile image */}
                 <div className="block lg:hidden w-full h-[260px] rounded-[36px_36px_16px_16px] overflow-hidden mt-8 shadow-md border-2 border-white">
@@ -230,8 +242,8 @@ export default function Home() {
 
             {/* Navigation controls */}
             <div className="flex items-center gap-4 mt-10">
-              <button onClick={handlePrev} style={{ width: 36, height: 36, borderRadius: '50%', background: '#ffffff', border: `1px solid ${C.border}`, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <ChevronLeft size={16} color={C.soil} />
+              <button onClick={handlePrev} style={{ width: 36, height: 36, borderRadius: '50%', background: C.primaryDark, border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <ArrowLeft size={16} color="#ffffff" />
               </button>
               <div className="flex items-center gap-2">
                 {heroSlides.map((_, idx) => (
@@ -239,17 +251,18 @@ export default function Home() {
                     key={idx}
                     onClick={() => { setDirection(idx > currentSlide ? 1 : -1); setCurrentSlide(idx); }}
                     style={{
-                      width: currentSlide === idx ? 24 : 8, height: 8, borderRadius: 10,
-                      background: currentSlide === idx ? C.accent : C.border,
-                      cursor: 'pointer', padding: 0, border: 'none',
+                      width: 10, height: 10, borderRadius: '50%',
+                      background: 'transparent',
+                      border: currentSlide === idx ? `2px solid #AE546C` : `1px solid ${C.stone}`,
+                      cursor: 'pointer', padding: 0,
                       transition: 'all 0.3s'
                     }}
                     aria-label={`Go to slide ${idx + 1}`}
                   />
                 ))}
               </div>
-              <button onClick={handleNext} style={{ width: 36, height: 36, borderRadius: '50%', background: C.primary, border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <ChevronRight size={16} color="#ffffff" />
+              <button onClick={handleNext} style={{ width: 36, height: 36, borderRadius: '50%', background: C.primaryDark, border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <ArrowRight size={16} color="#ffffff" />
               </button>
             </div>
           </div>
@@ -394,7 +407,7 @@ export default function Home() {
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {galleryItems.map((item, idx) => (
-              <div key={idx} className="shrink-0 relative group cursor-pointer" style={{ width: 300, borderRadius: 16, border: `1px solid ${C.border}`, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
+              <Link to="/gallery" key={idx} className="shrink-0 relative group cursor-pointer" style={{ width: 300, borderRadius: 16, border: `1px solid ${C.border}`, overflow: 'hidden', display: 'flex', flexDirection: 'column', textDecoration: 'none' }}>
                 <div style={{ width: '100%', height: 180, overflow: 'hidden', position: 'relative' }}>
                   <img src={item.image} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   <div style={{ position: 'absolute', top: 12, left: 12, background: 'rgba(74, 25, 66, 0.85)', backdropFilter: 'blur(6px)', borderRadius: 20, padding: '4px 12px' }}>
@@ -405,7 +418,7 @@ export default function Home() {
                   <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 16, fontWeight: 600, color: C.soil, margin: '0 0 6px', lineHeight: 1.4 }}>{item.title}</h3>
                   <p style={{ fontSize: 12, color: C.stone, lineHeight: 1.5, margin: 0, fontWeight: 400 }}>{item.desc}</p>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>

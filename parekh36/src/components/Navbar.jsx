@@ -4,15 +4,17 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const C = {
-  primary: '#4A1942',
-  primaryDark: '#2E1038',
-  accent: '#8B5E3C',
-  bg: '#FAF6F1',
-  sand: '#F5EDE4',
-  sage: '#F3EAE0',
-  border: '#E8DDD4',
-  soil: '#3D1F35',
-  stone: '#7A6670',
+  primary: '#1B2B3F',
+  primaryDark: '#0F1E2D',
+  primaryLight: '#243B55',
+  accent: '#C9A455',
+  accentLight: '#F0E4C2',
+  bg: '#F8F5EF',
+  sand: '#F5EED8',
+  border: '#E8E0D0',
+  soil: '#1a1a2e',
+  stone: '#6B7280',
+  cream: '#FDFBF7',
 };
 
 export default function Navbar() {
@@ -81,37 +83,36 @@ export default function Navbar() {
       <div
         className="w-full transition-all duration-300 py-3"
         style={{
-          background: scrolled ? 'rgba(74, 25, 66, 0.97)' : C.primary,
+          background: scrolled ? 'rgba(15, 30, 45, 0.97)' : C.primary,
           backdropFilter: scrolled ? 'blur(12px)' : 'none',
-          borderBottom: `1px solid rgba(255,255,255,0.1)`,
-          boxShadow: scrolled ? '0 2px 20px rgba(0, 0, 0, 0.2)' : 'none',
+          borderBottom: `1px solid rgba(201,164,85,0.15)`,
+          boxShadow: scrolled ? '0 2px 20px rgba(0, 0, 0, 0.3)' : 'none',
         }}
       >
         <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14 flex justify-between items-center">
 
-          {/* Logo Brand: THREADORA */}
-          <Link to="/" className="flex items-center gap-3.5 group shrink-0 text-left relative pl-6 pr-10 py-3 sm:pl-8 sm:pr-12 lg:pl-14 lg:pr-16 -ml-6 sm:-ml-8 lg:-ml-14 -my-3 transition-all duration-300">
+          {/* Logo Brand: WEAVORA */}
+          <Link to="/" className="flex items-center gap-3 group shrink-0 text-left">
             {/* Logo Icon */}
             <div style={{
-              width: 30, height: 30,
+              width: 32, height: 32,
               display: 'flex', alignItems: 'center', justifyContent: 'center',
             }}>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M12 2L17 7L12 12L7 7L12 2Z" fill="#C49A6C" />
-                <path d="M17 7L22 12L17 17L12 12L17 7Z" fill="#E8DDD4" opacity="0.8" />
-                <path d="M12 12L17 17L12 22L7 17L12 12Z" fill="#C49A6C" />
-                <path d="M7 7L12 12L7 17L2 12L7 7Z" fill="#E8DDD4" opacity="0.8" />
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                <polygon points="14,2 26,9 26,19 14,26 2,19 2,9" stroke="#C9A455" strokeWidth="1.5" fill="none"/>
+                <polygon points="14,7 21,11 21,17 14,21 7,17 7,11" fill="#C9A455" opacity="0.3"/>
+                <circle cx="14" cy="14" r="3" fill="#C9A455"/>
               </svg>
             </div>
             <div className="flex flex-col">
               <span
-                className="text-[20px] font-bold leading-none tracking-wide text-white"
-                style={{ fontFamily: "'Playfair Display', serif" }}
+                className="text-[19px] font-bold leading-none tracking-widest text-white"
+                style={{ fontFamily: "'Cormorant Garamond', serif", letterSpacing: '0.15em' }}
               >
-                THREADORA
+                WEAVORA
               </span>
-              <span className="text-[7.5px] tracking-[0.2em] font-semibold mt-1.5 uppercase text-[#E8DDD4]">
-                Textile Retail
+              <span className="text-[7px] tracking-[0.22em] font-semibold mt-1 uppercase" style={{ color: C.accent }}>
+                Textile Mall
               </span>
             </div>
           </Link>
@@ -125,13 +126,13 @@ export default function Navbar() {
                   key={item.name}
                   to={item.path}
                   className="relative px-1 py-0.5 text-[11px] lg:text-[12px] font-semibold tracking-wide uppercase transition-all duration-200 whitespace-nowrap shrink-0"
-                  style={{ color: active ? '#ffffff' : 'rgba(255,255,255,0.7)' }}
+                  style={{ color: active ? '#C9A455' : 'rgba(255,255,255,0.75)' }}
                 >
                   {item.name}
                   {active && (
                     <div style={{ position: 'absolute', bottom: -4, left: 0, right: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                      <div style={{ width: '100%', height: 1, background: 'rgba(255,255,255,0.3)' }} />
-                      <div style={{ width: 4, height: 4, borderRadius: '50%', background: '#ffffff', position: 'absolute' }} />
+                      <div style={{ width: '100%', height: 1, background: 'rgba(201,164,85,0.4)' }} />
+                      <div style={{ width: 4, height: 4, borderRadius: '50%', background: '#C9A455', position: 'absolute' }} />
                     </div>
                   )}
                 </Link>
@@ -146,7 +147,7 @@ export default function Navbar() {
             >
               <button
                 className="flex items-center gap-1 px-3 py-1.5 text-[11px] lg:text-[12px] font-semibold tracking-wide uppercase transition-all duration-200 whitespace-nowrap cursor-pointer rounded-md"
-                style={{ color: '#ffffff', background: '#A15268' }}
+                style={{ color: '#1a1a2e', background: C.accent }}
                 onClick={() => setDropdownOpen(!dropdownOpen)}
               >
                 <span>Pages</span>
@@ -162,17 +163,17 @@ export default function Navbar() {
                     transition={{ duration: 0.2, ease: 'easeOut' }}
                     className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-64 rounded-2xl shadow-2xl z-[999] text-left overflow-hidden"
                     style={{
-                      background: 'linear-gradient(180deg, #4A1942 0%, #3D1F35 100%)',
-                      border: '1px solid rgba(139, 94, 60, 0.2)',
+                      background: 'linear-gradient(180deg, #1B2B3F 0%, #0F1E2D 100%)',
+                      border: '1px solid rgba(201, 164, 85, 0.2)',
                     }}
                   >
                     {/* Top caret arrow */}
                     <div style={{
-                      position: 'absolute', top: -6, left: '50%', transform: 'translateX(-50%)',
-                      width: 12, height: 12, background: '#4A1942',
+                      position: 'absolute', top: -6, left: '50%',
+                      width: 12, height: 12, background: '#1B2B3F',
                       borderRadius: 2, transform: 'translateX(-50%) rotate(45deg)',
-                      borderTop: '1px solid rgba(139, 94, 60, 0.2)',
-                      borderLeft: '1px solid rgba(139, 94, 60, 0.2)',
+                      borderTop: '1px solid rgba(201, 164, 85, 0.2)',
+                      borderLeft: '1px solid rgba(201, 164, 85, 0.2)',
                     }} />
                     <div style={{ padding: '6px 0' }}>
                       {dropdownNavItems.map((item) => {
@@ -184,15 +185,15 @@ export default function Navbar() {
                             onClick={() => setDropdownOpen(false)}
                             className="flex items-center gap-3 px-5 py-2.5 text-[12.5px] font-medium transition-all duration-200"
                             style={{
-                              color: active ? '#ffffff' : 'rgba(255,255,255,0.75)',
-                              background: active ? 'rgba(139, 94, 60, 0.2)' : 'transparent',
-                              borderLeft: active ? '3px solid #C49A6C' : '3px solid transparent',
+                              color: active ? '#C9A455' : 'rgba(255,255,255,0.75)',
+                              background: active ? 'rgba(201, 164, 85, 0.1)' : 'transparent',
+                              borderLeft: active ? '3px solid #C9A455' : '3px solid transparent',
                               textDecoration: 'none',
                             }}
                             onMouseEnter={e => {
-                              e.currentTarget.style.background = 'rgba(255,255,255,0.1)';
-                              e.currentTarget.style.color = '#ffffff';
-                              e.currentTarget.style.borderLeftColor = '#C49A6C';
+                              e.currentTarget.style.background = 'rgba(255,255,255,0.07)';
+                              e.currentTarget.style.color = '#C9A455';
+                              e.currentTarget.style.borderLeftColor = '#C9A455';
                             }}
                             onMouseLeave={e => {
                               if (!active) {
@@ -200,15 +201,15 @@ export default function Navbar() {
                                 e.currentTarget.style.color = 'rgba(255,255,255,0.75)';
                                 e.currentTarget.style.borderLeftColor = 'transparent';
                               } else {
-                                e.currentTarget.style.background = 'rgba(139, 94, 60, 0.2)';
-                                e.currentTarget.style.color = '#ffffff';
-                                e.currentTarget.style.borderLeftColor = '#C49A6C';
+                                e.currentTarget.style.background = 'rgba(201, 164, 85, 0.1)';
+                                e.currentTarget.style.color = '#C9A455';
+                                e.currentTarget.style.borderLeftColor = '#C9A455';
                               }
                             }}
                           >
                             <span style={{
                               width: 5, height: 5, borderRadius: '50%',
-                              background: active ? '#C49A6C' : 'rgba(255,255,255,0.25)',
+                              background: active ? '#C9A455' : 'rgba(255,255,255,0.25)',
                               flexShrink: 0, display: 'inline-block',
                               transition: 'background 0.2s',
                             }} />
@@ -228,16 +229,19 @@ export default function Navbar() {
             {/* Trade Enquiry Button (Desktop) */}
             <Link
               to="/trade-enquiry"
-              className="hidden md:inline-flex items-center justify-center px-5 py-2.5 rounded-full text-[11px] lg:text-[12px] font-bold tracking-wider uppercase text-white shadow-sm hover:shadow-md transition-all duration-300"
+              className="hidden md:inline-flex items-center justify-center px-5 py-2.5 rounded-full text-[11px] lg:text-[12px] font-bold tracking-wider uppercase shadow-sm hover:shadow-md transition-all duration-300"
               style={{
-                background: `linear-gradient(135deg, ${C.primaryDark} 0%, ${C.accent} 100%)`,
-                border: '1px solid rgba(255,255,255,0.15)',
+                background: `linear-gradient(135deg, ${C.accent} 0%, #A88035 100%)`,
+                color: '#1a1a2e',
+                border: '1px solid rgba(201,164,85,0.3)',
               }}
               onMouseEnter={e => {
                 e.currentTarget.style.transform = 'translateY(-1px)';
+                e.currentTarget.style.boxShadow = '0 6px 20px rgba(201,164,85,0.3)';
               }}
               onMouseLeave={e => {
                 e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = '';
               }}
             >
               Trade Enquiry
@@ -249,12 +253,11 @@ export default function Navbar() {
               className="md:hidden p-2 rounded-xl border transition-all"
               style={{
                 color: '#ffffff',
-                borderColor: 'rgba(255,255,255,0.2)',
-                background: 'rgba(255,255,255,0.1)',
+                borderColor: 'rgba(201,164,85,0.3)',
+                background: 'rgba(201,164,85,0.1)',
               }}
               aria-label="Toggle menu"
             >
-
               {isOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
           </div>
@@ -270,24 +273,24 @@ export default function Navbar() {
             exit={{ x: '100%' }}
             transition={{ type: 'tween', duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
             className="md:hidden fixed inset-0 top-0 z-40 flex flex-col"
-            style={{ background: '#FAF6F1', fontFamily: "'DM Sans', sans-serif" }}
+            style={{ background: '#F8F5EF', fontFamily: "'DM Sans', sans-serif" }}
           >
             {/* Drawer header */}
-            <div style={{ background: 'linear-gradient(135deg, #4A1942, #2E1038)', padding: '16px 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            <div style={{ background: 'linear-gradient(135deg, #1B2B3F, #0F1E2D)', padding: '16px 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
               <div>
-                <p style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, fontStyle: 'normal', fontWeight: 700, color: '#ffffff', margin: 0 }}>
-                  THREADORA
+                <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 18, fontWeight: 700, color: '#ffffff', margin: 0, letterSpacing: '0.15em' }}>
+                  WEAVORA
                 </p>
-                <p style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#C49A6C', margin: 0, marginTop: 2, fontWeight: 600 }}>
-                  Textile Retail
+                <p style={{ fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#C9A455', margin: 0, marginTop: 2, fontWeight: 600 }}>
+                  Textile Mall
                 </p>
               </div>
               <button
                 onClick={() => setIsOpen(false)}
                 style={{
                   width: 36, height: 36, borderRadius: '50%',
-                  background: 'rgba(255,255,255,0.15)',
-                  border: '1px solid rgba(255,255,255,0.2)',
+                  background: 'rgba(201,164,85,0.15)',
+                  border: '1px solid rgba(201,164,85,0.3)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   color: '#ffffff', cursor: 'pointer',
                 }}
@@ -307,8 +310,8 @@ export default function Navbar() {
                       onClick={() => setIsOpen(false)}
                       className="flex items-center justify-between px-4 py-3 rounded-xl text-[13px] font-semibold tracking-wide border transition-all uppercase"
                       style={{
-                        background: active ? 'rgba(74, 25, 66, 0.06)' : C.sand,
-                        borderColor: active ? C.primary : C.border,
+                        background: active ? 'rgba(27, 43, 63, 0.06)' : '#F5EED8',
+                        borderColor: active ? C.primary : '#E8E0D0',
                         color: active ? C.primary : C.soil,
                       }}
                     >
@@ -324,8 +327,8 @@ export default function Navbar() {
                     onClick={() => setMobileResourcesOpen(!mobileResourcesOpen)}
                     className="w-full flex items-center justify-between px-4 py-3 rounded-xl text-[13px] font-semibold uppercase tracking-wide border transition-all cursor-pointer"
                     style={{
-                      background: C.sand,
-                      borderColor: isDropdownActive() ? C.primary : C.border,
+                      background: '#F5EED8',
+                      borderColor: isDropdownActive() ? C.primary : '#E8E0D0',
                       color: isDropdownActive() ? C.primary : C.soil,
                     }}
                   >
@@ -351,8 +354,8 @@ export default function Navbar() {
                               onClick={() => { setIsOpen(false); setMobileResourcesOpen(false); }}
                               className="flex items-center justify-between px-4 py-2.5 rounded-xl text-[12px] font-semibold uppercase tracking-wide border transition-all"
                               style={{
-                                background: active ? 'rgba(74, 25, 66, 0.05)' : C.sand,
-                                borderColor: active ? C.primary : C.border,
+                                background: active ? 'rgba(27, 43, 63, 0.05)' : '#F5EED8',
+                                borderColor: active ? C.primary : '#E8E0D0',
                                 color: active ? C.primary : C.soil,
                               }}
                             >
@@ -371,8 +374,8 @@ export default function Navbar() {
                 <Link
                   to="/contact"
                   onClick={() => setIsOpen(false)}
-                  className="flex items-center justify-center gap-2 py-3.5 rounded-full text-sm font-bold uppercase tracking-wider text-white"
-                  style={{ background: 'linear-gradient(135deg, #4A1942, #8B5E3C)' }}
+                  className="flex items-center justify-center gap-2 py-3.5 rounded-full text-sm font-bold uppercase tracking-wider"
+                  style={{ background: 'linear-gradient(135deg, #1B2B3F, #C9A455)', color: '#ffffff' }}
                 >
                   Contact Us
                 </Link>
