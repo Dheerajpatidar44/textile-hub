@@ -3,11 +3,11 @@ import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const COLORS = { 
-  primary: '#a87c5e',
-  accent: '#56513E',
+  primary: '#C9A455',
+  accent: '#1B2B3F',
   bg: '#fdfaf6', 
   border: '#e6dacb', 
-  textDark: '#3b2314' 
+  textDark: '#1a1a2e' 
 };
 
 const InstagramIcon = () => (
@@ -88,12 +88,12 @@ export default function FloatingSocials() {
           onClick={() => setIsExpanded(!isExpanded)}
           className="absolute right-[-24px] top-1/2 -translate-y-1/2 w-6 h-10 flex items-center justify-center rounded-r-md border-y border-r transition-colors focus:outline-none shadow-md cursor-pointer"
           style={{
-            background: '#56513E',
+            background: '#1B2B3F',
             color: '#ffffff',
             borderColor: 'rgba(255,255,255,0.1)',
           }}
-          onMouseEnter={e => { e.currentTarget.style.background = '#a87c5e'; }}
-          onMouseLeave={e => { e.currentTarget.style.background = '#56513E'; }}
+          onMouseEnter={e => { e.currentTarget.style.background = '#C9A455'; }}
+          onMouseLeave={e => { e.currentTarget.style.background = '#1B2B3F'; }}
           aria-label={isExpanded ? "Collapse socials" : "Expand socials"}
         >
           {isExpanded ? <ChevronLeft size={16} /> : <ChevronRight size={16} />}

@@ -4,14 +4,17 @@ import { motion } from 'framer-motion';
 import { ShoppingBag, Filter } from 'lucide-react';
 
 const C = {
-  primary: '#56513E',
-  primaryDark: '#3b372a',
-  accent: '#a87c5e',
-  bg: '#fdfaf6',
-  sand: '#efe3d5',
-  border: '#e6dacb',
-  soil: '#3b2314',
-  stone: '#7c6a5e',
+  primary: '#1B2B3F',
+  primaryDark: '#0F1E2D',
+  primaryLight: '#243B55',
+  accent: '#C9A455',
+  accentLight: '#F0E4C2',
+  bg: '#F8F5EF',
+  sand: '#F5EED8',
+  border: '#E8E0D0',
+  soil: '#1a1a2e',
+  stone: '#6B7280',
+  cream: '#FDFBF7',
 };
 
 const categories = [
@@ -55,42 +58,42 @@ export default function Products() {
   });
 
   return (
-    <div style={{ fontFamily: "'DM Sans', sans-serif", background: C.bg, minHeight: '100vh' }}>
-      <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14 pt-10 pb-20">
+    <div style={{ fontFamily: "'DM Sans', sans-serif", background: C.bg, minHeight: '100vh' }} className="pt-[70px] pb-20">
+      <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14">
 
         {/* Page Title */}
-        <div className="text-center mb-12">
-          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(30px, 4vw, 44px)', fontWeight: 600, color: C.soil, margin: '0 0 12px' }}>
-            Explore Our Collection
+        <div className="text-center mb-6">
+          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(36px, 5vw, 52px)', fontWeight: 600, color: C.primary, margin: '0 0 12px', letterSpacing: '0.02em' }}>
+            Collections
           </h1>
-          <div style={{ width: 44, height: 2, background: `linear-gradient(90deg, ${C.primaryDark}, ${C.primary})`, borderRadius: 2, margin: '0 auto' }} />
+          <div style={{ width: 60, height: 2, background: C.accent, borderRadius: 2, margin: '0 auto' }} />
         </div>
         
         <div className="flex flex-col md:flex-row gap-8 items-start">
           
           {/* Left Sidebar */}
-          <div className="w-full md:w-[260px] flex-shrink-0 sticky top-24 rounded-2xl p-6" style={{ background: 'white', border: `1px solid ${C.border}` }}>
-            <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, fontWeight: 700, color: C.soil, marginBottom: 16, paddingBottom: 12, borderBottom: `1px solid ${C.border}` }}>
+          <div className="w-full md:w-[280px] flex-shrink-0 sticky top-[100px] rounded-2xl p-6" style={{ background: 'white', border: `1px solid ${C.border}` }}>
+            <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 22, fontWeight: 700, color: C.primary, marginBottom: 16, paddingBottom: 12, borderBottom: `1px solid ${C.border}` }}>
               Categories
             </h3>
-            <div className="flex flex-col gap-1.5 max-h-[65vh] overflow-y-auto pr-2 custom-scrollbar" style={{ scrollbarWidth: 'thin' }}>
+            <div className="flex flex-col gap-1.5 max-h-[65vh] overflow-y-auto pr-2 custom-sidebar-scrollbar" style={{ scrollbarWidth: 'thin' }}>
               {["All", ...categories].map((cat) => {
                 const active = activeCategory === cat;
                 return (
                   <button
                     key={cat}
                     onClick={() => handleCategoryChange(cat)}
-                    className="text-left w-full px-4 py-2.5 rounded-xl text-[12px] font-bold tracking-wide transition-all duration-200 cursor-pointer flex items-center justify-between"
+                    className="text-left w-full px-4 py-3 rounded-xl text-[13px] font-medium tracking-wide transition-all duration-200 cursor-pointer flex items-center justify-between"
                     style={{
-                      background: active ? 'rgba(86, 81, 62,0.08)' : 'transparent',
+                      background: active ? 'rgba(27, 43, 63, 0.06)' : 'transparent',
                       color: active ? C.primary : C.stone,
                       border: 'none',
                     }}
-                    onMouseEnter={e => { if (!active) { e.currentTarget.style.background = 'rgba(86, 81, 62,0.03)'; e.currentTarget.style.color = C.primary; }}}
+                    onMouseEnter={e => { if (!active) { e.currentTarget.style.background = 'rgba(27, 43, 63, 0.03)'; e.currentTarget.style.color = C.primary; }}}
                     onMouseLeave={e => { if (!active) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = C.stone; }}}
                   >
                     <span>{cat}</span>
-                    {active && <div style={{ width: 6, height: 6, borderRadius: '50%', background: C.primary }} />}
+                    {active && <div style={{ width: 6, height: 6, borderRadius: '50%', background: C.accent }} />}
                   </button>
                 );
               })}
@@ -99,13 +102,13 @@ export default function Products() {
 
           {/* Right Content */}
           <div className="flex-1 w-full">
-            <div className="flex items-center justify-between mb-6">
-              <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, fontWeight: 700, color: C.soil, margin: 0 }}>
+            <div className="flex items-center justify-between mb-8 pb-4 border-b" style={{ borderColor: C.border }}>
+              <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 26, fontWeight: 700, color: C.soil, margin: 0 }}>
                 {activeCategory === "All" ? "All Products" : activeCategory}
               </h2>
               <div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '8px 16px', borderRadius: 20, background: 'white', border: `1px solid ${C.border}` }}>
                 <ShoppingBag size={14} color={C.primary} />
-                <span style={{ fontSize: 12, color: C.stone, fontWeight: 500 }}>{filteredProducts.length} Products</span>
+                <span style={{ fontSize: 13, color: C.stone, fontWeight: 500 }}>{filteredProducts.length} Items</span>
               </div>
             </div>
 
@@ -117,37 +120,34 @@ export default function Products() {
                     initial={{ opacity: 0, y: 14 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: Math.min(index * 0.04, 0.3) }}
-                    className="text-left"
+                    className="text-left product-card group"
                     style={{
                       borderRadius: 16, overflow: 'hidden',
                       background: 'white', border: `1px solid ${C.border}`,
-                      transition: 'transform 0.3s ease, box-shadow 0.3s ease',
                     }}
-                    onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 12px 30px rgba(59,35,20,0.08)'; }}
-                    onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none'; }}
                   >
-                    <div style={{ height: 240, overflow: 'hidden', position: 'relative' }}>
+                    <div style={{ height: 320, overflow: 'hidden', position: 'relative' }}>
                       <img src={product.image} alt={product.name} loading="lazy"
-                        style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.6s ease', display: 'block' }}
-                        onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.05)'}
-                        onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
+                        style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.8s ease', display: 'block' }}
+                        className="group-hover:scale-110"
                       />
                     </div>
-                    <div style={{ padding: '16px 18px', borderTop: `1px solid ${C.border}` }}>
-                      <span style={{ fontSize: 9, textTransform: 'uppercase', letterSpacing: '0.18em', color: C.accent, fontWeight: 600, display: 'block', marginBottom: 6 }}>
+                    <div style={{ padding: '20px', borderTop: `1px solid ${C.border}` }}>
+                      <span style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.15em', color: C.accent, fontWeight: 600, display: 'block', marginBottom: 8 }}>
                         {product.category}
                       </span>
-                      <h3 style={{ fontSize: 14, fontWeight: 600, color: C.soil, margin: '0 0 12px', lineHeight: 1.4, fontFamily: "'Playfair Display', serif" }}>
+                      <h3 style={{ fontSize: 16, fontWeight: 600, color: C.soil, margin: '0 0 16px', lineHeight: 1.4, fontFamily: "'Cormorant Garamond', serif" }}>
                         {product.name}
                       </h3>
                       <button
                         style={{
-                          width: '100%', padding: '9px 14px',
-                          borderRadius: 10, fontSize: 12, fontWeight: 500,
+                          width: '100%', padding: '12px 14px',
+                          borderRadius: 10, fontSize: 13, fontWeight: 500,
                           cursor: 'pointer', fontFamily: "'DM Sans', sans-serif",
                           border: `1.5px solid ${C.border}`,
                           background: 'transparent', color: C.stone,
                           transition: 'all 0.2s ease',
+                          textTransform: 'uppercase', letterSpacing: '0.05em'
                         }}
                         onMouseEnter={e => { e.currentTarget.style.background = C.primary; e.currentTarget.style.color = 'white'; e.currentTarget.style.borderColor = C.primary; }}
                         onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = C.stone; e.currentTarget.style.borderColor = C.border; }}
@@ -159,19 +159,19 @@ export default function Products() {
                 ))}
               </div>
             ) : (
-              <div style={{ textAlign: 'center', padding: '80px 24px', borderRadius: 20, background: 'white', border: `1px solid ${C.border}` }}>
-                <Filter size={44} style={{ margin: '0 auto 16px', color: C.primaryLight, display: 'block', opacity: 0.6 }} />
-                <p style={{ fontFamily: "'Playfair Display', serif", fontSize: 20, color: C.soil, marginBottom: 20 }}>
+              <div style={{ textAlign: 'center', padding: '100px 24px', borderRadius: 20, background: 'white', border: `1px solid ${C.border}` }}>
+                <Filter size={48} style={{ margin: '0 auto 16px', color: C.primaryLight, display: 'block', opacity: 0.6 }} />
+                <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 24, color: C.soil, marginBottom: 24 }}>
                   No products found for "{activeCategory}"
                 </p>
                 <button
                   onClick={() => handleCategoryChange('All')}
                   style={{
-                    padding: '11px 24px', borderRadius: 12,
+                    padding: '12px 28px', borderRadius: 12,
                     background: C.primary, color: 'white',
-                    border: 'none', fontSize: 13, fontWeight: 500,
+                    border: 'none', fontSize: 14, fontWeight: 500,
                     cursor: 'pointer', fontFamily: "'DM Sans', sans-serif",
-                    transition: 'all 0.2s ease',
+                    transition: 'all 0.2s ease', textTransform: 'uppercase', letterSpacing: '0.05em'
                   }}
                   onMouseEnter={e => e.currentTarget.style.background = C.accent}
                   onMouseLeave={e => e.currentTarget.style.background = C.primary}

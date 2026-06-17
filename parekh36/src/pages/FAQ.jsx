@@ -3,14 +3,14 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus } from 'lucide-react';
 
 const C = {
-  primary: '#56513E',
+  primary: '#1B2B3F',
   primaryLight: '#736d53',
-  soil: '#3b2314',
+  soil: '#1a1a2e',
   sand: '#efe3d5',
   cream: '#fdfaf6',
   border: '#e6dacb',
   stone: '#7c6a5e',
-  accent: '#a87c5e',
+  accent: '#C9A455',
 };
 
 const faqs = [
@@ -32,7 +32,7 @@ const faqs = [
   },
   {
     question: "Do you ship internationally?",
-    answer: "Yes, AAVANIKA ships globally. International shipping charges and delivery times vary based on the destination and order volume."
+    answer: "Yes, weavora ships globally. International shipping charges and delivery times vary based on the destination and order volume."
   },
   {
     question: "Can I request custom fabric weaving or dyeing?",
@@ -53,8 +53,8 @@ export default function FAQ() {
       <div className="max-w-3xl mx-auto px-6 pt-0">
 
         {/* Page Title Section */}
-        <div className="text-center mb-12">
-          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(30px, 4vw, 44px)', fontWeight: 600, color: C.soil, margin: '0 0 12px' }}>
+        <div className="text-center mb-6">
+          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(30px, 4vw, 44px)', fontWeight: 600, color: C.soil, margin: '0 0 12px' }}>
             Frequently Asked Questions
           </h1>
           <div style={{ width: 50, height: 2, background: C.accent, borderRadius: 2, margin: '0 auto' }} />
@@ -89,7 +89,7 @@ export default function FAQ() {
                     border: 'none',
                   }}
                 >
-                  <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, fontWeight: isOpen ? 700 : 600, color: C.soil, margin: 0, lineHeight: 1.4, transition: 'all 0.2s ease' }}>
+                  <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 18, fontWeight: isOpen ? 700 : 600, color: C.soil, margin: 0, lineHeight: 1.4, transition: 'all 0.2s ease' }}>
                     {faq.question}
                   </h3>
                   <div style={{

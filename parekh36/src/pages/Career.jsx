@@ -2,13 +2,13 @@ import { motion } from 'framer-motion';
 import { Briefcase, MapPin, Mail, Clock } from 'lucide-react';
 
 const C = {
-  primary: '#56513E',
-  primaryDark: '#3b372a',
-  accent: '#a87c5e',
+  primary: '#1B2B3F',
+  primaryDark: '#0F1E2D',
+  accent: '#C9A455',
   bg: '#fdfaf6',
   sand: '#efe3d5',
   border: '#e6dacb',
-  soil: '#3b2314',
+  soil: '#1a1a2e',
   stone: '#7c6a5e',
 };
 
@@ -27,8 +27,8 @@ export default function Career() {
       <div className="max-w-[90rem] mx-auto px-6 lg:px-14 pt-0">
 
         {/* Page Title Section */}
-        <div className="text-center mb-12">
-          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(30px, 4vw, 40px)', fontWeight: 600, color: C.soil, margin: '0 0 12px' }}>
+        <div className="text-center mb-6">
+          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(30px, 4vw, 40px)', fontWeight: 600, color: C.soil, margin: '0 0 12px' }}>
             Career Opportunities
           </h1>
           <div style={{ width: 50, height: 2, background: C.accent, borderRadius: 2, margin: '0 auto' }} />
@@ -58,7 +58,7 @@ export default function Career() {
               }}
             >
               <div>
-                <h3 style={{ fontFamily: "'Playfair Display', serif", color: C.soil }} className="text-[18px] font-bold mb-5 leading-snug">
+                <h3 style={{ fontFamily: "'Cormorant Garamond', serif", color: C.soil }} className="text-[18px] font-bold mb-5 leading-snug">
                   {job.title}
                 </h3>
                 <div className="flex flex-col gap-3 mb-6">
@@ -91,7 +91,7 @@ export default function Career() {
                   Apply Now
                 </button>
                 <a
-                  href="mailto:careers@aavanikatextiles.com"
+                  href="mailto:careers@weavoratextiles.com"
                   style={{ color: C.accent }}
                   className="flex items-center justify-center gap-1.5 text-[13px] font-bold hover:opacity-85 mt-2"
                 >

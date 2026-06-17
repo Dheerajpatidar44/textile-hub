@@ -2,14 +2,14 @@ import { motion } from 'framer-motion';
 import { FileText, Eye, Printer } from 'lucide-react';
 
 const C = {
-  primary: '#56513E',
-  primaryDark: '#3b372a',
-  soil: '#3b2314',
+  primary: '#1B2B3F',
+  primaryDark: '#0F1E2D',
+  soil: '#1a1a2e',
   sand: '#efe3d5',
   cream: '#fdfaf6',
   border: '#e6dacb',
   stone: '#7c6a5e',
-  accent: '#a87c5e',
+  accent: '#C9A455',
 };
 
 const circulars = [
@@ -26,8 +26,8 @@ const TradeCircular = () => {
       <div className="max-w-[90rem] mx-auto px-6 lg:px-14 pt-0">
 
         {/* Page Title Section */}
-        <div className="text-center mb-12">
-          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(30px, 4vw, 44px)', fontWeight: 600, color: C.soil, margin: '0 0 12px' }}>Trade Circular</h1>
+        <div className="text-center mb-6">
+          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(30px, 4vw, 44px)', fontWeight: 600, color: C.soil, margin: '0 0 12px' }}>Trade Circular</h1>
           <div style={{ width: 50, height: 2, background: C.accent, borderRadius: 2, margin: '0 auto' }} />
         </div>
   
@@ -60,7 +60,7 @@ const TradeCircular = () => {
                   <FileText size={20} color={C.accent} />
                 </div>
                 <div>
-                  <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 16, fontWeight: 600, color: C.soil, margin: '0 0 6px' }}>{circular.title}</h3>
+                  <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 16, fontWeight: 600, color: C.soil, margin: '0 0 6px' }}>{circular.title}</h3>
                   <div style={{ fontSize: 11, color: C.stone, fontWeight: 400 }}>Date: {circular.date}</div>
                 </div>
               </div>

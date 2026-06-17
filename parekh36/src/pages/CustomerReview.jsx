@@ -2,18 +2,18 @@ import { motion } from 'framer-motion';
 import { Star } from 'lucide-react';
 
 const C = {
-  primary: '#56513E',
-  primaryDark: '#3b372a',
-  soil: '#3b2314',
+  primary: '#1B2B3F',
+  primaryDark: '#0F1E2D',
+  soil: '#1a1a2e',
   sand: '#efe3d5',
   cream: '#fdfaf6',
   border: '#e6dacb',
   stone: '#7c6a5e',
-  accent: '#a87c5e',
+  accent: '#C9A455',
 };
 
 const reviews = [
-  { text: "AAVANIKA Textile Retail has been our trusted partner for years. The quality, prices and service are unmatched in the entire industry.", name: "Rajesh Sharma", role: "Retailer, Delhi", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" },
+  { text: "weavora Textile Retail has been our trusted partner for years. The quality, prices and service are unmatched in the entire industry.", name: "Rajesh Sharma", role: "Retailer, Delhi", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" },
   { text: "The export compliance and material quality are world-class. Their zero-defect policy has secured our global supply chain perfectly.", name: "Ahmed Al-Sayed", role: "Gulf Textiles, UAE", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop" },
   { text: "Highly impressed with their R&D. The custom high-tenacity fabric they developed exceeded all our durability benchmarks.", name: "Vikas Kulkarni", role: "National Solutions", image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop" },
   { text: "Incredible attention to detail. Every batch of fabric we receive is consistently perfect, saving us a lot of time and rework.", name: "Anita Desai", role: "Design Head, Mumbai", image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop" },
@@ -26,8 +26,8 @@ export default function CustomerReview() {
       <div className="max-w-[90rem] mx-auto px-6 lg:px-14 pt-0">
 
         {/* Page Title Section */}
-        <div className="text-center mb-12">
-          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(30px, 4vw, 44px)', fontWeight: 600, color: C.soil, margin: '0 0 12px' }}>
+        <div className="text-center mb-6">
+          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(30px, 4vw, 44px)', fontWeight: 600, color: C.soil, margin: '0 0 12px' }}>
             Customer Reviews
           </h1>
           <div style={{ width: 50, height: 2, background: C.accent, borderRadius: 2, margin: '0 auto' }} />
@@ -64,7 +64,7 @@ export default function CustomerReview() {
                 {/* Quote mark */}
                 <div style={{
                   position: 'absolute', top: 18, right: 22,
-                  fontFamily: "'Playfair Display', serif",
+                  fontFamily: "'Cormorant Garamond', serif",
                   fontSize: 60, color: C.sand, lineHeight: 1, fontWeight: 700,
                   userSelect: 'none',
                 }}>

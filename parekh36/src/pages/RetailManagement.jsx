@@ -2,14 +2,14 @@ import { motion } from 'framer-motion';
 import { Mail, Users, TrendingUp, Award } from 'lucide-react';
 
 const C = {
-  primary: '#56513E',
+  primary: '#1B2B3F',
   primaryLight: '#736d53',
-  soil: '#3b2314',
+  soil: '#1a1a2e',
   sand: '#efe3d5',
   cream: '#fdfaf6',
   border: '#e6dacb',
   stone: '#7c6a5e',
-  accent: '#a87c5e',
+  accent: '#C9A455',
 };
 
 const teamMembers = [
@@ -25,15 +25,15 @@ export default function RetailManagement() {
       <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14 pt-0">
 
         {/* Page Title Section */}
-        <div className="text-center mb-12">
-          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(30px, 4vw, 44px)', fontWeight: 600, color: C.soil, margin: '0 0 12px' }}>
+        <div className="text-center mb-6">
+          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(30px, 4vw, 44px)', fontWeight: 600, color: C.soil, margin: '0 0 12px' }}>
             Our Retail Management
           </h1>
           <div style={{ width: 50, height: 2, background: C.accent, borderRadius: 2, margin: '0 auto' }} />
         </div>
   
         <p style={{ textAlign: 'center', fontSize: 15, color: C.stone, marginBottom: 40, fontWeight: 400, maxWidth: 560, margin: '0 auto 40px', lineHeight: 1.7 }}>
-          AAVANIKA Textile Retail is administered and governed by highly skilled, experienced and qualified Management with decades of expertise in the textile industry.
+          weavora Textile Retail is administered and governed by highly skilled, experienced and qualified Management with decades of expertise in the textile industry.
         </p>
 
         {/* Team Cards */}
@@ -85,7 +85,7 @@ export default function RetailManagement() {
                 </div>
               </div>
 
-              <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 17, fontWeight: 600, color: C.soil, margin: '0 0 4px' }}>
+              <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 17, fontWeight: 600, color: C.soil, margin: '0 0 4px' }}>
                 {member.name}
               </h3>
               <p style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.18em', color: C.accent, margin: '0 0 8px', fontWeight: 600 }}>
@@ -96,7 +96,7 @@ export default function RetailManagement() {
               </p>
 
               <a
-                href={`mailto:${member.name.toLowerCase().replace(' ', '')}@aavanikatextiles.com`}
+                href={`mailto:${member.name.toLowerCase().replace(' ', '')}@weavoratextiles.com`}
                 style={{
                   display: 'inline-flex', alignItems: 'center', gap: 6,
                   padding: '8px 16px', borderRadius: 10,

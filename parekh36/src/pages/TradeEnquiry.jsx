@@ -2,14 +2,14 @@ import { motion } from 'framer-motion';
 import { Send, Building2, ShoppingBag } from 'lucide-react';
 
 const C = {
-  primary: '#56513E',
-  primaryDark: '#3b372a',
-  soil: '#3b2314',
+  primary: '#1B2B3F',
+  primaryDark: '#0F1E2D',
+  soil: '#1a1a2e',
   sand: '#efe3d5',
   cream: '#fdfaf6',
   border: '#e6dacb',
   stone: '#7c6a5e',
-  accent: '#a87c5e',
+  accent: '#C9A455',
 };
 
 const categories = [
@@ -26,8 +26,8 @@ export default function TradeEnquiry() {
       <div className="max-w-3xl mx-auto px-6 pt-0">
 
         {/* Page Title Section */}
-        <div className="text-center mb-12">
-          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(30px, 4vw, 44px)', fontWeight: 600, color: C.soil, margin: '0 0 12px' }}>
+        <div className="text-center mb-6">
+          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(30px, 4vw, 44px)', fontWeight: 600, color: C.soil, margin: '0 0 12px' }}>
             Trade Enquiry
           </h1>
           <div style={{ width: 50, height: 2, background: C.accent, borderRadius: 2, margin: '0 auto' }} />
@@ -54,7 +54,7 @@ export default function TradeEnquiry() {
             borderBottom: `1px solid ${C.border}`,
             background: C.sand,
           }} className="text-left">
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 20, fontWeight: 600, color: C.soil, margin: '0 0 4px' }}>
+            <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 20, fontWeight: 600, color: C.soil, margin: '0 0 4px' }}>
               Enquiry Form
             </h2>
             <p style={{ fontSize: 12, color: C.stone, margin: 0, fontWeight: 400 }}>
@@ -66,7 +66,7 @@ export default function TradeEnquiry() {
             <form style={{ display: 'flex', flexDirection: 'column', gap: 20 }} onSubmit={e => e.preventDefault()}>
 
               <div>
-                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, fontWeight: 600, color: C.soil, margin: '0 0 16px', paddingBottom: 12, borderBottom: `1px solid ${C.border}`, display: 'flex', alignItems: 'center', gap: 8 }}>
+                <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 18, fontWeight: 600, color: C.soil, margin: '0 0 16px', paddingBottom: 12, borderBottom: `1px solid ${C.border}`, display: 'flex', alignItems: 'center', gap: 8 }}>
                   <Building2 size={16} color={C.accent} /> Company Details
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -87,7 +87,7 @@ export default function TradeEnquiry() {
               </div>
 
               <div>
-                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, fontWeight: 600, color: C.soil, margin: '0 0 16px', paddingBottom: 12, borderBottom: `1px solid ${C.border}`, display: 'flex', alignItems: 'center', gap: 8 }}>
+                <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 18, fontWeight: 600, color: C.soil, margin: '0 0 16px', paddingBottom: 12, borderBottom: `1px solid ${C.border}`, display: 'flex', alignItems: 'center', gap: 8 }}>
                   <ShoppingBag size={16} color={C.accent} /> Enquiry Details
                 </h3>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>

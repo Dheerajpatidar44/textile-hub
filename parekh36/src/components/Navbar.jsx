@@ -146,11 +146,13 @@ export default function Navbar() {
               onMouseLeave={() => setDropdownOpen(false)}
             >
               <button
-                className="flex items-center gap-1 px-3 py-1.5 text-[11px] lg:text-[12px] font-semibold tracking-wide uppercase transition-all duration-200 whitespace-nowrap cursor-pointer rounded-md"
+                className="flex items-center gap-1 px-3 py-1.5 text-[11px] lg:text-[12px] font-semibold tracking-wide uppercase transition-all duration-200 whitespace-nowrap cursor-pointer"
                 style={{ color: '#1a1a2e', background: C.accent }}
                 onClick={() => setDropdownOpen(!dropdownOpen)}
+                onMouseEnter={e => { e.currentTarget.style.background = C.primaryDark; e.currentTarget.style.color = '#ffffff'; }}
+                onMouseLeave={e => { e.currentTarget.style.background = C.accent; e.currentTarget.style.color = '#1a1a2e'; }}
               >
-                <span>Pages</span>
+                <span>MORE</span>
                 <ChevronDown size={11} className={`transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`} />
               </button>
 
@@ -161,7 +163,7 @@ export default function Navbar() {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 6, scale: 0.96 }}
                     transition={{ duration: 0.2, ease: 'easeOut' }}
-                    className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-64 rounded-2xl shadow-2xl z-[999] text-left overflow-hidden"
+                    className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-64 rounded-none shadow-2xl z-[999] text-left overflow-hidden"
                     style={{
                       background: 'linear-gradient(180deg, #1B2B3F 0%, #0F1E2D 100%)',
                       border: '1px solid rgba(201, 164, 85, 0.2)',
@@ -325,14 +327,14 @@ export default function Navbar() {
                 <div className="w-full">
                   <button
                     onClick={() => setMobileResourcesOpen(!mobileResourcesOpen)}
-                    className="w-full flex items-center justify-between px-4 py-3 rounded-xl text-[13px] font-semibold uppercase tracking-wide border transition-all cursor-pointer"
+                    className="w-full flex items-center justify-between px-4 py-3 rounded-none text-[13px] font-semibold uppercase tracking-wide border transition-all cursor-pointer"
                     style={{
                       background: '#F5EED8',
                       borderColor: isDropdownActive() ? C.primary : '#E8E0D0',
                       color: isDropdownActive() ? C.primary : C.soil,
                     }}
                   >
-                    <span>Pages</span>
+                    <span>MORE</span>
                     <ChevronDown size={14} className={`transition-transform duration-200 ${mobileResourcesOpen ? 'rotate-180' : ''}`} />
                   </button>
 

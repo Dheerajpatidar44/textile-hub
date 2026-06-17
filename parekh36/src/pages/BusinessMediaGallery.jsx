@@ -1,14 +1,14 @@
 import { motion } from 'framer-motion';
 
 const C = {
-  primary: '#56513E',
-  primaryDark: '#3b372a',
-  soil: '#3b2314',
+  primary: '#1B2B3F',
+  primaryDark: '#0F1E2D',
+  soil: '#1a1a2e',
   sand: '#efe3d5',
   cream: '#fdfaf6',
   border: '#e6dacb',
   stone: '#7c6a5e',
-  accent: '#a87c5e',
+  accent: '#C9A455',
 };
 
 const galleryItems = [
@@ -27,8 +27,8 @@ export default function BusinessMediaGallery() {
       <div className="max-w-[90rem] mx-auto px-6 lg:px-14 pt-0">
 
         {/* Page Title Section */}
-        <div className="text-center mb-12">
-          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(30px, 4vw, 44px)', fontWeight: 600, color: C.soil, margin: '0 0 12px' }}>
+        <div className="text-center mb-6">
+          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(30px, 4vw, 44px)', fontWeight: 600, color: C.soil, margin: '0 0 12px' }}>
             Media Gallery
           </h1>
           <div style={{ width: 50, height: 2, background: C.accent, borderRadius: 2, margin: '0 auto' }} />
@@ -78,7 +78,7 @@ export default function BusinessMediaGallery() {
               </div>
 
               <div style={{ padding: '20px', flex: 1, textLeft: 'left', textAlign: 'left' }}>
-                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, fontWeight: 600, color: C.soil, margin: '0 0 8px', lineHeight: 1.4 }}>
+                <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 18, fontWeight: 600, color: C.soil, margin: '0 0 8px', lineHeight: 1.4 }}>
                   {item.title}
                 </h3>
                 <p style={{ fontSize: 13, color: C.stone, lineHeight: 1.6, margin: 0, fontWeight: 400 }}>

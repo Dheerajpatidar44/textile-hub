@@ -2,14 +2,14 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
 const C = {
-  primary: '#56513E',
-  primaryDark: '#3b372a',
-  soil: '#3b2314',
+  primary: '#1B2B3F',
+  primaryDark: '#0F1E2D',
+  soil: '#1a1a2e',
   sand: '#efe3d5',
   cream: '#fdfaf6',
   border: '#e6dacb',
   stone: '#7c6a5e',
-  accent: '#a87c5e',
+  accent: '#C9A455',
 };
 
 const posts = [
@@ -26,8 +26,8 @@ export default function Blog() {
       <div className="max-w-[90rem] mx-auto px-6 lg:px-14 pt-0">
 
         {/* Page Title Section */}
-        <div className="text-center mb-12">
-          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(30px, 4vw, 44px)', fontWeight: 600, color: C.soil, margin: '0 0 12px' }}>Blog & Insights</h1>
+        <div className="text-center mb-6">
+          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(30px, 4vw, 44px)', fontWeight: 600, color: C.soil, margin: '0 0 12px' }}>Blog & Insights</h1>
           <div style={{ width: 50, height: 2, background: C.accent, borderRadius: 2, margin: '0 auto' }} />
         </div>
   
@@ -71,7 +71,7 @@ export default function Blog() {
                   <span style={{ width: 4, height: 4, borderRadius: '50%', background: C.accent }} />
                   <span style={{ fontSize: 11, color: C.stone, fontWeight: 500 }}>{post.readTime}</span>
                 </div>
-                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, fontWeight: 700, color: C.soil, margin: '0 0 10px', lineHeight: 1.4, cursor: 'pointer', transition: 'color 0.2s' }}
+                <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 18, fontWeight: 700, color: C.soil, margin: '0 0 10px', lineHeight: 1.4, cursor: 'pointer', transition: 'color 0.2s' }}
                   onMouseEnter={e => e.currentTarget.style.color = C.accent}
                   onMouseLeave={e => e.currentTarget.style.color = C.soil}>
                   {post.title}
