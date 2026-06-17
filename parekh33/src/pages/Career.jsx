@@ -2,13 +2,13 @@ import { motion } from 'framer-motion';
 import { Briefcase, MapPin, Mail, Clock } from 'lucide-react';
 
 const C = {
-  primary: '#4b739e',        // Steel Blue
-  primaryLight: '#6a8db5',  // Light Steel Blue
-  accent: '#c5a059',         // Warm Gold/Beige
+  primary: '#0a1c3a',        // Primary Navy
+  primaryLight: '#1f3458',  // Light Navy
+  accent: '#d27265',         // Accent Coral/Terracotta
   bg: '#ffffff',
-  sand: '#f7f4ed',           // Soft Warm Sand
-  border: '#d2dfed',         // Soft Blue-Grey Border
-  soil: '#1a2a3a',           // Deep Slate Blue (Main Text)
+  sand: '#f7efe5',           // Soft Warm Sand
+  border: '#ebdcd8',         // Soft Warm Border
+  soil: '#0a1c3a',           // Deep Slate Navy
   stone: '#536476',          // Muted Slate Text
 };
 
@@ -21,17 +21,17 @@ const jobs = [
 
 export default function Career() {
   return (
-    <div style={{ fontFamily: "'DM Sans', sans-serif", background: C.bg, minHeight: '100vh' }}>
+    <div style={{ fontFamily: "'DM Sans', sans-serif", background: C.bg, minHeight: '100vh' }} className="pt-16 pb-20">
 
       {/* Main Content */}
-      <div className="max-w-[90rem] mx-auto px-6 lg:px-14 text-left pt-10 pb-20">
+      <div className="max-w-[90rem] mx-auto px-6 lg:px-14 pt-10">
 
         {/* Page Title Section */}
         <div className="text-center mb-12">
           <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(30px, 4vw, 40px)', fontWeight: 600, color: C.soil, margin: '0 0 12px' }}>
             Career Opportunities
           </h1>
-          <div style={{ width: 44, height: 2, background: `linear-gradient(90deg, ${C.primaryLight}, ${C.accent})`, borderRadius: 2, margin: '0 auto' }} />
+          <div style={{ width: 50, height: 2, background: C.accent, borderRadius: 2, margin: '0 auto' }} />
         </div>
   
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
@@ -50,7 +50,7 @@ export default function Career() {
               }}
               onMouseEnter={e => {
                 e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 12px 30px rgba(75, 115, 158, 0.08)';
+                e.currentTarget.style.boxShadow = '0 12px 30px rgba(210, 114, 101, 0.08)';
               }}
               onMouseLeave={e => {
                 e.currentTarget.style.transform = 'translateY(0)';
@@ -68,7 +68,7 @@ export default function Career() {
                     { icon: Clock, val: 'Apply by June 30, 2026' },
                   ].map(({ icon: Icon, val }) => (
                     <div key={val} style={{ color: C.stone }} className="flex items-center gap-2.5 text-[13px] font-medium">
-                      <Icon size={14} style={{ color: C.primaryLight }} className="shrink-0" />
+                      <Icon size={14} style={{ color: C.accent }} className="shrink-0" />
                       <span>{val}</span>
                     </div>
                   ))}
@@ -78,11 +78,12 @@ export default function Career() {
                 </p>
               </div>
 
-              <div className="pt-6 mt-4 flex flex-col gap-3" style={{ borderTop: `1px solid rgba(200,224,224,0.4)` }}>
+              <div className="pt-6 mt-4 flex flex-col gap-3" style={{ borderTop: `1px solid ${C.border}` }}>
                 <button
                   className="w-full py-3 rounded-lg font-bold text-xs uppercase tracking-wider text-white transition-colors cursor-pointer"
                   style={{
                     background: C.primary,
+                    border: 'none'
                   }}
                   onMouseEnter={e => e.currentTarget.style.background = C.accent}
                   onMouseLeave={e => e.currentTarget.style.background = C.primary}
@@ -90,7 +91,7 @@ export default function Career() {
                   Apply Now
                 </button>
                 <a
-                  href="mailto:careers@weaviontextile.com"
+                  href="mailto:careers@loomera.com"
                   style={{ color: C.accent }}
                   className="flex items-center justify-center gap-1.5 text-[13px] font-bold hover:opacity-85 mt-2"
                 >

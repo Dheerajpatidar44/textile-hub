@@ -2,14 +2,14 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
 const C = {
-  primary: '#4b739e',        // Steel Blue
-  primaryLight: '#6a8db5',  // Light Steel Blue
-  soil: '#1a2a3a',           // Deep Slate Blue (Main Text)
-  sand: '#f7f4ed',           // Soft Warm Sand
+  primary: '#0a1c3a',        // Primary Navy
+  primaryLight: '#1f3458',  // Light Navy
+  soil: '#0a1c3a',           // Deep Slate Navy
+  sand: '#f7efe5',           // Soft Warm Sand
   cream: '#ffffff',          // White Background
-  border: '#d2dfed',         // Soft Blue-Grey Border
+  border: '#ebdcd8',         // Soft Warm Border
   stone: '#536476',          // Muted Slate Text
-  accent: '#c5a059',         // Warm Gold/Beige
+  accent: '#d27265',         // Accent Coral/Terracotta
 };
 
 const posts = [
@@ -21,14 +21,14 @@ const posts = [
 
 export default function Blog() {
   return (
-    <div style={{ fontFamily: "'DM Sans', sans-serif", background: C.cream }}>
+    <div style={{ fontFamily: "'DM Sans', sans-serif", background: C.cream }} className="pt-16 pb-20">
 
-      <div className="max-w-[90rem] mx-auto px-6 lg:px-14 pt-10 pb-20">
+      <div className="max-w-[90rem] mx-auto px-6 lg:px-14 pt-10">
 
         {/* Page Title Section */}
         <div className="text-center mb-12">
           <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(30px, 4vw, 44px)', fontWeight: 600, color: C.soil, margin: '0 0 12px' }}>Blog & Insights</h1>
-          <div style={{ width: 44, height: 2, background: `linear-gradient(90deg, ${C.primaryLight}, ${C.primary})`, borderRadius: 2, margin: '0 auto' }} />
+          <div style={{ width: 50, height: 2, background: C.accent, borderRadius: 2, margin: '0 auto' }} />
         </div>
   
         <p style={{ textAlign: 'center', fontSize: 14.5, color: C.stone, maxWidth: 620, margin: '0 auto 36px', lineHeight: 1.7, fontWeight: 400 }}>
@@ -51,7 +51,7 @@ export default function Blog() {
               }}
               onMouseEnter={e => {
                 e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 12px 30px rgba(75, 115, 158, 0.08)';
+                e.currentTarget.style.boxShadow = '0 12px 30px rgba(210, 114, 101, 0.08)';
               }}
               onMouseLeave={e => {
                 e.currentTarget.style.transform = 'translateY(0)';
@@ -62,7 +62,7 @@ export default function Blog() {
                 <img src={post.image} alt={post.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
                 <div style={{ position: 'absolute', top: 12, left: 12, padding: '4px 12px', borderRadius: 20, background: 'rgba(255,255,255,0.95)', backdropFilter: 'blur(6px)' }}>
-                  <span style={{ fontSize: 9, letterSpacing: '0.18em', textTransform: 'uppercase', color: C.primary, fontWeight: 700 }}>{post.category}</span>
+                  <span style={{ fontSize: 9, letterSpacing: '0.18em', textTransform: 'uppercase', color: C.accent, fontWeight: 700 }}>{post.category}</span>
                 </div>
               </div>
               <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
@@ -77,7 +77,7 @@ export default function Blog() {
                   {post.title}
                 </h3>
                 <p style={{ fontSize: 12, color: C.stone, margin: '0 0 16px', fontWeight: 500 }}>By {post.author}</p>
-                <div style={{ marginTop: 'auto', paddingTop: 16, borderTop: `1px solid rgba(200,224,224,0.3)` }}>
+                <div style={{ marginTop: 'auto', paddingTop: 16, borderTop: `1px solid rgba(210,114,101,0.15)` }}>
                   <span style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 12, color: C.primary, fontWeight: 700, cursor: 'pointer' }}>
                     Read More <ArrowRight size={13} />
                   </span>

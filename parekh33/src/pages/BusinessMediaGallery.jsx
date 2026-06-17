@@ -1,13 +1,14 @@
 import { motion } from 'framer-motion';
 
 const C = {
-  primary: '#4b739e',        // Steel Blue
-  primaryLight: '#6a8db5',  // Light Steel Blue
-  soil: '#1a2a3a',           // Deep Slate Blue (Main Text)
-  sand: '#f7f4ed',           // Soft Warm Sand
+  primary: '#0a1c3a',        // Primary Navy
+  primaryLight: '#1f3458',  // Light Navy
+  soil: '#0a1c3a',           // Deep Slate Navy
+  sand: '#f7efe5',           // Soft Warm Sand
   cream: '#ffffff',          // White Background
-  border: '#d2dfed',         // Soft Blue-Grey Border
+  border: '#ebdcd8',         // Soft Warm Border
   stone: '#536476',          // Muted Slate Text
+  accent: '#d27265',         // Accent Coral/Terracotta
 };
 
 const galleryItems = [
@@ -21,16 +22,16 @@ const galleryItems = [
 
 export default function BusinessMediaGallery() {
   return (
-    <div style={{ fontFamily: "'DM Sans', sans-serif", background: C.cream }}>
+    <div style={{ fontFamily: "'DM Sans', sans-serif", background: C.cream }} className="pt-16 pb-20">
 
-      <div className="max-w-[90rem] mx-auto px-6 lg:px-14 pt-10 pb-20">
+      <div className="max-w-[90rem] mx-auto px-6 lg:px-14 pt-10">
 
         {/* Page Title Section */}
         <div className="text-center mb-12">
           <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(30px, 4vw, 44px)', fontWeight: 600, color: C.soil, margin: '0 0 12px' }}>
             Media Gallery
           </h1>
-          <div style={{ width: 44, height: 2, background: `linear-gradient(90deg, ${C.primaryLight}, ${C.primary})`, borderRadius: 2, margin: '0 auto' }} />
+          <div style={{ width: 50, height: 2, background: C.accent, borderRadius: 2, margin: '0 auto' }} />
         </div>
   
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -49,7 +50,7 @@ export default function BusinessMediaGallery() {
               }}
               onMouseEnter={e => {
                 e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 12px 30px rgba(75, 115, 158, 0.08)';
+                e.currentTarget.style.boxShadow = '0 12px 30px rgba(210, 114, 101, 0.08)';
               }}
               onMouseLeave={e => {
                 e.currentTarget.style.transform = 'translateY(0)';
@@ -67,10 +68,10 @@ export default function BusinessMediaGallery() {
                 />
                 <div style={{
                   position: 'absolute', top: 12, left: 12,
-                  background: 'rgba(75, 115, 158, 0.85)', backdropFilter: 'blur(6px)',
+                  background: 'rgba(10, 28, 58, 0.85)', backdropFilter: 'blur(6px)',
                   borderRadius: 20, padding: '4px 12px',
                 }}>
-                  <span style={{ fontSize: 9, color: '#fbfaf7', letterSpacing: '0.15em', textTransform: 'uppercase', fontWeight: 400 }}>
+                  <span style={{ fontSize: 9, color: '#fbfaf7', letterSpacing: '0.15em', textTransform: 'uppercase', fontWeight: 600 }}>
                     {item.category}
                   </span>
                 </div>

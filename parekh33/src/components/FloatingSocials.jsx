@@ -1,13 +1,13 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const COLORS = { 
-  primary: '#c8922a', // Terracotta
-  accent: '#5b4fcf',  // Forest Green
+  primary: '#d27265', // Terracotta/Coral
+  accent: '#1f3458',  // Light Navy
   bg: '#ffffff', 
-  border: '#d8cff0', 
-  textDark: '#1a1435' 
+  border: '#ebdcd8', 
+  textDark: '#0a1c3a' 
 };
 
 const InstagramIcon = () => (
@@ -56,7 +56,7 @@ export default function FloatingSocials() {
         transition={{ type: 'spring', stiffness: 300, damping: 30 }}
         className="flex flex-col items-center rounded-r-2xl shadow-2xl py-5 px-3.5 relative"
         style={{
-          background: 'rgba(61,48,37,0.95)', // #3D3025 with opacity
+          background: 'rgba(10,28,58,0.95)', // Navy background
           backdropFilter: 'blur(8px)',
           border: '1px solid rgba(255,255,255,0.1)',
           borderLeft: 'none',
@@ -89,11 +89,11 @@ export default function FloatingSocials() {
           className="absolute right-[-24px] top-1/2 -translate-y-1/2 w-6 h-10 flex items-center justify-center rounded-r-md border-y border-r transition-colors focus:outline-none shadow-md cursor-pointer"
           style={{
             background: COLORS.primary,
-            color: '#FAF9F5',
+            color: '#ffffff',
             borderColor: 'rgba(255,255,255,0.1)',
           }}
-          onMouseEnter={e => { e.currentTarget.style.background = '#3D3025'; e.currentTarget.style.color = COLORS.primary; }}
-          onMouseLeave={e => { e.currentTarget.style.background = COLORS.primary; e.currentTarget.style.color = '#FAF9F5'; }}
+          onMouseEnter={e => { e.currentTarget.style.background = '#0a1c3a'; e.currentTarget.style.color = COLORS.primary; }}
+          onMouseLeave={e => { e.currentTarget.style.background = COLORS.primary; e.currentTarget.style.color = '#ffffff'; }}
           aria-label={isExpanded ? "Collapse socials" : "Expand socials"}
         >
           {isExpanded ? <ChevronLeft size={16} /> : <ChevronRight size={16} />}

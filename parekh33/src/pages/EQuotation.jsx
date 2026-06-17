@@ -2,15 +2,15 @@ import { motion } from 'framer-motion';
 import { ClipboardCheck, FileText, Send, Mail, Calendar, Package } from 'lucide-react';
 
 const C = {
-  primary: '#4b739e',        // Steel Blue
-  primaryLight: '#6a8db5',  // Light Steel Blue
-  accent: '#c5a059',         // Warm Gold/Beige
+  primary: '#0a1c3a',        // Primary Navy
+  primaryLight: '#1f3458',  // Light Navy
+  accent: '#d27265',         // Accent Coral/Terracotta
   bg: '#ffffff',            // White
-  sand: '#f7f4ed',           // Soft Warm Sand
-  border: '#d2dfed',         // Soft Blue-Grey Border
-  soil: '#1a2a3a',           // Deep Slate Blue (Main Text)
+  sand: '#f7efe5',           // Soft Warm Sand
+  border: '#ebdcd8',         // Soft Warm Border
+  soil: '#0a1c3a',           // Deep Slate Navy
   stone: '#536476',          // Muted Slate Text
-  linen: '#fbfaf7',          // Linen background
+  linen: '#fcf8f2',          // Cream background
 };
 
 const quotations = [
@@ -39,16 +39,16 @@ const quotations = [
 
 export default function EQuotation() {
   return (
-    <div style={{ fontFamily: "'DM Sans', sans-serif", background: C.bg, minHeight: '100vh' }}>
+    <div style={{ fontFamily: "'DM Sans', sans-serif", background: C.bg, minHeight: '100vh' }} className="pt-16 pb-20">
 
-      <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14 pt-10 pb-20">
+      <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14 pt-10">
 
         {/* Page Title Section */}
         <div className="text-center mb-12">
           <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(30px, 4vw, 44px)', fontWeight: 600, color: C.soil, margin: '0 0 12px' }}>
             e-Quotation
           </h1>
-          <div style={{ width: 44, height: 2, background: `linear-gradient(90deg, ${C.primaryLight}, ${C.primary})`, borderRadius: 2, margin: '0 auto' }} />
+          <div style={{ width: 50, height: 2, background: C.accent, borderRadius: 2, margin: '0 auto' }} />
         </div>
   
         <p style={{ textAlign: 'center', fontSize: 14.5, color: C.stone, marginBottom: 40, fontWeight: 400, maxWidth: 560, margin: '0 auto 40px' }}>
@@ -58,7 +58,7 @@ export default function EQuotation() {
         {/* Active Quotations */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 24 }} className="text-left">
-            <ClipboardCheck size={20} color={C.primaryLight} />
+            <ClipboardCheck size={20} color={C.accent} />
             <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, fontWeight: 600, color: C.soil, margin: 0 }}>
               Active Quotation Requests
             </h2>
@@ -79,7 +79,7 @@ export default function EQuotation() {
                 }}
                 onMouseEnter={e => {
                   e.currentTarget.style.transform = 'translateY(-4px)';
-                  e.currentTarget.style.boxShadow = '0 12px 30px rgba(75, 115, 158, 0.08)';
+                  e.currentTarget.style.boxShadow = '0 12px 30px rgba(210, 114, 101, 0.08)';
                 }}
                 onMouseLeave={e => {
                   e.currentTarget.style.transform = 'translateY(0)';
@@ -87,12 +87,12 @@ export default function EQuotation() {
                 }}
               >
                 {/* ID + date row */}
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 14 }}>
+                <div style={{ display: 'flex', alignItems: 'center', justify: 'space-between', marginBottom: 14 }}>
                   <span style={{
                     fontSize: 9, textTransform: 'uppercase', letterSpacing: '0.15em',
                     padding: '4px 12px', borderRadius: 20,
-                    background: 'rgba(71, 86, 67, 0.08)',
-                    color: C.primary, fontWeight: 400,
+                    background: 'rgba(210, 114, 101, 0.1)',
+                    color: C.accent, fontWeight: 600,
                   }}>
                     {item.id}
                   </span>
@@ -110,12 +110,12 @@ export default function EQuotation() {
                 </p>
 
                 <div style={{
-                  display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                  display: 'flex', alignItems: 'center', justify: 'space-between',
                   padding: '12px 14px', borderRadius: 10,
-                  background: C.sand, marginBottom: 14,
+                  background: C.linen, marginBottom: 14,
                 }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                    <Package size={14} color={C.primaryLight} />
+                    <Package size={14} color={C.accent} />
                     <span style={{ fontSize: 11, color: C.stone, fontWeight: 400 }}>Quantity Required</span>
                   </div>
                   <span style={{ fontSize: 14, color: C.soil, fontWeight: 500 }}>{item.quantity}</span>
@@ -152,7 +152,7 @@ export default function EQuotation() {
             background: 'white', borderRadius: 20,
             border: `1px solid ${C.border}`,
             overflow: 'hidden',
-            boxShadow: '0 4px 20px rgba(75, 115, 158, 0.04)',
+            boxShadow: '0 4px 20px rgba(210, 114, 101, 0.04)',
           }}>
             {/* Form header */}
             <div style={{
@@ -163,11 +163,11 @@ export default function EQuotation() {
             }} className="text-left">
               <div style={{
                 width: 46, height: 46, borderRadius: 12,
-                background: 'rgba(71, 86, 67, 0.1)',
-                border: `1px solid rgba(71, 86, 67, 0.25)`,
+                background: 'rgba(210, 114, 101, 0.15)',
+                border: `1px solid rgba(210, 114, 101, 0.35)`,
                 display: 'flex', alignItems: 'center', justify: 'center',
               }}>
-                <FileText size={20} color={C.primary} />
+                <FileText size={20} color={C.accent} />
               </div>
               <div>
                 <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 20, fontWeight: 600, color: C.soil, margin: '0 0 4px' }}>
@@ -194,7 +194,7 @@ export default function EQuotation() {
                       <label style={{ fontSize: 11, textTransform: 'uppercase', letterSpacing: '0.15em', color: C.stone, display: 'block', marginBottom: 6, fontWeight: 400 }}>
                         {f.label}
                       </label>
-                      <input type={f.type} className="form-input" />
+                      <input type={f.type} className="form-input" required />
                     </div>
                   ))}
                 </div>
@@ -219,6 +219,7 @@ export default function EQuotation() {
                     rows={4}
                     placeholder="Enter product details, GSM, quantity, color, specifications..."
                     className="form-input" style={{ resize: 'none' }}
+                    required
                   />
                 </div>
 
@@ -238,9 +239,9 @@ export default function EQuotation() {
                 </button>
 
                 <div style={{ textAlign: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8 }}>
-                  <Mail size={13} color={C.primaryLight} />
-                  <a href="mailto:info@weaviontextile.com" style={{ fontSize: 12, color: C.primary, fontWeight: 400, textDecoration: 'none' }}>
-                    info@weaviontextile.com
+                  <Mail size={13} color={C.accent} />
+                  <a href="mailto:hello@loomera.com" style={{ fontSize: 12, color: C.primary, fontWeight: 400, textDecoration: 'none' }}>
+                    hello@loomera.com
                   </a>
                 </div>
               </form>

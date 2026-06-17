@@ -2,26 +2,24 @@ import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import {
   ArrowRight, ChevronLeft, ChevronRight,
-  Gem, Truck, Headphones,
-  Award, ShieldCheck, RefreshCw, Leaf, Crown,
-  Gavel, Sparkles, Scissors, Shirt, Home as HomeIcon, Layers, Smile,
-  FileText, Flower, Bed, Footprints, Briefcase, User
+  Award, Layers, Smile, Truck, Headphones,
+  Tag, Compass, HelpCircle, Users, MapPin, Star
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const C = {
-  primary: '#4b739e',        // Steel Blue
-  primaryDark: '#2b496e',   // Dark Navy Blue
-  accent: '#c5a059',         // Warm Gold/Beige
+  primary: '#0a1c3a',        // Primary Navy
+  primaryDark: '#050e1d',   // Deep Navy
+  accent: '#d27265',         // Accent Coral/Terracotta
   bg: '#ffffff',
-  sand: '#f7f4ed',           // Soft Warm Sand
-  sage: '#e8eff6',           // Soft Pastel Blue
-  border: '#d2dfed',         // Soft Blue-Grey Border
-  soil: '#1a2a3a',           // Deep Slate Blue (Main Text)
+  sand: '#f7efe5',           // Soft Warm Sand/Beige
+  sage: '#e9f0f8',           // Soft Pastel Blue
+  border: '#ebdcd8',         // Soft Warm Border
+  soil: '#0a1c3a',           // Deep Slate Navy
   stone: '#536476',          // Muted Slate Text
 };
 
-// ── Categories ──
+// ── 12 Categories (names & order preserved) ──
 const categories = [
   "Sarees",
   "Leggings",
@@ -37,267 +35,172 @@ const categories = [
   "Home Upholstery & Furnishing"
 ];
 
-// ── Category Details Mapping ──
+// ── Category Details Mapping (preserving count data and adding appropriate images) ──
 const categoryDetails = {
-  "Sarees": { icon: Flower, count: "1200+ Items" },
-  "Leggings": { icon: Layers, count: "800+ Items" },
-  "Kurtis": { icon: Shirt, count: "1500+ Items" },
-  "Dress Suits": { icon: Crown, count: "1800+ Items" },
-  "Bedsheets & Linen": { icon: Bed, count: "2200+ Items" },
-  "Hosiery Items": { icon: Footprints, count: "1000+ Items" },
-  "Suiting": { icon: Briefcase, count: "2500+ Items" },
-  "Shirting": { icon: Shirt, count: "3000+ Items" },
-  "Formal & Ethnic Wear for Women": { icon: Sparkles, count: "2800+ Items" },
-  "Formal & Ethnic Wear for Men": { icon: User, count: "2000+ Items" },
-  "Formal & Ethnic Wear for Children": { icon: Smile, count: "1200+ Items" },
-  "Home Upholstery & Furnishing": { icon: HomeIcon, count: "1600+ Items" }
+  "Sarees": { count: "1200+ Items", image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=600&auto=format&fit=crop&q=70" },
+  "Leggings": { count: "800+ Items", image: "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=600&auto=format&fit=crop&q=70" },
+  "Kurtis": { count: "1500+ Items", image: "https://images.unsplash.com/photo-1741847639057-b51a25d42892?w=600&auto=format&fit=crop&q=70" },
+  "Dress Suits": { count: "1800+ Items", image: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600&auto=format&fit=crop&q=70" },
+  "Bedsheets & Linen": { count: "2200+ Items", image: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=600&auto=format&fit=crop&q=70" },
+  "Hosiery Items": { count: "1000+ Items", image: "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=600&auto=format&fit=crop&q=70" },
+  "Suiting": { count: "2500+ Items", image: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&auto=format&fit=crop&q=70" },
+  "Shirting": { count: "3000+ Items", image: "https://images.unsplash.com/photo-1603252109303-2751441dd157?w=600&auto=format&fit=crop&q=70" },
+  "Formal & Ethnic Wear for Women": { count: "2800+ Items", image: "/images/ethnic_women.png" },
+  "Formal & Ethnic Wear for Men": { count: "2000+ Items", image: "/images/ethnic_men.png" },
+  "Formal & Ethnic Wear for Children": { count: "1200+ Items", image: "/images/ethnic_children.png" },
+  "Home Upholstery & Furnishing": { count: "1600+ Items", image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=600&auto=format&fit=crop&q=70" }
 };
 
-// ── Features Strip ──
-const features = [
-  { icon: Gem,        label: 'Premium Quality',    desc: 'Finest fabrics with luxury standards' },
-  { icon: Truck,      label: 'Wide Range',         desc: 'Thousands of textiles for all needs' },
-  { icon: Award,      label: 'Customer First',     desc: 'Your satisfaction is our focus' },
-  { icon: ShieldCheck,label: 'Pan India Delivery',  desc: 'Safe & timely delivery across India' },
-  { icon: Headphones, label: 'Dedicated Support',  desc: 'Here to help you anytime' },
-];
-
-// ── Featured Collections ──
-const featuredCollections = [
-  { name: 'Premium Linen Shirting',   image: '/images/hero_fabrics.png',    path: '/products?category=Shirting' },
-  { name: 'Artisanal Handloom Saree',  image: '/images/hero_sarees.png',     path: '/products?category=Sarees' },
-  { name: 'Luxury Cotton Bedding',     image: '/images/slide1_bed.png',      path: '/products?category=Bedsheets%20%26%20Linen' },
-  { name: 'Heritage Brocade Fabrics',  image: '/images/slide1_rolls.png',    path: '/products?category=Suiting' },
-];
-
-
-
+// ── Hero Carousel Slides (Matching Mockup Look) ──
 const heroSlides = [
   {
-    badge: 'Luxury Textile Curation',
-    titleLine1: 'Timeless Weaves, ',
-    titleItalic: 'Modern Elegance',
-    titleLine2: '',
-    desc: "Discover fabrics that blend tradition with today's style.",
+    line1: 'Woven with',
+    line2: 'Heritage, Made',
+    line3: 'for Today',
+    desc: "Experience the finest collections of premium handloom and retail textiles crafted meticulously for comfort, durability, and timeless style. Embrace the legacy of Loomera in every thread and weave.",
     btnText: 'Explore Collection',
-    bg: '#d2e3f5', // soft light blue as in user image
-    layout: 'three-columns-arched',
-    images: [
-      '/images/slide1_saree.png', // saree woman
-      '/images/slide1_rolls.png', // rolls
-      '/images/slide1_bed.png'    // bedding
-    ],
-    btnBg: '#3d699e',
-    btnHoverBg: '#c5a059',
-    badgeColor: '#c5a059',
-    titleColor: '#1a2a3a',
-    descColor: '#4b5a6a',
-    hasLeafSketch: true,
-    borderColor: '#ffffff'
+    image: '/images/slide1.png',
+    bgColor: '#fae5e1' // Soft Peach
   },
   {
-    badge: 'Timeless Weaves · Modern You',
-    titleLine1: 'Threads of ',
-    titleItalic: 'Tradition,',
-    titleLine2: ' Touch of Luxury',
-    desc: "Discover India's finest textile curation. Crafted with century-old passion, tailored for modern elegance, and delivered with trust.",
+    line1: 'Curated with',
+    line2: 'Passion, Styled',
+    line3: 'for Elegance',
+    desc: "Discover our premium handloom cottons and rich silk fabrics, carefully selected from India's finest artisans. Perfect for contemporary fashion, bridal wear, and versatile everyday styling.",
     btnText: 'Explore Collection',
-    bg: 'linear-gradient(135deg, #f7f4ed 0%, #e8eff6 100%)',
-    layout: 'three-columns-arched',
-    images: [
-      '/images/hero_sarees.png',
-      '/images/fabrics_rolls.png',
-      '/images/hero_stacked_fabrics.png'
-    ],
-    btnBg: C.primary,
-    btnHoverBg: C.accent,
-    badgeColor: C.accent,
-    titleColor: C.soil,
-    descColor: C.stone,
-    borderColor: '#ffffff',
-    hasLeafSketch: true
+    image: '/images/slide2.png',
+    bgColor: '#f7efe5' // Soft Warm Sand
   },
   {
-    badge: 'Premium Home Furnishing',
-    titleLine1: 'Crafted for Luxury, ',
-    titleItalic: 'Styled for You',
-    titleLine2: '',
-    desc: "Experience the ultimate collection of home textiles and premium fabrics.",
+    line1: 'Crafted with',
+    line2: 'Artistry, Designed',
+    line3: 'for You',
+    desc: "Explore a rich variety of premium designer fabrics, custom suiting materials, and ethnic textiles tailored for all business partnerships, bespoke tailoring, and retail fashion store needs.",
     btnText: 'Explore Collection',
-    bg: 'linear-gradient(135deg, #f2ece0 0%, #e8eff6 100%)', // warm cream/sand to soft blue
-    layout: 'three-columns-arched',
-    images: [
-      '/images/category_ethnic.png', // ethnic
-      '/images/category_home.png',   // home rolls
-      '/images/about_hero.png'       // bed sheets
-    ],
-    btnBg: '#3d699e',
-    btnHoverBg: '#c5a059',
-    badgeColor: '#c5a059',
-    titleColor: '#1a2a3a',
-    descColor: '#4b5a6a',
-    hasLeafSketch: true,
-    borderColor: '#ffffff'
+    image: '/images/slide3.png',
+    bgColor: '#e9f0f8' // Soft Pastel Blue
   }
 ];
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [direction, setDirection] = useState(1); // 1 = next (right to left), -1 = prev (left to right)
+  const categoriesContainerRef = useRef(null);
 
   useEffect(() => {
     const timer = setInterval(() => {
+      setDirection(1);
       setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
     }, 6000);
     return () => clearInterval(timer);
   }, []);
 
-  const slide = heroSlides[currentSlide];
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
-  };
-  const nextSlide = () => {
+  const handleNext = () => {
+    setDirection(1);
     setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
   };
 
+  const handlePrev = () => {
+    setDirection(-1);
+    setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
+  };
+
+  const scrollCategories = (direction) => {
+    if (categoriesContainerRef.current) {
+      const { scrollLeft, clientWidth } = categoriesContainerRef.current;
+      const scrollAmount = clientWidth * 0.75;
+      categoriesContainerRef.current.scrollTo({
+        left: direction === 'left' ? scrollLeft - scrollAmount : scrollLeft + scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  const slide = heroSlides[currentSlide];
+
+  const slideVariants = {
+    enter: (dir) => ({
+      x: dir > 0 ? 150 : -150,
+      opacity: 0
+    }),
+    center: {
+      x: 0,
+      opacity: 1
+    },
+    exit: (dir) => ({
+      x: dir > 0 ? -150 : 150,
+      opacity: 0
+    })
+  };
+
   return (
-    <div style={{ background: C.bg, fontFamily: "'DM Sans', sans-serif" }} className="w-full overflow-x-hidden">
+    <div style={{ background: C.bg, fontFamily: "'DM Sans', sans-serif" }} className="w-full overflow-x-hidden pt-0">
 
       {/* ═══════════════════════════════════════
-          1. HERO SECTION
+          1. HERO CAROUSEL SECTION
       ═══════════════════════════════════════ */}
-      <section
-        className="relative w-full flex items-center overflow-hidden transition-all duration-1000"
-        style={{
-          minHeight: '520px',
-          paddingTop: 36,
-          background: slide.bg,
-        }}
-      >
-        {/* Soft background blobs */}
-        <div style={{ position: 'absolute', top: 0, left: 0, width: 350, height: 500, background: 'rgba(75, 115, 158, 0.04)', borderRadius: '0 0 100% 0', filter: 'blur(60px)', pointerEvents: 'none' }} />
-        <div style={{ position: 'absolute', bottom: 0, right: 0, width: 400, height: 300, background: 'rgba(197, 160, 89, 0.05)', borderRadius: '100% 0 0 0', filter: 'blur(50px)', pointerEvents: 'none' }} />
+      <section className="relative w-full overflow-hidden min-h-[460px] md:min-h-[500px] lg:min-h-[540px] flex items-center justify-between" style={{ background: slide.bgColor }}>
+        
+        {/* Soft Organic Background Shapes */}
+        <div style={{ position: 'absolute', top: 0, left: 0, width: 450, height: '100%', background: 'radial-gradient(circle, rgba(210, 114, 101, 0.08) 0%, transparent 80%)', pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', bottom: -50, right: 0, width: 350, height: 350, background: 'rgba(210,114,101,0.04)', borderRadius: '50%', filter: 'blur(50px)', pointerEvents: 'none' }} />
 
-        <div className="w-full max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14 relative z-10 pt-1 pb-6 lg:pt-2 lg:pb-8">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentSlide}
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -15 }}
-              transition={{ duration: 0.5, ease: 'easeInOut' }}
-              className="flex flex-col lg:flex-row items-center justify-between gap-12 w-full"
-            >
-              {/* ── Left: Text ── */}
-              <div className="w-full lg:w-[45%] flex flex-col items-start text-left relative">
-                {/* SVG Leaf Sketch Overlay */}
-                {slide.hasLeafSketch && (
-                  <div className="absolute -left-10 top-1/2 -translate-y-1/2 opacity-25 pointer-events-none z-0 hidden lg:block text-[#3d699e]">
-                    <svg
-                      width="220"
-                      height="380"
-                      viewBox="0 0 100 200"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path d="M20,180 C25,145 35,95 70,30" />
-                      <path d="M70,30 C72,25 75,20 80,15 C75,22 72,27 70,30" />
-                      <path d="M27,150 C12,145 5,130 10,122 C18,115 25,135 29,142 Z" fill="none" />
-                      <path d="M31,135 C45,125 55,115 50,105 C42,98 35,115 33,125 Z" fill="none" />
-                      <path d="M38,110 C25,100 18,85 24,78 C31,72 37,90 40,98 Z" fill="none" />
-                      <path d="M45,90 C60,80 68,68 62,60 C55,54 48,72 47,80 Z" fill="none" />
-                      <path d="M57,55 C50,42 45,28 50,22 C56,18 60,32 59,42 Z" fill="none" />
-                    </svg>
-                  </div>
-                )}
-
-                <span style={{ display: 'inline-block', fontSize: 11, fontWeight: 700, letterSpacing: '0.15em', color: slide.badgeColor, textTransform: 'uppercase', marginBottom: 12, position: 'relative', zIndex: 1 }}>
-                  {slide.badge}
-                </span>
-
+        {/* Content Container (Left Side Text) */}
+        <div className="max-w-[90rem] mx-auto w-full px-6 sm:px-8 lg:px-14 flex items-center h-full relative z-10">
+          <div className="w-full lg:w-1/2 text-left flex flex-col items-start pr-0 lg:pr-12 py-16">
+            <AnimatePresence mode="wait" custom={direction}>
+              <motion.div
+                key={currentSlide}
+                custom={direction}
+                variants={slideVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{ duration: 0.5, ease: 'easeInOut' }}
+                className="w-full"
+              >
                 <h1 style={{
                   fontFamily: "'Playfair Display', serif",
-                  fontSize: 'clamp(32px, 4.5vw, 52px)',
-                  fontWeight: 700, color: slide.titleColor,
-                  lineHeight: 1.15, margin: 0, marginBottom: 16,
-                  position: 'relative', zIndex: 1
+                  fontSize: 'clamp(38px, 4.5vw, 56px)',
+                  fontWeight: 700,
+                  lineHeight: 1.15,
+                  margin: '0 0 20px'
                 }}>
-                  {slide.titleLine1}
-                  {slide.titleItalic && (
-                    <span style={{
-                      fontFamily: "'Great Vibes', cursive",
-                      fontStyle: 'italic',
-                      fontWeight: 400,
-                      color: '#c5a059',
-                      fontSize: 'clamp(38px, 5.5vw, 64px)',
-                      paddingLeft: '4px',
-                      display: 'inline-block',
-                      lineHeight: 0.9,
-                      transform: 'rotate(-2deg)',
-                    }}>
-                      {slide.titleItalic}
-                    </span>
-                  )}
-                  {slide.titleLine2}
+                  <span style={{ color: C.soil, display: 'block' }}>{slide.line1}</span>
+                  <span style={{ color: C.accent, display: 'block' }}>{slide.line2}</span>
+                  <span style={{ color: C.accent, display: 'block' }}>{slide.line3}</span>
                 </h1>
-
-                <p style={{ color: slide.descColor, fontSize: '15px', lineHeight: 1.7, marginBottom: 28, maxWidth: 440, position: 'relative', zIndex: 1 }}>
+                
+                <p style={{ color: C.stone, fontSize: '15px', lineHeight: 1.7, marginBottom: 32, maxWidth: 460 }}>
                   {slide.desc}
                 </p>
 
-                {/* Premium Button */}
-                <div style={{ position: 'relative', zIndex: 1 }}>
+                {/* Explore Collection Action Button */}
+                <div>
                   <Link
                     to="/products"
+                    className="inline-flex items-center transition-all duration-300 overflow-hidden shadow-md hover:shadow-lg"
                     style={{
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: 16,
-                      padding: '6px 6px 6px 24px',
-                      background: slide.btnBg,
+                      background: C.primary,
                       color: '#ffffff',
                       borderRadius: 30,
                       fontSize: 11,
                       fontWeight: 700,
-                      textDecoration: 'none',
-                      letterSpacing: '0.1em',
                       textTransform: 'uppercase',
-                      boxShadow: '0 8px 24px rgba(61, 105, 158, 0.25)',
-                      transition: 'all 0.25s',
-                    }}
-                    onMouseEnter={e => {
-                      e.currentTarget.style.background = slide.btnHoverBg;
-                      e.currentTarget.style.transform = 'translateY(-2px)';
-                      const circle = e.currentTarget.querySelector('.arrow-circle');
-                      if (circle) {
-                        circle.style.color = slide.btnHoverBg;
-                      }
-                    }}
-                    onMouseLeave={e => {
-                      e.currentTarget.style.background = slide.btnBg;
-                      e.currentTarget.style.transform = 'translateY(0)';
-                      const circle = e.currentTarget.querySelector('.arrow-circle');
-                      if (circle) {
-                        circle.style.color = slide.btnBg;
-                      }
+                      letterSpacing: '0.08em',
+                      textDecoration: 'none',
                     }}
                   >
-                    <span>{slide.btnText}</span>
+                    <span className="pl-6 pr-4 py-3.5">{slide.btnText}</span>
                     <span
-                      className="arrow-circle"
                       style={{
-                        width: 32,
-                        height: 32,
-                        borderRadius: '50%',
-                        background: '#ffffff',
+                        background: C.accent,
+                        color: '#ffffff',
+                        width: 44,
+                        height: 44,
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        color: slide.btnBg,
-                        transition: 'all 0.25s',
                       }}
                     >
                       <ArrowRight size={14} />
@@ -305,482 +208,445 @@ export default function Home() {
                   </Link>
                 </div>
 
-                {/* Navigation Dots */}
-                <div className="flex items-center gap-3 mt-8 z-10">
-                  {heroSlides.map((_, idx) => (
-                    <button
-                      key={idx}
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setCurrentSlide(idx);
-                      }}
-                      style={{
-                        width: 10,
-                        height: 10,
-                        borderRadius: '50%',
-                        background: currentSlide === idx ? slide.btnBg : 'transparent',
-                        border: `2.5px solid ${currentSlide === idx ? slide.btnBg : '#a3b8cc'}`,
-                        cursor: 'pointer',
-                        transition: 'all 0.3s ease',
-                        padding: 0,
-                      }}
-                      aria-label={`Go to slide ${idx + 1}`}
-                    />
-                  ))}
+                {/* Mobile Curved Image Card (Stacked below on mobile) */}
+                <div className="block lg:hidden w-full h-[260px] rounded-[36px_36px_16px_16px] overflow-hidden mt-8 shadow-md border-2 border-white">
+                  <img
+                    src={slide.image}
+                    alt="Loomera Textile Showcase"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
-              </div>
+              </motion.div>
+            </AnimatePresence>
 
-              {/* ── Right: Images (Three Arched Columns Layout) ── */}
-              <div className="w-full lg:w-[55%] flex items-center justify-center relative">
-                <div className="flex items-center justify-center gap-4 w-full">
-                  {/* Column 1: Image 1 (Arched Top) */}
-                  <div style={{
-                    width: 'clamp(120px, 17vw, 200px)',
-                    height: 'clamp(240px, 35vw, 400px)',
-                    borderRadius: '999px 999px 24px 24px',
-                    overflow: 'hidden',
-                    boxShadow: '0 12px 30px rgba(26, 42, 58, 0.15)',
-                    border: `2.5px solid ${slide.borderColor}`,
-                    marginTop: '-15px',
-                  }}>
-                    <img src={slide.images[0]} alt="Textile Feature 1" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                  </div>
-
-                  {/* Column 2: Image 2 (Arched Top, shifted down) */}
-                  <div style={{
-                    width: 'clamp(120px, 17vw, 200px)',
-                    height: 'clamp(240px, 35vw, 400px)',
-                    borderRadius: '999px 999px 24px 24px',
-                    overflow: 'hidden',
-                    boxShadow: '0 12px 30px rgba(26, 42, 58, 0.15)',
-                    border: `2.5px solid ${slide.borderColor}`,
-                    marginTop: '30px',
-                  }}>
-                    <img src={slide.images[1]} alt="Textile Feature 2" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                  </div>
-
-                  {/* Column 3: Image 3 (Arched Top, shifted up) */}
-                  <div style={{
-                    width: 'clamp(120px, 17vw, 200px)',
-                    height: 'clamp(240px, 35vw, 400px)',
-                    borderRadius: '999px 999px 24px 24px',
-                    overflow: 'hidden',
-                    boxShadow: '0 12px 30px rgba(26, 42, 58, 0.15)',
-                    border: `2.5px solid ${slide.borderColor}`,
-                    marginTop: '-35px',
-                  }}>
-                    <img src={slide.images[2]} alt="Textile Feature 3" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </AnimatePresence>
-
-          {/* Left Arrow Button */}
-          <button
-            onClick={(e) => { e.stopPropagation(); prevSlide(); }}
-            style={{
-              position: 'absolute',
-              left: '16px',
-              top: '50%',
-              transform: 'translateY(-50%)',
-              width: 32,
-              height: 32,
-              borderRadius: '50%',
-              background: 'rgba(255, 255, 255, 0.45)',
-              backdropFilter: 'blur(4px)',
-              border: '1px solid rgba(255, 255, 255, 0.7)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              cursor: 'pointer',
-              boxShadow: '0 4px 12px rgba(26, 42, 58, 0.08)',
-              transition: 'all 0.2s',
-              zIndex: 20
-            }}
-            onMouseEnter={e => {
-              e.currentTarget.style.background = '#ffffff';
-              e.currentTarget.style.transform = 'translateY(-50%) scale(1.05)';
-            }}
-            onMouseLeave={e => {
-              e.currentTarget.style.background = 'rgba(255, 255, 255, 0.45)';
-              e.currentTarget.style.transform = 'translateY(-50%) scale(1)';
-            }}
-            aria-label="Previous slide"
-          >
-            <ChevronLeft size={15} style={{ color: C.soil }} />
-          </button>
-
-          {/* Right Arrow Button */}
-          <button
-            onClick={(e) => { e.stopPropagation(); nextSlide(); }}
-            style={{
-              position: 'absolute',
-              right: '16px',
-              top: '50%',
-              transform: 'translateY(-50%)',
-              width: 32,
-              height: 32,
-              borderRadius: '50%',
-              background: 'rgba(255, 255, 255, 0.45)',
-              backdropFilter: 'blur(4px)',
-              border: '1px solid rgba(255, 255, 255, 0.7)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              cursor: 'pointer',
-              boxShadow: '0 4px 12px rgba(26, 42, 58, 0.08)',
-              transition: 'all 0.2s',
-              zIndex: 20
-            }}
-            onMouseEnter={e => {
-              e.currentTarget.style.background = '#ffffff';
-              e.currentTarget.style.transform = 'translateY(-50%) scale(1.05)';
-            }}
-            onMouseLeave={e => {
-              e.currentTarget.style.background = 'rgba(255, 255, 255, 0.45)';
-              e.currentTarget.style.transform = 'translateY(-50%) scale(1)';
-            }}
-            aria-label="Next slide"
-          >
-            <ChevronRight size={15} style={{ color: C.soil }} />
-          </button>
+            {/* Dots indicator below */}
+            <div className="flex items-center gap-2 mt-10">
+              {heroSlides.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => {
+                    setDirection(idx > currentSlide ? 1 : -1);
+                    setCurrentSlide(idx);
+                  }}
+                  style={{
+                    width: 8, height: 8, borderRadius: '50%',
+                    background: currentSlide === idx ? C.accent : '#ffffff',
+                    border: currentSlide === idx ? 'none' : '1px solid rgba(10, 28, 58, 0.15)',
+                    cursor: 'pointer', padding: 0,
+                    transition: 'all 0.3s'
+                  }}
+                  aria-label={`Go to slide ${idx + 1}`}
+                />
+              ))}
+            </div>
+          </div>
         </div>
+
+        {/* Right Side Image (Full Height Curved Mask on Desktop) */}
+        <AnimatePresence mode="wait" custom={direction}>
+          <motion.div
+            key={currentSlide}
+            custom={direction}
+            variants={slideVariants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{ duration: 0.5, ease: 'easeInOut' }}
+            className="hidden lg:block absolute right-0 top-0 bottom-0 w-[53%] h-full"
+            style={{
+              clipPath: 'ellipse(95% 100% at 100% 50%)',
+              zIndex: 5,
+            }}
+          >
+            <img
+              src={slide.image}
+              alt="Loomera Textile Retail Showcase"
+              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            />
+          </motion.div>
+        </AnimatePresence>
+
+        {/* Left/Right Carousel Nav Arrows */}
+        <button
+          onClick={handlePrev}
+          style={{
+            position: 'absolute', left: '24px', top: '50%', transform: 'translateY(-50%)',
+            width: 44, height: 44, borderRadius: '50%',
+            background: '#ffffff', border: 'none', cursor: 'pointer',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            boxShadow: '0 4px 15px rgba(0,0,0,0.08)', zIndex: 20
+          }}
+          className="hover:scale-105 hover:bg-slate-50 transition-all"
+        >
+          <ChevronLeft size={20} color={C.primary} />
+        </button>
+        <button
+          onClick={handleNext}
+          style={{
+            position: 'absolute', right: '24px', top: '50%', transform: 'translateY(-50%)',
+            width: 44, height: 44, borderRadius: '50%',
+            background: '#ffffff', border: 'none', cursor: 'pointer',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            boxShadow: '0 4px 15px rgba(0,0,0,0.08)', zIndex: 20
+          }}
+          className="hover:scale-105 hover:bg-slate-50 transition-all"
+        >
+          <ChevronRight size={20} color={C.primary} />
+        </button>
       </section>
 
       {/* ═══════════════════════════════════════
           2. KEY FEATURES STRIP
       ═══════════════════════════════════════ */}
-      <section style={{ background: '#ffffff', borderTop: `1px solid ${C.border}`, borderBottom: `1px solid ${C.border}` }}>
-        <div className="max-w-[90rem] mx-auto px-6 lg:px-14">
-          <div className="flex flex-wrap justify-center lg:justify-between items-start gap-6 py-7">
-            {features.map((f, idx) => {
-              const Icon = f.icon;
+      {/* ═══════════════════════════════════════
+          3. PROMO GRID SECTION (Trending / Bulk)
+      ═══════════════════════════════════════ */}
+      <section className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14 py-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
+          
+          {/* Left Promo Card: Trending Now */}
+          <div style={{
+            background: C.primary,
+            borderRadius: '20px',
+            color: '#ffffff',
+            overflow: 'hidden',
+            minHeight: '200px',
+            position: 'relative'
+          }} className="flex flex-col sm:flex-row justify-between text-left p-6 sm:p-7 shadow-sm">
+            <div className="w-full sm:w-[58%] flex flex-col justify-center relative z-10">
+              <span style={{ fontSize: '9px', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: C.accent, display: 'block', marginBottom: '6px' }}>
+                TRENDING NOW
+              </span>
+              <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: '22px', fontWeight: 700, color: '#ffffff', margin: 0, lineHeight: 1.25, marginBottom: 8 }}>
+                Fresh Fabrics, New Possibilities
+              </h2>
+              <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '12.5px', margin: 0, lineHeight: 1.45 }}>
+                Explore vibrant prints, rich textures and timeless elegance.
+              </p>
+            </div>
+            
+            {/* Folded Fabrics and Vase Illustration image on the right */}
+            <div className="w-full sm:w-[40%] mt-4 sm:mt-0 flex justify-end items-center relative overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1544816155-12df9643f363?w=600&auto=format&fit=crop&q=70"
+                alt="Stacked folded fabrics"
+                style={{
+                  width: '100%',
+                  height: '130px',
+                  objectFit: 'cover',
+                  borderRadius: 12,
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.15)'
+                }}
+              />
+            </div>
+          </div>
+
+          {/* Right Promo Card: Bulk Orders Made Easy */}
+          <div style={{
+            background: C.sand,
+            borderRadius: '20px',
+            color: C.soil,
+            overflow: 'hidden',
+            minHeight: '200px',
+            position: 'relative'
+          }} className="flex flex-col sm:flex-row justify-between text-left p-6 sm:p-7 shadow-sm">
+            <div className="w-full sm:w-[58%] flex flex-col justify-center relative z-10">
+              <span style={{ fontSize: '9px', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: C.accent, display: 'block', marginBottom: '6px' }}>
+                BULK ENQUIRIES
+              </span>
+              <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: '22px', fontWeight: 700, color: C.soil, margin: 0, lineHeight: 1.25, marginBottom: 8 }}>
+                Bulk Orders Made Easy
+              </h2>
+              <p style={{ color: C.stone, fontSize: '12.5px', margin: 0, lineHeight: 1.45 }}>
+                Special custom pricing, catalog selections, and direct support for retailers & businesses.
+              </p>
+            </div>
+            
+            {/* Warehouse Manager photo on the right */}
+            <div className="w-full sm:w-[40%] mt-4 sm:mt-0 flex justify-end items-center relative overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1556740758-90de374c12ad?w=600&auto=format&fit=crop&q=70"
+                alt="Bulk orders client support"
+                style={{
+                  width: '100%',
+                  height: '130px',
+                  objectFit: 'cover',
+                  borderRadius: 12,
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.06)'
+                }}
+              />
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════
+          4. THREE SERVICES CARDS ROW
+      ═══════════════════════════════════════ */}
+      <section className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14 pb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          {/* Card 1: Custom Solutions */}
+          <div style={{ background: C.sage, borderRadius: 20, position: 'relative', overflow: 'hidden' }} className="flex justify-between items-stretch p-6 text-left group shadow-sm hover:shadow-md transition-all">
+            <div className="w-[60%] flex flex-col justify-between py-2">
+              <div>
+                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 20, fontWeight: 700, color: C.soil, margin: '0 0 10px' }}>
+                  Custom Solutions for Your Brand
+                </h3>
+                <p style={{ fontSize: 12.5, color: C.stone, margin: 0, lineHeight: 1.45 }}>
+                  Tailored textiles to match your unique needs.
+                </p>
+              </div>
+              <div className="mt-4">
+                <Link to="/contact" className="inline-flex items-center gap-1.5 font-bold uppercase tracking-wider transition-all" style={{ fontSize: 10.5, color: C.primary, textDecoration: 'none' }}
+                  onMouseEnter={e => e.currentTarget.style.color = C.accent}
+                  onMouseLeave={e => e.currentTarget.style.color = C.primary}
+                >
+                  Get in Touch <ArrowRight size={12} />
+                </Link>
+              </div>
+            </div>
+            <div className="w-[40%] flex justify-end items-end relative overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?w=500&auto=format&fit=crop&q=70"
+                alt="Mannequin design layout"
+                style={{ width: '85%', height: 120, objectFit: 'cover', borderRadius: 12 }}
+                className="group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+          </div>
+
+          {/* Card 2: Sustainably Crafted */}
+          <div style={{ background: '#fcece9', borderRadius: 20, position: 'relative', overflow: 'hidden' }} className="flex justify-between items-stretch p-6 text-left group shadow-sm hover:shadow-md transition-all">
+            <div className="w-[60%] flex flex-col justify-between py-2">
+              <div>
+                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 20, fontWeight: 700, color: C.soil, margin: '0 0 10px' }}>
+                  Sustainably Crafted Textiles
+                </h3>
+                <p style={{ fontSize: 12.5, color: C.stone, margin: 0, lineHeight: 1.45 }}>
+                  Ethically sourced fabrics for a better tomorrow.
+                </p>
+              </div>
+              <div className="mt-4">
+                <Link to="/products" className="inline-flex items-center gap-1.5 font-bold uppercase tracking-wider transition-all" style={{ fontSize: 10.5, color: C.primary, textDecoration: 'none' }}
+                  onMouseEnter={e => e.currentTarget.style.color = C.accent}
+                  onMouseLeave={e => e.currentTarget.style.color = C.primary}
+                >
+                  Discover More <ArrowRight size={12} />
+                </Link>
+              </div>
+            </div>
+            <div className="w-[40%] flex justify-end items-end relative overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?w=500&auto=format&fit=crop&q=70"
+                alt="Fabric roll detail"
+                style={{ width: '85%', height: 120, objectFit: 'cover', borderRadius: 12 }}
+                className="group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+          </div>
+
+          {/* Card 3: Our Retail Management */}
+          <div style={{ background: '#f4f0fa', borderRadius: 20, position: 'relative', overflow: 'hidden' }} className="flex justify-between items-stretch p-6 text-left group shadow-sm hover:shadow-md transition-all">
+            <div className="w-[60%] flex flex-col justify-between py-2">
+              <div>
+                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 20, fontWeight: 700, color: C.soil, margin: '0 0 10px' }}>
+                  Our Retail Management
+                </h3>
+                <p style={{ fontSize: 12.5, color: C.stone, margin: 0, lineHeight: 1.45 }}>
+                  End-to-end operation, stock, and inventory services for showrooms.
+                </p>
+              </div>
+              <div className="mt-4">
+                <Link to="/retail-management" className="inline-flex items-center gap-1.5 font-bold uppercase tracking-wider transition-all" style={{ fontSize: 10.5, color: C.primary, textDecoration: 'none' }}
+                  onMouseEnter={e => e.currentTarget.style.color = C.accent}
+                  onMouseLeave={e => e.currentTarget.style.color = C.primary}
+                >
+                  Explore Management <ArrowRight size={12} />
+                </Link>
+              </div>
+            </div>
+            <div className="w-[40%] flex justify-end items-end relative overflow-hidden">
+              <img
+                src="/images/retail_management_card.png"
+                alt="Boutique retail management counter"
+                style={{ width: '85%', height: 120, objectFit: 'cover', borderRadius: 12 }}
+                className="group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════
+          5. SHOP OUR COLLECTIONS (Categories Carousel)
+      ═══════════════════════════════════════ */}
+      <section className="px-6 lg:px-14 py-12 bg-white" style={{ borderTop: `1px solid ${C.border}`, borderBottom: `1px solid ${C.border}` }}>
+        <div className="max-w-[90rem] mx-auto">
+          
+          {/* Header Row */}
+          <div className="flex justify-between items-center mb-10 text-left">
+            <div>
+              <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(26px, 3.5vw, 36px)', fontWeight: 700, color: C.soil, margin: 0 }}>
+                Shop Our Collections
+              </h2>
+              <div style={{ width: 50, height: 2, background: C.accent, borderRadius: 2, marginTop: 10 }} />
+            </div>
+            
+            <div className="flex items-center gap-6">
+              <Link to="/products" style={{ fontSize: 12, fontWeight: 700, color: C.accent, textTransform: 'uppercase', letterSpacing: '0.08em', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 6 }}
+                className="hover:underline"
+              >
+                View All Collections <ArrowRight size={13} />
+              </Link>
+              
+              {/* Navigation buttons */}
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() => scrollCategories('left')}
+                  style={{
+                    width: 32, height: 32, borderRadius: '50%',
+                    border: `1.5px solid ${C.border}`, background: 'transparent',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    cursor: 'pointer'
+                  }}
+                  className="hover:bg-slate-50 transition-all"
+                >
+                  <ChevronLeft size={15} color={C.primary} />
+                </button>
+                <button
+                  onClick={() => scrollCategories('right')}
+                  style={{
+                    width: 32, height: 32, borderRadius: '50%',
+                    border: `1.5px solid ${C.border}`, background: 'transparent',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    cursor: 'pointer'
+                  }}
+                  className="hover:bg-slate-50 transition-all"
+                >
+                  <ChevronRight size={15} color={C.primary} />
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Categories Carousel List */}
+          <div
+            ref={categoriesContainerRef}
+            className="flex gap-6 overflow-x-auto pb-4 scrollbar-none snap-x snap-mandatory"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
+            {categories.map((cat) => {
+              const details = categoryDetails[cat] || { count: "1000+ Items", image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=500" };
               return (
-                <div key={idx} className="flex flex-col items-center text-center gap-2" style={{ minWidth: 110, flex: '1 1 110px', maxWidth: 200 }}>
-                  <div style={{ width: 46, height: 46, borderRadius: '50%', background: C.sage, border: `1.5px solid ${C.border}`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <Icon size={19} style={{ color: C.primary }} />
+                <Link
+                  key={cat}
+                  to={`/products?category=${encodeURIComponent(cat)}`}
+                  className="snap-start shrink-0 text-center block w-[260px] category-card"
+                  style={{
+                    textDecoration: 'none',
+                    borderRadius: 16,
+                    overflow: 'hidden',
+                    border: `1px solid ${C.border}`,
+                    background: '#ffffff',
+                    transition: 'all 0.3s'
+                  }}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.transform = 'translateY(-6px)';
+                    e.currentTarget.style.boxShadow = '0 15px 35px rgba(210, 114, 101, 0.08)';
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.transform = 'none';
+                    e.currentTarget.style.boxShadow = 'none';
+                  }}
+                >
+                  <div style={{ height: 190, overflow: 'hidden', position: 'relative', background: '#f7efe5' }}>
+                    <img
+                      src={details.image}
+                      alt={cat}
+                      style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s' }}
+                      onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.04)'}
+                      onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
+                    />
                   </div>
-                  <p style={{ margin: 0, fontSize: 12, fontWeight: 700, color: C.soil }}>{f.label}</p>
-                  <p style={{ margin: 0, fontSize: 10.5, color: C.stone, lineHeight: 1.45 }}>{f.desc}</p>
-                </div>
+                  <div style={{ padding: '14px 16px', display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '60px' }}>
+                    <h3 style={{ margin: 0, fontSize: 13.5, fontWeight: 700, color: C.soil, fontFamily: "'Playfair Display', serif", lineHeight: 1.35 }}>
+                      {cat}
+                    </h3>
+                  </div>
+                </Link>
               );
             })}
           </div>
+
         </div>
       </section>
 
       {/* ═══════════════════════════════════════
-          3. CATEGORIES SIDEBAR + PROMO SECTIONS
+          6. WHY CHOOSE US & STATISTICS SECTION
       ═══════════════════════════════════════ */}
-      <section className="px-6 lg:px-14 py-12">
-        <div className="max-w-[90rem] mx-auto flex flex-col lg:flex-row gap-6 items-stretch">
-
-          {/* Left: Category Sidebar */}
-          <div className="w-full lg:w-[320px] shrink-0 flex">
+      <section className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14 py-16 text-left" style={{ background: '#ffffff' }}>
+        <div className="flex flex-col lg:flex-row gap-12 items-center">
+          
+          {/* Left Side Showcase Image */}
+          <div className="w-full lg:w-1/2 relative">
             <div style={{
-              background: '#4b739e',
-              borderRadius: '24px',
-              padding: '24px',
-              boxShadow: '0 12px 36px rgba(75, 115, 158, 0.1)',
-            }} className="text-left w-full h-[380px] lg:h-[570px] flex flex-col">
-              {/* Header with gold lines and diamonds */}
-              <div className="flex items-center justify-between gap-3 mb-6">
-                <span className="flex-1 h-[1.5px]" style={{ background: 'linear-gradient(90deg, transparent, #c5a059)' }} />
-                <span style={{ color: '#c5a059', fontSize: '10px' }}>◆</span>
-                <h3 style={{
-                  fontFamily: "'Playfair Display', serif",
-                  fontSize: '19px',
-                  fontWeight: 700,
-                  color: '#ffffff',
-                  margin: 0,
-                  whiteSpace: 'nowrap'
-                }}>
-                  Shop by Category
-                </h3>
-                <span style={{ color: '#c5a059', fontSize: '10px' }}>◆</span>
-                <span className="flex-1 h-[1.5px]" style={{ background: 'linear-gradient(90deg, #c5a059, transparent)' }} />
-              </div>
-
-              {/* Scrollable Categories List */}
-              <div className="flex-1 overflow-y-auto pr-1 custom-sidebar-scrollbar flex flex-col gap-2">
-                {categories.map((cat) => {
-                  const details = categoryDetails[cat] || { icon: Gem, count: "1000+ Items" };
-                  const Icon = details.icon;
-                  return (
-                    <Link
-                      key={cat}
-                      to={`/products?category=${encodeURIComponent(cat)}`}
-                      className="flex items-center justify-between py-3 px-3 rounded-xl transition-all duration-200 group hover:bg-[rgba(255,255,255,0.08)]"
-                      style={{ textDecoration: 'none', borderBottom: '1px solid rgba(255,255,255,0.05)' }}
-                    >
-                      <div className="flex items-center">
-                        <span style={{ color: '#ffffff', fontSize: '13.5px', fontWeight: 600 }}>{cat}</span>
-                      </div>
-                      <ArrowRight size={14} className="text-[#c5a059] opacity-70 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
-                    </Link>
-                  );
-                })}
-              </div>
+              position: 'absolute', inset: '-12px',
+              border: `1.5px solid ${C.border}`, borderRadius: '24px',
+              pointerEvents: 'none', transform: 'rotate(-1.5deg)'
+            }} />
+            <div style={{
+              borderRadius: '24px', overflow: 'hidden',
+              boxShadow: '0 20px 40px rgba(0,0,0,0.06)',
+              height: 380, border: '4px solid #ffffff', position: 'relative', zIndex: 2
+            }}>
+              <img
+                src="/images/why_choose_us.png"
+                alt="LOOMERA Textile Showcase"
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
             </div>
           </div>
 
-          {/* Right Column */}
-          <div className="flex-1 flex flex-col gap-6">
-
-            {/* Top Panel: Bulk Orders B2B Banner */}
-            <div style={{
-              background: '#fdf7ed',
-              borderRadius: '24px',
-              border: `1px solid ${C.border}`,
-              display: 'flex',
-              overflow: 'hidden',
-              height: '260px',
-            }} className="flex flex-col md:flex-row text-left group relative">
-              <div className="w-full md:w-[48%] p-8 flex flex-col justify-center">
-                <span style={{ fontSize: '10px', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: C.accent, display: 'block', marginBottom: '8px' }}>
-                  B2B CLEARANCE
-                </span>
-                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: '28px', fontWeight: 700, color: '#1a2a3a', margin: 0, lineHeight: 1.2 }}>
-                  Bulk Orders,
-                </h3>
-                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: '28px', fontWeight: 700, color: '#3d699e', margin: 0, lineHeight: 1.2, marginBottom: '12px' }}>
-                  Better Benefits
-                </h3>
-                <p style={{ color: C.stone, fontSize: '13.5px', margin: 0, marginBottom: '20px', lineHeight: 1.5 }}>
-                  Special pricing for retailers and bulk buyers.
-                </p>
-                <div>
-                  <Link
-                    to="/trade-enquiry"
-                    style={{
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: 10,
-                      padding: '10px 24px',
-                      background: '#c5a059',
-                      color: '#ffffff',
-                      borderRadius: 24,
-                      fontSize: 11,
-                      fontWeight: 700,
-                      textDecoration: 'none',
-                      textTransform: 'uppercase',
-                      letterSpacing: '0.08em',
-                      transition: 'all 0.25s',
-                    }}
-                    onMouseEnter={e => { e.currentTarget.style.background = C.primary; }}
-                    onMouseLeave={e => { e.currentTarget.style.background = '#c5a059'; }}
-                  >
-                    Enquire Now <ArrowRight size={13} />
-                  </Link>
-                </div>
-              </div>
-              <div className="hidden md:block w-[52%] relative overflow-hidden">
-                <div style={{
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                  width: '60px',
-                  height: '100%',
-                  background: 'linear-gradient(90deg, #fdf7ed 0%, transparent 100%)',
-                  zIndex: 2,
-                }} />
-                <img
-                  src="/images/bulk_orders_showroom.png"
-                  alt="Bulk Orders Textile Showroom"
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                  }}
-                />
-              </div>
-            </div>
-
-            {/* Bottom Panel: Live e-Auction Platforms */}
-            {/* Bottom Panel: Live e-Auction & e-Quotation Platforms */}
-            <div style={{
-              background: '#e8f1f9',
-              borderRadius: '24px',
-              border: `1px solid ${C.border}`,
-              display: 'flex',
-              overflow: 'hidden',
-              height: '286px',
-            }} className="flex flex-col md:flex-row text-left relative">
-              
-              {/* Left description area: e-Auction */}
-              <div className="w-full md:w-1/2 p-8 flex flex-col justify-between" style={{ borderRight: `1.5px solid ${C.border}` }}>
-                <div className="flex flex-col items-start">
-                  <div style={{
-                    width: '52px',
-                    height: '52px',
-                    borderRadius: '50%',
-                    background: '#f2ece0',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    marginBottom: '14px',
-                  }}>
-                    <Gavel size={22} style={{ color: '#c5a059' }} />
-                  </div>
-                  <span style={{ fontSize: '9px', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: C.primary, display: 'block', marginBottom: '4px' }}>
-                    LIVE NOW
-                  </span>
-                  <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: '24px', fontWeight: 700, color: '#1a2a3a', margin: 0, lineHeight: 1.25, marginBottom: '8px' }}>
-                    e-Auction
-                  </h3>
-                  <p style={{ color: C.stone, fontSize: '13px', margin: 0, lineHeight: 1.5 }}>
-                    Exclusive fabrics at unbeatable prices. Participate in our live digital bids and win bulk lots.
-                  </p>
-                </div>
-                
-                <div>
-                  <Link
-                    to="/e-auction"
-                    style={{
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: 8,
-                      padding: '10px 20px',
-                      background: '#4b739e',
-                      color: '#ffffff',
-                      borderRadius: 24,
-                      fontSize: 10.5,
-                      fontWeight: 700,
-                      textDecoration: 'none',
-                      textTransform: 'uppercase',
-                      letterSpacing: '0.08em',
-                      transition: 'all 0.25s',
-                    }}
-                    onMouseEnter={e => { e.currentTarget.style.background = C.accent; }}
-                    onMouseLeave={e => { e.currentTarget.style.background = '#4b739e'; }}
-                  >
-                    View Live Auctions <ArrowRight size={12} />
-                  </Link>
-                </div>
-              </div>
-
-              {/* Right description area: e-Quotation */}
-              <div className="w-full md:w-1/2 p-8 flex flex-col justify-between">
-                <div className="flex flex-col items-start">
-                  <div style={{
-                    width: '52px',
-                    height: '52px',
-                    borderRadius: '50%',
-                    background: '#e8eff6',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    marginBottom: '14px',
-                  }}>
-                    <FileText size={22} style={{ color: C.primary }} />
-                  </div>
-                  <span style={{ fontSize: '9px', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: C.accent, display: 'block', marginBottom: '4px' }}>
-                    QUICK RESPONSE
-                  </span>
-                  <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: '24px', fontWeight: 700, color: '#1a2a3a', margin: 0, lineHeight: 1.25, marginBottom: '8px' }}>
-                    e-Quotation
-                  </h3>
-                  <p style={{ color: C.stone, fontSize: '13px', margin: 0, lineHeight: 1.5 }}>
-                    Request instant custom quotes for your specific fabric and bulk requirements online with ease.
-                  </p>
-                </div>
-                
-                <div>
-                  <Link
-                    to="/e-quotation"
-                    style={{
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: 8,
-                      padding: '10px 20px',
-                      background: '#c5a059',
-                      color: '#ffffff',
-                      borderRadius: 24,
-                      fontSize: 10.5,
-                      fontWeight: 700,
-                      textDecoration: 'none',
-                      textTransform: 'uppercase',
-                      letterSpacing: '0.08em',
-                      transition: 'all 0.25s',
-                    }}
-                    onMouseEnter={e => { e.currentTarget.style.background = C.primary; }}
-                    onMouseLeave={e => { e.currentTarget.style.background = '#c5a059'; }}
-                  >
-                    Request Quotation <ArrowRight size={12} />
-                  </Link>
-                </div>
-              </div>
-
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════
-          4. FEATURED COLLECTIONS
-      ═══════════════════════════════════════ */}
-      <section className="px-6 lg:px-14 py-12 bg-white">
-        <div className="max-w-[90rem] mx-auto">
-
-          {/* Header row */}
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 24 }}>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(22px, 3vw, 30px)', fontWeight: 700, color: C.soil, margin: 0 }}>
-              Featured Collections
+          {/* Right Side Content */}
+          <div className="w-full lg:w-1/2 flex flex-col justify-center">
+            <span style={{ fontSize: '10px', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: C.accent, display: 'block', marginBottom: '8px' }}>
+              WHY CHOOSE US ───
+            </span>
+            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: 700, color: C.soil, margin: '0 0 16px', lineHeight: 1.2 }}>
+              More Than Fabric, It's a Relationship
             </h2>
-            <Link
-              to="/products"
-              style={{ fontSize: 12, fontWeight: 700, color: C.primary, textDecoration: 'none', letterSpacing: '0.08em', textTransform: 'uppercase', display: 'flex', alignItems: 'center', gap: 4 }}
-            >
-              View All <ArrowRight size={14} />
-            </Link>
+            <p style={{ color: C.stone, fontSize: '14px', lineHeight: 1.7, marginBottom: 30, maxWidth: 500 }}>
+              We believe in building trust through quality, transparency, and timeless service. Discover a retail partner dedicated to matching you with standard-setting textiles.
+            </p>
+            
+            <div>
+              <Link
+                to="/about"
+                className="inline-flex items-center gap-2 transition-all shadow-sm hover:shadow-md"
+                style={{
+                  background: C.primary,
+                  color: '#ffffff',
+                  padding: '10px 24px',
+                  borderRadius: 24,
+                  fontSize: 11,
+                  fontWeight: 700,
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.08em',
+                  textDecoration: 'none'
+                }}
+                onMouseEnter={e => { e.currentTarget.style.background = C.accent; }}
+                onMouseLeave={e => { e.currentTarget.style.background = C.primary; }}
+              >
+                About Us <ArrowRight size={13} />
+              </Link>
+            </div>
           </div>
 
-          {/* Static Grid */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-            {featuredCollections.map((product, idx) => (
-              <Link
-                key={idx}
-                to={product.path}
-                className="product-card text-left block w-full"
-                style={{
-                  textDecoration: 'none',
-                  background: 'white',
-                  borderRadius: 16, overflow: 'hidden',
-                  border: `1px solid ${C.border}`,
-                  transition: 'all 0.3s ease',
-                }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.transform = 'translateY(-4px)';
-                  e.currentTarget.style.boxShadow = '0 12px 30px rgba(75, 115, 158, 0.08)';
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = 'none';
-                }}
-              >
-                <div style={{ aspectRatio: '3/4', background: C.sage, overflow: 'hidden', position: 'relative' }}>
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.6s ease', display: 'block' }}
-                    onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.05)'}
-                    onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
-                  />
-                </div>
-                <div style={{ padding: '14px 14px' }}>
-                  <p style={{ margin: 0, fontSize: 13.5, fontWeight: 600, color: C.soil, lineHeight: 1.35, fontFamily: "'Playfair Display', serif" }}>
-                    {product.name}
-                  </p>
-                </div>
-              </Link>
-            ))}
-          </div>
         </div>
       </section>
-
-
 
     </div>
   );

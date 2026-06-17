@@ -2,14 +2,14 @@ import { motion } from 'framer-motion';
 import { Bell, ChevronRight, Calendar } from 'lucide-react';
 
 const C = {
-  primary: '#4b739e',        // Steel Blue
-  primaryLight: '#6a8db5',  // Light Steel Blue
-  soil: '#1a2a3a',           // Deep Slate Blue (Main Text)
-  sand: '#f7f4ed',           // Soft Warm Sand
+  primary: '#0a1c3a',        // Primary Navy
+  primaryLight: '#1f3458',  // Light Navy
+  soil: '#0a1c3a',           // Deep Slate Navy
+  sand: '#f7efe5',           // Soft Warm Sand
   cream: '#ffffff',          // White Background
-  border: '#d2dfed',         // Soft Blue-Grey Border
+  border: '#ebdcd8',         // Soft Warm Border
   stone: '#536476',          // Muted Slate Text
-  accent: '#c5a059',         // Warm Gold/Beige
+  accent: '#d27265',         // Accent Coral/Terracotta
 };
 
 const notices = [
@@ -21,16 +21,16 @@ const notices = [
 
 export default function NoticeBoard() {
   return (
-    <div style={{ fontFamily: "'DM Sans', sans-serif", background: C.cream }}>
+    <div style={{ fontFamily: "'DM Sans', sans-serif", background: C.cream }} className="pt-16 pb-20">
 
-      <div className="max-w-[90rem] mx-auto px-6 lg:px-14 pt-10 pb-20">
+      <div className="max-w-[90rem] mx-auto px-6 lg:px-14 pt-10">
 
         {/* Page Title Section */}
         <div className="text-center mb-12">
           <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(30px, 4vw, 44px)', fontWeight: 600, color: C.soil, margin: '0 0 12px' }}>
             Notice Board
           </h1>
-          <div style={{ width: 44, height: 2, background: `linear-gradient(90deg, ${C.primaryLight}, ${C.primary})`, borderRadius: 2, margin: '0 auto' }} />
+          <div style={{ width: 50, height: 2, background: C.accent, borderRadius: 2, margin: '0 auto' }} />
         </div>
   
         <motion.div
@@ -44,31 +44,31 @@ export default function NoticeBoard() {
               className="card-hover text-left"
               style={{
                 borderRadius: 16, padding: '24px 22px',
-                background: notice.isNew ? 'rgba(75, 115, 158, 0.02)' : 'white',
+                background: notice.isNew ? 'rgba(210, 114, 101, 0.02)' : 'white',
                 cursor: 'pointer',
                 display: 'flex', flexDirection: 'column',
-                borderLeft: notice.isNew ? `4px solid ${C.primaryLight}` : '4px solid transparent',
+                borderLeft: notice.isNew ? `4px solid ${C.accent}` : '4px solid transparent',
                 border: `1px solid ${C.border}`,
                 transition: 'all 0.3s ease',
               }}
               onMouseEnter={e => {
-                e.currentTarget.style.background = 'rgba(75, 115, 158, 0.05)';
-                e.currentTarget.style.borderLeftColor = C.primaryLight;
+                e.currentTarget.style.background = 'rgba(210, 114, 101, 0.05)';
+                e.currentTarget.style.borderLeftColor = C.accent;
                 e.currentTarget.style.transform = 'translateX(4px)';
               }}
               onMouseLeave={e => {
-                e.currentTarget.style.background = notice.isNew ? 'rgba(75, 115, 158, 0.02)' : 'white';
-                e.currentTarget.style.borderLeftColor = notice.isNew ? C.primaryLight : 'transparent';
+                e.currentTarget.style.background = notice.isNew ? 'rgba(210, 114, 101, 0.02)' : 'white';
+                e.currentTarget.style.borderLeftColor = notice.isNew ? C.accent : 'transparent';
                 e.currentTarget.style.transform = 'translateX(0)';
               }}
             >
               <div>
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 16 }}>
-                  <div style={{ width: 40, height: 40, borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(75, 115, 158, 0.08)', border: `1px solid rgba(75, 115, 158, 0.2)` }}>
-                    <Bell size={18} color={C.primary} />
+                <div style={{ display: 'flex', alignItems: 'center', justify: 'space-between', marginBottom: 16 }}>
+                  <div style={{ width: 40, height: 40, borderRadius: 12, display: 'flex', alignItems: 'center', justify: 'center', background: 'rgba(210, 114, 101, 0.1)', border: `1px solid rgba(210, 114, 101, 0.2)` }}>
+                    <Bell size={18} color={C.accent} />
                   </div>
                   {notice.isNew && (
-                    <span style={{ fontSize: 9, padding: '3px 10px', borderRadius: 20, color: C.accent, background: C.sand, letterSpacing: '0.15em', textTransform: 'uppercase', fontWeight: 600, border: `1px solid rgba(176, 87, 66, 0.2)` }}>
+                    <span style={{ fontSize: 9, padding: '3px 10px', borderRadius: 20, color: C.accent, background: C.sand, letterSpacing: '0.15em', textTransform: 'uppercase', fontWeight: 600, border: `1px solid rgba(210, 114, 101, 0.2)` }}>
                       New
                     </span>
                   )}
@@ -81,7 +81,7 @@ export default function NoticeBoard() {
                   {notice.title}
                 </h3>
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: 14, marginTop: 'auto', borderTop: `1px solid ${C.border}` }}>
+              <div style={{ display: 'flex', alignItems: 'center', justify: 'space-between', paddingTop: 14, marginTop: 'auto', borderTop: `1px solid ${C.border}` }}>
                 <span style={{ fontSize: 12, color: C.primary, fontWeight: 500 }}>Read More</span>
                 <ChevronRight size={15} color={C.primary} />
               </div>

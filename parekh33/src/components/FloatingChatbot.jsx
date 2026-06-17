@@ -2,14 +2,14 @@ import { useState } from 'react';
 import { MessageSquareText, X, Send, Sparkles } from 'lucide-react';
 
 const C = {
-  primary: '#4b739e',        // Steel Blue
-  primaryLight: '#6a8db5',  // Light Steel Blue
-  soil: '#1a2a3a',           // Deep Slate Blue (Main Text)
-  sand: '#f7f4ed',           // Soft Warm Sand
+  primary: '#0a1c3a',        // Primary Navy
+  primaryLight: '#1f3458',  // Light Navy
+  soil: '#0a1c3a',           // Deep Slate Navy
+  sand: '#f7efe5',           // Soft Warm Sand
   cream: '#ffffff',          // White Background
-  border: '#d2dfed',         // Soft Blue-Grey Border
+  border: '#ebdcd8',         // Soft Warm Border
   stone: '#536476',          // Muted Slate Text
-  accent: '#c5a059',         // Warm Gold/Beige
+  accent: '#d27265',         // Accent Coral/Terracotta
 };
 
 const FloatingChatbot = () => {
@@ -21,7 +21,7 @@ const FloatingChatbot = () => {
       {isOpen && (
         <div
           className="mb-4 w-[340px] sm:w-[370px] rounded-2xl overflow-hidden border"
-          style={{ borderColor: C.border, background: '#FFFFFF', boxShadow: '0 12px 40px rgba(34,43,32,0.15)' }}
+          style={{ borderColor: C.border, background: '#FFFFFF', boxShadow: '0 12px 40px rgba(10,28,58,0.15)' }}
         >
           {/* Header */}
           <div
@@ -31,13 +31,13 @@ const FloatingChatbot = () => {
             <div className="flex items-center gap-3">
               <div
                 className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0"
-                style={{ background: C.primary }}
+                style={{ background: C.accent }}
               >
                 <Sparkles size={15} color="white" />
               </div>
               <div className="text-left">
                 <p className="text-white text-[13px] font-bold tracking-wide leading-tight">
-                  WEAVION Assistant
+                  LOOMERA Assistant
                 </p>
                 <div className="flex items-center gap-1.5 mt-0.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
@@ -61,7 +61,7 @@ const FloatingChatbot = () => {
             <div className="flex items-start gap-2.5 mb-4">
               <div
                 className="w-7 h-7 rounded-xl flex items-center justify-center shrink-0 mt-0.5"
-                style={{ background: C.primaryLight }}
+                style={{ background: C.accent }}
               >
                 <Sparkles size={11} color="white" />
               </div>
@@ -70,7 +70,7 @@ const FloatingChatbot = () => {
                 style={{ borderColor: C.border }}
               >
                 <p className="text-[13px] leading-relaxed" style={{ color: C.soil }}>
-                  Namaste! 🙏 Welcome to <strong>WEAVION</strong>. How can I assist you today?
+                  Namaste! 🙏 Welcome to <strong>LOOMERA Textile Retail</strong>. How can I assist you today?
                 </p>
               </div>
             </div>
@@ -81,7 +81,7 @@ const FloatingChatbot = () => {
                   key={chip}
                   className="text-[11px] font-bold px-3 py-1.5 rounded-full transition-all duration-200 hover:-translate-y-0.5 cursor-pointer"
                   style={{ background: '#FFFFFF', border: `1.5px solid ${C.border}`, color: C.stone }}
-                  onMouseEnter={e => { e.currentTarget.style.borderColor = C.primary; e.currentTarget.style.color = C.primary; e.currentTarget.style.background = C.sand; }}
+                  onMouseEnter={e => { e.currentTarget.style.borderColor = C.accent; e.currentTarget.style.color = C.accent; e.currentTarget.style.background = C.sand; }}
                   onMouseLeave={e => { e.currentTarget.style.borderColor = C.border; e.currentTarget.style.color = C.stone; e.currentTarget.style.background = '#FFFFFF'; }}
                 >
                   {chip}
@@ -102,7 +102,7 @@ const FloatingChatbot = () => {
               onChange={e => setMessage(e.target.value)}
               className="flex-grow px-4 py-2.5 rounded-xl text-[13px] outline-none transition-all duration-200"
               style={{ background: C.cream, border: `1.5px solid ${C.border}`, color: C.soil }}
-              onFocus={e => e.target.style.borderColor = C.primary}
+              onFocus={e => e.target.style.borderColor = C.accent}
               onBlur={e => e.target.style.borderColor = C.border}
             />
             <button
@@ -123,7 +123,7 @@ const FloatingChatbot = () => {
         style={{
           background: isOpen ? C.soil : C.primary,
           borderColor: C.border,
-          boxShadow: '0 4px 16px rgba(71,86,67,0.2)'
+          boxShadow: '0 4px 16px rgba(10,28,58,0.2)'
         }}
       >
         {isOpen ? (

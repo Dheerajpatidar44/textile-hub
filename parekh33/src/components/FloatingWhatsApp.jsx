@@ -1,16 +1,16 @@
-﻿import React from 'react';
+import React from 'react';
 
 const COLORS = { 
   primary: '#25D366', // Standard WhatsApp Green
   bg: '#ffffff',      // Matches C.cream
-  border: '#d8cff0',  // Matches C.border
-  textDark: '#1a1435' // Matches C.soil
+  border: '#ebdcd8',  // Matches C.border
+  textDark: '#0a1c3a' // Matches C.soil
 };
 
 const FloatingWhatsApp = () => {
   return (
     <a
-      href="https://wa.me/916353778329"
+      href="https://wa.me/919876543210"
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat on WhatsApp"

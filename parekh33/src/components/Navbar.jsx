@@ -4,13 +4,13 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const C = {
-  primary: '#4b739e',       // Steel Blue
-  accent: '#c5a059',        // Warm Gold/Beige
+  primary: '#0a1c3a',        // Primary Navy
+  accent: '#d27265',         // Accent Coral/Terracotta
   bg: '#ffffff',            // White
-  sand: '#f7f4ed',          // Soft Warm Sand
-  sage: '#e8eff6',          // Soft Pastel Blue
-  border: '#d2dfed',        // Soft Blue-Grey Border
-  soil: '#1a2a3a',           // Deep Slate Blue
+  sand: '#f7efe5',           // Soft Warm Sand
+  sage: '#e9f0f8',           // Soft Pastel Blue
+  border: '#ebdcd8',         // Warm Soft Border
+  soil: '#0a1c3a',           // Deep Slate Navy
   stone: '#536476',          // Muted Slate Text
 };
 
@@ -78,7 +78,7 @@ export default function Navbar() {
     >
       {/* ── Main Navbar ── */}
       <div
-        className={`w-full transition-all duration-300 ${scrolled ? 'py-2' : 'py-3'}`}
+        className="w-full transition-all duration-300 py-3"
         style={{
           background: scrolled ? 'rgba(255,255,255,0.97)' : '#ffffff',
           backdropFilter: scrolled ? 'blur(12px)' : 'none',
@@ -88,25 +88,32 @@ export default function Navbar() {
       >
         <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14 flex justify-between items-center">
 
-          {/* Logo Brand: WEAVION */}
-          <Link to="/" className="flex items-center gap-3 group shrink-0 text-left">
+          {/* Logo Brand: LOOMERA */}
+          <Link to="/" className="flex items-center gap-3.5 group shrink-0 text-left relative pl-6 pr-10 py-3 sm:pl-8 sm:pr-12 lg:pl-14 lg:pr-16 -ml-6 sm:-ml-8 lg:-ml-14 -my-3 transition-all duration-300" style={{
+            background: 'linear-gradient(135deg, #0a1c3a 0%, #050e1d 100%)',
+            borderRadius: '0 0 50px 0',
+            boxShadow: '4px 4px 15px rgba(0,0,0,0.1)',
+          }}>
+            {/* Orange/Coral Motif Icon */}
             <div style={{
-              background: 'linear-gradient(135deg, #4b739e 0%, #2b496e 100%)',
-              borderRadius: '10px 20px 10px 20px',
-              width: 42, height: 42,
+              width: 30, height: 30,
               display: 'flex', alignItems: 'center', justifyContent: 'center',
-              boxShadow: '0 4px 14px rgba(75, 115, 158, 0.3)',
             }}>
-              <Crown size={20} color="#c5a059" />
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2L17 7L12 12L7 7L12 2Z" fill="#d27265" />
+                <path d="M17 7L22 12L17 17L12 12L17 7Z" fill="#ebdcd8" opacity="0.8" />
+                <path d="M12 12L17 17L12 22L7 17L12 12Z" fill="#d27265" />
+                <path d="M7 7L12 12L7 17L2 12L7 7Z" fill="#ebdcd8" opacity="0.8" />
+              </svg>
             </div>
             <div className="flex flex-col">
               <span
-                className="text-[19px] font-bold leading-none tracking-wide"
-                style={{ fontFamily: "'Playfair Display', serif", color: C.soil }}
+                className="text-[20px] font-bold leading-none tracking-wide text-white"
+                style={{ fontFamily: "'Playfair Display', serif" }}
               >
-                WEAVION
+                LOOMERA
               </span>
-              <span className="text-[8px] tracking-[0.2em] font-semibold mt-1 uppercase" style={{ color: C.accent }}>
+              <span className="text-[7.5px] tracking-[0.2em] font-semibold mt-1.5 uppercase text-[#ebdcd8]">
                 Textile Retail
               </span>
             </div>
@@ -114,7 +121,7 @@ export default function Navbar() {
 
           {/* Center Links (Desktop) */}
           <nav className="hidden md:flex items-center gap-x-4 lg:gap-x-5">
-            {directNavItems.map((item) => {
+            {directNavItems.filter(item => item.name !== 'Trade Enquiry').map((item) => {
               const active = isItemActive(item);
               return (
                 <Link
@@ -152,33 +159,67 @@ export default function Navbar() {
               <AnimatePresence>
                 {dropdownOpen && (
                   <motion.div
-                    initial={{ opacity: 0, y: -8, scale: 0.97 }}
+                    initial={{ opacity: 0, y: 6, scale: 0.96 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: -8, scale: 0.97 }}
-                    transition={{ duration: 0.18 }}
-                    className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-60 rounded-2xl shadow-2xl border py-2 z-[999] text-left"
-                    style={{ background: '#ffffff', borderColor: C.border }}
+                    exit={{ opacity: 0, y: 6, scale: 0.96 }}
+                    transition={{ duration: 0.2, ease: 'easeOut' }}
+                    className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-64 rounded-2xl shadow-2xl z-[999] text-left overflow-hidden"
+                    style={{
+                      background: 'linear-gradient(180deg, #0d2244 0%, #0a1c3a 100%)',
+                      border: '1px solid rgba(210, 114, 101, 0.15)',
+                    }}
                   >
-                    {dropdownNavItems.map((item) => {
-                      const active = isItemActive(item);
-                      return (
-                        <Link
-                          key={item.name}
-                          to={item.path}
-                          onClick={() => setDropdownOpen(false)}
-                          className="flex items-center gap-2.5 px-4 py-2.5 text-[12.5px] font-medium transition-all"
-                          style={{
-                            color: active ? C.primary : C.soil,
-                            background: active ? 'rgba(75, 115, 158, 0.06)' : 'transparent',
-                          }}
-                          onMouseEnter={e => { if (!active) { e.currentTarget.style.background = C.sage; e.currentTarget.style.color = C.primary; } }}
-                          onMouseLeave={e => { if (!active) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = C.soil; } }}
-                        >
-                          <span style={{ width: 5, height: 5, borderRadius: '50%', background: active ? C.accent : 'rgba(75, 115, 158, 0.3)', flexShrink: 0, display: 'inline-block' }} />
-                          {item.name}
-                        </Link>
-                      );
-                    })}
+                    {/* Top caret arrow */}
+                    <div style={{
+                      position: 'absolute', top: -6, left: '50%', transform: 'translateX(-50%)',
+                      width: 12, height: 12, background: '#0d2244',
+                      borderRadius: 2, transform: 'translateX(-50%) rotate(45deg)',
+                      borderTop: '1px solid rgba(210, 114, 101, 0.15)',
+                      borderLeft: '1px solid rgba(210, 114, 101, 0.15)',
+                    }} />
+                    <div style={{ padding: '6px 0' }}>
+                      {dropdownNavItems.map((item) => {
+                        const active = isItemActive(item);
+                        return (
+                          <Link
+                            key={item.name}
+                            to={item.path}
+                            onClick={() => setDropdownOpen(false)}
+                            className="flex items-center gap-3 px-5 py-2.5 text-[12.5px] font-medium transition-all duration-200"
+                            style={{
+                              color: active ? '#ffffff' : 'rgba(255,255,255,0.75)',
+                              background: active ? 'rgba(210, 114, 101, 0.18)' : 'transparent',
+                              borderLeft: active ? '3px solid #d27265' : '3px solid transparent',
+                              textDecoration: 'none',
+                            }}
+                            onMouseEnter={e => {
+                              e.currentTarget.style.background = 'rgba(255,255,255,0.1)';
+                              e.currentTarget.style.color = '#ffffff';
+                              e.currentTarget.style.borderLeftColor = '#d27265';
+                            }}
+                            onMouseLeave={e => {
+                              if (!active) {
+                                e.currentTarget.style.background = 'transparent';
+                                e.currentTarget.style.color = 'rgba(255,255,255,0.75)';
+                                e.currentTarget.style.borderLeftColor = 'transparent';
+                              } else {
+                                e.currentTarget.style.background = 'rgba(210, 114, 101, 0.18)';
+                                e.currentTarget.style.color = '#ffffff';
+                                e.currentTarget.style.borderLeftColor = '#d27265';
+                              }
+                            }}
+                          >
+                            <span style={{
+                              width: 5, height: 5, borderRadius: '50%',
+                              background: active ? '#d27265' : 'rgba(255,255,255,0.25)',
+                              flexShrink: 0, display: 'inline-block',
+                              transition: 'background 0.2s',
+                            }} />
+                            {item.name}
+                          </Link>
+                        );
+                      })}
+                    </div>
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -187,6 +228,23 @@ export default function Navbar() {
 
           {/* Right side */}
           <div className="flex items-center gap-4 shrink-0">
+            {/* Trade Enquiry Button (Desktop) */}
+            <Link
+              to="/trade-enquiry"
+              className="hidden md:inline-flex items-center justify-center px-5 py-2.5 rounded-full text-[11px] lg:text-[12px] font-bold tracking-wider uppercase text-white shadow-sm hover:shadow-md transition-all duration-300"
+              style={{
+                background: `linear-gradient(135deg, ${C.primary} 0%, ${C.accent} 100%)`,
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.transform = 'translateY(-1px)';
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.transform = 'translateY(0)';
+              }}
+            >
+              Trade Enquiry
+            </Link>
+
             {/* Mobile Toggle */}
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -216,12 +274,12 @@ export default function Navbar() {
             style={{ background: '#ffffff', fontFamily: "'DM Sans', sans-serif" }}
           >
             {/* Drawer header */}
-            <div style={{ background: 'linear-gradient(135deg, #4b739e, #2b496e)', padding: '16px 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            <div style={{ background: 'linear-gradient(135deg, #0a1c3a, #050e1d)', padding: '16px 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
               <div>
                 <p style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, fontStyle: 'normal', fontWeight: 700, color: '#ffffff', margin: 0 }}>
-                  WEAVION
+                  LOOMERA
                 </p>
-                <p style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#c5a059', margin: 0, marginTop: 2, fontWeight: 600 }}>
+                <p style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#d27265', margin: 0, marginTop: 2, fontWeight: 600 }}>
                   Textile Retail
                 </p>
               </div>
@@ -315,7 +373,7 @@ export default function Navbar() {
                   to="/contact"
                   onClick={() => setIsOpen(false)}
                   className="flex items-center justify-center gap-2 py-3.5 rounded-full text-sm font-bold uppercase tracking-wider text-white"
-                  style={{ background: 'linear-gradient(135deg, #4b739e, #c5a059)' }}
+                  style={{ background: 'linear-gradient(135deg, #0a1c3a, #d27265)' }}
                 >
                   Contact Us
                 </Link>

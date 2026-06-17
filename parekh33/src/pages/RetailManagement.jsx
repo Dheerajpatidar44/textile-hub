@@ -2,14 +2,14 @@ import { motion } from 'framer-motion';
 import { Mail, Users, TrendingUp, Award } from 'lucide-react';
 
 const C = {
-  primary: '#4b739e',        // Steel Blue
-  primaryLight: '#6a8db5',  // Light Steel Blue
-  soil: '#1a2a3a',           // Deep Slate Blue (Main Text)
-  sand: '#f7f4ed',           // Soft Warm Sand
+  primary: '#0a1c3a',        // Primary Navy
+  primaryLight: '#1f3458',  // Light Navy
+  soil: '#0a1c3a',           // Deep Slate Navy
+  sand: '#f7efe5',           // Soft Warm Sand
   cream: '#ffffff',          // White Background
-  border: '#d2dfed',         // Soft Blue-Grey Border
+  border: '#ebdcd8',         // Soft Warm Border
   stone: '#536476',          // Muted Slate Text
-  accent: '#c5a059',         // Warm Gold/Beige
+  accent: '#d27265',         // Accent Coral/Terracotta
 };
 
 const teamMembers = [
@@ -26,20 +26,20 @@ const highlights = [
 
 export default function RetailManagement() {
   return (
-    <div style={{ fontFamily: "'DM Sans', sans-serif", background: C.cream }}>
+    <div style={{ fontFamily: "'DM Sans', sans-serif", background: C.cream }} className="pt-16 pb-20">
 
-      <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14 pt-10 pb-20">
+      <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14 pt-10">
 
         {/* Page Title Section */}
         <div className="text-center mb-12">
           <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(30px, 4vw, 44px)', fontWeight: 600, color: C.soil, margin: '0 0 12px' }}>
             Our Retail Management
           </h1>
-          <div style={{ width: 44, height: 2, background: `linear-gradient(90deg, ${C.primaryLight}, ${C.primary})`, borderRadius: 2, margin: '0 auto' }} />
+          <div style={{ width: 50, height: 2, background: C.accent, borderRadius: 2, margin: '0 auto' }} />
         </div>
   
         <p style={{ textAlign: 'center', fontSize: 15, color: C.stone, marginBottom: 40, fontWeight: 400, maxWidth: 560, margin: '0 auto 40px', lineHeight: 1.7 }}>
-          WEAVION is administered and governed by highly skilled, experienced and qualified Management with decades of expertise in the textile industry.
+          LOOMERA Textile Retail is administered and governed by highly skilled, experienced and qualified Management with decades of expertise in the textile industry.
         </p>
 
         {/* Team Cards */}
@@ -63,7 +63,7 @@ export default function RetailManagement() {
               }}
               onMouseEnter={e => {
                 e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 12px 30px rgba(75, 115, 158, 0.08)';
+                e.currentTarget.style.boxShadow = '0 12px 30px rgba(210, 114, 101, 0.08)';
               }}
               onMouseLeave={e => {
                 e.currentTarget.style.transform = 'translateY(0)';
@@ -77,14 +77,14 @@ export default function RetailManagement() {
                   style={{
                     width: 90, height: 90, borderRadius: '50%',
                     objectFit: 'cover',
-                    border: `3px solid rgba(71, 86, 67, 0.3)`,
+                    border: `3px solid rgba(210, 114, 101, 0.2)`,
                     display: 'block',
                   }}
                 />
                 <div style={{
                   position: 'absolute', bottom: 0, right: 0,
                   width: 24, height: 24, borderRadius: '50%',
-                  background: C.primary, border: '2px solid white',
+                  background: C.accent, border: '2px solid white',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                 }}>
                   <div style={{ width: 8, height: 8, borderRadius: '50%', background: 'white' }} />
@@ -102,17 +102,17 @@ export default function RetailManagement() {
               </p>
 
               <a
-                href={`mailto:${member.name.toLowerCase().replace(' ', '')}@weaviontextile.com`}
+                href={`mailto:${member.name.toLowerCase().replace(' ', '')}@loomera.com`}
                 style={{
                   display: 'inline-flex', alignItems: 'center', gap: 6,
                   padding: '8px 16px', borderRadius: 10,
                   fontSize: 12, color: C.primary, textDecoration: 'none', fontWeight: 500,
-                  background: 'rgba(75, 115, 158, 0.08)',
-                  border: `1px solid rgba(75, 115, 158, 0.2)`,
+                  background: 'rgba(210, 114, 101, 0.1)',
+                  border: `1px solid rgba(210, 114, 101, 0.25)`,
                   transition: 'all 0.2s ease',
                 }}
-                onMouseEnter={e => { e.currentTarget.style.background = C.primary; e.currentTarget.style.color = 'white'; }}
-                onMouseLeave={e => { e.currentTarget.style.background = 'rgba(75, 115, 158, 0.08)'; e.currentTarget.style.color = C.primary; }}
+                onMouseEnter={e => { e.currentTarget.style.background = C.accent; e.currentTarget.style.color = 'white'; e.currentTarget.style.borderColor = C.accent; }}
+                onMouseLeave={e => { e.currentTarget.style.background = 'rgba(210, 114, 101, 0.1)'; e.currentTarget.style.color = C.primary; e.currentTarget.style.borderColor = 'rgba(210, 114, 101, 0.25)'; }}
               >
                 <Mail size={13} /> Contact
               </a>

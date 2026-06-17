@@ -2,28 +2,43 @@ import { motion } from 'framer-motion';
 import { Send, Building2, ShoppingBag } from 'lucide-react';
 
 const C = {
-  primary: '#4b739e',        // Steel Blue
-  primaryLight: '#6a8db5',  // Light Steel Blue
-  soil: '#1a2a3a',           // Deep Slate Blue (Main Text)
-  sand: '#f7f4ed',           // Soft Warm Sand
+  primary: '#0a1c3a',        // Primary Navy
+  primaryLight: '#1f3458',  // Light Navy
+  soil: '#0a1c3a',           // Deep Slate Navy
+  sand: '#f7efe5',           // Soft Warm Sand
   cream: '#ffffff',          // White Background
-  border: '#d2dfed',         // Soft Blue-Grey Border
+  border: '#ebdcd8',         // Soft Warm Border
   stone: '#536476',          // Muted Slate Text
-  accent: '#c5a059',         // Warm Gold/Beige
+  accent: '#d27265',         // Accent Coral/Terracotta
 };
+
+const categories = [
+  "Sarees",
+  "Leggings",
+  "Kurtis",
+  "Dress Suits",
+  "Bedsheets & Linen",
+  "Hosiery Items",
+  "Suiting",
+  "Shirting",
+  "Formal & Ethnic Wear for Women",
+  "Formal & Ethnic Wear for Men",
+  "Formal & Ethnic Wear for Children",
+  "Home Upholstery & Furnishing"
+];
 
 export default function TradeEnquiry() {
   return (
-    <div style={{ fontFamily: "'DM Sans', sans-serif", background: C.cream, minHeight: '100vh' }}>
+    <div style={{ fontFamily: "'DM Sans', sans-serif", background: C.cream, minHeight: '100vh' }} className="pt-16 pb-20">
 
-      <div className="max-w-3xl mx-auto px-6 pt-10 pb-20">
+      <div className="max-w-3xl mx-auto px-6 pt-10">
 
         {/* Page Title Section */}
         <div className="text-center mb-12">
           <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(30px, 4vw, 44px)', fontWeight: 600, color: C.soil, margin: '0 0 12px' }}>
             Trade Enquiry
           </h1>
-          <div style={{ width: 44, height: 2, background: `linear-gradient(90deg, ${C.primaryLight}, ${C.primary})`, borderRadius: 2, margin: '0 auto' }} />
+          <div style={{ width: 50, height: 2, background: C.accent, borderRadius: 2, margin: '0 auto' }} />
         </div>
   
         <p style={{ textAlign: 'center', fontSize: 15, lineHeight: 1.8, color: C.stone, marginBottom: 36, fontWeight: 400 }}>
@@ -39,7 +54,7 @@ export default function TradeEnquiry() {
             borderRadius: 20,
             border: `1px solid ${C.border}`,
             overflow: 'hidden',
-            boxShadow: '0 4px 20px rgba(75, 115, 158, 0.04)',
+            boxShadow: '0 4px 20px rgba(210, 114, 101, 0.04)',
           }}
         >
           <div style={{
@@ -60,7 +75,7 @@ export default function TradeEnquiry() {
 
               <div>
                 <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, fontWeight: 600, color: C.soil, margin: '0 0 16px', paddingBottom: 12, borderBottom: `1px solid ${C.border}`, display: 'flex', alignItems: 'center', gap: 8 }}>
-                  <Building2 size={16} color={C.primaryLight} /> Company Details
+                  <Building2 size={16} color={C.accent} /> Company Details
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {[
@@ -81,7 +96,7 @@ export default function TradeEnquiry() {
 
               <div>
                 <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, fontWeight: 600, color: C.soil, margin: '0 0 16px', paddingBottom: 12, borderBottom: `1px solid ${C.border}`, display: 'flex', alignItems: 'center', gap: 8 }}>
-                  <ShoppingBag size={16} color={C.primaryLight} /> Enquiry Details
+                  <ShoppingBag size={16} color={C.accent} /> Enquiry Details
                 </h3>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
                   <div>
@@ -89,11 +104,9 @@ export default function TradeEnquiry() {
                       Interested Categories
                     </label>
                     <select className="form-input" style={{ appearance: 'none' }}>
-                      <option>Sarees</option>
-                      <option>Leggings</option>
-                      <option>Kurtis</option>
-                      <option>Suiting & Shirting</option>
-                      <option>Home Furnishing</option>
+                      {categories.map(cat => (
+                        <option key={cat}>{cat}</option>
+                      ))}
                       <option>Multiple / Other</option>
                     </select>
                   </div>

@@ -4,13 +4,13 @@ import { motion } from 'framer-motion';
 import { ShoppingBag, Filter } from 'lucide-react';
 
 const C = {
-  primary: '#4b739e',        // Steel Blue
-  primaryLight: '#6a8db5',  // Light Steel Blue
-  accent: '#c5a059',         // Warm Gold/Beige
+  primary: '#0a1c3a',        // Primary Navy
+  primaryLight: '#1f3458',  // Light Navy
+  accent: '#d27265',         // Accent Coral/Terracotta
   bg: '#ffffff',
-  sand: '#f7f4ed',           // Soft Warm Sand
-  border: '#d2dfed',         // Soft Blue-Grey Border
-  soil: '#1a2a3a',           // Deep Slate Blue (Main Text)
+  sand: '#f7efe5',           // Soft Warm Sand
+  border: '#ebdcd8',         // Soft Warm Border
+  soil: '#0a1c3a',           // Deep Slate Navy (Main Text)
   stone: '#536476',          // Muted Slate Text
 };
 

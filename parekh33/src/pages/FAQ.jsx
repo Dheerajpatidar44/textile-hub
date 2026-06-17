@@ -3,14 +3,14 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus } from 'lucide-react';
 
 const C = {
-  primary: '#4b739e',        // Steel Blue
-  primaryLight: '#6a8db5',  // Light Steel Blue
-  soil: '#1a2a3a',           // Deep Slate Blue (Main Text)
-  sand: '#f7f4ed',           // Soft Warm Sand
+  primary: '#0a1c3a',        // Primary Navy
+  primaryLight: '#1f3458',  // Light Navy
+  soil: '#0a1c3a',           // Deep Slate Navy
+  sand: '#f7efe5',           // Soft Warm Sand
   cream: '#ffffff',          // White Background
-  border: '#d2dfed',         // Soft Blue-Grey Border
+  border: '#ebdcd8',         // Soft Warm Border
   stone: '#536476',          // Muted Slate Text
-  accent: '#c5a059',         // Warm Gold/Beige
+  accent: '#d27265',         // Accent Coral/Terracotta
 };
 
 const faqs = [
@@ -24,7 +24,7 @@ const faqs = [
   },
   {
     question: "How can I track my order?",
-    answer: "Once your order is dispatched, you will receive a tracking link via email and SMS. You can also track your order status directly from your account dashboard on our website."
+    answer: "Once your order is dispatched, you will receive a tracking link via email and SMS. You can also track your order status directly from our website."
   },
   {
     question: "What is your return and exchange policy?",
@@ -32,7 +32,7 @@ const faqs = [
   },
   {
     question: "Do you ship internationally?",
-    answer: "Yes, WEAVION ships globally. International shipping charges and delivery times vary based on the destination and order volume."
+    answer: "Yes, LOOMERA ships globally. International shipping charges and delivery times vary based on the destination and order volume."
   },
   {
     question: "Can I request custom fabric weaving or dyeing?",
@@ -48,16 +48,16 @@ export default function FAQ() {
   };
 
   return (
-    <div style={{ fontFamily: "'DM Sans', sans-serif", background: C.cream, minHeight: '100vh' }}>
+    <div style={{ fontFamily: "'DM Sans', sans-serif", background: C.cream, minHeight: '100vh' }} className="pt-16 pb-20">
 
-      <div className="max-w-3xl mx-auto px-6 pt-10 pb-20">
+      <div className="max-w-3xl mx-auto px-6 pt-10">
 
         {/* Page Title Section */}
         <div className="text-center mb-12">
           <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(30px, 4vw, 44px)', fontWeight: 600, color: C.soil, margin: '0 0 12px' }}>
             Frequently Asked Questions
           </h1>
-          <div style={{ width: 44, height: 2, background: `linear-gradient(90deg, ${C.primaryLight}, ${C.primary})`, borderRadius: 2, margin: '0 auto' }} />
+          <div style={{ width: 50, height: 2, background: C.accent, borderRadius: 2, margin: '0 auto' }} />
         </div>
   
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
@@ -70,9 +70,9 @@ export default function FAQ() {
                 transition={{ delay: index * 0.08 }}
                 key={index}
                 style={{
-                  background: isOpen ? 'white' : 'white',
-                  borderRadius: 0,
-                  border: `1px solid ${isOpen ? C.primaryLight : C.border}`,
+                  background: 'white',
+                  borderRadius: 8,
+                  border: `1px solid ${isOpen ? C.accent : C.border}`,
                   overflow: 'hidden',
                   transition: 'all 0.3s ease',
                 }}
@@ -94,11 +94,11 @@ export default function FAQ() {
                   </h3>
                   <div style={{
                     flexShrink: 0, width: 32, height: 32, borderRadius: '50%',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    background: isOpen ? C.primary : 'rgba(75, 115, 158, 0.06)',
+                    display: 'flex', alignItems: 'center', justifyContainer: 'center',
+                    background: isOpen ? C.accent : 'rgba(210, 114, 101, 0.06)',
                     transition: 'all 0.3s ease',
-                  }}>
-                    {isOpen ? <Minus size={15} color="white" /> : <Plus size={15} color={C.primary} />}
+                  }} className="flex items-center justify-center">
+                    {isOpen ? <Minus size={15} color="white" /> : <Plus size={15} color={C.accent} />}
                   </div>
                 </button>
 
@@ -126,7 +126,7 @@ export default function FAQ() {
         <div style={{ marginTop: 40, textAlign: 'center', padding: '24px', background: C.sand, borderRadius: 16, border: `1px solid ${C.border}` }}>
           <p style={{ fontSize: 14, color: C.stone, margin: 0, fontWeight: 400 }}>
             Still have questions?{' '}
-            <a href="/contact" style={{ color: C.primary, fontWeight: 500, textDecoration: 'none', borderBottom: `1px solid ${C.primaryLight}` }}>
+            <a href="/contact" style={{ color: C.primary, fontWeight: 500, textDecoration: 'none', borderBottom: `1px solid ${C.accent}` }}>
               Contact our support team
             </a>
           </p>
