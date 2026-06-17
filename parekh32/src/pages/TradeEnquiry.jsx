@@ -1,15 +1,15 @@
-﻿import { motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Send, Building2, ShoppingBag } from 'lucide-react';
 
 const C = {
-  primary: '#5b4fcf',       // Deep Forest Green
-  primaryLight: '#7b6fdf',  // Medium Forest Green
-  soil: '#1a1435',          // Deep Dark Charcoal Text
-  sand: '#f5f0e8',          // Soft Beige Background
-  cream: '#ffffff',          // Warm Off-white base background
-  border: '#d8cff0',        // Soft Warm Border
-  stone: '#6b6080',         // Muted Olive-Charcoal Text
-  accent: '#c8922a',        // Terracotta Accent
+  primary: '#4b739e',        // Steel Blue
+  primaryLight: '#6a8db5',  // Light Steel Blue
+  soil: '#1a2a3a',           // Deep Slate Blue (Main Text)
+  sand: '#f7f4ed',           // Soft Warm Sand
+  cream: '#ffffff',          // White Background
+  border: '#d2dfed',         // Soft Blue-Grey Border
+  stone: '#536476',          // Muted Slate Text
+  accent: '#c5a059',         // Warm Gold/Beige
 };
 
 export default function TradeEnquiry() {
@@ -37,9 +37,9 @@ export default function TradeEnquiry() {
           style={{
             background: 'white',
             borderRadius: 20,
-            border: `1px solid ${C.border}`, borderTop: `4px solid ${C.primaryLight}`,
+            border: `1px solid ${C.border}`,
             overflow: 'hidden',
-            boxShadow: '0 4px 20px rgba(91,79,207,0.04)',
+            boxShadow: '0 4px 20px rgba(75, 115, 158, 0.04)',
           }}
         >
           <div style={{
@@ -126,14 +126,14 @@ export default function TradeEnquiry() {
                 style={{
                   width: '100%', padding: '14px',
                   display: 'flex', alignItems: 'center', justify: 'center', gap: 8,
-                  background: C.soil, color: 'white',
+                  background: C.primary, color: 'white',
                   border: 'none', borderRadius: 12,
                   fontSize: 14, fontWeight: 500,
                   cursor: 'pointer', fontFamily: "'DM Sans', sans-serif",
                   transition: 'all 0.2s ease',
                 }}
                 onMouseEnter={e => e.currentTarget.style.background = C.accent}
-                onMouseLeave={e => e.currentTarget.style.background = C.soil}
+                onMouseLeave={e => e.currentTarget.style.background = C.primary}
               >
                 <Send size={15} /> Submit Trade Enquiry
               </button>

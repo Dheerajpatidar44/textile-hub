@@ -1,15 +1,14 @@
-﻿import { motion } from 'framer-motion';
-import { Award, Users, Globe, CheckCircle } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const C = {
-  primary: '#5b4fcf',       // Deep Forest Green
-  primaryLight: '#7b6fdf',  // Medium Forest Green
-  accent: '#c8922a',        // Terracotta Accent
-  bg: '#ffffff',            // Warm Cream
-  sand: '#f5f0e8',          // Light Sand
-  border: '#d8cff0',        // Beige Border
-  soil: '#1a1435',          // Dark Green-Charcoal Text
-  stone: '#6b6080',         // Muted Text
+  primary: '#4b739e',        // Steel Blue
+  primaryLight: '#6a8db5',  // Light Steel Blue
+  accent: '#c5a059',         // Warm Gold/Beige
+  bg: '#ffffff',
+  sand: '#f7f4ed',           // Soft Warm Sand
+  border: '#d2dfed',         // Soft Blue-Grey Border
+  soil: '#1a2a3a',           // Deep Slate Blue (Main Text)
+  stone: '#536476',          // Muted Slate Text
 };
 
 export default function About() {
@@ -17,7 +16,7 @@ export default function About() {
     <div style={{ fontFamily: "'DM Sans', sans-serif", background: C.bg, minHeight: '100vh' }}>
       
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-6 sm:px-10 text-left pt-10 pb-20">
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 text-left pt-14 pb-20">
 
         {/* Page Title Section */}
         <div className="text-center mb-12">
@@ -27,52 +26,53 @@ export default function About() {
           <div style={{ width: 44, height: 2, background: `linear-gradient(90deg, ${C.primaryLight}, ${C.accent})`, borderRadius: 2, margin: '0 auto' }} />
         </div>
   
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center mt-10">
-          
-          {/* Left Column (Large Image) */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.98 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6 }}
-            className="lg:w-1/2 w-full"
-          >
+        {/* Cohesive Premium Card Wrapper */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          style={{
+            background: 'linear-gradient(135deg, #f7f4ed 0%, #ffffff 100%)',
+            borderRadius: '24px',
+            border: `1.5px solid ${C.border}`,
+            boxShadow: '0 20px 50px rgba(75, 115, 158, 0.08)',
+            overflow: 'hidden',
+          }}
+          className="flex flex-col lg:flex-row items-center gap-10 lg:gap-14 p-6 sm:p-10 lg:p-14"
+        >
+          {/* Left Column (Large Image - Arched Top) */}
+          <div className="lg:w-1/2 w-full flex-shrink-0">
             <div 
               style={{
                 width: '100%',
-                borderRadius: '24px',
-                border: `1px solid ${C.border}`,
-                boxShadow: '0 20px 40px rgba(91, 79, 207, 0.08)',
+                borderRadius: '160px 160px 24px 24px',
+                border: `1.5px solid ${C.border}`,
+                boxShadow: '0 12px 30px rgba(75, 115, 158, 0.06)',
                 overflow: 'hidden',
                 background: '#ffffff',
                 aspectRatio: '4/3'
               }}
             >
               <img
-                src="/images/about_hero.png"
-                alt="Premium Textile Assortment"
-                className="w-full h-full object-cover transition-transform duration-700 hover:scale-[1.03]"
+                src="/images/about_craftsmanship.png"
+                alt="WEAVION Weaving Craftsmanship"
+                className="w-full h-full object-cover"
               />
             </div>
-          </motion.div>
+          </div>
 
-          {/* Right Column (Text) */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            className="lg:w-1/2 w-full"
-          >
+          {/* Right Column (Text details) */}
+          <div className="lg:w-1/2 w-full text-left">
             <span style={{ color: C.accent }} className="text-[11px] font-bold tracking-[0.25em] uppercase">Our Story</span>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", color: C.soil }} className="text-4xl sm:text-5xl font-bold mt-4 mb-8 leading-tight">
+            <h2 style={{ fontFamily: "'Playfair Display', serif", color: C.soil }} className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-3 mb-6 leading-tight">
               Celebrating Craftsmanship & Luxury
             </h2>
             
-            <p style={{ color: C.stone, fontSize: '1.15rem' }} className="leading-relaxed mb-6 font-normal">
-              Vastra Royale is India's premier textile destination, dedicated to celebrating handloom weaving traditions. We collaborate directly with master artisans to curate high-quality fabrics, heritage sarees, and luxury home linen for retail and commercial partners nationwide.
+            <p style={{ color: C.stone, fontSize: '1.05rem', lineHeight: '1.75' }} className="margin-0 font-normal">
+              WEAVION is India's premier textile destination, dedicated to celebrating handloom weaving traditions and high-quality modern retail textiles. We collaborate directly with master artisans to curate high-quality fabrics, heritage sarees, and luxury home linen for retail and commercial partners nationwide.
             </p>
-          </motion.div>
-  
-        </div>
+          </div>
+        </motion.div>
       </div>
 
     </div>

@@ -1,17 +1,17 @@
-﻿import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ShoppingBag, Filter } from 'lucide-react';
 
 const C = {
-  primary: '#5b4fcf',       // Deep Forest Green
-  primaryLight: '#7b6fdf',  // Medium Forest Green
-  accent: '#c8922a',        // Terracotta Accent
-  bg: '#ffffff',            // Warm Cream
-  sand: '#f5f0e8',          // Light Sand
-  border: '#d8cff0',        // Beige Border
-  soil: '#1a1435',          // Dark Green-Charcoal Text
-  stone: '#6b6080',         // Muted Text
+  primary: '#4b739e',        // Steel Blue
+  primaryLight: '#6a8db5',  // Light Steel Blue
+  accent: '#c5a059',         // Warm Gold/Beige
+  bg: '#ffffff',
+  sand: '#f7f4ed',           // Soft Warm Sand
+  border: '#d2dfed',         // Soft Blue-Grey Border
+  soil: '#1a2a3a',           // Deep Slate Blue (Main Text)
+  stone: '#536476',          // Muted Slate Text
 };
 
 const categories = [
@@ -71,7 +71,7 @@ export default function Products() {
         <div className="flex flex-col md:flex-row gap-8 items-start">
           
           {/* Left Sidebar: Categories */}
-          <div className="w-full md:w-[260px] flex-shrink-0 sticky top-24 rounded-2xl p-6" style={{ background: 'white', border: `1px solid ${C.border}`, borderTop: `4px solid ${C.primaryLight}`, border: `1px solid ${C.border}` }}>
+          <div className="w-full md:w-[260px] flex-shrink-0 sticky top-24 rounded-2xl p-6" style={{ background: 'white', border: `1px solid ${C.border}` }}>
             <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, fontWeight: 700, color: C.soil, marginBottom: 16, paddingBottom: 12, borderBottom: `1px solid ${C.border}` }}>
               Categories
             </h3>
@@ -84,13 +84,13 @@ export default function Products() {
                     onClick={() => handleCategoryChange(cat)}
                     className="text-left w-full px-4 py-2.5 rounded-xl text-[12px] font-bold tracking-wide transition-all duration-200 cursor-pointer flex items-center justify-between"
                     style={{
-                      background: active ? 'rgba(91,79,207,0.08)' : 'transparent',
+                      background: active ? 'rgba(75, 115, 158, 0.08)' : 'transparent',
                       color: active ? C.primary : C.stone,
                       border: 'none',
                     }}
                     onMouseEnter={e => {
                       if (!active) {
-                        e.currentTarget.style.background = 'rgba(91,79,207,0.03)';
+                        e.currentTarget.style.background = 'rgba(75, 115, 158, 0.03)';
                         e.currentTarget.style.color = C.primary;
                       }
                     }}
@@ -142,12 +142,12 @@ export default function Products() {
                     style={{
                       borderRadius: 16, overflow: 'hidden',
                       background: 'white',
-                      border: `1px solid ${C.border}`, borderTop: `4px solid ${C.primaryLight}`,
+                      border: `1px solid ${C.border}`,
                       transition: 'transform 0.3s ease, box-shadow 0.3s ease',
                     }}
                     onMouseEnter={e => {
                       e.currentTarget.style.transform = 'translateY(-4px)';
-                      e.currentTarget.style.boxShadow = '0 12px 30px rgba(91,79,207,0.08)';
+                      e.currentTarget.style.boxShadow = '0 12px 30px rgba(75, 115, 158, 0.08)';
                     }}
                     onMouseLeave={e => {
                       e.currentTarget.style.transform = 'translateY(0)';

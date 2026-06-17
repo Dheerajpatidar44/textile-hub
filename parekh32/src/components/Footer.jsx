@@ -2,9 +2,9 @@ import { Link } from 'react-router-dom';
 import { MapPin, Phone, Mail, Crown } from 'lucide-react';
 
 const C = {
-  primary: '#5b4fcf',
-  primaryDark: '#3d3399',
-  accent: '#c8922a',
+  primary: '#4b739e',
+  primaryDark: '#2b496e',
+  accent: '#c5a059',
   border: 'rgba(255,255,255,0.12)',
   textFaint: 'rgba(255,255,255,0.6)',
   textMid: 'rgba(255,255,255,0.85)',
@@ -14,16 +14,16 @@ const C = {
 export default function Footer() {
   return (
     <footer style={{
-      background: 'linear-gradient(135deg, #1a1435 0%, #2d2560 60%, #1a1435 100%)',
-      borderTop: '1px solid rgba(91,79,207,0.3)',
+      background: 'linear-gradient(135deg, #2b496e 0%, #3d699e 60%, #2b496e 100%)',
+      borderTop: '1px solid rgba(75, 115, 158, 0.3)',
       color: C.textMid,
       fontFamily: "'DM Sans', sans-serif",
       position: 'relative',
       overflow: 'hidden',
     }}>
       {/* Background decoration */}
-      <div style={{ position: 'absolute', top: 0, right: 0, width: 400, height: 400, borderRadius: '50%', background: 'radial-gradient(circle, rgba(91,79,207,0.15) 0%, transparent 70%)', filter: 'blur(60px)', pointerEvents: 'none' }} />
-      <div style={{ position: 'absolute', bottom: 0, left: 0, width: 300, height: 300, borderRadius: '50%', background: 'radial-gradient(circle, rgba(200,146,42,0.08) 0%, transparent 70%)', filter: 'blur(50px)', pointerEvents: 'none' }} />
+      <div style={{ position: 'absolute', top: 0, right: 0, width: 400, height: 400, borderRadius: '50%', background: 'radial-gradient(circle, rgba(75, 115, 158, 0.15) 0%, transparent 70%)', filter: 'blur(60px)', pointerEvents: 'none' }} />
+      <div style={{ position: 'absolute', bottom: 0, left: 0, width: 300, height: 300, borderRadius: '50%', background: 'radial-gradient(circle, rgba(197, 160, 89, 0.08) 0%, transparent 70%)', filter: 'blur(50px)', pointerEvents: 'none' }} />
 
       <div className="max-w-[90rem] mx-auto px-6 lg:px-14 py-14" style={{ position: 'relative', zIndex: 1 }}>
         {/*
@@ -36,15 +36,15 @@ export default function Footer() {
           <div className="col-span-2 lg:col-span-2">
             {/* Logo */}
             <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 18 }}>
-              <div style={{ width: 44, height: 44, borderRadius: '10px 20px 10px 20px', background: 'rgba(91,79,207,0.3)', border: '1.5px solid rgba(200,146,42,0.4)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <Crown size={20} color="#c8922a" />
+              <div style={{ width: 44, height: 44, borderRadius: '10px 20px 10px 20px', background: 'rgba(75, 115, 158, 0.3)', border: '1.5px solid rgba(197, 160, 89, 0.4)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <Crown size={20} color="#c5a059" />
               </div>
               <div>
                 <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, fontWeight: 700, color: C.soil, lineHeight: 1.1 }}>
-                  Vastra Royale
+                  WEAVION
                 </div>
-                <div style={{ fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', color: C.accent, fontWeight: 700, marginTop: 3 }}>
-                  Premium Textile Mall
+                <div style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', color: C.accent, fontWeight: 700, marginTop: 3 }}>
+                  Textile Retail
                 </div>
               </div>
             </div>
@@ -65,9 +65,9 @@ export default function Footer() {
                   key={idx}
                   href="#"
                   aria-label={social.name}
-                  style={{ width: 34, height: 34, borderRadius: '50%', background: 'rgba(91,79,207,0.2)', border: '1px solid rgba(91,79,207,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: C.soil, textDecoration: 'none', transition: 'all 0.3s ease' }}
+                  style={{ width: 34, height: 34, borderRadius: '50%', background: 'rgba(75, 115, 158, 0.2)', border: '1px solid rgba(75, 115, 158, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: C.soil, textDecoration: 'none', transition: 'all 0.3s ease' }}
                   onMouseEnter={e => { e.currentTarget.style.background = C.accent; e.currentTarget.style.borderColor = C.accent; e.currentTarget.style.transform = 'translateY(-2px)'; }}
-                  onMouseLeave={e => { e.currentTarget.style.background = 'rgba(91,79,207,0.2)'; e.currentTarget.style.borderColor = 'rgba(91,79,207,0.3)'; e.currentTarget.style.transform = 'translateY(0)'; }}
+                  onMouseLeave={e => { e.currentTarget.style.background = 'rgba(75, 115, 158, 0.2)'; e.currentTarget.style.borderColor = 'rgba(75, 115, 158, 0.3)'; e.currentTarget.style.transform = 'translateY(0)'; }}
                 >
                   {social.svg}
                 </a>
@@ -94,7 +94,7 @@ export default function Footer() {
                     onMouseEnter={e => { e.currentTarget.style.color = C.accent; e.currentTarget.style.paddingLeft = '4px'; }}
                     onMouseLeave={e => { e.currentTarget.style.color = C.textMid; e.currentTarget.style.paddingLeft = '0'; }}
                   >
-                    <span style={{ width: 4, height: 4, borderRadius: '50%', background: 'rgba(200,146,42,0.6)', flexShrink: 0 }} />
+                    <span style={{ width: 4, height: 4, borderRadius: '50%', background: 'rgba(197, 160, 89, 0.6)', flexShrink: 0 }} />
                     {link.name}
                   </Link>
                 </li>
@@ -123,7 +123,7 @@ export default function Footer() {
                     onMouseEnter={e => { e.currentTarget.style.color = C.accent; e.currentTarget.style.paddingLeft = '4px'; }}
                     onMouseLeave={e => { e.currentTarget.style.color = C.textMid; e.currentTarget.style.paddingLeft = '0'; }}
                   >
-                    <span style={{ width: 4, height: 4, borderRadius: '50%', background: 'rgba(200,146,42,0.6)', flexShrink: 0 }} />
+                    <span style={{ width: 4, height: 4, borderRadius: '50%', background: 'rgba(197, 160, 89, 0.6)', flexShrink: 0 }} />
                     {link.name}
                   </Link>
                 </li>
@@ -140,7 +140,7 @@ export default function Footer() {
               {[
                 { icon: MapPin, val: 'Block A, Textile Park, Surat, Gujarat — 395002', href: '#' },
                 { icon: Phone,  val: '1800 123 4567',         href: 'tel:18001234567' },
-                { icon: Mail,   val: 'info@vastraroyale.com', href: 'mailto:info@vastraroyale.com' },
+                { icon: Mail,   val: 'info@weaviontextile.com', href: 'mailto:info@weaviontextile.com' },
               ].map(({ icon: Icon, val, href }, i) => (
                 <a
                   key={i}
@@ -160,13 +160,13 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div style={{ borderTop: '1px solid rgba(91,79,207,0.25)', position: 'relative', zIndex: 1 }}>
+      <div style={{ borderTop: '1px solid rgba(75, 115, 158, 0.25)', position: 'relative', zIndex: 1 }}>
         <div className="max-w-[90rem] mx-auto px-6 lg:px-14 py-5 flex flex-col md:flex-row items-center justify-between gap-2 text-center">
           <p style={{ fontSize: 12, color: C.textFaint, margin: 0, fontWeight: 500, letterSpacing: '0.03em' }}>
-            © 2026 Vastra Royale · All Rights Reserved
+            © 2026 WEAVION · All Rights Reserved
           </p>
           <p style={{ fontSize: 11, color: C.textFaint, margin: 0 }}>
-            Premium Textile & Fashion Mall
+            Premium Textile Retail
           </p>
         </div>
       </div>

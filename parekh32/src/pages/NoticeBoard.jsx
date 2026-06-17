@@ -1,15 +1,15 @@
-﻿import { motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Bell, ChevronRight, Calendar } from 'lucide-react';
 
 const C = {
-  primary: '#5b4fcf',       // Deep Forest Green
-  primaryLight: '#7b6fdf',  // Medium Forest Green
-  soil: '#1a1435',          // Deep Dark Charcoal Text
-  sand: '#f5f0e8',          // Soft Beige Background
-  cream: '#ffffff',          // Warm Off-white base background
-  border: '#d8cff0',        // Soft Warm Border
-  stone: '#6b6080',         // Muted Olive-Charcoal Text
-  accent: '#c8922a',        // Terracotta Accent
+  primary: '#4b739e',        // Steel Blue
+  primaryLight: '#6a8db5',  // Light Steel Blue
+  soil: '#1a2a3a',           // Deep Slate Blue (Main Text)
+  sand: '#f7f4ed',           // Soft Warm Sand
+  cream: '#ffffff',          // White Background
+  border: '#d2dfed',         // Soft Blue-Grey Border
+  stone: '#536476',          // Muted Slate Text
+  accent: '#c5a059',         // Warm Gold/Beige
 };
 
 const notices = [
@@ -44,7 +44,7 @@ export default function NoticeBoard() {
               className="card-hover text-left"
               style={{
                 borderRadius: 16, padding: '24px 22px',
-                background: notice.isNew ? 'rgba(71, 86, 67, 0.02)' : 'white',
+                background: notice.isNew ? 'rgba(75, 115, 158, 0.02)' : 'white',
                 cursor: 'pointer',
                 display: 'flex', flexDirection: 'column',
                 borderLeft: notice.isNew ? `4px solid ${C.primaryLight}` : '4px solid transparent',
@@ -52,19 +52,19 @@ export default function NoticeBoard() {
                 transition: 'all 0.3s ease',
               }}
               onMouseEnter={e => {
-                e.currentTarget.style.background = 'rgba(71, 86, 67, 0.05)';
+                e.currentTarget.style.background = 'rgba(75, 115, 158, 0.05)';
                 e.currentTarget.style.borderLeftColor = C.primaryLight;
                 e.currentTarget.style.transform = 'translateX(4px)';
               }}
               onMouseLeave={e => {
-                e.currentTarget.style.background = notice.isNew ? 'rgba(71, 86, 67, 0.02)' : 'white';
+                e.currentTarget.style.background = notice.isNew ? 'rgba(75, 115, 158, 0.02)' : 'white';
                 e.currentTarget.style.borderLeftColor = notice.isNew ? C.primaryLight : 'transparent';
                 e.currentTarget.style.transform = 'translateX(0)';
               }}
             >
               <div>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 16 }}>
-                  <div style={{ width: 40, height: 40, borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(71, 86, 67, 0.08)', border: `1px solid rgba(71, 86, 67, 0.2)` }}>
+                  <div style={{ width: 40, height: 40, borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(75, 115, 158, 0.08)', border: `1px solid rgba(75, 115, 158, 0.2)` }}>
                     <Bell size={18} color={C.primary} />
                   </div>
                   {notice.isNew && (

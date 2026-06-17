@@ -1,13 +1,13 @@
-﻿import { motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 const C = {
-  primary: '#5b4fcf',
-  primaryLight: '#7b6fdf',
-  soil: '#1a1435',
-  sand: '#f5f0e8',
-  cream: '#ffffff',
-  border: '#d8cff0',
-  stone: '#6b6080',
+  primary: '#4b739e',        // Steel Blue
+  primaryLight: '#6a8db5',  // Light Steel Blue
+  soil: '#1a2a3a',           // Deep Slate Blue (Main Text)
+  sand: '#f7f4ed',           // Soft Warm Sand
+  cream: '#ffffff',          // White Background
+  border: '#d2dfed',         // Soft Blue-Grey Border
+  stone: '#536476',          // Muted Slate Text
 };
 
 const galleryItems = [
@@ -43,13 +43,13 @@ export default function BusinessMediaGallery() {
               style={{
                 borderRadius: 16, overflow: 'hidden',
                 background: 'white', cursor: 'pointer',
-                border: `1px solid ${C.border}`, borderTop: `4px solid ${C.primaryLight}`,
+                border: `1px solid ${C.border}`,
                 display: 'flex', flexDirection: 'column',
                 transition: 'transform 0.3s ease, box-shadow 0.3s ease',
               }}
               onMouseEnter={e => {
                 e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 12px 30px rgba(91,79,207,0.08)';
+                e.currentTarget.style.boxShadow = '0 12px 30px rgba(75, 115, 158, 0.08)';
               }}
               onMouseLeave={e => {
                 e.currentTarget.style.transform = 'translateY(0)';
@@ -67,7 +67,7 @@ export default function BusinessMediaGallery() {
                 />
                 <div style={{
                   position: 'absolute', top: 12, left: 12,
-                  background: 'rgba(71, 86, 67, 0.85)', backdropFilter: 'blur(6px)',
+                  background: 'rgba(75, 115, 158, 0.85)', backdropFilter: 'blur(6px)',
                   borderRadius: 20, padding: '4px 12px',
                 }}>
                   <span style={{ fontSize: 9, color: '#fbfaf7', letterSpacing: '0.15em', textTransform: 'uppercase', fontWeight: 400 }}>

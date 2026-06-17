@@ -1,17 +1,17 @@
-﻿import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown, Crown } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const C = {
-  primary: '#5b4fcf',       // Royal Purple
-  accent: '#c8922a',        // Warm Gold
+  primary: '#4b739e',       // Steel Blue
+  accent: '#c5a059',        // Warm Gold/Beige
   bg: '#ffffff',            // White
-  sand: '#f5f0e8',          // Warm Cream
-  sage: '#ede8f5',          // Light Lavender
-  border: '#d8cff0',        // Lavender Border
-  soil: '#1a1435',          // Deep Dark Navy
-  stone: '#6b6080',         // Muted Purple Text
+  sand: '#f7f4ed',          // Soft Warm Sand
+  sage: '#e8eff6',          // Soft Pastel Blue
+  border: '#d2dfed',        // Soft Blue-Grey Border
+  soil: '#1a2a3a',           // Deep Slate Blue
+  stone: '#536476',          // Muted Slate Text
 };
 
 export default function Navbar() {
@@ -83,31 +83,31 @@ export default function Navbar() {
           background: scrolled ? 'rgba(255,255,255,0.97)' : '#ffffff',
           backdropFilter: scrolled ? 'blur(12px)' : 'none',
           borderBottom: `1px solid ${C.border}`,
-          boxShadow: scrolled ? '0 2px 20px rgba(91,79,207,0.08)' : 'none',
+          boxShadow: scrolled ? '0 2px 20px rgba(75, 115, 158, 0.08)' : 'none',
         }}
       >
         <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14 flex justify-between items-center">
 
-          {/* Logo Brand: Vastra Royale */}
+          {/* Logo Brand: WEAVION */}
           <Link to="/" className="flex items-center gap-3 group shrink-0 text-left">
             <div style={{
-              background: 'linear-gradient(135deg, #5b4fcf 0%, #3d3399 100%)',
+              background: 'linear-gradient(135deg, #4b739e 0%, #2b496e 100%)',
               borderRadius: '10px 20px 10px 20px',
               width: 42, height: 42,
               display: 'flex', alignItems: 'center', justifyContent: 'center',
-              boxShadow: '0 4px 14px rgba(91,79,207,0.3)',
+              boxShadow: '0 4px 14px rgba(75, 115, 158, 0.3)',
             }}>
-              <Crown size={20} color="#c8922a" />
+              <Crown size={20} color="#c5a059" />
             </div>
             <div className="flex flex-col">
               <span
                 className="text-[19px] font-bold leading-none tracking-wide"
                 style={{ fontFamily: "'Playfair Display', serif", color: C.soil }}
               >
-                Vastra Royale
+                WEAVION
               </span>
-              <span className="text-[9px] tracking-[0.28em] font-semibold mt-1 uppercase" style={{ color: C.accent }}>
-                Premium Textile Mall
+              <span className="text-[8px] tracking-[0.2em] font-semibold mt-1 uppercase" style={{ color: C.accent }}>
+                Textile Retail
               </span>
             </div>
           </Link>
@@ -169,12 +169,12 @@ export default function Navbar() {
                           className="flex items-center gap-2.5 px-4 py-2.5 text-[12.5px] font-medium transition-all"
                           style={{
                             color: active ? C.primary : C.soil,
-                            background: active ? 'rgba(91,79,207,0.06)' : 'transparent',
+                            background: active ? 'rgba(75, 115, 158, 0.06)' : 'transparent',
                           }}
                           onMouseEnter={e => { if (!active) { e.currentTarget.style.background = C.sage; e.currentTarget.style.color = C.primary; } }}
                           onMouseLeave={e => { if (!active) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = C.soil; } }}
                         >
-                          <span style={{ width: 5, height: 5, borderRadius: '50%', background: active ? C.accent : 'rgba(91,79,207,0.3)', flexShrink: 0, display: 'inline-block' }} />
+                          <span style={{ width: 5, height: 5, borderRadius: '50%', background: active ? C.accent : 'rgba(75, 115, 158, 0.3)', flexShrink: 0, display: 'inline-block' }} />
                           {item.name}
                         </Link>
                       );
@@ -216,13 +216,13 @@ export default function Navbar() {
             style={{ background: '#ffffff', fontFamily: "'DM Sans', sans-serif" }}
           >
             {/* Drawer header */}
-            <div style={{ background: 'linear-gradient(135deg, #5b4fcf, #3d3399)', padding: '16px 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            <div style={{ background: 'linear-gradient(135deg, #4b739e, #2b496e)', padding: '16px 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
               <div>
-                <p style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, fontWeight: 700, color: '#ffffff', margin: 0 }}>
-                  Vastra Royale
+                <p style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, fontStyle: 'normal', fontWeight: 700, color: '#ffffff', margin: 0 }}>
+                  WEAVION
                 </p>
-                <p style={{ fontSize: 9, letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(200,146,42,0.9)', margin: 0, marginTop: 2, fontWeight: 600 }}>
-                  Premium Textile Mall
+                <p style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#c5a059', margin: 0, marginTop: 2, fontWeight: 600 }}>
+                  Textile Retail
                 </p>
               </div>
               <button
@@ -250,7 +250,7 @@ export default function Navbar() {
                       onClick={() => setIsOpen(false)}
                       className="flex items-center justify-between px-4 py-3 rounded-xl text-[13px] font-semibold tracking-wide border transition-all uppercase"
                       style={{
-                        background: active ? 'rgba(91,79,207,0.06)' : '#faf7f2',
+                        background: active ? 'rgba(75, 115, 158, 0.06)' : '#f7f4ed',
                         borderColor: active ? C.primary : C.border,
                         color: active ? C.primary : C.soil,
                       }}
@@ -294,7 +294,7 @@ export default function Navbar() {
                               onClick={() => { setIsOpen(false); setMobileResourcesOpen(false); }}
                               className="flex items-center justify-between px-4 py-2.5 rounded-xl text-[12px] font-semibold uppercase tracking-wide border transition-all"
                               style={{
-                                background: active ? 'rgba(91,79,207,0.05)' : '#faf7f2',
+                                background: active ? 'rgba(75, 115, 158, 0.05)' : '#f7f4ed',
                                 borderColor: active ? C.primary : C.border,
                                 color: active ? C.primary : C.soil,
                               }}
@@ -315,7 +315,7 @@ export default function Navbar() {
                   to="/contact"
                   onClick={() => setIsOpen(false)}
                   className="flex items-center justify-center gap-2 py-3.5 rounded-full text-sm font-bold uppercase tracking-wider text-white"
-                  style={{ background: 'linear-gradient(135deg, #5b4fcf, #c8922a)' }}
+                  style={{ background: 'linear-gradient(135deg, #4b739e, #c5a059)' }}
                 >
                   Contact Us
                 </Link>

@@ -1,19 +1,19 @@
-﻿import { motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Star } from 'lucide-react';
 
 const C = {
-  primary: '#5b4fcf',       // Deep Forest Green
-  primaryLight: '#7b6fdf',  // Medium Forest Green
-  soil: '#1a1435',          // Deep Dark Charcoal Text
-  sand: '#f5f0e8',          // Soft Beige Background
-  cream: '#ffffff',          // Warm Off-white base background
-  border: '#d8cff0',        // Soft Warm Border
-  stone: '#6b6080',         // Muted Olive-Charcoal Text
-  accent: '#c8922a',        // Terracotta Accent
+  primary: '#4b739e',        // Steel Blue
+  primaryLight: '#6a8db5',  // Light Steel Blue
+  soil: '#1a2a3a',           // Deep Slate Blue (Main Text)
+  sand: '#f7f4ed',           // Soft Warm Sand
+  cream: '#ffffff',          // White Background
+  border: '#d2dfed',         // Soft Blue-Grey Border
+  stone: '#536476',          // Muted Slate Text
+  accent: '#c5a059',         // Warm Gold/Beige
 };
 
 const reviews = [
-  { text: "Vastra Royale has been our trusted partner for years. The quality, prices and service are unmatched in the entire industry.", name: "Rajesh Sharma", role: "Retailer, Delhi", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" },
+  { text: "WEAVION has been our trusted partner for years. The quality, prices and service are unmatched in the entire industry.", name: "Rajesh Sharma", role: "Retailer, Delhi", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" },
   { text: "The export compliance and material quality are world-class. Their zero-defect policy has secured our global supply chain perfectly.", name: "Ahmed Al-Sayed", role: "Gulf Textiles, UAE", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop" },
   { text: "Highly impressed with their R&D. The custom high-tenacity fabric they developed exceeded all our durability benchmarks.", name: "Vikas Kulkarni", role: "National Solutions", image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop" },
   { text: "Incredible attention to detail. Every batch of fabric we receive is consistently perfect, saving us a lot of time and rework.", name: "Anita Desai", role: "Design Head, Mumbai", image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop" },
@@ -43,7 +43,7 @@ export default function CustomerReview() {
               className="card-hover text-left"
               style={{
                 background: 'white',
-                border: `1px solid ${C.border}`, borderTop: `4px solid ${C.primaryLight}`,
+                border: `1px solid ${C.border}`,
                 borderRadius: 16, padding: '26px 24px',
                 position: 'relative',
                 display: 'flex',
@@ -53,7 +53,7 @@ export default function CustomerReview() {
               }}
               onMouseEnter={e => {
                 e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 12px 30px rgba(91,79,207,0.08)';
+                e.currentTarget.style.boxShadow = '0 12px 30px rgba(75, 115, 158, 0.08)';
               }}
               onMouseLeave={e => {
                 e.currentTarget.style.transform = 'translateY(0)';

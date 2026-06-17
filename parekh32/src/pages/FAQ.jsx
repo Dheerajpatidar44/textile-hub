@@ -1,16 +1,16 @@
-﻿import { useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus } from 'lucide-react';
 
 const C = {
-  primary: '#5b4fcf',       // Deep Forest Green
-  primaryLight: '#7b6fdf',  // Medium Forest Green
-  soil: '#1a1435',          // Deep Dark Charcoal Text
-  sand: '#f5f0e8',          // Soft Beige Background
-  cream: '#ffffff',          // Warm Off-white base background
-  border: '#d8cff0',        // Soft Warm Border
-  stone: '#6b6080',         // Muted Olive-Charcoal Text
-  accent: '#c8922a',        // Terracotta Accent
+  primary: '#4b739e',        // Steel Blue
+  primaryLight: '#6a8db5',  // Light Steel Blue
+  soil: '#1a2a3a',           // Deep Slate Blue (Main Text)
+  sand: '#f7f4ed',           // Soft Warm Sand
+  cream: '#ffffff',          // White Background
+  border: '#d2dfed',         // Soft Blue-Grey Border
+  stone: '#536476',          // Muted Slate Text
+  accent: '#c5a059',         // Warm Gold/Beige
 };
 
 const faqs = [
@@ -32,7 +32,7 @@ const faqs = [
   },
   {
     question: "Do you ship internationally?",
-    answer: "Yes, Vastra Royale ships globally. International shipping charges and delivery times vary based on the destination and order volume."
+    answer: "Yes, WEAVION ships globally. International shipping charges and delivery times vary based on the destination and order volume."
   },
   {
     question: "Can I request custom fabric weaving or dyeing?",
@@ -95,7 +95,7 @@ export default function FAQ() {
                   <div style={{
                     flexShrink: 0, width: 32, height: 32, borderRadius: '50%',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    background: isOpen ? C.primary : 'rgba(91,79,207,0.06)',
+                    background: isOpen ? C.primary : 'rgba(75, 115, 158, 0.06)',
                     transition: 'all 0.3s ease',
                   }}>
                     {isOpen ? <Minus size={15} color="white" /> : <Plus size={15} color={C.primary} />}

@@ -1,15 +1,15 @@
-﻿import { motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
 const C = {
-  primary: '#5b4fcf',
-  primaryLight: '#7b6fdf',
-  soil: '#1a1435',
-  sand: '#f5f0e8',
-  cream: '#ffffff',
-  border: '#d8cff0',
-  stone: '#6b6080',
-  accent: '#c8922a',
+  primary: '#4b739e',        // Steel Blue
+  primaryLight: '#6a8db5',  // Light Steel Blue
+  soil: '#1a2a3a',           // Deep Slate Blue (Main Text)
+  sand: '#f7f4ed',           // Soft Warm Sand
+  cream: '#ffffff',          // White Background
+  border: '#d2dfed',         // Soft Blue-Grey Border
+  stone: '#536476',          // Muted Slate Text
+  accent: '#c5a059',         // Warm Gold/Beige
 };
 
 const posts = [
@@ -46,12 +46,12 @@ export default function Blog() {
               style={{ 
                 background: 'white', 
                 borderRadius: '16px',
-                border: `1px solid ${C.border}`, borderTop: `4px solid ${C.primaryLight}`,
+                border: `1px solid ${C.border}`,
                 transition: 'transform 0.3s ease, box-shadow 0.3s ease'
               }}
               onMouseEnter={e => {
                 e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 12px 30px rgba(91,79,207,0.08)';
+                e.currentTarget.style.boxShadow = '0 12px 30px rgba(75, 115, 158, 0.08)';
               }}
               onMouseLeave={e => {
                 e.currentTarget.style.transform = 'translateY(0)';

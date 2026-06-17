@@ -1,15 +1,15 @@
-﻿import { useState } from 'react';
+import { useState } from 'react';
 import { MessageSquareText, X, Send, Sparkles } from 'lucide-react';
 
 const C = {
-  primary: '#5b4fcf',       // Deep Forest Green
-  primaryLight: '#7b6fdf',  // Medium Forest Green
-  soil: '#1a1435',          // Deep Dark Charcoal Text
-  sand: '#f5f0e8',          // Soft Beige Background
-  cream: '#ffffff',          // Warm Off-white base background
-  border: '#d8cff0',        // Soft Warm Border
-  stone: '#6b6080',         // Muted Olive-Charcoal Text
-  accent: '#c8922a',        // Terracotta Accent
+  primary: '#4b739e',        // Steel Blue
+  primaryLight: '#6a8db5',  // Light Steel Blue
+  soil: '#1a2a3a',           // Deep Slate Blue (Main Text)
+  sand: '#f7f4ed',           // Soft Warm Sand
+  cream: '#ffffff',          // White Background
+  border: '#d2dfed',         // Soft Blue-Grey Border
+  stone: '#536476',          // Muted Slate Text
+  accent: '#c5a059',         // Warm Gold/Beige
 };
 
 const FloatingChatbot = () => {
@@ -37,7 +37,7 @@ const FloatingChatbot = () => {
               </div>
               <div className="text-left">
                 <p className="text-white text-[13px] font-bold tracking-wide leading-tight">
-                  Vastra Royale Assistant
+                  WEAVION Assistant
                 </p>
                 <div className="flex items-center gap-1.5 mt-0.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
@@ -70,7 +70,7 @@ const FloatingChatbot = () => {
                 style={{ borderColor: C.border }}
               >
                 <p className="text-[13px] leading-relaxed" style={{ color: C.soil }}>
-                  Namaste! 🙏 Welcome to <strong>Vastra Royale</strong>. How can I assist you today?
+                  Namaste! 🙏 Welcome to <strong>WEAVION</strong>. How can I assist you today?
                 </p>
               </div>
             </div>

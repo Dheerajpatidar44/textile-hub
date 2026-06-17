@@ -1,15 +1,15 @@
-﻿import { motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Mail, Users, TrendingUp, Award } from 'lucide-react';
 
 const C = {
-  primary: '#5b4fcf',       // Deep Forest Green
-  primaryLight: '#7b6fdf',  // Medium Forest Green
-  soil: '#1a1435',          // Deep Dark Charcoal Text
-  sand: '#f5f0e8',          // Soft Beige Background
-  cream: '#ffffff',          // Warm Off-white base background
-  border: '#d8cff0',        // Soft Warm Border
-  stone: '#6b6080',         // Muted Olive-Charcoal Text
-  accent: '#c8922a',        // Terracotta Accent
+  primary: '#4b739e',        // Steel Blue
+  primaryLight: '#6a8db5',  // Light Steel Blue
+  soil: '#1a2a3a',           // Deep Slate Blue (Main Text)
+  sand: '#f7f4ed',           // Soft Warm Sand
+  cream: '#ffffff',          // White Background
+  border: '#d2dfed',         // Soft Blue-Grey Border
+  stone: '#536476',          // Muted Slate Text
+  accent: '#c5a059',         // Warm Gold/Beige
 };
 
 const teamMembers = [
@@ -39,7 +39,7 @@ export default function RetailManagement() {
         </div>
   
         <p style={{ textAlign: 'center', fontSize: 15, color: C.stone, marginBottom: 40, fontWeight: 400, maxWidth: 560, margin: '0 auto 40px', lineHeight: 1.7 }}>
-          Vastra Royale is administered and governed by highly skilled, experienced and qualified Management with decades of expertise in the textile industry.
+          WEAVION is administered and governed by highly skilled, experienced and qualified Management with decades of expertise in the textile industry.
         </p>
 
         {/* Team Cards */}
@@ -56,14 +56,14 @@ export default function RetailManagement() {
               transition={{ delay: i * 0.1 }}
               style={{
                 borderRadius: 16, background: 'white',
-                border: `1px solid ${C.border}`, borderTop: `4px solid ${C.primaryLight}`,
+                border: `1px solid ${C.border}`,
                 padding: '28px 22px',
                 textAlign: 'center',
                 transition: 'transform 0.3s ease, box-shadow 0.3s ease',
               }}
               onMouseEnter={e => {
                 e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 12px 30px rgba(91,79,207,0.08)';
+                e.currentTarget.style.boxShadow = '0 12px 30px rgba(75, 115, 158, 0.08)';
               }}
               onMouseLeave={e => {
                 e.currentTarget.style.transform = 'translateY(0)';
@@ -102,17 +102,17 @@ export default function RetailManagement() {
               </p>
 
               <a
-                href={`mailto:${member.name.toLowerCase().replace(' ', '')}@vastraroyale.com`}
+                href={`mailto:${member.name.toLowerCase().replace(' ', '')}@weaviontextile.com`}
                 style={{
                   display: 'inline-flex', alignItems: 'center', gap: 6,
                   padding: '8px 16px', borderRadius: 10,
                   fontSize: 12, color: C.primary, textDecoration: 'none', fontWeight: 500,
-                  background: 'rgba(71, 86, 67, 0.08)',
-                  border: `1px solid rgba(71, 86, 67, 0.2)`,
+                  background: 'rgba(75, 115, 158, 0.08)',
+                  border: `1px solid rgba(75, 115, 158, 0.2)`,
                   transition: 'all 0.2s ease',
                 }}
                 onMouseEnter={e => { e.currentTarget.style.background = C.primary; e.currentTarget.style.color = 'white'; }}
-                onMouseLeave={e => { e.currentTarget.style.background = 'rgba(71, 86, 67, 0.08)'; e.currentTarget.style.color = C.primary; }}
+                onMouseLeave={e => { e.currentTarget.style.background = 'rgba(75, 115, 158, 0.08)'; e.currentTarget.style.color = C.primary; }}
               >
                 <Mail size={13} /> Contact
               </a>

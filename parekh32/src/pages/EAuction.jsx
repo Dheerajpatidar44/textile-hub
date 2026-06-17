@@ -1,15 +1,15 @@
-﻿import { motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Gavel, UploadCloud, Send, Mail, Clock, TrendingUp } from 'lucide-react';
 
 const C = {
-  primary: '#5b4fcf',       // Deep Forest Green
-  primaryLight: '#7b6fdf',  // Medium Forest Green
-  accent: '#c8922a',        // Terracotta Accent
-  bg: '#ffffff',            // Warm Cream
-  sand: '#f5f0e8',          // Light Sand
-  border: '#d8cff0',        // Beige Border
-  soil: '#1a1435',          // Dark Green-Charcoal Text
-  stone: '#6b6080',         // Muted Text
+  primary: '#4b739e',        // Steel Blue
+  primaryLight: '#6a8db5',  // Light Steel Blue
+  accent: '#c5a059',         // Warm Gold/Beige
+  bg: '#ffffff',            // White
+  sand: '#f7f4ed',           // Soft Warm Sand
+  border: '#d2dfed',         // Soft Blue-Grey Border
+  soil: '#1a2a3a',           // Deep Slate Blue (Main Text)
+  stone: '#536476',          // Muted Slate Text
   linen: '#fbfaf7',          // Linen background
 };
 
@@ -87,13 +87,13 @@ export default function EAuction() {
                 style={{
                   borderRadius: 16, overflow: 'hidden',
                   background: 'white',
-                  border: `1px solid ${C.border}`, borderTop: `4px solid ${C.primaryLight}`,
+                  border: `1px solid ${C.border}`,
                   display: 'flex', flexDirection: 'column',
                   transition: 'transform 0.3s ease, box-shadow 0.3s ease',
                 }}
                 onMouseEnter={e => {
                   e.currentTarget.style.transform = 'translateY(-4px)';
-                  e.currentTarget.style.boxShadow = '0 12px 30px rgba(91,79,207,0.08)';
+                  e.currentTarget.style.boxShadow = '0 12px 30px rgba(75, 115, 158, 0.08)';
                 }}
                 onMouseLeave={e => {
                   e.currentTarget.style.transform = 'translateY(0)';
@@ -189,9 +189,9 @@ export default function EAuction() {
         >
           <div style={{
             background: 'white', borderRadius: 20,
-            border: `1px solid ${C.border}`, borderTop: `4px solid ${C.primaryLight}`,
+            border: `1px solid ${C.border}`,
             overflow: 'hidden',
-            boxShadow: '0 4px 20px rgba(91,79,207,0.04)',
+            boxShadow: '0 4px 20px rgba(75, 115, 158, 0.04)',
           }}>
             {/* Form header */}
             <div style={{
@@ -277,8 +277,8 @@ export default function EAuction() {
 
                 <div style={{ textAlign: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8 }}>
                   <Mail size={13} color={C.primaryLight} />
-                  <a href="mailto:info@vastraroyale.com" style={{ fontSize: 12, color: C.primary, fontWeight: 400, textDecoration: 'none' }}>
-                    info@vastraroyale.com
+                  <a href="mailto:info@weaviontextile.com" style={{ fontSize: 12, color: C.primary, fontWeight: 400, textDecoration: 'none' }}>
+                    info@weaviontextile.com
                   </a>
                 </div>
               </form>

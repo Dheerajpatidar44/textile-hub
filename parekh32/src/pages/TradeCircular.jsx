@@ -1,15 +1,15 @@
-﻿import { motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { FileText, Eye, Printer } from 'lucide-react';
 
 const C = {
-  primary: '#5b4fcf',       // Deep Forest Green
-  primaryLight: '#7b6fdf',  // Medium Forest Green
-  soil: '#1a1435',          // Deep Dark Charcoal Text
-  sand: '#f5f0e8',          // Soft Beige Background
-  cream: '#ffffff',          // Warm Off-white base background
-  border: '#d8cff0',        // Soft Warm Border
-  stone: '#6b6080',         // Muted Olive-Charcoal Text
-  accent: '#c8922a',        // Terracotta Accent
+  primary: '#4b739e',        // Steel Blue
+  primaryLight: '#6a8db5',  // Light Steel Blue
+  soil: '#1a2a3a',           // Deep Slate Blue (Main Text)
+  sand: '#f7f4ed',           // Soft Warm Sand
+  cream: '#ffffff',          // White Background
+  border: '#d2dfed',         // Soft Blue-Grey Border
+  stone: '#536476',          // Muted Slate Text
+  accent: '#c5a059',         // Warm Gold/Beige
 };
 
 const circulars = [
@@ -42,13 +42,13 @@ const TradeCircular = () => {
               style={{ 
                 background: 'white',
                 borderRadius: '16px',
-                border: `1px solid ${C.border}`, borderTop: `4px solid ${C.primaryLight}`,
+                border: `1px solid ${C.border}`,
                 padding: '24px',
                 transition: 'transform 0.3s ease, box-shadow 0.3s ease',
               }}
               onMouseEnter={e => {
                 e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 12px 30px rgba(91,79,207,0.08)';
+                e.currentTarget.style.boxShadow = '0 12px 30px rgba(75, 115, 158, 0.08)';
               }}
               onMouseLeave={e => {
                 e.currentTarget.style.transform = 'translateY(0)';
@@ -56,7 +56,7 @@ const TradeCircular = () => {
               }}
             >
               <div className="flex flex-col items-start gap-4 mb-5">
-                <div style={{ width: 44, height: 44, borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(71, 86, 67,0.08)', border: `1px solid rgba(71, 86, 67,0.2)` }}>
+                <div style={{ width: 44, height: 44, borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(75, 115, 158, 0.08)', border: `1px solid rgba(75, 115, 158, 0.2)` }}>
                   <FileText size={20} color={C.primary} />
                 </div>
                 <div>

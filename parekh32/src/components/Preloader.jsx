@@ -1,4 +1,4 @@
-﻿import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Crown } from 'lucide-react';
 
@@ -61,29 +61,29 @@ export default function Preloader({ onComplete }) {
         fontFamily: "'DM Sans', sans-serif",
       }}
     >
-      {/* Background gradient - Royal Purple */}
+      {/* Background gradient - Cream to soft steel-blue */}
       <div style={{
         position: 'absolute', inset: 0,
-        background: 'linear-gradient(135deg, #0e0a28 0%, #1a1435 40%, #251a50 100%)',
+        background: 'linear-gradient(135deg, #f7f4ed 0%, #e8eff6 100%)',
       }} />
 
-      {/* Purple glow blobs */}
+      {/* Soft steel-blue & gold glow blobs */}
       <div style={{
         position: 'absolute', top: '-100px', left: '-100px',
         width: '500px', height: '500px', borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(91,79,207,0.55) 0%, transparent 70%)',
+        background: 'radial-gradient(circle, rgba(75, 115, 158, 0.15) 0%, transparent 70%)',
         filter: 'blur(70px)', pointerEvents: 'none',
       }} />
       <div style={{
         position: 'absolute', bottom: '-80px', right: '-80px',
         width: '420px', height: '420px', borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(200,146,42,0.3) 0%, transparent 70%)',
+        background: 'radial-gradient(circle, rgba(197, 160, 89, 0.12) 0%, transparent 70%)',
         filter: 'blur(60px)', pointerEvents: 'none',
       }} />
       <div style={{
         position: 'absolute', top: '30%', right: '8%',
         width: '280px', height: '280px', borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(91,79,207,0.2) 0%, transparent 70%)',
+        background: 'radial-gradient(circle, rgba(75, 115, 158, 0.08) 0%, transparent 70%)',
         filter: 'blur(50px)', pointerEvents: 'none',
       }} />
 
@@ -93,12 +93,12 @@ export default function Preloader({ onComplete }) {
         backgroundImage: `
           repeating-linear-gradient(
             0deg,
-            rgba(255,255,255,0.016) 0px, rgba(255,255,255,0.016) 1px,
+            rgba(75, 115, 158, 0.03) 0px, rgba(75, 115, 158, 0.03) 1px,
             transparent 1px, transparent 50px
           ),
           repeating-linear-gradient(
             90deg,
-            rgba(255,255,255,0.016) 0px, rgba(255,255,255,0.016) 1px,
+            rgba(75, 115, 158, 0.03) 0px, rgba(75, 115, 158, 0.03) 1px,
             transparent 1px, transparent 50px
           )
         `,
@@ -121,7 +121,7 @@ export default function Preloader({ onComplete }) {
             top: c.top, left: c.left,
             width: c.size, height: c.size,
             borderRadius: '50%',
-            border: `1px solid rgba(91,79,207,${c.opacity * 4})`,
+            border: `1px solid rgba(75, 115, 158, ${c.opacity * 4})`,
             pointerEvents: 'none',
           }}
         />
@@ -142,10 +142,10 @@ export default function Preloader({ onComplete }) {
           style={{
             position: 'absolute', ...pos,
             width: 36, height: 36,
-            borderTop: i < 2 ? '1.5px solid rgba(200,146,42,0.45)' : 'none',
-            borderBottom: i >= 2 ? '1.5px solid rgba(200,146,42,0.45)' : 'none',
-            borderLeft: (i === 0 || i === 2) ? '1.5px solid rgba(200,146,42,0.45)' : 'none',
-            borderRight: (i === 1 || i === 3) ? '1.5px solid rgba(200,146,42,0.45)' : 'none',
+            borderTop: i < 2 ? '1.5px solid rgba(197, 160, 89, 0.45)' : 'none',
+            borderBottom: i >= 2 ? '1.5px solid rgba(197, 160, 89, 0.45)' : 'none',
+            borderLeft: (i === 0 || i === 2) ? '1.5px solid rgba(197, 160, 89, 0.45)' : 'none',
+            borderRight: (i === 1 || i === 3) ? '1.5px solid rgba(197, 160, 89, 0.45)' : 'none',
             pointerEvents: 'none',
           }}
         />
@@ -162,14 +162,14 @@ export default function Preloader({ onComplete }) {
           style={{
             width: 72, height: 72,
             borderRadius: '16px 32px 16px 32px',
-            background: 'rgba(91,79,207,0.25)',
-            border: '1.5px solid rgba(200,146,42,0.6)',
+            background: 'rgba(75, 115, 158, 0.15)',
+            border: '1.5px solid rgba(197, 160, 89, 0.6)',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             marginBottom: 24,
-            boxShadow: '0 0 50px rgba(91,79,207,0.4)',
+            boxShadow: '0 0 50px rgba(75, 115, 158, 0.2)',
           }}
         >
-          <Crown size={32} color="#c8922a" />
+          <Crown size={32} color="#c5a059" />
         </motion.div>
 
         {/* Brand Name */}
@@ -181,13 +181,13 @@ export default function Preloader({ onComplete }) {
             fontFamily: "'Playfair Display', serif",
             fontSize: 'clamp(30px, 6vw, 50px)',
             fontWeight: 700,
-            color: '#ffffff',
+            color: '#1a2a3a',
             lineHeight: 1.15,
             letterSpacing: '-0.01em',
           }}
         >
-          <span>Vastra </span>
-          <span style={{ fontStyle: 'italic', color: '#c8922a', fontWeight: 500 }}>Royale</span>
+          <span>WEA</span>
+          <span style={{ fontStyle: 'italic', color: '#c5a059', fontWeight: 500 }}>VION</span>
         </motion.div>
 
         {/* Tagline */}
@@ -199,12 +199,12 @@ export default function Preloader({ onComplete }) {
             fontSize: '10px',
             letterSpacing: '0.32em',
             textTransform: 'uppercase',
-            color: 'rgba(255,255,255,0.45)',
+            color: '#536476',
             marginTop: 10,
             fontWeight: 500,
           }}
         >
-          Premium Textile Mall
+          Premium Textile Retail
         </motion.p>
 
         {/* Divider line */}
@@ -214,7 +214,7 @@ export default function Preloader({ onComplete }) {
           transition={{ duration: 0.7, delay: 0.48 }}
           style={{
             width: 90, height: 1,
-            background: 'linear-gradient(90deg, transparent, rgba(200,146,42,0.8), rgba(91,79,207,0.6), transparent)',
+            background: 'linear-gradient(90deg, transparent, rgba(197, 160, 89, 0.8), rgba(75, 115, 158, 0.6), transparent)',
             marginTop: 22, marginBottom: 4,
           }}
         />
@@ -227,7 +227,7 @@ export default function Preloader({ onComplete }) {
           style={{
             fontSize: '13px',
             fontWeight: 500,
-            color: 'rgba(255,255,255,0.5)',
+            color: '#536476',
             fontFamily: "'DM Sans', sans-serif",
             marginTop: 28,
             letterSpacing: '0.12em',
@@ -236,7 +236,7 @@ export default function Preloader({ onComplete }) {
             gap: 4,
           }}
         >
-          <span style={{ color: '#c8922a', fontSize: 26, fontFamily: "'Playfair Display', serif", fontWeight: 700 }}>
+          <span style={{ color: '#c5a059', fontSize: 26, fontFamily: "'Playfair Display', serif", fontWeight: 700 }}>
             {progress}
           </span>
           <span style={{ fontSize: 13, opacity: 0.6 }}>%</span>
@@ -250,7 +250,7 @@ export default function Preloader({ onComplete }) {
           style={{
             width: 'clamp(220px, 40vw, 340px)',
             height: '3px',
-            background: 'rgba(255,255,255,0.07)',
+            background: 'rgba(75, 115, 158, 0.1)',
             borderRadius: '4px',
             overflow: 'hidden',
             marginTop: 12,
@@ -260,7 +260,7 @@ export default function Preloader({ onComplete }) {
           <div style={{
             width: `${progress}%`,
             height: '100%',
-            background: 'linear-gradient(90deg, #5b4fcf, #7b6fdf, #c8922a)',
+            background: 'linear-gradient(90deg, #4b739e, #6a8db5, #c5a059)',
             borderRadius: '4px',
             transition: 'width 0.07s ease-out',
             position: 'relative',
@@ -272,8 +272,8 @@ export default function Preloader({ onComplete }) {
               transform: 'translateY(-50%)',
               width: 8, height: 8,
               borderRadius: '50%',
-              background: '#c8922a',
-              boxShadow: '0 0 12px 4px rgba(200,146,42,0.9)',
+              background: '#c5a059',
+              boxShadow: '0 0 12px 4px rgba(197, 160, 89, 0.9)',
             }} />
           </div>
         </motion.div>
@@ -287,7 +287,7 @@ export default function Preloader({ onComplete }) {
             fontSize: '10px',
             letterSpacing: '0.24em',
             textTransform: 'uppercase',
-            color: 'rgba(255,255,255,0.36)',
+            color: '#536476',
             marginTop: 14,
           }}
         >
@@ -303,13 +303,13 @@ export default function Preloader({ onComplete }) {
             style={{
               marginTop: 18,
               width: 32, height: 32, borderRadius: '50%',
-              background: 'rgba(200,146,42,0.2)',
-              border: '1.5px solid rgba(200,146,42,0.6)',
+              background: 'rgba(197,160,89,0.2)',
+              border: '1.5px solid rgba(197,160,89,0.6)',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
             }}
           >
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <path d="M2 7l3.5 3.5L12 3" stroke="#c8922a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M2 7l3.5 3.5L12 3" stroke="#c5a059" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </motion.div>
         )}
@@ -324,7 +324,7 @@ export default function Preloader({ onComplete }) {
           position: 'absolute',
           bottom: '0px', left: 0,
           width: '100vw', height: '3px',
-          background: 'linear-gradient(90deg, transparent, #5b4fcf, #c8922a, #5b4fcf, transparent)',
+          background: 'linear-gradient(90deg, transparent, #4b739e, #c5a059, #4b739e, transparent)',
           transformOrigin: 'center',
           zIndex: 15,
         }}

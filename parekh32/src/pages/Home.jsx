@@ -2,118 +2,162 @@ import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import {
   ArrowRight, ChevronLeft, ChevronRight,
-  Gem, Truck, Headphones, RotateCcw,
-  Award, Package, Users, CheckCircle, Star,
+  Gem, Truck, Headphones,
+  Award, ShieldCheck, RefreshCw, Leaf, Crown,
+  Gavel, Sparkles, Scissors, Shirt, Home as HomeIcon, Layers, Smile,
+  FileText, Flower, Bed, Footprints, Briefcase, User
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const C = {
-  primary: '#5b4fcf',
-  primaryDark: '#3d3399',
-  accent: '#c8922a',
+  primary: '#4b739e',        // Steel Blue
+  primaryDark: '#2b496e',   // Dark Navy Blue
+  accent: '#c5a059',         // Warm Gold/Beige
   bg: '#ffffff',
-  sand: '#f5f0e8',
-  sage: '#ede8f5',
-  border: '#d8cff0',
-  soil: '#1a1435',
-  stone: '#6b6080',
+  sand: '#f7f4ed',           // Soft Warm Sand
+  sage: '#e8eff6',           // Soft Pastel Blue
+  border: '#d2dfed',         // Soft Blue-Grey Border
+  soil: '#1a2a3a',           // Deep Slate Blue (Main Text)
+  stone: '#536476',          // Muted Slate Text
 };
 
-// ── Hero Slides ──
-const heroSlides = [
-  {
-    badge: 'Timeless Weaves, Modern You',
-    titleLine1: 'Threads of',
-    titleHighlight: 'Tradition,',
-    titleLine2: 'Touch of Luxury',
-    subtitle: 'Discover timeless fabrics crafted with care, designed to bring elegance to every moment.',
-    cta: 'Explore Collection',
-    path: '/products',
-    image: '/images/hero_stacked_fabrics.png',
-  },
-  {
-    badge: 'New Arrivals 2026',
-    titleLine1: 'Luxury for Your',
-    titleHighlight: 'Home',
-    titleLine2: '& Living Spaces',
-    subtitle: 'Premium cotton bedsheets, linen and home textiles that transform your space.',
-    cta: 'Explore Home',
-    path: '/products?category=Bedsheets & Linen',
-    image: '/images/category_home.png',
-  },
-  {
-    badge: 'Kids Collection',
-    titleLine1: 'Vibrant Colors',
-    titleHighlight: 'For Little',
-    titleLine2: 'Ones',
-    subtitle: "Soft, safe & colorful fabrics for children's clothing — comfort that parents trust.",
-    cta: 'View Kids',
-    path: '/products?category=Hosiery Items',
-    image: '/images/category_kids.png',
-  },
+// ── Categories ──
+const categories = [
+  "Sarees",
+  "Leggings",
+  "Kurtis",
+  "Dress Suits",
+  "Bedsheets & Linen",
+  "Hosiery Items",
+  "Suiting",
+  "Shirting",
+  "Formal & Ethnic Wear for Women",
+  "Formal & Ethnic Wear for Men",
+  "Formal & Ethnic Wear for Children",
+  "Home Upholstery & Furnishing"
 ];
 
-// ── Shop by Category — 6 uniform cards ──
-const shopCategories = [
-  { name: 'Sarees',            path: '/products?category=Sarees',            image: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=600&auto=format&fit=crop&q=60' },
-  { name: 'Leggings',          path: '/products?category=Leggings',          image: 'https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=600&auto=format&fit=crop&q=60' },
-  { name: 'Kurtis',            path: '/products?category=Kurtis',            image: 'https://images.unsplash.com/photo-1741847639057-b51a25d42892?w=600&auto=format&fit=crop&q=60' },
-  { name: 'Dress Suits',       path: '/products?category=Dress Suits',       image: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600&auto=format&fit=crop&q=60' },
-  { name: 'Bedsheets & Linen', path: '/products?category=Bedsheets & Linen', image: 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=600&auto=format&fit=crop&q=60' },
-  { name: 'Hosiery Items',     path: '/products?category=Hosiery Items',     image: 'https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=600&auto=format&fit=crop&q=60' },
-];
+// ── Category Details Mapping ──
+const categoryDetails = {
+  "Sarees": { icon: Flower, count: "1200+ Items" },
+  "Leggings": { icon: Layers, count: "800+ Items" },
+  "Kurtis": { icon: Shirt, count: "1500+ Items" },
+  "Dress Suits": { icon: Crown, count: "1800+ Items" },
+  "Bedsheets & Linen": { icon: Bed, count: "2200+ Items" },
+  "Hosiery Items": { icon: Footprints, count: "1000+ Items" },
+  "Suiting": { icon: Briefcase, count: "2500+ Items" },
+  "Shirting": { icon: Shirt, count: "3000+ Items" },
+  "Formal & Ethnic Wear for Women": { icon: Sparkles, count: "2800+ Items" },
+  "Formal & Ethnic Wear for Men": { icon: User, count: "2000+ Items" },
+  "Formal & Ethnic Wear for Children": { icon: Smile, count: "1200+ Items" },
+  "Home Upholstery & Furnishing": { icon: HomeIcon, count: "1600+ Items" }
+};
 
 // ── Features Strip ──
 const features = [
-  { icon: Gem,        label: 'Premium Quality',    desc: 'Finest fabrics with unmatched quality' },
-  { icon: Truck,      label: 'Wide Range',         desc: 'Thousands of fabrics for every need' },
-  { icon: Users,      label: 'Customer First',     desc: 'Your satisfaction is our priority' },
-  { icon: Package,    label: 'Secure Packaging',   desc: 'Safe & reliable packaging always' },
-  { icon: Headphones, label: 'Dedicated Support',  desc: 'We are here to help you anytime' },
+  { icon: Gem,        label: 'Premium Quality',    desc: 'Finest fabrics with luxury standards' },
+  { icon: Truck,      label: 'Wide Range',         desc: 'Thousands of textiles for all needs' },
+  { icon: Award,      label: 'Customer First',     desc: 'Your satisfaction is our focus' },
+  { icon: ShieldCheck,label: 'Pan India Delivery',  desc: 'Safe & timely delivery across India' },
+  { icon: Headphones, label: 'Dedicated Support',  desc: 'Here to help you anytime' },
 ];
 
-// ── Popular Picks ──
-const popularPicks = [
-  { name: 'Banarasi Silk Saree',       image: '/images/hero_sarees.png',     path: '/products?category=Sarees' },
-  { name: 'Embroidered Anarkali Suit', image: '/images/category_ethnic.png', path: '/products?category=Dress Suits' },
-  { name: 'Designer Lehenga Choli',    image: '/images/hero_main.png',       path: '/products?category=Ethnic Wear' },
-  { name: 'Pure Cotton Fabric',        image: '/images/hero_fabrics.png',    path: '/products?category=Plain Fabrics' },
-  { name: 'Luxury Bedsheet Set',       image: '/images/category_home.png',   path: '/products?category=Bedsheets & Linen' },
-  { name: 'Tissue Silk Saree',         image: '/images/hero_sarees.png',     path: '/products?category=Sarees' },
+// ── Featured Collections ──
+const featuredCollections = [
+  { name: 'Premium Linen Shirting',   image: '/images/hero_fabrics.png',    path: '/products?category=Shirting' },
+  { name: 'Artisanal Handloom Saree',  image: '/images/hero_sarees.png',     path: '/products?category=Sarees' },
+  { name: 'Luxury Cotton Bedding',     image: '/images/slide1_bed.png',      path: '/products?category=Bedsheets%20%26%20Linen' },
+  { name: 'Heritage Brocade Fabrics',  image: '/images/slide1_rolls.png',    path: '/products?category=Suiting' },
 ];
 
-// ── Trust badges ──
-const trustBadges = [
-  { icon: Users,        label: 'Trusted by Thousands', desc: 'Serving customers across India' },
-  { icon: CheckCircle,  label: 'Authentic & Ethical',  desc: 'Sourced responsibly, crafted ethically' },
-  { icon: Package,      label: 'Secure Packaging',     desc: 'Safety in every order delivered' },
-  { icon: Award,        label: '100% Satisfaction',    desc: 'Your satisfaction is our priority' },
+
+
+const heroSlides = [
+  {
+    badge: 'Luxury Textile Curation',
+    titleLine1: 'Timeless Weaves, ',
+    titleItalic: 'Modern Elegance',
+    titleLine2: '',
+    desc: "Discover fabrics that blend tradition with today's style.",
+    btnText: 'Explore Collection',
+    bg: '#d2e3f5', // soft light blue as in user image
+    layout: 'three-columns-arched',
+    images: [
+      '/images/slide1_saree.png', // saree woman
+      '/images/slide1_rolls.png', // rolls
+      '/images/slide1_bed.png'    // bedding
+    ],
+    btnBg: '#3d699e',
+    btnHoverBg: '#c5a059',
+    badgeColor: '#c5a059',
+    titleColor: '#1a2a3a',
+    descColor: '#4b5a6a',
+    hasLeafSketch: true,
+    borderColor: '#ffffff'
+  },
+  {
+    badge: 'Timeless Weaves · Modern You',
+    titleLine1: 'Threads of ',
+    titleItalic: 'Tradition,',
+    titleLine2: ' Touch of Luxury',
+    desc: "Discover India's finest textile curation. Crafted with century-old passion, tailored for modern elegance, and delivered with trust.",
+    btnText: 'Explore Collection',
+    bg: 'linear-gradient(135deg, #f7f4ed 0%, #e8eff6 100%)',
+    layout: 'three-columns-arched',
+    images: [
+      '/images/hero_sarees.png',
+      '/images/fabrics_rolls.png',
+      '/images/hero_stacked_fabrics.png'
+    ],
+    btnBg: C.primary,
+    btnHoverBg: C.accent,
+    badgeColor: C.accent,
+    titleColor: C.soil,
+    descColor: C.stone,
+    borderColor: '#ffffff',
+    hasLeafSketch: true
+  },
+  {
+    badge: 'Premium Home Furnishing',
+    titleLine1: 'Crafted for Luxury, ',
+    titleItalic: 'Styled for You',
+    titleLine2: '',
+    desc: "Experience the ultimate collection of home textiles and premium fabrics.",
+    btnText: 'Explore Collection',
+    bg: 'linear-gradient(135deg, #f2ece0 0%, #e8eff6 100%)', // warm cream/sand to soft blue
+    layout: 'three-columns-arched',
+    images: [
+      '/images/category_ethnic.png', // ethnic
+      '/images/category_home.png',   // home rolls
+      '/images/about_hero.png'       // bed sheets
+    ],
+    btnBg: '#3d699e',
+    btnHoverBg: '#c5a059',
+    badgeColor: '#c5a059',
+    titleColor: '#1a2a3a',
+    descColor: '#4b5a6a',
+    hasLeafSketch: true,
+    borderColor: '#ffffff'
+  }
 ];
 
 export default function Home() {
-  const [slideIndex, setSlideIndex] = useState(0);
-  const [direction, setDirection] = useState(1);
-  const picksRef = useRef(null);
-  const slide = heroSlides[slideIndex];
-
-  const nextSlide = () => {
-    setDirection(1);
-    setSlideIndex((prev) => (prev + 1) % heroSlides.length);
-  };
-  const prevSlide = () => {
-    setDirection(-1);
-    setSlideIndex((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
-  };
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
-    const timer = setInterval(nextSlide, 6000);
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 6000);
     return () => clearInterval(timer);
   }, []);
 
-  const scrollPicks = (dir) => {
-    if (picksRef.current) {
-      picksRef.current.scrollBy({ left: dir * 300, behavior: 'smooth' });
-    }
+  const slide = heroSlides[currentSlide];
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
+  };
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
   };
 
   return (
@@ -123,171 +167,289 @@ export default function Home() {
           1. HERO SECTION
       ═══════════════════════════════════════ */}
       <section
-        className="relative w-full flex items-center overflow-hidden"
+        className="relative w-full flex items-center overflow-hidden transition-all duration-1000"
         style={{
-          minHeight: '480px',
-          paddingTop: 32,
-          background: 'linear-gradient(135deg, #f5f0e8 0%, #ede8f5 60%, #e8e0f5 100%)',
+          minHeight: '520px',
+          paddingTop: 36,
+          background: slide.bg,
         }}
       >
         {/* Soft background blobs */}
-        <div style={{ position: 'absolute', top: 0, left: 0, width: 350, height: 500, background: 'rgba(91,79,207,0.04)', borderRadius: '0 0 100% 0', filter: 'blur(60px)', pointerEvents: 'none' }} />
-        <div style={{ position: 'absolute', bottom: 0, right: 0, width: 400, height: 300, background: 'rgba(200,146,42,0.05)', borderRadius: '100% 0 0 0', filter: 'blur(50px)', pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', top: 0, left: 0, width: 350, height: 500, background: 'rgba(75, 115, 158, 0.04)', borderRadius: '0 0 100% 0', filter: 'blur(60px)', pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', bottom: 0, right: 0, width: 400, height: 300, background: 'rgba(197, 160, 89, 0.05)', borderRadius: '100% 0 0 0', filter: 'blur(50px)', pointerEvents: 'none' }} />
 
-        <div className="w-full max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14 flex flex-col lg:flex-row items-center gap-8 lg:gap-0 relative z-10 py-6 lg:py-8">
+        <div className="w-full max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14 relative z-10 pt-1 pb-6 lg:pt-2 lg:pb-8">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentSlide}
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -15 }}
+              transition={{ duration: 0.5, ease: 'easeInOut' }}
+              className="flex flex-col lg:flex-row items-center justify-between gap-12 w-full"
+            >
+              {/* ── Left: Text ── */}
+              <div className="w-full lg:w-[45%] flex flex-col items-start text-left relative">
+                {/* SVG Leaf Sketch Overlay */}
+                {slide.hasLeafSketch && (
+                  <div className="absolute -left-10 top-1/2 -translate-y-1/2 opacity-25 pointer-events-none z-0 hidden lg:block text-[#3d699e]">
+                    <svg
+                      width="220"
+                      height="380"
+                      viewBox="0 0 100 200"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M20,180 C25,145 35,95 70,30" />
+                      <path d="M70,30 C72,25 75,20 80,15 C75,22 72,27 70,30" />
+                      <path d="M27,150 C12,145 5,130 10,122 C18,115 25,135 29,142 Z" fill="none" />
+                      <path d="M31,135 C45,125 55,115 50,105 C42,98 35,115 33,125 Z" fill="none" />
+                      <path d="M38,110 C25,100 18,85 24,78 C31,72 37,90 40,98 Z" fill="none" />
+                      <path d="M45,90 C60,80 68,68 62,60 C55,54 48,72 47,80 Z" fill="none" />
+                      <path d="M57,55 C50,42 45,28 50,22 C56,18 60,32 59,42 Z" fill="none" />
+                    </svg>
+                  </div>
+                )}
 
-          {/* ── Left: Text ── */}
-          <div className="w-full lg:w-[45%] flex flex-col items-start text-left">
+                <span style={{ display: 'inline-block', fontSize: 11, fontWeight: 700, letterSpacing: '0.15em', color: slide.badgeColor, textTransform: 'uppercase', marginBottom: 12, position: 'relative', zIndex: 1 }}>
+                  {slide.badge}
+                </span>
 
-            <AnimatePresence mode="wait">
-              <motion.span
-                key={slideIndex + '-badge'}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.4 }}
-                style={{ display: 'inline-block', fontSize: 11, fontWeight: 700, letterSpacing: '0.08em', color: C.primary, textTransform: 'uppercase', marginBottom: 12 }}
-              >
-                {slide.badge}
-              </motion.span>
-            </AnimatePresence>
-
-            <AnimatePresence mode="wait">
-              <motion.h1
-                key={slideIndex + '-title'}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.5, delay: 0.05 }}
-                style={{
+                <h1 style={{
                   fontFamily: "'Playfair Display', serif",
-                  fontSize: 'clamp(32px, 4.5vw, 54px)',
-                  fontWeight: 700, color: C.soil,
+                  fontSize: 'clamp(32px, 4.5vw, 52px)',
+                  fontWeight: 700, color: slide.titleColor,
                   lineHeight: 1.15, margin: 0, marginBottom: 16,
-                }}
-              >
-                {slide.titleLine1}<br />
-                <span style={{ color: C.primary, fontStyle: 'italic' }}>{slide.titleHighlight}</span><br />
-                {slide.titleLine2}
-              </motion.h1>
-            </AnimatePresence>
-
-            <AnimatePresence mode="wait">
-              <motion.p
-                key={slideIndex + '-sub'}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.4, delay: 0.1 }}
-                style={{ color: C.stone, fontSize: 14, lineHeight: 1.65, marginBottom: 28, maxWidth: 360 }}
-              >
-                {slide.subtitle}
-              </motion.p>
-            </AnimatePresence>
-
-            <Link
-              to={slide.path}
-              style={{
-                display: 'inline-flex', alignItems: 'center', gap: 8,
-                padding: '13px 26px',
-                background: C.soil, color: '#ffffff',
-                borderRadius: 30, fontSize: 12, fontWeight: 700,
-                textDecoration: 'none', letterSpacing: '0.08em', textTransform: 'uppercase',
-                boxShadow: '0 8px 24px rgba(26,20,53,0.2)', transition: 'all 0.25s',
-              }}
-              onMouseEnter={e => { e.currentTarget.style.background = C.primary; e.currentTarget.style.boxShadow = '0 8px 24px rgba(91,79,207,0.3)'; }}
-              onMouseLeave={e => { e.currentTarget.style.background = C.soil; e.currentTarget.style.boxShadow = '0 8px 24px rgba(26,20,53,0.2)'; }}
-            >
-              {slide.cta} <ArrowRight size={14} />
-            </Link>
-
-            {/* Dots */}
-            <div style={{ display: 'flex', gap: 8, marginTop: 30 }}>
-              {heroSlides.map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => { setDirection(idx > slideIndex ? 1 : -1); setSlideIndex(idx); }}
-                  style={{
-                    width: idx === slideIndex ? 28 : 8, height: 8, borderRadius: 4,
-                    background: idx === slideIndex ? C.primary : '#d8cff0',
-                    border: 'none', padding: 0, cursor: 'pointer', transition: 'all 0.35s ease',
-                  }}
-                />
-              ))}
-            </div>
-          </div>
-
-          {/* ── Right: Image + Left/Right arrows at edges ── */}
-          <div className="w-full lg:w-[55%] flex items-center justify-center relative" style={{ minHeight: 460 }}>
-
-            {/* LEFT arrow — absolute left edge */}
-            <button
-              onClick={prevSlide}
-              style={{
-                position: 'absolute', left: -8, top: '50%', transform: 'translateY(-50%)',
-                zIndex: 10, width: 40, height: 40, borderRadius: '50%',
-                background: '#ffffff', border: `1px solid ${C.border}`,
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                cursor: 'pointer', boxShadow: '0 4px 12px rgba(91,79,207,0.12)',
-                transition: 'all 0.25s',
-              }}
-              onMouseEnter={e => { e.currentTarget.style.background = C.primary; e.currentTarget.style.borderColor = C.primary; }}
-              onMouseLeave={e => { e.currentTarget.style.background = '#ffffff'; e.currentTarget.style.borderColor = C.border; }}
-            >
-              <ChevronLeft size={18} style={{ color: C.soil, transition: 'color 0.25s' }}
-                onMouseEnter={e => e.currentTarget.style.color = '#fff'}
-                onMouseLeave={e => e.currentTarget.style.color = C.soil}
-              />
-            </button>
-
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={slideIndex}
-                initial={{ opacity: 0, x: direction > 0 ? 70 : -70 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: direction > 0 ? -70 : 70 }}
-                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                style={{ width: '100%', maxWidth: 620, position: 'relative' }}
-              >
-                <div style={{
-                  borderRadius: 28, overflow: 'hidden',
-                  boxShadow: '0 20px 55px rgba(91,79,207,0.16)',
-                  aspectRatio: '4/3', background: '#f5f0e8',
+                  position: 'relative', zIndex: 1
                 }}>
-                  <img
-                    src={slide.image}
-                    alt={slide.titleLine1}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                  />
-                </div>
-              </motion.div>
-            </AnimatePresence>
+                  {slide.titleLine1}
+                  {slide.titleItalic && (
+                    <span style={{
+                      fontFamily: "'Great Vibes', cursive",
+                      fontStyle: 'italic',
+                      fontWeight: 400,
+                      color: '#c5a059',
+                      fontSize: 'clamp(38px, 5.5vw, 64px)',
+                      paddingLeft: '4px',
+                      display: 'inline-block',
+                      lineHeight: 0.9,
+                      transform: 'rotate(-2deg)',
+                    }}>
+                      {slide.titleItalic}
+                    </span>
+                  )}
+                  {slide.titleLine2}
+                </h1>
 
-            {/* RIGHT arrow — absolute right edge */}
-            <button
-              onClick={nextSlide}
-              style={{
-                position: 'absolute', right: -8, top: '50%', transform: 'translateY(-50%)',
-                zIndex: 10, width: 40, height: 40, borderRadius: '50%',
-                background: '#ffffff', border: `1px solid ${C.border}`,
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                cursor: 'pointer', boxShadow: '0 4px 12px rgba(91,79,207,0.12)',
-                transition: 'all 0.25s',
-              }}
-              onMouseEnter={e => { e.currentTarget.style.background = C.primary; e.currentTarget.style.borderColor = C.primary; }}
-              onMouseLeave={e => { e.currentTarget.style.background = '#ffffff'; e.currentTarget.style.borderColor = C.border; }}
-            >
-              <ChevronRight size={18} style={{ color: C.soil, transition: 'color 0.25s' }}
-                onMouseEnter={e => e.currentTarget.style.color = '#fff'}
-                onMouseLeave={e => e.currentTarget.style.color = C.soil}
-              />
-            </button>
-          </div>
+                <p style={{ color: slide.descColor, fontSize: '15px', lineHeight: 1.7, marginBottom: 28, maxWidth: 440, position: 'relative', zIndex: 1 }}>
+                  {slide.desc}
+                </p>
+
+                {/* Premium Button */}
+                <div style={{ position: 'relative', zIndex: 1 }}>
+                  <Link
+                    to="/products"
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: 16,
+                      padding: '6px 6px 6px 24px',
+                      background: slide.btnBg,
+                      color: '#ffffff',
+                      borderRadius: 30,
+                      fontSize: 11,
+                      fontWeight: 700,
+                      textDecoration: 'none',
+                      letterSpacing: '0.1em',
+                      textTransform: 'uppercase',
+                      boxShadow: '0 8px 24px rgba(61, 105, 158, 0.25)',
+                      transition: 'all 0.25s',
+                    }}
+                    onMouseEnter={e => {
+                      e.currentTarget.style.background = slide.btnHoverBg;
+                      e.currentTarget.style.transform = 'translateY(-2px)';
+                      const circle = e.currentTarget.querySelector('.arrow-circle');
+                      if (circle) {
+                        circle.style.color = slide.btnHoverBg;
+                      }
+                    }}
+                    onMouseLeave={e => {
+                      e.currentTarget.style.background = slide.btnBg;
+                      e.currentTarget.style.transform = 'translateY(0)';
+                      const circle = e.currentTarget.querySelector('.arrow-circle');
+                      if (circle) {
+                        circle.style.color = slide.btnBg;
+                      }
+                    }}
+                  >
+                    <span>{slide.btnText}</span>
+                    <span
+                      className="arrow-circle"
+                      style={{
+                        width: 32,
+                        height: 32,
+                        borderRadius: '50%',
+                        background: '#ffffff',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: slide.btnBg,
+                        transition: 'all 0.25s',
+                      }}
+                    >
+                      <ArrowRight size={14} />
+                    </span>
+                  </Link>
+                </div>
+
+                {/* Navigation Dots */}
+                <div className="flex items-center gap-3 mt-8 z-10">
+                  {heroSlides.map((_, idx) => (
+                    <button
+                      key={idx}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setCurrentSlide(idx);
+                      }}
+                      style={{
+                        width: 10,
+                        height: 10,
+                        borderRadius: '50%',
+                        background: currentSlide === idx ? slide.btnBg : 'transparent',
+                        border: `2.5px solid ${currentSlide === idx ? slide.btnBg : '#a3b8cc'}`,
+                        cursor: 'pointer',
+                        transition: 'all 0.3s ease',
+                        padding: 0,
+                      }}
+                      aria-label={`Go to slide ${idx + 1}`}
+                    />
+                  ))}
+                </div>
+              </div>
+
+              {/* ── Right: Images (Three Arched Columns Layout) ── */}
+              <div className="w-full lg:w-[55%] flex items-center justify-center relative">
+                <div className="flex items-center justify-center gap-4 w-full">
+                  {/* Column 1: Image 1 (Arched Top) */}
+                  <div style={{
+                    width: 'clamp(120px, 17vw, 200px)',
+                    height: 'clamp(240px, 35vw, 400px)',
+                    borderRadius: '999px 999px 24px 24px',
+                    overflow: 'hidden',
+                    boxShadow: '0 12px 30px rgba(26, 42, 58, 0.15)',
+                    border: `2.5px solid ${slide.borderColor}`,
+                    marginTop: '-15px',
+                  }}>
+                    <img src={slide.images[0]} alt="Textile Feature 1" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  </div>
+
+                  {/* Column 2: Image 2 (Arched Top, shifted down) */}
+                  <div style={{
+                    width: 'clamp(120px, 17vw, 200px)',
+                    height: 'clamp(240px, 35vw, 400px)',
+                    borderRadius: '999px 999px 24px 24px',
+                    overflow: 'hidden',
+                    boxShadow: '0 12px 30px rgba(26, 42, 58, 0.15)',
+                    border: `2.5px solid ${slide.borderColor}`,
+                    marginTop: '30px',
+                  }}>
+                    <img src={slide.images[1]} alt="Textile Feature 2" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  </div>
+
+                  {/* Column 3: Image 3 (Arched Top, shifted up) */}
+                  <div style={{
+                    width: 'clamp(120px, 17vw, 200px)',
+                    height: 'clamp(240px, 35vw, 400px)',
+                    borderRadius: '999px 999px 24px 24px',
+                    overflow: 'hidden',
+                    boxShadow: '0 12px 30px rgba(26, 42, 58, 0.15)',
+                    border: `2.5px solid ${slide.borderColor}`,
+                    marginTop: '-35px',
+                  }}>
+                    <img src={slide.images[2]} alt="Textile Feature 3" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+
+          {/* Left Arrow Button */}
+          <button
+            onClick={(e) => { e.stopPropagation(); prevSlide(); }}
+            style={{
+              position: 'absolute',
+              left: '16px',
+              top: '50%',
+              transform: 'translateY(-50%)',
+              width: 32,
+              height: 32,
+              borderRadius: '50%',
+              background: 'rgba(255, 255, 255, 0.45)',
+              backdropFilter: 'blur(4px)',
+              border: '1px solid rgba(255, 255, 255, 0.7)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              cursor: 'pointer',
+              boxShadow: '0 4px 12px rgba(26, 42, 58, 0.08)',
+              transition: 'all 0.2s',
+              zIndex: 20
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.background = '#ffffff';
+              e.currentTarget.style.transform = 'translateY(-50%) scale(1.05)';
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.background = 'rgba(255, 255, 255, 0.45)';
+              e.currentTarget.style.transform = 'translateY(-50%) scale(1)';
+            }}
+            aria-label="Previous slide"
+          >
+            <ChevronLeft size={15} style={{ color: C.soil }} />
+          </button>
+
+          {/* Right Arrow Button */}
+          <button
+            onClick={(e) => { e.stopPropagation(); nextSlide(); }}
+            style={{
+              position: 'absolute',
+              right: '16px',
+              top: '50%',
+              transform: 'translateY(-50%)',
+              width: 32,
+              height: 32,
+              borderRadius: '50%',
+              background: 'rgba(255, 255, 255, 0.45)',
+              backdropFilter: 'blur(4px)',
+              border: '1px solid rgba(255, 255, 255, 0.7)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              cursor: 'pointer',
+              boxShadow: '0 4px 12px rgba(26, 42, 58, 0.08)',
+              transition: 'all 0.2s',
+              zIndex: 20
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.background = '#ffffff';
+              e.currentTarget.style.transform = 'translateY(-50%) scale(1.05)';
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.background = 'rgba(255, 255, 255, 0.45)';
+              e.currentTarget.style.transform = 'translateY(-50%) scale(1)';
+            }}
+            aria-label="Next slide"
+          >
+            <ChevronRight size={15} style={{ color: C.soil }} />
+          </button>
         </div>
       </section>
 
       {/* ═══════════════════════════════════════
-          2. FEATURES STRIP
+          2. KEY FEATURES STRIP
       ═══════════════════════════════════════ */}
       <section style={{ background: '#ffffff', borderTop: `1px solid ${C.border}`, borderBottom: `1px solid ${C.border}` }}>
         <div className="max-w-[90rem] mx-auto px-6 lg:px-14">
@@ -309,338 +471,316 @@ export default function Home() {
       </section>
 
       {/* ═══════════════════════════════════════
-          3. COLLECTION BANNER + SHOP BY CATEGORY
+          3. CATEGORIES SIDEBAR + PROMO SECTIONS
       ═══════════════════════════════════════ */}
-      <section className="px-4 sm:px-6 lg:px-10 xl:px-14 py-10">
-        <div className="max-w-[90rem] mx-auto flex flex-col lg:flex-row gap-6">
+      <section className="px-6 lg:px-14 py-12">
+        <div className="max-w-[90rem] mx-auto flex flex-col lg:flex-row gap-6 items-stretch">
 
-          {/* ── Left: Collection Banner — image fills fully, no overlay ── */}
-          <div
-            className="relative rounded-3xl overflow-hidden flex-shrink-0"
-            style={{ width: '100%', maxWidth: 320, minHeight: 360 }}
-          >
-            {/* Full image, no colour overlay */}
-            <img
-              src="/images/hero_main.png"
-              alt="New Collection"
-              style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
-            />
-            {/* Only a thin bottom gradient so text stays readable */}
+          {/* Left: Category Sidebar */}
+          <div className="w-full lg:w-[320px] shrink-0 flex">
             <div style={{
-              position: 'absolute', inset: 0,
-              background: 'linear-gradient(to top, rgba(26,20,53,0.82) 0%, rgba(26,20,53,0.18) 55%, transparent 100%)',
-            }} />
-            <div style={{ position: 'relative', zIndex: 2, padding: '28px 24px', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>
-              <span style={{ fontSize: 10, letterSpacing: '0.25em', textTransform: 'uppercase', color: C.accent, fontWeight: 700, display: 'block', marginBottom: 10 }}>
-                New Collection
-              </span>
-              <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 28, fontWeight: 800, color: '#ffffff', margin: 0, lineHeight: 1.2, marginBottom: 10 }}>
-                Elevate Every Occasion
-              </h3>
-              <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: 12, margin: '0 0 20px', lineHeight: 1.6 }}>
-                Explore our latest collection of fabrics for every celebration.
-              </p>
-              <Link
-                to="/products"
-                style={{
-                  display: 'inline-flex', alignItems: 'center', gap: 7,
-                  padding: '10px 20px',
-                  background: 'rgba(255,255,255,0.12)', color: '#ffffff',
-                  border: '1.5px solid rgba(255,255,255,0.3)',
-                  borderRadius: 8, fontSize: 11, fontWeight: 700,
-                  textDecoration: 'none', letterSpacing: '0.08em',
-                  textTransform: 'uppercase', transition: 'all 0.25s',
-                  backdropFilter: 'blur(6px)', alignSelf: 'flex-start',
-                }}
-                onMouseEnter={e => { e.currentTarget.style.background = C.primary; e.currentTarget.style.borderColor = C.primary; }}
-                onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.12)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.3)'; }}
-              >
-                View Collection <ArrowRight size={11} />
-              </Link>
+              background: '#4b739e',
+              borderRadius: '24px',
+              padding: '24px',
+              boxShadow: '0 12px 36px rgba(75, 115, 158, 0.1)',
+            }} className="text-left w-full h-[380px] lg:h-[570px] flex flex-col">
+              {/* Header with gold lines and diamonds */}
+              <div className="flex items-center justify-between gap-3 mb-6">
+                <span className="flex-1 h-[1.5px]" style={{ background: 'linear-gradient(90deg, transparent, #c5a059)' }} />
+                <span style={{ color: '#c5a059', fontSize: '10px' }}>◆</span>
+                <h3 style={{
+                  fontFamily: "'Playfair Display', serif",
+                  fontSize: '19px',
+                  fontWeight: 700,
+                  color: '#ffffff',
+                  margin: 0,
+                  whiteSpace: 'nowrap'
+                }}>
+                  Shop by Category
+                </h3>
+                <span style={{ color: '#c5a059', fontSize: '10px' }}>◆</span>
+                <span className="flex-1 h-[1.5px]" style={{ background: 'linear-gradient(90deg, #c5a059, transparent)' }} />
+              </div>
+
+              {/* Scrollable Categories List */}
+              <div className="flex-1 overflow-y-auto pr-1 custom-sidebar-scrollbar flex flex-col gap-2">
+                {categories.map((cat) => {
+                  const details = categoryDetails[cat] || { icon: Gem, count: "1000+ Items" };
+                  const Icon = details.icon;
+                  return (
+                    <Link
+                      key={cat}
+                      to={`/products?category=${encodeURIComponent(cat)}`}
+                      className="flex items-center justify-between py-3 px-3 rounded-xl transition-all duration-200 group hover:bg-[rgba(255,255,255,0.08)]"
+                      style={{ textDecoration: 'none', borderBottom: '1px solid rgba(255,255,255,0.05)' }}
+                    >
+                      <div className="flex items-center">
+                        <span style={{ color: '#ffffff', fontSize: '13.5px', fontWeight: 600 }}>{cat}</span>
+                      </div>
+                      <ArrowRight size={14} className="text-[#c5a059] opacity-70 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                    </Link>
+                  );
+                })}
+              </div>
             </div>
           </div>
 
-          {/* ── Right: Shop by Category Grid — 6 uniform cards, no count text ── */}
-          <div className="flex-1">
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 12, marginBottom: 18 }}>
-              <div style={{ width: 28, height: 1, background: `linear-gradient(90deg, transparent, ${C.accent})` }} />
-              <span style={{ color: C.accent, fontSize: 10, fontWeight: 700, letterSpacing: '0.22em', textTransform: 'uppercase' }}>◆ Shop by Category ◆</span>
-              <div style={{ width: 28, height: 1, background: `linear-gradient(90deg, ${C.accent}, transparent)` }} />
-            </div>
+          {/* Right Column */}
+          <div className="flex-1 flex flex-col gap-6">
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-              {shopCategories.map((cat, idx) => (
-                <Link
-                  key={idx}
-                  to={cat.path}
-                  className="group flex flex-col items-center text-center overflow-hidden"
+            {/* Top Panel: Bulk Orders B2B Banner */}
+            <div style={{
+              background: '#fdf7ed',
+              borderRadius: '24px',
+              border: `1px solid ${C.border}`,
+              display: 'flex',
+              overflow: 'hidden',
+              height: '260px',
+            }} className="flex flex-col md:flex-row text-left group relative">
+              <div className="w-full md:w-[48%] p-8 flex flex-col justify-center">
+                <span style={{ fontSize: '10px', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: C.accent, display: 'block', marginBottom: '8px' }}>
+                  B2B CLEARANCE
+                </span>
+                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: '28px', fontWeight: 700, color: '#1a2a3a', margin: 0, lineHeight: 1.2 }}>
+                  Bulk Orders,
+                </h3>
+                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: '28px', fontWeight: 700, color: '#3d699e', margin: 0, lineHeight: 1.2, marginBottom: '12px' }}>
+                  Better Benefits
+                </h3>
+                <p style={{ color: C.stone, fontSize: '13.5px', margin: 0, marginBottom: '20px', lineHeight: 1.5 }}>
+                  Special pricing for retailers and bulk buyers.
+                </p>
+                <div>
+                  <Link
+                    to="/trade-enquiry"
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: 10,
+                      padding: '10px 24px',
+                      background: '#c5a059',
+                      color: '#ffffff',
+                      borderRadius: 24,
+                      fontSize: 11,
+                      fontWeight: 700,
+                      textDecoration: 'none',
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.08em',
+                      transition: 'all 0.25s',
+                    }}
+                    onMouseEnter={e => { e.currentTarget.style.background = C.primary; }}
+                    onMouseLeave={e => { e.currentTarget.style.background = '#c5a059'; }}
+                  >
+                    Enquire Now <ArrowRight size={13} />
+                  </Link>
+                </div>
+              </div>
+              <div className="hidden md:block w-[52%] relative overflow-hidden">
+                <div style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  width: '60px',
+                  height: '100%',
+                  background: 'linear-gradient(90deg, #fdf7ed 0%, transparent 100%)',
+                  zIndex: 2,
+                }} />
+                <img
+                  src="/images/bulk_orders_showroom.png"
+                  alt="Bulk Orders Textile Showroom"
                   style={{
-                    borderRadius: 16,
-                    background: 'white',
-                    border: `1px solid ${C.border}`, borderTop: `4px solid ${C.primaryLight}`,
-                    textDecoration: 'none',
-                    transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
                   }}
-                  onMouseEnter={e => {
-                    e.currentTarget.style.transform = 'translateY(-4px)';
-                    e.currentTarget.style.boxShadow = '0 12px 30px rgba(91,79,207,0.08)';
-                  }}
-                  onMouseLeave={e => {
-                    e.currentTarget.style.transform = 'translateY(0)';
-                    e.currentTarget.style.boxShadow = 'none';
-                  }}
-                >
-                  <div style={{ width: '100%', aspectRatio: '1', overflow: 'hidden', background: C.sage, position: 'relative' }}>
-                    <img
-                      src={cat.image}
-                      alt={cat.name}
-                      style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.6s ease', display: 'block' }}
-                      onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.05)'}
-                      onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
-                    />
+                />
+              </div>
+            </div>
+
+            {/* Bottom Panel: Live e-Auction Platforms */}
+            {/* Bottom Panel: Live e-Auction & e-Quotation Platforms */}
+            <div style={{
+              background: '#e8f1f9',
+              borderRadius: '24px',
+              border: `1px solid ${C.border}`,
+              display: 'flex',
+              overflow: 'hidden',
+              height: '286px',
+            }} className="flex flex-col md:flex-row text-left relative">
+              
+              {/* Left description area: e-Auction */}
+              <div className="w-full md:w-1/2 p-8 flex flex-col justify-between" style={{ borderRight: `1.5px solid ${C.border}` }}>
+                <div className="flex flex-col items-start">
+                  <div style={{
+                    width: '52px',
+                    height: '52px',
+                    borderRadius: '50%',
+                    background: '#f2ece0',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginBottom: '14px',
+                  }}>
+                    <Gavel size={22} style={{ color: '#c5a059' }} />
                   </div>
-                  <div style={{ padding: '12px 10px' }}>
-                    <p style={{ margin: 0, fontSize: 12, fontWeight: 700, color: C.soil, lineHeight: 1.3 }}>
-                      {cat.name}
-                    </p>
+                  <span style={{ fontSize: '9px', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: C.primary, display: 'block', marginBottom: '4px' }}>
+                    LIVE NOW
+                  </span>
+                  <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: '24px', fontWeight: 700, color: '#1a2a3a', margin: 0, lineHeight: 1.25, marginBottom: '8px' }}>
+                    e-Auction
+                  </h3>
+                  <p style={{ color: C.stone, fontSize: '13px', margin: 0, lineHeight: 1.5 }}>
+                    Exclusive fabrics at unbeatable prices. Participate in our live digital bids and win bulk lots.
+                  </p>
+                </div>
+                
+                <div>
+                  <Link
+                    to="/e-auction"
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: 8,
+                      padding: '10px 20px',
+                      background: '#4b739e',
+                      color: '#ffffff',
+                      borderRadius: 24,
+                      fontSize: 10.5,
+                      fontWeight: 700,
+                      textDecoration: 'none',
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.08em',
+                      transition: 'all 0.25s',
+                    }}
+                    onMouseEnter={e => { e.currentTarget.style.background = C.accent; }}
+                    onMouseLeave={e => { e.currentTarget.style.background = '#4b739e'; }}
+                  >
+                    View Live Auctions <ArrowRight size={12} />
+                  </Link>
+                </div>
+              </div>
+
+              {/* Right description area: e-Quotation */}
+              <div className="w-full md:w-1/2 p-8 flex flex-col justify-between">
+                <div className="flex flex-col items-start">
+                  <div style={{
+                    width: '52px',
+                    height: '52px',
+                    borderRadius: '50%',
+                    background: '#e8eff6',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginBottom: '14px',
+                  }}>
+                    <FileText size={22} style={{ color: C.primary }} />
                   </div>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+                  <span style={{ fontSize: '9px', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: C.accent, display: 'block', marginBottom: '4px' }}>
+                    QUICK RESPONSE
+                  </span>
+                  <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: '24px', fontWeight: 700, color: '#1a2a3a', margin: 0, lineHeight: 1.25, marginBottom: '8px' }}>
+                    e-Quotation
+                  </h3>
+                  <p style={{ color: C.stone, fontSize: '13px', margin: 0, lineHeight: 1.5 }}>
+                    Request instant custom quotes for your specific fabric and bulk requirements online with ease.
+                  </p>
+                </div>
+                
+                <div>
+                  <Link
+                    to="/e-quotation"
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: 8,
+                      padding: '10px 20px',
+                      background: '#c5a059',
+                      color: '#ffffff',
+                      borderRadius: 24,
+                      fontSize: 10.5,
+                      fontWeight: 700,
+                      textDecoration: 'none',
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.08em',
+                      transition: 'all 0.25s',
+                    }}
+                    onMouseEnter={e => { e.currentTarget.style.background = C.primary; }}
+                    onMouseLeave={e => { e.currentTarget.style.background = '#c5a059'; }}
+                  >
+                    Request Quotation <ArrowRight size={12} />
+                  </Link>
+                </div>
+              </div>
 
-      {/* ──────────────────────────────────────
-          4. THREE PROMO BANNERS
-      ────────────────────────────────────── */}
-      <section className="px-4 sm:px-6 lg:px-10 xl:px-14 py-6">
-        <div className="max-w-[90rem] mx-auto grid grid-cols-1 md:grid-cols-3 gap-5">
-
-          {/* Banner 1: Bulk Orders */}
-          <div
-            className="relative rounded-2xl overflow-hidden border"
-            style={{ minHeight: 180, borderColor: '#fce8d5', background: '#fff8f0' }}
-          >
-            <img src="/images/promo_bulk.png" alt="Bulk Orders" className="absolute inset-0 w-full h-full object-cover opacity-25" />
-            <div style={{ position: 'relative', zIndex: 1, padding: '24px 24px' }}>
-            <span style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', color: C.accent, fontWeight: 800, display: 'block', marginBottom: 8 }}>
-              Best Prices
-            </span>
-            <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, fontWeight: 800, color: C.soil, margin: 0, lineHeight: 1.2, marginBottom: 6 }}>
-              Bulk Orders,<br />Best Prices
-            </h3>
-              <p style={{ color: C.stone, fontSize: 11, margin: '0 0 16px', lineHeight: 1.5 }}>
-              Special rates for retailers and bulk buyers.
-            </p>
-            <Link
-              to="/trade-enquiry"
-                style={{
-                  display: 'inline-flex', alignItems: 'center', gap: 5,
-                  fontSize: 10, fontWeight: 700, color: C.accent,
-                  textDecoration: 'none', letterSpacing: '0.08em', textTransform: 'uppercase',
-                }}
-            >
-              Know More <ArrowRight size={10} />
-            </Link>
             </div>
-          </div>
 
-          {/* Banner 2: Custom Solutions */}
-          <div
-            className="relative rounded-2xl overflow-hidden border"
-            style={{ minHeight: 180, borderColor: '#e8e0f5', background: '#f5f0fc' }}
-          >
-            <img src="/images/category_ethnic.png" alt="Custom Solutions" className="absolute inset-0 w-full h-full object-cover opacity-20" />
-            <div style={{ position: 'relative', zIndex: 1, padding: '24px 24px' }}>
-            <span style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', color: C.primary, fontWeight: 800, display: 'block', marginBottom: 8 }}>
-              Tailored For You
-            </span>
-            <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, fontWeight: 800, color: C.soil, margin: 0, lineHeight: 1.2, marginBottom: 6 }}>
-              Custom Solutions<br />for Your Brand
-            </h3>
-              <p style={{ color: C.stone, fontSize: 11, margin: '0 0 16px', lineHeight: 1.5 }}>
-              Tailored textile solutions as per your needs.
-            </p>
-            <Link
-              to="/contact"
-                style={{
-                  display: 'inline-flex', alignItems: 'center', gap: 5,
-                  fontSize: 10, fontWeight: 700, color: C.primary,
-                  textDecoration: 'none', letterSpacing: '0.08em', textTransform: 'uppercase',
-                }}
-            >
-              Get In Touch <ArrowRight size={10} />
-            </Link>
-            </div>
-          </div>
-
-          {/* Banner 3: Timely Delivery */}
-          <div
-            className="relative rounded-2xl overflow-hidden border"
-            style={{ minHeight: 180, borderColor: '#ddd5f0', background: '#ede8f8' }}
-          >
-            <img src="/images/category_home.png" alt="Timely Delivery" className="absolute inset-0 w-full h-full object-cover opacity-20" />
-            <div style={{ position: 'relative', zIndex: 1, padding: '24px 24px' }}>
-            <span style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#7b4fcf', fontWeight: 800, display: 'block', marginBottom: 8 }}>
-              Pan India
-            </span>
-            <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, fontWeight: 800, color: C.soil, margin: 0, lineHeight: 1.2, marginBottom: 6 }}>
-              Timely Delivery<br />Across India
-            </h3>
-              <p style={{ color: C.stone, fontSize: 11, margin: '0 0 16px', lineHeight: 1.5 }}>
-              We ensure your orders reach you on time.
-            </p>
-            <Link
-              to="/about"
-                style={{
-                  display: 'inline-flex', alignItems: 'center', gap: 5,
-                  fontSize: 10, fontWeight: 700, color: '#7b4fcf',
-                  textDecoration: 'none', letterSpacing: '0.08em', textTransform: 'uppercase',
-                }}
-            >
-              Learn More <ArrowRight size={10} />
-            </Link>
-            </div>
           </div>
         </div>
       </section>
 
       {/* ═══════════════════════════════════════
-          5. POPULAR PICKS — simple card: image + title only
-             Scroll arrows on left & right of the row
+          4. FEATURED COLLECTIONS
       ═══════════════════════════════════════ */}
-      <section className="px-4 sm:px-6 lg:px-10 xl:px-14 py-10">
+      <section className="px-6 lg:px-14 py-12 bg-white">
         <div className="max-w-[90rem] mx-auto">
 
           {/* Header row */}
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20 }}>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(20px, 3vw, 28px)', fontWeight: 700, color: C.soil, margin: 0 }}>
-              Popular Picks
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 24 }}>
+            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(22px, 3vw, 30px)', fontWeight: 700, color: C.soil, margin: 0 }}>
+              Featured Collections
             </h2>
             <Link
               to="/products"
-              style={{ fontSize: 11.5, fontWeight: 700, color: C.primary, textDecoration: 'none', letterSpacing: '0.08em', textTransform: 'uppercase', display: 'flex', alignItems: 'center', gap: 4 }}
+              style={{ fontSize: 12, fontWeight: 700, color: C.primary, textDecoration: 'none', letterSpacing: '0.08em', textTransform: 'uppercase', display: 'flex', alignItems: 'center', gap: 4 }}
             >
-              View All <ArrowRight size={12} />
+              View All <ArrowRight size={14} />
             </Link>
           </div>
 
-          {/* Scroll row with LEFT / RIGHT buttons on sides */}
-          <div style={{ position: 'relative', display: 'flex', alignItems: 'center', gap: 0 }}>
-
-            {/* LEFT button */}
-            <button
-              onClick={() => scrollPicks(-1)}
-              style={{
-                flexShrink: 0,
-                width: 36, height: 36, borderRadius: '50%',
-                background: '#ffffff', border: `1px solid ${C.border}`,
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                cursor: 'pointer', marginRight: 10,
-                boxShadow: '0 2px 8px rgba(91,79,207,0.1)',
-                transition: 'all 0.25s',
-              }}
-              onMouseEnter={e => { e.currentTarget.style.background = C.sage; e.currentTarget.style.borderColor = C.primary; }}
-              onMouseLeave={e => { e.currentTarget.style.background = '#ffffff'; e.currentTarget.style.borderColor = C.border; }}
-            >
-              <ChevronLeft size={16} style={{ color: C.soil }} />
-            </button>
-
-            {/* Cards */}
-            <div
-              ref={picksRef}
-              style={{ display: 'flex', gap: 14, overflowX: 'auto', scrollbarWidth: 'none', msOverflowStyle: 'none', flex: 1, paddingBottom: 4 }}
-            >
-              {popularPicks.map((product, idx) => (
-                <Link
-                  key={idx}
-                  to={product.path}
-                  className="product-card shrink-0 text-left"
-                  style={{
-                    width: 186, textDecoration: 'none',
-                    background: 'white',
-                    borderRadius: 16, overflow: 'hidden',
-                    border: `1px solid ${C.border}`, borderTop: `4px solid ${C.primaryLight}`,
-                    transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                  }}
-                  onMouseEnter={e => {
-                    e.currentTarget.style.transform = 'translateY(-4px)';
-                    e.currentTarget.style.boxShadow = '0 12px 30px rgba(91,79,207,0.08)';
-                  }}
-                  onMouseLeave={e => {
-                    e.currentTarget.style.transform = 'translateY(0)';
-                    e.currentTarget.style.boxShadow = 'none';
-                  }}
-                >
-                  {/* Image only — no tag, no price, no heart */}
-                  <div style={{ aspectRatio: '3/4', background: C.sage, overflow: 'hidden', position: 'relative' }}>
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.6s ease', display: 'block' }}
-                      onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.05)'}
-                      onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
-                    />
-                  </div>
-                  {/* Title only */}
-                  <div style={{ padding: '12px 12px' }}>
-                    <p style={{ margin: 0, fontSize: 12.5, fontWeight: 600, color: C.soil, lineHeight: 1.35, fontFamily: "'Playfair Display', serif" }}>
-                      {product.name}
-                    </p>
-                  </div>
-                </Link>
-              ))}
-            </div>
-
-            {/* RIGHT button */}
-            <button
-              onClick={() => scrollPicks(1)}
-              style={{
-                flexShrink: 0,
-                width: 36, height: 36, borderRadius: '50%',
-                background: '#ffffff', border: `1px solid ${C.border}`,
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                cursor: 'pointer', marginLeft: 10,
-                boxShadow: '0 2px 8px rgba(91,79,207,0.1)',
-                transition: 'all 0.25s',
-              }}
-              onMouseEnter={e => { e.currentTarget.style.background = C.sage; e.currentTarget.style.borderColor = C.primary; }}
-              onMouseLeave={e => { e.currentTarget.style.background = '#ffffff'; e.currentTarget.style.borderColor = C.border; }}
-            >
-              <ChevronRight size={16} style={{ color: C.soil }} />
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════
-          6. TRUST BADGES
-      ═══════════════════════════════════════ */}
-      <section className="px-4 sm:px-6 lg:px-10 xl:px-14 py-6">
-        <div className="max-w-[90rem] mx-auto">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-0 rounded-2xl overflow-hidden border" style={{ borderColor: C.border, background: C.sand }}>
-            {trustBadges.map((badge, idx) => {
-              const Icon = badge.icon;
-              return (
-                <div
-                  key={idx}
-                  className="flex items-center gap-3 px-6 py-5"
-                  style={{ borderRight: idx < trustBadges.length - 1 ? `1px solid ${C.border}` : 'none' }}
-                >
-                  <div style={{ width: 38, height: 38, borderRadius: '50%', background: 'rgba(91,79,207,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                    <Icon size={17} style={{ color: C.primary }} />
-                  </div>
-                  <div>
-                    <p style={{ margin: 0, fontSize: 11.5, fontWeight: 700, color: C.soil }}>{badge.label}</p>
-                    <p style={{ margin: 0, fontSize: 10.5, color: C.stone, marginTop: 2, lineHeight: 1.4 }}>{badge.desc}</p>
-                  </div>
+          {/* Static Grid */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+            {featuredCollections.map((product, idx) => (
+              <Link
+                key={idx}
+                to={product.path}
+                className="product-card text-left block w-full"
+                style={{
+                  textDecoration: 'none',
+                  background: 'white',
+                  borderRadius: 16, overflow: 'hidden',
+                  border: `1px solid ${C.border}`,
+                  transition: 'all 0.3s ease',
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.transform = 'translateY(-4px)';
+                  e.currentTarget.style.boxShadow = '0 12px 30px rgba(75, 115, 158, 0.08)';
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = 'none';
+                }}
+              >
+                <div style={{ aspectRatio: '3/4', background: C.sage, overflow: 'hidden', position: 'relative' }}>
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.6s ease', display: 'block' }}
+                    onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.05)'}
+                    onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
+                  />
                 </div>
-              );
-            })}
+                <div style={{ padding: '14px 14px' }}>
+                  <p style={{ margin: 0, fontSize: 13.5, fontWeight: 600, color: C.soil, lineHeight: 1.35, fontFamily: "'Playfair Display', serif" }}>
+                    {product.name}
+                  </p>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
+
+
 
     </div>
   );
