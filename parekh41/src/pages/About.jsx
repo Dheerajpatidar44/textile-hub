@@ -1,80 +1,99 @@
 import { motion } from 'framer-motion';
 
 const C = {
-  primary: '#4A1942',
-  primaryLight: '#6B2D5B',
-  accent: '#8B5E3C',
-  accentLight: '#C49A6C',
-  bg: '#FAF6F1',
-  sand: '#F5EDE4',
-  border: '#E8DDD4',
-  soil: '#3D1F35',
-  stone: '#7A6670',
+  primary: '#8B1A4A',
+  primaryLight: '#B02E65',
+  accent: '#C4956A',
+  accentLight: '#E0B88A',
+  bg: '#FDF8F4',
+  sand: '#F5EBE0',
+  border: '#E8D8CC',
+  soil: '#2C1A1A',
+  stone: '#7A5E5E',
 };
+
 
 export default function About() {
   return (
-    <div style={{ fontFamily: "'DM Sans', sans-serif", background: C.bg, minHeight: '100vh' }} className="pt-[80px] pb-20">
-      
-      <div className="max-w-7xl mx-auto px-6 sm:px-10 text-left pt-0">
+    <div style={{ fontFamily: "'DM Sans', sans-serif", background: C.bg, minHeight: '100vh' }} className="pt-[70px] pb-20">
 
-        {/* Page Title */}
-        <div className="text-center mb-12">
-          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(30px, 4vw, 44px)', fontWeight: 700, color: C.soil, margin: '0 0 10px' }}>
+      {/* Page Title */}
+      <div style={{ background: '#ffffff', borderBottom: `1px solid ${C.border}`, padding: '20px 0 20px' }}>
+        <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14">
+          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(26px, 3.5vw, 38px)', fontWeight: 700, color: C.soil, margin: 0 }}>
             About Us
           </h1>
-          <div style={{ width: 50, height: 2, background: C.accent, borderRadius: 2, margin: '0 auto' }} />
+          <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginTop: 8 }}>
+            <div style={{ width: 32, height: 2, background: C.primary, borderRadius: 2 }} />
+            <div style={{ width: 60, height: 1, background: 'rgba(139,26,74,0.2)', borderRadius: 1 }} />
+          </div>
         </div>
-  
-        {/* Unified Card — content + image together */}
+      </div>
+
+      <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14 pt-10">
+
+        {/* Main card: Image + Content side by side */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           style={{
             background: '#ffffff',
-            borderRadius: '28px',
-            border: `1.5px solid ${C.border}`,
-            boxShadow: '0 20px 50px rgba(74, 25, 66, 0.06)',
+            borderRadius: 20,
+            border: `1px solid ${C.border}`,
             overflow: 'hidden',
-            position: 'relative',
+            boxShadow: '0 8px 32px rgba(139,26,74,0.06)',
           }}
         >
-          {/* Decorative accent bar at top */}
-          <div style={{ height: 4, background: `linear-gradient(90deg, ${C.primary}, ${C.accent}, ${C.accentLight})` }} />
-          
           <div className="flex flex-col lg:flex-row items-stretch">
             {/* Image side */}
-            <div className="lg:w-1/2 w-full relative" style={{ minHeight: 350 }}>
-              {/* Decorative hexagonal clip shape */}
-              <div style={{ position: 'absolute', inset: 0, overflow: 'hidden' }}>
-                <img
-                  src="https://plus.unsplash.com/premium_photo-1663088624029-5886b4fe8960?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGRyZXNzJTIwc3VpdHN8ZW58MHx8MHx8fDA%3D"
-                  alt="THREADORA Textile Artistry"
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                />
-                {/* Overlay gradient */}
-                <div style={{
-                  position: 'absolute', inset: 0,
-                  background: 'linear-gradient(135deg, rgba(74,25,66,0.15) 0%, transparent 60%)',
-                }} />
+            <div className="lg:w-[48%] w-full relative" style={{ minHeight: 400 }}>
+              <img
+                src="/images/about_artisan.png"
+                alt="Ananta Fabrics Artisan"
+                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', minHeight: 400 }}
+              />
+              {/* Subtle gradient overlay on bottom for text readability */}
+              <div style={{
+                position: 'absolute', bottom: 0, left: 0, right: 0, height: '40%',
+                background: 'linear-gradient(to top, rgba(139,26,74,0.5) 0%, transparent 100%)',
+              }} />
+              {/* Badge on image */}
+              <div style={{
+                position: 'absolute', bottom: 20, left: 20,
+                background: 'rgba(253,248,244,0.95)',
+                backdropFilter: 'blur(8px)',
+                borderRadius: 12,
+                padding: '12px 18px',
+                border: `1px solid ${C.border}`,
+              }}>
+                <p style={{ fontSize: 11, color: C.accent, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', margin: '0 0 3px' }}>Established</p>
+                <p style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, fontWeight: 700, color: C.soil, margin: 0, lineHeight: 1 }}>Since 2000</p>
               </div>
             </div>
 
             {/* Content side */}
-            <div className="lg:w-1/2 w-full p-8 sm:p-10 lg:p-14 flex flex-col justify-center text-left">
-              <span style={{ color: C.accent }} className="text-[11px] font-bold tracking-[0.25em] uppercase">Our Story ───</span>
-              <h2 style={{ fontFamily: "'Playfair Display', serif", color: C.soil }} className="text-3xl sm:text-4xl font-bold mt-3 mb-6 leading-tight">
+            <div className="lg:w-[52%] w-full p-8 sm:p-10 lg:p-12 flex flex-col justify-center text-left">
+              <span style={{ color: C.accent, fontSize: 11, fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase', display: 'block', marginBottom: 10 }}>
+                Our Story ───
+              </span>
+              <h2 style={{ fontFamily: "'Playfair Display', serif", color: C.soil, fontSize: 'clamp(22px, 3vw, 32px)', fontWeight: 700, margin: '0 0 16px', lineHeight: 1.25 }}>
                 Celebrating Craftsmanship & Modern Luxury
               </h2>
-              
-              <p style={{ color: C.stone, fontSize: '1.05rem', lineHeight: '1.8' }} className="margin-0 font-normal mb-6">
-                THREADORA Textile Retail is India's premier textile destination, dedicated to celebrating handloom weaving traditions and high-quality modern retail textiles. We collaborate directly with master artisans to curate high-quality fabrics, heritage sarees, and luxury home linen for retail and commercial partners nationwide.
+
+              <div style={{ width: 40, height: 2, background: C.primary, borderRadius: 2, marginBottom: 18 }} />
+
+              <p style={{ color: C.stone, fontSize: '15px', lineHeight: '1.8', margin: '0 0 14px' }}>
+                Ananta Fabrics is India's premier textile destination, dedicated to celebrating handloom weaving traditions and high-quality modern retail textiles. We collaborate directly with master artisans to curate premium fabrics, heritage sarees, and luxury home linen for retail and commercial partners nationwide.
+              </p>
+
+              <p style={{ color: C.stone, fontSize: '14px', lineHeight: '1.75', margin: '0 0 24px' }}>
+                With over 25 years of industry experience, we have built a trusted network across India, bringing the finest textiles closer to retailers and buyers with unmatched quality standards.
               </p>
 
               {/* Value tags */}
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-                {['Heritage Crafts', 'Premium Quality', 'Trusted Partners', 'Pan India'].map(tag => (
+                {['Heritage Crafts', 'Premium Quality', 'Trusted Partners', 'Pan India', 'Bulk Supply'].map(tag => (
                   <span key={tag} style={{
                     padding: '6px 14px', borderRadius: 20,
                     background: C.sand, border: `1px solid ${C.border}`,
@@ -86,6 +105,8 @@ export default function About() {
             </div>
           </div>
         </motion.div>
+
+
       </div>
     </div>
   );

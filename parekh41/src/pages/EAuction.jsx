@@ -1,15 +1,15 @@
 import { motion } from 'framer-motion';
-import { Gavel, Clock, History, Trophy } from 'lucide-react';
+import { Clock } from 'lucide-react';
 
 const C = {
-  primary: '#4A1942',
-  primaryLight: '#6B2D5B',
-  soil: '#3D1F35',
-  sand: '#F5EDE4',
-  cream: '#FAF6F1',
-  border: '#E8DDD4',
-  stone: '#7A6670',
-  accent: '#8B5E3C',
+  primary: '#8B1A4A',
+  primaryLight: '#B02E65',
+  soil: '#2C1A1A',
+  sand: '#F5EBE0',
+  cream: '#FDF8F4',
+  border: '#E8D8CC',
+  stone: '#7A5E5E',
+  accent: '#C4956A',
 };
 
 const upcomingAuctions = [
@@ -18,7 +18,7 @@ const upcomingAuctions = [
     title: "Surplus Silk Brocade Fabric",
     description: "End of season premium brocade fabric. Excellent condition, suitable for ethnic wear manufacturing.",
     quantity: "450 Meters",
-    basePrice: "₹1,80,000",
+    basePrice: "â‚¹1,80,000",
     startDate: "Oct 20, 2026 - 10:00 AM",
     status: "Upcoming",
     image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=400&auto=format&fit=crop&q=60"
@@ -28,7 +28,7 @@ const upcomingAuctions = [
     title: "Assorted Linen Rolls (B-Grade)",
     description: "Minor weave variations. Ideal for lining or budget upholstery projects. Sold as a single lot.",
     quantity: "1,200 Meters",
-    basePrice: "₹85,000",
+    basePrice: "â‚¹85,000",
     startDate: "Oct 25, 2026 - 11:30 AM",
     status: "Upcoming",
     image: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=400&auto=format&fit=crop&q=60"
@@ -37,50 +37,28 @@ const upcomingAuctions = [
 
 export default function EAuction() {
   return (
-    <div style={{ fontFamily: "'DM Sans', sans-serif", background: C.cream, minHeight: '100vh' }} className="pt-[80px] pb-20">
+    <div style={{ fontFamily: "'DM Sans', sans-serif", background: C.cream, minHeight: '100vh' }} className="pt-[70px] pb-20">
 
-      <div className="max-w-[90rem] mx-auto px-6 lg:px-14 pt-0">
-
-        {/* Page Title Section */}
-        <div className="text-center mb-12">
-          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(30px, 4vw, 44px)', fontWeight: 600, color: C.soil, margin: '0 0 12px' }}>
+      {/* Page Title */}
+      <div style={{ background: '#ffffff', borderBottom: `1px solid ${C.border}`, padding: '20px 0 20px' }}>
+        <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14">
+          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(26px, 3.5vw, 38px)', fontWeight: 700, color: C.soil, margin: 0 }}>
             e-Auction
           </h1>
-          <div style={{ width: 50, height: 2, background: C.accent, borderRadius: 2, margin: '0 auto' }} />
+          <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginTop: 8 }}>
+            <div style={{ width: 32, height: 2, background: C.primary, borderRadius: 2 }} />
+            <div style={{ width: 60, height: 1, background: 'rgba(139,26,74,0.2)', borderRadius: 1 }} />
+          </div>
         </div>
-  
-        <p style={{ textAlign: 'center', fontSize: 15, color: C.stone, marginBottom: 40, fontWeight: 400, maxWidth: 600, margin: '0 auto 40px', lineHeight: 1.6 }}>
+      </div>
+
+      <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14 pt-10">
+        
+        <p style={{ fontSize: 15, color: C.stone, marginBottom: 40, fontWeight: 400, maxWidth: 800, lineHeight: 1.6 }}>
           Participate in our transparent bidding platform to procure surplus inventory, special lots, and discontinued lines at competitive prices.
         </p>
 
-        {/* Stats/Info Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-14 text-left">
-          {[
-            { icon: Gavel, title: 'Live Bidding', desc: 'Real-time transparent bidding process' },
-            { icon: History, title: 'Fair Market Value', desc: 'Secure the best prices for bulk lots' },
-            { icon: Trophy, title: 'Verified Buyers', desc: 'Only registered trade partners can bid' }
-          ].map((item, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: idx * 0.1 }}
-              style={{
-                background: 'white', borderRadius: 16,
-                padding: '24px', border: `1px solid ${C.border}`,
-                display: 'flex', alignItems: 'flex-start', gap: 16,
-              }}
-            >
-              <div style={{ width: 44, height: 44, borderRadius: 12, background: 'rgba(139, 94, 60, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                <item.icon size={20} color={C.accent} />
-              </div>
-              <div>
-                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 17, fontWeight: 600, color: C.soil, margin: '0 0 6px' }}>{item.title}</h3>
-                <p style={{ fontSize: 12, color: C.stone, margin: 0, lineHeight: 1.5 }}>{item.desc}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+
 
         {/* Upcoming Auctions */}
         <div className="text-left mb-6">
@@ -104,7 +82,7 @@ export default function EAuction() {
               }}
               onMouseEnter={e => {
                 e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 12px 30px rgba(74, 25, 66, 0.08)';
+                e.currentTarget.style.boxShadow = '0 12px 30px rgba(139, 26, 74, 0.08)';
               }}
               onMouseLeave={e => {
                 e.currentTarget.style.transform = 'translateY(0)';
@@ -157,32 +135,12 @@ export default function EAuction() {
           ))}
         </div>
 
-        {/* CTA */}
-        <div style={{
-          marginTop: 60, padding: '32px', borderRadius: 20,
-          background: C.sand, border: `1px solid ${C.border}`,
-          textAlign: 'center'
-        }}>
-          <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 20, fontWeight: 600, color: C.soil, margin: '0 0 12px' }}>
-            New to our e-Auction platform?
-          </h3>
-          <p style={{ fontSize: 14, color: C.stone, margin: '0 0 20px' }}>
-            Trade partners must be pre-approved to participate in live bidding.
-          </p>
-          <button style={{
-            padding: '12px 28px', borderRadius: 30,
-            background: 'transparent', color: C.primary, border: `2px solid ${C.primary}`,
-            fontSize: 13, fontWeight: 600, fontFamily: "'DM Sans', sans-serif",
-            cursor: 'pointer', transition: 'all 0.2s'
-          }}
-            onMouseEnter={e => { e.currentTarget.style.background = C.primary; e.currentTarget.style.color = 'white'; }}
-            onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = C.primary; }}
-          >
-            Apply for Verification
-          </button>
-        </div>
+
 
       </div>
     </div>
   );
 }
+
+
+

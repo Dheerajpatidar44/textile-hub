@@ -1,19 +1,19 @@
 @import "tailwindcss";
 
 @theme {
-  /* ── THREADORA Textile Retail Color Palette ── */
-  --color-primary: #4A1942;        /* Deep Plum */
-  --color-primary-light: #6B2D5B;  /* Light Plum */
-  --color-primary-dark: #2E1038;   /* Darker Plum */
-  --color-accent: #8B5E3C;         /* Warm Bronze/Gold */
-  --color-accent-light: #F5E6D8;   /* Accent Soft Peach */
-  --color-sand: #F5EDE4;           /* Warm Beige */
-  --color-linen: #FAF6F1;          /* Warm Cream */
-  --color-cream: #FFF9F4;          /* Light Cream */
-  --color-sage: #F3EAE0;           /* Warm Soft Tone */
-  --color-soil: #3D1F35;           /* Dark Plum Text */
-  --color-mist: #E8DDD4;           /* Warm Soft Border */
-  --color-stone: #7A6670;          /* Muted Plum Text */
+  /* ── Ananta Fabrics Color Palette ── */
+  --color-primary: #8B1A4A;        /* Deep Rose/Wine */
+  --color-primary-light: #B02E65;  /* Light Rose */
+  --color-primary-dark: #5E0F30;   /* Darker Wine */
+  --color-accent: #C4956A;         /* Warm Gold */
+  --color-accent-light: #F0DCC8;   /* Soft Gold/Peach */
+  --color-sand: #F5EBE0;           /* Warm Sand */
+  --color-linen: #FDF8F4;          /* Warm Cream */
+  --color-cream: #FFFAF6;          /* Light Cream */
+  --color-sage: #F2E8DF;           /* Warm Muted Tone */
+  --color-soil: #2C1A1A;           /* Deep Warm Brown Text */
+  --color-mist: #E8D8CC;           /* Warm Soft Border */
+  --color-stone: #7A5E5E;          /* Muted Warm Text */
 
   /* ── Font Family ── */
   --font-display: 'Playfair Display', serif;
@@ -23,8 +23,8 @@
 @layer base {
   body {
     font-family: 'DM Sans', sans-serif;
-    background-color: #FAF6F1;
-    color: #3D1F35;
+    background-color: #FDF8F4;
+    color: #2C1A1A;
     margin: 0;
     padding: 0;
     -webkit-font-smoothing: antialiased;
@@ -34,7 +34,7 @@
   h1, h2, h3, h4, h5, h6, .display-title {
     font-family: 'Playfair Display', serif !important;
     font-weight: 600;
-    color: #3D1F35;
+    color: #2C1A1A;
   }
 
   * {
@@ -51,14 +51,14 @@
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #F5EDE4;
+  background: #F5EBE0;
 }
 ::-webkit-scrollbar-thumb {
-  background: #8B5E3C;
+  background: #C4956A;
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #6B4530;
+  background: #A87850;
 }
 
 /* ── Keyframe Animations ── */
@@ -94,19 +94,25 @@
   from { width: 0%; }
   to   { width: 100%; }
 }
-@keyframes plumGlow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(74, 25, 66, 0.3); }
-  50%       { box-shadow: 0 0 20px 8px rgba(74, 25, 66, 0); }
+@keyframes roseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(139, 26, 74, 0.3); }
+  50%       { box-shadow: 0 0 20px 8px rgba(139, 26, 74, 0); }
 }
 @keyframes ticker {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 
-/* Preloader sweep animation */
-@keyframes sweepUp {
-  0%   { transform: scaleY(1); transform-origin: bottom; }
-  100% { transform: scaleY(0); transform-origin: bottom; }
+/* Preloader animations */
+@keyframes fabricWave {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes threadDraw {
+  0%   { stroke-dashoffset: 300; opacity: 0; }
+  20%  { opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 1; }
 }
 
 @keyframes revealContent {
@@ -114,19 +120,13 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes diamondSpin {
-  0%   { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-@keyframes threadWeave {
-  0%   { stroke-dashoffset: 100; opacity: 0.3; }
-  50%  { stroke-dashoffset: 0; opacity: 1; }
-  100% { stroke-dashoffset: -100; opacity: 0.3; }
+@keyframes pulse-soft {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50%       { opacity: 1; transform: scale(1.03); }
 }
 
 .shimmer-text {
-  background: linear-gradient(90deg, #4A1942 0%, #8B5E3C 40%, #4A1942 60%, #6B2D5B 100%);
+  background: linear-gradient(90deg, #8B1A4A 0%, #C4956A 40%, #8B1A4A 60%, #B02E65 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -136,7 +136,7 @@
 .fade-in-up { animation: fadeInUp 0.7s ease forwards; }
 .fade-in-scale { animation: fadeInScale 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
 .float-up { animation: floatUp 3s ease-in-out infinite; }
-.gold-glow { animation: plumGlow 2.5s ease-in-out infinite; }
+.gold-glow { animation: roseGlow 2.5s ease-in-out infinite; }
 .display-title { font-family: 'Playfair Display', serif !important; }
 .serif-title { font-family: 'Playfair Display', serif !important; }
 
@@ -206,14 +206,14 @@
 }
 .card-hover:hover {
   transform: translateY(-4px);
-  box-shadow: 0 16px 40px rgba(74, 25, 66, 0.12);
+  box-shadow: 0 16px 40px rgba(139, 26, 74, 0.12);
 }
 
 /* ── Custom Divider ── */
 .divider-gold {
   width: 48px;
   height: 2px;
-  background: linear-gradient(90deg, #8B5E3C, #C49A6C);
+  background: linear-gradient(90deg, #C4956A, #E0B88A);
   border-radius: 2px;
 }
 
@@ -224,7 +224,7 @@
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #8B5E3C;
+  color: #C4956A;
 }
 
 /* ── Preloader ── */
@@ -239,9 +239,9 @@
   width: 100%;
   padding: 12px 0px;
   border: none;
-  border-bottom: 2px solid rgba(139, 94, 60, 0.25);
+  border-bottom: 2px solid rgba(196, 149, 106, 0.25);
   background: transparent;
-  color: #3D1F35;
+  color: #2C1A1A;
   font-family: 'DM Sans', sans-serif;
   font-size: 15px;
   font-weight: 500;
@@ -250,17 +250,17 @@
   transition: border-color 0.3s ease;
 }
 .form-input:focus {
-  border-bottom-color: #8B5E3C;
+  border-bottom-color: #C4956A;
 }
 .form-input::placeholder {
-  color: #7A6670;
+  color: #7A5E5E;
   font-weight: 400;
 }
 
 /* ── Page Hero Banner ── */
 .page-hero {
-  background: linear-gradient(135deg, #F5EDE4 0%, #EDE3D8 60%, #E5D9CD 100%);
-  border-bottom: 1px solid #E8DDD4;
+  background: linear-gradient(135deg, #F5EBE0 0%, #EDE0D4 60%, #E5D3C4 100%);
+  border-bottom: 1px solid #E8D8CC;
   position: relative;
   overflow: hidden;
 }
@@ -269,16 +269,16 @@
   position: absolute;
   top: 0; right: 0;
   width: 300px; height: 100%;
-  background: radial-gradient(ellipse at right, rgba(74, 25, 66, 0.08), transparent 70%);
+  background: radial-gradient(ellipse at right, rgba(139, 26, 74, 0.08), transparent 70%);
 }
 
 /* ── Pulse animation for WhatsApp / social ── */
-@keyframes plumPulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(74, 25, 66, 0.3); }
-  50%       { box-shadow: 0 0 0 10px rgba(74, 25, 66, 0); }
+@keyframes rosePulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(139, 26, 74, 0.3); }
+  50%       { box-shadow: 0 0 0 10px rgba(139, 26, 74, 0); }
 }
 .green-pulse {
-  animation: plumPulse 2s ease-in-out infinite;
+  animation: rosePulse 2s ease-in-out infinite;
 }
 
 /* ── Category Card ── */
@@ -287,7 +287,7 @@
 }
 .category-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 50px rgba(74, 25, 66, 0.14);
+  box-shadow: 0 20px 50px rgba(139, 26, 74, 0.14);
 }
 
 /* ── Product Card ── */
@@ -296,7 +296,7 @@
 }
 .product-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 36px rgba(74, 25, 66, 0.12);
+  box-shadow: 0 12px 36px rgba(139, 26, 74, 0.12);
 }
 
 /* ── Categories Scrollbar ── */

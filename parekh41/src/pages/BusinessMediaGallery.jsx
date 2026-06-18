@@ -1,14 +1,14 @@
 import { motion } from 'framer-motion';
 
 const C = {
-  primary: '#4A1942',
-  primaryLight: '#6B2D5B',
-  soil: '#3D1F35',
-  sand: '#F5EDE4',
-  cream: '#FAF6F1',
-  border: '#E8DDD4',
-  stone: '#7A6670',
-  accent: '#8B5E3C',
+  primary: '#8B1A4A',
+  primaryLight: '#B02E65',
+  soil: '#2C1A1A',
+  sand: '#F5EBE0',
+  cream: '#FDF8F4',
+  border: '#E8D8CC',
+  stone: '#7A5E5E',
+  accent: '#C4956A',
 };
 
 const galleryItems = [
@@ -22,19 +22,24 @@ const galleryItems = [
 
 export default function BusinessMediaGallery() {
   return (
-    <div style={{ fontFamily: "'DM Sans', sans-serif", background: C.cream }} className="pt-[80px] pb-20">
+    <div style={{ fontFamily: "'DM Sans', sans-serif", background: C.cream }} className="pt-[70px] pb-20">
 
-      <div className="max-w-[90rem] mx-auto px-6 lg:px-14 pt-0">
-
-        {/* Page Title Section */}
-        <div className="text-center mb-12">
-          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(30px, 4vw, 44px)', fontWeight: 600, color: C.soil, margin: '0 0 12px' }}>
+      {/* Page Title */}
+      <div style={{ background: '#ffffff', borderBottom: `1px solid ${C.border}`, padding: '20px 0 20px' }}>
+        <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14">
+          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(26px, 3.5vw, 38px)', fontWeight: 700, color: C.soil, margin: 0 }}>
             Media Gallery
           </h1>
-          <div style={{ width: 50, height: 2, background: C.accent, borderRadius: 2, margin: '0 auto' }} />
+          <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginTop: 8 }}>
+            <div style={{ width: 32, height: 2, background: C.primary, borderRadius: 2 }} />
+            <div style={{ width: 60, height: 1, background: 'rgba(139,26,74,0.2)', borderRadius: 1 }} />
+          </div>
         </div>
+      </div>
+
+      <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14 pt-10">
   
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
           {galleryItems.map((item, idx) => (
             <motion.div
               key={idx}
@@ -50,7 +55,7 @@ export default function BusinessMediaGallery() {
               }}
               onMouseEnter={e => {
                 e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 12px 30px rgba(74, 25, 66, 0.08)';
+                e.currentTarget.style.boxShadow = '0 12px 30px rgba(139, 26, 74, 0.08)';
               }}
               onMouseLeave={e => {
                 e.currentTarget.style.transform = 'translateY(0)';
@@ -67,21 +72,21 @@ export default function BusinessMediaGallery() {
                   loading="lazy"
                 />
                 <div style={{
-                  position: 'absolute', top: 12, left: 12,
-                  background: 'rgba(74, 25, 66, 0.85)', backdropFilter: 'blur(6px)',
-                  borderRadius: 20, padding: '4px 12px',
+                  position: 'absolute', top: 10, left: 10,
+                  background: 'rgba(139, 26, 74, 0.85)', backdropFilter: 'blur(6px)',
+                  borderRadius: 20, padding: '3px 10px',
                 }}>
-                  <span style={{ fontSize: 9, color: '#FAF6F1', letterSpacing: '0.15em', textTransform: 'uppercase', fontWeight: 600 }}>
+                  <span style={{ fontSize: 8.5, color: '#FDF8F4', letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 600 }}>
                     {item.category}
                   </span>
                 </div>
               </div>
 
-              <div style={{ padding: '20px', flex: 1, textLeft: 'left', textAlign: 'left' }}>
-                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, fontWeight: 600, color: C.soil, margin: '0 0 8px', lineHeight: 1.4 }}>
+              <div style={{ padding: '16px', flex: 1, textLeft: 'left', textAlign: 'left' }}>
+                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 15, fontWeight: 600, color: C.soil, margin: '0 0 6px', lineHeight: 1.35 }}>
                   {item.title}
                 </h3>
-                <p style={{ fontSize: 13, color: C.stone, lineHeight: 1.6, margin: 0, fontWeight: 400 }}>
+                <p style={{ fontSize: 12, color: C.stone, lineHeight: 1.5, margin: 0, fontWeight: 400 }}>
                   {item.desc}
                 </p>
               </div>
@@ -92,3 +97,6 @@ export default function BusinessMediaGallery() {
     </div>
   );
 }
+
+
+

@@ -19,19 +19,7 @@ import Preloader from './components/Preloader';
 import ScrollToTop from './components/ScrollToTop';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Sparkles } from 'lucide-react';
-
-const C = {
-  primary: '#4A1942',
-  primaryDark: '#2E1038',
-  accent: '#8B5E3C',
-  bg: '#FAF6F1',
-  sand: '#F5EDE4',
-  sage: '#F3EAE0',
-  border: '#E8DDD4',
-  soil: '#3D1F35',
-  stone: '#7A6670',
-};
+import { X } from 'lucide-react';
 
 // ─── Simple Welcome Popup ───
 function WelcomePopup() {
@@ -65,88 +53,87 @@ function WelcomePopup() {
             exit={{ opacity: 0 }}
             onClick={() => setIsOpen(false)}
             className="absolute inset-0"
-            style={{ background: 'rgba(46, 16, 56, 0.6)', backdropFilter: 'blur(10px)' }}
+            style={{ background: 'rgba(44, 26, 26, 0.55)', backdropFilter: 'blur(8px)' }}
           />
 
           {/* Modal */}
           <motion.div
-            initial={{ scale: 0.82, opacity: 0, y: 36 }}
+            initial={{ scale: 0.88, opacity: 0, y: 24 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
-            exit={{ scale: 0.88, opacity: 0, y: 24 }}
-            transition={{ type: 'spring', stiffness: 300, damping: 28 }}
+            exit={{ scale: 0.92, opacity: 0, y: 16 }}
+            transition={{ type: 'spring', stiffness: 320, damping: 30 }}
             style={{
               position: 'relative',
-              background: '#FAF6F1',
-              borderRadius: 28,
-              maxWidth: 400,
+              background: '#FDF8F4',
+              borderRadius: 20,
+              maxWidth: 360,
               width: '100%',
               overflow: 'hidden',
               zIndex: 10,
-              boxShadow: '0 40px 100px rgba(46, 16, 56, 0.35)',
+              boxShadow: '0 32px 80px rgba(44, 26, 26, 0.25)',
               fontFamily: "'DM Sans', sans-serif",
             }}
           >
-            {/* Top plum band */}
+            {/* Close button */}
+            <button
+              onClick={() => setIsOpen(false)}
+              style={{
+                position: 'absolute', top: 14, right: 14,
+                width: 32, height: 32, borderRadius: '50%',
+                background: 'rgba(44,26,26,0.08)', border: '1px solid rgba(44,26,26,0.1)',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                cursor: 'pointer', color: '#7A5E5E', transition: 'all 0.2s',
+                zIndex: 5,
+              }}
+              onMouseEnter={e => { e.currentTarget.style.background = 'rgba(139,26,74,0.1)'; e.currentTarget.style.color = '#8B1A4A'; }}
+              onMouseLeave={e => { e.currentTarget.style.background = 'rgba(44,26,26,0.08)'; e.currentTarget.style.color = '#7A5E5E'; }}
+            >
+              <X size={14} />
+            </button>
+
+            {/* Top image band */}
             <div style={{
-              background: 'linear-gradient(135deg, #4A1942 0%, #2E1038 100%)',
-              padding: '36px 28px 32px',
+              height: 130,
+              background: 'linear-gradient(135deg, #8B1A4A 0%, #5E0F30 100%)',
               position: 'relative',
-              textAlign: 'center',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
               overflow: 'hidden',
             }}>
-              {/* Pattern overlay */}
+              {/* Subtle pattern */}
               <div style={{
                 position: 'absolute', inset: 0,
-                backgroundImage: 'radial-gradient(rgba(196,154,108,0.08) 1.5px, transparent 1.5px)',
-                backgroundSize: '20px 20px',
-                pointerEvents: 'none',
+                backgroundImage: 'radial-gradient(rgba(196,149,106,0.1) 1px, transparent 1px)',
+                backgroundSize: '18px 18px',
               }} />
-              {/* Decorative circle */}
-              <div style={{ position: 'absolute', top: -50, right: -50, width: 180, height: 180, borderRadius: '50%', background: 'rgba(139,94,60,0.1)', pointerEvents: 'none' }} />
-
-              {/* Close button */}
-              <button
-                onClick={() => setIsOpen(false)}
-                style={{
-                  position: 'absolute', top: 14, right: 14,
-                  width: 30, height: 30, borderRadius: '50%',
-                  background: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.2)',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  cursor: 'pointer', color: 'rgba(255,255,255,0.8)', transition: 'all 0.2s',
-                  zIndex: 5,
-                }}
-                onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.25)'; }}
-                onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.12)'; }}
-              >
-                <X size={14} />
-              </button>
-
-              {/* Icon + Title */}
-              <div style={{ position: 'relative', zIndex: 2 }}>
+              {/* Logo icon */}
+              <div style={{ position: 'relative', zIndex: 2, textAlign: 'center' }}>
                 <div style={{
-                  width: 56, height: 56, borderRadius: '50%',
-                  background: 'rgba(196,154,108,0.2)',
-                  border: '1.5px solid rgba(196,154,108,0.5)',
+                  width: 56, height: 56,
+                  borderRadius: '50%',
+                  background: 'rgba(196,149,106,0.2)',
+                  border: '1.5px solid rgba(196,149,106,0.5)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  margin: '0 auto 16px',
+                  margin: '0 auto 10px',
                 }}>
-                  <Sparkles size={24} style={{ color: '#C49A6C' }} />
+                  <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                    <circle cx="14" cy="14" r="12" stroke="#C4956A" strokeWidth="1.5" fill="none"/>
+                    <path d="M14 4 C14 4, 22 10, 22 14 C22 18, 14 24, 14 24 C14 24, 6 18, 6 14 C6 10, 14 4, 14 4Z" fill="rgba(196,149,106,0.3)" stroke="#C4956A" strokeWidth="1"/>
+                    <circle cx="14" cy="14" r="3" fill="#C4956A"/>
+                  </svg>
                 </div>
-                <h2 style={{
-                  fontFamily: "'Playfair Display', serif",
-                  fontSize: 26, fontWeight: 700,
-                  color: '#ffffff', margin: 0, lineHeight: 1.3,
-                }}>
-                  Welcome to<br />
-                  <span style={{ fontStyle: 'italic', color: '#C49A6C' }}>THREADORA</span>
-                </h2>
+                <p style={{ fontFamily: "'Playfair Display', serif", fontSize: 20, fontWeight: 700, color: '#ffffff', margin: 0, lineHeight: 1.2 }}>
+                  Ananta Fabrics
+                </p>
               </div>
             </div>
 
             {/* Bottom content */}
-            <div style={{ padding: '24px 28px 28px', textAlign: 'center' }}>
-              <p style={{ color: C.stone, fontSize: 14, lineHeight: 1.7, margin: '0 0 24px' }}>
-                Discover India's finest textiles — premium sarees, fabrics, ethnic wear and home textiles crafted with tradition.
+            <div style={{ padding: '24px 24px 28px', textAlign: 'center' }}>
+              <p style={{ color: '#2C1A1A', fontSize: 18, fontWeight: 600, fontFamily: "'Playfair Display', serif", margin: '0 0 8px' }}>
+                Welcome!
+              </p>
+              <p style={{ color: '#7A5E5E', fontSize: 13, lineHeight: 1.65, margin: '0 0 24px' }}>
+                Discover India's finest textiles — premium sarees, fabrics, ethnic wear and home textiles.
               </p>
 
               {/* Buttons */}
@@ -154,31 +141,30 @@ function WelcomePopup() {
                 <button
                   onClick={() => { setIsOpen(false); navigate('/products'); }}
                   style={{
-                    flex: 1, padding: '13px 20px',
-                    background: '#4A1942', color: '#ffffff',
-                    border: 'none', borderRadius: 12,
+                    flex: 1, padding: '12px 16px',
+                    background: '#8B1A4A', color: '#ffffff',
+                    border: 'none', borderRadius: 10,
                     fontSize: 13, fontWeight: 600,
-                    cursor: 'pointer', display: 'flex',
-                    alignItems: 'center', justifyContent: 'center',
-                    gap: 6, transition: 'all 0.25s',
-                    boxShadow: '0 6px 20px rgba(74,25,66,0.25)',
+                    cursor: 'pointer',
+                    transition: 'all 0.25s',
+                    boxShadow: '0 4px 16px rgba(139,26,74,0.25)',
                   }}
-                  onMouseEnter={e => { e.currentTarget.style.background = '#8B5E3C'; e.currentTarget.style.boxShadow = '0 6px 20px rgba(139,94,60,0.3)'; }}
-                  onMouseLeave={e => { e.currentTarget.style.background = '#4A1942'; e.currentTarget.style.boxShadow = '0 6px 20px rgba(74,25,66,0.25)'; }}
+                  onMouseEnter={e => { e.currentTarget.style.background = '#C4956A'; }}
+                  onMouseLeave={e => { e.currentTarget.style.background = '#8B1A4A'; }}
                 >
-                  <Sparkles size={14} /> Explore
+                  Explore Now
                 </button>
                 <button
                   onClick={() => setIsOpen(false)}
                   style={{
-                    padding: '13px 20px',
-                    background: 'transparent', color: C.stone,
-                    border: `1.5px solid ${C.border}`, borderRadius: 12,
+                    padding: '12px 16px',
+                    background: 'transparent', color: '#7A5E5E',
+                    border: '1.5px solid #E8D8CC', borderRadius: 10,
                     fontSize: 13, fontWeight: 500,
                     cursor: 'pointer', transition: 'all 0.2s',
                   }}
-                  onMouseEnter={e => { e.currentTarget.style.background = C.sand; }}
-                  onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; }}
+                  onMouseEnter={e => { e.currentTarget.style.background = '#F5EBE0'; e.currentTarget.style.borderColor = '#C4956A'; }}
+                  onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderColor = '#E8D8CC'; }}
                 >
                   Close
                 </button>

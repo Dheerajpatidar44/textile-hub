@@ -1,10 +1,10 @@
-import React from 'react';
+﻿import React from 'react';
 
 const COLORS = { 
   primary: '#25D366',
-  bg: '#FAF6F1',
-  border: '#E8DDD4',
-  textDark: '#3D1F35'
+  bg: '#FDF8F4',
+  border: '#E8D8CC',
+  textDark: '#2C1A1A'
 };
 
 const FloatingWhatsApp = () => {
@@ -52,3 +52,4 @@ const FloatingWhatsApp = () => {
 };
 
 export default FloatingWhatsApp;
+

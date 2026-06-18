@@ -3,8 +3,20 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Preloader({ onComplete }) {
   const [phase, setPhase] = useState('loading'); // 'loading' | 'complete' | 'exiting'
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
+    // Animate progress bar
+    const interval = setInterval(() => {
+      setProgress(prev => {
+        if (prev >= 100) {
+          clearInterval(interval);
+          return 100;
+        }
+        return prev + 2;
+      });
+    }, 36);
+
     const timer1 = setTimeout(() => {
       setPhase('complete');
     }, 2000);
@@ -16,6 +28,7 @@ export default function Preloader({ onComplete }) {
     return () => {
       clearTimeout(timer1);
       clearTimeout(timer2);
+      clearInterval(interval);
     };
   }, []);
 
@@ -24,8 +37,8 @@ export default function Preloader({ onComplete }) {
       {phase !== 'exiting' && (
         <motion.div
           initial={{ opacity: 1 }}
-          exit={{ opacity: 0, y: '-100%' }}
-          transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
+          exit={{ opacity: 0, scale: 1.05 }}
+          transition={{ duration: 0.7, ease: [0.76, 0, 0.24, 1] }}
           onAnimationComplete={() => {
             if (onComplete) onComplete();
           }}
@@ -37,156 +50,163 @@ export default function Preloader({ onComplete }) {
             flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'center',
-            background: 'linear-gradient(135deg, #4A1942 0%, #2E1038 50%, #3D1F35 100%)',
+            background: '#FDF8F4',
             overflow: 'hidden',
             fontFamily: "'DM Sans', sans-serif",
           }}
         >
-          {/* Elegant diamond pattern overlay */}
+          {/* Subtle background pattern */}
           <div style={{
             position: 'absolute', inset: 0,
-            backgroundImage: `
-              linear-gradient(45deg, rgba(139,94,60,0.03) 25%, transparent 25%),
-              linear-gradient(-45deg, rgba(139,94,60,0.03) 25%, transparent 25%),
-              linear-gradient(45deg, transparent 75%, rgba(139,94,60,0.03) 75%),
-              linear-gradient(-45deg, transparent 75%, rgba(139,94,60,0.03) 75%)
-            `,
-            backgroundSize: '40px 40px',
-            backgroundPosition: '0 0, 0 20px, 20px -20px, -20px 0px',
+            backgroundImage: `radial-gradient(circle at 20% 20%, rgba(139,26,74,0.04) 0%, transparent 50%),
+              radial-gradient(circle at 80% 80%, rgba(196,149,106,0.06) 0%, transparent 50%)`,
             pointerEvents: 'none',
           }} />
 
-          {/* Central diamond animation */}
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            
-            <div style={{ position: 'relative', width: 140, height: 140 }}>
-              
-              {/* Outer rotating diamond */}
+          {/* Decorative horizontal lines */}
+          {[0.2, 0.4, 0.6, 0.8].map((pos, i) => (
+            <motion.div
+              key={i}
+              initial={{ scaleX: 0, opacity: 0 }}
+              animate={{ scaleX: 1, opacity: 0.06 }}
+              transition={{ delay: i * 0.1, duration: 1.2, ease: 'easeOut' }}
+              style={{
+                position: 'absolute',
+                top: `${pos * 100}%`,
+                left: 0, right: 0,
+                height: 1,
+                background: '#8B1A4A',
+                transformOrigin: 'left',
+              }}
+            />
+          ))}
+
+          {/* Main content */}
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'relative', zIndex: 2 }}>
+
+            {/* Logo icon - lotus/fabric motif */}
+            <motion.div
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.6, ease: [0.34, 1.56, 0.64, 1] }}
+              style={{
+                width: 80, height: 80,
+                borderRadius: '50%',
+                background: 'linear-gradient(135deg, #8B1A4A 0%, #5E0F30 100%)',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                marginBottom: 28,
+                boxShadow: '0 12px 40px rgba(139,26,74,0.25)',
+                position: 'relative',
+              }}
+            >
+              {/* Rotating ring */}
               <motion.div
                 animate={{ rotate: 360 }}
-                transition={{ repeat: Infinity, duration: 8, ease: 'linear' }}
+                transition={{ repeat: Infinity, duration: 6, ease: 'linear' }}
                 style={{
-                  position: 'absolute',
-                  width: 140,
-                  height: 140,
-                  top: 0, left: 0,
+                  position: 'absolute', inset: -6,
+                  borderRadius: '50%',
+                  border: '1.5px dashed rgba(196,149,106,0.4)',
                 }}
-              >
-                <svg width="140" height="140" viewBox="0 0 140 140" fill="none">
-                  <rect x="70" y="5" width="92" height="92" rx="4" transform="rotate(45 70 5)" stroke="rgba(196,154,108,0.3)" strokeWidth="1" strokeDasharray="8 4" fill="none" />
-                </svg>
-              </motion.div>
-
-              {/* Inner rotating diamond */}
-              <motion.div
-                animate={{ rotate: -360 }}
-                transition={{ repeat: Infinity, duration: 5, ease: 'linear' }}
-                style={{
-                  position: 'absolute',
-                  width: 100,
-                  height: 100,
-                  top: 20, left: 20,
-                }}
-              >
-                <svg width="100" height="100" viewBox="0 0 100 100" fill="none">
-                  <rect x="50" y="5" width="64" height="64" rx="3" transform="rotate(45 50 5)" stroke="rgba(196,154,108,0.5)" strokeWidth="1.5" fill="none" />
-                </svg>
-              </motion.div>
-
-              {/* Center static diamond with glow */}
-              <motion.div
-                animate={{ scale: [1, 1.1, 1], opacity: [0.6, 1, 0.6] }}
-                transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
-                style={{
-                  position: 'absolute',
-                  width: 40,
-                  height: 40,
-                  top: 50, left: 50,
-                }}
-              >
-                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                  <rect x="20" y="2" width="25" height="25" rx="2" transform="rotate(45 20 2)" fill="rgba(196,154,108,0.25)" stroke="#C49A6C" strokeWidth="1" />
-                </svg>
-              </motion.div>
-
-              {/* Thread lines crossing */}
-              <svg width="140" height="140" viewBox="0 0 140 140" style={{ position: 'absolute', top: 0, left: 0 }}>
-                <motion.line
-                  x1="0" y1="70" x2="140" y2="70"
-                  stroke="#C49A6C" strokeWidth="0.5" opacity="0.4"
-                  initial={{ pathLength: 0 }}
-                  animate={{ pathLength: 1 }}
-                  transition={{ duration: 1.5, delay: 0.3 }}
-                />
-                <motion.line
-                  x1="70" y1="0" x2="70" y2="140"
-                  stroke="#C49A6C" strokeWidth="0.5" opacity="0.4"
-                  initial={{ pathLength: 0 }}
-                  animate={{ pathLength: 1 }}
-                  transition={{ duration: 1.5, delay: 0.5 }}
-                />
+              />
+              {/* SVG Lotus/Fabric icon */}
+              <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+                <path d="M18 6 C18 6, 28 12, 28 18 C28 24, 18 30, 18 30 C18 30, 8 24, 8 18 C8 12, 18 6, 18 6Z" fill="rgba(196,149,106,0.3)" stroke="#C4956A" strokeWidth="1.5"/>
+                <path d="M18 10 C18 10, 24 14, 24 18 C24 22, 18 26, 18 26 C18 26, 12 22, 12 18 C12 14, 18 10, 18 10Z" fill="rgba(196,149,106,0.5)" stroke="#C4956A" strokeWidth="1"/>
+                <circle cx="18" cy="18" r="3" fill="#C4956A"/>
               </svg>
-            </div>
+            </motion.div>
 
             {/* Brand Name */}
             <motion.div
-              initial={{ y: 15, opacity: 0 }}
+              initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.3, duration: 0.5 }}
+              transition={{ delay: 0.25, duration: 0.5 }}
               style={{
                 fontFamily: "'Playfair Display', serif",
-                fontSize: 34,
+                fontSize: 32,
                 fontWeight: 700,
-                color: '#ffffff',
-                letterSpacing: '0.08em',
-                lineHeight: 1,
-                marginTop: 28,
+                color: '#2C1A1A',
+                letterSpacing: '0.02em',
+                lineHeight: 1.1,
+                marginBottom: 8,
                 textAlign: 'center',
               }}
             >
-              THREADORA
+              Ananta Fabrics
             </motion.div>
 
-            {/* Subtitle */}
+            {/* Tagline */}
             <motion.div
               initial={{ opacity: 0 }}
-              animate={{ opacity: 0.6 }}
-              transition={{ delay: 0.5, duration: 0.4 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.4, duration: 0.5 }}
               style={{
-                fontSize: 10,
+                fontSize: 11,
                 fontWeight: 600,
                 textTransform: 'uppercase',
-                letterSpacing: '0.35em',
-                color: '#C49A6C',
-                marginTop: 10,
+                letterSpacing: '0.3em',
+                color: '#C4956A',
+                marginBottom: 36,
                 textAlign: 'center',
               }}
             >
-              Textile Retail
+              Premium Textile
             </motion.div>
-          </div>
 
-          {/* Elegant Loading bar at bottom */}
-          <div style={{
-            position: 'absolute',
-            bottom: '10%',
-            width: 200,
-            height: 1.5,
-            background: 'rgba(255,255,255,0.06)',
-            borderRadius: 2,
-            overflow: 'hidden',
-          }}>
+            {/* Elegant thin progress bar */}
             <motion.div
-              initial={{ x: '-100%' }}
-              animate={{ x: '100%' }}
-              transition={{ repeat: Infinity, duration: 1.8, ease: 'easeInOut' }}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.4 }}
               style={{
-                position: 'absolute',
-                width: '50%',
-                height: '100%',
-                background: 'linear-gradient(90deg, transparent, #C49A6C, transparent)',
+                width: 200,
+                height: 2,
+                background: 'rgba(139,26,74,0.1)',
+                borderRadius: 4,
+                overflow: 'hidden',
+                position: 'relative',
               }}
-            />
+            >
+              <motion.div
+                initial={{ width: '0%' }}
+                animate={{ width: `${progress}%` }}
+                style={{
+                  height: '100%',
+                  background: 'linear-gradient(90deg, #8B1A4A, #C4956A)',
+                  borderRadius: 4,
+                  transition: 'width 0.1s linear',
+                }}
+              />
+            </motion.div>
+
+            {/* Fabric weave dots */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.6 }}
+              style={{ display: 'flex', gap: 6, marginTop: 20 }}
+            >
+              {[0, 1, 2, 3, 4].map(i => (
+                <motion.div
+                  key={i}
+                  animate={{ scaleY: [1, 2, 1], opacity: [0.3, 1, 0.3] }}
+                  transition={{
+                    repeat: Infinity,
+                    duration: 1,
+                    delay: i * 0.1,
+                    ease: 'easeInOut',
+                  }}
+                  style={{
+                    width: 3,
+                    height: 12,
+                    borderRadius: 2,
+                    background: '#8B1A4A',
+                    opacity: 0.3,
+                  }}
+                />
+              ))}
+            </motion.div>
           </div>
         </motion.div>
       )}

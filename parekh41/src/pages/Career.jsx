@@ -2,14 +2,14 @@ import { motion } from 'framer-motion';
 import { Briefcase, MapPin, Mail, Clock } from 'lucide-react';
 
 const C = {
-  primary: '#4A1942',
-  primaryLight: '#6B2D5B',
-  accent: '#8B5E3C',
-  bg: '#FAF6F1',
-  sand: '#F5EDE4',
-  border: '#E8DDD4',
-  soil: '#3D1F35',
-  stone: '#7A6670',
+  primary: '#8B1A4A',
+  primaryLight: '#B02E65',
+  accent: '#C4956A',
+  bg: '#FDF8F4',
+  sand: '#F5EBE0',
+  border: '#E8D8CC',
+  soil: '#2C1A1A',
+  stone: '#7A5E5E',
 };
 
 const jobs = [
@@ -21,18 +21,23 @@ const jobs = [
 
 export default function Career() {
   return (
-    <div style={{ fontFamily: "'DM Sans', sans-serif", background: C.bg, minHeight: '100vh' }} className="pt-[80px] pb-20">
+    <div style={{ fontFamily: "'DM Sans', sans-serif", background: C.bg, minHeight: '100vh' }} className="pt-[70px] pb-20">
 
       {/* Main Content */}
-      <div className="max-w-[90rem] mx-auto px-6 lg:px-14 pt-0">
-
-        {/* Page Title Section */}
-        <div className="text-center mb-12">
-          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(30px, 4vw, 40px)', fontWeight: 600, color: C.soil, margin: '0 0 12px' }}>
+      {/* Page Title */}
+      <div style={{ background: '#ffffff', borderBottom: `1px solid ${C.border}`, padding: '20px 0 20px' }}>
+        <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14">
+          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(26px, 3.5vw, 38px)', fontWeight: 700, color: C.soil, margin: 0 }}>
             Career Opportunities
           </h1>
-          <div style={{ width: 50, height: 2, background: C.accent, borderRadius: 2, margin: '0 auto' }} />
+          <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginTop: 8 }}>
+            <div style={{ width: 32, height: 2, background: C.primary, borderRadius: 2 }} />
+            <div style={{ width: 60, height: 1, background: 'rgba(139,26,74,0.2)', borderRadius: 1 }} />
+          </div>
         </div>
+      </div>
+
+      <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14 pt-10">
   
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
           {jobs.map((job, idx) => (
@@ -50,7 +55,7 @@ export default function Career() {
               }}
               onMouseEnter={e => {
                 e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 12px 30px rgba(74, 25, 66, 0.08)';
+                e.currentTarget.style.boxShadow = '0 12px 30px rgba(139, 26, 74, 0.08)';
               }}
               onMouseLeave={e => {
                 e.currentTarget.style.transform = 'translateY(0)';
@@ -64,7 +69,7 @@ export default function Career() {
                 <div className="flex flex-col gap-3 mb-6">
                   {[
                     { icon: MapPin, val: job.location },
-                    { icon: Briefcase, val: `${job.type} · ${job.experience}` },
+                    { icon: Briefcase, val: `${job.type} Â· ${job.experience}` },
                     { icon: Clock, val: 'Apply by June 30, 2026' },
                   ].map(({ icon: Icon, val }) => (
                     <div key={val} style={{ color: C.stone }} className="flex items-center gap-2.5 text-[13px] font-medium">
@@ -91,7 +96,7 @@ export default function Career() {
                   Apply Now
                 </button>
                 <a
-                  href="mailto:careers@threadora.com"
+                  href="mailto:careers@Ananta Fabrics.com"
                   style={{ color: C.accent }}
                   className="flex items-center justify-center gap-1.5 text-[13px] font-bold hover:opacity-85 mt-2"
                 >
@@ -105,3 +110,6 @@ export default function Career() {
     </div>
   );
 }
+
+
+

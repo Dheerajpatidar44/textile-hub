@@ -3,14 +3,14 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus } from 'lucide-react';
 
 const C = {
-  primary: '#4A1942',
-  primaryLight: '#6B2D5B',
-  soil: '#3D1F35',
-  sand: '#F5EDE4',
-  cream: '#FAF6F1',
-  border: '#E8DDD4',
-  stone: '#7A6670',
-  accent: '#8B5E3C',
+  primary: '#8B1A4A',
+  primaryLight: '#B02E65',
+  soil: '#2C1A1A',
+  sand: '#F5EBE0',
+  cream: '#FDF8F4',
+  border: '#E8D8CC',
+  stone: '#7A5E5E',
+  accent: '#C4956A',
 };
 
 const faqs = [
@@ -32,7 +32,7 @@ const faqs = [
   },
   {
     question: "Do you ship internationally?",
-    answer: "Yes, THREADORA ships globally. International shipping charges and delivery times vary based on the destination and order volume."
+    answer: "Yes, Ananta Fabrics ships globally. International shipping charges and delivery times vary based on the destination and order volume."
   },
   {
     question: "Can I request custom fabric weaving or dyeing?",
@@ -48,18 +48,22 @@ export default function FAQ() {
   };
 
   return (
-    <div style={{ fontFamily: "'DM Sans', sans-serif", background: C.cream, minHeight: '100vh' }} className="pt-[80px] pb-20">
+    <div style={{ fontFamily: "'DM Sans', sans-serif", background: C.cream, minHeight: '100vh' }} className="pt-[70px] pb-20">
 
-      <div className="max-w-3xl mx-auto px-6 pt-0">
-
-        {/* Page Title Section */}
-        <div className="text-center mb-12">
-          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(30px, 4vw, 44px)', fontWeight: 600, color: C.soil, margin: '0 0 12px' }}>
+      {/* Page Title */}
+      <div style={{ background: '#ffffff', borderBottom: `1px solid ${C.border}`, padding: '20px 0 20px' }}>
+        <div className="max-w-3xl mx-auto px-6">
+          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(26px, 3.5vw, 38px)', fontWeight: 700, color: C.soil, margin: 0 }}>
             Frequently Asked Questions
           </h1>
-          <div style={{ width: 50, height: 2, background: C.accent, borderRadius: 2, margin: '0 auto' }} />
+          <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginTop: 8 }}>
+            <div style={{ width: 32, height: 2, background: C.primary, borderRadius: 2 }} />
+            <div style={{ width: 60, height: 1, background: 'rgba(139,26,74,0.2)', borderRadius: 1 }} />
+          </div>
         </div>
-  
+      </div>
+
+      <div className="max-w-3xl mx-auto px-6 pt-8">
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
@@ -95,7 +99,7 @@ export default function FAQ() {
                   <div style={{
                     flexShrink: 0, width: 32, height: 32, borderRadius: '50%',
                     display: 'flex', alignItems: 'center', justifyContainer: 'center',
-                    background: isOpen ? C.accent : 'rgba(139, 94, 60, 0.06)',
+                    background: isOpen ? C.accent : 'rgba(196, 149, 106, 0.06)',
                     transition: 'all 0.3s ease',
                   }} className="flex items-center justify-center">
                     {isOpen ? <Minus size={15} color="white" /> : <Plus size={15} color={C.accent} />}
@@ -135,3 +139,6 @@ export default function FAQ() {
     </div>
   );
 }
+
+
+

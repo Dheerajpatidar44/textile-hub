@@ -1,15 +1,15 @@
 import { motion } from 'framer-motion';
-import { Mail, Users, TrendingUp, Award } from 'lucide-react';
+import { Mail } from 'lucide-react';
 
 const C = {
-  primary: '#4A1942',
-  primaryLight: '#6B2D5B',
-  soil: '#3D1F35',
-  sand: '#F5EDE4',
-  cream: '#FAF6F1',
-  border: '#E8DDD4',
-  stone: '#7A6670',
-  accent: '#8B5E3C',
+  primary: '#8B1A4A',
+  primaryLight: '#B02E65',
+  soil: '#2C1A1A',
+  sand: '#F5EBE0',
+  cream: '#FDF8F4',
+  border: '#E8D8CC',
+  stone: '#7A5E5E',
+  accent: '#C4956A',
 };
 
 const teamMembers = [
@@ -20,28 +20,29 @@ const teamMembers = [
 
 export default function RetailManagement() {
   return (
-    <div style={{ fontFamily: "'DM Sans', sans-serif", background: C.cream }} className="pt-[80px] pb-20">
+    <div style={{ fontFamily: "'DM Sans', sans-serif", background: C.cream, minHeight: '100vh' }} className="pt-[70px] pb-20">
 
-      <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14 pt-0">
-
-        {/* Page Title Section */}
-        <div className="text-center mb-12">
-          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(30px, 4vw, 44px)', fontWeight: 600, color: C.soil, margin: '0 0 12px' }}>
+      {/* Page Title */}
+      <div style={{ background: '#ffffff', borderBottom: `1px solid ${C.border}`, padding: '20px 0 20px' }}>
+        <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14">
+          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(26px, 3.5vw, 38px)', fontWeight: 700, color: C.soil, margin: 0 }}>
             Our Retail Management
           </h1>
-          <div style={{ width: 50, height: 2, background: C.accent, borderRadius: 2, margin: '0 auto' }} />
+          <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginTop: 8 }}>
+            <div style={{ width: 32, height: 2, background: C.primary, borderRadius: 2 }} />
+            <div style={{ width: 60, height: 1, background: 'rgba(139,26,74,0.2)', borderRadius: 1 }} />
+          </div>
         </div>
-  
-        <p style={{ textAlign: 'center', fontSize: 15, color: C.stone, marginBottom: 40, fontWeight: 400, maxWidth: 560, margin: '0 auto 40px', lineHeight: 1.7 }}>
-          THREADORA Textile Retail is administered and governed by highly skilled, experienced and qualified Management with decades of expertise in the textile industry.
+      </div>
+
+      <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14 pt-10">
+
+        <p style={{ fontSize: 15, color: C.stone, marginBottom: 36, fontWeight: 400, maxWidth: 560, lineHeight: 1.7 }}>
+          Ananta Fabrics is administered by highly skilled, experienced and qualified management with decades of expertise in the textile industry.
         </p>
 
         {/* Team Cards */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto"
-        >
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl">
           {teamMembers.map((member, i) => (
             <motion.div
               key={member.id}
@@ -49,7 +50,7 @@ export default function RetailManagement() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
               style={{
-                borderRadius: 16, background: 'white',
+                borderRadius: 14, background: 'white',
                 border: `1px solid ${C.border}`,
                 padding: '28px 22px',
                 textAlign: 'center',
@@ -57,7 +58,7 @@ export default function RetailManagement() {
               }}
               onMouseEnter={e => {
                 e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 12px 30px rgba(74, 25, 66, 0.08)';
+                e.currentTarget.style.boxShadow = '0 12px 30px rgba(139,26,74,0.08)';
               }}
               onMouseLeave={e => {
                 e.currentTarget.style.transform = 'translateY(0)';
@@ -71,17 +72,17 @@ export default function RetailManagement() {
                   style={{
                     width: 90, height: 90, borderRadius: '50%',
                     objectFit: 'cover',
-                    border: `3px solid rgba(139, 94, 60, 0.2)`,
+                    border: `3px solid rgba(196,149,106,0.2)`,
                     display: 'block',
                   }}
                 />
                 <div style={{
                   position: 'absolute', bottom: 0, right: 0,
-                  width: 24, height: 24, borderRadius: '50%',
+                  width: 22, height: 22, borderRadius: '50%',
                   background: C.accent, border: '2px solid white',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                 }}>
-                  <div style={{ width: 8, height: 8, borderRadius: '50%', background: 'white' }} />
+                  <div style={{ width: 7, height: 7, borderRadius: '50%', background: 'white' }} />
                 </div>
               </div>
 
@@ -96,23 +97,23 @@ export default function RetailManagement() {
               </p>
 
               <a
-                href={`mailto:${member.name.toLowerCase().replace(' ', '')}@threadora.com`}
+                href={`mailto:${member.name.toLowerCase().replace(' ', '')}@anantafabrics.com`}
                 style={{
                   display: 'inline-flex', alignItems: 'center', gap: 6,
                   padding: '8px 16px', borderRadius: 10,
                   fontSize: 12, color: C.primary, textDecoration: 'none', fontWeight: 500,
-                  background: 'rgba(139, 94, 60, 0.1)',
-                  border: `1px solid rgba(139, 94, 60, 0.25)`,
+                  background: 'rgba(139,26,74,0.06)',
+                  border: `1px solid rgba(139,26,74,0.15)`,
                   transition: 'all 0.2s ease',
                 }}
-                onMouseEnter={e => { e.currentTarget.style.background = C.accent; e.currentTarget.style.color = 'white'; e.currentTarget.style.borderColor = C.accent; }}
-                onMouseLeave={e => { e.currentTarget.style.background = 'rgba(139, 94, 60, 0.1)'; e.currentTarget.style.color = C.primary; e.currentTarget.style.borderColor = 'rgba(139, 94, 60, 0.25)'; }}
+                onMouseEnter={e => { e.currentTarget.style.background = C.primary; e.currentTarget.style.color = 'white'; e.currentTarget.style.borderColor = C.primary; }}
+                onMouseLeave={e => { e.currentTarget.style.background = 'rgba(139,26,74,0.06)'; e.currentTarget.style.color = C.primary; e.currentTarget.style.borderColor = 'rgba(139,26,74,0.15)'; }}
               >
                 <Mail size={13} /> Contact
               </a>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </div>
   );

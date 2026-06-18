@@ -1,17 +1,17 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ShoppingBag, Filter } from 'lucide-react';
+import { Filter } from 'lucide-react';
 
 const C = {
-  primary: '#4A1942',
-  primaryLight: '#6B2D5B',
-  accent: '#8B5E3C',
-  bg: '#FAF6F1',
-  sand: '#F5EDE4',
-  border: '#E8DDD4',
-  soil: '#3D1F35',
-  stone: '#7A6670',
+  primary: '#8B1A4A',
+  primaryLight: '#B02E65',
+  accent: '#C4956A',
+  bg: '#FDF8F4',
+  sand: '#F5EBE0',
+  border: '#E8D8CC',
+  soil: '#2C1A1A',
+  stone: '#7A5E5E',
 };
 
 const categories = [
@@ -55,133 +55,152 @@ export default function Products() {
   });
 
   return (
-    <div style={{ fontFamily: "'DM Sans', sans-serif", background: C.bg, minHeight: '100vh' }}>
-      <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14 pt-10 pb-20">
+    <div style={{ fontFamily: "'DM Sans', sans-serif", background: C.bg, minHeight: '100vh' }} className="pt-[58px]">
 
-        {/* Page Title */}
-        <div className="text-center mb-12">
-          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(30px, 4vw, 44px)', fontWeight: 600, color: C.soil, margin: '0 0 12px' }}>
+      {/* Page Title */}
+      <div style={{ background: '#ffffff', borderBottom: `1px solid ${C.border}`, padding: '20px 0 20px' }}>
+        <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14">
+          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(26px, 3.5vw, 38px)', fontWeight: 700, color: C.soil, margin: 0 }}>
             Explore Our Collection
           </h1>
-          <div style={{ width: 44, height: 2, background: `linear-gradient(90deg, ${C.primaryLight}, ${C.primary})`, borderRadius: 2, margin: '0 auto' }} />
+          <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginTop: 8 }}>
+            <div style={{ width: 32, height: 2, background: C.primary, borderRadius: 2 }} />
+            <div style={{ width: 60, height: 1, background: 'rgba(139,26,74,0.2)', borderRadius: 1 }} />
+          </div>
         </div>
+      </div>
+
+      <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14 pt-8 pb-20">
         
-        <div className="flex flex-col md:flex-row gap-8 items-start">
-          
-          {/* Left Sidebar */}
-          <div className="w-full md:w-[260px] flex-shrink-0 sticky top-24 rounded-2xl p-6" style={{ background: 'white', border: `1px solid ${C.border}` }}>
-            <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, fontWeight: 700, color: C.soil, marginBottom: 16, paddingBottom: 12, borderBottom: `1px solid ${C.border}` }}>
-              Categories
-            </h3>
-            <div className="flex flex-col gap-1.5 max-h-[65vh] overflow-y-auto pr-2 custom-scrollbar" style={{ scrollbarWidth: 'thin' }}>
-              {["All", ...categories].map((cat) => {
-                const active = activeCategory === cat;
-                return (
-                  <button
-                    key={cat}
-                    onClick={() => handleCategoryChange(cat)}
-                    className="text-left w-full px-4 py-2.5 rounded-xl text-[12px] font-bold tracking-wide transition-all duration-200 cursor-pointer flex items-center justify-between"
-                    style={{
-                      background: active ? 'rgba(74,25,66,0.08)' : 'transparent',
-                      color: active ? C.primary : C.stone,
-                      border: 'none',
-                    }}
-                    onMouseEnter={e => { if (!active) { e.currentTarget.style.background = 'rgba(74,25,66,0.03)'; e.currentTarget.style.color = C.primary; }}}
-                    onMouseLeave={e => { if (!active) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = C.stone; }}}
-                  >
-                    <span>{cat}</span>
-                    {active && <div style={{ width: 6, height: 6, borderRadius: '50%', background: C.primary }} />}
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Right Content */}
-          <div className="flex-1 w-full">
-            <div className="flex items-center justify-between mb-6">
-              <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, fontWeight: 700, color: C.soil, margin: 0 }}>
-                {activeCategory === "All" ? "All Products" : activeCategory}
-              </h2>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '8px 16px', borderRadius: 20, background: 'white', border: `1px solid ${C.border}` }}>
-                <ShoppingBag size={14} color={C.primary} />
-                <span style={{ fontSize: 12, color: C.stone, fontWeight: 500 }}>{filteredProducts.length} Products</span>
-              </div>
-            </div>
-
-            {filteredProducts.length > 0 ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {filteredProducts.map((product, index) => (
-                  <motion.div
-                    key={product.id}
-                    initial={{ opacity: 0, y: 14 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: Math.min(index * 0.04, 0.3) }}
-                    className="text-left"
-                    style={{
-                      borderRadius: 16, overflow: 'hidden',
-                      background: 'white', border: `1px solid ${C.border}`,
-                      transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                    }}
-                    onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 12px 30px rgba(74,25,66,0.08)'; }}
-                    onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none'; }}
-                  >
-                    <div style={{ height: 240, overflow: 'hidden', position: 'relative' }}>
-                      <img src={product.image} alt={product.name} loading="lazy"
-                        style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.6s ease', display: 'block' }}
-                        onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.05)'}
-                        onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
-                      />
-                    </div>
-                    <div style={{ padding: '16px 18px', borderTop: `1px solid ${C.border}` }}>
-                      <span style={{ fontSize: 9, textTransform: 'uppercase', letterSpacing: '0.18em', color: C.accent, fontWeight: 600, display: 'block', marginBottom: 6 }}>
-                        {product.category}
-                      </span>
-                      <h3 style={{ fontSize: 14, fontWeight: 600, color: C.soil, margin: '0 0 12px', lineHeight: 1.4, fontFamily: "'Playfair Display', serif" }}>
-                        {product.name}
-                      </h3>
-                      <button
-                        style={{
-                          width: '100%', padding: '9px 14px',
-                          borderRadius: 10, fontSize: 12, fontWeight: 500,
-                          cursor: 'pointer', fontFamily: "'DM Sans', sans-serif",
-                          border: `1.5px solid ${C.border}`,
-                          background: 'transparent', color: C.stone,
-                          transition: 'all 0.2s ease',
-                        }}
-                        onMouseEnter={e => { e.currentTarget.style.background = C.primary; e.currentTarget.style.color = 'white'; e.currentTarget.style.borderColor = C.primary; }}
-                        onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = C.stone; e.currentTarget.style.borderColor = C.border; }}
-                      >
-                        View Details
-                      </button>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            ) : (
-              <div style={{ textAlign: 'center', padding: '80px 24px', borderRadius: 20, background: 'white', border: `1px solid ${C.border}` }}>
-                <Filter size={44} style={{ margin: '0 auto 16px', color: C.primaryLight, display: 'block', opacity: 0.6 }} />
-                <p style={{ fontFamily: "'Playfair Display', serif", fontSize: 20, color: C.soil, marginBottom: 20 }}>
-                  No products found for "{activeCategory}"
-                </p>
+        {/* Top Category Chips Container */}
+        <div style={{ background: 'white', border: `1px solid ${C.border}`, borderRadius: 16, padding: '20px', marginBottom: 28 }}>
+          <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 15, fontWeight: 700, color: C.soil, marginBottom: 14, borderBottom: `1px solid ${C.border}`, paddingBottom: 8 }}>
+            Categories
+          </h3>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+            {["All", ...categories].map((cat) => {
+              const active = activeCategory === cat;
+              return (
                 <button
-                  onClick={() => handleCategoryChange('All')}
+                  key={cat}
+                  onClick={() => handleCategoryChange(cat)}
                   style={{
-                    padding: '11px 24px', borderRadius: 12,
-                    background: C.primary, color: 'white',
-                    border: 'none', fontSize: 13, fontWeight: 500,
-                    cursor: 'pointer', fontFamily: "'DM Sans', sans-serif",
+                    padding: '8px 16px',
+                    borderRadius: 20,
+                    fontSize: 12,
+                    fontWeight: 600,
+                    cursor: 'pointer',
                     transition: 'all 0.2s ease',
+                    border: `1.5px solid ${active ? C.primary : C.border}`,
+                    background: active ? C.primary : 'transparent',
+                    color: active ? '#ffffff' : C.stone,
                   }}
-                  onMouseEnter={e => e.currentTarget.style.background = C.accent}
-                  onMouseLeave={e => e.currentTarget.style.background = C.primary}
+                  onMouseEnter={e => {
+                    if (!active) {
+                      e.currentTarget.style.background = 'rgba(139,26,74,0.04)';
+                      e.currentTarget.style.borderColor = C.primary;
+                      e.currentTarget.style.color = C.primary;
+                    }
+                  }}
+                  onMouseLeave={e => {
+                    if (!active) {
+                      e.currentTarget.style.background = 'transparent';
+                      e.currentTarget.style.borderColor = C.border;
+                      e.currentTarget.style.color = C.stone;
+                    }
+                  }}
                 >
-                  View All Products
+                  {cat}
                 </button>
-              </div>
-            )}
+              );
+            })}
           </div>
         </div>
+
+        {/* Content Section */}
+        <div className="w-full">
+          <div className="flex items-center justify-between mb-6">
+            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 20, fontWeight: 700, color: C.soil, margin: 0 }}>
+              {activeCategory === "All" ? "All Products" : activeCategory}
+            </h2>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '7px 14px', borderRadius: 20, background: 'white', border: `1px solid ${C.border}` }}>
+              <span style={{ fontSize: 12, color: C.stone, fontWeight: 500 }}>{filteredProducts.length} Products</span>
+            </div>
+          </div>
+
+          {filteredProducts.length > 0 ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {filteredProducts.map((product, index) => (
+                <motion.div
+                  key={product.id}
+                  initial={{ opacity: 0, y: 14 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: Math.min(index * 0.04, 0.3) }}
+                  className="text-left"
+                  style={{
+                    borderRadius: 12, overflow: 'hidden',
+                    background: 'white', border: `1px solid ${C.border}`,
+                    transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                  }}
+                  onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 12px 30px rgba(139,26,74,0.08)'; }}
+                  onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none'; }}
+                >
+                  <div style={{ height: 230, overflow: 'hidden', position: 'relative' }}>
+                    <img src={product.image} alt={product.name} loading="lazy"
+                      style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.6s ease', display: 'block' }}
+                      onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.05)'}
+                      onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
+                    />
+                  </div>
+                  <div style={{ padding: '14px 16px', borderTop: `1px solid ${C.border}` }}>
+                    <span style={{ fontSize: 9, textTransform: 'uppercase', letterSpacing: '0.18em', color: C.accent, fontWeight: 600, display: 'block', marginBottom: 5 }}>
+                      {product.category}
+                    </span>
+                    <h3 style={{ fontSize: 14, fontWeight: 600, color: C.soil, margin: '0 0 12px', lineHeight: 1.4, fontFamily: "'Playfair Display', serif" }}>
+                      {product.name}
+                    </h3>
+                    <button
+                      style={{
+                        width: '100%', padding: '9px 14px',
+                        borderRadius: 8, fontSize: 12, fontWeight: 500,
+                        cursor: 'pointer', fontFamily: "'DM Sans', sans-serif",
+                        border: `1.5px solid ${C.border}`,
+                        background: 'transparent', color: C.stone,
+                        transition: 'all 0.2s ease',
+                      }}
+                      onMouseEnter={e => { e.currentTarget.style.background = C.primary; e.currentTarget.style.color = 'white'; e.currentTarget.style.borderColor = C.primary; }}
+                      onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = C.stone; e.currentTarget.style.borderColor = C.border; }}
+                    >
+                      View Details
+                    </button>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          ) : (
+            <div style={{ textAlign: 'center', padding: '80px 24px', borderRadius: 16, background: 'white', border: `1px solid ${C.border}` }}>
+              <Filter size={44} style={{ margin: '0 auto 16px', color: C.primaryLight, display: 'block', opacity: 0.6 }} />
+              <p style={{ fontFamily: "'Playfair Display', serif", fontSize: 20, color: C.soil, marginBottom: 20 }}>
+                No products found for "{activeCategory}"
+              </p>
+              <button
+                onClick={() => handleCategoryChange('All')}
+                style={{
+                  padding: '11px 24px', borderRadius: 10,
+                  background: C.primary, color: 'white',
+                  border: 'none', fontSize: 13, fontWeight: 500,
+                  cursor: 'pointer', fontFamily: "'DM Sans', sans-serif",
+                  transition: 'all 0.2s ease',
+                }}
+                onMouseEnter={e => e.currentTarget.style.background = C.accent}
+                onMouseLeave={e => e.currentTarget.style.background = C.primary}
+              >
+                View All Products
+              </button>
+            </div>
+          )}
+        </div>
+
       </div>
     </div>
   );

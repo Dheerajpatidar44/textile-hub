@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const COLORS = { 
-  primary: '#8B5E3C',
-  accent: '#4A1942',
-  bg: '#FAF6F1', 
-  border: '#E8DDD4', 
-  textDark: '#3D1F35' 
+  primary: '#C4956A',
+  accent: '#8B1A4A',
+  bg: '#FDF8F4', 
+  border: '#E8D8CC', 
+  textDark: '#2C1A1A' 
 };
 
 const InstagramIcon = () => (
@@ -56,7 +56,7 @@ export default function FloatingSocials() {
         transition={{ type: 'spring', stiffness: 300, damping: 30 }}
         className="flex flex-col items-center rounded-r-2xl shadow-2xl py-5 px-3.5 relative"
         style={{
-          background: 'rgba(74,25,66,0.95)',
+          background: 'rgba(139,26,74,0.95)',
           backdropFilter: 'blur(8px)',
           border: '1px solid rgba(255,255,255,0.1)',
           borderLeft: 'none',
@@ -74,7 +74,7 @@ export default function FloatingSocials() {
                 aria-label={`Visit our ${social.name}`}
                 className="transition-all duration-200 hover:scale-115 cursor-pointer"
                 style={{ color: 'rgba(250,249,245,0.85)', transition: 'color 0.2s' }}
-                onMouseEnter={e => e.currentTarget.style.color = '#C49A6C'}
+                onMouseEnter={e => e.currentTarget.style.color = '#E0B88A'}
                 onMouseLeave={e => e.currentTarget.style.color = 'rgba(250,249,245,0.85)'}
               >
                 <Icon />
@@ -88,12 +88,12 @@ export default function FloatingSocials() {
           onClick={() => setIsExpanded(!isExpanded)}
           className="absolute right-[-24px] top-1/2 -translate-y-1/2 w-6 h-10 flex items-center justify-center rounded-r-md border-y border-r transition-colors focus:outline-none shadow-md cursor-pointer"
           style={{
-            background: '#4A1942',
+            background: '#8B1A4A',
             color: '#ffffff',
             borderColor: 'rgba(255,255,255,0.1)',
           }}
-          onMouseEnter={e => { e.currentTarget.style.background = '#8B5E3C'; }}
-          onMouseLeave={e => { e.currentTarget.style.background = '#4A1942'; }}
+          onMouseEnter={e => { e.currentTarget.style.background = '#C4956A'; }}
+          onMouseLeave={e => { e.currentTarget.style.background = '#8B1A4A'; }}
           aria-label={isExpanded ? "Collapse socials" : "Expand socials"}
         >
           {isExpanded ? <ChevronLeft size={16} /> : <ChevronRight size={16} />}
@@ -102,3 +102,4 @@ export default function FloatingSocials() {
     </div>
   );
 }
+

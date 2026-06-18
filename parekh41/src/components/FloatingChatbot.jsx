@@ -1,15 +1,15 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { MessageSquareText, X, Send, Sparkles } from 'lucide-react';
 
 const C = {
-  primary: '#4A1942',
-  primaryDark: '#2E1038',
-  soil: '#3D1F35',
-  sand: '#F5EDE4',
-  cream: '#FAF6F1',
-  border: '#E8DDD4',
-  stone: '#7A6670',
-  accent: '#8B5E3C',
+  primary: '#8B1A4A',
+  primaryDark: '#5E0F30',
+  soil: '#2C1A1A',
+  sand: '#F5EBE0',
+  cream: '#FDF8F4',
+  border: '#E8D8CC',
+  stone: '#7A5E5E',
+  accent: '#C4956A',
 };
 
 const FloatingChatbot = () => {
@@ -21,7 +21,7 @@ const FloatingChatbot = () => {
       {isOpen && (
         <div
           className="mb-4 w-[340px] sm:w-[370px] rounded-2xl overflow-hidden border"
-          style={{ borderColor: C.border, background: '#FAF6F1', boxShadow: '0 12px 40px rgba(74,25,66,0.15)' }}
+          style={{ borderColor: C.border, background: '#FDF8F4', boxShadow: '0 12px 40px rgba(139,26,74,0.15)' }}
         >
           {/* Header */}
           <div
@@ -37,12 +37,12 @@ const FloatingChatbot = () => {
               </div>
               <div className="text-left">
                 <p className="text-white text-[13px] font-bold tracking-wide leading-tight">
-                  THREADORA Assistant
+                  Ananta Fabrics Assistant
                 </p>
                 <div className="flex items-center gap-1.5 mt-0.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                   <span className="text-[10px] tracking-wide" style={{ color: 'rgba(255,255,255,0.7)' }}>
-                    Online · Replies instantly
+                    Online Â· Replies instantly
                   </span>
                 </div>
               </div>
@@ -70,7 +70,7 @@ const FloatingChatbot = () => {
                 style={{ borderColor: C.border }}
               >
                 <p className="text-[13px] leading-relaxed" style={{ color: C.soil }}>
-                  Namaste! 🙏 Welcome to <strong>THREADORA Textile Retail</strong>. How can I assist you today?
+                  Namaste! ðŸ™ Welcome to <strong>Ananta Fabrics Textile Retail</strong>. How can I assist you today?
                 </p>
               </div>
             </div>
@@ -123,7 +123,7 @@ const FloatingChatbot = () => {
         style={{
           background: isOpen ? C.soil : C.primary,
           borderColor: C.border,
-          boxShadow: '0 4px 16px rgba(74,25,66,0.2)'
+          boxShadow: '0 4px 16px rgba(139,26,74,0.2)'
         }}
       >
         {isOpen ? (
@@ -137,3 +137,4 @@ const FloatingChatbot = () => {
 };
 
 export default FloatingChatbot;
+

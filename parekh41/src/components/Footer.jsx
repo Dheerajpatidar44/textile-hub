@@ -2,9 +2,9 @@ import { Link } from 'react-router-dom';
 import { MapPin, Phone, Mail } from 'lucide-react';
 
 const C = {
-  primary: '#4A1942',
-  primaryDark: '#2E1038',
-  accent: '#8B5E3C',
+  primary: '#8B1A4A',
+  primaryDark: '#5E0F30',
+  accent: '#C4956A',
   border: 'rgba(255,255,255,0.1)',
   textFaint: 'rgba(255,255,255,0.5)',
   textMid: 'rgba(255,255,255,0.8)',
@@ -14,36 +14,37 @@ const C = {
 export default function Footer() {
   return (
     <footer style={{
-      background: 'linear-gradient(135deg, #4A1942 0%, #6B2D5B 60%, #4A1942 100%)',
-      borderTop: '1px solid rgba(139, 94, 60, 0.25)',
+      background: 'linear-gradient(135deg, #8B1A4A 0%, #6B1438 60%, #8B1A4A 100%)',
+      borderTop: '1px solid rgba(196, 149, 106, 0.25)',
       color: C.textMid,
       fontFamily: "'DM Sans', sans-serif",
       position: 'relative',
       overflow: 'hidden',
     }}>
       {/* Background decoration */}
-      <div style={{ position: 'absolute', top: 0, right: 0, width: 400, height: 400, borderRadius: '50%', background: 'radial-gradient(circle, rgba(139, 94, 60, 0.1) 0%, transparent 70%)', filter: 'blur(60px)', pointerEvents: 'none' }} />
+      <div style={{ position: 'absolute', top: 0, right: 0, width: 400, height: 400, borderRadius: '50%', background: 'radial-gradient(circle, rgba(196, 149, 106, 0.1) 0%, transparent 70%)', filter: 'blur(60px)', pointerEvents: 'none' }} />
       <div style={{ position: 'absolute', bottom: 0, left: 0, width: 300, height: 300, borderRadius: '50%', background: 'radial-gradient(circle, rgba(255, 255, 255, 0.04) 0%, transparent 70%)', filter: 'blur(50px)', pointerEvents: 'none' }} />
 
       <div className="max-w-[90rem] mx-auto px-6 lg:px-14 py-14" style={{ position: 'relative', zIndex: 1 }}>
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-10 text-left">
 
-          {/* ── Brand Column (2 cols) ── */}
+          {/* ── Brand Column ── */}
           <div className="col-span-2 lg:col-span-1">
             {/* Logo */}
             <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 18 }}>
-              <div style={{ width: 44, height: 44, borderRadius: '10px 20px 10px 20px', background: 'rgba(139, 94, 60, 0.2)', border: '1.5px solid rgba(139, 94, 60, 0.4)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                  <path d="M12 2L17 7L12 12L7 7L12 2Z" fill="#C49A6C" />
-                  <path d="M12 12L17 17L12 22L7 17L12 12Z" fill="#C49A6C" />
+              <div style={{ width: 44, height: 44, borderRadius: '50%', background: 'rgba(196, 149, 106, 0.2)', border: '1.5px solid rgba(196, 149, 106, 0.4)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <svg width="22" height="22" viewBox="0 0 28 28" fill="none">
+                  <circle cx="14" cy="14" r="12" stroke="#C4956A" strokeWidth="1.5" fill="none"/>
+                  <path d="M14 4 C14 4, 22 10, 22 14 C22 18, 14 24, 14 24 C14 24, 6 18, 6 14 C6 10, 14 4, 14 4Z" fill="rgba(196,149,106,0.2)" stroke="#C4956A" strokeWidth="1"/>
+                  <circle cx="14" cy="14" r="3" fill="#C4956A"/>
                 </svg>
               </div>
               <div>
-                <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, fontWeight: 700, color: C.soil, lineHeight: 1.1 }}>
-                  THREADORA
+                <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 20, fontWeight: 700, color: C.soil, lineHeight: 1.1 }}>
+                  Ananta Fabrics
                 </div>
-                <div style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#C49A6C', fontWeight: 700, marginTop: 3 }}>
-                  Textile Retail
+                <div style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#C4956A', fontWeight: 700, marginTop: 3 }}>
+                  Premium Textile
                 </div>
               </div>
             </div>
@@ -65,9 +66,9 @@ export default function Footer() {
                   key={idx}
                   href="#"
                   aria-label={social.name}
-                  style={{ width: 34, height: 34, borderRadius: '50%', background: 'rgba(139, 94, 60, 0.2)', border: '1px solid rgba(139, 94, 60, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: C.soil, textDecoration: 'none', transition: 'all 0.3s ease' }}
-                  onMouseEnter={e => { e.currentTarget.style.background = '#8B5E3C'; e.currentTarget.style.borderColor = '#8B5E3C'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
-                  onMouseLeave={e => { e.currentTarget.style.background = 'rgba(139, 94, 60, 0.2)'; e.currentTarget.style.borderColor = 'rgba(139, 94, 60, 0.3)'; e.currentTarget.style.transform = 'translateY(0)'; }}
+                  style={{ width: 34, height: 34, borderRadius: '50%', background: 'rgba(196, 149, 106, 0.2)', border: '1px solid rgba(196, 149, 106, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: C.soil, textDecoration: 'none', transition: 'all 0.3s ease' }}
+                  onMouseEnter={e => { e.currentTarget.style.background = '#C4956A'; e.currentTarget.style.borderColor = '#C4956A'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
+                  onMouseLeave={e => { e.currentTarget.style.background = 'rgba(196, 149, 106, 0.2)'; e.currentTarget.style.borderColor = 'rgba(196, 149, 106, 0.3)'; e.currentTarget.style.transform = 'translateY(0)'; }}
                 >
                   {social.svg}
                 </a>
@@ -75,7 +76,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* ── QUICK LINKS (1 col) ── */}
+          {/* ── QUICK LINKS ── */}
           <div className="col-span-1">
             <h4 style={{ fontFamily: "'Playfair Display', serif", fontSize: 15, fontWeight: 700, color: C.soil, marginBottom: 18, letterSpacing: '0.02em' }}>
               Quick Links
@@ -92,10 +93,10 @@ export default function Footer() {
                   <Link
                     to={link.path}
                     style={{ fontSize: 13, color: C.textMid, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 6, transition: 'all 0.2s ease', fontWeight: 500 }}
-                    onMouseEnter={e => { e.currentTarget.style.color = '#C49A6C'; e.currentTarget.style.paddingLeft = '4px'; }}
+                    onMouseEnter={e => { e.currentTarget.style.color = '#C4956A'; e.currentTarget.style.paddingLeft = '4px'; }}
                     onMouseLeave={e => { e.currentTarget.style.color = C.textMid; e.currentTarget.style.paddingLeft = '0'; }}
                   >
-                    <span style={{ width: 4, height: 4, borderRadius: '50%', background: 'rgba(139, 94, 60, 0.6)', flexShrink: 0 }} />
+                    <span style={{ width: 4, height: 4, borderRadius: '50%', background: 'rgba(196, 149, 106, 0.6)', flexShrink: 0 }} />
                     {link.name}
                   </Link>
                 </li>
@@ -103,26 +104,27 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* ── INFORMATION (1 col) ── */}
+          {/* ── RESOURCES ── */}
           <div className="col-span-1">
             <h4 style={{ fontFamily: "'Playfair Display', serif", fontSize: 15, fontWeight: 700, color: C.soil, marginBottom: 18, letterSpacing: '0.02em' }}>
-              Information
+              Resources
             </h4>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 10 }}>
               {[
-                { name: 'Privacy Policy',    path: '#' },
-                { name: 'Terms & Conditions', path: '#' },
-                { name: 'Return Policy',     path: '#' },
+                { name: 'Blog',              path: '/blog' },
+                { name: 'Notice Board',      path: '/notice-board' },
+                { name: 'Business Gallery',  path: '/gallery' },
+                { name: 'Career',            path: '/career' },
                 { name: "FAQ's",             path: '/faq' },
               ].map(link => (
                 <li key={link.name}>
                   <Link
                     to={link.path}
                     style={{ fontSize: 13, color: C.textMid, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 6, transition: 'all 0.2s ease', fontWeight: 500 }}
-                    onMouseEnter={e => { e.currentTarget.style.color = '#C49A6C'; e.currentTarget.style.paddingLeft = '4px'; }}
+                    onMouseEnter={e => { e.currentTarget.style.color = '#C4956A'; e.currentTarget.style.paddingLeft = '4px'; }}
                     onMouseLeave={e => { e.currentTarget.style.color = C.textMid; e.currentTarget.style.paddingLeft = '0'; }}
                   >
-                    <span style={{ width: 4, height: 4, borderRadius: '50%', background: 'rgba(139, 94, 60, 0.6)', flexShrink: 0 }} />
+                    <span style={{ width: 4, height: 4, borderRadius: '50%', background: 'rgba(196, 149, 106, 0.6)', flexShrink: 0 }} />
                     {link.name}
                   </Link>
                 </li>
@@ -130,7 +132,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* ── CONTACT US (1 col) ── */}
+          {/* ── CONTACT US ── */}
           <div className="col-span-1">
             <h4 style={{ fontFamily: "'Playfair Display', serif", fontSize: 15, fontWeight: 700, color: C.soil, marginBottom: 18, letterSpacing: '0.02em' }}>
               Contact Us
@@ -139,16 +141,16 @@ export default function Footer() {
               {[
                 { icon: MapPin, val: '123, Textile Market, Surat, Gujarat - 395002', href: '#' },
                 { icon: Phone,  val: '+91 98765 43210',         href: 'tel:+919876543210' },
-                { icon: Mail,   val: 'hello@threadora.com',       href: 'mailto:hello@threadora.com' },
+                { icon: Mail,   val: 'hello@anantafabrics.com', href: 'mailto:hello@anantafabrics.com' },
               ].map(({ icon: Icon, val, href }, i) => (
                 <a
                   key={i}
                   href={href}
                   style={{ display: 'flex', alignItems: 'flex-start', gap: 10, fontSize: 12.5, color: C.textMid, textDecoration: 'none', lineHeight: 1.5, transition: 'color 0.2s ease' }}
-                  onMouseEnter={e => e.currentTarget.style.color = '#C49A6C'}
+                  onMouseEnter={e => e.currentTarget.style.color = '#C4956A'}
                   onMouseLeave={e => e.currentTarget.style.color = C.textMid}
                 >
-                  <Icon size={14} style={{ color: '#C49A6C', flexShrink: 0, marginTop: 2 }} />
+                  <Icon size={14} style={{ color: '#C4956A', flexShrink: 0, marginTop: 2 }} />
                   <span>{val}</span>
                 </a>
               ))}
@@ -159,10 +161,10 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div style={{ borderTop: '1px solid rgba(139, 94, 60, 0.25)', position: 'relative', zIndex: 1 }}>
+      <div style={{ borderTop: '1px solid rgba(196, 149, 106, 0.25)', position: 'relative', zIndex: 1 }}>
         <div className="max-w-[90rem] mx-auto px-6 lg:px-14 py-2.5 flex flex-col md:flex-row items-center justify-between gap-1 text-center">
           <p style={{ fontSize: 12, color: '#ffffff', margin: 0, fontWeight: 500, letterSpacing: '0.03em' }}>
-            © 2025 Threadora Textile Retail. All Rights Reserved.
+            © 2025 Ananta Fabrics. All Rights Reserved.
           </p>
           <p style={{ fontSize: 11, color: 'rgba(255, 255, 255, 0.8)', margin: 0 }}>
             Premium Textile Retail
