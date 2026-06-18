@@ -51,7 +51,7 @@ const heroSlides = [
     titlePart1: "Preserving",
     titlePart2: "Heritage",
     desc: "Generations of traditional Indian craftsmanship curated with modern styles and contemporary aesthetics.",
-    image: "/images/slider1.png"
+    image: "/images/slider2.png"
   }
 ];
 

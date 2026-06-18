@@ -2,18 +2,18 @@ import { motion } from 'framer-motion';
 import { Star, User } from 'lucide-react';
 
 const C = {
-  primary: '#1E3E37',        // Slate Navy
-  primaryDark: '#112521',
-  soil: '#1E3E37',
-  sand: '#FAF7F0',
-  cream: '#FAF7F0',
-  border: '#EFECE6',
-  stone: '#536E67',
-  accent: '#E2A93E',         // Mauve
+  primary: '#111E38',        // Deep Navy Blue
+  primaryDark: '#0B1426',
+  soil: '#111E38',
+  sand: '#FAF9F5',
+  cream: '#FAF9F5',
+  border: '#EAEAEA',
+  stone: '#5A6F8F',
+  accent: '#DE5B49',         // Terracotta Red
 };
 
 const reviews = [
-  { text: "WEAVECRAFT Textile Mall has been our trusted partner for years. The quality, prices and service are unmatched in the entire industry.", name: "Rajesh Sharma", role: "Retailer, Delhi", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80" },
+  { text: "Veda Weaves Textile Mall has been our trusted partner for years. The quality, prices and service are unmatched in the entire industry.", name: "Rajesh Sharma", role: "Retailer, Delhi", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80" },
   { text: "The export compliance and material quality are world-class. Their zero-defect policy has secured our global supply chain perfectly.", name: "Ahmed Al-Sayed", role: "Gulf Textiles, UAE", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80" },
   { text: "Highly impressed with their R&D. The custom high-tenacity fabric they developed exceeded all our durability benchmarks.", name: "Vikas Kulkarni", role: "National Solutions", avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&auto=format&fit=crop&q=80" },
   { text: "Incredible attention to detail. Every batch of fabric we receive is consistently perfect, saving us a lot of time and rework.", name: "Anita Desai", role: "Design Head, Mumbai", avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80" },
@@ -21,15 +21,15 @@ const reviews = [
 
 export default function CustomerReview() {
   return (
-    <div style={{ fontFamily: "'Inter', sans-serif", background: C.cream, minHeight: '90vh' }} className="pt-4 pb-16">
+    <div style={{ fontFamily: "'Inter', sans-serif", background: C.cream, minHeight: '90vh' }} className="pt-2 pb-16">
       <div className="max-w-[90rem] mx-auto px-6 lg:px-14 pt-0">
 
         {/* Page Title Section */}
-        <div className="text-center mb-6">
+        <div className="text-center mb-6 mt-1">
           <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '48px', fontWeight: 500, color: C.soil, margin: 0 }}>
             Customer Reviews
           </h1>
-          <div style={{ width: 40, height: 1.5, background: C.accent, margin: '12px auto 0' }} />
+          <div style={{ width: 40, height: 1.5, background: C.accent, margin: '8px auto 0' }} />
         </div>
   
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -51,7 +51,7 @@ export default function CustomerReview() {
               }}
               onMouseEnter={e => {
                 e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 12px 30px rgba(30, 62, 55, 0.04)';
+                e.currentTarget.style.boxShadow = '0 12px 30px rgba(17, 30, 56, 0.04)';
               }}
               onMouseLeave={e => {
                 e.currentTarget.style.transform = 'translateY(0)';
@@ -63,7 +63,7 @@ export default function CustomerReview() {
                 <div style={{
                   position: 'absolute', top: 12, right: 22,
                   fontFamily: "'Cormorant Garamond', serif",
-                  fontSize: 70, color: 'rgba(30, 62, 55, 0.08)', lineHeight: 1, fontWeight: 700,
+                  fontSize: 70, color: 'rgba(17, 30, 56, 0.08)', lineHeight: 1, fontWeight: 700,
                   userSelect: 'none',
                 }}>
                   "
@@ -91,7 +91,7 @@ export default function CustomerReview() {
                 ) : (
                   <div style={{
                     width: 36, height: 36,
-                    background: 'rgba(30, 62, 55, 0.08)',
+                    background: 'rgba(17, 30, 56, 0.08)',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     color: C.accent,
                     borderRadius: '50%'

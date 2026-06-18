@@ -2,14 +2,14 @@ import { motion } from 'framer-motion';
 import { Briefcase, MapPin, Mail, Clock } from 'lucide-react';
 
 const C = {
-  primary: '#1E3E37',        // Slate Navy
-  primaryDark: '#112521',
-  soil: '#1E3E37',
-  sand: '#FAF7F0',
-  bg: '#FAF7F0',
-  border: '#EFECE6',
-  stone: '#536E67',
-  accent: '#E2A93E',         // Mauve
+  primary: '#111E38',        // Deep Navy Blue
+  primaryDark: '#0B1426',
+  soil: '#111E38',
+  sand: '#FAF9F5',
+  bg: '#FAF9F5',
+  border: '#EAEAEA',
+  stone: '#5A6F8F',
+  accent: '#DE5B49',         // Terracotta Red
 };
 
 const jobs = [
@@ -21,17 +21,17 @@ const jobs = [
 
 export default function Career() {
   return (
-    <div style={{ fontFamily: "'Inter', sans-serif", background: C.bg, minHeight: '90vh' }} className="pt-4 pb-16">
+    <div style={{ fontFamily: "'Inter', sans-serif", background: C.bg, minHeight: '90vh' }} className="pt-2 pb-16">
 
       {/* Main Content */}
       <div className="max-w-[90rem] mx-auto px-6 lg:px-14 pt-0">
 
         {/* Page Title Section */}
-        <div className="text-center mb-6">
+        <div className="text-center mb-6 mt-1">
           <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '48px', fontWeight: 500, color: C.soil, margin: 0 }}>
             Career Opportunities
           </h1>
-          <div style={{ width: 40, height: 1.5, background: C.accent, margin: '12px auto 0' }} />
+          <div style={{ width: 40, height: 1.5, background: C.accent, margin: '8px auto 0' }} />
         </div>
   
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
@@ -50,7 +50,7 @@ export default function Career() {
               }}
               onMouseEnter={e => {
                 e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 12px 30px rgba(30, 62, 55, 0.04)';
+                e.currentTarget.style.boxShadow = '0 12px 30px rgba(17, 30, 56, 0.04)';
               }}
               onMouseLeave={e => {
                 e.currentTarget.style.transform = 'translateY(0)';
@@ -66,12 +66,12 @@ export default function Career() {
                     { icon: MapPin, val: job.location },
                     { icon: Briefcase, val: `${job.type} · ${job.experience}` },
                     { icon: Clock, val: 'Apply by June 30, 2026' },
-                    { icon: Mail, val: 'careers@weavecrafttextile.com', href: 'mailto:careers@weavecrafttextile.com' },
+                    { icon: Mail, val: 'careers@vedaweaves.com', href: 'mailto:careers@vedaweaves.com' },
                   ].map(({ icon: Icon, val, href }) => (
                     <div key={val} style={{ color: C.stone }} className="flex items-center gap-2.5 text-[12.5px] font-semibold">
                       <Icon size={14} style={{ color: C.accent }} className="shrink-0" />
                       {href ? (
-                        <a href={href} className="hover:text-[#E2A93E] transition-colors">{val}</a>
+                        <a href={href} className="hover:text-[#DE5B49] transition-colors">{val}</a>
                       ) : (
                         <span>{val}</span>
                       )}

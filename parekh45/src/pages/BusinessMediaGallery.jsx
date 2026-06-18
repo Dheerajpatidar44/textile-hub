@@ -1,14 +1,14 @@
 import { motion } from 'framer-motion';
 
 const C = {
-  primary: '#1E3E37',        // Slate Navy
-  primaryDark: '#112521',
-  soil: '#1E3E37',
-  sand: '#FAF7F0',
-  cream: '#FAF7F0',
-  border: '#EFECE6',
-  stone: '#536E67',
-  accent: '#E2A93E',         // Mauve
+  primary: '#111E38',        // Deep Navy Blue
+  primaryDark: '#0B1426',
+  soil: '#111E38',
+  sand: '#FAF9F5',
+  cream: '#FAF9F5',
+  border: '#EAEAEA',
+  stone: '#5A6F8F',
+  accent: '#DE5B49',         // Terracotta Red
 };
 
 const galleryItems = [
@@ -22,15 +22,15 @@ const galleryItems = [
 
 export default function BusinessMediaGallery() {
   return (
-    <div style={{ fontFamily: "'Inter', sans-serif", background: C.cream, minHeight: '90vh' }} className="pt-4 pb-16">
+    <div style={{ fontFamily: "'Inter', sans-serif", background: C.cream, minHeight: '90vh' }} className="pt-2 pb-16">
       <div className="max-w-[90rem] mx-auto px-6 lg:px-14 pt-0">
 
         {/* Page Title Section */}
-        <div className="text-center mb-6">
+        <div className="text-center mb-6 mt-1">
           <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '48px', fontWeight: 500, color: C.soil, margin: 0 }}>
             Media Gallery
           </h1>
-          <div style={{ width: 40, height: 1.5, background: C.accent, margin: '12px auto 0' }} />
+          <div style={{ width: 40, height: 1.5, background: C.accent, margin: '8px auto 0' }} />
         </div>
   
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
@@ -49,7 +49,7 @@ export default function BusinessMediaGallery() {
               }}
               onMouseEnter={e => {
                 e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 12px 30px rgba(30, 62, 55, 0.04)';
+                e.currentTarget.style.boxShadow = '0 12px 30px rgba(17, 30, 56, 0.04)';
               }}
               onMouseLeave={e => {
                 e.currentTarget.style.transform = 'translateY(0)';
@@ -67,7 +67,7 @@ export default function BusinessMediaGallery() {
                 />
                 <div style={{
                   position: 'absolute', top: 12, left: 12,
-                  background: 'rgba(30, 62, 55, 0.9)', backdropFilter: 'blur(6px)', padding: '4px 12px',
+                  background: 'rgba(17, 30, 56, 0.9)', backdropFilter: 'blur(6px)', padding: '4px 12px',
                   borderRadius: '50px'
                 }}>
                   <span style={{ fontSize: 9, color: '#ffffff', letterSpacing: '0.15em', textTransform: 'uppercase', fontWeight: 700 }}>

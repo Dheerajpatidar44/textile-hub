@@ -2,14 +2,14 @@ import { useState } from 'react';
 import { MessageSquareText, X, Send, Sparkles } from 'lucide-react';
 
 const C = {
-  primary: '#1E3E37',        // Deep Forest Green
-  primaryDark: '#112521',
-  soil: '#1E3E37',
-  sand: '#FAF7F0',
+  primary: '#111E38',        // Deep Navy Blue
+  primaryDark: '#0B1426',
+  soil: '#111E38',
+  sand: '#FAF9F5',
   cream: '#FFFFFF',
-  border: '#EFECE6',
-  stone: '#536E67',
-  accent: '#E2A93E',         // Gold Accent
+  border: '#EAEAEA',
+  stone: '#5A6F8F',
+  accent: '#DE5B49',         // Terracotta Red Accent
 };
 
 const FloatingChatbot = () => {
@@ -21,7 +21,7 @@ const FloatingChatbot = () => {
       {isOpen && (
         <div
           className="mb-4 w-[340px] sm:w-[370px] overflow-hidden border rounded-3xl"
-          style={{ borderColor: C.border, background: '#FAF7F0', boxShadow: '0 16px 48px rgba(30, 62, 55, 0.12)' }}
+          style={{ borderColor: C.border, background: '#FAF9F5', boxShadow: '0 16px 48px rgba(17, 30, 56, 0.12)' }}
         >
           {/* Header */}
           <div
@@ -37,7 +37,7 @@ const FloatingChatbot = () => {
               </div>
               <div className="text-left">
                 <p className="text-white text-[13px] font-bold tracking-wide leading-tight">
-                  WEAVECRAFT Assistant
+                  Veda Weaves Assistant
                 </p>
                 <div className="flex items-center gap-1.5 mt-0.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
@@ -70,7 +70,7 @@ const FloatingChatbot = () => {
                 style={{ borderColor: C.border }}
               >
                 <p className="text-[13px] leading-relaxed" style={{ color: C.soil }}>
-                  Namaste! 🙏 Welcome to <strong>WEAVECRAFT Textile Mall</strong>. How can I assist you today?
+                  Namaste! 🙏 Welcome to <strong>Veda Weaves Textile Mall</strong>. How can I assist you today?
                 </p>
               </div>
             </div>
@@ -123,7 +123,7 @@ const FloatingChatbot = () => {
         style={{
           background: isOpen ? C.soil : C.primary,
           borderColor: C.border,
-          boxShadow: '0 4px 16px rgba(30,62,55,0.2)'
+          boxShadow: '0 4px 16px rgba(17,30,56,0.2)'
         }}
       >
         {isOpen ? (

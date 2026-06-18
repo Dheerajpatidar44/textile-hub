@@ -2,13 +2,13 @@ import { Link } from 'react-router-dom';
 import { MapPin, Phone, Mail } from 'lucide-react';
 
 const C = {
-  primary: '#1E3E37',        // Deep Forest Green
-  primaryDark: '#112521',
-  primaryLight: '#2C5A50',
-  accent: '#E2A93E',         // Gold Accent
-  gold: '#E2A93E',
-  border: '#EFECE6',
-  bg: '#FAF7F0',
+  primary: '#111E38',        // Deep Navy Blue
+  primaryDark: '#0B1426',
+  primaryLight: '#1E2D4A',
+  accent: '#DE5B49',         // Terracotta Red Accent
+  gold: '#DE5B49',
+  border: '#EAEAEA',
+  bg: '#FAF9F5',
 };
 
 export default function Footer() {
@@ -40,7 +40,7 @@ export default function Footer() {
               </div>
               <div>
                 <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 20, fontWeight: 800, color: 'white', lineHeight: 1.1, letterSpacing: '0.05em' }}>
-                  WEAVECRAFT
+                  Veda Weaves
                 </div>
                 <div style={{ fontSize: 8, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)', fontWeight: 700, marginTop: 4 }}>
                   Textile Mall
@@ -138,7 +138,7 @@ export default function Footer() {
               {[
                 { icon: MapPin, val: '456, Textile Boulevard, Surat, Gujarat - 395002', href: '#' },
                 { icon: Phone, val: '+91 98765 01234', href: 'tel:+919876501234' },
-                { icon: Mail, val: 'hello@weavecrafttextile.com', href: 'mailto:hello@weavecrafttextile.com' },
+                { icon: Mail, val: 'hello@vedaweaves.com', href: 'mailto:hello@vedaweaves.com' },
               ].map(({ icon: Icon, val, href }, i) => (
                 <a
                   key={i}
@@ -161,7 +161,7 @@ export default function Footer() {
       <div style={{ borderTop: `1px solid rgba(255,255,255,0.05)`, position: 'relative', zIndex: 1, background: 'rgba(0,0,0,0.1)' }}>
         <div className="max-w-[90rem] mx-auto px-6 lg:px-14 py-6 flex flex-col md:flex-row items-center justify-center text-center">
           <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.4)', margin: 0, fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase' }}>
-            © 2026 WEAVECRAFT Textile Mall. All Rights Reserved.
+            © 2026 Veda Weaves Textile Mall. All Rights Reserved.
           </p>
         </div>
       </div>

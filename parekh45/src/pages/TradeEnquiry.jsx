@@ -2,14 +2,14 @@ import { motion } from 'framer-motion';
 import { Send, Building2, ShoppingBag } from 'lucide-react';
 
 const C = {
-  primary: '#1E3E37',        // Slate Navy
-  primaryDark: '#112521',
-  soil: '#1E3E37',
-  sand: '#FAF7F0',
-  cream: '#FAF7F0',
-  border: '#EFECE6',
-  stone: '#536E67',
-  accent: '#E2A93E',         // Mauve
+  primary: '#111E38',        // Deep Navy Blue
+  primaryDark: '#0B1426',
+  soil: '#111E38',
+  sand: '#FAF9F5',
+  cream: '#FAF9F5',
+  border: '#EAEAEA',
+  stone: '#5A6F8F',
+  accent: '#DE5B49',         // Terracotta Red
 };
 
 const categories = [
@@ -21,15 +21,15 @@ const categories = [
 
 export default function TradeEnquiry() {
   return (
-    <div style={{ fontFamily: "'Inter', sans-serif", background: C.cream, minHeight: '90vh' }} className="pt-4 pb-16">
+    <div style={{ fontFamily: "'Inter', sans-serif", background: C.cream, minHeight: '90vh' }} className="pt-2 pb-16">
       <div className="max-w-3xl mx-auto px-6 pt-0">
 
         {/* Page Title Section */}
-        <div className="text-center mb-6">
+        <div className="text-center mb-6 mt-1">
           <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '48px', fontWeight: 500, color: C.soil, margin: 0 }}>
             Trade Enquiry
           </h1>
-          <div style={{ width: 40, height: 1.5, background: C.accent, margin: '12px auto 0' }} />
+          <div style={{ width: 40, height: 1.5, background: C.accent, margin: '8px auto 0' }} />
         </div>
   
         <p style={{ textAlign: 'center', fontSize: 15, lineHeight: 1.8, color: C.stone, marginBottom: 36, fontWeight: 400 }}>
@@ -45,13 +45,13 @@ export default function TradeEnquiry() {
             border: `1px solid ${C.border}`,
             overflow: 'hidden',
             borderRadius: 20,
-            boxShadow: '0 12px 40px rgba(30, 62, 55, 0.03)',
+            boxShadow: '0 12px 40px rgba(17, 30, 56, 0.03)',
           }}
         >
           <div style={{
             padding: '24px 32px',
             borderBottom: `1px solid ${C.border}`,
-            background: 'rgba(30, 62, 55, 0.04)',
+            background: 'rgba(17, 30, 56, 0.04)',
           }} className="text-left">
             <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 22, fontWeight: 700, color: C.soil, margin: '0 0 4px' }}>
               Enquiry Form

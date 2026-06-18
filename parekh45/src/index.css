@@ -1,19 +1,21 @@
 @import "tailwindcss";
 
 @theme {
-  /* ── WEAVECRAFT Textile Mall Color Palette ── */
-  --color-primary: #1E3E37;        /* Deep Forest Green */
-  --color-primary-light: #2C5A50;  /* Lighter Forest Green */
-  --color-primary-dark: #112521;   /* Dark Forest Green */
-  --color-accent: #E2A93E;         /* Gold/Honey */
-  --color-accent-light: #F0C265;   /* Light Gold */
-  --color-gold: #E2A93E;           /* Gold Accent */
-  --color-sand: #FAF7F0;           /* Warm Sand/Cream Background */
-  --color-linen: #FAF7F0;          /* Base background color */
-  --color-cream: #FAF7F0;          /* Base background color */
-  --color-mist: #EFECE6;           /* Soft border cream-grey */
-  --color-stone: #536E67;          /* Slate Sage Green */
-  --color-soil: #1E3E37;           /* Deep Forest Green */
+  /* ── VEDA WEAVES Textile Mall Color Palette ── */
+  --color-primary: #111E38;        /* Deep Navy Blue */
+  --color-primary-light: #1E2D4A;  /* Lighter Navy Blue */
+  --color-primary-dark: #0B1426;   /* Dark Navy Blue */
+  --color-accent: #DE5B49;         /* Coral/Terracotta Red */
+  --color-accent-light: #EB7C6E;   /* Light Coral */
+  --color-gold: #DE5B49;           /* Red Accent is our primary highlight */
+  --color-sage: #527C68;           /* Sage Green replacing Yellow */
+  --color-sage-light: #6A9B84;
+  --color-sand: #FAF9F5;           /* Ivory/Alabaster Background */
+  --color-linen: #FAF9F5;
+  --color-cream: #FAF9F5;
+  --color-mist: #EAEAEA;           /* Soft border grey */
+  --color-stone: #5A6F8F;          /* Slate Blue Grey */
+  --color-soil: #111E38;
 
   /* ── Font Family ── */
   --font-display: 'Cormorant Garamond', serif;
@@ -24,8 +26,8 @@
 @layer base {
   body {
     font-family: 'Inter', sans-serif;
-    background-color: #FAF7F0;
-    color: #1E3E37;
+    background-color: #FAF9F5;
+    color: #111E38;
     margin: 0;
     padding: 0;
     -webkit-font-smoothing: antialiased;
@@ -35,7 +37,7 @@
   h1, h2, h3, h4, h5, h6, .display-title {
     font-family: 'Cormorant Garamond', serif !important;
     font-weight: 600;
-    color: #1E3E37;
+    color: #111E38;
   }
 
   * {
