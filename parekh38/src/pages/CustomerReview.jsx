@@ -30,7 +30,7 @@ export default function CustomerReview() {
           <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(30px, 4vw, 44px)', fontWeight: 600, color: C.soil, margin: '0 0 12px' }}>
             Customer Reviews
           </h1>
-          <div style={{ width: 50, height: 2, background: C.accent, borderRadius: 2, margin: '0 auto' }} />
+          <div style={{ width: 50, height: 2, background: C.accent, margin: '0 auto' }} />
         </div>
   
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -43,8 +43,7 @@ export default function CustomerReview() {
               className="card-hover text-left"
               style={{
                 background: 'white',
-                border: `1px solid ${C.border}`,
-                borderRadius: 16, padding: '26px 24px',
+                border: `1px solid ${C.border}`, padding: '26px 24px',
                 position: 'relative',
                 display: 'flex',
                 flexDirection: 'column',
@@ -85,7 +84,7 @@ export default function CustomerReview() {
 
               <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                 <div style={{
-                  width: 36, height: 36, borderRadius: '50%',
+                  width: 36, height: 36,
                   background: `linear-gradient(135deg, ${C.sand}, ${C.border})`,
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   fontSize: 14, color: C.soil, fontWeight: 600,

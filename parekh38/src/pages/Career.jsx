@@ -31,7 +31,7 @@ export default function Career() {
           <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(30px, 4vw, 40px)', fontWeight: 600, color: C.soil, margin: '0 0 12px' }}>
             Career Opportunities
           </h1>
-          <div style={{ width: 50, height: 2, background: C.accent, borderRadius: 2, margin: '0 auto' }} />
+          <div style={{ width: 50, height: 2, background: C.accent, margin: '0 auto' }} />
         </div>
   
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
@@ -44,7 +44,6 @@ export default function Career() {
               className="flex flex-col justify-between p-8"
               style={{
                 background: 'white',
-                borderRadius: '16px',
                 border: `1px solid ${C.border}`,
                 transition: 'transform 0.3s ease, box-shadow 0.3s ease',
               }}
@@ -80,7 +79,7 @@ export default function Career() {
 
               <div className="pt-6 mt-4 flex flex-col gap-3" style={{ borderTop: `1px solid ${C.border}` }}>
                 <button
-                  className="w-full py-3 rounded-lg font-bold text-xs uppercase tracking-wider text-white transition-colors cursor-pointer"
+                  className="w-full py-3  font-bold text-xs uppercase tracking-wider text-white transition-colors cursor-pointer"
                   style={{
                     background: C.primary,
                     border: 'none'

@@ -57,7 +57,7 @@ export default function FAQ() {
           <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(30px, 4vw, 44px)', fontWeight: 600, color: C.soil, margin: '0 0 12px' }}>
             Frequently Asked Questions
           </h1>
-          <div style={{ width: 50, height: 2, background: C.accent, borderRadius: 2, margin: '0 auto' }} />
+          <div style={{ width: 50, height: 2, background: C.accent, margin: '0 auto' }} />
         </div>
   
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
@@ -71,7 +71,6 @@ export default function FAQ() {
                 key={index}
                 style={{
                   background: 'white',
-                  borderRadius: 8,
                   border: `1px solid ${isOpen ? C.accent : C.border}`,
                   overflow: 'hidden',
                   transition: 'all 0.3s ease',
@@ -93,7 +92,7 @@ export default function FAQ() {
                     {faq.question}
                   </h3>
                   <div style={{
-                    flexShrink: 0, width: 32, height: 32, borderRadius: '50%',
+                    flexShrink: 0, width: 32, height: 32,
                     display: 'flex', alignItems: 'center', justifyContainer: 'center',
                     background: isOpen ? C.accent : 'rgba(139, 94, 60, 0.06)',
                     transition: 'all 0.3s ease',
@@ -123,7 +122,7 @@ export default function FAQ() {
           })}
         </div>
 
-        <div style={{ marginTop: 40, textAlign: 'center', padding: '24px', background: C.sand, borderRadius: 16, border: `1px solid ${C.border}` }}>
+        <div style={{ marginTop: 40, textAlign: 'center', padding: '24px', background: C.sand, border: `1px solid ${C.border}` }}>
           <p style={{ fontSize: 14, color: C.stone, margin: 0, fontWeight: 400 }}>
             Still have questions?{' '}
             <a href="/contact" style={{ color: C.primary, fontWeight: 500, textDecoration: 'none', borderBottom: `1px solid ${C.accent}` }}>

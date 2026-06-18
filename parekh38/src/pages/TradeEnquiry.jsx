@@ -30,7 +30,7 @@ export default function TradeEnquiry() {
           <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(30px, 4vw, 44px)', fontWeight: 600, color: C.soil, margin: '0 0 12px' }}>
             Trade Enquiry
           </h1>
-          <div style={{ width: 50, height: 2, background: C.accent, borderRadius: 2, margin: '0 auto' }} />
+          <div style={{ width: 50, height: 2, background: C.accent, margin: '0 auto' }} />
         </div>
   
         <p style={{ textAlign: 'center', fontSize: 15, lineHeight: 1.8, color: C.stone, marginBottom: 36, fontWeight: 400 }}>
@@ -43,7 +43,6 @@ export default function TradeEnquiry() {
           transition={{ duration: 0.6 }}
           style={{
             background: 'white',
-            borderRadius: 20,
             border: `1px solid ${C.border}`,
             overflow: 'hidden',
             boxShadow: '0 4px 20px rgba(59, 35, 20, 0.04)',
@@ -132,7 +131,7 @@ export default function TradeEnquiry() {
                   width: '100%', padding: '14px',
                   display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
                   background: C.primary, color: 'white',
-                  border: 'none', borderRadius: 12,
+                  border: 'none',
                   fontSize: 14, fontWeight: 500,
                   cursor: 'pointer', fontFamily: "'DM Sans', sans-serif",
                   transition: 'all 0.2s ease',

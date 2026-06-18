@@ -1,4 +1,4 @@
-﻿import { motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Bell, ChevronRight, Calendar } from 'lucide-react';
 
 const C = {
@@ -30,7 +30,7 @@ export default function NoticeBoard() {
           <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(30px, 4vw, 44px)', fontWeight: 600, color: C.soil, margin: '0 0 12px' }}>
             Notice Board
           </h1>
-          <div style={{ width: 50, height: 2, background: C.accent, borderRadius: 2, margin: '0 auto' }} />
+          <div style={{ width: 50, height: 2, background: C.accent, margin: '0 auto' }} />
         </div>
   
         <motion.div
@@ -42,8 +42,7 @@ export default function NoticeBoard() {
             <div
               key={notice.id}
               className="card-hover text-left"
-              style={{
-                borderRadius: 16, padding: '24px 22px',
+              style={{ padding: '24px 22px',
                 background: notice.isNew ? 'rgba(139, 94, 60, 0.04)' : 'white',
                 cursor: 'pointer',
                 display: 'flex', flexDirection: 'column',
@@ -63,12 +62,12 @@ export default function NoticeBoard() {
               }}
             >
               <div>
-                <div style={{ display: 'flex', alignItems: 'center', justify: 'space-between', marginBottom: 16 }}>
-                  <div style={{ width: 40, height: 40, borderRadius: 12, display: 'flex', alignItems: 'center', justify: 'center', background: 'rgba(139, 94, 60, 0.1)', border: `1px solid rgba(139, 94, 60, 0.2)` }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 16 }}>
+                  <div style={{ width: 40, height: 40, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(139, 94, 60, 0.1)', border: `1px solid rgba(139, 94, 60, 0.2)` }}>
                     <Bell size={18} color={C.accent} />
                   </div>
                   {notice.isNew && (
-                    <span style={{ fontSize: 9, padding: '3px 10px', borderRadius: 20, color: C.accent, background: C.sand, letterSpacing: '0.15em', textTransform: 'uppercase', fontWeight: 600, border: `1px solid rgba(139, 94, 60, 0.2)` }}>
+                    <span style={{ fontSize: 9, padding: '3px 10px', color: C.accent, background: C.sand, letterSpacing: '0.15em', textTransform: 'uppercase', fontWeight: 600, border: `1px solid rgba(139, 94, 60, 0.2)` }}>
                       New
                     </span>
                   )}

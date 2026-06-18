@@ -28,7 +28,7 @@ export default function Blog() {
         {/* Page Title Section */}
         <div className="text-center mb-6">
           <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(30px, 4vw, 44px)', fontWeight: 600, color: C.soil, margin: '0 0 12px' }}>Blog & Insights</h1>
-          <div style={{ width: 50, height: 2, background: C.accent, borderRadius: 2, margin: '0 auto' }} />
+          <div style={{ width: 50, height: 2, background: C.accent, margin: '0 auto' }} />
         </div>
   
         <p style={{ textAlign: 'center', fontSize: 14.5, color: C.stone, maxWidth: 620, margin: '0 auto 36px', lineHeight: 1.7, fontWeight: 400 }}>
@@ -44,8 +44,7 @@ export default function Blog() {
               transition={{ delay: idx * 0.1 }}
               className="group flex flex-col overflow-hidden text-left"
               style={{ 
-                background: 'white', 
-                borderRadius: '16px',
+                background: 'white',
                 border: `1px solid ${C.border}`,
                 transition: 'transform 0.3s ease, box-shadow 0.3s ease'
               }}
@@ -58,17 +57,17 @@ export default function Blog() {
                 e.currentTarget.style.boxShadow = 'none';
               }}
             >
-              <div className="relative w-full aspect-[16/10] overflow-hidden rounded-t-xl shrink-0">
+              <div className="relative w-full aspect-[16/10] overflow-hidden  shrink-0">
                 <img src={post.image} alt={post.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
-                <div style={{ position: 'absolute', top: 12, left: 12, padding: '4px 12px', borderRadius: 20, background: 'rgba(255,255,255,0.95)', backdropFilter: 'blur(6px)' }}>
+                <div style={{ position: 'absolute', top: 12, left: 12, padding: '4px 12px', background: 'rgba(255,255,255,0.95)', backdropFilter: 'blur(6px)' }}>
                   <span style={{ fontSize: 9, letterSpacing: '0.18em', textTransform: 'uppercase', color: C.accent, fontWeight: 700 }}>{post.category}</span>
                 </div>
               </div>
               <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 }}>
                   <span style={{ fontSize: 11, color: C.stone, fontWeight: 500 }}>{post.date}</span>
-                  <span style={{ width: 4, height: 4, borderRadius: '50%', background: C.accent }} />
+                  <span style={{ width: 4, height: 4, background: C.accent }} />
                   <span style={{ fontSize: 11, color: C.stone, fontWeight: 500 }}>{post.readTime}</span>
                 </div>
                 <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 18, fontWeight: 700, color: C.soil, margin: '0 0 10px', lineHeight: 1.4, cursor: 'pointer', transition: 'color 0.2s' }}

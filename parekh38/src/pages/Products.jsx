@@ -1,17 +1,17 @@
-﻿import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ShoppingBag, Filter } from 'lucide-react';
 
 const C = {
-  primary: '#1a1a2e',
-  primaryDark: '#0f0f1c',
-  primaryLight: '#2c2c44',
-  accent: '#C9A455',
-  accentLight: '#F0E4C2',
-  bg: '#FDFBF7',
+  primary: '#2C1E16',
+  primaryDark: '#1A120D',
+  primaryLight: '#4A3326',
+  accent: '#8A4A51',
+  accentLight: '#A5606A',
+  bg: '#F9F5F0',
   sand: '#F5EED8',
-  border: '#E8E0D0',
+  border: '#E8DCC8',
   soil: '#2d1a13',
   stone: '#6B7280',
   cream: '#FDFBF7',
@@ -58,22 +58,22 @@ export default function Products() {
   });
 
   return (
-    <div style={{ fontFamily: "'DM Sans', sans-serif", background: C.bg, minHeight: '100vh' }} className="pt-[70px] pb-20">
+    <div style={{ fontFamily: "'Inter', sans-serif", background: C.bg, minHeight: '100vh' }} className="pt-[70px] pb-20">
       <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14">
 
         {/* Page Title */}
         <div className="text-center mb-6">
-          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(36px, 5vw, 52px)', fontWeight: 600, color: C.primary, margin: '0 0 12px', letterSpacing: '0.02em' }}>
+          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(36px, 5vw, 52px)', fontWeight: 600, color: C.primary, margin: '0 0 12px', letterSpacing: '0.02em' }}>
             Collections
           </h1>
-          <div style={{ width: 60, height: 2, background: C.accent, borderRadius: 2, margin: '0 auto' }} />
+          <div style={{ width: 60, height: 2, background: C.accent, margin: '0 auto' }} />
         </div>
         
         <div className="flex flex-col md:flex-row gap-8 items-start">
           
           {/* Left Sidebar */}
-          <div className="w-full md:w-[280px] flex-shrink-0 sticky top-[100px] rounded-2xl p-6" style={{ background: 'white', border: `1px solid ${C.border}` }}>
-            <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 22, fontWeight: 700, color: C.primary, marginBottom: 16, paddingBottom: 12, borderBottom: `1px solid ${C.border}` }}>
+          <div className="w-full md:w-[280px] flex-shrink-0 sticky top-[100px]  p-6" style={{ background: 'white', border: `1px solid ${C.border}` }}>
+            <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, fontWeight: 700, color: C.primary, marginBottom: 16, paddingBottom: 12, borderBottom: `1px solid ${C.border}` }}>
               Categories
             </h3>
             <div className="flex flex-col gap-1.5 max-h-[65vh] overflow-y-auto pr-2 custom-sidebar-scrollbar" style={{ scrollbarWidth: 'thin' }}>
@@ -83,7 +83,7 @@ export default function Products() {
                   <button
                     key={cat}
                     onClick={() => handleCategoryChange(cat)}
-                    className="text-left w-full px-4 py-3 rounded-xl text-[13px] font-medium tracking-wide transition-all duration-200 cursor-pointer flex items-center justify-between"
+                    className="text-left w-full px-4 py-3  text-[13px] font-medium tracking-wide transition-all duration-200 cursor-pointer flex items-center justify-between"
                     style={{
                       background: active ? 'rgba(27, 43, 63, 0.06)' : 'transparent',
                       color: active ? C.primary : C.stone,
@@ -93,7 +93,7 @@ export default function Products() {
                     onMouseLeave={e => { if (!active) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = C.stone; }}}
                   >
                     <span>{cat}</span>
-                    {active && <div style={{ width: 6, height: 6, borderRadius: '50%', background: C.accent }} />}
+                    {active && <div style={{ width: 6, height: 6, background: C.accent }} />}
                   </button>
                 );
               })}
@@ -103,10 +103,10 @@ export default function Products() {
           {/* Right Content */}
           <div className="flex-1 w-full">
             <div className="flex items-center justify-between mb-8 pb-4 border-b" style={{ borderColor: C.border }}>
-              <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 26, fontWeight: 700, color: C.soil, margin: 0 }}>
+              <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 26, fontWeight: 700, color: C.soil, margin: 0 }}>
                 {activeCategory === "All" ? "All Products" : activeCategory}
               </h2>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '8px 16px', borderRadius: 20, background: 'white', border: `1px solid ${C.border}` }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '8px 16px', background: 'white', border: `1px solid ${C.border}` }}>
                 <ShoppingBag size={14} color={C.primary} />
                 <span style={{ fontSize: 13, color: C.stone, fontWeight: 500 }}>{filteredProducts.length} Items</span>
               </div>
@@ -121,8 +121,7 @@ export default function Products() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: Math.min(index * 0.04, 0.3) }}
                     className="text-left product-card group"
-                    style={{
-                      borderRadius: 16, overflow: 'hidden',
+                    style={{ overflow: 'hidden',
                       background: 'white', border: `1px solid ${C.border}`,
                     }}
                   >
@@ -136,14 +135,13 @@ export default function Products() {
                       <span style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.15em', color: C.accent, fontWeight: 600, display: 'block', marginBottom: 8 }}>
                         {product.category}
                       </span>
-                      <h3 style={{ fontSize: 16, fontWeight: 600, color: C.soil, margin: '0 0 16px', lineHeight: 1.4, fontFamily: "'Cormorant Garamond', serif" }}>
+                      <h3 style={{ fontSize: 16, fontWeight: 600, color: C.soil, margin: '0 0 16px', lineHeight: 1.4, fontFamily: "'Playfair Display', serif" }}>
                         {product.name}
                       </h3>
                       <button
                         style={{
-                          width: '100%', padding: '12px 14px',
-                          borderRadius: 10, fontSize: 13, fontWeight: 500,
-                          cursor: 'pointer', fontFamily: "'DM Sans', sans-serif",
+                          width: '100%', padding: '12px 14px', fontSize: 13, fontWeight: 500,
+                          cursor: 'pointer', fontFamily: "'Inter', sans-serif",
                           border: `1.5px solid ${C.border}`,
                           background: 'transparent', color: C.stone,
                           transition: 'all 0.2s ease',
@@ -159,18 +157,18 @@ export default function Products() {
                 ))}
               </div>
             ) : (
-              <div style={{ textAlign: 'center', padding: '100px 24px', borderRadius: 20, background: 'white', border: `1px solid ${C.border}` }}>
+              <div style={{ textAlign: 'center', padding: '100px 24px', background: 'white', border: `1px solid ${C.border}` }}>
                 <Filter size={48} style={{ margin: '0 auto 16px', color: C.primaryLight, display: 'block', opacity: 0.6 }} />
-                <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 24, color: C.soil, marginBottom: 24 }}>
+                <p style={{ fontFamily: "'Playfair Display', serif", fontSize: 24, color: C.soil, marginBottom: 24 }}>
                   No products found for "{activeCategory}"
                 </p>
                 <button
                   onClick={() => handleCategoryChange('All')}
                   style={{
-                    padding: '12px 28px', borderRadius: 12,
+                    padding: '12px 28px',
                     background: C.primary, color: 'white',
                     border: 'none', fontSize: 14, fontWeight: 500,
-                    cursor: 'pointer', fontFamily: "'DM Sans', sans-serif",
+                    cursor: 'pointer', fontFamily: "'Inter', sans-serif",
                     transition: 'all 0.2s ease', textTransform: 'uppercase', letterSpacing: '0.05em'
                   }}
                   onMouseEnter={e => e.currentTarget.style.background = C.accent}

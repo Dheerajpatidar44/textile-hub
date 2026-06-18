@@ -29,7 +29,7 @@ export default function RetailManagement() {
           <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(30px, 4vw, 44px)', fontWeight: 600, color: C.soil, margin: '0 0 12px' }}>
             Our Retail Management
           </h1>
-          <div style={{ width: 50, height: 2, background: C.accent, borderRadius: 2, margin: '0 auto' }} />
+          <div style={{ width: 50, height: 2, background: C.accent, margin: '0 auto' }} />
         </div>
   
         <p style={{ textAlign: 'center', fontSize: 15, color: C.stone, marginBottom: 40, fontWeight: 400, maxWidth: 560, margin: '0 auto 40px', lineHeight: 1.7 }}>
@@ -48,8 +48,7 @@ export default function RetailManagement() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
-              style={{
-                borderRadius: 16, background: 'white',
+              style={{ background: 'white',
                 border: `1px solid ${C.border}`,
                 padding: '28px 22px',
                 textAlign: 'center',
@@ -69,7 +68,7 @@ export default function RetailManagement() {
                   src={member.image}
                   alt={member.name}
                   style={{
-                    width: 90, height: 90, borderRadius: '50%',
+                    width: 90, height: 90,
                     objectFit: 'cover',
                     border: `3px solid rgba(168, 124, 94, 0.2)`,
                     display: 'block',
@@ -77,11 +76,11 @@ export default function RetailManagement() {
                 />
                 <div style={{
                   position: 'absolute', bottom: 0, right: 0,
-                  width: 24, height: 24, borderRadius: '50%',
+                  width: 24, height: 24,
                   background: C.accent, border: '2px solid white',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                 }}>
-                  <div style={{ width: 8, height: 8, borderRadius: '50%', background: 'white' }} />
+                  <div style={{ width: 8, height: 8, background: 'white' }} />
                 </div>
               </div>
 
@@ -99,7 +98,7 @@ export default function RetailManagement() {
                 href={`mailto:${member.name.toLowerCase().replace(' ', '')}@sareesutra.com`}
                 style={{
                   display: 'inline-flex', alignItems: 'center', gap: 6,
-                  padding: '8px 16px', borderRadius: 10,
+                  padding: '8px 16px',
                   fontSize: 12, color: C.primary, textDecoration: 'none', fontWeight: 500,
                   background: 'rgba(139, 94, 60, 0.1)',
                   border: `1px solid rgba(139, 94, 60, 0.25)`,

@@ -31,7 +31,7 @@ export default function BusinessMediaGallery() {
           <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(30px, 4vw, 44px)', fontWeight: 600, color: C.soil, margin: '0 0 12px' }}>
             Media Gallery
           </h1>
-          <div style={{ width: 50, height: 2, background: C.accent, borderRadius: 2, margin: '0 auto' }} />
+          <div style={{ width: 50, height: 2, background: C.accent, margin: '0 auto' }} />
         </div>
   
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -41,8 +41,7 @@ export default function BusinessMediaGallery() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.08 }}
-              style={{
-                borderRadius: 16, overflow: 'hidden',
+              style={{ overflow: 'hidden',
                 background: 'white', cursor: 'pointer',
                 border: `1px solid ${C.border}`,
                 display: 'flex', flexDirection: 'column',
@@ -68,8 +67,7 @@ export default function BusinessMediaGallery() {
                 />
                 <div style={{
                   position: 'absolute', top: 12, left: 12,
-                  background: 'rgba(86, 81, 62, 0.85)', backdropFilter: 'blur(6px)',
-                  borderRadius: 20, padding: '4px 12px',
+                  background: 'rgba(86, 81, 62, 0.85)', backdropFilter: 'blur(6px)', padding: '4px 12px',
                 }}>
                   <span style={{ fontSize: 9, color: '#FAF6F1', letterSpacing: '0.15em', textTransform: 'uppercase', fontWeight: 600 }}>
                     {item.category}

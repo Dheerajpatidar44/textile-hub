@@ -64,32 +64,31 @@ function WelcomePopup() {
             transition={{ type: 'spring', stiffness: 280, damping: 26 }}
             style={{
               position: 'relative',
-              background: '#FDFBF7',
-              borderRadius: 16,
+              background: '#F9F5F0',
               maxWidth: 380,
               width: '100%',
               overflow: 'hidden',
               zIndex: 10,
-              border: '1px solid rgba(201,164,85,0.25)',
+              border: '1px solid rgba(138, 74, 81, 0.25)',
               boxShadow: '0 40px 80px rgba(0,0,0,0.15)',
-              fontFamily: "'DM Sans', sans-serif",
+              fontFamily: "'Inter', sans-serif",
             }}
           >
-            {/* Gold top bar */}
-            <div style={{ height: 4, background: 'linear-gradient(90deg, #C9A455, #F0E4C2, #C9A455)' }} />
+            {/* Maroon top bar */}
+            <div style={{ height: 4, background: 'linear-gradient(90deg, #8A4A51, #A5606A, #8A4A51)' }} />
 
             {/* Close Button */}
             <button
               onClick={() => setIsOpen(false)}
               style={{
                 position: 'absolute', top: 16, right: 16,
-                width: 32, height: 32, borderRadius: '50%',
+                width: 32, height: 32,
                 background: 'transparent', border: 'none',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                cursor: 'pointer', color: '#1a1a2e', transition: 'all 0.2s',
+                cursor: 'pointer', color: '#2C1E16', transition: 'all 0.2s',
                 zIndex: 5,
               }}
-              onMouseEnter={e => { e.currentTarget.style.background = 'rgba(26,26,46,0.05)'; }}
+              onMouseEnter={e => { e.currentTarget.style.background = 'rgba(44,30,22,0.05)'; }}
               onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; }}
             >
               <X size={20} />
@@ -101,32 +100,31 @@ function WelcomePopup() {
               <div style={{
                 width: 60, height: 60, margin: '0 auto 20px',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                background: 'rgba(201,164,85,0.1)', borderRadius: '50%'
-              }}>
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#C9A455" strokeWidth="1.5">
+                background: 'rgba(138, 74, 81, 0.1)', }}>
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#8A4A51" strokeWidth="1.5">
                   <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
                 </svg>
               </div>
 
               {/* Title */}
               <h2 style={{
-                fontFamily: "'Cormorant Garamond', serif",
+                fontFamily: "'Playfair Display', serif",
                 fontSize: 28, fontWeight: 700,
-                color: '#1a1a2e', margin: '0 0 6px', lineHeight: 1.25,
+                color: '#2C1E16', margin: '0 0 6px', lineHeight: 1.25,
                 letterSpacing: '0.04em',
               }}>
                 Welcome to
               </h2>
               <h2 style={{
-                fontFamily: "'Cormorant Garamond', serif",
+                fontFamily: "'Playfair Display', serif",
                 fontSize: 32, fontWeight: 700,
-                color: '#C9A455', margin: '0 0 16px', lineHeight: 1.25,
+                color: '#8A4A51', margin: '0 0 16px', lineHeight: 1.25,
                 letterSpacing: '0.08em',
               }}>
-                SareeSutra
+                Katha Weaves
               </h2>
 
-              <div style={{ width: 40, height: 2, background: 'rgba(201,164,85,0.5)', margin: '0 auto 16px' }} />
+              <div style={{ width: 40, height: 2, background: 'rgba(138, 74, 81, 0.5)', margin: '0 auto 16px' }} />
 
               <p style={{ color: '#6B7280', fontSize: 14, lineHeight: 1.6, margin: '0 0 32px' }}>
                 Discover our premium collection of heritage crafted textiles and elegant sarees.
@@ -137,17 +135,17 @@ function WelcomePopup() {
                 onClick={() => { setIsOpen(false); navigate('/products'); }}
                 style={{
                   width: '100%', padding: '14px 20px',
-                  background: '#C9A455',
+                  background: '#8A4A51',
                   color: '#ffffff',
-                  border: 'none', borderRadius: 8,
+                  border: 'none',
                   fontSize: 14, fontWeight: 600,
                   cursor: 'pointer',
                   letterSpacing: '0.05em',
                   textTransform: 'uppercase',
                   transition: 'all 0.25s',
                 }}
-                onMouseEnter={e => { e.currentTarget.style.background = '#1a1a2e'; }}
-                onMouseLeave={e => { e.currentTarget.style.background = '#C9A455'; }}
+                onMouseEnter={e => { e.currentTarget.style.background = '#2C1E16'; }}
+                onMouseLeave={e => { e.currentTarget.style.background = '#8A4A51'; }}
               >
                 Explore Collection
               </button>

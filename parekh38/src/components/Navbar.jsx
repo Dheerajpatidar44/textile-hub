@@ -4,14 +4,14 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const C = {
-  primary: '#1a1a2e',
-  primaryDark: '#0f0f1c',
-  primaryLight: '#2c2c44',
-  accent: '#C9A455',
-  accentLight: '#F0E4C2',
-  bg: '#F8F5EF',
+  primary: '#2C1E16',
+  primaryDark: '#1A120D',
+  primaryLight: '#4A3326',
+  accent: '#8A4A51',
+  accentLight: '#A5606A',
+  bg: '#F9F5F0',
   sand: '#F5EED8',
-  border: '#E8E0D0',
+  border: '#E8DCC8',
   soil: '#2d1a13',
   stone: '#6B7280',
   cream: '#FDFBF7',
@@ -77,7 +77,7 @@ export default function Navbar() {
   return (
     <header
       className="w-full fixed top-0 left-0 z-50 transition-all duration-300"
-      style={{ fontFamily: "'DM Sans', sans-serif" }}
+      style={{ fontFamily: "'Inter', sans-serif" }}
     >
       {/* ── Main Navbar ── */}
       <div
@@ -91,25 +91,24 @@ export default function Navbar() {
       >
         <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14 flex justify-between items-center">
 
-          {/* Logo Brand: SareeSutra */}
+          {/* Logo Brand: Katha Weaves */}
           <Link to="/" className="flex items-center gap-3 group shrink-0 text-left">
             {/* Logo Icon */}
             <div style={{
               width: 32, height: 32,
               display: 'flex', alignItems: 'center', justifyContent: 'center',
-              background: 'rgba(201,164,85,0.1)',
-              borderRadius: '50%',
+              background: 'rgba(138, 74, 81, 0.1)',
             }}>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A455" strokeWidth="2">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8A4A51" strokeWidth="2">
                 <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
               </svg>
             </div>
             <div className="flex flex-col">
               <span
                 className="text-[20px] font-bold leading-none tracking-wide"
-                style={{ fontFamily: "'Cormorant Garamond', serif", letterSpacing: '0.05em', color: C.primary }}
+                style={{ fontFamily: "'Playfair Display', serif", letterSpacing: '0.05em', color: C.primary }}
               >
-                SareeSutra
+                Katha Weaves
               </span>
               <span className="text-[8px] tracking-[0.15em] font-medium mt-1 uppercase" style={{ color: C.stone }}>
                 Textile Mall
@@ -130,7 +129,7 @@ export default function Navbar() {
                 >
                   {item.name}
                   {active && (
-                    <div style={{ position: 'absolute', bottom: -2, left: 0, right: 0, height: 2, background: C.accent, borderRadius: 2 }} />
+                    <div style={{ position: 'absolute', bottom: -2, left: 0, right: 0, height: 2, background: C.accent, }} />
                   )}
                 </Link>
               );
@@ -157,7 +156,7 @@ export default function Navbar() {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 10, scale: 0.98 }}
                     transition={{ duration: 0.2, ease: 'easeOut' }}
-                    className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-56 rounded-xl shadow-2xl z-[999] text-left overflow-hidden"
+                    className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-56  shadow-2xl z-[999] text-left overflow-hidden"
                     style={{
                       background: C.cream,
                       border: '1px solid rgba(201, 164, 85, 0.2)',
@@ -166,8 +165,7 @@ export default function Navbar() {
                     {/* Top caret arrow */}
                     <div style={{
                       position: 'absolute', top: -6, left: '50%',
-                      width: 12, height: 12, background: C.cream,
-                      borderRadius: 2, transform: 'translateX(-50%) rotate(45deg)',
+                      width: 12, height: 12, background: C.cream, transform: 'translateX(-50%) rotate(45deg)',
                       borderTop: '1px solid rgba(201, 164, 85, 0.2)',
                       borderLeft: '1px solid rgba(201, 164, 85, 0.2)',
                     }} />
@@ -212,7 +210,7 @@ export default function Navbar() {
             {/* Trade Enquiry Button (Desktop) */}
             <Link
               to="/trade-enquiry"
-              className="hidden lg:inline-flex items-center justify-center px-6 py-2.5 rounded-full text-[12px] font-bold tracking-wider uppercase shadow-sm hover:shadow-md transition-all duration-300"
+              className="hidden lg:inline-flex items-center justify-center px-6 py-2.5  text-[12px] font-bold tracking-wider uppercase shadow-sm hover:shadow-md transition-all duration-300"
               style={{
                 background: C.accent,
                 color: '#ffffff',
@@ -231,7 +229,7 @@ export default function Navbar() {
             {/* Mobile Toggle */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden p-2 rounded-xl transition-all border-none bg-transparent"
+              className="lg:hidden p-2  transition-all border-none bg-transparent"
               style={{ color: C.primary }}
               aria-label="Toggle menu"
             >
@@ -250,22 +248,22 @@ export default function Navbar() {
             exit={{ x: '100%' }}
             transition={{ type: 'tween', duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
             className="lg:hidden fixed inset-0 top-0 z-40 flex flex-col"
-            style={{ background: C.cream, fontFamily: "'DM Sans', sans-serif" }}
+            style={{ background: C.cream, fontFamily: "'Inter', sans-serif" }}
           >
             {/* Drawer header */}
             <div style={{ padding: '20px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: `1px solid ${C.border}` }}>
               <div className="flex-1 flex flex-col">
                 <span
                   className="text-[20px] font-bold leading-none tracking-wide"
-                  style={{ fontFamily: "'Cormorant Garamond', serif", color: C.primary }}
+                  style={{ fontFamily: "'Playfair Display', serif", color: C.primary }}
                 >
-                  SareeSutra
+                  Katha Weaves
                 </span>
               </div>
               <button
                 onClick={() => setIsOpen(false)}
                 style={{
-                  width: 36, height: 36, borderRadius: '50%',
+                  width: 36, height: 36,
                   background: 'rgba(201,164,85,0.1)',
                   border: 'none',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -285,7 +283,7 @@ export default function Navbar() {
                       key={item.name}
                       to={item.path}
                       onClick={() => setIsOpen(false)}
-                      className="flex items-center justify-between px-4 py-3.5 rounded-xl text-[14px] font-semibold tracking-wide transition-all"
+                      className="flex items-center justify-between px-4 py-3.5  text-[14px] font-semibold tracking-wide transition-all"
                       style={{
                         background: active ? 'rgba(201, 164, 85, 0.1)' : 'transparent',
                         color: active ? C.accent : C.primary,
@@ -300,7 +298,7 @@ export default function Navbar() {
                 <div className="w-full">
                   <button
                     onClick={() => setMobileResourcesOpen(!mobileResourcesOpen)}
-                    className="w-full flex items-center justify-between px-4 py-3.5 rounded-xl text-[14px] font-semibold tracking-wide transition-all cursor-pointer border-none bg-transparent"
+                    className="w-full flex items-center justify-between px-4 py-3.5  text-[14px] font-semibold tracking-wide transition-all cursor-pointer border-none bg-transparent"
                     style={{
                       color: isDropdownActive() ? C.accent : C.primary,
                     }}
@@ -325,7 +323,7 @@ export default function Navbar() {
                               key={item.name}
                               to={item.path}
                               onClick={() => { setIsOpen(false); setMobileResourcesOpen(false); }}
-                              className="flex items-center justify-between px-4 py-3 rounded-xl text-[13px] font-medium transition-all"
+                              className="flex items-center justify-between px-4 py-3  text-[13px] font-medium transition-all"
                               style={{
                                 background: active ? 'rgba(201, 164, 85, 0.05)' : 'transparent',
                                 color: active ? C.accent : C.stone,
@@ -345,7 +343,7 @@ export default function Navbar() {
                 <Link
                   to="/trade-enquiry"
                   onClick={() => setIsOpen(false)}
-                  className="flex items-center justify-center gap-2 py-4 rounded-full text-[13px] font-bold uppercase tracking-wider"
+                  className="flex items-center justify-center gap-2 py-4  text-[13px] font-bold uppercase tracking-wider"
                   style={{ background: C.accent, color: '#ffffff' }}
                 >
                   Trade Enquiry

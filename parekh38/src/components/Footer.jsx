@@ -2,15 +2,15 @@ import { Link } from 'react-router-dom';
 import { MapPin, Phone, Mail } from 'lucide-react';
 
 const C = {
-  primary: '#1a1a2e',
-  primaryDark: '#0f0f1c',
-  primaryLight: '#2c2c44',
-  accent: '#C9A455',
-  border: 'rgba(26,26,46,0.1)',
-  textFaint: 'rgba(26,26,46,0.6)',
-  textMid: 'rgba(26,26,46,0.85)',
+  primary: '#2C1E16',
+  primaryDark: '#1A120D',
+  primaryLight: '#4A3326',
+  accent: '#8A4A51',
+  border: 'rgba(44,30,22,0.1)',
+  textFaint: 'rgba(44,30,22,0.6)',
+  textMid: 'rgba(44,30,22,0.85)',
   soil: '#2d1a13',
-  bg: '#FDFBF7',
+  bg: '#F9F5F0',
 };
 
 export default function Footer() {
@@ -19,28 +19,28 @@ export default function Footer() {
       background: C.bg,
       borderTop: `1px solid ${C.border}`,
       color: C.textMid,
-      fontFamily: "'DM Sans', sans-serif",
+      fontFamily: "'Inter', sans-serif",
       position: 'relative',
       overflow: 'hidden',
     }}>
       {/* Background decoration */}
-      <div style={{ position: 'absolute', top: 0, right: 0, width: 400, height: 400, borderRadius: '50%', background: 'radial-gradient(circle, rgba(201, 164, 85, 0.05) 0%, transparent 70%)', filter: 'blur(60px)', pointerEvents: 'none' }} />
+      <div style={{ position: 'absolute', top: 0, right: 0, width: 400, height: 400, background: 'radial-gradient(circle, rgba(138, 74, 81, 0.05) 0%, transparent 70%)', filter: 'blur(60px)', pointerEvents: 'none' }} />
 
       <div className="max-w-[90rem] mx-auto px-6 lg:px-14 py-16" style={{ position: 'relative', zIndex: 1 }}>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 text-left">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12 text-left">
 
           {/* ── Brand Column ── */}
           <div className="col-span-1 md:col-span-2 lg:col-span-2">
             {/* Logo */}
             <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 20 }}>
-              <div style={{ width: 44, height: 44, borderRadius: '50%', background: 'rgba(201, 164, 85, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C9A455" strokeWidth="2">
+              <div style={{ width: 44, height: 44, background: 'rgba(138, 74, 81, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8A4A51" strokeWidth="2">
                   <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
                 </svg>
               </div>
               <div>
-                <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 24, fontWeight: 700, color: C.soil, lineHeight: 1.1, letterSpacing: '0.05em' }}>
-                  SareeSutra
+                <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 24, fontWeight: 700, color: C.soil, lineHeight: 1.1, letterSpacing: '0.05em' }}>
+                  Katha Weaves
                 </div>
                 <div style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#6B7280', fontWeight: 600, marginTop: 4 }}>
                   Textile Mall
@@ -64,7 +64,7 @@ export default function Footer() {
                   key={idx}
                   href="#"
                   aria-label={social.name}
-                  style={{ width: 36, height: 36, borderRadius: '50%', background: 'transparent', border: `1px solid ${C.border}`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: C.primary, textDecoration: 'none', transition: 'all 0.3s ease' }}
+                  style={{ width: 36, height: 36, background: 'transparent', border: `1px solid ${C.border}`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: C.primary, textDecoration: 'none', transition: 'all 0.3s ease' }}
                   onMouseEnter={e => { e.currentTarget.style.background = C.accent; e.currentTarget.style.borderColor = C.accent; e.currentTarget.style.color = '#ffffff'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
                   onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderColor = C.border; e.currentTarget.style.color = C.primary; e.currentTarget.style.transform = 'translateY(0)'; }}
                 >
@@ -76,7 +76,7 @@ export default function Footer() {
 
           {/* ── QUICK LINKS ── */}
           <div className="col-span-1">
-            <h4 style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, fontWeight: 700, color: C.soil, marginBottom: 20, letterSpacing: '0.05em', textTransform: 'uppercase' }}>
+            <h4 style={{ fontFamily: "'Inter', sans-serif", fontSize: 14, fontWeight: 700, color: C.soil, marginBottom: 20, letterSpacing: '0.05em', textTransform: 'uppercase' }}>
               Quick Links
             </h4>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 12 }}>
@@ -92,7 +92,35 @@ export default function Footer() {
                   <Link
                     to={link.path}
                     style={{ fontSize: 14, color: C.textMid, textDecoration: 'none', display: 'flex', alignItems: 'center', transition: 'all 0.2s ease', fontWeight: 500 }}
-                    onMouseEnter={e => { e.currentTarget.style.color = '#C9A455'; }}
+                    onMouseEnter={e => { e.currentTarget.style.color = '#8A4A51'; }}
+                    onMouseLeave={e => { e.currentTarget.style.color = C.textMid; }}
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* ── RESOURCES ── */}
+          <div className="col-span-1">
+            <h4 style={{ fontFamily: "'Inter', sans-serif", fontSize: 14, fontWeight: 700, color: C.soil, marginBottom: 20, letterSpacing: '0.05em', textTransform: 'uppercase' }}>
+              Resources
+            </h4>
+            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 12 }}>
+              {[
+                { name: 'Notice Board',           path: '/notice-board' },
+                { name: 'Trade Circular',         path: '/trade-circular' },
+                { name: 'e-Quotation',            path: '/e-quotation' },
+                { name: 'e-Auction',              path: '/e-auction' },
+                { name: 'FAQs',                   path: '/faq' },
+                { name: 'Careers',                path: '/career' },
+              ].map(link => (
+                <li key={link.name}>
+                  <Link
+                    to={link.path}
+                    style={{ fontSize: 14, color: C.textMid, textDecoration: 'none', display: 'flex', alignItems: 'center', transition: 'all 0.2s ease', fontWeight: 500 }}
+                    onMouseEnter={e => { e.currentTarget.style.color = '#8A4A51'; }}
                     onMouseLeave={e => { e.currentTarget.style.color = C.textMid; }}
                   >
                     {link.name}
@@ -104,7 +132,7 @@ export default function Footer() {
 
           {/* ── CONTACT US ── */}
           <div className="col-span-1">
-            <h4 style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, fontWeight: 700, color: C.soil, marginBottom: 20, letterSpacing: '0.05em', textTransform: 'uppercase' }}>
+            <h4 style={{ fontFamily: "'Inter', sans-serif", fontSize: 14, fontWeight: 700, color: C.soil, marginBottom: 20, letterSpacing: '0.05em', textTransform: 'uppercase' }}>
               Contact Us
             </h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
@@ -117,10 +145,10 @@ export default function Footer() {
                   key={i}
                   href={href}
                   style={{ display: 'flex', alignItems: 'flex-start', gap: 12, fontSize: 13, color: C.textMid, textDecoration: 'none', lineHeight: 1.5, transition: 'color 0.2s ease' }}
-                  onMouseEnter={e => e.currentTarget.style.color = '#C9A455'}
+                  onMouseEnter={e => e.currentTarget.style.color = '#8A4A51'}
                   onMouseLeave={e => e.currentTarget.style.color = C.textMid}
                 >
-                  <Icon size={16} style={{ color: '#C9A455', flexShrink: 0, marginTop: 2 }} />
+                  <Icon size={16} style={{ color: '#8A4A51', flexShrink: 0, marginTop: 2 }} />
                   <span>{val}</span>
                 </a>
               ))}
@@ -131,10 +159,10 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div style={{ borderTop: `1px solid ${C.border}`, position: 'relative', zIndex: 1, background: 'rgba(26,26,46,0.02)' }}>
+      <div style={{ borderTop: `1px solid ${C.border}`, position: 'relative', zIndex: 1, background: 'rgba(44,30,22,0.02)' }}>
         <div className="max-w-[90rem] mx-auto px-6 lg:px-14 py-6 flex flex-col md:flex-row items-center justify-center text-center">
           <p style={{ fontSize: 13, color: C.textFaint, margin: 0, fontWeight: 500, letterSpacing: '0.02em' }}>
-            © 2025 SareeSutra Textiles. All Rights Reserved.
+            © 2025 Katha Weaves. All Rights Reserved.
           </p>
         </div>
       </div>

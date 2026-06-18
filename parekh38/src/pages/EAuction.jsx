@@ -2,14 +2,14 @@ import { motion } from 'framer-motion';
 import { Gavel, Clock, UploadCloud, Send, Mail, TrendingUp } from 'lucide-react';
 
 const C = {
-  primary: '#1a1a2e',
-  primaryDark: '#0f0f1c',
-  primaryLight: '#2c2c44',
-  accent: '#C9A455',
-  accentLight: '#F0E4C2',
-  bg: '#FDFBF7',
+  primary: '#2C1E16',
+  primaryDark: '#1A120D',
+  primaryLight: '#4A3326',
+  accent: '#8A4A51',
+  accentLight: '#A5606A',
+  bg: '#F9F5F0',
   sand: '#F5EED8',
-  border: '#E8E0D0',
+  border: '#E8DCC8',
   soil: '#2d1a13',
   stone: '#6B7280',
   cream: '#FDFBF7',
@@ -41,16 +41,16 @@ const scrollToForm = () =>
 
 export default function EAuction() {
   return (
-    <div style={{ fontFamily: "'DM Sans', sans-serif", background: C.bg, minHeight: '100vh' }} className="pt-[70px] pb-24">
+    <div style={{ fontFamily: "'Inter', sans-serif", background: C.bg, minHeight: '100vh' }} className="pt-[70px] pb-24">
 
       <div className="max-w-[90rem] mx-auto px-6 lg:px-12 pt-0">
 
         {/* Page Title Section */}
         <div className="text-center mb-6">
-          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(36px, 5vw, 52px)', fontWeight: 600, color: C.primary, margin: '0 0 12px', letterSpacing: '0.02em' }}>
+          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(36px, 5vw, 52px)', fontWeight: 600, color: C.primary, margin: '0 0 12px', letterSpacing: '0.02em' }}>
             e-Auction
           </h1>
-          <div style={{ width: 60, height: 2, background: C.accent, borderRadius: 2, margin: '0 auto' }} />
+          <div style={{ width: 60, height: 2, background: C.accent, margin: '0 auto' }} />
         </div>
 
         <p style={{ textAlign: 'center', fontSize: 16, color: C.stone, fontWeight: 400, maxWidth: 600, margin: '0 auto 40px', lineHeight: 1.6 }}>
@@ -60,7 +60,7 @@ export default function EAuction() {
 
         {/* Upcoming Auctions */}
         <div className="text-left mb-8">
-          <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 28, fontWeight: 700, color: C.soil, margin: 0, display: 'flex', alignItems: 'center', gap: 12 }}>
+          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 28, fontWeight: 700, color: C.soil, margin: 0, display: 'flex', alignItems: 'center', gap: 12 }}>
             <Clock size={24} color={C.accent} /> Upcoming Auctions
           </h2>
         </div>
@@ -74,7 +74,7 @@ export default function EAuction() {
               viewport={{ once: true }}
               className="group flex flex-col sm:flex-row overflow-hidden"
               style={{
-                background: 'white', borderRadius: 20,
+                background: 'white',
                 border: `1px solid ${C.border}`,
                 transition: 'transform 0.3s ease, box-shadow 0.3s ease',
               }}
@@ -93,13 +93,13 @@ export default function EAuction() {
 
               <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column' }}>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 }}>
-                  <span style={{ fontSize: 10, padding: '6px 12px', borderRadius: 20, background: 'rgba(201, 164, 85, 0.1)', color: C.accent, fontWeight: 700, letterSpacing: '0.1em' }}>
+                  <span style={{ fontSize: 10, padding: '6px 12px', background: 'rgba(138, 74, 81, 0.1)', color: C.accent, fontWeight: 700, letterSpacing: '0.1em' }}>
                     {auction.id}
                   </span>
                   <span style={{ fontSize: 12, color: C.primary, fontWeight: 600 }}>{auction.status}</span>
                 </div>
 
-                <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 22, fontWeight: 700, color: C.soil, margin: '0 0 10px' }}>
+                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, fontWeight: 700, color: C.soil, margin: '0 0 10px' }}>
                   {auction.title}
                 </h3>
                 <p style={{ fontSize: 13, color: C.stone, margin: '0 0 16px', lineHeight: 1.6, flex: 1 }}>
@@ -107,7 +107,7 @@ export default function EAuction() {
                 </p>
 
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 12, marginBottom: 16 }}>
-                  <div style={{ background: C.bg, padding: '10px 14px', borderRadius: 10 }}>
+                  <div style={{ background: C.bg, padding: '10px 14px', }}>
                     <p style={{ fontSize: 10, color: C.stone, textTransform: 'uppercase', letterSpacing: '0.1em', margin: '0 0 4px', fontWeight: 600 }}>Quantity</p>
                     <p style={{ fontSize: 14, color: C.primary, fontWeight: 700, margin: 0 }}>{auction.quantity}</p>
                   </div>
@@ -116,9 +116,9 @@ export default function EAuction() {
                 <button
                   onClick={scrollToForm}
                   style={{
-                    width: '100%', padding: '14px', borderRadius: 10,
+                    width: '100%', padding: '14px',
                     background: C.primary, color: 'white', border: 'none',
-                    fontSize: 13, fontWeight: 600, fontFamily: "'DM Sans', sans-serif",
+                    fontSize: 13, fontWeight: 600, fontFamily: "'Inter', sans-serif",
                     cursor: 'pointer', transition: 'all 0.2s', textTransform: 'uppercase', letterSpacing: '0.05em',
                     display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
                   }}
@@ -144,7 +144,7 @@ export default function EAuction() {
           className="max-w-3xl mx-auto scroll-mt-24"
         >
           <div style={{
-            background: 'white', borderRadius: 20,
+            background: 'white',
             border: `1px solid ${C.border}`,
             overflow: 'hidden',
             boxShadow: '0 12px 40px rgba(27, 43, 63, 0.06)',
@@ -158,16 +158,16 @@ export default function EAuction() {
               display: 'flex', alignItems: 'center', gap: 16,
             }} className="text-left">
               <div style={{
-                width: 52, height: 52, borderRadius: 14,
+                width: 52, height: 52,
                 background: 'white',
-                border: `1px solid rgba(201, 164, 85, 0.3)`,
+                border: `1px solid rgba(138, 74, 81, 0.3)`,
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 flexShrink: 0,
               }}>
                 <Gavel size={24} color={C.accent} />
               </div>
               <div>
-                <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 24, fontWeight: 700, color: C.primary, margin: '0 0 6px' }}>
+                <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 24, fontWeight: 700, color: C.primary, margin: '0 0 6px' }}>
                   Participation Registration
                 </h2>
                 <p style={{ fontSize: 13, color: C.stone, margin: 0, fontWeight: 400 }}>
@@ -212,15 +212,14 @@ export default function EAuction() {
                   </label>
                   <label
                     style={{
-                      width: '100%', border: `2px dashed ${C.border}`,
-                      borderRadius: 16, padding: '48px 24px',
+                      width: '100%', border: `2px dashed ${C.border}`, padding: '48px 24px',
                       display: 'flex', flexDirection: 'column', alignItems: 'center',
                       cursor: 'pointer', background: C.bg,
                       transition: 'all 0.2s ease',
                     }}
                     onMouseEnter={e => {
                       e.currentTarget.style.borderColor = C.accent;
-                      e.currentTarget.style.background = 'rgba(201, 164, 85, 0.05)';
+                      e.currentTarget.style.background = 'rgba(138, 74, 81, 0.05)';
                     }}
                     onMouseLeave={e => {
                       e.currentTarget.style.borderColor = C.border;
@@ -245,9 +244,9 @@ export default function EAuction() {
                     width: '100%', padding: '16px', marginTop: 12,
                     display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10,
                     background: C.accent, color: '#1B2B3F',
-                    border: 'none', borderRadius: 12,
+                    border: 'none',
                     fontSize: 15, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em',
-                    cursor: 'pointer', fontFamily: "'DM Sans', sans-serif",
+                    cursor: 'pointer', fontFamily: "'Inter', sans-serif",
                     transition: 'all 0.2s ease',
                   }}
                   onMouseEnter={e => { e.currentTarget.style.background = C.primary; e.currentTarget.style.color = 'white'; }}
@@ -260,10 +259,10 @@ export default function EAuction() {
                 <div style={{ textAlign: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, marginTop: 16 }}>
                   <Mail size={14} color={C.accent} />
                   <a
-                    href="mailto:hello@sareesutra.com"
+                    href="mailto:hello@kathaweaves.com"
                     style={{ fontSize: 13, color: C.primary, fontWeight: 500, textDecoration: 'none' }}
                   >
-                    hello@sareesutra.com
+                    hello@kathaweaves.com
                   </a>
                 </div>
 
