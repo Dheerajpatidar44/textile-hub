@@ -3,11 +3,11 @@ import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const COLORS = { 
-  primary: '#E2A93E',        // Gold Accent
-  accent: '#1E3E37',         // Forest Green
-  bg: '#FAF7F0', 
-  border: '#EFECE6', 
-  textDark: '#1E3E37' 
+  primary: '#A75D3F',        // Terracotta Accent
+  accent: '#0D3E3C',         // Elegant Deep Teal
+  bg: '#FAF8F5', 
+  border: '#E5ECE9', 
+  textDark: '#0D3E3C' 
 };
 
 const InstagramIcon = () => (
@@ -56,7 +56,7 @@ export default function FloatingSocials() {
         transition={{ type: 'spring', stiffness: 300, damping: 30 }}
         className="flex flex-col items-center shadow-2xl py-5 px-3.5 relative rounded-r-2xl"
         style={{
-          background: 'rgba(30, 62, 55, 0.95)',
+          background: 'rgba(13, 62, 60, 0.95)',
           backdropFilter: 'blur(8px)',
           border: '1px solid rgba(255,255,255,0.1)',
           borderLeft: 'none',

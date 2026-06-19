@@ -2,14 +2,14 @@ import { useState } from 'react';
 import { MessageSquareText, X, Send, Sparkles } from 'lucide-react';
 
 const C = {
-  primary: '#1E3E37',        // Deep Forest Green
-  primaryDark: '#112521',
-  soil: '#1E3E37',
-  sand: '#FAF7F0',
+  primary: '#0D3E3C',        // Elegant Deep Teal
+  primaryDark: '#061F1E',
+  soil: '#0D3E3C',
+  sand: '#FAF8F5',
   cream: '#FFFFFF',
-  border: '#EFECE6',
-  stone: '#536E67',
-  accent: '#E2A93E',         // Gold Accent
+  border: '#E5ECE9',
+  stone: '#66807B',
+  accent: '#A75D3F',         // Terracotta/Copper
 };
 
 const FloatingChatbot = () => {
@@ -21,7 +21,7 @@ const FloatingChatbot = () => {
       {isOpen && (
         <div
           className="mb-4 w-[340px] sm:w-[370px] overflow-hidden border rounded-3xl"
-          style={{ borderColor: C.border, background: '#FAF7F0', boxShadow: '0 16px 48px rgba(30, 62, 55, 0.12)' }}
+          style={{ borderColor: C.border, background: '#FAF8F5', boxShadow: '0 16px 48px rgba(30, 62, 55, 0.12)' }}
         >
           {/* Header */}
           <div
@@ -37,7 +37,7 @@ const FloatingChatbot = () => {
               </div>
               <div className="text-left">
                 <p className="text-white text-[13px] font-bold tracking-wide leading-tight">
-                  WEAVECRAFT Assistant
+                  Riwaayat Hub Assistant
                 </p>
                 <div className="flex items-center gap-1.5 mt-0.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
@@ -70,7 +70,7 @@ const FloatingChatbot = () => {
                 style={{ borderColor: C.border }}
               >
                 <p className="text-[13px] leading-relaxed" style={{ color: C.soil }}>
-                  Namaste! 🙏 Welcome to <strong>WEAVECRAFT Textile Mall</strong>. How can I assist you today?
+                  Namaste! 🙏 Welcome to <strong>Riwaayat Hub</strong>. How can I assist you today?
                 </p>
               </div>
             </div>

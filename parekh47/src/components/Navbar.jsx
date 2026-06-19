@@ -4,15 +4,15 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const C = {
-  primary: '#1E3E37',        // Deep Forest Green
-  primaryDark: '#112521',
-  primaryLight: '#2C5A50',
-  accent: '#E2A93E',         // Gold Accent
-  accentLight: '#F0C265',
-  gold: '#E2A93E',
-  bg: '#FAF7F0',
-  border: '#EFECE6',
-  stone: '#536E67',
+  primary: '#0D3E3C',        // Elegant Deep Teal/Green
+  primaryDark: '#061F1E',
+  primaryLight: '#1E5957',
+  accent: '#A75D3F',         // Terracotta/Copper Accent
+  accentLight: '#C67E5F',
+  gold: '#A75D3F',
+  bg: '#FAF8F5',
+  border: '#E5ECE9',
+  stone: '#66807B',
 };
 
 export default function Navbar() {
@@ -107,13 +107,13 @@ export default function Navbar() {
                 className="text-[17px] font-bold leading-none tracking-[0.08em]"
                 style={{ fontFamily: "'Inter', sans-serif", color: C.primary, fontWeight: 800 }}
               >
-                WEAVECRAFT
+                RIWAAYAT
               </span>
               <span 
                 className="text-[7.5px] tracking-[0.22em] font-bold mt-1 uppercase" 
-                style={{ color: C.stone, fontFamily: "'Inter', sans-serif" }}
+                style={{ color: C.accent, fontFamily: "'Inter', sans-serif" }}
               >
-                TEXTILE MALL
+                HUB
               </span>
             </div>
           </Link>
@@ -130,12 +130,6 @@ export default function Navbar() {
                   style={{ color: active ? C.accent : C.primary }}
                 >
                   {item.name}
-                  {active && (
-                    <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 flex flex-col items-center">
-                      <div style={{ width: 14, height: 1.5, background: C.gold }} />
-                      <div style={{ width: 3, height: 3, borderRadius: '50%', background: C.gold, marginTop: 1 }} />
-                    </div>
-                  )}
                 </Link>
               );
             })}
@@ -236,10 +230,10 @@ export default function Navbar() {
                   className="text-[18px] font-extrabold leading-none tracking-wide"
                   style={{ color: C.primary }}
                 >
-                  WEAVECRAFT
+                  RIWAAYAT
                 </span>
-                <span className="text-[8px] tracking-[0.2em] font-bold mt-1 uppercase" style={{ color: C.stone }}>
-                  TEXTILE MALL
+                <span className="text-[8px] tracking-[0.2em] font-bold mt-1 uppercase" style={{ color: C.accent }}>
+                  HUB
                 </span>
               </div>
               <button

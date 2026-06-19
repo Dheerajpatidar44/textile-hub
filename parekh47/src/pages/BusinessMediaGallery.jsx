@@ -1,14 +1,14 @@
 import { motion } from 'framer-motion';
 
 const C = {
-  primary: '#1E3E37',        // Slate Navy
-  primaryDark: '#112521',
-  soil: '#1E3E37',
-  sand: '#FAF7F0',
-  cream: '#FAF7F0',
-  border: '#EFECE6',
-  stone: '#536E67',
-  accent: '#E2A93E',         // Mauve
+  primary: '#0D3E3C',        // Elegant Deep Teal
+  primaryDark: '#061F1E',
+  soil: '#0D3E3C',
+  sand: '#FAF8F5',
+  cream: '#FAF8F5',
+  border: '#E5ECE9',
+  stone: '#66807B',
+  accent: '#A75D3F',         // Terracotta/Copper Accent
 };
 
 const galleryItems = [
@@ -22,12 +22,12 @@ const galleryItems = [
 
 export default function BusinessMediaGallery() {
   return (
-    <div style={{ fontFamily: "'Inter', sans-serif", background: C.cream, minHeight: '90vh' }} className="pt-4 pb-16">
+    <div style={{ fontFamily: "'Inter', sans-serif", background: C.cream, minHeight: '90vh' }} className="pt-2 pb-16">
       <div className="max-w-[90rem] mx-auto px-6 lg:px-14 pt-0">
 
         {/* Page Title Section */}
         <div className="text-center mb-6">
-          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '48px', fontWeight: 500, color: C.soil, margin: 0 }}>
+          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '44px', fontWeight: 500, color: C.soil, margin: 0 }}>
             Media Gallery
           </h1>
           <div style={{ width: 40, height: 1.5, background: C.accent, margin: '12px auto 0' }} />
@@ -49,7 +49,7 @@ export default function BusinessMediaGallery() {
               }}
               onMouseEnter={e => {
                 e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 12px 30px rgba(30, 62, 55, 0.04)';
+                e.currentTarget.style.boxShadow = '0 12px 30px rgba(13, 62, 60, 0.04)';
               }}
               onMouseLeave={e => {
                 e.currentTarget.style.transform = 'translateY(0)';
@@ -67,7 +67,7 @@ export default function BusinessMediaGallery() {
                 />
                 <div style={{
                   position: 'absolute', top: 12, left: 12,
-                  background: 'rgba(30, 62, 55, 0.9)', backdropFilter: 'blur(6px)', padding: '4px 12px',
+                  background: 'rgba(13, 62, 60, 0.9)', backdropFilter: 'blur(6px)', padding: '4px 12px',
                   borderRadius: '50px'
                 }}>
                   <span style={{ fontSize: 9, color: '#ffffff', letterSpacing: '0.15em', textTransform: 'uppercase', fontWeight: 700 }}>

@@ -3,14 +3,14 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus } from 'lucide-react';
 
 const C = {
-  primary: '#1E3E37',        // Slate Navy
-  primaryLight: '#2C5A50',
-  soil: '#1E3E37',
-  sand: '#FAF7F0',
-  cream: '#FAF7F0',
-  border: '#EFECE6',
-  stone: '#536E67',
-  accent: '#E2A93E',         // Mauve
+  primary: '#0D3E3C',        // Elegant Deep Teal
+  primaryLight: '#1E5957',
+  soil: '#0D3E3C',
+  sand: '#FAF8F5',
+  cream: '#FAF8F5',
+  border: '#E5ECE9',
+  stone: '#66807B',
+  accent: '#A75D3F',         // Terracotta/Copper Accent
 };
 
 const faqs = [
@@ -32,7 +32,7 @@ const faqs = [
   },
   {
     question: "Do you ship internationally?",
-    answer: "Yes, WEAVECRAFT Textile Mall ships globally. International shipping charges and delivery times vary based on the destination and order volume."
+    answer: "Yes, Riwaayat Hub ships globally. International shipping charges and delivery times vary based on the destination and order volume."
   },
   {
     question: "Can I request custom fabric weaving or dyeing?",
@@ -48,12 +48,12 @@ export default function FAQ() {
   };
 
   return (
-    <div style={{ fontFamily: "'Inter', sans-serif", background: C.cream, minHeight: '90vh' }} className="pt-4 pb-16">
+    <div style={{ fontFamily: "'Inter', sans-serif", background: C.cream, minHeight: '90vh' }} className="pt-2 pb-16">
       <div className="max-w-3xl mx-auto px-6 pt-0">
 
         {/* Page Title Section */}
         <div className="text-center mb-6">
-          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '48px', fontWeight: 500, color: C.soil, margin: 0 }}>
+          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '44px', fontWeight: 500, color: C.soil, margin: 0 }}>
             Frequently Asked Questions
           </h1>
           <div style={{ width: 40, height: 1.5, background: C.accent, margin: '12px auto 0' }} />

@@ -1,19 +1,19 @@
 @import "tailwindcss";
 
 @theme {
-  /* ── WEAVECRAFT Textile Mall Color Palette ── */
-  --color-primary: #1E3E37;        /* Deep Forest Green */
-  --color-primary-light: #2C5A50;  /* Lighter Forest Green */
-  --color-primary-dark: #112521;   /* Dark Forest Green */
-  --color-accent: #E2A93E;         /* Gold/Honey */
-  --color-accent-light: #F0C265;   /* Light Gold */
-  --color-gold: #E2A93E;           /* Gold Accent */
-  --color-sand: #FAF7F0;           /* Warm Sand/Cream Background */
-  --color-linen: #FAF7F0;          /* Base background color */
-  --color-cream: #FAF7F0;          /* Base background color */
-  --color-mist: #EFECE6;           /* Soft border cream-grey */
-  --color-stone: #536E67;          /* Slate Sage Green */
-  --color-soil: #1E3E37;           /* Deep Forest Green */
+  /* ── Riwaayat Hub Color Palette ── */
+  --color-primary: #0D3E3C;        /* Elegant Deep Teal/Green */
+  --color-primary-light: #1E5957;  /* Medium Teal */
+  --color-primary-dark: #061F1E;   /* Darkest Teal */
+  --color-accent: #A75D3F;         /* Terracotta/Copper Accent */
+  --color-accent-light: #C67E5F;   /* Light Terracotta */
+  --color-gold: #A75D3F;           /* Gold/Copper Accent */
+  --color-sand: #FAF8F5;           /* Off-white/Cream Background */
+  --color-linen: #FAF8F5;          /* Warm base background */
+  --color-cream: #FAF8F5;          /* Base background */
+  --color-mist: #E5ECE9;           /* Soft sage border / background tint */
+  --color-stone: #66807B;          /* Sage Slate Grey */
+  --color-soil: #0D3E3C;           /* Deep Teal */
 
   /* ── Font Family ── */
   --font-display: 'Cormorant Garamond', serif;
@@ -24,8 +24,8 @@
 @layer base {
   body {
     font-family: 'Inter', sans-serif;
-    background-color: #FAF7F0;
-    color: #1E3E37;
+    background-color: #FAF8F5;
+    color: #0D3E3C;
     margin: 0;
     padding: 0;
     -webkit-font-smoothing: antialiased;
@@ -35,7 +35,7 @@
   h1, h2, h3, h4, h5, h6, .display-title {
     font-family: 'Cormorant Garamond', serif !important;
     font-weight: 600;
-    color: #1E3E37;
+    color: #0D3E3C;
   }
 
   * {

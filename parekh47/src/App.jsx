@@ -53,7 +53,7 @@ function WelcomePopup() {
             exit={{ opacity: 0 }}
             onClick={() => setIsOpen(false)}
             className="absolute inset-0"
-            style={{ background: 'rgba(30, 62, 55, 0.65)', backdropFilter: 'blur(8px)' }}
+            style={{ background: 'rgba(13, 62, 60, 0.65)', backdropFilter: 'blur(8px)' }}
           />
 
           {/* Modal */}
@@ -64,13 +64,13 @@ function WelcomePopup() {
             transition={{ type: 'spring', stiffness: 280, damping: 26 }}
             style={{
               position: 'relative',
-              background: '#FAF7F0',
+              background: '#FAF8F5',
               maxWidth: 400,
               width: '100%',
               overflow: 'hidden',
               borderRadius: '24px',
               zIndex: 10,
-              border: '2px solid #E2A93E',
+              border: '2px solid #A75D3F',
               boxShadow: '0 40px 80px rgba(0,0,0,0.12)',
               fontFamily: "'Inter', sans-serif",
             }}
@@ -82,12 +82,12 @@ function WelcomePopup() {
                 position: 'absolute', top: 16, right: 16,
                 width: 32, height: 32,
                 background: 'transparent', border: 'none',
-                display: 'flex', alignItems: 'center', justifycontent: 'center',
-                cursor: 'pointer', color: '#1E3E37', transition: 'all 0.2s',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                cursor: 'pointer', color: '#0D3E3C', transition: 'all 0.2s',
                 borderRadius: '50%',
                 zIndex: 5,
               }}
-              onMouseEnter={e => { e.currentTarget.style.background = 'rgba(30, 62, 55, 0.05)'; }}
+              onMouseEnter={e => { e.currentTarget.style.background = 'rgba(13, 62, 60, 0.05)'; }}
               onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; }}
             >
               <X size={20} />
@@ -100,11 +100,11 @@ function WelcomePopup() {
                 width: 64, height: 64, margin: '0 auto 20px',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 borderRadius: '50%',
-                background: 'rgba(30, 62, 55, 0.08)', }}>
-                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#E2A93E" strokeWidth="1.5">
+                background: 'rgba(13, 62, 60, 0.08)', }}>
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#A75D3F" strokeWidth="1.5">
                   <path d="M12 2L2 12l10 10 10-10L12 2z" strokeWidth="2"/>
-                  <path d="M12 6l-6 6 6 6 6-6-6-6z" stroke="#1E3E37" strokeWidth="1.5"/>
-                  <circle cx="12" cy="12" r="1.5" fill="#E2A93E"/>
+                  <path d="M12 6l-6 6 6 6 6-6-6-6z" stroke="#0D3E3C" strokeWidth="1.5"/>
+                  <circle cx="12" cy="12" r="1.5" fill="#A75D3F"/>
                 </svg>
               </div>
 
@@ -112,7 +112,7 @@ function WelcomePopup() {
               <h2 style={{
                 fontFamily: "'Cormorant Garamond', serif",
                 fontSize: 24, fontWeight: 500,
-                color: '#1E3E37', margin: '0 0 6px', lineHeight: 1.25,
+                color: '#0D3E3C', margin: '0 0 6px', lineHeight: 1.25,
                 letterSpacing: '0.04em',
               }}>
                 Welcome to
@@ -120,23 +120,23 @@ function WelcomePopup() {
               <h2 style={{
                 fontFamily: "'Inter', sans-serif",
                 fontSize: 26, fontWeight: 900,
-                color: '#1E3E37', margin: '0 0 4px', lineHeight: 1.2,
+                color: '#0D3E3C', margin: '0 0 4px', lineHeight: 1.2,
                 letterSpacing: '0.05em',
               }}>
-                WEAVECRAFT
+                RIWAAYAT
               </h2>
               <h3 style={{
                 fontFamily: "'Inter', sans-serif",
                 fontSize: 10, fontWeight: 700,
-                color: '#E2A93E', margin: '0 0 20px', letterSpacing: '0.22em',
+                color: '#A75D3F', margin: '0 0 20px', letterSpacing: '0.22em',
                 textTransform: 'uppercase'
               }}>
-                TEXTILE MALL
+                HUB
               </h3>
 
-              <div style={{ width: 48, height: 1.5, background: '#E2A93E', margin: '0 auto 20px' }} />
+              <div style={{ width: 48, height: 1.5, background: '#A75D3F', margin: '0 auto 20px' }} />
 
-              <p style={{ color: '#536E67', fontSize: 13, lineHeight: 1.6, margin: '0 0 32px', fontWeight: 500 }}>
+              <p style={{ color: '#66807B', fontSize: 13, lineHeight: 1.6, margin: '0 0 32px', fontWeight: 500 }}>
                 Discover our premium collections, customized e-Auctions, and e-Quotations. Explore heritage crafted textiles.
               </p>
 
@@ -145,7 +145,7 @@ function WelcomePopup() {
                 onClick={() => { setIsOpen(false); navigate('/products'); }}
                 style={{
                   width: '100%', padding: '14px 20px',
-                  background: '#1E3E37',
+                  background: '#0D3E3C',
                   color: '#ffffff',
                   border: 'none',
                   fontSize: 12, fontWeight: 700,
@@ -155,10 +155,10 @@ function WelcomePopup() {
                   transition: 'all 0.25s',
                   borderRadius: '50px',
                 }}
-                onMouseEnter={e => { e.currentTarget.style.background = '#E2A93E'; }}
-                onMouseLeave={e => { e.currentTarget.style.background = '#1E3E37'; }}
+                onMouseEnter={e => { e.currentTarget.style.background = '#A75D3F'; }}
+                onMouseLeave={e => { e.currentTarget.style.background = '#0D3E3C'; }}
               >
-                Explore Collection
+                 Explore Collection
               </button>
             </div>
           </motion.div>

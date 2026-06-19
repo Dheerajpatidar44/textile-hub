@@ -2,14 +2,14 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
 const C = {
-  primary: '#1E3E37',        // Slate Navy
-  primaryDark: '#112521',
-  soil: '#1E3E37',
-  sand: '#FAF7F0',
-  cream: '#FAF7F0',
-  border: '#EFECE6',
-  stone: '#536E67',
-  accent: '#E2A93E',         // Mauve
+  primary: '#0D3E3C',        // Elegant Deep Teal
+  primaryDark: '#061F1E',
+  soil: '#0D3E3C',
+  sand: '#FAF8F5',
+  cream: '#FAF8F5',
+  border: '#E5ECE9',
+  stone: '#66807B',
+  accent: '#A75D3F',         // Terracotta/Copper Accent
 };
 
 const posts = [
@@ -21,19 +21,19 @@ const posts = [
 
 export default function Blog() {
   return (
-    <div style={{ fontFamily: "'Inter', sans-serif", background: C.cream, minHeight: '90vh' }} className="pt-4 pb-16">
+    <div style={{ fontFamily: "'Inter', sans-serif", background: C.cream, minHeight: '90vh' }} className="pt-2 pb-16">
       <div className="max-w-[90rem] mx-auto px-6 lg:px-14 pt-0">
 
         {/* Page Title Section */}
         <div className="text-center mb-6">
-          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '48px', fontWeight: 500, color: C.soil, margin: 0 }}>Blog & Insights</h1>
+          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '44px', fontWeight: 500, color: C.soil, margin: 0 }}>Blog & Insights</h1>
           <div style={{ width: 40, height: 1.5, background: C.accent, margin: '12px auto 0' }} />
         </div>
   
         <p style={{ textAlign: 'center', fontSize: 14.5, color: C.stone, maxWidth: 620, margin: '0 auto 36px', lineHeight: 1.7, fontWeight: 400 }}>
           Stay updated with the latest trends in the textile industry, design inspirations, and behind-the-scenes stories of traditional handloom crafts from India.
         </p>
-
+ 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {posts.map((post, idx) => (
             <motion.article
@@ -50,7 +50,7 @@ export default function Blog() {
               }}
               onMouseEnter={e => {
                 e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 12px 30px rgba(30, 62, 55, 0.04)';
+                e.currentTarget.style.boxShadow = '0 12px 30px rgba(13, 62, 60, 0.04)';
               }}
               onMouseLeave={e => {
                 e.currentTarget.style.transform = 'translateY(0)';
