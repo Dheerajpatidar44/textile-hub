@@ -83,7 +83,7 @@ function WelcomePopup() {
                 width: 32, height: 32,
                 background: 'transparent', border: 'none',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                cursor: 'pointer', color: '#2A3B4C', transition: 'all 0.2s',
+                cursor: 'pointer', color: '#321437', transition: 'all 0.2s',
                 borderRadius: '50%',
                 zIndex: 5,
               }}
@@ -103,7 +103,7 @@ function WelcomePopup() {
                 background: 'rgba(67, 83, 61, 0.08)', }}>
                 <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#C2A478" strokeWidth="1.5">
                   <path d="M12 2L2 12l10 10 10-10L12 2z" strokeWidth="2"/>
-                  <path d="M12 6l-6 6 6 6 6-6-6-6z" stroke="#2A3B4C" strokeWidth="1.5"/>
+                  <path d="M12 6l-6 6 6 6 6-6-6-6z" stroke="#321437" strokeWidth="1.5"/>
                   <circle cx="12" cy="12" r="1.5" fill="#C2A478"/>
                 </svg>
               </div>
@@ -112,7 +112,7 @@ function WelcomePopup() {
               <h2 style={{
                 fontFamily: "'Cormorant Garamond', serif",
                 fontSize: 22, fontWeight: 500,
-                color: '#2A3B4C', margin: '0 0 6px', lineHeight: 1.25,
+                color: '#321437', margin: '0 0 6px', lineHeight: 1.25,
                 letterSpacing: '0.04em',
               }}>
                 Welcome to
@@ -120,7 +120,7 @@ function WelcomePopup() {
               <h2 style={{
                 fontFamily: "'Cormorant Garamond', serif",
                 fontSize: 30, fontWeight: 700,
-                color: '#2A3B4C', margin: '0 0 4px', lineHeight: 1.2,
+                color: '#321437', margin: '0 0 4px', lineHeight: 1.2,
                 letterSpacing: '0.02em',
               }}>
                 Gharana Weaves
@@ -136,7 +136,7 @@ function WelcomePopup() {
 
               <div style={{ width: 48, height: 1.5, background: '#C2A478', margin: '0 auto 20px' }} />
 
-              <p style={{ color: '#5E6E7D', fontSize: 13, lineHeight: 1.6, margin: '0 0 32px', fontWeight: 500 }}>
+              <p style={{ color: '#6C576E', fontSize: 13, lineHeight: 1.6, margin: '0 0 32px', fontWeight: 500 }}>
                 Discover our premium collections, customized e-auctions, and e-quotations. Explore heritage crafted textiles.
               </p>
 
@@ -155,7 +155,7 @@ function WelcomePopup() {
                   transition: 'all 0.25s',
                   borderRadius: '50px',
                 }}
-                onMouseEnter={e => { e.currentTarget.style.background = '#2A3B4C'; }}
+                onMouseEnter={e => { e.currentTarget.style.background = '#321437'; }}
                 onMouseLeave={e => { e.currentTarget.style.background = '#B8624E'; }}
               >
                 Explore Collection

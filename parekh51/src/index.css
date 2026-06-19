@@ -2,9 +2,9 @@
 
 @theme {
   /* ── Gharana Weaves Color Palette ── */
-  --color-primary: #2A3B4C;        /* Premium Olive Green */
-  --color-primary-light: #3F566E;  /* Lighter Olive */
-  --color-primary-dark: #1B2735;   /* Dark Olive */
+  --color-primary: #321437;        /* Premium Imperial Plum */
+  --color-primary-light: #4E2A52;  /* Lighter Imperial Plum */
+  --color-primary-dark: #200C24;   /* Dark Velvet Purple */
   --color-accent: #B8624E;         /* Premium Terracotta/Rust */
   --color-accent-light: #D3A196;   /* Light Terracotta */
   --color-gold: #C2A478;           /* Muted luxury Gold */
@@ -12,8 +12,8 @@
   --color-linen: #FAF8F5;          /* Base background color */
   --color-cream: #FAF8F5;          /* Base background color */
   --color-mist: #E6E4DF;           /* Soft border cream-grey */
-  --color-stone: #5E6E7D;          /* Slate Sage Green */
-  --color-soil: #2A3B4C;           /* Deep Olive */
+  --color-stone: #6C576E;          /* Muted Slate Purple */
+  --color-soil: #321437;           /* Deep Imperial Plum */
 
   /* ── Font Family ── */
   --font-display: 'Cormorant Garamond', serif;
@@ -25,7 +25,7 @@
   body {
     font-family: 'Outfit', sans-serif;
     background-color: #FAF8F5;
-    color: #2A3B4C;
+    color: #321437;
     margin: 0;
     padding: 0;
     -webkit-font-smoothing: antialiased;
@@ -35,7 +35,7 @@
   h1, h2, h3, h4, h5, h6, .display-title {
     font-family: 'Cormorant Garamond', serif !important;
     font-weight: 600;
-    color: #2A3B4C;
+    color: #321437;
   }
 
   * {

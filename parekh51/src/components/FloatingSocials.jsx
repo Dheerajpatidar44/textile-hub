@@ -4,10 +4,10 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const COLORS = { 
   primary: '#B8624E',        // Premium Terracotta
-  accent: '#2A3B4C',         // Olive Green
+  accent: '#321437',         // Olive Green
   bg: '#FAF8F5', 
   border: '#E6E4DF', 
-  textDark: '#2A3B4C' 
+  textDark: '#321437' 
 };
 
 const InstagramIcon = () => (

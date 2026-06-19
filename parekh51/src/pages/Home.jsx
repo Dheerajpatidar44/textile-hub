@@ -4,15 +4,15 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Play, Award, Users, MapPin, Smile, ShieldCheck, Truck, Headphones, Sliders, Check, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const C = {
-  primary: '#2A3B4C',        // Premium Olive Green
-  primaryLight: '#3F566E',
-  primaryDark: '#1B2735',
+  primary: '#321437',        // Premium Olive Green
+  primaryLight: '#4E2A52',
+  primaryDark: '#200C24',
   accent: '#B8624E',         // Terracotta Accent
   accentLight: '#D3A196',
   gold: '#C2A478',
   bg: '#FAF8F5',             // Warm Soft Cream Background
   border: '#E6E4DF',
-  stone: '#5E6E7D',          // Muted Sage Green
+  stone: '#6C576E',          // Muted Sage Green
 };
 
 const categories = [
@@ -36,14 +36,14 @@ export default function Home() {
   const heroImages = [
     { name: "Sarees", image: "/images/ethnic_wear.png" },
     { name: "Men's Wear", image: "/images/hero_ethnic_man.png" },
-    { name: "Fabrics", image: "/images/hero_fabric_rolls.png" },
-    { name: "Heritage", image: "/images/why_choose_family.png" },
+    { name: "Bedsheets", image: "/images/hero_bedspread.png" },
+    { name: "Suits", image: "/images/why_choose_family.png" },
     { name: "Dress Suits", image: "/images/popular_anarkali.png" }
   ];
 
   const extendedImages = [...heroImages, ...heroImages, ...heroImages];
 
-  const [activeIndex, setActiveIndex] = useState(7); // Fabrics (index 2 of middle set, i.e., index 7) starts as center active card
+  const [activeIndex, setActiveIndex] = useState(7); // Bedsheets (index 2 of middle set, i.e., index 7) starts as center active card
   const [isTransitioning, setIsTransitioning] = useState(true);
 
   useEffect(() => {
@@ -106,7 +106,7 @@ export default function Home() {
           {/* Prev Arrow */}
           <button 
             onClick={prevHero}
-            className="absolute left-6 z-30 w-12 h-12 rounded-full border border-[#E6E4DF] bg-white/95 backdrop-blur-sm flex items-center justify-center text-[#2A3B4C] hover:bg-[#2A3B4C] hover:text-white transition-all cursor-pointer shadow-md"
+            className="absolute left-6 z-30 w-12 h-12 rounded-full border border-[#E6E4DF] bg-white/95 backdrop-blur-sm flex items-center justify-center text-[#321437] hover:bg-[#321437] hover:text-white transition-all cursor-pointer shadow-md"
             aria-label="Previous image"
           >
             <ChevronLeft size={20} />
@@ -133,33 +133,26 @@ export default function Home() {
                     key={idx}
                     className={`relative overflow-hidden transition-all duration-700 shrink-0 w-[var(--card-width)] h-[430px] sm:h-[520px] translate-y-0 ${
                       isCenter 
-                        ? 'z-20 shadow-2xl opacity-100'
-                        : 'z-10 shadow-md opacity-60'
+                        ? 'z-20'
+                        : 'z-10'
                     }`}
                     style={{
                       borderRadius: '24px',
-                      transitionProperty: 'transform, opacity, box-shadow',
+                      backgroundColor: '#321437',
+                      transitionProperty: 'transform, box-shadow',
+                      boxShadow: isCenter 
+                        ? '0 20px 40px -8px rgba(50, 20, 55, 0.5)' 
+                        : '0 10px 24px -6px rgba(50, 20, 55, 0.38)'
                     }}
                   >
                     <img
                       src={item.image}
                       alt={item.name}
-                      className="w-full h-full object-cover select-none"
+                      className={`w-full h-full object-cover select-none transition-opacity duration-700 ${
+                        isCenter ? 'opacity-100' : 'opacity-60'
+                      }`}
                     />
                     
-                    {/* Dashed quality stamp overlay on the Fabric Card specifically */}
-                    {isCenter && originalIndex === 2 && (
-                      <div className="absolute bottom-6 left-6 w-[80px] h-[80px] rounded-full bg-[#FAF8F5]/95 backdrop-blur-sm border border-[#E6E4DF] shadow-md p-1 flex items-center justify-center scale-90 sm:scale-100">
-                        <div className="w-full h-full rounded-full border border-dashed border-[#C2A478] flex flex-col items-center justify-center text-center p-0.5">
-                          <svg className="w-5 h-5 text-[#2A3B4C] mb-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                            <path d="M12 2L2 12l10 10 10-10L12 2z" />
-                            <circle cx="12" cy="12" r="1.5" fill="#B8624E" />
-                          </svg>
-                          <span className="text-[6px] font-extrabold tracking-wider uppercase text-[#C2A478]">Premium</span>
-                          <span className="text-[5px] font-extrabold tracking-widest text-[#2A3B4C] uppercase">Quality</span>
-                        </div>
-                      </div>
-                    )}
 
                     {/* Active label in the center card only */}
                     {isCenter && (
@@ -179,7 +172,7 @@ export default function Home() {
           {/* Next Arrow */}
           <button 
             onClick={nextHero}
-            className="absolute right-6 z-30 w-12 h-12 rounded-full border border-[#E6E4DF] bg-white/95 backdrop-blur-sm flex items-center justify-center text-[#2A3B4C] hover:bg-[#2A3B4C] hover:text-white transition-all cursor-pointer shadow-md"
+            className="absolute right-6 z-30 w-12 h-12 rounded-full border border-[#E6E4DF] bg-white/95 backdrop-blur-sm flex items-center justify-center text-[#321437] hover:bg-[#321437] hover:text-white transition-all cursor-pointer shadow-md"
             aria-label="Next image"
           >
             <ChevronRight size={20} />
@@ -210,8 +203,8 @@ export default function Home() {
                 <stat.icon size={16} strokeWidth={2} />
               </div>
               <div className="text-left">
-                <h3 className="text-2xl sm:text-3xl font-normal text-[#2A3B4C] font-serif mb-0.5 leading-none">{stat.val}</h3>
-                <p className="text-[10px] text-[#5E6E7D] font-bold tracking-wider uppercase">{stat.desc}</p>
+                <h3 className="text-2xl sm:text-3xl font-normal text-[#321437] font-serif mb-0.5 leading-none">{stat.val}</h3>
+                <p className="text-[10px] text-[#6C576E] font-bold tracking-wider uppercase">{stat.desc}</p>
               </div>
             </div>
           ))}
@@ -244,7 +237,7 @@ export default function Home() {
             
             <Link
               to="/products"
-              className="z-10 bg-white text-[#2A3B4C] hover:bg-[#B8624E] hover:text-white text-[11px] font-bold tracking-widest uppercase transition-all duration-300 rounded-full px-7 py-3.5 inline-flex items-center gap-2"
+              className="z-10 bg-white text-[#321437] hover:bg-[#B8624E] hover:text-white text-[11px] font-bold tracking-widest uppercase transition-all duration-300 rounded-full px-7 py-3.5 inline-flex items-center gap-2"
             >
               EXPLORE SOLUTIONS
               <ArrowRight size={12} />
@@ -256,20 +249,20 @@ export default function Home() {
             
             {/* Header controls for slider */}
             <div className="flex justify-between items-end mb-6 z-10">
-              <h3 className="text-xl sm:text-2xl font-normal text-[#2A3B4C] font-serif ml-2">
+              <h3 className="text-xl sm:text-2xl font-normal text-[#321437] font-serif ml-2">
                 Browse Categories
               </h3>
               <div className="flex gap-2">
                 <button 
                   onClick={scrollLeft}
-                  className="w-10 h-10 rounded-full border border-[#E6E4DF] bg-white flex items-center justify-center text-[#2A3B4C] hover:bg-[#2A3B4C] hover:text-white transition-all cursor-pointer shadow-sm"
+                  className="w-10 h-10 rounded-full border border-[#E6E4DF] bg-white flex items-center justify-center text-[#321437] hover:bg-[#321437] hover:text-white transition-all cursor-pointer shadow-sm"
                   aria-label="Scroll left"
                 >
                   <ArrowRight size={14} className="rotate-180" />
                 </button>
                 <button 
                   onClick={scrollRight}
-                  className="w-10 h-10 rounded-full border border-[#E6E4DF] bg-white flex items-center justify-center text-[#2A3B4C] hover:bg-[#2A3B4C] hover:text-white transition-all cursor-pointer shadow-sm"
+                  className="w-10 h-10 rounded-full border border-[#E6E4DF] bg-white flex items-center justify-center text-[#321437] hover:bg-[#321437] hover:text-white transition-all cursor-pointer shadow-sm"
                   aria-label="Scroll right"
                 >
                   <ArrowRight size={14} />
@@ -301,7 +294,7 @@ export default function Home() {
 
                   {/* Centered pill label at bottom */}
                   <div className="absolute bottom-4 left-0 right-0 flex justify-center z-10 px-4">
-                    <div className="bg-white text-[#2A3B4C] text-[10.5px] font-bold tracking-wide uppercase px-5 py-2.5 rounded-full shadow-md text-center max-w-full truncate transition-all duration-300 group-hover:bg-[#B8624E] group-hover:text-white">
+                    <div className="bg-white text-[#321437] text-[10.5px] font-bold tracking-wide uppercase px-5 py-2.5 rounded-full shadow-md text-center max-w-full truncate transition-all duration-300 group-hover:bg-[#B8624E] group-hover:text-white">
                       {cat.name}
                     </div>
                   </div>
@@ -323,10 +316,10 @@ export default function Home() {
             <span className="text-[10px] font-extrabold tracking-[0.2em] uppercase text-[#B8624E] mb-3 block">
               WHY CHOOSE GHARANA WEAVES
             </span>
-            <h2 className="text-[34px] sm:text-[42px] font-normal leading-[1.15] text-[#2A3B4C] mb-5 font-serif">
+            <h2 className="text-[34px] sm:text-[42px] font-normal leading-[1.15] text-[#321437] mb-5 font-serif">
               Quality You Can Feel, <br /> Service You Can Trust.
             </h2>
-            <p className="text-[13.5px] text-[#5E6E7D] leading-relaxed mb-8 font-semibold">
+            <p className="text-[13.5px] text-[#6C576E] leading-relaxed mb-8 font-semibold">
               We combine generations of traditional weaving wisdom with modern service standards to deliver premium fabrics that inspire confidence and stand the test of time.
             </p>
 
@@ -336,8 +329,8 @@ export default function Home() {
                 "Ethical & sustainable weaver community practices",
                 "Innovation and strict checks in every weave"
               ].map((point, i) => (
-                <li key={i} className="flex items-center gap-3 font-semibold text-[#2A3B4C] text-[13px]">
-                  <div className="w-5 h-5 rounded-full bg-[#2A3B4C]/8 flex items-center justify-center text-[#B8624E] shrink-0">
+                <li key={i} className="flex items-center gap-3 font-semibold text-[#321437] text-[13px]">
+                  <div className="w-5 h-5 rounded-full bg-[#321437]/8 flex items-center justify-center text-[#B8624E] shrink-0">
                     <Check size={12} strokeWidth={3} />
                   </div>
                   <span>{point}</span>

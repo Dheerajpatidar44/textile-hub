@@ -2,13 +2,13 @@ import { motion } from 'framer-motion';
 import { Star, User } from 'lucide-react';
 
 const C = {
-  primary: '#2A3B4C',        // Premium Olive Green
-  primaryDark: '#1B2735',
-  soil: '#2A3B4C',
+  primary: '#321437',        // Premium Olive Green
+  primaryDark: '#200C24',
+  soil: '#321437',
   sand: '#FAF8F5',
   cream: '#FAF8F5',
   border: '#E6E4DF',
-  stone: '#5E6E7D',
+  stone: '#6C576E',
   accent: '#B8624E',         // Terracotta Accent
 };
 

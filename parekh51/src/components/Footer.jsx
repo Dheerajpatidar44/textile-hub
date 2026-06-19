@@ -2,9 +2,9 @@ import { Link } from 'react-router-dom';
 import { MapPin, Phone, Mail } from 'lucide-react';
 
 const C = {
-  primary: '#2A3B4C',        // Premium Olive Green
-  primaryDark: '#1B2735',
-  primaryLight: '#3F566E',
+  primary: '#321437',        // Premium Olive Green
+  primaryDark: '#200C24',
+  primaryLight: '#4E2A52',
   accent: '#B8624E',         // Terracotta Accent
   gold: '#C2A478',
   border: '#E6E4DF',

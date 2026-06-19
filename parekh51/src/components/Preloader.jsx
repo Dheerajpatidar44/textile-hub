@@ -2,7 +2,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
 const C = {
-  primary: '#2A3B4C',        // Olive Green
+  primary: '#321437',        // Olive Green
   accent: '#B8624E',         // Terracotta Accent
   gold: '#C2A478',           // Luxury Gold
   bg: '#FAF8F5',             // Warm Sand

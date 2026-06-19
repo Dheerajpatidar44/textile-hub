@@ -3,13 +3,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus } from 'lucide-react';
 
 const C = {
-  primary: '#2A3B4C',        // Premium Olive Green
-  primaryLight: '#3F566E',
-  soil: '#2A3B4C',
+  primary: '#321437',        // Premium Olive Green
+  primaryLight: '#4E2A52',
+  soil: '#321437',
   sand: '#FAF8F5',
   cream: '#FAF8F5',
   border: '#E6E4DF',
-  stone: '#5E6E7D',
+  stone: '#6C576E',
   accent: '#B8624E',         // Terracotta Accent
 };
 

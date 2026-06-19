@@ -2,12 +2,12 @@ import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const C = {
-  primary: '#2A3B4C',        // Premium Olive Green
+  primary: '#321437',        // Premium Olive Green
   accent: '#B8624E',         // Terracotta Accent
   gold: '#C2A478',
   bg: '#FAF8F5',             // Light Warm Sand
   border: '#E6E4DF',
-  stone: '#5E6E7D',
+  stone: '#6C576E',
 };
 
 export default function Contact() {
@@ -40,8 +40,8 @@ export default function Contact() {
                 <MapPin size={20} />
               </div>
               <div>
-                <h3 className="text-[12px] font-bold tracking-widest uppercase text-[#2A3B4C] mb-2 font-sans">Our Location</h3>
-                <p className="text-[13.5px] text-[#5E6E7D] leading-relaxed font-semibold">
+                <h3 className="text-[12px] font-bold tracking-widest uppercase text-[#321437] mb-2 font-sans">Our Location</h3>
+                <p className="text-[13.5px] text-[#6C576E] leading-relaxed font-semibold">
                   Gharana Weaves,<br />
                   456, Textile Boulevard, Surat,<br />
                   Gujarat, India - 395002
@@ -60,12 +60,12 @@ export default function Contact() {
                 <Phone size={20} />
               </div>
               <div>
-                <h3 className="text-[12px] font-bold tracking-widest uppercase text-[#2A3B4C] mb-2 font-sans">Helpline & Phone</h3>
-                <p className="text-[13.5px] text-[#5E6E7D] leading-relaxed font-semibold mb-1">
-                  Toll Free: <span className="text-[#2A3B4C]">1800 123 4567</span>
+                <h3 className="text-[12px] font-bold tracking-widest uppercase text-[#321437] mb-2 font-sans">Helpline & Phone</h3>
+                <p className="text-[13.5px] text-[#6C576E] leading-relaxed font-semibold mb-1">
+                  Toll Free: <span className="text-[#321437]">1800 123 4567</span>
                 </p>
-                <p className="text-[13.5px] text-[#5E6E7D] leading-relaxed font-semibold">
-                  Mobile: <span className="text-[#2A3B4C]">+91 98765 01234</span>
+                <p className="text-[13.5px] text-[#6C576E] leading-relaxed font-semibold">
+                  Mobile: <span className="text-[#321437]">+91 98765 01234</span>
                 </p>
               </div>
             </motion.div>
@@ -81,11 +81,11 @@ export default function Contact() {
                 <Clock size={20} />
               </div>
               <div>
-                <h3 className="text-[12px] font-bold tracking-widest uppercase text-[#2A3B4C] mb-2 font-sans">Enquiries & Hours</h3>
-                <p className="text-[13.5px] text-[#5E6E7D] leading-relaxed font-semibold mb-1">
-                  Email: <a href="mailto:info@gharanaweaves.com" className="text-[#2A3B4C] hover:text-[#B8624E] transition-colors">info@gharanaweaves.com</a>
+                <h3 className="text-[12px] font-bold tracking-widest uppercase text-[#321437] mb-2 font-sans">Enquiries & Hours</h3>
+                <p className="text-[13.5px] text-[#6C576E] leading-relaxed font-semibold mb-1">
+                  Email: <a href="mailto:info@gharanaweaves.com" className="text-[#321437] hover:text-[#B8624E] transition-colors">info@gharanaweaves.com</a>
                 </p>
-                <p className="text-[13.5px] text-[#5E6E7D] leading-relaxed font-semibold">
+                <p className="text-[13.5px] text-[#6C576E] leading-relaxed font-semibold">
                   Hours: Mon - Sat, 9:00 AM - 6:00 PM
                 </p>
               </div>
@@ -101,7 +101,7 @@ export default function Contact() {
             className="lg:col-span-7 h-[460px] lg:h-[500px] overflow-hidden rounded-[32px] border border-[#E6E4DF] shadow-md relative bg-white"
           >
             <div className="absolute top-4 left-4 z-10 bg-white/95 backdrop-blur-md px-5 py-2.5 rounded-full border border-[#E6E4DF] shadow-sm">
-              <span className="text-[11px] font-bold uppercase tracking-widest text-[#2A3B4C]">Surat, Gujarat Textile Hub</span>
+              <span className="text-[11px] font-bold uppercase tracking-widest text-[#321437]">Surat, Gujarat Textile Hub</span>
             </div>
             <iframe
               src="https://maps.google.com/maps?q=Surat%20Textile%20Market&t=&z=13&ie=UTF8&iwloc=&output=embed"
