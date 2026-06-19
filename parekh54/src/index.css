@@ -1,19 +1,19 @@
 @import "tailwindcss";
 
 @theme {
-  /* ── CHETAN MANKER Textile Mall Color Palette ── */
-  --color-primary: #43533D;        /* Premium Olive Green */
-  --color-primary-light: #576951;  /* Lighter Olive */
-  --color-primary-dark: #2E3A2B;   /* Dark Olive */
-  --color-accent: #B8624E;         /* Premium Terracotta/Rust */
-  --color-accent-light: #D3A196;   /* Light Terracotta */
+  /* ── The Textile Loft Color Palette ── */
+  --color-primary: #5A1827;        /* Deep Royal Burgundy / Maroon */
+  --color-primary-light: #7A2A39;  /* Lighter Burgundy */
+  --color-primary-dark: #3D0B15;   /* Dark Burgundy */
+  --color-accent: #C2A478;         /* Premium Muted Gold */
+  --color-accent-light: #E8DCC4;   /* Light Gold/Cream */
   --color-gold: #C2A478;           /* Muted luxury Gold */
-  --color-sand: #FAF8F5;           /* Warm Sand/Cream Background */
-  --color-linen: #FAF8F5;          /* Base background color */
-  --color-cream: #FAF8F5;          /* Base background color */
-  --color-mist: #E6E4DF;           /* Soft border cream-grey */
-  --color-stone: #6B7866;          /* Slate Sage Green */
-  --color-soil: #43533D;           /* Deep Olive */
+  --color-sand: #FAF6F0;           /* Warm Soft Cream Background */
+  --color-linen: #FAF6F0;          /* Base background color */
+  --color-cream: #FAF6F0;          /* Base background color */
+  --color-mist: #E6E1D8;           /* Soft border cream-grey */
+  --color-stone: #6B5C5D;          /* Slate Burgundy Gray */
+  --color-soil: #5A1827;           /* Deep Burgundy */
 
   /* ── Font Family ── */
   --font-display: 'Cormorant Garamond', serif;
@@ -24,8 +24,8 @@
 @layer base {
   body {
     font-family: 'Outfit', sans-serif;
-    background-color: #FAF8F5;
-    color: #43533D;
+    background-color: #FAF6F0;
+    color: #5A1827;
     margin: 0;
     padding: 0;
     -webkit-font-smoothing: antialiased;
@@ -35,7 +35,7 @@
   h1, h2, h3, h4, h5, h6, .display-title {
     font-family: 'Cormorant Garamond', serif !important;
     font-weight: 600;
-    color: #43533D;
+    color: #5A1827;
   }
 
   * {

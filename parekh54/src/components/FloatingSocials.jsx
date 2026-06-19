@@ -3,11 +3,11 @@ import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const COLORS = { 
-  primary: '#B8624E',        // Premium Terracotta
-  accent: '#43533D',         // Olive Green
-  bg: '#FAF8F5', 
-  border: '#E6E4DF', 
-  textDark: '#43533D' 
+  primary: '#C2A478',        // Muted Gold
+  accent: '#5A1827',         // Royal Maroon/Burgundy
+  bg: '#FAF6F0', 
+  border: '#E6E1D8', 
+  textDark: '#5A1827' 
 };
 
 const InstagramIcon = () => (
@@ -56,7 +56,7 @@ export default function FloatingSocials() {
         transition={{ type: 'spring', stiffness: 300, damping: 30 }}
         className="flex flex-col items-center shadow-2xl py-5 px-3.5 relative rounded-r-2xl"
         style={{
-          background: 'rgba(67, 83, 61, 0.95)',
+          background: 'rgba(90, 24, 39, 0.95)',
           backdropFilter: 'blur(8px)',
           border: '1px solid rgba(255,255,255,0.1)',
           borderLeft: 'none',
@@ -75,7 +75,7 @@ export default function FloatingSocials() {
                 className="transition-all duration-200 hover:scale-115 cursor-pointer"
                 style={{ color: 'rgba(250,249,245,0.85)', transition: 'color 0.2s' }}
                 onMouseEnter={e => e.currentTarget.style.color = COLORS.primary}
-                onMouseLeave={e => e.currentTarget.style.color = 'rgba(250,249,245,0.85)'}
+                onMouseLeave={e => { e.currentTarget.style.color = 'rgba(250,249,245,0.85)'; }}
               >
                 <Icon />
               </a>

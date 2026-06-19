@@ -2,14 +2,14 @@ import { motion } from 'framer-motion';
 import { Mail } from 'lucide-react';
 
 const C = {
-  primary: '#43533D',        // Premium Olive Green
-  primaryLight: '#576951',
-  soil: '#43533D',
-  sand: '#FAF8F5',
-  cream: '#FAF8F5',
-  border: '#E6E4DF',
-  stone: '#6B7866',
-  accent: '#B8624E',         // Terracotta Accent
+  primary: '#5A1827',        // Royal Maroon/Burgundy
+  primaryLight: '#7A2A39',
+  soil: '#5A1827',
+  sand: '#FAF6F0',
+  cream: '#FAF6F0',
+  border: '#E6E1D8',
+  stone: '#6B5C5D',
+  accent: '#C2A478',         // Luxury Gold
 };
 
 const teamMembers = [
@@ -32,7 +32,7 @@ export default function RetailManagement() {
         </div>
   
         <p style={{ textAlign: 'center', fontSize: 14, color: C.stone, marginBottom: 40, fontWeight: 600, maxWidth: 560, margin: '0 auto 40px', lineHeight: 1.6 }}>
-          CHETAN MANKER Textile Mall is administered and governed by highly skilled, experienced and qualified Management with decades of expertise in the textile industry.
+          The Textile Loft is administered and governed by highly skilled, experienced and qualified Management with decades of expertise in the textile industry.
         </p>
 
         {/* Team Cards */}
@@ -56,7 +56,7 @@ export default function RetailManagement() {
               }}
               onMouseEnter={e => {
                 e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 12px 30px rgba(67, 83, 61, 0.04)';
+                e.currentTarget.style.boxShadow = '0 12px 30px rgba(90, 24, 39, 0.04)';
               }}
               onMouseLeave={e => {
                 e.currentTarget.style.transform = 'translateY(0)';
@@ -71,7 +71,7 @@ export default function RetailManagement() {
                     width: 90, height: 90,
                     objectFit: 'cover',
                     borderRadius: '50%',
-                    border: `3px solid rgba(67, 83, 61, 0.15)`,
+                    border: `3px solid rgba(90, 24, 39, 0.15)`,
                     display: 'block',
                   }}
                 />
@@ -88,20 +88,20 @@ export default function RetailManagement() {
               </p>
 
               <a
-                href={`mailto:${member.name.toLowerCase().replace(' ', '')}@chetanmanker.com`}
+                href={`mailto:${member.name.toLowerCase().replace(' ', '')}@thetextileloft.com`}
                 style={{
                   display: 'inline-flex', alignItems: 'center', gap: 6,
                   padding: '8px 16px',
                   fontSize: 11, color: C.primary, textDecoration: 'none', fontWeight: 700,
-                  background: 'rgba(67, 83, 61, 0.08)',
-                  border: `1px solid rgba(67, 83, 61, 0.15)`,
+                  background: 'rgba(90, 24, 39, 0.08)',
+                  border: `1px solid rgba(90, 24, 39, 0.15)`,
                   borderRadius: '50px',
                   transition: 'all 0.2s ease',
                   textTransform: 'uppercase',
                   letterSpacing: '0.05em'
                 }}
                 onMouseEnter={e => { e.currentTarget.style.background = C.accent; e.currentTarget.style.color = 'white'; e.currentTarget.style.borderColor = C.accent; }}
-                onMouseLeave={e => { e.currentTarget.style.background = 'rgba(67, 83, 61, 0.08)'; e.currentTarget.style.color = C.primary; e.currentTarget.style.borderColor = 'rgba(67, 83, 61, 0.15)'; }}
+                onMouseLeave={e => { e.currentTarget.style.background = 'rgba(90, 24, 39, 0.08)'; e.currentTarget.style.color = C.primary; e.currentTarget.style.borderColor = 'rgba(90, 24, 39, 0.15)'; }}
               >
                 <Mail size={12} /> Contact
               </a>

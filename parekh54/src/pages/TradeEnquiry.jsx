@@ -2,14 +2,14 @@ import { motion } from 'framer-motion';
 import { Send, Building2, ShoppingBag } from 'lucide-react';
 
 const C = {
-  primary: '#43533D',        // Premium Olive Green
-  primaryDark: '#2E3A2B',
-  soil: '#43533D',
-  sand: '#FAF8F5',
-  cream: '#FAF8F5',
-  border: '#E6E4DF',
-  stone: '#6B7866',
-  accent: '#B8624E',         // Terracotta Accent
+  primary: '#5A1827',        // Royal Maroon/Burgundy
+  primaryDark: '#3D0B15',
+  soil: '#5A1827',
+  sand: '#FAF6F0',
+  cream: '#FAF6F0',
+  border: '#E6E1D8',
+  stone: '#6B5C5D',
+  accent: '#C2A478',         // Luxury Gold
 };
 
 const categories = [
@@ -45,13 +45,13 @@ export default function TradeEnquiry() {
             border: `1px solid ${C.border}`,
             overflow: 'hidden',
             borderRadius: 20,
-            boxShadow: '0 12px 40px rgba(67, 83, 61, 0.03)',
+            boxShadow: '0 12px 40px rgba(90, 24, 39, 0.03)',
           }}
         >
           <div style={{
             padding: '24px 32px',
             borderBottom: `1px solid ${C.border}`,
-            background: 'rgba(67, 83, 61, 0.04)',
+            background: 'rgba(90, 24, 39, 0.04)',
           }} className="text-left">
             <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 22, fontWeight: 700, color: C.soil, margin: '0 0 4px' }}>
               Enquiry Form

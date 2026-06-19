@@ -3,14 +3,14 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus } from 'lucide-react';
 
 const C = {
-  primary: '#43533D',        // Premium Olive Green
-  primaryLight: '#576951',
-  soil: '#43533D',
-  sand: '#FAF8F5',
-  cream: '#FAF8F5',
-  border: '#E6E4DF',
-  stone: '#6B7866',
-  accent: '#B8624E',         // Terracotta Accent
+  primary: '#5A1827',        // Royal Maroon/Burgundy
+  primaryLight: '#7A2A39',
+  soil: '#5A1827',
+  sand: '#FAF6F0',
+  cream: '#FAF6F0',
+  border: '#E6E1D8',
+  stone: '#6B5C5D',
+  accent: '#C2A478',         // Luxury Gold
 };
 
 const faqs = [
@@ -32,7 +32,7 @@ const faqs = [
   },
   {
     question: "Do you ship internationally?",
-    answer: "Yes, CHETAN MANKER Textile Mall ships globally. International shipping charges and delivery times vary based on the destination and order volume."
+    answer: "Yes, The Textile Loft ships globally. International shipping charges and delivery times vary based on the destination and order volume."
   },
   {
     question: "Can I request custom fabric weaving or dyeing?",
@@ -94,7 +94,7 @@ export default function FAQ() {
                   <div style={{
                     flexShrink: 0, width: 32, height: 32,
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    background: isOpen ? C.accent : 'rgba(67, 83, 61, 0.08)',
+                    background: isOpen ? C.accent : 'rgba(90, 24, 39, 0.08)',
                     transition: 'all 0.3s ease',
                     borderRadius: '50%'
                   }} className="flex items-center justify-center">

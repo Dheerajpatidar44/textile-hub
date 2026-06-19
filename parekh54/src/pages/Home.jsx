@@ -1,389 +1,427 @@
-import { useRef, useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, ChevronLeft, ChevronRight, Award, Truck, Sliders, Headphones, ShieldCheck, ShoppingBag, Users, MapPin, Smile, Gavel, ClipboardCheck, ArrowUpRight } from 'lucide-react';
+import { ArrowRight, Award, Users, MapPin, Smile, FileText, Gavel, ClipboardCheck, ShoppingBag, Headphones, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const C = {
-  primary: '#43533D',        // Premium Olive Green
-  primaryLight: '#576951',
-  primaryDark: '#2E3A2B',
-  accent: '#B8624E',         // Terracotta Accent
-  accentLight: '#D3A196',
+  primary: '#5A1827',        // Royal Maroon/Burgundy
+  primaryLight: '#7A2A39',
+  primaryDark: '#3D0B15',
+  accent: '#C2A478',         // Luxury Gold
+  accentLight: '#E8DCC4',
   gold: '#C2A478',
-  bg: '#FAF8F5',             // Warm Soft Cream Background
-  border: '#E6E4DF',
-  stone: '#6B7866',          // Muted Sage Green
+  bg: '#FAF6F0',             // Warm Soft Cream Background
+  border: '#E6E1D8',
+  stone: '#6B5C5D',          // Slate Burgundy Gray
 };
 
 const categories = [
-  { name: "Sarees", image: "/images/popular_banarasi_saree.png", bg: "#F4F7F6" },
-  { name: "Leggings", image: "https://images.unsplash.com/photo-1506152983158-b4a74a01c721?w=400&auto=format&fit=crop&q=80", bg: "#FAF6F4" },
-  { name: "Kurtis", image: "https://images.unsplash.com/photo-1609357605129-26f69add5d6e?w=400&auto=format&fit=crop&q=80", bg: "#F7F5F9" },
-  { name: "Dress Suits", image: "/images/popular_anarkali.png", bg: "#FAF7F0" },
-  { name: "Bedsheets & Linen", image: "/images/popular_bedsheet.png", bg: "#F4F7FA" },
-  { name: "Hosiery Items", image: "https://images.unsplash.com/photo-1582966772680-860e372bb558?w=400&auto=format&fit=crop&q=80", bg: "#FAF5F7" },
-  { name: "Suiting", image: "https://images.unsplash.com/photo-1593032465175-481ac7f401a0?w=400&auto=format&fit=crop&q=80", bg: "#F5F7F8" },
-  { name: "Shirting", image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&auto=format&fit=crop&q=80", bg: "#FAF6F0" },
-  { name: "Formal & Ethnic Wear for Women", image: "/images/ethnic_wear.png", bg: "#FAF5F5" },
-  { name: "Formal & Ethnic Wear for Men", image: "/images/men_ethnic_wear.png", bg: "#F5F7F5" },
-  { name: "Formal & Ethnic Wear for Children", image: "/images/children_ethnic_wear.png", bg: "#FAF7F3" },
-  { name: "Home Upholstery & Furnishing", image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=400&auto=format&fit=crop&q=80", bg: "#F6F5FA" }
+  { name: "Sarees", image: "/images/popular_banarasi_saree.png" },
+  { name: "Kurtis", image: "https://images.unsplash.com/photo-1609357605129-26f69add5d6e?w=400&auto=format&fit=crop&q=80" },
+  { name: "Leggings", image: "https://images.unsplash.com/photo-1506152983158-b4a74a01c721?w=400&auto=format&fit=crop&q=80" },
+  { name: "Dress Suits", image: "/images/popular_anarkali.png" },
+  { name: "Bedsheets & Linen", image: "/images/popular_bedsheet.png" },
+  { name: "Hosiery", image: "https://images.unsplash.com/photo-1582966772680-860e372bb558?w=400&auto=format&fit=crop&q=80" },
+  { name: "Suiting", image: "https://images.unsplash.com/photo-1593032465175-481ac7f401a0?w=400&auto=format&fit=crop&q=80" },
+  { name: "Shirting", image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&auto=format&fit=crop&q=80" },
+  { name: "Women Wear", image: "/images/ethnic_wear.png" },
+  { name: "Men Wear", image: "/images/men_ethnic_wear.png" },
+  { name: "Children Wear", image: "/images/children_ethnic_wear.png" },
+  { name: "Home Furnishing", image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=400&auto=format&fit=crop&q=80" }
 ];
 
-const popularCollections = [
-  { name: "Printed Fabrics", image: "/images/ethnic_wear.png", path: "/products?category=Formal%20%26%20Ethnic%20Wear%20for%20Women" },
-  { name: "Plain Fabrics", image: "/images/popular_cotton_fabric.png", path: "/products?category=Shirting" },
-  { name: "Ethnic Wear", image: "/images/popular_anarkali.png", path: "/products?category=Sarees" },
-  { name: "Home Textiles", image: "/images/popular_bedsheet.png", path: "/products?category=Bedsheets%20%26%20Linen" },
-  { name: "Kids Wear", image: "/images/children_ethnic_wear.png", path: "/products?category=Formal%20%26%20Ethnic%20Wear%20for%20Children" }
+const features = [
+  { title: "e-Quotation", desc: "Get instant quotes for your requirements", icon: FileText, path: "/e-quotation" },
+  { title: "e-Auction", desc: "Participate in live textile auctions", icon: Gavel, path: "/e-auction" },
+  { title: "Trade Enquiry", desc: "Connect with our expert team", icon: ClipboardCheck, path: "/trade-enquiry" },
+  { title: "Retail Management", desc: "Smart solutions for retailers", icon: ShoppingBag, path: "/retail-management" },
+  { title: "Trade Circular", desc: "Latest updates & announcements", icon: Award, path: "/trade-circular" },
 ];
 
+const featuredCollections = [
+  { name: "Wedding Edit", tag: "Timeless Traditions", image: "/images/wedding_collection.png" },
+  { name: "Festival Collection", tag: "Celebrate in Style", image: "/images/festival_collection.png" },
+  { name: "Everyday Elegance", tag: "Comfort & Class", image: "/images/everyday_elegance.png" },
+  { name: "Home Essentials", tag: "Luxury Living", image: "/images/home_essentials.png" }
+];
 
 const slides = [
   {
-    image: "/images/hero_woven_fabrics.png",
-    title: <>Heritage <span className="font-serif italic font-light text-neutral-200">Woven</span>.<br />Tomorrow’s <span className="text-[#B8624E] font-semibold">Style</span>.</>,
-    desc: "Premium textile collections crafted with tradition, designed for modern living.",
-    cta: "EXPLORE COLLECTIONS",
-    link: "/products"
+    regularText: "Crafted in Tradition.",
+    italicText: "Designed for Generations.",
+    desc: "Discover unmatched quality, timeless traditions and trendsetting collections under one roof.",
+    image: "/images/hero_saree_banner.png",
+    path: "/products"
   },
   {
-    image: "/images/premium_fabrics.png",
-    title: <>Crafted <span className="font-serif italic font-light text-neutral-200">Elegance</span>.<br />Timeless <span className="text-[#B8624E] font-semibold">Quality</span>.</>,
-    desc: "Discover the finest silk, cotton, and linen fabrics woven by master artisans.",
-    cta: "OUR PRODUCTS",
-    link: "/products"
+    regularText: "Luxurious Weaves.",
+    italicText: "Handcrafted Heritage.",
+    desc: "Explore our rich Banarasi, Kanjeevaram and festival edits made with pure love and precision.",
+    image: "/images/festival_collection.png",
+    path: "/products?category=Sarees"
   },
   {
-    image: "/images/ethnic_wear.png",
-    title: <>Exquisite <span className="font-serif italic font-light text-neutral-200">Designs</span>.<br />Exclusive <span className="text-[#B8624E] font-semibold">Fabrics</span>.</>,
-    desc: "From traditional sarees to contemporary ethnic wear, find your perfect style.",
-    cta: "TRADE ENQUIRY",
-    link: "/trade-enquiry"
+    regularText: "Modern Silhouettes.",
+    italicText: "Elegant Everyday Wear.",
+    desc: "Redefine your style with contemporary kurtis, dress suits and premium fabrics tailored for comfort.",
+    image: "/images/everyday_elegance.png",
+    path: "/products?category=Kurtis"
   }
 ];
 
 export default function Home() {
-  const collectionRowRef = useRef(null);
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [current, setCurrent] = useState(0);
+  const [direction, setDirection] = useState(1);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
+      setDirection(1);
+      setCurrent((prev) => (prev + 1) % slides.length);
     }, 5000);
     return () => clearInterval(timer);
   }, []);
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  const handleDotClick = (index) => {
+    setDirection(index > current ? 1 : -1);
+    setCurrent(index);
   };
 
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  const handlePrev = () => {
+    setDirection(-1);
+    setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
   };
 
+  const handleNext = () => {
+    setDirection(1);
+    setCurrent((prev) => (prev + 1) % slides.length);
+  };
   return (
     <div style={{ background: C.bg, fontFamily: "'Outfit', sans-serif" }} className="w-full overflow-x-hidden pt-0">
 
-      {/* ── 1. HERO SECTION (Premium Full-Width Background Slider) ── */}
-      <section className="relative w-full overflow-hidden bg-black h-[400px] sm:h-[500px] lg:h-[560px]">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentSlide}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.8, ease: "easeInOut" }}
-            className="absolute inset-0 w-full h-full"
+      {/* ── 1. HERO SECTION ── */}
+      <section className="relative w-full pt-2 pb-8 sm:pt-4 sm:pb-10 lg:pt-6 lg:pb-12 px-4 sm:px-8 lg:px-14 bg-[#F5EFEB] overflow-hidden border-b border-[#E6E1D8]">
+        {/* Decorative elements */}
+        <div className="absolute inset-0 bg-radial-gradient(circle, rgba(90, 24, 39, 0.02) 0%, transparent 70%)" />
+        
+        <div className="max-w-[90rem] mx-auto relative z-10 min-h-[380px] sm:min-h-[420px] lg:min-h-[480px] flex items-center">
+          
+          {/* Chevron Left Button */}
+          <button
+            onClick={handlePrev}
+            className="hidden md:flex absolute left-0 z-30 w-10 h-10 items-center justify-center rounded-full border border-[#5A1827]/20 text-[#5A1827] bg-white/90 hover:bg-[#5A1827] hover:text-white hover:border-[#5A1827] transition-all duration-300 shadow-md cursor-pointer -translate-x-2 lg:-translate-x-6"
+            aria-label="Previous slide"
           >
-            {/* Background Cover Image */}
-            <img
-              src={slides[currentSlide].image}
-              alt="CHETAN MANKER Textile Mall Banner"
-              className="w-full h-full object-cover"
-            />
-            {/* Elegant dark overlay gradient */}
-            <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/55 to-black/30" />
+            <ChevronLeft size={18} />
+          </button>
 
-            {/* Slide Content Overlay */}
-            <div className="absolute inset-0 flex items-center">
-              <div className="max-w-[95rem] mx-auto px-4 sm:px-8 lg:pl-6 lg:pr-14 w-full text-left relative z-10">
-                <motion.div
-                  initial={{ opacity: 0, y: 24 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.15 }}
-                  className="max-w-2xl"
-                >
-                  <h1 className="text-[32px] sm:text-[46px] lg:text-[58px] font-normal leading-[1.08] text-white mb-4 tracking-tight font-serif">
-                    {slides[currentSlide].title}
-                  </h1>
+          <AnimatePresence mode="wait" custom={direction}>
+            <motion.div
+              key={current}
+              custom={direction}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              variants={{
+                enter: (dir) => ({
+                  x: dir > 0 ? 100 : -100,
+                  opacity: 0
+                }),
+                center: {
+                  x: 0,
+                  opacity: 1,
+                  transition: {
+                    x: { type: "spring", stiffness: 300, damping: 30 },
+                    opacity: { duration: 0.2 }
+                  }
+                },
+                exit: (dir) => ({
+                  x: dir < 0 ? 100 : -100,
+                  opacity: 0,
+                  transition: {
+                    x: { type: "spring", stiffness: 300, damping: 30 },
+                    opacity: { duration: 0.2 }
+                  }
+                })
+              }}
+              className="w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center"
+            >
+              {/* Left Column: Text Content */}
+              <div className="lg:col-span-7 text-left space-y-5">
+                <h1 className="text-[38px] sm:text-[48px] lg:text-[56px] font-normal leading-[1.1] text-[#5A1827] tracking-tight font-serif">
+                  {slides[current].regularText}<br />
+                  <span className="font-serif italic font-light">{slides[current].italicText}</span>
+                </h1>
 
-                  <p className="text-[13px] sm:text-[15px] text-neutral-200 mb-6 leading-relaxed max-w-md font-medium">
-                    {slides[currentSlide].desc}
-                  </p>
+                <p className="text-[13px] sm:text-[15px] text-[#6B5C5D] leading-relaxed max-w-xl font-medium">
+                  {slides[current].desc}
+                </p>
 
-                  <div className="flex flex-wrap items-center gap-4">
-                    <Link
-                      to={slides[currentSlide].link}
-                      className="inline-flex items-center gap-3 px-8 py-3.5 bg-[#B8624E] text-white text-[11px] font-bold tracking-widest uppercase transition-all duration-300 hover:bg-[#43533D] rounded-full shadow-lg hover:scale-[1.02]"
-                    >
-                      {slides[currentSlide].cta}
-                      <ArrowRight size={12} />
-                    </Link>
-                  </div>
-                </motion.div>
+                <div className="pt-2">
+                  <Link
+                    to={slides[current].path}
+                    className="inline-flex items-center gap-3 px-7 py-3.5 bg-[#5A1827] text-white text-[11px] font-bold tracking-widest uppercase transition-all duration-300 hover:bg-[#C2A478] rounded-[4px] shadow-md hover:scale-[1.01]"
+                  >
+                    EXPLORE COLLECTIONS
+                    <ArrowRight size={12} />
+                  </Link>
+                </div>
               </div>
-            </div>
-          </motion.div>
-        </AnimatePresence>
 
-        {/* Navigation Arrows */}
-        <button
-          onClick={prevSlide}
-          className="absolute left-4 sm:left-6 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-[#B8624E]/80 backdrop-blur-sm border border-white/15 flex items-center justify-center text-white transition-all duration-300 z-20 cursor-pointer"
-          aria-label="Previous Slide"
-        >
-          <ChevronLeft size={20} />
-        </button>
-        <button
-          onClick={nextSlide}
-          className="absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-[#B8624E]/80 backdrop-blur-sm border border-white/15 flex items-center justify-center text-white transition-all duration-300 z-20 cursor-pointer"
-          aria-label="Next Slide"
-        >
-          <ChevronRight size={20} />
-        </button>
+              {/* Right Column: Hero Image Frame */}
+              <div className="lg:col-span-5 flex justify-center w-full relative">
+                <div className="w-full max-w-[380px] aspect-[4/5] rounded-[36px] overflow-hidden border border-[#E6E1D8] shadow-2xl relative bg-white">
+                  <img
+                    src={slides[current].image}
+                    alt={slides[current].regularText}
+                    className="w-full h-full object-cover scale-[1.01] hover:scale-[1.04] transition-transform duration-1000"
+                  />
+                  <div className="absolute inset-0 bg-[#5A1827]/5 mix-blend-overlay" />
+                </div>
+              </div>
+            </motion.div>
+          </AnimatePresence>
 
-        {/* Slider Indicator Dots */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-20">
+          {/* Chevron Right Button */}
+          <button
+            onClick={handleNext}
+            className="hidden md:flex absolute right-0 z-30 w-10 h-10 items-center justify-center rounded-full border border-[#5A1827]/20 text-[#5A1827] bg-white/90 hover:bg-[#5A1827] hover:text-white hover:border-[#5A1827] transition-all duration-300 shadow-md cursor-pointer translate-x-2 lg:translate-x-6"
+            aria-label="Next slide"
+          >
+            <ChevronRight size={18} />
+          </button>
+        </div>
+
+        {/* Slider Dots */}
+        <div className="max-w-[90rem] mx-auto px-4 sm:px-8 lg:px-14 relative z-20 flex gap-2.5 pt-2">
           {slides.map((_, idx) => (
-            <button
-              key={idx}
-              onClick={() => setCurrentSlide(idx)}
-              className={`w-2.5 h-2.5 rounded-full cursor-pointer transition-all duration-300 ${
-                currentSlide === idx ? 'bg-[#B8624E] scale-110' : 'bg-white/50 hover:bg-white'
-              }`}
+            <button 
+              key={idx} 
+              onClick={() => handleDotClick(idx)}
+              className={`w-2 h-2 rounded-full transition-all duration-300 border-none cursor-pointer p-0 ${idx === current ? 'bg-[#5A1827] scale-125' : 'bg-[#5A1827]/20 hover:bg-[#5A1827]/40'}`}
               aria-label={`Go to slide ${idx + 1}`}
             />
           ))}
         </div>
       </section>
 
-      {/* ── 3. POPULAR COLLECTIONS SECTION ── */}
-      <section className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14 py-16">
-        <div className="flex justify-between items-end mb-10">
-          <div className="text-left">
-            <h2 className="text-[34px] sm:text-[40px] font-normal text-[#43533D] tracking-tight font-serif">
-              POPULAR COLLECTIONS
-            </h2>
-            <div className="w-12 h-[2px] bg-[#B8624E] mt-3" />
-          </div>
-          <Link 
-            to="/products"
-            className="inline-flex items-center gap-2 px-6 py-2.5 border border-[#43533D] text-[#43533D] hover:bg-[#43533D] hover:text-white text-[11px] font-bold tracking-widest uppercase transition-all duration-300 rounded-full"
-          >
-            VIEW ALL COLLECTIONS
-            <ArrowRight size={12} />
-          </Link>
+      {/* ── 2. SHOP BY CATEGORY SECTION ── */}
+      <section className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14 py-16 text-center border-b border-[#E6E1D8]">
+        <div className="flex items-center justify-center gap-4 mb-12">
+          <div className="w-8 h-[1px] bg-[#C2A478]" />
+          <h2 className="text-[26px] sm:text-[32px] font-normal text-[#5A1827] tracking-wider font-serif uppercase">
+            SHOP BY CATEGORY
+          </h2>
+          <div className="w-8 h-[1px] bg-[#C2A478]" />
         </div>
 
-        {/* 5-Column Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-          {popularCollections.map((col, idx) => (
+        {/* 6-Column Grid responsive for 12 Categories */}
+        <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-x-6 gap-y-10">
+          {categories.map((cat, idx) => (
             <Link
               key={idx}
-              to={col.path}
-              className="group flex flex-col justify-between overflow-hidden rounded-[24px] border border-[#E6E4DF] hover:border-[#B8624E] bg-white transition-all duration-500 shadow-sm hover:shadow-xl hover:-translate-y-1.5"
+              to={`/products?category=${encodeURIComponent(cat.name === 'Women Wear' ? 'Formal & Ethnic Wear for Women' : cat.name === 'Men Wear' ? 'Formal & Ethnic Wear for Men' : cat.name === 'Children Wear' ? 'Formal & Ethnic Wear for Children' : cat.name === 'Home Furnishing' ? 'Home Upholstery & Furnishing' : cat.name === 'Hosiery' ? 'Hosiery Items' : cat.name)}`}
+              className="group flex flex-col items-center gap-3 transition-all duration-300"
             >
-              {/* Card Image */}
-              <div className="h-[280px] overflow-hidden relative">
-                <img
-                  src={col.image}
-                  alt={col.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
-                />
-                <div className="absolute inset-0 bg-[#43533D]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              </div>
-
-              {/* Card Label */}
-              <div className="p-5 flex items-center justify-between border-t border-[#E6E4DF] bg-white text-left z-10">
-                <span className="text-[13px] font-bold text-[#43533D] tracking-wide font-sans">{col.name}</span>
-                <div className="w-8 h-8 rounded-full border border-neutral-200 flex items-center justify-center text-[#43533D] group-hover:bg-[#43533D] group-hover:text-white transition-all duration-300">
-                  <ArrowRight size={12} />
+              {/* Circular Avatar with double border rings */}
+              <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-[#C2A478]/30 p-1 transition-colors duration-300 group-hover:border-[#5A1827]/60">
+                <div className="w-full h-full rounded-full border border-dashed border-[#C2A478]/50 p-1 group-hover:border-[#5A1827]/40 transition-colors duration-300 overflow-hidden bg-[#FAF6F0]">
+                  <img
+                    src={cat.image}
+                    alt={cat.name}
+                    className="w-full h-full object-cover rounded-full group-hover:scale-108 transition-transform duration-700"
+                  />
                 </div>
               </div>
+
+              {/* Label */}
+              <span className="text-[12px] font-bold text-[#5A1827] tracking-wider font-sans group-hover:text-[#C2A478] transition-colors duration-300">
+                {cat.name}
+              </span>
             </Link>
           ))}
         </div>
       </section>
 
-      {/* ── 4. BULK ORDERS BANNER ── */}
-      <section className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14 pb-16">
-        <div 
-          className="rounded-[28px] overflow-visible px-6 sm:px-10 lg:pl-12 lg:pr-64 py-6 lg:py-0 h-auto lg:h-[110px] flex flex-col lg:flex-row items-center justify-between gap-4 relative text-white"
-          style={{ background: C.primary }}
-        >
-          {/* Left Block: Icon and Title */}
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center shrink-0 border border-white/20">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5">
-                <path d="M12 2L2 12l10 10 10-10L12 2z" strokeWidth="2" />
-                <path d="M12 6l-6 6 6 6 6-6-6-6z" strokeWidth="1.5" />
-                <circle cx="12" cy="12" r="1.5" fill="white" />
-              </svg>
-            </div>
-            <h3 className="text-xl sm:text-2xl font-normal leading-tight font-serif text-left whitespace-nowrap" style={{ color: '#ffffff' }}>
-              Bulk Orders<br />Made Simple
-            </h3>
-          </div>
-
-          {/* Vertical Divider */}
-          <div className="hidden lg:block w-[1px] h-8 bg-white/20 self-center mx-2" />
-
-          {/* Description Block */}
-          <p className="hidden md:block text-[12.5px] leading-relaxed text-white/80 font-medium text-left max-w-sm lg:max-w-[280px]">
-            Special pricing, dedicated support<br />
-            and seamless delivery for<br />
-            businesses of all sizes.
-          </p>
-
-          {/* Action button */}
-          <Link
-            to="/about"
-            className="border border-white/40 text-white hover:bg-white hover:text-[#43533D] text-[10.5px] font-bold tracking-widest uppercase transition-all duration-300 rounded-[12px] px-6 py-2.5 z-10 whitespace-nowrap"
-          >
-            KNOW MORE
-          </Link>
-
-          {/* Cart Image absolute right - clipped inside rounded-r-[28px] container */}
-          <div className="hidden lg:block absolute right-0 top-0 bottom-0 w-[240px] h-full rounded-r-[28px] overflow-hidden z-0">
-            <img
-              src="/images/services_professionals.png"
-              alt="Fabric collection banner image"
-              className="w-full h-full object-cover opacity-95"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* ── 5. STATS SECTION ── */}
-      <section className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14 pb-16">
-        <div 
-          className="w-full rounded-[30px] py-10 px-8 grid grid-cols-2 lg:grid-cols-4 gap-8 shadow-sm border border-[#E6E4DF] items-center text-center"
-          style={{ background: '#FAF8F5' }}
-        >
-          {[
-            { val: "20+", desc: "Years of Excellence", icon: Award },
-            { val: "500+", desc: "Retail Partners", icon: Users },
-            { val: "100+", desc: "Cities Pan India", icon: MapPin },
-            { val: "1,00,000+", desc: "Happy Customers", icon: Smile }
-          ].map((stat, idx) => (
-            <div key={idx} className="flex flex-col items-center text-left sm:text-center md:flex-row lg:flex-col lg:text-center justify-center gap-4 px-4 border-r border-[#E6E4DF] last:border-0">
-              <div 
-                className="w-11 h-11 rounded-full flex items-center justify-center text-[#B8624E] shrink-0"
-                style={{ background: 'rgba(184, 98, 78, 0.08)' }}
-              >
-                <stat.icon size={18} strokeWidth={1.5} />
-              </div>
-              <div>
-                <h3 className="text-3xl sm:text-4xl font-normal text-[#43533D] font-serif mb-1">{stat.val}</h3>
-                <p className="text-[12px] text-[#6B7866] font-semibold tracking-wide uppercase">{stat.desc}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ── 6. "WHY CHETAN MANKER?" SECTION ── */}
-      <section className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14 pb-20">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
-          
-          {/* Left Block */}
-          <div className="lg:col-span-5 flex relative rounded-[32px] overflow-hidden border border-[#E6E4DF]">
-            {/* Background Image of Vase */}
-            <div className="absolute inset-0 z-0">
-              <img
-                src="https://images.unsplash.com/photo-1610189338175-0782dfdb0c04?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDJ8fHxlbnwwfHx8fHw%3D"
-                alt="Decorative grass vase background"
-                className="w-full h-full object-cover opacity-100"
-              />
-              <div className="absolute inset-0 bg-black/40" />
-            </div>
-
-            <div className="p-8 sm:p-12 text-left flex flex-col justify-end gap-6 relative z-10 w-full">
-              <div>
-              
-                <h2 className="text-[34px] sm:text-[40px] font-normal leading-[1.2] text-white mb-5 font-serif" style={{ color: '#ffffff' }}>
-                  More Than Fabric,<br />
-                  A Relationship.
-                </h2>
-                <p className="text-[13.5px] text-white/90 leading-relaxed mb-0 font-medium" style={{ color: 'rgba(255, 255, 255, 0.9)' }}>
-                  Built on trust, craftsmanship and unwavering commitment to quality — for you, always.
-                </p>
-              </div>
+      {/* ── 3. SERVICES ROW SECTION ── */}
+      <section className="bg-white border-b border-[#E6E1D8] py-8 lg:py-12">
+        <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-6 divide-y sm:divide-y-0 sm:divide-x divide-[#E6E1D8] text-left">
+            {features.map((feat, idx) => (
               <Link
-                to="/about"
-                className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-[#B8624E] hover:bg-[#43533D] text-white text-[11px] font-bold tracking-widest uppercase transition-all duration-300 rounded-full w-fit"
+                key={idx}
+                to={feat.path}
+                className="group flex gap-4 pt-6 sm:pt-0 sm:pl-6 first:pl-0 first:pt-0 items-start cursor-pointer"
               >
-                ABOUT US
+                <div className="w-10 h-10 rounded-full flex items-center justify-center shrink-0 text-[#C2A478] bg-[#C2A478]/10 group-hover:bg-[#5A1827] group-hover:text-white transition-colors duration-300">
+                  <feat.icon size={18} strokeWidth={1.5} />
+                </div>
+                <div className="space-y-1">
+                  <h4 className="text-[13px] font-bold tracking-wide text-[#5A1827] font-sans group-hover:text-[#C2A478] transition-colors duration-200">
+                    {feat.title}
+                  </h4>
+                  <p className="text-[11.5px] leading-relaxed text-[#6B5C5D] font-medium">
+                    {feat.desc}
+                  </p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── 4. THREE BANNER BLOCKS SECTION ── */}
+      <section className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14 py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          
+          {/* Card 1: Wide Range of Premium Fabrics */}
+          <div className="rounded-[24px] overflow-hidden p-8 flex flex-col justify-between h-[280px] relative text-white" style={{ background: C.primary }}>
+            <div className="relative z-10 max-w-[200px] text-left space-y-3">
+              <h3 className="text-xl sm:text-2xl font-normal leading-snug font-serif text-white">
+                Wide Range Of Premium Fabrics For Every Need
+              </h3>
+              <p className="text-[12px] text-white/80 font-medium leading-relaxed">
+                Experience luxury, quality and comfort in every thread.
+              </p>
+            </div>
+            <div className="relative z-10 text-left">
+              <Link to="/products" className="inline-flex items-center gap-1.5 text-[10.5px] font-bold uppercase tracking-widest text-[#C2A478] hover:text-white transition-colors">
+                DISCOVER MORE <ArrowRight size={12} />
               </Link>
             </div>
+            {/* Background fabric rolls */}
+            <div className="absolute right-0 bottom-0 top-0 w-[180px] h-full z-0 overflow-hidden">
+              <img
+                src="/images/folded_fabrics.png"
+                alt="Premium Fabrics Rolls"
+                className="w-full h-full object-cover opacity-90"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#5A1827] via-[#5A1827]/40 to-transparent" />
+            </div>
           </div>
 
-          {/* Right Block (4 Service Cards grid) */}
-          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6 text-left">
+          {/* Card 2: Reliable. Transparent. Retailer Focused */}
+          <div className="rounded-[24px] border border-[#E6E1D8] p-8 flex flex-col justify-between h-[280px] relative text-[#5A1827]" style={{ background: '#FAF6F0' }}>
+            <div className="relative z-10 text-left space-y-3">
+              <h3 className="text-xl sm:text-2xl font-normal leading-snug font-serif">
+                Reliable. Transparent.<br />
+                Retailer Focused.
+              </h3>
+              <p className="text-[12px] text-[#6B5C5D] font-medium leading-relaxed max-w-[240px]">
+                Building stronger businesses together.
+              </p>
+            </div>
+            
+            <div className="relative z-10 text-left">
+              <Link to="/about" className="inline-flex items-center gap-1.5 text-[10.5px] font-bold uppercase tracking-widest text-[#5A1827] hover:text-[#C2A478] transition-colors">
+                OUR PROMISE <ArrowRight size={12} />
+              </Link>
+            </div>
+
+            {/* Elegant Leaf vector / decoration in bottom right */}
+            <div className="absolute right-4 bottom-4 w-28 h-28 opacity-20 pointer-events-none select-none text-[#C2A478] z-0">
+              <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+                <path d="M17 8C8 10 9 21 9 21s-8-10 1-13c5-1.6 7-3 7-3s-2 3-8 3" />
+              </svg>
+            </div>
+          </div>
+
+          {/* Card 3: Strengthening Businesses Together */}
+          <div className="rounded-[24px] overflow-hidden p-8 flex flex-col justify-between h-[280px] relative text-white" style={{ background: C.primary }}>
+            <div className="relative z-10 max-w-[200px] text-left space-y-3">
+              <h3 className="text-xl sm:text-2xl font-normal leading-snug font-serif text-white">
+                Strengthening Businesses Together
+              </h3>
+              <p className="text-[12px] text-white/80 font-medium leading-relaxed">
+                Be a part of our growing retail network.
+              </p>
+            </div>
+            <div className="relative z-10 text-left">
+              <Link to="/contact" className="inline-flex items-center gap-1.5 text-[10.5px] font-bold uppercase tracking-widest text-[#C2A478] hover:text-white transition-colors">
+                JOIN NETWORK <ArrowRight size={12} />
+              </Link>
+            </div>
+            {/* Handshake image background */}
+            <div className="absolute right-0 bottom-0 top-0 w-[180px] h-full z-0 overflow-hidden">
+              <img
+                src="/images/handshake_partnership.png"
+                alt="Partnership Handshake"
+                className="w-full h-full object-cover opacity-90"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#5A1827] via-[#5A1827]/40 to-transparent" />
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ── 5. STATS STRIP SECTION ── */}
+      <section className="w-full py-8 text-white select-none border-t border-b border-[#E6E1D8]" style={{ background: C.primary }}>
+        <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 divide-y lg:divide-y-0 lg:divide-x divide-white/10 text-center">
             {[
-              {
-                title: "Trade Enquiry",
-                desc: "Connect with our textile experts to discuss custom designs and bulk orders.",
-                icon: ClipboardCheck,
-                path: "/trade-enquiry"
-              },
-              {
-                title: "e-Quotation",
-                desc: "Quick and transparent wholesale quotations for all our fabric categories.",
-                icon: ClipboardCheck,
-                path: "/e-quotation"
-              },
-              {
-                title: "e-Auction",
-                desc: "Participate in live textile auctions for surplus stocks and custom lots.",
-                icon: Gavel,
-                path: "/e-auction"
-              },
-              {
-                title: "Retail Management",
-                desc: "Explore modern solutions to grow your retail branch and outlet networks.",
-                icon: ShoppingBag,
-                path: "/retail-management"
-              }
-            ].map((card, idx) => (
-              <div 
-                key={idx}
-                className="group rounded-[24px] border border-[#E6E4DF] p-7 flex flex-col justify-between bg-white hover:border-[#B8624E] transition-all duration-300 hover:shadow-lg"
-              >
-                <div>
-                  {/* Circle icon */}
-                  <div 
-                    className="w-11 h-11 rounded-full flex items-center justify-center text-[#43533D] mb-6 transition-transform duration-300 group-hover:scale-110"
-                    style={{ background: 'rgba(67, 83, 61, 0.06)' }}
-                  >
-                    <card.icon size={18} strokeWidth={1.5} />
-                  </div>
-
-                  <h3 className="text-lg font-bold text-[#43533D] font-serif mb-2">{card.title}</h3>
-                  <p className="text-[13px] text-[#6B7866] leading-relaxed font-medium mb-6">{card.desc}</p>
-                </div>
-
-                <Link
-                  to={card.path}
-                  className="inline-flex items-center gap-1 text-[11px] font-bold uppercase tracking-widest text-[#B8624E] group-hover:text-[#43533D] transition-colors"
-                >
-                  Explore <ArrowUpRight size={12} />
-                </Link>
+              { val: "35+", desc: "Years of Trust" },
+              { val: "1000+", desc: "Retail Outlets" },
+              { val: "5000+", desc: "Products" },
+              { val: "25K+", desc: "Happy Retailers" },
+              { val: "24/7", desc: "Dedicated Support" }
+            ].map((stat, idx) => (
+              <div key={idx} className="flex flex-col items-center justify-center pt-4 lg:pt-0 first:pt-0">
+                <h3 className="text-[28px] sm:text-[34px] font-normal font-serif text-[#C2A478] mb-0.5">{stat.val}</h3>
+                <p className="text-[10px] sm:text-[11px] text-white/70 font-semibold tracking-widest uppercase">{stat.desc}</p>
               </div>
             ))}
           </div>
+        </div>
+      </section>
 
+      {/* ── 6. FEATURED COLLECTIONS SECTION ── */}
+      <section className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14 py-16">
+        <div className="flex justify-between items-end mb-10">
+          <div className="text-left flex items-center gap-4">
+            <div className="w-6 h-[1.5px] bg-[#C2A478]" />
+            <h2 className="text-[24px] sm:text-[28px] font-normal text-[#5A1827] tracking-wide font-serif uppercase">
+              FEATURED COLLECTIONS
+            </h2>
+          </div>
+          <Link 
+            to="/products"
+            className="inline-flex items-center gap-1.5 text-[11px] font-bold tracking-widest text-[#5A1827] hover:text-[#C2A478] uppercase transition-colors"
+          >
+            VIEW ALL
+            <ArrowRight size={12} />
+          </Link>
+        </div>
+
+        {/* 4-Column Grid for collections */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {featuredCollections.map((col, idx) => (
+            <Link
+              key={idx}
+              to={`/products?category=${encodeURIComponent(col.name === 'Home Essentials' ? 'Home Upholstery & Furnishing' : col.name === 'Everyday Elegance' ? 'Kurtis' : col.name === 'Festival Collection' ? 'Sarees' : 'Sarees')}`}
+              className="group flex flex-col justify-end overflow-hidden rounded-[24px] border border-[#E6E1D8] bg-white transition-all duration-500 shadow-sm hover:shadow-xl hover:-translate-y-1.5 aspect-[4/5] relative"
+            >
+              {/* Collection Image */}
+              <div className="absolute inset-0 z-0">
+                <img
+                  src={col.image}
+                  alt={col.name}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
+                />
+                {/* Overlay gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent opacity-85 group-hover:opacity-90 transition-opacity duration-300" />
+              </div>
+
+              {/* Text overlay bottom */}
+              <div className="p-6 text-left relative z-10 space-y-1">
+                <span className="text-[10px] font-bold text-[#C2A478] tracking-widest uppercase block">
+                  {col.tag}
+                </span>
+                <h3 className="text-[18px] font-normal text-white leading-tight font-serif">
+                  {col.name}
+                </h3>
+              </div>
+            </Link>
+          ))}
         </div>
       </section>
 

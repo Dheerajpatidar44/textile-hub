@@ -2,14 +2,14 @@ import { motion } from 'framer-motion';
 import { FileText, Eye, Printer } from 'lucide-react';
 
 const C = {
-  primary: '#43533D',        // Premium Olive Green
-  primaryDark: '#2E3A2B',
-  soil: '#43533D',
-  sand: '#FAF8F5',
-  cream: '#FAF8F5',
-  border: '#E6E4DF',
-  stone: '#6B7866',
-  accent: '#B8624E',         // Terracotta Accent
+  primary: '#5A1827',        // Royal Maroon/Burgundy
+  primaryDark: '#3D0B15',
+  soil: '#5A1827',
+  sand: '#FAF6F0',
+  cream: '#FAF6F0',
+  border: '#E6E1D8',
+  stone: '#6B5C5D',
+  accent: '#C2A478',         // Luxury Gold
 };
 
 const circulars = [
@@ -47,7 +47,7 @@ const TradeCircular = () => {
               }}
               onMouseEnter={e => {
                 e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 12px 30px rgba(67, 83, 61, 0.04)';
+                e.currentTarget.style.boxShadow = '0 12px 30px rgba(90, 24, 39, 0.04)';
               }}
               onMouseLeave={e => {
                 e.currentTarget.style.transform = 'translateY(0)';
@@ -55,7 +55,7 @@ const TradeCircular = () => {
               }}
             >
               <div className="flex flex-col items-start gap-4 mb-5">
-                <div style={{ width: 42, height: 42, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(67, 83, 61, 0.08)', borderRadius: '50%' }}>
+                <div style={{ width: 42, height: 42, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(90, 24, 39, 0.08)', borderRadius: '50%' }}>
                   <FileText size={18} color={C.accent} />
                 </div>
                 <div>

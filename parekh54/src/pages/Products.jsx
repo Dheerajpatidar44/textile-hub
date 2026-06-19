@@ -4,15 +4,15 @@ import { motion } from 'framer-motion';
 import { ShoppingBag, Filter } from 'lucide-react';
 
 const C = {
-  primary: '#43533D',        // Premium Olive Green
-  primaryDark: '#2E3A2B',
-  primaryLight: '#576951',
-  accent: '#B8624E',         // Terracotta Accent
-  accentLight: '#D3A196',
+  primary: '#5A1827',        // Royal Maroon/Burgundy
+  primaryDark: '#3D0B15',
+  primaryLight: '#7A2A39',
+  accent: '#C2A478',         // Luxury Gold
+  accentLight: '#E8DCC4',
   gold: '#C2A478',
-  bg: '#FAF8F5',
-  border: '#E6E4DF',
-  stone: '#6B7866',
+  bg: '#FAF6F0',
+  border: '#E6E1D8',
+  stone: '#6B5C5D',
   cream: '#FFFFFF',
 };
 

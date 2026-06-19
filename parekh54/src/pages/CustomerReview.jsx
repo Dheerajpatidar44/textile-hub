@@ -2,18 +2,18 @@ import { motion } from 'framer-motion';
 import { Star, User } from 'lucide-react';
 
 const C = {
-  primary: '#43533D',        // Premium Olive Green
-  primaryDark: '#2E3A2B',
-  soil: '#43533D',
-  sand: '#FAF8F5',
-  cream: '#FAF8F5',
-  border: '#E6E4DF',
-  stone: '#6B7866',
-  accent: '#B8624E',         // Terracotta Accent
+  primary: '#5A1827',        // Royal Maroon/Burgundy
+  primaryDark: '#3D0B15',
+  soil: '#5A1827',
+  sand: '#FAF6F0',
+  cream: '#FAF6F0',
+  border: '#E6E1D8',
+  stone: '#6B5C5D',
+  accent: '#C2A478',         // Luxury Gold
 };
 
 const reviews = [
-  { text: "CHETAN MANKER Textile Mall has been our trusted partner for years. The quality, and B2B quotation services are unmatched in the entire industry.", name: "Rajesh Sharma", role: "Retailer, Delhi", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80" },
+  { text: "The Textile Loft has been our trusted partner for years. The quality, and B2B quotation services are unmatched in the entire industry.", name: "Rajesh Sharma", role: "Retailer, Delhi", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80" },
   { text: "The export compliance and material quality are world-class. Their zero-defect policy has secured our global supply chain perfectly.", name: "Ahmed Al-Sayed", role: "Gulf Textiles, UAE", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80" },
   { text: "Highly impressed with their R&D. The custom high-tenacity fabric they developed exceeded all our durability benchmarks.", name: "Vikas Kulkarni", role: "National Solutions", avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&auto=format&fit=crop&q=80" },
   { text: "Incredible attention to detail. Every batch of fabric we receive is consistently perfect, saving us a lot of time and rework.", name: "Anita Desai", role: "Design Head, Mumbai", avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80" },
@@ -51,7 +51,7 @@ export default function CustomerReview() {
               }}
               onMouseEnter={e => {
                 e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 12px 30px rgba(67, 83, 61, 0.04)';
+                e.currentTarget.style.boxShadow = '0 12px 30px rgba(90, 24, 39, 0.04)';
               }}
               onMouseLeave={e => {
                 e.currentTarget.style.transform = 'translateY(0)';
@@ -63,7 +63,7 @@ export default function CustomerReview() {
                 <div style={{
                   position: 'absolute', top: 12, right: 22,
                   fontFamily: "'Cormorant Garamond', serif",
-                  fontSize: 70, color: 'rgba(67, 83, 61, 0.08)', lineHeight: 1, fontWeight: 700,
+                  fontSize: 70, color: 'rgba(90, 24, 39, 0.08)', lineHeight: 1, fontWeight: 700,
                   userSelect: 'none',
                 }}>
                   "
@@ -91,7 +91,7 @@ export default function CustomerReview() {
                 ) : (
                   <div style={{
                     width: 36, height: 36,
-                    background: 'rgba(67, 83, 61, 0.08)',
+                    background: 'rgba(90, 24, 39, 0.08)',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     color: C.accent,
                     borderRadius: '50%'

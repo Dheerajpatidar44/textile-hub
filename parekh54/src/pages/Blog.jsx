@@ -2,14 +2,14 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
 const C = {
-  primary: '#43533D',        // Premium Olive Green
-  primaryDark: '#2E3A2B',
-  soil: '#43533D',
-  sand: '#FAF8F5',
-  cream: '#FAF8F5',
-  border: '#E6E4DF',
-  stone: '#6B7866',
-  accent: '#B8624E',         // Premium Terracotta
+  primary: '#5A1827',        // Royal Maroon/Burgundy
+  primaryDark: '#3D0B15',
+  soil: '#5A1827',
+  sand: '#FAF6F0',
+  cream: '#FAF6F0',
+  border: '#E6E1D8',
+  stone: '#6B5C5D',
+  accent: '#C2A478',         // Luxury Gold
 };
 
 const posts = [
@@ -50,7 +50,7 @@ export default function Blog() {
               }}
               onMouseEnter={e => {
                 e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 12px 30px rgba(37, 82, 75, 0.04)';
+                e.currentTarget.style.boxShadow = '0 12px 30px rgba(90, 24, 39, 0.04)';
               }}
               onMouseLeave={e => {
                 e.currentTarget.style.transform = 'translateY(0)';

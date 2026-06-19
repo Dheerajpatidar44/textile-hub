@@ -2,14 +2,14 @@ import { useState } from 'react';
 import { MessageSquareText, X, Send, Sparkles } from 'lucide-react';
 
 const C = {
-  primary: '#43533D',        // Premium Olive Green
-  primaryDark: '#2E3A2B',
-  soil: '#43533D',
-  sand: '#FAF8F5',
+  primary: '#5A1827',        // Royal Maroon/Burgundy
+  primaryDark: '#3D0B15',
+  soil: '#5A1827',
+  sand: '#FAF6F0',
   cream: '#FFFFFF',
-  border: '#E6E4DF',
-  stone: '#6B7866',
-  accent: '#B8624E',         // Premium Terracotta
+  border: '#E6E1D8',
+  stone: '#6B5C5D',
+  accent: '#C2A478',         // Luxury Gold
 };
 
 const FloatingChatbot = () => {
@@ -21,7 +21,7 @@ const FloatingChatbot = () => {
       {isOpen && (
         <div
           className="mb-4 w-[340px] sm:w-[370px] overflow-hidden border rounded-3xl"
-          style={{ borderColor: C.border, background: '#FAF8F5', boxShadow: '0 16px 48px rgba(67, 83, 61, 0.12)' }}
+          style={{ borderColor: C.border, background: '#FAF6F0', boxShadow: '0 16px 48px rgba(90, 24, 39, 0.12)' }}
         >
           {/* Header */}
           <div
@@ -37,7 +37,7 @@ const FloatingChatbot = () => {
               </div>
               <div className="text-left">
                 <p className="text-white text-[13px] font-bold tracking-wide leading-tight">
-                  CHETAN MANKER Assistant
+                  The Textile Loft Assistant
                 </p>
                 <div className="flex items-center gap-1.5 mt-0.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
@@ -70,13 +70,13 @@ const FloatingChatbot = () => {
                 style={{ borderColor: C.border }}
               >
                 <p className="text-[13px] leading-relaxed" style={{ color: C.soil }}>
-                  Namaste! 🙏 Welcome to <strong>CHETAN MANKER Textile Mall</strong>. How can I assist you today?
+                  Namaste! 🙏 Welcome to <strong>The Textile Loft</strong>. How can I assist you today?
                 </p>
               </div>
             </div>
 
             <div className="flex flex-wrap gap-2 mt-3 pl-9">
-              {['Product Enquiry', 'Trade Enquiry', 'e-quotation info'].map(chip => (
+              {['Product Enquiry', 'Trade Enquiry', 'e-Quotation info'].map(chip => (
                 <button
                   key={chip}
                   className="text-[11px] font-bold px-3 py-1.5 rounded-full transition-all duration-200 hover:-translate-y-0.5 cursor-pointer"
@@ -123,7 +123,7 @@ const FloatingChatbot = () => {
         style={{
           background: isOpen ? C.soil : C.primary,
           borderColor: C.border,
-          boxShadow: '0 4px 16px rgba(67,83,61,0.2)'
+          boxShadow: '0 4px 16px rgba(90,24,39,0.2)'
         }}
       >
         {isOpen ? (

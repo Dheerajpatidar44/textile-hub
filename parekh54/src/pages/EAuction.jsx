@@ -2,16 +2,16 @@ import { motion } from 'framer-motion';
 import { Gavel, Clock, UploadCloud, Send, Mail, TrendingUp } from 'lucide-react';
 
 const C = {
-  primary: '#43533D',        // Premium Olive Green
-  primaryDark: '#2E3A2B',
-  primaryLight: '#576951',
-  accent: '#B8624E',         // Terracotta Accent
-  accentLight: '#D3A196',
-  bg: '#FAF8F5',
-  sand: '#FAF8F5',
-  border: '#E6E4DF',
-  soil: '#43533D',
-  stone: '#6B7866',
+  primary: '#5A1827',        // Royal Maroon/Burgundy
+  primaryDark: '#3D0B15',
+  primaryLight: '#7A2A39',
+  accent: '#C2A478',         // Luxury Gold
+  accentLight: '#E8DCC4',
+  bg: '#FAF6F0',
+  sand: '#FAF6F0',
+  border: '#E6E1D8',
+  soil: '#5A1827',
+  stone: '#6B5C5D',
   cream: '#FFFFFF',
 };
 
@@ -75,15 +75,15 @@ export default function EAuction() {
                 background: 'white',
                 border: `1px solid ${C.border}`,
                 transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                boxShadow: '0 4px 20px rgba(30,62,55,0.02)'
+                boxShadow: '0 4px 20px rgba(90, 24, 39, 0.02)'
               }}
               onMouseEnter={e => {
                 e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 12px 30px rgba(30, 62, 55, 0.05)';
+                e.currentTarget.style.boxShadow = '0 12px 30px rgba(90, 24, 39, 0.05)';
               }}
               onMouseLeave={e => {
                 e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = '0 4px 20px rgba(30,62,55,0.02)';
+                e.currentTarget.style.boxShadow = '0 4px 20px rgba(90, 24, 39, 0.02)';
               }}
             >
               <div className="w-full sm:w-[200px] h-[200px] sm:h-auto overflow-hidden shrink-0 bg-[#FAF7F0]">
@@ -92,7 +92,7 @@ export default function EAuction() {
 
               <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column' }}>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 }}>
-                  <span style={{ fontSize: 9, padding: '6px 12px', background: 'rgba(30, 62, 55, 0.06)', color: C.primary, fontWeight: 700, letterSpacing: '0.1em', borderRadius: '50px' }}>
+                  <span style={{ fontSize: 9, padding: '6px 12px', background: 'rgba(90, 24, 39, 0.06)', color: C.primary, fontWeight: 700, letterSpacing: '0.1em', borderRadius: '50px' }}>
                     {auction.id}
                   </span>
                   <span style={{ fontSize: 12, color: C.accent, fontWeight: 700 }}>{auction.status}</span>
@@ -145,20 +145,20 @@ export default function EAuction() {
             border: `1px solid ${C.border}`,
             overflow: 'hidden',
             borderRadius: 24,
-            boxShadow: '0 12px 40px rgba(30, 62, 55, 0.03)',
+            boxShadow: '0 12px 40px rgba(90, 24, 39, 0.03)',
           }}
         >
             {/* Form Header */}
             <div style={{
               padding: '28px 36px',
               borderBottom: `1px solid ${C.border}`,
-              background: 'rgba(30, 62, 55, 0.04)',
+              background: 'rgba(90, 24, 39, 0.04)',
               display: 'flex', alignItems: 'center', gap: 16,
             }} className="text-left">
               <div style={{
                 width: 48, height: 48,
                 background: 'white',
-                border: `1px solid rgba(30, 62, 55, 0.1)`,
+                border: `1px solid rgba(90, 24, 39, 0.1)`,
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 flexShrink: 0,
                 borderRadius: '50%'
@@ -219,7 +219,7 @@ export default function EAuction() {
                     }}
                     onMouseEnter={e => {
                       e.currentTarget.style.borderColor = C.accent;
-                      e.currentTarget.style.background = 'rgba(30, 62, 55, 0.04)';
+                      e.currentTarget.style.background = 'rgba(90, 24, 39, 0.04)';
                     }}
                     onMouseLeave={e => {
                       e.currentTarget.style.borderColor = C.border;
@@ -260,10 +260,10 @@ export default function EAuction() {
                 <div style={{ textAlign: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, marginTop: 16 }}>
                   <Mail size={14} color={C.accent} />
                   <a
-                    href="mailto:info@chetanmanker.com"
+                    href="mailto:info@thetextileloft.com"
                     style={{ fontSize: 13, color: C.primary, fontWeight: 600, textDecoration: 'none' }}
                   >
-                    info@chetanmanker.com
+                    info@thetextileloft.com
                   </a>
                 </div>
 

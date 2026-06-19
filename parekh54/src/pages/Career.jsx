@@ -2,14 +2,14 @@ import { motion } from 'framer-motion';
 import { Briefcase, MapPin, Mail, Clock } from 'lucide-react';
 
 const C = {
-  primary: '#43533D',        // Premium Olive Green
-  primaryDark: '#2E3A2B',
-  soil: '#43533D',
-  sand: '#FAF8F5',
-  bg: '#FAF8F5',
-  border: '#E6E4DF',
-  stone: '#6B7866',
-  accent: '#B8624E',         // Terracotta Accent
+  primary: '#5A1827',        // Royal Maroon/Burgundy
+  primaryDark: '#3D0B15',
+  soil: '#5A1827',
+  sand: '#FAF6F0',
+  bg: '#FAF6F0',
+  border: '#E6E1D8',
+  stone: '#6B5C5D',
+  accent: '#C2A478',         // Luxury Gold
 };
 
 const jobs = [
@@ -50,7 +50,7 @@ export default function Career() {
               }}
               onMouseEnter={e => {
                 e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 12px 30px rgba(67, 83, 61, 0.04)';
+                e.currentTarget.style.boxShadow = '0 12px 30px rgba(90, 24, 39, 0.04)';
               }}
               onMouseLeave={e => {
                 e.currentTarget.style.transform = 'translateY(0)';
@@ -66,12 +66,12 @@ export default function Career() {
                     { icon: MapPin, val: job.location },
                     { icon: Briefcase, val: `${job.type} · ${job.experience}` },
                     { icon: Clock, val: 'Apply by June 30, 2026' },
-                    { icon: Mail, val: 'careers@chetanmanker.com', href: 'mailto:careers@chetanmanker.com' },
+                    { icon: Mail, val: 'careers@thetextileloft.com', href: 'mailto:careers@thetextileloft.com' },
                   ].map(({ icon: Icon, val, href }) => (
                     <div key={val} style={{ color: C.stone }} className="flex items-center gap-2.5 text-[12.5px] font-semibold">
                       <Icon size={14} style={{ color: C.accent }} className="shrink-0" />
                       {href ? (
-                        <a href={href} className="hover:text-[#B8624E] transition-colors">{val}</a>
+                        <a href={href} className="hover:text-[#C2A478] transition-colors">{val}</a>
                       ) : (
                         <span>{val}</span>
                       )}
