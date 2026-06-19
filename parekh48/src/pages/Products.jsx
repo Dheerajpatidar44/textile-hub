@@ -4,15 +4,15 @@ import { motion } from 'framer-motion';
 import { ShoppingBag, Filter } from 'lucide-react';
 
 const C = {
-  primary: '#1E3E37',        // Deep Forest Green
-  primaryDark: '#112521',
-  primaryLight: '#2C5A50',
-  accent: '#E2A93E',         // Gold Accent
-  accentLight: '#F0C265',
-  gold: '#E2A93E',
-  bg: '#FAF7F0',
+  primary: '#25524B',        // Deep Teal
+  primaryDark: '#193833',
+  primaryLight: '#347067',
+  accent: '#C5A880',         // Soft Gold Accent
+  accentLight: '#D5BFA0',
+  gold: '#C5A880',
+  bg: '#FAF8F5',
   border: '#EFECE6',
-  stone: '#536E67',
+  stone: '#5A6E6A',
   cream: '#FFFFFF',
 };
 
@@ -57,15 +57,15 @@ export default function Products() {
   });
 
   return (
-    <div style={{ fontFamily: "'Inter', sans-serif", background: C.bg, minHeight: '90vh' }} className="pt-4 pb-16">
+    <div style={{ fontFamily: "'Inter', sans-serif", background: C.bg, minHeight: '90vh' }} className="pt-2 pb-16">
       <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14">
 
         {/* Page Title - minimized top gap */}
-        <div className="text-center mb-8 mt-2">
-          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '48px', fontWeight: 500, color: C.primary, margin: 0, letterSpacing: '0.02em' }}>
+        <div className="text-center mb-8 mt-1">
+          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '44px', fontWeight: 500, color: C.primary, margin: 0, letterSpacing: '0.02em' }}>
             Collections
           </h1>
-          <div style={{ width: 40, height: 1.5, background: C.accent, margin: '10px auto 0' }} />
+          <div style={{ width: 40, height: 1.5, background: C.accent, margin: '8px auto 0' }} />
         </div>
         
         <div className="flex flex-col md:flex-row gap-8 items-start">

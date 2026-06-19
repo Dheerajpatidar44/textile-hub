@@ -2,16 +2,16 @@ import { motion } from 'framer-motion';
 import { ClipboardCheck, FileText, Send, Mail, Calendar, Package } from 'lucide-react';
 
 const C = {
-  primary: '#1E3E37',        // Deep Forest Green
-  primaryDark: '#112521',
-  primaryLight: '#2C5A50',
-  accent: '#E2A93E',         // Gold Accent
-  accentLight: '#F0C265',
-  bg: '#FAF7F0',
-  sand: '#FAF7F0',
+  primary: '#25524B',        // Deep Teal
+  primaryDark: '#193833',
+  primaryLight: '#347067',
+  accent: '#C5A880',         // Soft Gold Accent
+  accentLight: '#D5BFA0',
+  bg: '#FAF8F5',
+  sand: '#FAF8F5',
   border: '#EFECE6',
-  soil: '#1E3E37',
-  stone: '#536E67',
+  soil: '#25524B',
+  stone: '#5A6E6A',
   cream: '#FFFFFF',
 };
 
@@ -41,15 +41,15 @@ const quotations = [
 
 export default function EQuotation() {
   return (
-    <div style={{ fontFamily: "'Inter', sans-serif", background: C.bg, minHeight: '90vh' }} className="pt-4 pb-16">
-      <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-12 pt-2">
+    <div style={{ fontFamily: "'Inter', sans-serif", background: C.bg, minHeight: '90vh' }} className="pt-2 pb-16">
+      <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-12 pt-0">
 
-        {/* Page Title Section */}
-        <div className="text-center mb-6">
-          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '48px', fontWeight: 500, color: C.primary, margin: 0, letterSpacing: '0.02em' }}>
-            e-Quotation
+        {/* Page Title Section - minimized top space */}
+        <div className="text-center mb-6 mt-1">
+          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '44px', fontWeight: 500, color: C.primary, margin: 0, letterSpacing: '0.02em' }}>
+            e-quotation
           </h1>
-          <div style={{ width: 40, height: 1.5, background: C.accent, margin: '10px auto 0' }} />
+          <div style={{ width: 40, height: 1.5, background: C.accent, margin: '8px auto 0' }} />
         </div>
   
         <p style={{ textAlign: 'center', fontSize: 14, color: C.stone, marginBottom: 40, fontWeight: 600, maxWidth: 560, margin: '0 auto 40px', lineHeight: 1.6 }}>
@@ -177,7 +177,7 @@ export default function EQuotation() {
               </div>
               <div>
                 <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 24, fontWeight: 700, color: C.primary, margin: '0 0 4px' }}>
-                  Request a Price e-Quotation
+                  Request a Price e-quotation
                 </h2>
                 <p style={{ fontSize: 13, color: C.stone, margin: 0, fontWeight: 600 }}>
                   Fill in your details below to receive a quotation
@@ -247,8 +247,8 @@ export default function EQuotation() {
 
                 <div style={{ textAlign: 'center', display: 'flex', alignItems: 'center', justifycontent: 'center', gap: 8, marginTop: 16 }}>
                   <Mail size={14} color={C.accent} />
-                  <a href="mailto:hello@weavecrafttextile.com" style={{ fontSize: 13, color: C.primary, fontWeight: 600, textDecoration: 'none' }}>
-                    hello@weavecrafttextile.com
+                  <a href="mailto:hello@fabricatelier.com" style={{ fontSize: 13, color: C.primary, fontWeight: 600, textDecoration: 'none' }}>
+                    hello@fabricatelier.com
                   </a>
                 </div>
               </form>

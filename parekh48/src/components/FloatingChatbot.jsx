@@ -2,14 +2,14 @@ import { useState } from 'react';
 import { MessageSquareText, X, Send, Sparkles } from 'lucide-react';
 
 const C = {
-  primary: '#1E3E37',        // Deep Forest Green
-  primaryDark: '#112521',
-  soil: '#1E3E37',
-  sand: '#FAF7F0',
+  primary: '#25524B',        // Deep Teal
+  primaryDark: '#193833',
+  soil: '#25524B',
+  sand: '#FAF8F5',
   cream: '#FFFFFF',
   border: '#EFECE6',
-  stone: '#536E67',
-  accent: '#E2A93E',         // Gold Accent
+  stone: '#5A6E6A',
+  accent: '#C5A880',         // Gold Accent
 };
 
 const FloatingChatbot = () => {
@@ -21,7 +21,7 @@ const FloatingChatbot = () => {
       {isOpen && (
         <div
           className="mb-4 w-[340px] sm:w-[370px] overflow-hidden border rounded-3xl"
-          style={{ borderColor: C.border, background: '#FAF7F0', boxShadow: '0 16px 48px rgba(30, 62, 55, 0.12)' }}
+          style={{ borderColor: C.border, background: '#FAF8F5', boxShadow: '0 16px 48px rgba(37, 82, 75, 0.12)' }}
         >
           {/* Header */}
           <div
@@ -37,7 +37,7 @@ const FloatingChatbot = () => {
               </div>
               <div className="text-left">
                 <p className="text-white text-[13px] font-bold tracking-wide leading-tight">
-                  WEAVECRAFT Assistant
+                  The Fabric Atelier Assistant
                 </p>
                 <div className="flex items-center gap-1.5 mt-0.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
@@ -70,13 +70,13 @@ const FloatingChatbot = () => {
                 style={{ borderColor: C.border }}
               >
                 <p className="text-[13px] leading-relaxed" style={{ color: C.soil }}>
-                  Namaste! 🙏 Welcome to <strong>WEAVECRAFT Textile Mall</strong>. How can I assist you today?
+                  Namaste! 🙏 Welcome to <strong>The Fabric Atelier</strong>. How can I assist you today?
                 </p>
               </div>
             </div>
 
             <div className="flex flex-wrap gap-2 mt-3 pl-9">
-              {['Product Enquiry', 'Trade Enquiry', 'e-Quotation info'].map(chip => (
+              {['Product Enquiry', 'Trade Enquiry', 'e-quotation info'].map(chip => (
                 <button
                   key={chip}
                   className="text-[11px] font-bold px-3 py-1.5 rounded-full transition-all duration-200 hover:-translate-y-0.5 cursor-pointer"
@@ -123,7 +123,7 @@ const FloatingChatbot = () => {
         style={{
           background: isOpen ? C.soil : C.primary,
           borderColor: C.border,
-          boxShadow: '0 4px 16px rgba(30,62,55,0.2)'
+          boxShadow: '0 4px 16px rgba(37,82,75,0.2)'
         }}
       >
         {isOpen ? (

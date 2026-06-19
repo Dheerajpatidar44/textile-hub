@@ -4,15 +4,15 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const C = {
-  primary: '#1E3E37',        // Deep Forest Green
-  primaryDark: '#112521',
-  primaryLight: '#2C5A50',
-  accent: '#E2A93E',         // Gold Accent
-  accentLight: '#F0C265',
-  gold: '#E2A93E',
-  bg: '#FAF7F0',
+  primary: '#25524B',        // Deep Teal/Slate
+  primaryDark: '#193833',
+  primaryLight: '#347067',
+  accent: '#C5A880',         // Soft Gold Accent
+  accentLight: '#D5BFA0',
+  gold: '#C5A880',
+  bg: '#FAF8F5',
   border: '#EFECE6',
-  stone: '#536E67',
+  stone: '#5A6E6A',
 };
 
 export default function Navbar() {
@@ -47,8 +47,8 @@ export default function Navbar() {
 
   const dropdownNavItems = [
     { name: 'Trade Enquiry', path: '/trade-enquiry' },
-    { name: 'e-Quotation', path: '/e-quotation' },
-    { name: 'e-Auction', path: '/e-auction' },
+    { name: 'e-quotation', path: '/e-quotation' },
+    { name: 'e-auction', path: '/e-auction' },
     { name: 'Trade Circular', path: '/trade-circular' },
     { name: 'Blog Page', path: '/blog' },
     { name: 'Notice Board', path: '/notice-board' },
@@ -104,16 +104,16 @@ export default function Navbar() {
             </div>
             <div className="flex flex-col">
               <span
-                className="text-[17px] font-bold leading-none tracking-[0.08em]"
-                style={{ fontFamily: "'Inter', sans-serif", color: C.primary, fontWeight: 800 }}
+                className="text-[20px] font-medium leading-none tracking-[0.02em] font-serif"
+                style={{ fontFamily: "'Cormorant Garamond', serif", color: C.primary, fontWeight: 600 }}
               >
-                WEAVECRAFT
+                The Fabric Atelier
               </span>
               <span 
-                className="text-[7.5px] tracking-[0.22em] font-bold mt-1 uppercase" 
-                style={{ color: C.stone, fontFamily: "'Inter', sans-serif" }}
+                className="text-[8px] tracking-[0.25em] font-bold mt-1.5 uppercase" 
+                style={{ color: C.accent, fontFamily: "'Inter', sans-serif" }}
               >
-                TEXTILE MALL
+                Artisanal Textiles
               </span>
             </div>
           </Link>
@@ -130,12 +130,6 @@ export default function Navbar() {
                   style={{ color: active ? C.accent : C.primary }}
                 >
                   {item.name}
-                  {active && (
-                    <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 flex flex-col items-center">
-                      <div style={{ width: 14, height: 1.5, background: C.gold }} />
-                      <div style={{ width: 3, height: 3, borderRadius: '50%', background: C.gold, marginTop: 1 }} />
-                    </div>
-                  )}
                 </Link>
               );
             })}
@@ -233,13 +227,13 @@ export default function Navbar() {
              <div style={{ padding: '20px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: `1px solid ${C.border}` }}>
               <div className="flex-1 flex flex-col">
                 <span
-                  className="text-[18px] font-extrabold leading-none tracking-wide"
-                  style={{ color: C.primary }}
+                  className="text-[19px] font-medium leading-none tracking-wide font-serif"
+                  style={{ color: C.primary, fontFamily: "'Cormorant Garamond', serif", fontWeight: 600 }}
                 >
-                  WEAVECRAFT
+                  The Fabric Atelier
                 </span>
-                <span className="text-[8px] tracking-[0.2em] font-bold mt-1 uppercase" style={{ color: C.stone }}>
-                  TEXTILE MALL
+                <span className="text-[8px] tracking-[0.25em] font-bold mt-1.5 uppercase" style={{ color: C.accent }}>
+                  Artisanal Textiles
                 </span>
               </div>
               <button

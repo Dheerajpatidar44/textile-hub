@@ -3,14 +3,14 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus } from 'lucide-react';
 
 const C = {
-  primary: '#1E3E37',        // Slate Navy
-  primaryLight: '#2C5A50',
-  soil: '#1E3E37',
-  sand: '#FAF7F0',
-  cream: '#FAF7F0',
+  primary: '#25524B',        // Deep Teal
+  primaryLight: '#347067',
+  soil: '#25524B',
+  sand: '#FAF8F5',
+  cream: '#FAF8F5',
   border: '#EFECE6',
-  stone: '#536E67',
-  accent: '#E2A93E',         // Mauve
+  stone: '#5A6E6A',
+  accent: '#C5A880',         // Soft Gold Accent
 };
 
 const faqs = [
@@ -20,7 +20,7 @@ const faqs = [
   },
   {
     question: "Do you accept wholesale or bulk orders?",
-    answer: "Yes, we have a dedicated B2B division that handles wholesale and bulk orders. You can submit your requirements through our Trade Enquiry or e-Quotation pages for special pricing."
+    answer: "Yes, we have a dedicated B2B division that handles wholesale and bulk orders. You can submit your requirements through our Trade Enquiry or e-quotation pages for special pricing."
   },
   {
     question: "How can I track my order?",
@@ -32,7 +32,7 @@ const faqs = [
   },
   {
     question: "Do you ship internationally?",
-    answer: "Yes, WEAVECRAFT Textile Mall ships globally. International shipping charges and delivery times vary based on the destination and order volume."
+    answer: "Yes, The Fabric Atelier ships globally. International shipping charges and delivery times vary based on the destination and order volume."
   },
   {
     question: "Can I request custom fabric weaving or dyeing?",
@@ -48,15 +48,15 @@ export default function FAQ() {
   };
 
   return (
-    <div style={{ fontFamily: "'Inter', sans-serif", background: C.cream, minHeight: '90vh' }} className="pt-4 pb-16">
+    <div style={{ fontFamily: "'Inter', sans-serif", background: C.cream, minHeight: '90vh' }} className="pt-2 pb-16">
       <div className="max-w-3xl mx-auto px-6 pt-0">
 
-        {/* Page Title Section */}
-        <div className="text-center mb-6">
-          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '48px', fontWeight: 500, color: C.soil, margin: 0 }}>
+        {/* Page Title Section - minimized top space */}
+        <div className="text-center mb-6 mt-1">
+          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '44px', fontWeight: 500, color: C.soil, margin: 0 }}>
             Frequently Asked Questions
           </h1>
-          <div style={{ width: 40, height: 1.5, background: C.accent, margin: '12px auto 0' }} />
+          <div style={{ width: 40, height: 1.5, background: C.accent, margin: '8px auto 0' }} />
         </div>
   
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
@@ -93,8 +93,8 @@ export default function FAQ() {
                   </h3>
                   <div style={{
                     flexShrink: 0, width: 32, height: 32,
-                    display: 'flex', alignItems: 'center', justifyContainer: 'center',
-                    background: isOpen ? C.accent : 'rgba(30, 62, 55, 0.08)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    background: isOpen ? C.accent : 'rgba(37, 82, 75, 0.08)',
                     transition: 'all 0.3s ease',
                     borderRadius: '50%'
                   }} className="flex items-center justify-center">
