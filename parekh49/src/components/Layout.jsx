@@ -6,7 +6,7 @@ import FloatingChatbot from './FloatingChatbot';
 
 export default function Layout() {
   return (
-    <div className="flex flex-col min-h-screen relative" style={{ background: '#FDF8F4' }}>
+    <div className="flex flex-col min-h-screen relative" style={{ background: '#fdfbf7' }}>
       <Navbar />
       <main className="flex-grow w-full transition-all duration-300">
         <Outlet />

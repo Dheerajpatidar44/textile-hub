@@ -1,25 +1,67 @@
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown, ArrowRight } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const C = {
-  primary: '#8B1A4A',
-  primaryDark: '#5E0F30',
-  accent: '#C4956A',
-  bg: '#FDF8F4',
-  sand: '#F5EBE0',
-  border: '#E8D8CC',
-  soil: '#2C1A1A',
-  stone: '#7A5E5E',
+  primary: '#1b3252',
+  primaryDark: '#0e192c',
+  primaryLight: '#243b61',
+  accent: '#b08e5b',
+  accentLight: '#ebdcb9',
+  bg: '#fdfbf7',
+  sand: '#f2e8dc',
+  border: '#e6dfd5',
+  soil: '#1a2538',
+  stone: '#63738a',
 };
+
+// All nav links displayed directly in navbar
+const mainNavItems = [
+  { name: 'Home', path: '/' },
+  { name: 'About Us', path: '/about' },
+  { name: 'Contact Us', path: '/contact' },
+  { name: 'Product', path: '/products' },
+  { name: 'Our Retail Management', path: '/retail-management' },
+  { name: 'e-Quotation', path: '/e-quotation' },
+  { name: 'e-Auction', path: '/e-auction' },
+  { name: 'Trade Circular', path: '/trade-circular' },
+  { name: 'Blog', path: '/blog' },
+];
+
+// Overflow items go into "More" dropdown
+const moreNavItems = [
+  { name: 'Notice Board', path: '/notice-board' },
+  { name: 'Career Page', path: '/career' },
+  { name: 'Customer Review', path: '/reviews' },
+  { name: 'Business Media Gallery', path: '/gallery' },
+  { name: 'FAQ', path: '/faq' },
+];
+
+// All items for mobile drawer
+const allNavItems = [
+  { name: 'Home', path: '/' },
+  { name: 'About Us', path: '/about' },
+  { name: 'Contact Us', path: '/contact' },
+  { name: 'Product', path: '/products' },
+  { name: 'Our Retail Management', path: '/retail-management' },
+  { name: 'Trade Enquiry', path: '/trade-enquiry' },
+  { name: 'e-Quotation', path: '/e-quotation' },
+  { name: 'e-Auction', path: '/e-auction' },
+  { name: 'Trade Circular', path: '/trade-circular' },
+  { name: 'Blog Page', path: '/blog' },
+  { name: 'Notice Board', path: '/notice-board' },
+  { name: 'Career Page', path: '/career' },
+  { name: 'Customer Review', path: '/reviews' },
+  { name: 'Business Media Gallery', path: '/gallery' },
+  { name: 'FAQ', path: '/faq' },
+];
 
 export default function Navbar() {
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [mobileResourcesOpen, setMobileResourcesOpen] = useState(false);
+  const [moreOpen, setMoreOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -28,186 +70,237 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
+    document.body.style.overflow = isOpen ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
   }, [isOpen]);
 
-  const directNavItems = [
-    { name: 'Home', path: '/' },
-    { name: 'About Us', path: '/about' },
-    { name: 'Contact Us', path: '/contact' },
-    { name: 'Product', path: '/products' },
-    { name: 'Our Retail Management', path: '/retail-management' },
-    { name: 'Trade Enquiry', path: '/trade-enquiry' },
-  ];
-
-  const dropdownNavItems = [
-    { name: 'e-Quotation', path: '/e-quotation' },
-    { name: 'e-Auction', path: '/e-auction' },
-    { name: 'Trade Circular', path: '/trade-circular' },
-    { name: 'Blog Page', path: '/blog' },
-    { name: 'Notice Board', path: '/notice-board' },
-    { name: 'Career Page', path: '/career' },
-    { name: 'Customer Review', path: '/reviews' },
-    { name: 'Business Media Gallery', path: '/gallery' },
-    { name: 'FAQ', path: '/faq' },
-  ];
-
-  const isItemActive = (item) => {
-    if (item.path === '/' && location.pathname === '/') return true;
-    if (item.path !== '/' && location.pathname === item.path) return true;
-    if (item.path !== '/' && item.path !== '#' && location.pathname.startsWith(item.path) && item.path !== '/products') {
-      return true;
-    }
-    if (item.path === '/products' && location.pathname === '/products') {
-      return true;
-    }
-    return false;
+  const isActive = (path) => {
+    if (path === '/') return location.pathname === '/';
+    return location.pathname === path || location.pathname.startsWith(path + '/');
   };
 
-  const isDropdownActive = () => dropdownNavItems.some(item => isItemActive(item));
+  const isMoreActive = () => moreNavItems.some(item => isActive(item.path));
 
   return (
     <header
-      className="w-full fixed top-0 left-0 z-50 transition-all duration-300"
-      style={{ fontFamily: "'DM Sans', sans-serif" }}
+      className="w-full fixed top-0 left-0 z-50"
+      style={{ fontFamily: "'Outfit', sans-serif" }}
     >
-      {/* ── Main Navbar ── */}
-      <div
-        className="w-full transition-all duration-300 py-3"
-        style={{
-          background: scrolled ? 'rgba(139, 26, 74, 0.97)' : C.primary,
-          backdropFilter: scrolled ? 'blur(12px)' : 'none',
-          borderBottom: `1px solid rgba(255,255,255,0.1)`,
-          boxShadow: scrolled ? '0 2px 20px rgba(0, 0, 0, 0.2)' : 'none',
-        }}
-      >
-        <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14 flex justify-between items-center">
+      {/* ── Row 1: Brand Logo + Trade Enquiry ── */}
+      <div style={{
+        background: '#ffffff',
+        borderBottom: `1px solid ${C.border}`,
+        padding: '10px 0',
+        transition: 'all 0.3s',
+      }}>
+        <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-12 flex items-center justify-between">
 
-          {/* Logo Brand: Ananta Fabrics */}
-          <Link to="/" className="flex items-center gap-3 group shrink-0 text-left relative pl-6 pr-10 py-3 sm:pl-8 sm:pr-12 lg:pl-14 lg:pr-16 -ml-6 sm:-ml-8 lg:-ml-14 -my-3 transition-all duration-300">
-            {/* Logo Icon */}
+          {/* Logo */}
+          <Link to="/" className="flex items-center gap-3 group shrink-0" style={{ textDecoration: 'none' }}>
             <div style={{
-              width: 32, height: 32,
+              width: 42, height: 42,
+              borderRadius: 10,
+              background: `linear-gradient(135deg, ${C.primary} 0%, ${C.primaryLight} 100%)`,
               display: 'flex', alignItems: 'center', justifyContent: 'center',
+              boxShadow: '0 4px 12px rgba(27,50,82,0.18)',
+              flexShrink: 0,
             }}>
-              <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                <circle cx="14" cy="14" r="12" stroke="#C4956A" strokeWidth="1.5" fill="none"/>
-                <path d="M14 4 C14 4, 22 10, 22 14 C22 18, 14 24, 14 24 C14 24, 6 18, 6 14 C6 10, 14 4, 14 4Z" fill="rgba(196,149,106,0.2)" stroke="#C4956A" strokeWidth="1"/>
-                <circle cx="14" cy="14" r="3" fill="#C4956A"/>
+              <svg width="24" height="24" viewBox="0 0 26 26" fill="none">
+                <path d="M13 3 L22 9 L22 17 L13 23 L4 17 L4 9 Z" stroke="#b08e5b" strokeWidth="1.5" fill="rgba(176,142,91,0.15)"/>
+                <path d="M13 7 L18 10.5 L18 15.5 L13 19 L8 15.5 L8 10.5 Z" stroke="#b08e5b" strokeWidth="1" fill="rgba(176,142,91,0.25)"/>
+                <circle cx="13" cy="13" r="2.5" fill="#b08e5b"/>
               </svg>
             </div>
-            <div className="flex flex-col">
-              <span
-                className="text-[18px] font-bold leading-none tracking-wide text-white"
-                style={{ fontFamily: "'Playfair Display', serif" }}
-              >
-                Ananta Fabrics
+            <div className="flex flex-col text-left">
+              <span style={{
+                fontFamily: "'Playfair Display', serif",
+                fontSize: 17, fontWeight: 700,
+                letterSpacing: '0.04em', color: C.soil, lineHeight: 1.1,
+              }}>
+                RUHANI WEAVES
               </span>
-              <span className="text-[7.5px] tracking-[0.2em] font-semibold mt-1.5 uppercase text-[#E8D8CC]">
-                Premium Textile
+              <span style={{
+                fontSize: 8, letterSpacing: '0.28em',
+                fontWeight: 600, textTransform: 'uppercase',
+                color: C.accent, marginTop: 2,
+              }}>
+                TEXTILE MALL
               </span>
             </div>
           </Link>
 
-          {/* Center Links (Desktop) */}
-          <nav className="hidden md:flex items-center gap-x-4 lg:gap-x-5">
-            {directNavItems.filter(item => item.name !== 'Trade Enquiry').map((item) => {
-              const active = isItemActive(item);
+          {/* Right side: Trade Enquiry + Mobile Toggle */}
+          <div className="flex items-center gap-3">
+            {/* Trade Enquiry button — desktop only */}
+            <Link
+              to="/trade-enquiry"
+              className="hidden md:inline-flex items-center gap-2"
+              style={{
+                padding: '9px 20px',
+                background: C.accent,
+                color: '#ffffff',
+                borderRadius: 8,
+                fontSize: 12, fontWeight: 700,
+                letterSpacing: '0.06em',
+                textTransform: 'uppercase',
+                textDecoration: 'none',
+                border: `2px solid ${C.accent}`,
+                transition: 'all 0.25s',
+                boxShadow: '0 3px 12px rgba(176,142,91,0.3)',
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.background = C.primary;
+                e.currentTarget.style.borderColor = C.primary;
+                e.currentTarget.style.boxShadow = '0 3px 12px rgba(27,50,82,0.25)';
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.background = C.accent;
+                e.currentTarget.style.borderColor = C.accent;
+                e.currentTarget.style.boxShadow = '0 3px 12px rgba(176,142,91,0.3)';
+              }}
+            >
+              <ArrowRight size={13} />
+              Trade Enquiry
+            </Link>
+
+            {/* Mobile Toggle */}
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="md:hidden p-2 rounded-lg border transition-all"
+              style={{
+                color: C.primary,
+                borderColor: C.border,
+                background: C.sand,
+              }}
+              aria-label="Toggle menu"
+            >
+              {isOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* ── Row 2: Floating Rounded Navigation Bar Row ── */}
+      <div
+        className="w-full hidden md:block transition-all duration-300"
+        style={{
+          background: 'transparent',
+          padding: scrolled ? '0px 24px 6px 24px' : '0px 24px 10px 24px',
+        }}
+      >
+        <div 
+          className="max-w-[85rem] mx-auto px-6 flex items-center justify-center transition-all duration-300" 
+          style={{ 
+            minHeight: 52,
+            background: scrolled ? 'rgba(27, 50, 82, 0.97)' : C.primary,
+            backdropFilter: scrolled ? 'blur(12px)' : 'none',
+            borderRadius: '9999px',
+            boxShadow: '0 6px 20px rgba(27,50,82,0.15)',
+            border: '1.5px solid rgba(176,142,91,0.2)',
+          }}
+        >
+
+          {/* Main nav links — centered */}
+          <nav className="flex items-center justify-center flex-wrap" style={{ overflow: 'visible' }}>
+            {mainNavItems.map((item) => {
+              const active = isActive(item.path);
               return (
                 <Link
-                  key={item.name}
+                  key={item.path}
                   to={item.path}
-                  className="relative px-1 py-0.5 text-[11px] lg:text-[12px] font-semibold tracking-wide uppercase transition-all duration-200 whitespace-nowrap shrink-0"
-                  style={{ color: active ? '#ffffff' : 'rgba(255,255,255,0.7)' }}
+                  className="shrink-0 flex items-center px-3 py-3 text-[13.5px] font-semibold tracking-wide transition-all duration-200 whitespace-nowrap"
+                  style={{
+                    color: active ? '#ffffff' : 'rgba(255,255,255,0.7)',
+                    borderBottom: active ? '2px solid #b08e5b' : '2px solid transparent',
+                    textDecoration: 'none',
+                    lineHeight: 1,
+                  }}
+                  onMouseEnter={e => { e.currentTarget.style.color = '#ffffff'; }}
+                  onMouseLeave={e => { if (!active) e.currentTarget.style.color = 'rgba(255,255,255,0.7)'; }}
                 >
                   {item.name}
-                  {active && (
-                    <div style={{ position: 'absolute', bottom: -4, left: 0, right: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                      <div style={{ width: '100%', height: 1, background: 'rgba(255,255,255,0.3)' }} />
-                      <div style={{ width: 4, height: 4, borderRadius: '50%', background: '#ffffff', position: 'absolute' }} />
-                    </div>
-                  )}
                 </Link>
               );
             })}
 
-            {/* Pages Dropdown */}
+            {/* ── "More" Dropdown for overflow items ── */}
             <div
               className="relative shrink-0"
-              onMouseEnter={() => setDropdownOpen(true)}
-              onMouseLeave={() => setDropdownOpen(false)}
+              onMouseEnter={() => setMoreOpen(true)}
+              onMouseLeave={() => setMoreOpen(false)}
             >
               <button
-                className="flex items-center gap-1 px-3 py-1.5 text-[11px] lg:text-[12px] font-semibold tracking-wide uppercase transition-all duration-200 whitespace-nowrap cursor-pointer rounded-md"
-                style={{ color: '#ffffff', background: 'rgba(255,255,255,0.15)' }}
-                onClick={() => setDropdownOpen(!dropdownOpen)}
+                className="flex items-center gap-1 px-3 py-3 text-[13.5px] font-semibold tracking-wide transition-all duration-200 whitespace-nowrap cursor-pointer"
+                style={{
+                  color: isMoreActive() ? '#ffffff' : 'rgba(255,255,255,0.7)',
+                  borderBottom: isMoreActive() ? '2px solid #b08e5b' : '2px solid transparent',
+                  background: 'transparent',
+                  border: 'none',
+                  outline: 'none',
+                }}
+                onClick={() => setMoreOpen(!moreOpen)}
               >
-                <span>Pages</span>
-                <ChevronDown size={11} className={`transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`} />
+                <span>More</span>
+                <ChevronDown size={11} className={`transition-transform duration-200 ${moreOpen ? 'rotate-180' : ''}`} />
               </button>
 
               <AnimatePresence>
-                {dropdownOpen && (
+                {moreOpen && (
                   <motion.div
-                    initial={{ opacity: 0, y: 6, scale: 0.96 }}
+                    initial={{ opacity: 0, y: 4, scale: 0.97 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: 6, scale: 0.96 }}
-                    transition={{ duration: 0.2, ease: 'easeOut' }}
-                    className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-64 rounded-2xl shadow-2xl z-[999] text-left overflow-hidden"
+                    exit={{ opacity: 0, y: 4, scale: 0.97 }}
+                    transition={{ duration: 0.18, ease: 'easeOut' }}
                     style={{
-                      background: 'linear-gradient(180deg, #8B1A4A 0%, #5E0F30 100%)',
-                      border: '1px solid rgba(196, 149, 106, 0.2)',
+                      position: 'absolute',
+                      top: 'calc(100% + 2px)',
+                      left: 0,
+                      minWidth: 220,
+                      background: 'linear-gradient(180deg, #1b3252 0%, #0e192c 100%)',
+                      border: '1px solid rgba(176,142,91,0.25)',
+                      borderRadius: 12,
+                      boxShadow: '0 24px 60px rgba(0,0,0,0.4)',
+                      zIndex: 9999,
+                      overflow: 'visible',
                     }}
                   >
-                    {/* Top caret arrow */}
-                    <div style={{
-                      position: 'absolute', top: -6, left: '50%', transform: 'translateX(-50%)',
-                      width: 12, height: 12, background: '#8B1A4A',
-                      borderRadius: 2, transform: 'translateX(-50%) rotate(45deg)',
-                      borderTop: '1px solid rgba(196, 149, 106, 0.2)',
-                      borderLeft: '1px solid rgba(196, 149, 106, 0.2)',
-                    }} />
                     <div style={{ padding: '6px 0' }}>
-                      {dropdownNavItems.map((item) => {
-                        const active = isItemActive(item);
+                      {moreNavItems.map((item) => {
+                        const active = isActive(item.path);
                         return (
                           <Link
-                            key={item.name}
+                            key={item.path}
                             to={item.path}
-                            onClick={() => setDropdownOpen(false)}
-                            className="flex items-center gap-3 px-5 py-2.5 text-[12.5px] font-medium transition-all duration-200"
+                            onClick={() => setMoreOpen(false)}
                             style={{
+                              display: 'flex',
+                              alignItems: 'center',
+                              gap: 10,
+                              padding: '10px 18px',
+                              fontSize: 12.5,
+                              fontWeight: 500,
                               color: active ? '#ffffff' : 'rgba(255,255,255,0.75)',
-                              background: active ? 'rgba(196, 149, 106, 0.2)' : 'transparent',
-                              borderLeft: active ? '3px solid #C4956A' : '3px solid transparent',
+                              background: active ? 'rgba(176,142,91,0.18)' : 'transparent',
+                              borderLeft: active ? '3px solid #b08e5b' : '3px solid transparent',
                               textDecoration: 'none',
+                              transition: 'all 0.18s',
+                              letterSpacing: '0.02em',
                             }}
                             onMouseEnter={e => {
-                              e.currentTarget.style.background = 'rgba(255,255,255,0.1)';
+                              e.currentTarget.style.background = 'rgba(255,255,255,0.08)';
                               e.currentTarget.style.color = '#ffffff';
-                              e.currentTarget.style.borderLeftColor = '#C4956A';
+                              e.currentTarget.style.borderLeftColor = '#b08e5b';
                             }}
                             onMouseLeave={e => {
-                              if (!active) {
-                                e.currentTarget.style.background = 'transparent';
-                                e.currentTarget.style.color = 'rgba(255,255,255,0.75)';
-                                e.currentTarget.style.borderLeftColor = 'transparent';
-                              } else {
-                                e.currentTarget.style.background = 'rgba(196, 149, 106, 0.2)';
-                                e.currentTarget.style.color = '#ffffff';
-                                e.currentTarget.style.borderLeftColor = '#C4956A';
-                              }
+                              e.currentTarget.style.background = active ? 'rgba(176,142,91,0.18)' : 'transparent';
+                              e.currentTarget.style.color = active ? '#ffffff' : 'rgba(255,255,255,0.75)';
+                              e.currentTarget.style.borderLeftColor = active ? '#b08e5b' : 'transparent';
                             }}
                           >
                             <span style={{
                               width: 5, height: 5, borderRadius: '50%',
-                              background: active ? '#C4956A' : 'rgba(255,255,255,0.25)',
-                              flexShrink: 0, display: 'inline-block',
+                              background: active ? '#b08e5b' : 'rgba(255,255,255,0.3)',
+                              flexShrink: 0,
                               transition: 'background 0.2s',
                             }} />
                             {item.name}
@@ -220,53 +313,10 @@ export default function Navbar() {
               </AnimatePresence>
             </div>
           </nav>
-
-          {/* Right side */}
-          <div className="flex items-center gap-4 shrink-0">
-            {/* Trade Enquiry Button (Desktop) */}
-            <Link
-              to="/trade-enquiry"
-              className="hidden md:inline-flex items-center justify-center px-5 py-2.5 rounded-full text-[11px] lg:text-[12px] font-bold tracking-wider uppercase shadow-sm hover:shadow-md transition-all duration-300"
-              style={{
-                background: '#ffffff',
-                color: C.primary,
-                border: '1px solid #ffffff',
-              }}
-              onMouseEnter={e => {
-                e.currentTarget.style.transform = 'translateY(-1px)';
-                e.currentTarget.style.background = C.accent;
-                e.currentTarget.style.color = '#ffffff';
-                e.currentTarget.style.borderColor = C.accent;
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.background = '#ffffff';
-                e.currentTarget.style.color = C.primary;
-                e.currentTarget.style.borderColor = '#ffffff';
-              }}
-            >
-              Trade Enquiry
-            </Link>
-
-            {/* Mobile Toggle */}
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden p-2 rounded-xl border transition-all"
-              style={{
-                color: '#ffffff',
-                borderColor: 'rgba(255,255,255,0.2)',
-                background: 'rgba(255,255,255,0.1)',
-              }}
-              aria-label="Toggle menu"
-            >
-
-              {isOpen ? <X size={20} /> : <Menu size={20} />}
-            </button>
-          </div>
         </div>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* ── Mobile Drawer ── */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -275,23 +325,27 @@ export default function Navbar() {
             exit={{ x: '100%' }}
             transition={{ type: 'tween', duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
             className="md:hidden fixed inset-0 top-0 z-40 flex flex-col"
-            style={{ background: '#FDF8F4', fontFamily: "'DM Sans', sans-serif" }}
+            style={{ background: '#fdfbf7', fontFamily: "'Outfit', sans-serif" }}
           >
             {/* Drawer header */}
-            <div style={{ background: 'linear-gradient(135deg, #8B1A4A, #5E0F30)', padding: '16px 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            <div style={{
+              background: `linear-gradient(135deg, ${C.primary}, ${C.primaryDark})`,
+              padding: '16px 20px',
+              display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+            }}>
               <div>
-                <p style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, fontStyle: 'normal', fontWeight: 700, color: '#ffffff', margin: 0 }}>
-                  Ananta Fabrics
+                <p style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, fontWeight: 700, color: '#ffffff', margin: 0 }}>
+                  RUHANI WEAVES
                 </p>
-                <p style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#C4956A', margin: 0, marginTop: 2, fontWeight: 600 }}>
-                  Premium Textile
+                <p style={{ fontSize: 9, letterSpacing: '0.24em', textTransform: 'uppercase', color: '#b08e5b', margin: 0, marginTop: 2, fontWeight: 600 }}>
+                  TEXTILE MALL
                 </p>
               </div>
               <button
                 onClick={() => setIsOpen(false)}
                 style={{
                   width: 36, height: 36, borderRadius: '50%',
-                  background: 'rgba(255,255,255,0.15)',
+                  background: 'rgba(255,255,255,0.12)',
                   border: '1px solid rgba(255,255,255,0.2)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   color: '#ffffff', cursor: 'pointer',
@@ -301,20 +355,21 @@ export default function Navbar() {
               </button>
             </div>
 
-            <div className="flex-1 overflow-y-auto px-5 py-6 pb-28 space-y-2">
+            <div className="flex-1 overflow-y-auto px-5 py-5 pb-28 space-y-2">
               <div className="grid grid-cols-1 gap-1.5">
-                {directNavItems.map((item) => {
-                  const active = isItemActive(item);
+                {allNavItems.map((item) => {
+                  const active = isActive(item.path);
                   return (
                     <Link
-                      key={item.name}
+                      key={item.path}
                       to={item.path}
                       onClick={() => setIsOpen(false)}
-                      className="flex items-center justify-between px-4 py-3 rounded-xl text-[13px] font-semibold tracking-wide border transition-all uppercase"
+                      className="flex items-center justify-between px-4 py-3 rounded-xl text-[13px] font-semibold tracking-wide border transition-all"
                       style={{
-                        background: active ? 'rgba(139, 26, 74, 0.06)' : C.sand,
+                        background: active ? 'rgba(27,50,82,0.07)' : C.sand,
                         borderColor: active ? C.primary : C.border,
                         color: active ? C.primary : C.soil,
+                        textDecoration: 'none',
                       }}
                     >
                       <span>{item.name}</span>
@@ -322,64 +377,16 @@ export default function Navbar() {
                     </Link>
                   );
                 })}
-
-                {/* Mobile Pages Accordion */}
-                <div className="w-full">
-                  <button
-                    onClick={() => setMobileResourcesOpen(!mobileResourcesOpen)}
-                    className="w-full flex items-center justify-between px-4 py-3 rounded-xl text-[13px] font-semibold uppercase tracking-wide border transition-all cursor-pointer"
-                    style={{
-                      background: C.sand,
-                      borderColor: isDropdownActive() ? C.primary : C.border,
-                      color: isDropdownActive() ? C.primary : C.soil,
-                    }}
-                  >
-                    <span>Pages</span>
-                    <ChevronDown size={14} className={`transition-transform duration-200 ${mobileResourcesOpen ? 'rotate-180' : ''}`} />
-                  </button>
-
-                  <AnimatePresence initial={false}>
-                    {mobileResourcesOpen && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.25, ease: 'easeInOut' }}
-                        className="overflow-hidden mt-1.5 space-y-1.5 pl-3"
-                      >
-                        {dropdownNavItems.map((item) => {
-                          const active = isItemActive(item);
-                          return (
-                            <Link
-                              key={item.name}
-                              to={item.path}
-                              onClick={() => { setIsOpen(false); setMobileResourcesOpen(false); }}
-                              className="flex items-center justify-between px-4 py-2.5 rounded-xl text-[12px] font-semibold uppercase tracking-wide border transition-all"
-                              style={{
-                                background: active ? 'rgba(139, 26, 74, 0.05)' : C.sand,
-                                borderColor: active ? C.primary : C.border,
-                                color: active ? C.primary : C.soil,
-                              }}
-                            >
-                              <span>{item.name}</span>
-                              {active && <span className="w-1.5 h-1.5 rounded-full" style={{ background: C.accent }} />}
-                            </Link>
-                          );
-                        })}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
               </div>
 
-              <div className="pt-4">
+              <div className="pt-3">
                 <Link
-                  to="/contact"
+                  to="/trade-enquiry"
                   onClick={() => setIsOpen(false)}
                   className="flex items-center justify-center gap-2 py-3.5 rounded-full text-sm font-bold uppercase tracking-wider text-white"
-                  style={{ background: 'linear-gradient(135deg, #8B1A4A, #C4956A)' }}
+                  style={{ background: `linear-gradient(135deg, ${C.primary}, ${C.accent})`, textDecoration: 'none' }}
                 >
-                  Contact Us
+                  <ArrowRight size={15} /> Trade Enquiry
                 </Link>
               </div>
             </div>

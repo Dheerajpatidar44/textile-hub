@@ -3,14 +3,14 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus } from 'lucide-react';
 
 const C = {
-  primary: '#8B1A4A',
-  primaryLight: '#B02E65',
-  soil: '#2C1A1A',
-  sand: '#F5EBE0',
-  cream: '#FDF8F4',
-  border: '#E8D8CC',
-  stone: '#7A5E5E',
-  accent: '#C4956A',
+  primary: '#1b3252',
+  primaryLight: '#243b61',
+  soil: '#1a2538',
+  sand: '#f2e8dc',
+  cream: '#fdfbf7',
+  border: '#e6dfd5',
+  stone: '#63738a',
+  accent: '#b08e5b',
 };
 
 const faqs = [
@@ -32,7 +32,7 @@ const faqs = [
   },
   {
     question: "Do you ship internationally?",
-    answer: "Yes, Ananta Fabrics ships globally. International shipping charges and delivery times vary based on the destination and order volume."
+    answer: "Yes, RUHANI WEAVES Textile mall ships globally. International shipping charges and delivery times vary based on the destination and order volume."
   },
   {
     question: "Can I request custom fabric weaving or dyeing?",
@@ -48,17 +48,17 @@ export default function FAQ() {
   };
 
   return (
-    <div style={{ fontFamily: "'DM Sans', sans-serif", background: C.cream, minHeight: '100vh' }} className="pt-[70px] pb-20">
+    <div style={{ fontFamily: "'Outfit', sans-serif", background: C.cream, minHeight: '100vh' }} className="pt-[124px] pb-20">
 
       {/* Page Title */}
-      <div style={{ background: '#ffffff', borderBottom: `1px solid ${C.border}`, padding: '20px 0 20px' }}>
+      <div style={{ background: '#ffffff', borderBottom: `1px solid ${C.border}`, padding: '14px 0 16px' }}>
         <div className="max-w-3xl mx-auto px-6">
           <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(26px, 3.5vw, 38px)', fontWeight: 700, color: C.soil, margin: 0 }}>
             Frequently Asked Questions
           </h1>
           <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginTop: 8 }}>
             <div style={{ width: 32, height: 2, background: C.primary, borderRadius: 2 }} />
-            <div style={{ width: 60, height: 1, background: 'rgba(139,26,74,0.2)', borderRadius: 1 }} />
+            <div style={{ width: 60, height: 1, background: 'rgba(27,50,82,0.2)', borderRadius: 1 }} />
           </div>
         </div>
       </div>
@@ -99,7 +99,7 @@ export default function FAQ() {
                   <div style={{
                     flexShrink: 0, width: 32, height: 32, borderRadius: '50%',
                     display: 'flex', alignItems: 'center', justifyContainer: 'center',
-                    background: isOpen ? C.accent : 'rgba(196, 149, 106, 0.06)',
+                    background: isOpen ? C.accent : 'rgba(176,142,91, 0.06)',
                     transition: 'all 0.3s ease',
                   }} className="flex items-center justify-center">
                     {isOpen ? <Minus size={15} color="white" /> : <Plus size={15} color={C.accent} />}

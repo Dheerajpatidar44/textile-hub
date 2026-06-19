@@ -2,14 +2,14 @@ import { motion } from 'framer-motion';
 import { Clock } from 'lucide-react';
 
 const C = {
-  primary: '#8B1A4A',
-  primaryLight: '#B02E65',
-  soil: '#2C1A1A',
-  sand: '#F5EBE0',
-  cream: '#FDF8F4',
-  border: '#E8D8CC',
-  stone: '#7A5E5E',
-  accent: '#C4956A',
+  primary: '#1b3252',
+  primaryLight: '#2c4a75',
+  soil: '#1a2538',
+  sand: '#f5ede0',
+  cream: '#fdfbf7',
+  border: '#e6dfd5',
+  stone: '#5a6575',
+  accent: '#b08e5b',
 };
 
 const upcomingAuctions = [
@@ -18,7 +18,7 @@ const upcomingAuctions = [
     title: "Surplus Silk Brocade Fabric",
     description: "End of season premium brocade fabric. Excellent condition, suitable for ethnic wear manufacturing.",
     quantity: "450 Meters",
-    basePrice: "â‚¹1,80,000",
+    basePrice: "₹1,80,000",
     startDate: "Oct 20, 2026 - 10:00 AM",
     status: "Upcoming",
     image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=400&auto=format&fit=crop&q=60"
@@ -28,7 +28,7 @@ const upcomingAuctions = [
     title: "Assorted Linen Rolls (B-Grade)",
     description: "Minor weave variations. Ideal for lining or budget upholstery projects. Sold as a single lot.",
     quantity: "1,200 Meters",
-    basePrice: "â‚¹85,000",
+    basePrice: "₹85,000",
     startDate: "Oct 25, 2026 - 11:30 AM",
     status: "Upcoming",
     image: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=400&auto=format&fit=crop&q=60"
@@ -37,7 +37,7 @@ const upcomingAuctions = [
 
 export default function EAuction() {
   return (
-    <div style={{ fontFamily: "'DM Sans', sans-serif", background: C.cream, minHeight: '100vh' }} className="pt-[70px] pb-20">
+    <div style={{ fontFamily: "'Outfit', sans-serif", background: C.cream, minHeight: '100vh' }} className="pt-[124px] pb-20">
 
       {/* Page Title */}
       <div style={{ background: '#ffffff', borderBottom: `1px solid ${C.border}`, padding: '20px 0 20px' }}>
@@ -46,8 +46,8 @@ export default function EAuction() {
             e-Auction
           </h1>
           <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginTop: 8 }}>
-            <div style={{ width: 32, height: 2, background: C.primary, borderRadius: 2 }} />
-            <div style={{ width: 60, height: 1, background: 'rgba(139,26,74,0.2)', borderRadius: 1 }} />
+            <div style={{ width: 32, height: 2, background: C.accent, borderRadius: 2 }} />
+            <div style={{ width: 60, height: 1, background: 'rgba(27,50,82,0.2)', borderRadius: 1 }} />
           </div>
         </div>
       </div>
@@ -57,8 +57,6 @@ export default function EAuction() {
         <p style={{ fontSize: 15, color: C.stone, marginBottom: 40, fontWeight: 400, maxWidth: 800, lineHeight: 1.6 }}>
           Participate in our transparent bidding platform to procure surplus inventory, special lots, and discontinued lines at competitive prices.
         </p>
-
-
 
         {/* Upcoming Auctions */}
         <div className="text-left mb-6">
@@ -82,7 +80,7 @@ export default function EAuction() {
               }}
               onMouseEnter={e => {
                 e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 12px 30px rgba(139, 26, 74, 0.08)';
+                e.currentTarget.style.boxShadow = '0 12px 30px rgba(27, 50, 82, 0.08)';
               }}
               onMouseLeave={e => {
                 e.currentTarget.style.transform = 'translateY(0)';
@@ -122,7 +120,7 @@ export default function EAuction() {
                 <button style={{
                   width: '100%', padding: '12px', borderRadius: 10,
                   background: C.primary, color: 'white', border: 'none',
-                  fontSize: 13, fontWeight: 500, fontFamily: "'DM Sans', sans-serif",
+                  fontSize: 13, fontWeight: 500, fontFamily: "'Outfit', sans-serif",
                   cursor: 'pointer', transition: 'all 0.2s'
                 }}
                   onMouseEnter={e => e.currentTarget.style.background = C.accent}
@@ -134,8 +132,6 @@ export default function EAuction() {
             </motion.div>
           ))}
         </div>
-
-
 
       </div>
     </div>

@@ -1,10 +1,10 @@
-﻿import React from 'react';
+import React from 'react';
 
 const COLORS = { 
   primary: '#25D366',
-  bg: '#FDF8F4',
-  border: '#E8D8CC',
-  textDark: '#2C1A1A'
+  bg: '#fdfbf7',
+  border: '#e6dfd5',
+  textDark: '#1a2538'
 };
 
 const FloatingWhatsApp = () => {
@@ -23,7 +23,7 @@ const FloatingWhatsApp = () => {
           background: COLORS.bg,
           color: COLORS.textDark,
           border: `1px solid ${COLORS.border}`,
-          fontFamily: "'DM Sans', sans-serif",
+          fontFamily: "'Outfit', sans-serif",
         }}
       >
         Chat on WhatsApp

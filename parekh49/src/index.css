@@ -1,30 +1,30 @@
 @import "tailwindcss";
 
 @theme {
-  /* ── Ananta Fabrics Color Palette ── */
-  --color-primary: #8B1A4A;        /* Deep Rose/Wine */
-  --color-primary-light: #B02E65;  /* Light Rose */
-  --color-primary-dark: #5E0F30;   /* Darker Wine */
-  --color-accent: #C4956A;         /* Warm Gold */
-  --color-accent-light: #F0DCC8;   /* Soft Gold/Peach */
-  --color-sand: #F5EBE0;           /* Warm Sand */
-  --color-linen: #FDF8F4;          /* Warm Cream */
-  --color-cream: #FFFAF6;          /* Light Cream */
-  --color-sage: #F2E8DF;           /* Warm Muted Tone */
-  --color-soil: #2C1A1A;           /* Deep Warm Brown Text */
-  --color-mist: #E8D8CC;           /* Warm Soft Border */
-  --color-stone: #7A5E5E;          /* Muted Warm Text */
+  /* ── RUHANI WEAVES Color Palette ── */
+  --color-primary: #1b3252;        /* Deep Navy Blue */
+  --color-primary-light: #243b61;  /* Light Navy */
+  --color-primary-dark: #0e192c;   /* Dark Navy */
+  --color-accent: #b08e5b;         /* Warm Gold */
+  --color-accent-light: #ebdcb9;   /* Soft Gold */
+  --color-sand: #f2e8dc;           /* Warm Cream/Sand */
+  --color-linen: #fdfbf7;          /* Premium Warm Ivory */
+  --color-cream: #fcf9f2;          /* Soft Cream */
+  --color-sage: #e3dbd3;           /* Muted Taupe */
+  --color-soil: #1a2538;           /* Charcoal Navy Text */
+  --color-mist: #e6dfd5;           /* Soft Beige/Gold Border */
+  --color-stone: #63738a;          /* Slate Blue/Gray Text */
 
   /* ── Font Family ── */
   --font-display: 'Playfair Display', serif;
-  --font-sans: 'DM Sans', sans-serif;
+  --font-sans: 'Outfit', sans-serif;
 }
 
 @layer base {
   body {
-    font-family: 'DM Sans', sans-serif;
-    background-color: #FDF8F4;
-    color: #2C1A1A;
+    font-family: 'Outfit', sans-serif;
+    background-color: #fdfbf7;
+    color: #1a2538;
     margin: 0;
     padding: 0;
     -webkit-font-smoothing: antialiased;
@@ -34,7 +34,7 @@
   h1, h2, h3, h4, h5, h6, .display-title {
     font-family: 'Playfair Display', serif !important;
     font-weight: 600;
-    color: #2C1A1A;
+    color: #1a2538;
   }
 
   * {
@@ -42,7 +42,7 @@
   }
 
   p, span, a, button, input, textarea, select, label {
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Outfit', sans-serif;
   }
 }
 
@@ -51,14 +51,14 @@
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #F5EBE0;
+  background: #f2e8dc;
 }
 ::-webkit-scrollbar-thumb {
-  background: #C4956A;
+  background: #b08e5b;
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #A87850;
+  background: #967545;
 }
 
 /* ── Keyframe Animations ── */
@@ -94,9 +94,9 @@
   from { width: 0%; }
   to   { width: 100%; }
 }
-@keyframes roseGlow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(139, 26, 74, 0.3); }
-  50%       { box-shadow: 0 0 20px 8px rgba(139, 26, 74, 0); }
+@keyframes navyGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(27, 50, 82, 0.3); }
+  50%       { box-shadow: 0 0 20px 8px rgba(27, 50, 82, 0); }
 }
 @keyframes ticker {
   0%   { transform: translateX(0); }
@@ -126,7 +126,7 @@
 }
 
 .shimmer-text {
-  background: linear-gradient(90deg, #8B1A4A 0%, #C4956A 40%, #8B1A4A 60%, #B02E65 100%);
+  background: linear-gradient(90deg, #1b3252 0%, #b08e5b 40%, #1b3252 60%, #243b61 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -136,7 +136,7 @@
 .fade-in-up { animation: fadeInUp 0.7s ease forwards; }
 .fade-in-scale { animation: fadeInScale 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
 .float-up { animation: floatUp 3s ease-in-out infinite; }
-.gold-glow { animation: roseGlow 2.5s ease-in-out infinite; }
+.gold-glow { animation: navyGlow 2.5s ease-in-out infinite; }
 .display-title { font-family: 'Playfair Display', serif !important; }
 .serif-title { font-family: 'Playfair Display', serif !important; }
 
@@ -206,25 +206,25 @@
 }
 .card-hover:hover {
   transform: translateY(-4px);
-  box-shadow: 0 16px 40px rgba(139, 26, 74, 0.12);
+  box-shadow: 0 16px 40px rgba(27, 50, 82, 0.12);
 }
 
 /* ── Custom Divider ── */
 .divider-gold {
   width: 48px;
   height: 2px;
-  background: linear-gradient(90deg, #C4956A, #E0B88A);
+  background: linear-gradient(90deg, #b08e5b, #d4b07a);
   border-radius: 2px;
 }
 
 /* ── Section Label ── */
 .section-label {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #C4956A;
+  color: #b08e5b;
 }
 
 /* ── Preloader ── */
@@ -239,10 +239,10 @@
   width: 100%;
   padding: 12px 0px;
   border: none;
-  border-bottom: 2px solid rgba(196, 149, 106, 0.25);
+  border-bottom: 2px solid rgba(176, 142, 91, 0.25);
   background: transparent;
-  color: #2C1A1A;
-  font-family: 'DM Sans', sans-serif;
+  color: #1a2538;
+  font-family: 'Outfit', sans-serif;
   font-size: 15px;
   font-weight: 500;
   outline: none;
@@ -250,17 +250,17 @@
   transition: border-color 0.3s ease;
 }
 .form-input:focus {
-  border-bottom-color: #C4956A;
+  border-bottom-color: #b08e5b;
 }
 .form-input::placeholder {
-  color: #7A5E5E;
+  color: #63738a;
   font-weight: 400;
 }
 
 /* ── Page Hero Banner ── */
 .page-hero {
-  background: linear-gradient(135deg, #F5EBE0 0%, #EDE0D4 60%, #E5D3C4 100%);
-  border-bottom: 1px solid #E8D8CC;
+  background: linear-gradient(135deg, #f2e8dc 0%, #e8ddd2 60%, #ddd3c7 100%);
+  border-bottom: 1px solid #e6dfd5;
   position: relative;
   overflow: hidden;
 }
@@ -269,16 +269,16 @@
   position: absolute;
   top: 0; right: 0;
   width: 300px; height: 100%;
-  background: radial-gradient(ellipse at right, rgba(139, 26, 74, 0.08), transparent 70%);
+  background: radial-gradient(ellipse at right, rgba(27, 50, 82, 0.08), transparent 70%);
 }
 
 /* ── Pulse animation for WhatsApp / social ── */
-@keyframes rosePulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(139, 26, 74, 0.3); }
-  50%       { box-shadow: 0 0 0 10px rgba(139, 26, 74, 0); }
+@keyframes navyPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(27, 50, 82, 0.3); }
+  50%       { box-shadow: 0 0 0 10px rgba(27, 50, 82, 0); }
 }
 .green-pulse {
-  animation: rosePulse 2s ease-in-out infinite;
+  animation: navyPulse 2s ease-in-out infinite;
 }
 
 /* ── Category Card ── */
@@ -287,7 +287,7 @@
 }
 .category-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 50px rgba(139, 26, 74, 0.14);
+  box-shadow: 0 20px 50px rgba(27, 50, 82, 0.14);
 }
 
 /* ── Product Card ── */
@@ -296,7 +296,7 @@
 }
 .product-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 36px rgba(139, 26, 74, 0.12);
+  box-shadow: 0 12px 36px rgba(27, 50, 82, 0.12);
 }
 
 /* ── Categories Scrollbar ── */

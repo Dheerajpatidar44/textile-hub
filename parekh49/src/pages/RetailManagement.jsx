@@ -2,14 +2,14 @@ import { motion } from 'framer-motion';
 import { Mail } from 'lucide-react';
 
 const C = {
-  primary: '#8B1A4A',
-  primaryLight: '#B02E65',
-  soil: '#2C1A1A',
-  sand: '#F5EBE0',
-  cream: '#FDF8F4',
-  border: '#E8D8CC',
-  stone: '#7A5E5E',
-  accent: '#C4956A',
+  primary: '#1b3252',
+  primaryLight: '#243b61',
+  soil: '#1a2538',
+  sand: '#f2e8dc',
+  cream: '#fdfbf7',
+  border: '#e6dfd5',
+  stone: '#63738a',
+  accent: '#b08e5b',
 };
 
 const teamMembers = [
@@ -20,17 +20,17 @@ const teamMembers = [
 
 export default function RetailManagement() {
   return (
-    <div style={{ fontFamily: "'DM Sans', sans-serif", background: C.cream, minHeight: '100vh' }} className="pt-[70px] pb-20">
+    <div style={{ fontFamily: "'Outfit', sans-serif", background: C.cream, minHeight: '100vh' }} className="pt-[124px] pb-20">
 
       {/* Page Title */}
-      <div style={{ background: '#ffffff', borderBottom: `1px solid ${C.border}`, padding: '20px 0 20px' }}>
+      <div style={{ background: '#ffffff', borderBottom: `1px solid ${C.border}`, padding: '14px 0 16px' }}>
         <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14">
           <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(26px, 3.5vw, 38px)', fontWeight: 700, color: C.soil, margin: 0 }}>
             Our Retail Management
           </h1>
           <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginTop: 8 }}>
             <div style={{ width: 32, height: 2, background: C.primary, borderRadius: 2 }} />
-            <div style={{ width: 60, height: 1, background: 'rgba(139,26,74,0.2)', borderRadius: 1 }} />
+            <div style={{ width: 60, height: 1, background: 'rgba(27,50,82,0.2)', borderRadius: 1 }} />
           </div>
         </div>
       </div>
@@ -38,7 +38,7 @@ export default function RetailManagement() {
       <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14 pt-10">
 
         <p style={{ fontSize: 15, color: C.stone, marginBottom: 36, fontWeight: 400, maxWidth: 560, lineHeight: 1.7 }}>
-          Ananta Fabrics is administered by highly skilled, experienced and qualified management with decades of expertise in the textile industry.
+          RUHANI WEAVES Textile mall is administered by highly skilled, experienced and qualified management with decades of expertise in the textile industry.
         </p>
 
         {/* Team Cards */}
@@ -58,7 +58,7 @@ export default function RetailManagement() {
               }}
               onMouseEnter={e => {
                 e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 12px 30px rgba(139,26,74,0.08)';
+                e.currentTarget.style.boxShadow = '0 12px 30px rgba(27,50,82,0.08)';
               }}
               onMouseLeave={e => {
                 e.currentTarget.style.transform = 'translateY(0)';
@@ -72,7 +72,7 @@ export default function RetailManagement() {
                   style={{
                     width: 90, height: 90, borderRadius: '50%',
                     objectFit: 'cover',
-                    border: `3px solid rgba(196,149,106,0.2)`,
+                    border: `3px solid rgba(176,142,91,0.2)`,
                     display: 'block',
                   }}
                 />
@@ -97,17 +97,17 @@ export default function RetailManagement() {
               </p>
 
               <a
-                href={`mailto:${member.name.toLowerCase().replace(' ', '')}@anantafabrics.com`}
+                href={`mailto:${member.name.toLowerCase().replace(' ', '')}@ruhaniweaves.com`}
                 style={{
                   display: 'inline-flex', alignItems: 'center', gap: 6,
                   padding: '8px 16px', borderRadius: 10,
                   fontSize: 12, color: C.primary, textDecoration: 'none', fontWeight: 500,
-                  background: 'rgba(139,26,74,0.06)',
-                  border: `1px solid rgba(139,26,74,0.15)`,
+                  background: 'rgba(27,50,82,0.06)',
+                  border: `1px solid rgba(27,50,82,0.15)`,
                   transition: 'all 0.2s ease',
                 }}
                 onMouseEnter={e => { e.currentTarget.style.background = C.primary; e.currentTarget.style.color = 'white'; e.currentTarget.style.borderColor = C.primary; }}
-                onMouseLeave={e => { e.currentTarget.style.background = 'rgba(139,26,74,0.06)'; e.currentTarget.style.color = C.primary; e.currentTarget.style.borderColor = 'rgba(139,26,74,0.15)'; }}
+                onMouseLeave={e => { e.currentTarget.style.background = 'rgba(27,50,82,0.06)'; e.currentTarget.style.color = C.primary; e.currentTarget.style.borderColor = 'rgba(27,50,82,0.15)'; }}
               >
                 <Mail size={13} /> Contact
               </a>

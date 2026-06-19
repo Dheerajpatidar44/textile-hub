@@ -2,14 +2,14 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
 const C = {
-  primary: '#8B1A4A',
-  primaryLight: '#B02E65',
-  soil: '#2C1A1A',
-  sand: '#F5EBE0',
-  cream: '#FDF8F4',
-  border: '#E8D8CC',
-  stone: '#7A5E5E',
-  accent: '#C4956A',
+  primary: '#1b3252',
+  primaryLight: '#243b61',
+  soil: '#1a2538',
+  sand: '#f2e8dc',
+  cream: '#fdfbf7',
+  border: '#e6dfd5',
+  stone: '#63738a',
+  accent: '#b08e5b',
 };
 
 const posts = [
@@ -21,15 +21,15 @@ const posts = [
 
 export default function Blog() {
   return (
-    <div style={{ fontFamily: "'DM Sans', sans-serif", background: C.cream, minHeight: '100vh' }} className="pt-[70px] pb-20">
+    <div style={{ fontFamily: "'Outfit', sans-serif", background: C.cream, minHeight: '100vh' }} className="pt-[124px] pb-20">
 
       {/* Page Title */}
-      <div style={{ background: '#ffffff', borderBottom: `1px solid ${C.border}`, padding: '20px 0 20px' }}>
+      <div style={{ background: '#ffffff', borderBottom: `1px solid ${C.border}`, padding: '14px 0 16px' }}>
         <div className="max-w-[90rem] mx-auto px-6 lg:px-14">
           <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(26px, 3.5vw, 38px)', fontWeight: 700, color: C.soil, margin: 0 }}>Blog & Insights</h1>
           <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginTop: 8 }}>
             <div style={{ width: 32, height: 2, background: C.primary, borderRadius: 2 }} />
-            <div style={{ width: 60, height: 1, background: 'rgba(139,26,74,0.2)', borderRadius: 1 }} />
+            <div style={{ width: 60, height: 1, background: 'rgba(27,50,82,0.2)', borderRadius: 1 }} />
           </div>
         </div>
       </div>
@@ -52,7 +52,7 @@ export default function Blog() {
               }}
               onMouseEnter={e => {
                 e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 12px 30px rgba(139, 26, 74, 0.08)';
+                e.currentTarget.style.boxShadow = '0 12px 30px rgba(27, 50, 82, 0.08)';
               }}
               onMouseLeave={e => {
                 e.currentTarget.style.transform = 'translateY(0)';
@@ -78,7 +78,7 @@ export default function Blog() {
                   {post.title}
                 </h3>
                 <p style={{ fontSize: 12, color: C.stone, margin: '0 0 16px', fontWeight: 500 }}>By {post.author}</p>
-                <div style={{ marginTop: 'auto', paddingTop: 16, borderTop: `1px solid rgba(196,149,106,0.15)` }}>
+                <div style={{ marginTop: 'auto', paddingTop: 16, borderTop: `1px solid rgba(176,142,91,0.15)` }}>
                   <span style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 12, color: C.primary, fontWeight: 700, cursor: 'pointer' }}>
                     Read More <ArrowRight size={13} />
                   </span>

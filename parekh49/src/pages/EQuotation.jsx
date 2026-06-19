@@ -2,14 +2,14 @@ import { motion } from 'framer-motion';
 import { ClipboardCheck, FileText, Send, Mail, Calendar, Package } from 'lucide-react';
 
 const C = {
-  primary: '#8B1A4A',
-  primaryLight: '#B02E65',
-  soil: '#2C1A1A',
-  sand: '#F5EBE0',
-  cream: '#FDF8F4',
-  border: '#E8D8CC',
-  stone: '#7A5E5E',
-  accent: '#C4956A',
+  primary: '#1b3252',
+  primaryLight: '#2c4a75',
+  soil: '#1a2538',
+  sand: '#f5ede0',
+  cream: '#fdfbf7',
+  border: '#e6dfd5',
+  stone: '#5a6575',
+  accent: '#b08e5b',
 };
 
 const quotations = [
@@ -38,7 +38,7 @@ const quotations = [
 
 export default function EQuotation() {
   return (
-    <div style={{ fontFamily: "'DM Sans', sans-serif", background: C.cream, minHeight: '100vh' }} className="pt-[70px] pb-20">
+    <div style={{ fontFamily: "'Outfit', sans-serif", background: C.cream, minHeight: '100vh' }} className="pt-[124px] pb-20">
 
       {/* Page Title */}
       <div style={{ background: '#ffffff', borderBottom: `1px solid ${C.border}`, padding: '20px 0 20px' }}>
@@ -47,8 +47,8 @@ export default function EQuotation() {
             e-Quotation
           </h1>
           <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginTop: 8 }}>
-            <div style={{ width: 32, height: 2, background: C.primary, borderRadius: 2 }} />
-            <div style={{ width: 60, height: 1, background: 'rgba(139,26,74,0.2)', borderRadius: 1 }} />
+            <div style={{ width: 32, height: 2, background: C.accent, borderRadius: 2 }} />
+            <div style={{ width: 60, height: 1, background: 'rgba(27,50,82,0.2)', borderRadius: 1 }} />
           </div>
         </div>
       </div>
@@ -83,7 +83,7 @@ export default function EQuotation() {
                 }}
                 onMouseEnter={e => {
                   e.currentTarget.style.transform = 'translateY(-4px)';
-                  e.currentTarget.style.boxShadow = '0 12px 30px rgba(139, 26, 74, 0.08)';
+                  e.currentTarget.style.boxShadow = '0 12px 30px rgba(27, 50, 82, 0.08)';
                 }}
                 onMouseLeave={e => {
                   e.currentTarget.style.transform = 'translateY(0)';
@@ -91,11 +91,11 @@ export default function EQuotation() {
                 }}
               >
                 {/* ID + date row */}
-                <div style={{ display: 'flex', alignItems: 'center', justify: 'space-between', marginBottom: 14 }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 14 }}>
                   <span style={{
                     fontSize: 9, textTransform: 'uppercase', letterSpacing: '0.15em',
                     padding: '4px 12px', borderRadius: 20,
-                    background: 'rgba(196, 149, 106, 0.1)',
+                    background: 'rgba(176, 142, 91, 0.1)',
                     color: C.accent, fontWeight: 600,
                   }}>
                     {item.id}
@@ -114,7 +114,7 @@ export default function EQuotation() {
                 </p>
 
                 <div style={{
-                  display: 'flex', alignItems: 'center', justify: 'space-between',
+                  display: 'flex', alignItems: 'center', justifyContent: 'space-between',
                   padding: '12px 14px', borderRadius: 10,
                   background: C.sand, marginBottom: 14,
                 }}>
@@ -132,7 +132,7 @@ export default function EQuotation() {
                     background: C.primary, color: 'white',
                     border: 'none', borderRadius: 10,
                     fontSize: 13, fontWeight: 500,
-                    cursor: 'pointer', fontFamily: "'DM Sans', sans-serif",
+                    cursor: 'pointer', fontFamily: "'Outfit', sans-serif",
                     transition: 'all 0.2s ease',
                   }}
                   onMouseEnter={e => e.currentTarget.style.background = C.accent}
@@ -156,7 +156,7 @@ export default function EQuotation() {
             background: 'white', borderRadius: 20,
             border: `1px solid ${C.border}`,
             overflow: 'hidden',
-            boxShadow: '0 4px 20px rgba(139, 26, 74, 0.04)',
+            boxShadow: '0 4px 20px rgba(27, 50, 82, 0.04)',
           }}>
             {/* Form header */}
             <div style={{
@@ -167,9 +167,9 @@ export default function EQuotation() {
             }} className="text-left">
               <div style={{
                 width: 46, height: 46, borderRadius: 12,
-                background: 'rgba(196, 149, 106, 0.15)',
-                border: `1px solid rgba(196, 149, 106, 0.35)`,
-                display: 'flex', alignItems: 'center', justify: 'center',
+                background: 'rgba(176, 142, 91, 0.15)',
+                border: `1px solid rgba(176, 142, 91, 0.35)`,
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
               }}>
                 <FileText size={20} color={C.accent} />
               </div>
@@ -233,7 +233,7 @@ export default function EQuotation() {
                   background: C.accent, color: 'white',
                   border: 'none', borderRadius: 12,
                   fontSize: 14, fontWeight: 500,
-                  cursor: 'pointer', fontFamily: "'DM Sans', sans-serif",
+                  cursor: 'pointer', fontFamily: "'Outfit', sans-serif",
                   transition: 'all 0.2s ease',
                 }}
                   onMouseEnter={e => e.currentTarget.style.background = C.primary}
@@ -242,10 +242,10 @@ export default function EQuotation() {
                   <Send size={15} /> Submit Quotation Request
                 </button>
 
-                <div style={{ textAlign: 'center', display: 'flex', alignItems: 'center', justify: 'center', gap: 8 }}>
+                <div style={{ textAlign: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8 }}>
                   <Mail size={13} color={C.accent} />
-                  <a href="mailto:hello@anantafabrics.com" style={{ fontSize: 12, color: C.primary, fontWeight: 400, textDecoration: 'none' }}>
-                    hello@anantafabrics.com
+                  <a href="mailto:hello@ruhaniweaves.com" style={{ fontSize: 12, color: C.primary, fontWeight: 400, textDecoration: 'none' }}>
+                    hello@ruhaniweaves.com
                   </a>
                 </div>
               </form>
@@ -256,6 +256,3 @@ export default function EQuotation() {
     </div>
   );
 }
-
-
-

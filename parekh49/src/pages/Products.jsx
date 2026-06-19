@@ -1,17 +1,16 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Filter } from 'lucide-react';
 
 const C = {
-  primary: '#8B1A4A',
-  primaryLight: '#B02E65',
-  accent: '#C4956A',
-  bg: '#FDF8F4',
-  sand: '#F5EBE0',
-  border: '#E8D8CC',
-  soil: '#2C1A1A',
-  stone: '#7A5E5E',
+  primary: '#1b3252',
+  primaryLight: '#243b61',
+  accent: '#b08e5b',
+  bg: '#fdfbf7',
+  sand: '#f2e8dc',
+  border: '#e6dfd5',
+  soil: '#1a2538',
+  stone: '#63738a',
 };
 
 const categories = [
@@ -55,26 +54,27 @@ export default function Products() {
   });
 
   return (
-    <div style={{ fontFamily: "'DM Sans', sans-serif", background: C.bg, minHeight: '100vh' }} className="pt-[58px]">
+    <div style={{ fontFamily: "'Outfit', sans-serif", background: C.bg, minHeight: '100vh' }} className="pt-[124px]">
 
       {/* Page Title */}
-      <div style={{ background: '#ffffff', borderBottom: `1px solid ${C.border}`, padding: '20px 0 20px' }}>
+      <div style={{ background: '#ffffff', borderBottom: `1px solid ${C.border}`, padding: '14px 0 16px' }}>
         <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14">
-          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(26px, 3.5vw, 38px)', fontWeight: 700, color: C.soil, margin: 0 }}>
+          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(24px, 3.5vw, 36px)', fontWeight: 700, color: C.soil, margin: 0 }}>
             Explore Our Collection
           </h1>
           <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginTop: 8 }}>
-            <div style={{ width: 32, height: 2, background: C.primary, borderRadius: 2 }} />
-            <div style={{ width: 60, height: 1, background: 'rgba(139,26,74,0.2)', borderRadius: 1 }} />
+            <div style={{ width: 32, height: 2, background: C.accent, borderRadius: 2 }} />
+            <div style={{ width: 7, height: 7, background: C.accent, transform: 'rotate(45deg)', borderRadius: 1 }} />
+            <div style={{ width: 60, height: 1, background: 'rgba(176,142,91,0.3)', borderRadius: 1 }} />
           </div>
         </div>
       </div>
 
       <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14 pt-8 pb-20">
-        
-        {/* Top Category Chips Container */}
-        <div style={{ background: 'white', border: `1px solid ${C.border}`, borderRadius: 16, padding: '20px', marginBottom: 28 }}>
-          <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 15, fontWeight: 700, color: C.soil, marginBottom: 14, borderBottom: `1px solid ${C.border}`, paddingBottom: 8 }}>
+
+        {/* Category Chips */}
+        <div style={{ background: 'white', border: `1px solid ${C.border}`, borderRadius: 14, padding: '18px', marginBottom: 28 }}>
+          <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 14, fontWeight: 700, color: C.soil, marginBottom: 12, borderBottom: `1px solid ${C.border}`, paddingBottom: 8, margin: '0 0 14px' }}>
             Categories
           </h3>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
@@ -85,30 +85,16 @@ export default function Products() {
                   key={cat}
                   onClick={() => handleCategoryChange(cat)}
                   style={{
-                    padding: '8px 16px',
-                    borderRadius: 20,
-                    fontSize: 12,
-                    fontWeight: 600,
-                    cursor: 'pointer',
-                    transition: 'all 0.2s ease',
+                    padding: '7px 16px',
+                    borderRadius: 20, fontSize: 12, fontWeight: 600,
+                    cursor: 'pointer', transition: 'all 0.2s ease',
                     border: `1.5px solid ${active ? C.primary : C.border}`,
                     background: active ? C.primary : 'transparent',
                     color: active ? '#ffffff' : C.stone,
+                    fontFamily: "'Outfit', sans-serif",
                   }}
-                  onMouseEnter={e => {
-                    if (!active) {
-                      e.currentTarget.style.background = 'rgba(139,26,74,0.04)';
-                      e.currentTarget.style.borderColor = C.primary;
-                      e.currentTarget.style.color = C.primary;
-                    }
-                  }}
-                  onMouseLeave={e => {
-                    if (!active) {
-                      e.currentTarget.style.background = 'transparent';
-                      e.currentTarget.style.borderColor = C.border;
-                      e.currentTarget.style.color = C.stone;
-                    }
-                  }}
+                  onMouseEnter={e => { if (!active) { e.currentTarget.style.background = 'rgba(27,50,82,0.05)'; e.currentTarget.style.borderColor = C.primary; e.currentTarget.style.color = C.primary; } }}
+                  onMouseLeave={e => { if (!active) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderColor = C.border; e.currentTarget.style.color = C.stone; } }}
                 >
                   {cat}
                 </button>
@@ -117,7 +103,7 @@ export default function Products() {
           </div>
         </div>
 
-        {/* Content Section */}
+        {/* Products Grid */}
         <div className="w-full">
           <div className="flex items-center justify-between mb-6">
             <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 20, fontWeight: 700, color: C.soil, margin: 0 }}>
@@ -129,7 +115,7 @@ export default function Products() {
           </div>
 
           {filteredProducts.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
               {filteredProducts.map((product, index) => (
                 <motion.div
                   key={product.id}
@@ -138,14 +124,14 @@ export default function Products() {
                   transition={{ delay: Math.min(index * 0.04, 0.3) }}
                   className="text-left"
                   style={{
-                    borderRadius: 12, overflow: 'hidden',
+                    borderRadius: 14, overflow: 'hidden',
                     background: 'white', border: `1px solid ${C.border}`,
                     transition: 'transform 0.3s ease, box-shadow 0.3s ease',
                   }}
-                  onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 12px 30px rgba(139,26,74,0.08)'; }}
+                  onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-5px)'; e.currentTarget.style.boxShadow = '0 14px 36px rgba(27,50,82,0.10)'; }}
                   onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none'; }}
                 >
-                  <div style={{ height: 230, overflow: 'hidden', position: 'relative' }}>
+                  <div style={{ height: 200, overflow: 'hidden', position: 'relative' }}>
                     <img src={product.image} alt={product.name} loading="lazy"
                       style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.6s ease', display: 'block' }}
                       onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.05)'}
@@ -153,17 +139,17 @@ export default function Products() {
                     />
                   </div>
                   <div style={{ padding: '14px 16px', borderTop: `1px solid ${C.border}` }}>
-                    <span style={{ fontSize: 9, textTransform: 'uppercase', letterSpacing: '0.18em', color: C.accent, fontWeight: 600, display: 'block', marginBottom: 5 }}>
+                    <span style={{ fontSize: 9, textTransform: 'uppercase', letterSpacing: '0.18em', color: C.accent, fontWeight: 700, display: 'block', marginBottom: 5 }}>
                       {product.category}
                     </span>
-                    <h3 style={{ fontSize: 14, fontWeight: 600, color: C.soil, margin: '0 0 12px', lineHeight: 1.4, fontFamily: "'Playfair Display', serif" }}>
+                    <h3 style={{ fontSize: 14, fontWeight: 600, color: C.soil, margin: '0 0 14px', lineHeight: 1.4, fontFamily: "'Playfair Display', serif" }}>
                       {product.name}
                     </h3>
                     <button
                       style={{
                         width: '100%', padding: '9px 14px',
                         borderRadius: 8, fontSize: 12, fontWeight: 500,
-                        cursor: 'pointer', fontFamily: "'DM Sans', sans-serif",
+                        cursor: 'pointer', fontFamily: "'Outfit', sans-serif",
                         border: `1.5px solid ${C.border}`,
                         background: 'transparent', color: C.stone,
                         transition: 'all 0.2s ease',
@@ -179,7 +165,6 @@ export default function Products() {
             </div>
           ) : (
             <div style={{ textAlign: 'center', padding: '80px 24px', borderRadius: 16, background: 'white', border: `1px solid ${C.border}` }}>
-              <Filter size={44} style={{ margin: '0 auto 16px', color: C.primaryLight, display: 'block', opacity: 0.6 }} />
               <p style={{ fontFamily: "'Playfair Display', serif", fontSize: 20, color: C.soil, marginBottom: 20 }}>
                 No products found for "{activeCategory}"
               </p>
@@ -189,7 +174,7 @@ export default function Products() {
                   padding: '11px 24px', borderRadius: 10,
                   background: C.primary, color: 'white',
                   border: 'none', fontSize: 13, fontWeight: 500,
-                  cursor: 'pointer', fontFamily: "'DM Sans', sans-serif",
+                  cursor: 'pointer', fontFamily: "'Outfit', sans-serif",
                   transition: 'all 0.2s ease',
                 }}
                 onMouseEnter={e => e.currentTarget.style.background = C.accent}
