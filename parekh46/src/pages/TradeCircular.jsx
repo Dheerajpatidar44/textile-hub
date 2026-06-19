@@ -5,11 +5,11 @@ const C = {
   primary: '#111E38',        // Deep Navy Blue
   primaryDark: '#0B1426',
   soil: '#111E38',
-  sand: '#FAF9F5',
-  cream: '#FAF9F5',
-  border: '#EAEAEA',
-  stone: '#5A6F8F',
-  accent: '#DE5B49',         // Terracotta Red
+  sand: '#FAFBFD',
+  cream: '#FAFBFD',
+  border: '#E2E8F0',
+  stone: '#64748B',
+  accent: '#3B82F6',         // Periwinkle/Royal Blue Highlight
 };
 
 const circulars = [
@@ -26,8 +26,8 @@ const TradeCircular = () => {
 
         {/* Page Title Section */}
         <div className="text-center mb-6 mt-1">
-          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '48px', fontWeight: 500, color: C.soil, margin: 0 }}>Trade Circular</h1>
-          <div style={{ width: 40, height: 1.5, background: C.accent, margin: '8px auto 0' }} />
+          <h1 style={{ fontFamily: "'Outfit', sans-serif", fontSize: '38px', fontWeight: 800, color: C.soil, margin: 0 }}>Trade Circular</h1>
+          <div style={{ width: 40, height: 4, background: C.accent, margin: '8px auto 0', borderRadius: '2px' }} />
         </div>
   
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
@@ -59,7 +59,7 @@ const TradeCircular = () => {
                   <FileText size={18} color={C.accent} />
                 </div>
                 <div>
-                  <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 18, fontWeight: 700, color: C.soil, margin: '0 0 6px' }}>{circular.title}</h3>
+                  <h3 style={{ fontFamily: "'Outfit', sans-serif", fontSize: 17, fontWeight: 700, color: C.soil, margin: '0 0 6px' }}>{circular.title}</h3>
                   <div style={{ fontSize: 11, color: C.stone, fontWeight: 500 }}>Date: {circular.date}</div>
                 </div>
               </div>

@@ -1,24 +1,24 @@
 @import "tailwindcss";
 
 @theme {
-  /* ── VEDA WEAVES Textile Mall Color Palette ── */
+  /* ── ZARI BLOOM Textile Mall Color Palette ── */
   --color-primary: #111E38;        /* Deep Navy Blue */
   --color-primary-light: #1E2D4A;  /* Lighter Navy Blue */
   --color-primary-dark: #0B1426;   /* Dark Navy Blue */
-  --color-accent: #DE5B49;         /* Coral/Terracotta Red */
-  --color-accent-light: #EB7C6E;   /* Light Coral */
-  --color-gold: #DE5B49;           /* Red Accent is our primary highlight */
-  --color-sage: #527C68;           /* Sage Green replacing Yellow */
-  --color-sage-light: #6A9B84;
-  --color-sand: #FAF9F5;           /* Ivory/Alabaster Background */
-  --color-linen: #FAF9F5;
-  --color-cream: #FAF9F5;
-  --color-mist: #EAEAEA;           /* Soft border grey */
-  --color-stone: #5A6F8F;          /* Slate Blue Grey */
-  --color-soil: #111E38;
+  --color-accent: #3B82F6;         /* Periwinkle/Royal Blue Highlight */
+  --color-accent-light: #60A5FA;   /* Light Periwinkle */
+  --color-gold: #8F94FB;           /* Purple highlight */
+  --color-sage: #4E54C8;           /* Royal purple */
+  --color-sage-light: #7E57C2;
+  --color-sand: #F0F4F8;           /* Light Sky Blue / Ice Blue Background */
+  --color-linen: #F0F4F8;
+  --color-cream: #FFFFFF;
+  --color-mist: #E2E8F0;           /* Soft border grey */
+  --color-stone: #64748B;          /* Slate Grey */
+  --color-soil: #1E293B;
 
   /* ── Font Family ── */
-  --font-display: 'Cormorant Garamond', serif;
+  --font-display: 'Outfit', sans-serif;
   --font-sans: 'Inter', sans-serif;
   --font-body: 'Outfit', sans-serif;
 }
@@ -26,7 +26,7 @@
 @layer base {
   body {
     font-family: 'Inter', sans-serif;
-    background-color: #FAF9F5;
+    background-color: #F0F6FA;
     color: #111E38;
     margin: 0;
     padding: 0;
@@ -35,7 +35,7 @@
   }
 
   h1, h2, h3, h4, h5, h6, .display-title {
-    font-family: 'Cormorant Garamond', serif !important;
+    font-family: 'Outfit', sans-serif !important;
     font-weight: 600;
     color: #111E38;
   }

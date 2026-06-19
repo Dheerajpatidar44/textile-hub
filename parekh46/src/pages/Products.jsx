@@ -7,12 +7,12 @@ const C = {
   primary: '#111E38',        // Deep Navy Blue
   primaryDark: '#0B1426',
   primaryLight: '#1E2D4A',
-  accent: '#DE5B49',         // Terracotta Red Accent
-  accentLight: '#EB7C6E',
-  gold: '#DE5B49',
-  bg: '#FAF9F5',
-  border: '#EAEAEA',
-  stone: '#5A6F8F',
+  accent: '#3B82F6',         // Periwinkle/Royal Blue Highlight
+  accentLight: '#60A5FA',
+  gold: '#8F94FB',
+  bg: '#FAFBFD',
+  border: '#E2E8F0',
+  stone: '#64748B',
   cream: '#FFFFFF',
 };
 

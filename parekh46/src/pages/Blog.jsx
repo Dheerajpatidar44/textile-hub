@@ -5,11 +5,11 @@ const C = {
   primary: '#111E38',        // Deep Navy Blue
   primaryDark: '#0B1426',
   soil: '#111E38',
-  sand: '#FAF9F5',
-  cream: '#FAF9F5',
-  border: '#EAEAEA',
-  stone: '#5A6F8F',
-  accent: '#DE5B49',         // Terracotta Red
+  sand: '#FAFBFD',
+  cream: '#FAFBFD',
+  border: '#E2E8F0',
+  stone: '#64748B',
+  accent: '#3B82F6',         // Periwinkle/Royal Blue Highlight
 };
 
 const posts = [
@@ -26,8 +26,8 @@ export default function Blog() {
 
         {/* Page Title Section */}
         <div className="text-center mb-6 mt-1">
-          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '48px', fontWeight: 500, color: C.soil, margin: 0 }}>Blog & Insights</h1>
-          <div style={{ width: 40, height: 1.5, background: C.accent, margin: '8px auto 0' }} />
+          <h1 style={{ fontFamily: "'Outfit', sans-serif", fontSize: '38px', fontWeight: 800, color: C.soil, margin: 0 }}>Blog & Insights</h1>
+          <div style={{ width: 40, height: 4, background: C.accent, margin: '8px auto 0', borderRadius: '2px' }} />
         </div>
   
         <p style={{ textAlign: 'center', fontSize: 14.5, color: C.stone, maxWidth: 620, margin: '0 auto 36px', lineHeight: 1.7, fontWeight: 400 }}>
@@ -70,7 +70,7 @@ export default function Blog() {
                   <span style={{ width: 4, height: 4, background: C.accent, borderRadius: '50%' }} />
                   <span style={{ fontSize: 11, color: C.stone, fontWeight: 500 }}>{post.readTime}</span>
                 </div>
-                <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 20, fontWeight: 700, color: C.soil, margin: '0 0 10px', lineHeight: 1.4, cursor: 'pointer', transition: 'color 0.2s' }}
+                <h3 style={{ fontFamily: "'Outfit', sans-serif", fontSize: 18, fontWeight: 700, color: C.soil, margin: '0 0 10px', lineHeight: 1.4, cursor: 'pointer', transition: 'color 0.2s' }}
                   onMouseEnter={e => e.currentTarget.style.color = C.accent}
                   onMouseLeave={e => e.currentTarget.style.color = C.soil}>
                   {post.title}

@@ -64,14 +64,14 @@ function WelcomePopup() {
             transition={{ type: 'spring', stiffness: 280, damping: 26 }}
             style={{
               position: 'relative',
-              background: '#FAF9F5',
+              background: '#ffffff',
               maxWidth: 400,
               width: '100%',
               overflow: 'hidden',
               borderRadius: '24px',
               zIndex: 10,
-              border: '2px solid #DE5B49',
-              boxShadow: '0 40px 80px rgba(0,0,0,0.12)',
+              border: '1px solid #E2E8F0',
+              boxShadow: '0 40px 80px rgba(17, 30, 56, 0.1)',
               fontFamily: "'Inter', sans-serif",
             }}
           >
@@ -100,44 +100,44 @@ function WelcomePopup() {
                 width: 64, height: 64, margin: '0 auto 20px',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 borderRadius: '50%',
-                background: 'rgba(222, 91, 73, 0.08)', }}>
-                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#DE5B49" strokeWidth="1.5">
+                background: 'rgba(59, 130, 246, 0.08)', }}>
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" strokeWidth="1.5">
                   <path d="M12 2L2 12l10 10 10-10L12 2z" strokeWidth="2"/>
                   <path d="M12 6l-6 6 6 6 6-6-6-6z" stroke="#111E38" strokeWidth="1.5"/>
-                  <circle cx="12" cy="12" r="1.5" fill="#DE5B49"/>
+                  <circle cx="12" cy="12" r="1.5" fill="#3B82F6"/>
                 </svg>
               </div>
 
               {/* Title */}
               <h2 style={{
-                fontFamily: "'Cormorant Garamond', serif",
-                fontSize: 24, fontWeight: 500,
-                color: '#111E38', margin: '0 0 6px', lineHeight: 1.25,
+                fontFamily: "'Outfit', sans-serif",
+                fontSize: 20, fontWeight: 500,
+                color: '#64748B', margin: '0 0 6px', lineHeight: 1.25,
                 letterSpacing: '0.04em',
               }}>
                 Welcome to
               </h2>
               <h2 style={{
-                fontFamily: "'Inter', sans-serif",
-                fontSize: 26, fontWeight: 900,
+                fontFamily: "'Outfit', sans-serif",
+                fontSize: 28, fontWeight: 900,
                 color: '#111E38', margin: '0 0 4px', lineHeight: 1.2,
                 letterSpacing: '0.05em',
               }}>
-                VEDA WEAVES
+                ZARI BLOOM
               </h2>
               <h3 style={{
                 fontFamily: "'Inter', sans-serif",
-                fontSize: 10, fontWeight: 700,
-                color: '#DE5B49', margin: '0 0 20px', letterSpacing: '0.22em',
+                fontSize: 10, fontWeight: 800,
+                color: '#3B82F6', margin: '0 0 20px', letterSpacing: '0.22em',
                 textTransform: 'uppercase'
               }}>
                 TEXTILE MALL
               </h3>
 
-              <div style={{ width: 48, height: 1.5, background: '#DE5B49', margin: '0 auto 20px' }} />
+              <div style={{ width: 48, height: 2, background: '#3B82F6', margin: '0 auto 20px', borderRadius: '1px' }} />
 
-              <p style={{ color: '#5A6F8F', fontSize: 13, lineHeight: 1.6, margin: '0 0 32px', fontWeight: 500 }}>
-                Discover our premium collections, custom e-Auctions, and e-Quotations. Explore heritage crafted textiles.
+              <p style={{ color: '#64748B', fontSize: 13, lineHeight: 1.6, margin: '0 0 32px', fontWeight: 500 }}>
+                Discover our premium collections, custom e-auctions, and e-quotations. Explore heritage crafted textiles.
               </p>
 
               {/* Button */}
@@ -148,14 +148,14 @@ function WelcomePopup() {
                   background: '#111E38',
                   color: '#ffffff',
                   border: 'none',
-                  fontSize: 12, fontWeight: 700,
+                  fontSize: 11, fontWeight: 700,
                   cursor: 'pointer',
                   letterSpacing: '0.1em',
                   textTransform: 'uppercase',
                   transition: 'all 0.25s',
                   borderRadius: '50px',
                 }}
-                onMouseEnter={e => { e.currentTarget.style.background = '#DE5B49'; }}
+                onMouseEnter={e => { e.currentTarget.style.background = '#3B82F6'; }}
                 onMouseLeave={e => { e.currentTarget.style.background = '#111E38'; }}
               >
                 Explore Collection

@@ -5,15 +5,15 @@ const C = {
   primary: '#111E38',        // Deep Navy Blue
   primaryDark: '#0B1426',
   soil: '#111E38',
-  sand: '#FAF9F5',
-  cream: '#FAF9F5',
-  border: '#EAEAEA',
-  stone: '#5A6F8F',
-  accent: '#DE5B49',         // Terracotta Red
+  sand: '#FAFBFD',
+  cream: '#FAFBFD',
+  border: '#E2E8F0',
+  stone: '#64748B',
+  accent: '#3B82F6',         // Periwinkle/Royal Blue Highlight
 };
 
 const reviews = [
-  { text: "Veda Weaves Textile Mall has been our trusted partner for years. The quality, prices and service are unmatched in the entire industry.", name: "Rajesh Sharma", role: "Retailer, Delhi", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80" },
+  { text: "Zari Bloom Textile Mall has been our trusted partner for years. The quality, prices and service are unmatched in the entire industry.", name: "Rajesh Sharma", role: "Retailer, Delhi", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80" },
   { text: "The export compliance and material quality are world-class. Their zero-defect policy has secured our global supply chain perfectly.", name: "Ahmed Al-Sayed", role: "Gulf Textiles, UAE", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80" },
   { text: "Highly impressed with their R&D. The custom high-tenacity fabric they developed exceeded all our durability benchmarks.", name: "Vikas Kulkarni", role: "National Solutions", avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&auto=format&fit=crop&q=80" },
   { text: "Incredible attention to detail. Every batch of fabric we receive is consistently perfect, saving us a lot of time and rework.", name: "Anita Desai", role: "Design Head, Mumbai", avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80" },
@@ -26,10 +26,10 @@ export default function CustomerReview() {
 
         {/* Page Title Section */}
         <div className="text-center mb-6 mt-1">
-          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '48px', fontWeight: 500, color: C.soil, margin: 0 }}>
+          <h1 style={{ fontFamily: "'Outfit', sans-serif", fontSize: '38px', fontWeight: 800, color: C.soil, margin: 0 }}>
             Customer Reviews
           </h1>
-          <div style={{ width: 40, height: 1.5, background: C.accent, margin: '8px auto 0' }} />
+          <div style={{ width: 40, height: 4, background: C.accent, margin: '8px auto 0', borderRadius: '2px' }} />
         </div>
   
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">

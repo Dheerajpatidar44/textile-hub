@@ -5,11 +5,11 @@ const C = {
   primary: '#111E38',        // Deep Navy Blue
   primaryDark: '#0B1426',
   soil: '#111E38',
-  sand: '#FAF9F5',
-  bg: '#FAF9F5',
-  border: '#EAEAEA',
-  stone: '#5A6F8F',
-  accent: '#DE5B49',         // Terracotta Red
+  sand: '#FAFBFD',
+  bg: '#FAFBFD',
+  border: '#E2E8F0',
+  stone: '#64748B',
+  accent: '#3B82F6',         // Periwinkle/Royal Blue Highlight
 };
 
 const jobs = [
@@ -28,10 +28,10 @@ export default function Career() {
 
         {/* Page Title Section */}
         <div className="text-center mb-6 mt-1">
-          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '48px', fontWeight: 500, color: C.soil, margin: 0 }}>
+          <h1 style={{ fontFamily: "'Outfit', sans-serif", fontSize: '38px', fontWeight: 800, color: C.soil, margin: 0 }}>
             Career Opportunities
           </h1>
-          <div style={{ width: 40, height: 1.5, background: C.accent, margin: '8px auto 0' }} />
+          <div style={{ width: 40, height: 4, background: C.accent, margin: '8px auto 0', borderRadius: '2px' }} />
         </div>
   
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
@@ -58,7 +58,7 @@ export default function Career() {
               }}
             >
               <div>
-                <h3 style={{ fontFamily: "'Cormorant Garamond', serif", color: C.soil }} className="text-[20px] font-bold mb-5 leading-snug">
+                <h3 style={{ fontFamily: "'Outfit', sans-serif", color: C.soil }} className="text-[20px] font-bold mb-5 leading-snug">
                   {job.title}
                 </h3>
                 <div className="flex flex-col gap-3 mb-6">
@@ -66,12 +66,12 @@ export default function Career() {
                     { icon: MapPin, val: job.location },
                     { icon: Briefcase, val: `${job.type} · ${job.experience}` },
                     { icon: Clock, val: 'Apply by June 30, 2026' },
-                    { icon: Mail, val: 'careers@vedaweaves.com', href: 'mailto:careers@vedaweaves.com' },
+                    { icon: Mail, val: 'careers@zaribloom.com', href: 'mailto:careers@zaribloom.com' },
                   ].map(({ icon: Icon, val, href }) => (
                     <div key={val} style={{ color: C.stone }} className="flex items-center gap-2.5 text-[12.5px] font-semibold">
                       <Icon size={14} style={{ color: C.accent }} className="shrink-0" />
                       {href ? (
-                        <a href={href} className="hover:text-[#DE5B49] transition-colors">{val}</a>
+                        <a href={href} className="hover:text-blue-500 transition-colors">{val}</a>
                       ) : (
                         <span>{val}</span>
                       )}

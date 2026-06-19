@@ -5,11 +5,11 @@ const C = {
   primary: '#111E38',        // Deep Navy Blue
   primaryDark: '#0B1426',
   soil: '#111E38',
-  sand: '#FAF9F5',
-  cream: '#FAF9F5',
-  border: '#EAEAEA',
-  stone: '#5A6F8F',
-  accent: '#DE5B49',         // Terracotta Red
+  sand: '#FAFBFD',
+  cream: '#FAFBFD',
+  border: '#E2E8F0',
+  stone: '#64748B',
+  accent: '#3B82F6',         // Periwinkle/Royal Blue Highlight
 };
 
 const notices = [
@@ -26,10 +26,10 @@ export default function NoticeBoard() {
 
         {/* Page Title Section */}
         <div className="text-center mb-6 mt-1">
-          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '48px', fontWeight: 500, color: C.soil, margin: 0 }}>
+          <h1 style={{ fontFamily: "'Outfit', sans-serif", fontSize: '38px', fontWeight: 800, color: C.soil, margin: 0 }}>
             Notice Board
           </h1>
-          <div style={{ width: 40, height: 1.5, background: C.accent, margin: '8px auto 0' }} />
+          <div style={{ width: 40, height: 4, background: C.accent, margin: '8px auto 0', borderRadius: '2px' }} />
         </div>
   
         <motion.div
@@ -70,7 +70,7 @@ export default function NoticeBoard() {
                   <Calendar size={12} color={C.stone} />
                   <span style={{ fontSize: 11, color: C.stone, fontWeight: 500 }}>{notice.date}</span>
                 </div>
-                <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 18, fontWeight: 700, color: C.soil, lineHeight: 1.45, margin: '0 0 16px' }}>
+                <h3 style={{ fontFamily: "'Outfit', sans-serif", fontSize: 17, fontWeight: 700, color: C.soil, lineHeight: 1.45, margin: '0 0 16px' }}>
                   {notice.title}
                 </h3>
               </div>

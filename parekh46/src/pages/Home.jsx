@@ -1,17 +1,15 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { ArrowRight, ChevronRight, Play, CheckCircle2, Globe, Shield, Award, Truck, ShieldCheck, RotateCcw, Headphones } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowRight, ChevronRight, Award, Heart, Users, Activity, Layers, Briefcase, Star, User } from 'lucide-react';
 
 const C = {
   primary: '#111E38',        // Deep Navy Blue
-  primaryLight: '#1E2D4A',
-  accent: '#DE5B49',         // Terracotta Red
-  accentLight: '#EB7C6E',
-  sage: '#527C68',           // Sage Green (replacing yellow)
-  bg: '#FAF9F5',             // Warm Ivory Background
-  border: '#EAEAEA',
-  stone: '#5A6F8F',
+  accent: '#3B82F6',         // Periwinkle/Royal Blue Highlight
+  accentLight: '#60A5FA',
+  bgLight: '#F0F6FA',        // Ice Blue Background
+  border: '#E2E8F0',
+  stone: '#64748B',
 };
 
 const categories = [
@@ -22,118 +20,121 @@ const categories = [
   { name: "Bedsheets & Linen", image: "/images/popular_bedsheet.png" },
   { name: "Hosiery Items", image: "https://images.unsplash.com/photo-1582966772680-860e372bb558?w=400&auto=format&fit=crop&q=80" },
   { name: "Suiting", image: "https://images.unsplash.com/photo-1593032465175-481ac7f401a0?w=400&auto=format&fit=crop&q=80" },
-  { name: "Shirting", image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&auto=format&fit=crop&q=80" },
-  { name: "Formal & Ethnic Wear for Women", image: "/images/ethnic_wear.png" },
+  { name: "Shirting", image: "/images/popular_cotton_fabric.png" },
+  { name: "Formal & Ethnic Wear for Women", image: "/images/popular_lehenga.png" },
   { name: "Formal & Ethnic Wear for Men", image: "/images/men_ethnic_wear.png" },
   { name: "Formal & Ethnic Wear for Children", image: "/images/children_ethnic_wear.png" },
   { name: "Home Upholstery & Furnishing", image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=400&auto=format&fit=crop&q=80" }
 ];
 
+const heroImages = [
+  { path: "/images/hero_saree.png", label: "Sarees" },
+  { path: "/images/hero_kurti.png", label: "Kurtis" },
+  { path: "/images/hero_lehenga.png", label: "Lehengas" },
+  { path: "/images/hero_pink_lehenga.png", label: "Ethnic Wear" },
+  { path: "/images/hero_green_suit.png", label: "Suits" },
+];
+
+const homeReviews = [
+  { text: "Zari Bloom Textile Mall has been our trusted partner for years. The quality, prices and service are unmatched in the entire industry.", name: "Rajesh Sharma", role: "Retailer, Delhi", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80" },
+  { text: "The export compliance and material quality are world-class. Their zero-defect policy has secured our global supply chain perfectly.", name: "Ahmed Al-Sayed", role: "Gulf Textiles, UAE", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80" },
+  { text: "Highly impressed with their R&D. The custom high-tenacity fabric they developed exceeded all our durability benchmarks.", name: "Vikas Kulkarni", role: "National Solutions", avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&auto=format&fit=crop&q=80" },
+  { text: "Incredible attention to detail. Every batch of fabric we receive is consistently perfect, saving us a lot of time and rework.", name: "Anita Desai", role: "Design Head, Mumbai", avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80" },
+];
+
 export default function Home() {
-  const [activeDot, setActiveDot] = useState(0);
+  const [activeSlide, setActiveSlide] = useState(0);
 
   return (
-    <div style={{ background: C.bg, fontFamily: "'Inter', sans-serif" }} className="w-full overflow-x-hidden pt-0">
+    <div style={{ background: '#FAFBFD', fontFamily: "'Inter', sans-serif" }} className="w-full overflow-x-hidden pt-0">
 
-      {/* ── 1. SPLIT HERO SECTION (Matching the reference image) ── */}
+      {/* ── 1. HERO SECTION ── */}
       <section 
-        className="w-full py-10 lg:py-16 flex items-center overflow-hidden" 
-        style={{ background: '#E6F1F7' }}
+        className="w-full pt-6 pb-12 lg:pt-8 lg:pb-20 flex items-center overflow-hidden" 
+        style={{ background: 'linear-gradient(135deg, #F0F6FA 0%, #E3EDF7 100%)' }}
       >
         <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
             {/* Left Content Column */}
             <div className="lg:col-span-5 text-left flex flex-col items-start z-10">
-              <span className="text-[11px] font-bold tracking-[0.25em] text-[#5A6F8F] uppercase mb-3 block">
-                Heritage. Handcrafted. Heartfelt.
-              </span>
-              
-              <h1 className="text-[44px] sm:text-[56px] font-light leading-[1.1] text-[#111E38] mb-5 tracking-tight">
-                Timeless Textiles,<br />
-                <span style={{ color: C.accent, fontWeight: 500 }} className="italic font-serif">
-                  Woven for <br />
-                  Generations.
-                </span>
+             
+              <h1 className="text-[42px] sm:text-[54px] font-extrabold leading-[1.1] text-[#111E38] mb-6 tracking-tight" style={{ fontFamily: "'Outfit', sans-serif" }}>
+                Threads of Tradition,<br />
+                <span className="text-blue-500">Woven for the Future.</span>
               </h1>
 
-              <p className="text-[14px] sm:text-[15px] text-[#5A6F8F] mb-8 leading-relaxed font-medium max-w-md">
-                Discover the finest fabrics that blend heritage craftsmanship with modern elegance.
+              <p className="text-[14px] sm:text-[15px] text-slate-500 mb-8 leading-relaxed font-semibold max-w-md">
+                Discover timeless textiles crafted with heritage, designed for generations to come. Explore our premium collections, custom e-Auctions, and e-Quotations.
               </p>
 
               <div className="flex items-center gap-6 mb-8">
                 <Link
                   to="/products"
-                  className="inline-flex items-center gap-4 px-8 py-3.5 bg-[#111E38] text-white text-[11px] font-bold tracking-widest uppercase transition-all duration-300 hover:bg-[#DE5B49] rounded-full shadow-lg group"
+                  className="inline-flex items-center gap-3 px-8 py-3.5 bg-blue-500 text-white text-[11px] font-extrabold tracking-widest uppercase transition-all duration-300 hover:bg-[#111E38] rounded-full shadow-lg shadow-blue-500/20 group"
                 >
                   EXPLORE COLLECTIONS
-                  <div className="w-6 h-6 rounded-full bg-[#DE5B49] group-hover:bg-white flex items-center justify-center transition-colors">
-                    <ArrowRight size={10} className="text-white group-hover:text-[#DE5B49]" />
-                  </div>
+                  <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
                 </Link>
               </div>
 
-              {/* Dot Indicators */}
+              {/* Slider Dots */}
               <div className="flex items-center gap-2">
-                {[0, 1, 2].map((dot) => (
+                {heroImages.map((_, idx) => (
                   <button
-                    key={dot}
-                    onClick={() => setActiveDot(dot)}
-                    className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${activeDot === dot ? 'bg-[#111E38] w-6' : 'bg-[#111E38]/20'}`}
-                    aria-label={`Go to slide ${dot + 1}`}
+                    key={idx}
+                    onClick={() => setActiveSlide(idx)}
+                    className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${activeSlide === idx ? 'bg-blue-500 w-6' : 'bg-slate-300'}`}
+                    aria-label={`Go to slide ${idx + 1}`}
                   />
                 ))}
               </div>
             </div>
 
-            {/* Right Visual Image Stack Column: Redesigned into 2x2 grid of landscape rounded images */}
-            <div className="lg:col-span-7 grid grid-cols-2 gap-3 max-w-[520px] mx-auto lg:mr-0 w-full">
-              {/* Image 1: Indigo Textile details */}
-              <div 
-                className="w-full aspect-[4/3] overflow-hidden shadow-lg"
-                style={{ borderRadius: '16px', border: '3px solid #ffffff' }}
-              >
-                <img 
-                  src="https://plus.unsplash.com/premium_photo-1664202526559-e21e9c0fb46a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZmFzaGlvbnxlbnwwfHwwfHx8MA%3D%3D"
-                  alt="Premium woven textile threads" 
-                  className="w-full h-full object-cover scale-[1.01] hover:scale-[1.05] transition-transform duration-700" 
-                />
-              </div>
-
-              {/* Image 2: Traditional Saree embroidery details */}
-              <div 
-                className="w-full aspect-[4/3] overflow-hidden shadow-lg"
-                style={{ borderRadius: '16px', border: '3px solid #ffffff' }}
-              >
-                <img 
-                  src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8ZmFzaGlvbnxlbnwwfHwwfHx8MA%3D%3D"
-                  alt="Embroidery and golden threads on traditional saree fabric" 
-                  className="w-full h-full object-cover scale-[1.01] hover:scale-[1.05] transition-transform duration-700" 
-                />
-              </div>
-
-              {/* Image 3: Premium Bedroom setup */}
-              <div 
-                className="w-full aspect-[4/3] overflow-hidden shadow-lg"
-                style={{ borderRadius: '16px', border: '3px solid #ffffff' }}
-              >
-                <img 
-                  src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=600&auto=format&fit=crop&q=80" 
-                  alt="Cozy styled bedroom linen setting" 
-                  className="w-full h-full object-cover scale-[1.01] hover:scale-[1.05] transition-transform duration-700" 
-                />
-              </div>
-
-              {/* Image 4: Modern home curtains/interior fabrics */}
-              <div 
-                className="w-full aspect-[4/3] overflow-hidden shadow-lg"
-                style={{ borderRadius: '16px', border: '3px solid #ffffff' }}
-              >
-                <img 
-                  src="https://images.unsplash.com/photo-1618220179428-22790b461013?w=600&auto=format&fit=crop&q=80" 
-                  alt="Luxury home curtains and furniture textiles layout" 
-                  className="w-full h-full object-cover scale-[1.01] hover:scale-[1.05] transition-transform duration-700" 
-                />
+            {/* Right Visual Image Column: 5 Rounded Vertical Slices */}
+            <div className="lg:col-span-7 flex justify-center w-full">
+              <div className="flex gap-[3px] md:gap-[4px] justify-center w-full max-w-[750px] h-[340px] md:h-[440px]">
+                {heroImages.map((img, idx) => {
+                  const isActive = activeSlide === idx;
+                  return (
+                    <motion.div
+                      key={idx}
+                      onMouseEnter={() => setActiveSlide(idx)}
+                      animate={{
+                        width: isActive ? '32%' : '17%',
+                      }}
+                      transition={{ type: 'spring', stiffness: 300, damping: 25 }}
+                      className="h-full rounded-2xl md:rounded-[24px] overflow-hidden cursor-pointer relative shadow-md group border border-white/60"
+                      style={{ flexShrink: 0 }}
+                    >
+                      <img 
+                        src={img.path}
+                        alt={img.label} 
+                        className="w-full h-full object-cover transition-transform duration-700" 
+                        style={{ filter: isActive ? 'none' : 'brightness(0.85) grayscale(0.2)' }}
+                      />
+                      {/* Gradient Overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-85 pointer-events-none" />
+                      
+                      {/* Label */}
+                      <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white text-left">
+                        {isActive ? (
+                          <motion.div
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            className="flex flex-col"
+                          >
+                            <span className="text-[14px] md:text-[18px] font-extrabold leading-tight">{img.label}</span>
+                          </motion.div>
+                        ) : (
+                          <span className="text-[10px] md:text-[12px] font-extrabold uppercase tracking-widest rotate-180 writing-mode-vertical" style={{ writingMode: 'vertical-rl' }}>
+                            {img.label}
+                          </span>
+                        )}
+                      </div>
+                    </motion.div>
+                  );
+                })}
               </div>
             </div>
 
@@ -144,35 +145,31 @@ export default function Home() {
 
       {/* ── 3. SHOP BY CATEGORY SECTION ── */}
       <section className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14 py-16">
-        <div className="flex items-center justify-between mb-8 pb-4 border-b border-[#EAEAEA]">
+        <div className="flex items-center justify-between mb-10 pb-4 border-b border-slate-100">
           <div className="flex items-center gap-3">
-            <div className="w-1.5 h-6 rounded-full" style={{ background: C.accent }} />
-            <h2 className="text-[28px] font-normal text-[#111E38] tracking-tight font-serif" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+            <div className="w-1.5 h-6 rounded-full bg-blue-500" />
+            <h2 className="text-[26px] md:text-[30px] font-extrabold text-[#111E38] tracking-tight" style={{ fontFamily: "'Outfit', sans-serif" }}>
               Shop by Category
             </h2>
           </div>
           <Link
             to="/products"
-            className="text-[11px] font-bold tracking-widest uppercase transition-colors flex items-center gap-1.5"
-            style={{ color: C.accent }}
-            onMouseEnter={e => e.currentTarget.style.color = C.primary}
-            onMouseLeave={e => e.currentTarget.style.color = C.accent}
+            className="text-[11px] font-extrabold tracking-widest uppercase transition-colors flex items-center gap-1.5 text-blue-500 hover:text-slate-800"
           >
             VIEW ALL CATEGORIES <ChevronRight size={14} />
           </Link>
         </div>
 
-        {/* Categories Horizontal Scrolling Wrap - cards are slightly rounded */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+        {/* Categories Grid - Rounded corner cards */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-5">
           {categories.map((cat, idx) => (
             <Link
               key={idx}
               to={`/products?category=${encodeURIComponent(cat.name)}`}
-              className="group bg-white border border-[#EAEAEA] p-4 flex flex-col items-center justify-center text-center shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1"
-              style={{ borderRadius: '16px' }}
+              className="group bg-white border border-slate-100 p-5 flex flex-col items-center justify-center text-center shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 rounded-2xl"
             >
               <div 
-                className="w-20 h-20 rounded-full overflow-hidden mb-3 border border-[#EAEAEA] bg-[#FAF9F5] flex items-center justify-center"
+                className="w-20 h-20 rounded-full overflow-hidden mb-4 border border-slate-100 bg-slate-50 flex items-center justify-center shadow-inner"
               >
                 <img
                   src={cat.image}
@@ -180,8 +177,9 @@ export default function Home() {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
-              <span className="text-[12px] font-bold text-[#111E38] group-hover:text-[#DE5B49] transition-colors leading-tight tracking-wide">
+              <span className="text-[12.5px] font-extrabold text-slate-800 group-hover:text-blue-500 transition-colors leading-tight tracking-wide flex items-center gap-1 justify-center">
                 {cat.name}
+                <ChevronRight size={12} className="opacity-0 group-hover:opacity-100 transition-all" />
               </span>
             </Link>
           ))}
@@ -189,14 +187,14 @@ export default function Home() {
       </section>
 
       {/* ── 4. THREE PROMO CARDS (e-Auction, Bulk Orders, Trade Services) ── */}
-      <section className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14 mb-16">
+      <section className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14 mb-20">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           
-          {/* Card 1: e-Auction (Terracotta Red background image overlay) */}
+          {/* Card 1: e-Auction */}
           <div 
             className="p-8 text-white relative overflow-hidden flex flex-col justify-between"
             style={{
-              backgroundImage: 'linear-gradient(rgba(222, 91, 73, 0.78), rgba(222, 91, 73, 0.93)), url("/images/image copy.png")',
+              backgroundImage: 'linear-gradient(rgba(78, 84, 200, 0.2), rgba(17, 30, 56, 0.55)), url("https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?w=600&auto=format&fit=crop&q=80")',
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               borderRadius: '24px',
@@ -204,57 +202,31 @@ export default function Home() {
             }}
           >
             <div className="z-10 text-left">
-              <span className="text-[10px] font-bold uppercase tracking-[0.2em] opacity-80 mb-2 block">LIVE e-AUCTION</span>
-              <h3 className="text-[28px] font-normal leading-tight mb-4 font-serif" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+              <span className="text-[10px] font-extrabold uppercase tracking-[0.2em] opacity-80 mb-2.5 block" style={{ color: '#ffffff' }}>LIVE e-AUCTION</span>
+              <h3 className="text-[28px] font-extrabold leading-tight mb-4" style={{ fontFamily: "'Outfit', sans-serif", color: '#ffffff' }}>
                 Bid. Win. Grow. <br />
                 Thrive. Achieve.
               </h3>
-              <p className="text-[12.5px] opacity-80 mb-6 leading-relaxed max-w-xs font-semibold">
-                Participate in live auctions and unlock great deals.
+              <p className="text-[13px] opacity-85 mb-6 leading-relaxed max-w-xs font-semibold" style={{ color: '#ffffff' }}>
+                Participate in live e-Auctions and unlock exclusive inventories at competitive rates.
               </p>
             </div>
             
             <div className="z-10 text-left">
               <Link
                 to="/e-auction"
-                className="inline-flex items-center gap-2.5 px-6 py-3 bg-white text-[#DE5B49] text-[11px] font-bold tracking-widest uppercase transition-all duration-300 hover:bg-[#111E38] hover:text-white rounded-full shadow-md"
+                className="inline-flex items-center gap-2.5 px-6 py-3 bg-white text-indigo-700 text-[11px] font-extrabold tracking-widest uppercase transition-all duration-300 hover:bg-[#111E38] hover:text-white rounded-full shadow-md"
               >
                 JOIN LIVE AUCTIONS <ArrowRight size={12} />
               </Link>
             </div>
           </div>
 
-          {/* Card 2: Bulk Orders (Premium Sage Green replacing Yellow) */}
-          <div 
-            className="p-8 text-white relative overflow-hidden flex flex-col justify-between"
-            style={{ background: C.sage, borderRadius: '24px', minHeight: '360px' }}
-          >
-            <div className="z-10 text-left">
-              <span className="text-[10px] font-bold uppercase tracking-[0.2em] opacity-80 mb-2 block">BULK ORDERS</span>
-              <h3 className="text-[28px] font-normal leading-tight mb-4 font-serif" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
-                Better Prices, <br />
-                Greater Benefits!
-              </h3>
-              <p className="text-[12.5px] opacity-80 mb-6 leading-relaxed max-w-xs font-semibold">
-                Special pricing for bulk buyers & retailers.
-              </p>
-            </div>
-            
-            <div className="z-10 text-left">
-              <Link
-                to="/trade-enquiry"
-                className="inline-flex items-center gap-2.5 px-6 py-3 bg-white text-[#527C68] text-[11px] font-bold tracking-widest uppercase transition-all duration-300 hover:bg-[#111E38] hover:text-white rounded-full shadow-md"
-              >
-                ENQUIRE NOW <ArrowRight size={12} />
-              </Link>
-            </div>
-          </div>
-
-          {/* Card 3: Trade Services (Navy Blue background image overlay) */}
+          {/* Card 2: Bulk Orders */}
           <div 
             className="p-8 text-white relative overflow-hidden flex flex-col justify-between"
             style={{
-              backgroundImage: 'linear-gradient(rgba(17, 30, 56, 0.78), rgba(17, 30, 56, 0.93)), url("/images/image.png")',
+              backgroundImage: 'linear-gradient(rgba(59, 130, 246, 0.2), rgba(17, 30, 56, 0.55)), url("https://images.unsplash.com/photo-1544816155-12df9643f363?w=600&auto=format&fit=crop&q=80")',
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               borderRadius: '24px',
@@ -262,20 +234,52 @@ export default function Home() {
             }}
           >
             <div className="z-10 text-left">
-              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[rgba(255,255,255,0.7)] mb-2 block">TRADE SERVICES</span>
-              <h3 className="text-[28px] font-normal leading-tight mb-4 font-serif text-white" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+              <span className="text-[10px] font-extrabold uppercase tracking-[0.2em] opacity-80 mb-2.5 block" style={{ color: '#ffffff' }}>BULK ORDERS</span>
+              <h3 className="text-[28px] font-extrabold leading-tight mb-4" style={{ fontFamily: "'Outfit', sans-serif", color: '#ffffff' }}>
+                Better Prices, <br />
+                Greater Benefits!
+              </h3>
+              <p className="text-[13px] opacity-85 mb-6 leading-relaxed max-w-xs font-semibold" style={{ color: '#ffffff' }}>
+                Special wholesale pricing and priority logistics for bulk retailers & volume buyers.
+              </p>
+            </div>
+            
+            <div className="z-10 text-left">
+              <Link
+                to="/trade-enquiry"
+                className="inline-flex items-center gap-2.5 px-6 py-3 bg-white text-blue-600 text-[11px] font-extrabold tracking-widest uppercase transition-all duration-300 hover:bg-[#111E38] hover:text-white rounded-full shadow-md"
+              >
+                ENQUIRE NOW <ArrowRight size={12} />
+              </Link>
+            </div>
+          </div>
+
+          {/* Card 3: Trade Services */}
+          <div 
+            className="p-8 text-white relative overflow-hidden flex flex-col justify-between"
+            style={{
+              backgroundImage: 'linear-gradient(rgba(17, 30, 56, 0.2), rgba(17, 30, 56, 0.55)), url("https://images.unsplash.com/photo-1597484661643-2f5fef640dd1?w=600&auto=format&fit=crop&q=80")',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              borderRadius: '24px',
+              minHeight: '360px'
+            }}
+          >
+            <div className="z-10 text-left">
+              <span className="text-[10px] font-extrabold uppercase tracking-[0.2em] mb-2.5 block" style={{ color: '#60A5FA' }}>TRADE SERVICES</span>
+              <h3 className="text-[28px] font-extrabold leading-tight mb-4" style={{ fontFamily: "'Outfit', sans-serif", color: '#ffffff' }}>
                 Everything You Need, <br />
                 All in One Place.
               </h3>
-              <p className="text-[12.5px] text-[rgba(255,255,255,0.8)] mb-6 leading-relaxed max-w-xs font-semibold">
-                End-to-end solutions for your business.
+              <p className="text-[13px] opacity-85 mb-6 leading-relaxed max-w-xs font-semibold" style={{ color: '#ffffff' }}>
+                End-to-end management systems, design consultation, and supply chain assistance.
               </p>
             </div>
             
             <div className="z-10 text-left">
               <Link
                 to="/retail-management"
-                className="inline-flex items-center gap-2.5 px-6 py-3 bg-white text-[#111E38] text-[11px] font-bold tracking-widest uppercase transition-all duration-300 hover:bg-[#DE5B49] hover:text-white rounded-full shadow-md"
+                className="inline-flex items-center gap-2.5 px-6 py-3 bg-white text-slate-900 text-[11px] font-extrabold tracking-widest uppercase transition-all duration-300 hover:bg-blue-500 hover:text-white rounded-full shadow-md"
               >
                 EXPLORE SERVICES <ArrowRight size={12} />
               </Link>
@@ -285,115 +289,126 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── 5. WHY CHOOSE ZARI BLOOM SECTION ── */}
+      <section className="bg-white border-y border-slate-100 py-16 mb-20 text-left">
+        <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14">
+          <div className="text-center mb-12">
+            <span className="text-[11px] font-extrabold tracking-[0.25em] text-blue-500 uppercase mb-2 block">
+              Zari Bloom Excellence
+            </span>
+            <h2 className="text-[28px] md:text-[34px] font-extrabold text-[#111E38] tracking-tight" style={{ fontFamily: "'Outfit', sans-serif" }}>
+              Why Choose Zari Bloom?
+            </h2>
+            <div className="w-12 h-1 bg-blue-500 mx-auto mt-4 rounded-full" />
+          </div>
 
-      {/* ── 6. PROMISE, BADGES, & STORY VIDEO SECTION ── */}
-      <section className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14 mb-20">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-          
-          {/* Column 1: Our Promise checklist */}
-          <div className="lg:col-span-4 bg-white p-8 border border-[#EAEAEA] flex flex-col justify-between text-left" style={{ borderRadius: '24px' }}>
-            <div>
-              <span className="text-[10px] font-bold tracking-[0.2em] text-[#5A6F8F] uppercase mb-2 block">OUR PROMISE</span>
-              <h3 className="text-[28px] font-normal text-[#111E38] mb-4 font-serif" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
-                Committed to Excellence.
-              </h3>
-              <p className="text-[12.5px] text-[#5A6F8F] mb-8 leading-relaxed font-semibold">
-                We are committed to delivering excellence in every thread, every time.
-              </p>
-
-              <div className="space-y-4 mb-8">
-                {[
-                  "Premium Quality Assurance",
-                  "Timely & Safe Delivery",
-                  "Transparent Business Practices",
-                  "Customer-Centric Approach"
-                ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-3">
-                    <CheckCircle2 size={16} className="text-[#DE5B49] shrink-0" />
-                    <span className="text-[13px] text-[#111E38] font-bold tracking-wide">{item}</span>
-                  </div>
-                ))}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6 text-center">
+            {[
+              { icon: Award, t: "Authentic Quality", d: "100% genuine weaving standards" },
+              { icon: Users, t: "Ethical Sourcing", d: "Fair trade support for master weavers" },
+              { icon: Layers, t: "Modern Infrastructure", d: "State-of-the-art warehouses and retail units" },
+              { icon: Briefcase, t: "Skilled Craftsmanship", d: "Heritage methods preserved for generations" },
+              { icon: Activity, t: "Sustainable Practices", d: "Eco-friendly dyes and organic material blends" },
+              { icon: Heart, t: "Trusted by Thousands", d: "Preferred partner for global fashion brands" }
+            ].map((item, i) => (
+              <div key={i} className="bg-slate-50 border border-slate-100 p-6 rounded-2xl flex flex-col items-center justify-between shadow-sm">
+                <div className="w-12 h-12 rounded-full bg-blue-500 text-white flex items-center justify-center mb-4 shadow-md shadow-blue-500/10">
+                  <item.icon size={22} />
+                </div>
+                <h4 className="text-[13px] font-extrabold text-slate-800 mb-2 leading-snug">{item.t}</h4>
+                <p className="text-[11px] text-slate-500 leading-relaxed font-semibold">{item.d}</p>
               </div>
-            </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
+
+      {/* ── 7. TESTIMONIALS SECTION ── */}
+      <section className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14 mb-20 text-left">
+        <div className="text-center mb-12">
+          <span className="text-[11px] font-extrabold tracking-[0.25em] text-blue-500 uppercase mb-2 block">
+            Feedbacks
+          </span>
+          <h2 className="text-[28px] md:text-[34px] font-extrabold text-[#111E38] tracking-tight" style={{ fontFamily: "'Outfit', sans-serif" }}>
+            Client Testimonials
+          </h2>
+          <div className="w-12 h-1 bg-blue-500 mx-auto mt-4 rounded-full" />
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {homeReviews.map((review, idx) => (
             <Link
-              to="/about"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#111E38] text-white text-[11px] font-bold tracking-widest uppercase transition-all duration-300 hover:bg-[#DE5B49] rounded-full shadow-md w-full"
+              key={idx}
+              to="/reviews"
+              className="card-hover text-left bg-white relative block"
+              style={{
+                border: `1px solid ${C.border}`,
+                padding: '26px 24px',
+                borderRadius: 20,
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                textDecoration: 'none',
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.transform = 'translateY(-4px)';
+                e.currentTarget.style.boxShadow = '0 12px 30px rgba(17, 30, 56, 0.04)';
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = 'none';
+              }}
             >
-              KNOW MORE ABOUT US <ArrowRight size={12} />
-            </Link>
-          </div>
+              <div>
+                {/* Quote mark */}
+                <div style={{
+                  position: 'absolute', top: 12, right: 22,
+                  fontFamily: "'Outfit', sans-serif",
+                  fontSize: 70, color: 'rgba(17, 30, 56, 0.08)', lineHeight: 1, fontWeight: 700,
+                  userSelect: 'none',
+                }}>
+                  "
+                </div>
 
-          {/* Column 2: Stats Badge Overlay on Indigo Fabric Pattern */}
-          <div className="lg:col-span-4 relative min-h-[360px] overflow-hidden" style={{ borderRadius: '24px' }}>
-            <img 
-              src="https://plus.unsplash.com/premium_photo-1701701278891-b23c73052bc7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8bGlnaHRibHVlJTIwY29sb3J8ZW58MHx8MHx8fDA%3D" 
-              alt="Indigo traditional fabric design pattern" 
-              className="absolute inset-0 w-full h-full object-cover" 
-            />
-            {/* Navy overlay badge */}
-            <div 
-              className="absolute inset-x-6 bottom-6 md:inset-y-6 md:right-6 md:left-auto md:w-[220px] p-8 text-white flex flex-col justify-center gap-6 text-center" 
-              style={{ background: 'rgba(17, 30, 56, 0.95)', backdropFilter: 'blur(4px)', borderRadius: '16px' }}
-            >
-              <div>
-                <h4 className="text-[28px] font-light leading-none m-0 font-serif" style={{ color: '#ffffff', fontFamily: "'Cormorant Garamond', serif" }}>36+</h4>
-                <p className="text-[10px] tracking-widest uppercase opacity-70 m-0 mt-1 font-bold">Years of Trust</p>
-              </div>
-              <div style={{ height: '1px', background: 'rgba(255,255,255,0.1)' }} />
-              <div>
-                <h4 className="text-[28px] font-light leading-none m-0 font-serif" style={{ color: '#ffffff', fontFamily: "'Cormorant Garamond', serif" }}>500+</h4>
-                <p className="text-[10px] tracking-widest uppercase opacity-70 m-0 mt-1 font-bold">Retail Outlets</p>
-              </div>
-              <div style={{ height: '1px', background: 'rgba(255,255,255,0.1)' }} />
-              <div>
-                <h4 className="text-[28px] font-light leading-none m-0 font-serif" style={{ color: '#ffffff', fontFamily: "'Cormorant Garamond', serif" }}>10K+</h4>
-                <p className="text-[10px] tracking-widest uppercase opacity-70 m-0 mt-1 font-bold">Happy Retailers</p>
-              </div>
-            </div>
-          </div>
+                {/* Stars */}
+                <div style={{ display: 'flex', gap: 3, marginBottom: 14 }}>
+                  {[1,2,3,4,5].map(s => (
+                    <Star key={s} size={13} fill={C.accent} stroke="none" />
+                  ))}
+                </div>
 
-          {/* Column 3: Our Craft image & Watch Story Link */}
-          <div className="lg:col-span-4 bg-white border border-[#EAEAEA] flex flex-col justify-between overflow-hidden" style={{ borderRadius: '24px' }}>
-            <div className="relative w-full aspect-[16/10] overflow-hidden">
-              <img 
-                src="https://images.unsplash.com/photo-1608962714006-25d2c0926d8b?w=800&auto=format&fit=crop&q=80" 
-                alt="Artisan fabric modeling traditional ethnic dress" 
-                className="w-full h-full object-cover" 
-              />
-              {/* Play overlay button */}
-              <div className="absolute inset-0 bg-[#111E38]/20 flex items-center justify-center">
-                <button 
-                  className="w-14 h-14 rounded-full bg-white text-[#DE5B49] flex items-center justify-center shadow-lg transition-transform hover:scale-110 cursor-pointer border-none"
-                  aria-label="Play video"
-                >
-                  <Play size={20} fill="#DE5B49" style={{ marginLeft: 3 }} />
-                </button>
-              </div>
-            </div>
-
-            <div className="p-8 text-left flex-1 flex flex-col justify-between">
-              <div>
-                <h3 className="text-[22px] font-normal text-[#111E38] mb-3 font-serif" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
-                  Our Craft. Our Pride.
-                </h3>
-                <p className="text-[12.5px] text-[#5A6F8F] m-0 mb-6 leading-relaxed font-semibold">
-                  Every piece of fabric tells a story of tradition, skill, and passion.
+                <p style={{ fontSize: 13.5, color: C.stone, lineHeight: 1.7, margin: '0 0 18px', fontWeight: 500, fontStyle: 'italic' }}>
+                  "{review.text}"
                 </p>
               </div>
 
-              <a 
-                href="#story" 
-                className="text-[11px] font-bold tracking-widest uppercase flex items-center gap-1.5 transition-colors"
-                style={{ color: C.accent }}
-                onMouseEnter={e => e.currentTarget.style.color = C.primary}
-                onMouseLeave={e => e.currentTarget.style.color = C.accent}
-              >
-                WATCH OUR STORY <ArrowRight size={12} />
-              </a>
-            </div>
-          </div>
-
+              <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                {review.avatar ? (
+                  <img
+                    src={review.avatar}
+                    alt={review.name}
+                    style={{ width: 36, height: 36, borderRadius: '50%', objectFit: 'cover', border: `1px solid ${C.border}` }}
+                  />
+                ) : (
+                  <div style={{
+                    width: 36, height: 36,
+                    background: 'rgba(17, 30, 56, 0.08)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    color: C.accent,
+                    borderRadius: '50%'
+                  }}>
+                    <User size={16} />
+                  </div>
+                )}
+                <div>
+                  <p style={{ fontSize: 13, fontWeight: 700, color: C.primary, margin: 0 }}>{review.name}</p>
+                  <p style={{ fontSize: 11, color: C.stone, margin: 0, fontWeight: 500 }}>{review.role}</p>
+                </div>
+              </div>
+            </Link>
+          ))}
         </div>
       </section>
 

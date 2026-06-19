@@ -5,13 +5,13 @@ const C = {
   primary: '#111E38',        // Deep Navy Blue
   primaryDark: '#0B1426',
   primaryLight: '#1E2D4A',
-  accent: '#DE5B49',         // Terracotta Red Accent
-  accentLight: '#EB7C6E',
-  bg: '#FAF9F5',
-  sand: '#FAF9F5',
-  border: '#EAEAEA',
-  soil: '#111E38',
-  stone: '#5A6F8F',
+  accent: '#3B82F6',         // Periwinkle/Royal Blue Highlight
+  accentLight: '#60A5FA',
+  bg: '#FAFBFD',
+  sand: '#F0F4F8',
+  border: '#E2E8F0',
+  soil: '#1E293B',
+  stone: '#64748B',
   cream: '#FFFFFF',
 };
 
@@ -260,10 +260,10 @@ export default function EAuction() {
                 <div style={{ textAlign: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, marginTop: 16 }}>
                   <Mail size={14} color={C.accent} />
                   <a
-                    href="mailto:hello@vedaweaves.com"
+                    href="mailto:hello@zaribloom.com"
                     style={{ fontSize: 13, color: C.primary, fontWeight: 600, textDecoration: 'none' }}
                   >
-                    hello@vedaweaves.com
+                    hello@zaribloom.com
                   </a>
                 </div>
 

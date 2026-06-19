@@ -3,9 +3,9 @@ import { useEffect, useState } from 'react';
 
 const C = {
   primary: '#111E38',        // Deep Navy Blue
-  accent: '#DE5B49',         // Terracotta Red
-  bg: '#111E38',             // Deep Navy screen background
-  lightBg: '#FAF9F5',
+  accent: '#3B82F6',         // Royal Blue
+  bg: '#F0F6FA',             // Light sky blue background matching the theme
+  cream: '#FFFFFF',
 };
 
 export default function Preloader({ onComplete }) {
@@ -21,20 +21,37 @@ export default function Preloader({ onComplete }) {
         }
         return prev + 5;
       });
-    }, 40);
+    }, 45);
 
     const timer = setTimeout(() => {
       setStartOut(true);
       setTimeout(() => {
         if (onComplete) onComplete();
-      }, 700);
-    }, 1800);
+      }, 800);
+    }, 2000);
 
     return () => {
       clearInterval(interval);
       clearTimeout(timer);
     };
   }, [onComplete]);
+
+  // Framer motion variants for name reveal animation
+  const containerVariants = {
+    initial: {},
+    animate: {
+      transition: {
+        staggerChildren: 0.08,
+      }
+    }
+  };
+
+  const letterVariants = {
+    initial: { y: 20, opacity: 0 },
+    animate: { y: 0, opacity: 1, transition: { duration: 0.5, ease: 'easeOut' } }
+  };
+
+  const titleText = "Zari Bloom";
 
   return (
     <AnimatePresence>
@@ -43,32 +60,33 @@ export default function Preloader({ onComplete }) {
           key="preloader"
           initial={{ opacity: 1 }}
           exit={{ 
+            clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)',
             y: '-100%',
-            transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] }
+            transition: { duration: 0.85, ease: [0.76, 0, 0.24, 1] }
           }}
           className="fixed inset-0 z-[9999] flex flex-col items-center justify-center overflow-hidden"
-          style={{ background: C.bg }}
+          style={{ background: `linear-gradient(135deg, ${C.bg} 0%, #E6EEF8 100%)` }}
         >
-          {/* Subtle elegant rotating lines decoration */}
+          {/* Subtle elegant rotating background vectors */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-20">
             <motion.div
               animate={{ rotate: 360 }}
-              transition={{ duration: 15, repeat: Infinity, ease: 'linear' }}
+              transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
               style={{
-                width: '600px',
-                height: '600px',
-                border: '1px dashed rgba(250, 249, 245, 0.1)',
+                width: '500px',
+                height: '500px',
+                border: '1px dashed rgba(59, 130, 246, 0.15)',
                 borderRadius: '50%',
                 position: 'absolute'
               }}
             />
             <motion.div
               animate={{ rotate: -360 }}
-              transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
+              transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
               style={{
-                width: '450px',
-                height: '450px',
-                border: '1px solid rgba(250, 249, 245, 0.05)',
+                width: '350px',
+                height: '350px',
+                border: '1px solid rgba(59, 130, 246, 0.06)',
                 borderRadius: '50%',
                 position: 'absolute'
               }}
@@ -76,70 +94,52 @@ export default function Preloader({ onComplete }) {
           </div>
 
           <div className="flex flex-col items-center relative z-10">
-            {/* Elegant glowing spinner */}
-            <div className="relative w-24 h-24 mb-8 flex items-center justify-center">
-              {/* Outer pulsing glow */}
-              <div 
-                className="absolute w-16 h-16 rounded-full blur-md opacity-35"
-                style={{ background: C.accent }} 
-              />
-              
-              {/* Spinning circular vector */}
-              <svg width="60" height="60" viewBox="0 0 100 100" className="absolute">
-                <circle 
-                  cx="50" 
-                  cy="50" 
-                  r="40" 
-                  stroke="rgba(250,249,245,0.05)" 
-                  strokeWidth="2" 
-                  fill="none" 
-                />
-                <motion.circle 
-                  cx="50" 
-                  cy="50" 
-                  r="40" 
-                  stroke={C.accent} 
-                  strokeWidth="4" 
-                  strokeLinecap="round"
-                  fill="none" 
-                  initial={{ pathLength: 0.1 }}
-                  animate={{ pathLength: 0.8, rotate: 360 }}
-                  transition={{ 
-                    pathLength: { duration: 1.5, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" },
-                    rotate: { duration: 2, repeat: Infinity, ease: "linear" }
-                  }}
-                />
-              </svg>
-
-              {/* Central static icon */}
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FAF9F5" strokeWidth="1.5">
-                <path d="M12 2L2 12l10 10 10-10L12 2z" strokeWidth="2" />
-              </svg>
-            </div>
-
-            {/* Typography Animation */}
-            <motion.h1
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              className="text-[32px] md:text-[38px] font-medium tracking-wide text-white m-0"
-              style={{ fontFamily: "'Cormorant Garamond', serif" }}
+            {/* Elegant logo mark animation */}
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.6, ease: 'easeOut' }}
+              className="w-16 h-16 mb-6 flex items-center justify-center rounded-full shadow-md bg-white border border-[#E2E8F0]"
             >
-              Veda Weaves
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke={C.accent} strokeWidth="1.5">
+                <path d="M12 2L2 12l10 10 10-10L12 2z" strokeWidth="2"/>
+                <path d="M12 6l-6 6 6 6 6-6-6-6z" stroke={C.primary} strokeWidth="1.5"/>
+                <circle cx="12" cy="12" r="1.5" fill={C.accent}/>
+              </svg>
+            </motion.div>
+
+            {/* Title text character fade-in */}
+            <motion.h1
+              variants={containerVariants}
+              initial="initial"
+              animate="animate"
+              className="text-[32px] md:text-[38px] font-bold tracking-wide text-[#111E38] m-0 flex justify-center"
+              style={{ fontFamily: "'Outfit', sans-serif" }}
+            >
+              {titleText.split("").map((char, index) => (
+                <motion.span
+                  key={index}
+                  variants={letterVariants}
+                  style={{ display: 'inline-block', marginRight: char === ' ' ? '10px' : '0px' }}
+                >
+                  {char}
+                </motion.span>
+              ))}
             </motion.h1>
 
+            {/* Subheading text reveal */}
             <motion.p
-              initial={{ opacity: 0, letterSpacing: "0.15em" }}
-              animate={{ opacity: 1, letterSpacing: "0.3em" }}
-              transition={{ delay: 0.3, duration: 0.6 }}
-              className="text-[10px] uppercase font-bold mt-2"
+              initial={{ opacity: 0, letterSpacing: '0.15em' }}
+              animate={{ opacity: 1, letterSpacing: '0.3em' }}
+              transition={{ delay: 0.6, duration: 0.6 }}
+              className="text-[10px] uppercase font-extrabold mt-3"
               style={{ color: C.accent, fontFamily: "'Inter', sans-serif" }}
             >
               TEXTILE MALL
             </motion.p>
 
-            {/* Minimal Progress Line expanding from center */}
-            <div className="w-48 h-[1px] bg-white/10 mt-10 rounded-full overflow-hidden relative">
+            {/* Modern micro-progress bar extending from center */}
+            <div className="w-40 h-[2px] bg-black/5 mt-10 rounded-full overflow-hidden relative">
               <motion.div
                 className="h-full absolute left-1/2 -translate-x-1/2"
                 style={{ 

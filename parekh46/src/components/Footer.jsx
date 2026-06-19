@@ -4,25 +4,24 @@ import { MapPin, Phone, Mail } from 'lucide-react';
 const C = {
   primary: '#111E38',        // Deep Navy Blue
   primaryDark: '#0B1426',
-  primaryLight: '#1E2D4A',
-  accent: '#DE5B49',         // Terracotta Red Accent
-  gold: '#DE5B49',
-  border: '#EAEAEA',
-  bg: '#FAF9F5',
+  accent: '#3B82F6',         // Periwinkle/Royal Blue
+  gold: '#8F94FB',           // Purple
+  border: 'rgba(255, 255, 255, 0.08)',
+  bg: '#111E38',
 };
 
 export default function Footer() {
   return (
     <footer style={{
       background: C.primary,
-      borderTop: `1px solid rgba(255,255,255,0.05)`,
-      color: 'rgba(255,255,255,0.8)',
+      borderTop: `1px solid ${C.border}`,
+      color: 'rgba(255, 255, 255, 0.75)',
       fontFamily: "'Inter', sans-serif",
       position: 'relative',
       overflow: 'hidden',
     }}>
       {/* Background decoration */}
-      <div style={{ position: 'absolute', top: 0, right: 0, width: 400, height: 400, background: 'radial-gradient(circle, rgba(255, 255, 255, 0.02) 0%, transparent 70%)', filter: 'blur(60px)', pointerEvents: 'none' }} />
+      <div style={{ position: 'absolute', top: 0, right: 0, width: 400, height: 400, background: 'radial-gradient(circle, rgba(59, 130, 246, 0.04) 0%, transparent 70%)', filter: 'blur(60px)', pointerEvents: 'none' }} />
 
       <div className="max-w-[90rem] mx-auto px-6 lg:px-14 py-16" style={{ position: 'relative', zIndex: 1 }}>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12 text-left">
@@ -32,23 +31,29 @@ export default function Footer() {
             {/* Logo */}
             <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 20 }}>
               <div style={{ width: 42, height: 42, background: 'rgba(255, 255, 255, 0.05)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke={C.accent} strokeWidth="1.5">
-                  <path d="M12 2L2 12l10 10 10-10L12 2z" strokeWidth="2" />
-                  <path d="M12 6l-6 6 6 6 6-6-6-6z" stroke={C.gold} strokeWidth="1.5" />
-                  <circle cx="12" cy="12" r="1.5" fill={C.accent} />
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                  <defs>
+                    <linearGradient id="footer-logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#8F94FB" />
+                      <stop offset="100%" stopColor="#4E54C8" />
+                    </linearGradient>
+                  </defs>
+                  <path d="M12 2L2 12l10 10 10-10L12 2z" stroke="url(#footer-logo-grad)" strokeWidth="2.2" />
+                  <path d="M12 6l-6 6 6 6 6-6-6-6z" stroke="#ffffff" strokeWidth="1.5" />
+                  <circle cx="12" cy="12" r="2" fill="url(#footer-logo-grad)" />
                 </svg>
               </div>
               <div>
-                <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 20, fontWeight: 800, color: 'white', lineHeight: 1.1, letterSpacing: '0.05em' }}>
-                  Veda Weaves
+                <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 20, fontWeight: 800, color: 'white', lineHeight: 1.1, letterSpacing: '0.05em' }}>
+                  Zari Bloom
                 </div>
-                <div style={{ fontSize: 8, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)', fontWeight: 700, marginTop: 4 }}>
+                <div style={{ fontSize: 8, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.4)', fontWeight: 700, marginTop: 4 }}>
                   Textile Mall
                 </div>
               </div>
             </div>
 
-            <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.5)', lineHeight: 1.7, maxWidth: 300, marginBottom: 24 }}>
+            <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.45)', lineHeight: 1.7, maxWidth: 300, marginBottom: 24 }}>
               Preserving tradition, delivering elegance. Discover high-quality fabrics, heritage designs, and premium textiles crafted with absolute excellence.
             </p>
 
@@ -76,7 +81,7 @@ export default function Footer() {
 
           {/* ── QUICK LINKS ── */}
           <div className="col-span-1">
-            <h4 style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, fontWeight: 700, color: 'white', marginBottom: 20, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+            <h4 style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, fontWeight: 700, color: 'white', marginBottom: 20, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
               Quick Links
             </h4>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 12 }}>
@@ -103,7 +108,7 @@ export default function Footer() {
 
           {/* ── RESOURCES ── */}
           <div className="col-span-1">
-            <h4 style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, fontWeight: 700, color: 'white', marginBottom: 20, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+            <h4 style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, fontWeight: 700, color: 'white', marginBottom: 20, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
               Resources
             </h4>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 12 }}>
@@ -114,6 +119,7 @@ export default function Footer() {
                 { name: 'Trade Circular', path: '/trade-circular' },
                 { name: 'Notice Board', path: '/notice-board' },
                 { name: 'Careers', path: '/career' },
+                { name: 'FAQ', path: '/faq' },
               ].map(link => (
                 <li key={link.name}>
                   <Link
@@ -131,20 +137,20 @@ export default function Footer() {
 
           {/* ── CONTACT US ── */}
           <div className="col-span-1">
-            <h4 style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, fontWeight: 700, color: 'white', marginBottom: 20, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+            <h4 style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, fontWeight: 700, color: 'white', marginBottom: 20, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
               Contact Us
             </h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
               {[
                 { icon: MapPin, val: '456, Textile Boulevard, Surat, Gujarat - 395002', href: '#' },
                 { icon: Phone, val: '+91 98765 01234', href: 'tel:+919876501234' },
-                { icon: Mail, val: 'hello@vedaweaves.com', href: 'mailto:hello@vedaweaves.com' },
+                { icon: Mail, val: 'hello@zaribloom.com', href: 'mailto:hello@zaribloom.com' },
               ].map(({ icon: Icon, val, href }, i) => (
                 <a
                   key={i}
                   href={href}
                   style={{ display: 'flex', alignItems: 'flex-start', gap: 12, fontSize: 13, color: 'rgba(255,255,255,0.5)', textDecoration: 'none', lineHeight: 1.5, transition: 'color 0.2s ease', fontWeight: 600 }}
-                  onMouseEnter={e => e.currentTarget.style.color = C.gold}
+                  onMouseEnter={e => e.currentTarget.style.color = C.accent}
                   onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.5)'}
                 >
                   <Icon size={16} style={{ color: C.accent, flexShrink: 0, marginTop: 2 }} />
@@ -158,10 +164,10 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div style={{ borderTop: `1px solid rgba(255,255,255,0.05)`, position: 'relative', zIndex: 1, background: 'rgba(0,0,0,0.1)' }}>
+      <div style={{ borderTop: `1px solid ${C.border}`, position: 'relative', zIndex: 1, background: 'rgba(0,0,0,0.1)' }}>
         <div className="max-w-[90rem] mx-auto px-6 lg:px-14 py-6 flex flex-col md:flex-row items-center justify-center text-center">
-          <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.4)', margin: 0, fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase' }}>
-            © 2026 Veda Weaves Textile Mall. All Rights Reserved.
+          <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.35)', margin: 0, fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase' }}>
+            © 2026 Zari Bloom Textile Mall. All Rights Reserved.
           </p>
         </div>
       </div>

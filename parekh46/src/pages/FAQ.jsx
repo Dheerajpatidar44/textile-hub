@@ -6,11 +6,11 @@ const C = {
   primary: '#111E38',        // Deep Navy Blue
   primaryLight: '#1E2D4A',
   soil: '#111E38',
-  sand: '#FAF9F5',
-  cream: '#FAF9F5',
-  border: '#EAEAEA',
-  stone: '#5A6F8F',
-  accent: '#DE5B49',         // Terracotta Red
+  sand: '#FAFBFD',
+  cream: '#FAFBFD',
+  border: '#E2E8F0',
+  stone: '#64748B',
+  accent: '#3B82F6',         // Periwinkle/Royal Blue Highlight
 };
 
 const faqs = [
@@ -32,7 +32,7 @@ const faqs = [
   },
   {
     question: "Do you ship internationally?",
-    answer: "Yes, Veda Weaves Textile Mall ships globally. International shipping charges and delivery times vary based on the destination and order volume."
+    answer: "Yes, Zari Bloom Textile Mall ships globally. International shipping charges and delivery times vary based on the destination and order volume."
   },
   {
     question: "Can I request custom fabric weaving or dyeing?",
@@ -53,10 +53,10 @@ export default function FAQ() {
 
         {/* Page Title Section */}
         <div className="text-center mb-6 mt-1">
-          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '48px', fontWeight: 500, color: C.soil, margin: 0 }}>
+          <h1 style={{ fontFamily: "'Outfit', sans-serif", fontSize: '38px', fontWeight: 800, color: C.soil, margin: 0 }}>
             Frequently Asked Questions
           </h1>
-          <div style={{ width: 40, height: 1.5, background: C.accent, margin: '8px auto 0' }} />
+          <div style={{ width: 40, height: 4, background: C.accent, margin: '8px auto 0', borderRadius: '2px' }} />
         </div>
   
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
@@ -88,7 +88,7 @@ export default function FAQ() {
                     border: 'none',
                   }}
                 >
-                  <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 18, fontWeight: isOpen ? 700 : 600, color: C.soil, margin: 0, lineHeight: 1.4, transition: 'all 0.2s ease' }}>
+                  <h3 style={{ fontFamily: "'Outfit', sans-serif", fontSize: 17, fontWeight: isOpen ? 800 : 600, color: C.soil, margin: 0, lineHeight: 1.4, transition: 'all 0.2s ease' }}>
                     {faq.question}
                   </h3>
                   <div style={{

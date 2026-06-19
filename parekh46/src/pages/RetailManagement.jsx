@@ -5,11 +5,11 @@ const C = {
   primary: '#111E38',        // Deep Navy Blue
   primaryLight: '#1E2D4A',
   soil: '#111E38',
-  sand: '#FAF9F5',
-  cream: '#FAF9F5',
-  border: '#EAEAEA',
-  stone: '#5A6F8F',
-  accent: '#DE5B49',         // Terracotta Red
+  sand: '#FAFBFD',
+  cream: '#FAFBFD',
+  border: '#E2E8F0',
+  stone: '#64748B',
+  accent: '#3B82F6',         // Periwinkle/Royal Blue Highlight
 };
 
 const teamMembers = [
@@ -25,14 +25,14 @@ export default function RetailManagement() {
 
         {/* Page Title Section */}
         <div className="text-center mb-6 mt-1">
-          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '48px', fontWeight: 500, color: C.soil, margin: 0 }}>
+          <h1 style={{ fontFamily: "'Outfit', sans-serif", fontSize: '38px', fontWeight: 800, color: C.soil, margin: 0 }}>
             Our Retail Management
           </h1>
-          <div style={{ width: 40, height: 1.5, background: C.accent, margin: '8px auto 0' }} />
+          <div style={{ width: 40, height: 4, background: C.accent, margin: '8px auto 0', borderRadius: '2px' }} />
         </div>
   
         <p style={{ textAlign: 'center', fontSize: 15, color: C.stone, marginBottom: 40, fontWeight: 400, maxWidth: 560, margin: '0 auto 40px', lineHeight: 1.7 }}>
-          Veda Weaves Textile Mall is administered and governed by highly skilled, experienced and qualified Management with decades of expertise in the textile industry.
+          Zari Bloom Textile Mall is administered and governed by highly skilled, experienced and qualified Management with decades of expertise in the textile industry.
         </p>
 
         {/* Team Cards */}
@@ -77,7 +77,7 @@ export default function RetailManagement() {
                 />
               </div>
 
-              <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 20, fontWeight: 700, color: C.soil, margin: '0 0 4px' }}>
+              <h3 style={{ fontFamily: "'Outfit', sans-serif", fontSize: 20, fontWeight: 700, color: C.soil, margin: '0 0 4px' }}>
                 {member.name}
               </h3>
               <p style={{ fontSize: 9, textTransform: 'uppercase', letterSpacing: '0.18em', color: C.accent, margin: '0 0 8px', fontWeight: 700 }}>
@@ -86,9 +86,9 @@ export default function RetailManagement() {
               <p style={{ fontSize: 12, color: C.stone, margin: '0 0 18px', fontWeight: 500, lineHeight: 1.5 }}>
                 {member.expertise}
               </p>
-
+ 
               <a
-                href={`mailto:${member.name.toLowerCase().replace(' ', '')}@vedaweaves.com`}
+                href={`mailto:${member.name.toLowerCase().replace(' ', '')}@zaribloom.com`}
                 style={{
                   display: 'inline-flex', alignItems: 'center', gap: 6,
                   padding: '8px 16px',
