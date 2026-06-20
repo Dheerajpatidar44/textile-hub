@@ -53,7 +53,7 @@ function WelcomePopup() {
             exit={{ opacity: 0 }}
             onClick={() => setIsOpen(false)}
             className="absolute inset-0"
-            style={{ background: 'rgba(26, 79, 79, 0.45)', backdropFilter: 'blur(8px)' }}
+            style={{ background: 'rgba(74, 59, 54, 0.45)', backdropFilter: 'blur(8px)' }}
           />
 
           {/* Modal */}
@@ -64,14 +64,14 @@ function WelcomePopup() {
             transition={{ type: 'spring', stiffness: 280, damping: 26 }}
             style={{
               position: 'relative',
-              background: '#FAF6F0',
+              background: '#FAF8F5',
               maxWidth: 420,
               width: '100%',
               overflow: 'hidden',
-              borderRadius: '28px',
+              borderRadius: '24px',
               zIndex: 10,
-              border: '1.5px solid #C39A58',
-              boxShadow: '0 40px 80px rgba(26, 79, 79, 0.08)',
+              border: '1px solid #EFE9E5',
+              boxShadow: '0 40px 80px rgba(0, 0, 0, 0.1)',
               fontFamily: "'Outfit', sans-serif",
             }}
           >
@@ -83,11 +83,11 @@ function WelcomePopup() {
                 width: 32, height: 32,
                 background: 'transparent', border: 'none',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                cursor: 'pointer', color: '#BC4639', transition: 'all 0.2s',
+                cursor: 'pointer', color: '#6B5B56', transition: 'all 0.2s',
                 borderRadius: '50%',
                 zIndex: 5,
               }}
-              onMouseEnter={e => { e.currentTarget.style.background = 'rgba(26, 79, 79, 0.05)'; }}
+              onMouseEnter={e => { e.currentTarget.style.background = 'rgba(0, 0, 0, 0.05)'; }}
               onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; }}
             >
               <X size={20} />
@@ -100,11 +100,11 @@ function WelcomePopup() {
                 width: 64, height: 64, margin: '0 auto 20px',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 borderRadius: '50%',
-                background: 'rgba(26, 79, 79, 0.05)', }}>
-                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#C39A58" strokeWidth="1.5">
-                  <circle cx="12" cy="12" r="9" stroke="#C39A58" strokeWidth="1.5" />
-                  <circle cx="12" cy="12" r="6" stroke="#BC4639" strokeWidth="1.2" />
-                  <path d="M12 3v18M3 12h18" stroke="#C39A58" strokeWidth="0.5" />
+                background: 'rgba(210, 141, 122, 0.1)', }}>
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#D28D7A" strokeWidth="1.5">
+                  <circle cx="12" cy="12" r="9" stroke="#D28D7A" strokeWidth="1.5" />
+                  <circle cx="12" cy="12" r="6" stroke="#A56453" strokeWidth="1.2" />
+                  <path d="M12 3v18M3 12h18" stroke="#D28D7A" strokeWidth="0.5" />
                 </svg>
               </div>
 
@@ -112,7 +112,7 @@ function WelcomePopup() {
               <h2 style={{
                 fontFamily: "'Cormorant Garamond', serif",
                 fontSize: 22, fontWeight: 500,
-                color: '#BC4639', margin: '0 0 6px', lineHeight: 1.25,
+                color: '#D28D7A', margin: '0 0 6px', lineHeight: 1.25,
                 letterSpacing: '0.04em',
               }}>
                 Welcome to
@@ -120,15 +120,15 @@ function WelcomePopup() {
               <h2 style={{
                 fontFamily: "'Cormorant Garamond', serif",
                 fontSize: 32, fontWeight: 700,
-                color: '#BC4639', margin: '0 0 16px', lineHeight: 1.2,
+                color: '#A56453', margin: '0 0 16px', lineHeight: 1.2,
                 letterSpacing: '0.02em',
               }}>
-                Sutradhar Hub
+                Kaaya Fabrics
               </h2>
 
-              <div style={{ width: 48, height: 1.5, background: '#C39A58', margin: '0 auto 20px' }} />
+              <div style={{ width: 48, height: 1.5, background: '#D28D7A', margin: '0 auto 20px' }} />
 
-              <p style={{ color: '#4A5A59', fontSize: 13.5, lineHeight: 1.6, margin: '0 0 32px', fontWeight: 500 }}>
+              <p style={{ color: '#6B5B56', fontSize: 13.5, lineHeight: 1.6, margin: '0 0 32px', fontWeight: 500 }}>
                 Discover our premium collections, customized e-Auctions, and e-Quotations. Explore heritage crafted textiles.
               </p>
 
@@ -137,7 +137,7 @@ function WelcomePopup() {
                 onClick={() => { setIsOpen(false); navigate('/products'); }}
                 style={{
                   width: '100%', padding: '14px 20px',
-                  background: '#BC4639',
+                  background: '#D28D7A',
                   color: '#ffffff',
                   border: 'none',
                   fontSize: 11, fontWeight: 700,
@@ -147,8 +147,8 @@ function WelcomePopup() {
                   transition: 'all 0.25s',
                   borderRadius: '50px',
                 }}
-                onMouseEnter={e => { e.currentTarget.style.background = '#C39A58'; }}
-                onMouseLeave={e => { e.currentTarget.style.background = '#BC4639'; }}
+                onMouseEnter={e => { e.currentTarget.style.background = '#A56453'; }}
+                onMouseLeave={e => { e.currentTarget.style.background = '#D28D7A'; }}
               >
                 Explore Collection
               </button>

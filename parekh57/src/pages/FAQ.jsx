@@ -3,14 +3,14 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus } from 'lucide-react';
 
 const C = {
-  primary: '#BC4639',        // Deep Teal Green
-  primaryLight: '#2C6E6E',
-  soil: '#BC4639',
+  primary: '#D28D7A',        // Deep Teal Green
+  primaryLight: '#E4B5A5',
+  soil: '#D28D7A',
   sand: '#FAF8F5',
   cream: '#FAF8F5',
-  border: '#E6E1D8',
-  stone: '#4A5A59',
-  accent: '#C39A58',         // Luxury Gold
+  border: '#EFE9E5',
+  stone: '#6B5B56',
+  accent: '#E5A391',         // Luxury Gold
 };
 
 const faqs = [
@@ -32,7 +32,7 @@ const faqs = [
   },
   {
     question: "Do you ship internationally?",
-    answer: "Yes, Sutradhar Hub ships globally. International shipping charges and delivery times vary based on the destination and order volume."
+    answer: "Yes, Kaaya Fabrics ships globally. International shipping charges and delivery times vary based on the destination and order volume."
   },
   {
     question: "Can I request custom fabric weaving or dyeing?",

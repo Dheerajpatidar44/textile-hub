@@ -2,14 +2,14 @@ import { motion } from 'framer-motion';
 import { Send, Building2, ShoppingBag } from 'lucide-react';
 
 const C = {
-  primary: '#BC4639',        // Deep Teal Green
-  primaryDark: '#103636',
-  soil: '#BC4639',
+  primary: '#D28D7A',        // Deep Teal Green
+  primaryDark: '#A56453',
+  soil: '#D28D7A',
   sand: '#FAF8F5',
   cream: '#FAF8F5',
-  border: '#E6E1D8',
-  stone: '#4A5A59',
-  accent: '#C39A58',         // Luxury Gold
+  border: '#EFE9E5',
+  stone: '#6B5B56',
+  accent: '#E5A391',         // Luxury Gold
 };
 
 const categories = [

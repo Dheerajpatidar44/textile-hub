@@ -2,14 +2,14 @@ import { useState } from 'react';
 import { MessageSquareText, X, Send, Sparkles } from 'lucide-react';
 
 const C = {
-  primary: '#BC4639',        // Deep Teal Green
-  primaryDark: '#103636',
-  soil: '#BC4639',
+  primary: '#D28D7A',        // Deep Teal Green
+  primaryDark: '#A56453',
+  soil: '#D28D7A',
   sand: '#FAF8F5',
   cream: '#FFFFFF',
-  border: '#E6E1D8',
-  stone: '#4A5A59',
-  accent: '#C39A58',         // Luxury Gold
+  border: '#EFE9E5',
+  stone: '#6B5B56',
+  accent: '#E5A391',         // Luxury Gold
 };
 
 const FloatingChatbot = () => {
@@ -37,7 +37,7 @@ const FloatingChatbot = () => {
               </div>
               <div className="text-left">
                 <p className="text-white text-[13px] font-bold tracking-wide leading-tight">
-                  Sutradhar Hub Assistant
+                  Kaaya Fabrics Assistant
                 </p>
                 <div className="flex items-center gap-1.5 mt-0.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
@@ -70,7 +70,7 @@ const FloatingChatbot = () => {
                 style={{ borderColor: C.border }}
               >
                 <p className="text-[13px] leading-relaxed" style={{ color: C.soil }}>
-                  Namaste! 🙏 Welcome to <strong>Sutradhar Hub</strong>. How can I assist you today?
+                  Namaste! 🙏 Welcome to <strong>Kaaya Fabrics</strong>. How can I assist you today?
                 </p>
               </div>
             </div>

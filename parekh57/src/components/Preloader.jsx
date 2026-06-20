@@ -2,10 +2,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
 const C = {
-  primary: '#BC4639',        // Deep Teal Green
-  accent: '#C39A58',         // Gold Accent
-  bg: '#BC4639',             // Deep luxury teal screen for preloader
-  text: '#FAF8F5',           // Cream text
+  primary: '#D28D7A',
+  accent: '#E5A391',
+  bg: '#FAF8F5',
+  text: '#4A3B36',
 };
 
 export default function Preloader({ onComplete, onStartOut }) {
@@ -37,102 +37,93 @@ export default function Preloader({ onComplete, onStartOut }) {
     };
   }, [onComplete, onStartOut]);
 
-  const titleText = "SUTRADHAR HUB";
+  const titleText = "KAAYA FABRICS";
 
   return (
     <AnimatePresence>
       {!startOut && (
-        <motion.div 
-          initial={{ opacity: 1 }}
-          exit={{ 
-            opacity: 0,
-            y: -30,
-            transition: { duration: 0.6, ease: [0.76, 0, 0.24, 1] } 
-          }}
-          className="fixed inset-0 z-[9999] flex flex-col justify-center items-center"
-          style={{ background: C.bg }}
-        >
-          {/* Minimal ambient golden glow in background */}
-          <div 
-            className="absolute w-[450px] h-[450px] rounded-full opacity-10 blur-[80px] pointer-events-none"
-            style={{ background: `radial-gradient(circle, ${C.accent} 0%, transparent 70%)` }}
-          />
+          <motion.div
+            className="fixed inset-0 z-[9999] flex flex-col justify-center items-center pointer-events-none"
+          >
+            {/* Split Screen Background */}
+            <motion.div
+              initial={{ x: 0 }}
+              exit={{ x: "-100%" }}
+              transition={{ duration: 1, ease: [0.76, 0, 0.24, 1] }}
+              className="absolute top-0 bottom-0 left-0 z-0 pointer-events-auto"
+              style={{ width: '50.1%', background: '#3A2A25' }}
+            />
+            <motion.div
+              initial={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ duration: 1, ease: [0.76, 0, 0.24, 1] }}
+              className="absolute top-0 bottom-0 right-0 z-0 pointer-events-auto"
+              style={{ width: '50.1%', background: '#3A2A25' }}
+            />
 
-          <div className="flex flex-col items-center relative z-10 text-center px-4">
-            
-            {/* Elegant loom/weaving pulse effect */}
-            <div className="relative w-20 h-20 mb-8 flex items-center justify-center">
-              {/* Outer delicate ring */}
-              <motion.div
-                initial={{ scale: 0.8, opacity: 0 }}
-                animate={{ scale: [0.95, 1.15, 0.95], opacity: [0.2, 0.5, 0.2] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute w-16 h-16 border border-solid rounded-full"
-                style={{ borderColor: C.accent }}
+            <motion.div 
+              exit={{ opacity: 0, y: -40, scale: 0.95 }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+              className="flex flex-col items-center relative z-10 text-center px-4 pointer-events-auto"
+            >
+              {/* Minimal ambient background glow */}
+              <div
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full opacity-30 blur-[100px] pointer-events-none z-[-1]"
+                style={{ background: `radial-gradient(circle, ${C.primary} 0%, transparent 70%)` }}
               />
 
-              {/* Inner core diamond */}
+            {/* Elegant fading ring effect */}
+            <div className="relative w-16 h-16 mb-8 flex items-center justify-center">
               <motion.div
-                animate={{ rotate: 45 }}
-                className="w-6 h-6 border border-solid border-white/40 flex items-center justify-center"
-              >
-                <motion.div 
-                  animate={{ scale: [1, 1.25, 1] }}
-                  transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                  className="w-2.5 h-2.5 bg-accent rotate-45"
-                  style={{ background: C.accent }}
-                />
-              </motion.div>
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: [0.8, 1.2, 0.8], opacity: [0, 1, 0] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute w-12 h-12 border-2 border-solid rounded-full"
+                style={{ borderColor: C.primary }}
+              />
+              <motion.div
+                initial={{ scale: 1.2, opacity: 0 }}
+                animate={{ scale: [1.2, 0.8, 1.2], opacity: [0, 1, 0] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                className="absolute w-12 h-12 border-2 border-solid rounded-full"
+                style={{ borderColor: C.accent }}
+              />
             </div>
 
-            {/* Title text reveal with letter-spacing transition */}
-            <motion.h1 
-              initial={{ letterSpacing: '0.1em' }}
-              animate={{ letterSpacing: '0.3em' }}
-              transition={{ duration: 2.2, ease: "easeOut" }}
-              className="text-2xl sm:text-3xl font-bold mb-3 font-serif flex gap-0.5 justify-center"
-              style={{ color: C.accent }}
+            {/* Title text reveal */}
+            <motion.h1
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.5, ease: "easeOut" }}
+              className="text-2xl sm:text-3xl font-bold mb-3 font-serif tracking-widest"
+              style={{ color: '#E4B5A5' }}
             >
-              {titleText.split("").map((letter, index) => (
-                <motion.span
-                  key={index}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.04, duration: 0.35 }}
-                >
-                  {letter === " " ? "\u00A0" : letter}
-                </motion.span>
-              ))}
+              {titleText}
             </motion.h1>
 
             {/* Sub-label */}
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0 }}
-              animate={{ opacity: 0.5 }}
-              transition={{ delay: 0.7, duration: 0.5 }}
-              className="text-[9px] sm:text-[10px] uppercase tracking-[0.4em] font-semibold mb-8 text-[#FAF8F5]"
+              animate={{ opacity: 0.6 }}
+              transition={{ delay: 0.5, duration: 1 }}
+              className="text-[10px] uppercase tracking-[0.3em] font-medium mb-8"
+              style={{ color: '#FAF8F5' }}
             >
-              Heritage Crafted Textiles
+              Premium Quality Textiles
             </motion.p>
 
-            {/* Thin gold loader bar */}
-            <div className="w-56 h-[1.5px] rounded-full overflow-hidden relative bg-white/10">
-              <motion.div 
+            {/* Loader bar */}
+            <div className="w-48 h-[2px] rounded-full overflow-hidden relative" style={{ background: 'rgba(255,255,255,0.1)' }}>
+              <motion.div
                 className="h-full absolute left-0 top-0 transition-all duration-100"
-                style={{ 
-                  background: C.accent,
-                  width: `${progress}%` 
+                style={{
+                  background: C.primary,
+                  width: `${progress}%`
                 }}
               />
             </div>
-
-            {/* Percentage Indicator */}
-            <span className="text-[10px] font-bold text-white/40 mt-3 tracking-widest">
-              {progress}%
-            </span>
-
-          </div>
-        </motion.div>
+            </motion.div>
+          </motion.div>
       )}
     </AnimatePresence>
   );

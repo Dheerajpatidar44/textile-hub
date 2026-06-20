@@ -4,15 +4,15 @@ import { motion } from 'framer-motion';
 import { ShoppingBag, Filter } from 'lucide-react';
 
 const C = {
-  primary: '#BC4639',        // Deep Teal Green
-  primaryDark: '#103636',
-  primaryLight: '#2C6E6E',
-  accent: '#C39A58',         // Luxury Gold
-  accentLight: '#F9F7F4',
-  gold: '#C39A58',
+  primary: '#D28D7A',        // Deep Teal Green
+  primaryDark: '#A56453',
+  primaryLight: '#E4B5A5',
+  accent: '#E5A391',         // Luxury Gold
+  accentLight: '#F9F1EF',
+  gold: '#E5A391',
   bg: '#FAF8F5',
-  border: '#E6E1D8',
-  stone: '#4A5A59',
+  border: '#EFE9E5',
+  stone: '#6B5B56',
   cream: '#FFFFFF',
 };
 
@@ -61,7 +61,7 @@ export default function Products() {
       <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14">
 
         {/* Page Title - minimized top gap */}
-        <div className="text-center mb-8 mt-1">
+        <div className="text-center mb-6 mt-0">
           <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '44px', fontWeight: 500, color: C.primary, margin: 0, letterSpacing: '0.02em' }}>
             Collections
           </h1>

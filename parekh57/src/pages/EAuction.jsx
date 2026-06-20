@@ -2,16 +2,16 @@ import { motion } from 'framer-motion';
 import { Gavel, Clock, UploadCloud, Send, Mail, TrendingUp } from 'lucide-react';
 
 const C = {
-  primary: '#BC4639',        // Deep Teal Green
-  primaryDark: '#103636',
-  primaryLight: '#2C6E6E',
-  accent: '#C39A58',         // Luxury Gold
-  accentLight: '#F9F7F4',
+  primary: '#D28D7A',        // Deep Teal Green
+  primaryDark: '#A56453',
+  primaryLight: '#E4B5A5',
+  accent: '#E5A391',         // Luxury Gold
+  accentLight: '#F9F1EF',
   bg: '#FAF8F5',
   sand: '#FAF8F5',
-  border: '#E6E1D8',
-  soil: '#BC4639',
-  stone: '#4A5A59',
+  border: '#EFE9E5',
+  soil: '#D28D7A',
+  stone: '#6B5B56',
   cream: '#FFFFFF',
 };
 

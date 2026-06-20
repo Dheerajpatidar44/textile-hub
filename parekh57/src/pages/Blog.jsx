@@ -2,14 +2,14 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
 const C = {
-  primary: '#BC4639',        // Deep Teal Green
-  primaryDark: '#103636',
-  soil: '#BC4639',
+  primary: '#D28D7A',        // Deep Teal Green
+  primaryDark: '#A56453',
+  soil: '#D28D7A',
   sand: '#FAF8F5',
   cream: '#FAF8F5',
-  border: '#E6E1D8',
-  stone: '#4A5A59',
-  accent: '#C39A58',         // Luxury Gold
+  border: '#EFE9E5',
+  stone: '#6B5B56',
+  accent: '#E5A391',         // Luxury Gold
 };
 
 const posts = [
@@ -34,55 +34,25 @@ export default function Blog() {
           Stay updated with the latest trends in the textile industry, design inspirations, and behind-the-scenes stories of traditional handloom crafts from India.
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {posts.map((post, idx) => (
-            <motion.article
-              key={idx}
+            <motion.div 
+              key={idx} 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="group flex flex-col overflow-hidden text-left bg-white"
-              style={{
-                border: `1px solid ${C.border}`,
-                borderRadius: 12,
-                transition: 'transform 0.3s ease, box-shadow 0.3s ease'
-              }}
-              onMouseEnter={e => {
-                e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 12px 30px rgba(26, 79, 79, 0.04)';
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = 'none';
-              }}
+              className="bg-white rounded-xl border border-[#EFE9E5] overflow-hidden text-left hover:shadow-md transition-shadow cursor-pointer"
             >
-              <div className="relative w-full aspect-[16/10] overflow-hidden shrink-0">
-                <img src={post.image} alt={post.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
-                <div style={{ position: 'absolute', top: 12, left: 12, padding: '4px 12px', background: 'rgba(255,255,255,0.95)', backdropFilter: 'blur(6px)', borderRadius: '50px' }}>
-                  <span style={{ fontSize: 9, letterSpacing: '0.15em', textTransform: 'uppercase', color: C.accent, fontWeight: 700 }}>{post.category}</span>
-                </div>
+              <div className="w-full aspect-video bg-[#FAF8F5]">
+                <img src={post.image} alt={post.title} className="w-full h-full object-cover" loading="lazy" />
               </div>
-              <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 }}>
-                  <span style={{ fontSize: 11, color: C.stone, fontWeight: 500 }}>{post.date}</span>
-                  <span style={{ width: 4, height: 4, background: C.accent, borderRadius: '50%' }} />
-                  <span style={{ fontSize: 11, color: C.stone, fontWeight: 500 }}>{post.readTime}</span>
-                </div>
-                <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 20, fontWeight: 700, color: C.soil, margin: '0 0 10px', lineHeight: 1.4, cursor: 'pointer', transition: 'color 0.2s' }}
-                  onMouseEnter={e => e.currentTarget.style.color = C.accent}
-                  onMouseLeave={e => e.currentTarget.style.color = C.soil}>
-                  {post.title}
-                </h3>
-                <p style={{ fontSize: 12, color: C.stone, margin: '0 0 16px', fontWeight: 500 }}>By {post.author}</p>
-                <div style={{ marginTop: 'auto', paddingTop: 16, borderTop: `1px solid ${C.border}` }}>
-                  <span style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 12, color: C.primary, fontWeight: 700, cursor: 'pointer' }}>
-                    Read More <ArrowRight size={13} />
-                  </span>
-                </div>
+              <div className="p-6">
+                <span className="text-[11px] text-[#6B5B56] uppercase tracking-wider block mb-2">{post.date}</span>
+                <h3 className="text-[16px] font-bold text-[#A56453] mb-4 line-clamp-2 leading-snug">{post.title}</h3>
+                <span className="text-[11px] font-bold text-[#D28D7A] tracking-widest uppercase">READ MORE →</span>
               </div>
-            </motion.article>
+            </motion.div>
           ))}
         </div>
       </div>

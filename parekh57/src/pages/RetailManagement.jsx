@@ -2,14 +2,14 @@ import { motion } from 'framer-motion';
 import { Mail } from 'lucide-react';
 
 const C = {
-  primary: '#BC4639',        // Deep Teal Green
-  primaryLight: '#2C6E6E',
-  soil: '#BC4639',
+  primary: '#D28D7A',        // Deep Teal Green
+  primaryLight: '#E4B5A5',
+  soil: '#D28D7A',
   sand: '#FAF8F5',
   cream: '#FAF8F5',
-  border: '#E6E1D8',
-  stone: '#4A5A59',
-  accent: '#C39A58',         // Luxury Gold
+  border: '#EFE9E5',
+  stone: '#6B5B56',
+  accent: '#E5A391',         // Luxury Gold
 };
 
 const teamMembers = [
@@ -32,7 +32,7 @@ export default function RetailManagement() {
         </div>
   
         <p style={{ textAlign: 'center', fontSize: 14, color: C.stone, marginBottom: 40, fontWeight: 600, maxWidth: 560, margin: '0 auto 40px', lineHeight: 1.6 }}>
-          Sutradhar Hub is administered and governed by highly skilled, experienced and qualified Management with decades of expertise in the textile industry.
+          Kaaya Fabrics is administered and governed by highly skilled, experienced and qualified Management with decades of expertise in the textile industry.
         </p>
 
         {/* Team Cards */}

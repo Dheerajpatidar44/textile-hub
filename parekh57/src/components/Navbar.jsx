@@ -4,15 +4,15 @@ import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const C = {
-  primary: '#BC4639',        // Deep Teal Green
-  primaryDark: '#103636',
-  primaryLight: '#2C6E6E',
-  accent: '#BC4639',         // Solid Teal Button Accent
-  accentLight: '#F9F7F4',
-  gold: '#C39A58',
+  primary: '#D28D7A',
+  primaryDark: '#A56453',
+  primaryLight: '#E4B5A5',
+  accent: '#E5A391',
+  accentLight: '#F9F1EF',
+  gold: '#D28D7A',
   bg: '#FAF8F5',
-  border: '#E6E1D8',
-  stone: '#4A5A59',
+  border: '#EFE9E5',
+  stone: '#6B5B56',
 };
 
 export default function Navbar() {
@@ -49,14 +49,14 @@ export default function Navbar() {
   ];
 
   const dropdownNavItems = [
-    { name: 'e-Quotation', path: '/e-quotation' },
-    { name: 'e-Auction', path: '/e-auction' },
-    { name: 'Trade Circular', path: '/trade-circular' },
-    { name: 'Blog Page', path: '/blog' },
-    { name: 'Notice Board', path: '/notice-board' },
-    { name: 'Career Page', path: '/career' },
-    { name: 'Customer Review', path: '/reviews' },
-    { name: 'Business Media Gallery', path: '/gallery' },
+    { name: 'e-QUOTATION', path: '/e-quotation' },
+    { name: 'e-AUCTION', path: '/e-auction' },
+    { name: 'TRADE CIRCULAR', path: '/trade-circular' },
+    { name: 'BLOG PAGE', path: '/blog' },
+    { name: 'NOTICE BOARD', path: '/notice-board' },
+    { name: 'CAREER PAGE', path: '/career' },
+    { name: 'CUSTOMER REVIEW', path: '/reviews' },
+    { name: 'BUSINESS MEDIA GALLERY', path: '/gallery' },
     { name: 'FAQ', path: '/faq' },
   ];
 
@@ -82,7 +82,7 @@ export default function Navbar() {
 
       {/* ── Main Navbar ── */}
       <div
-        className="w-full transition-all duration-300 py-3 lg:py-4"
+        className="w-full transition-all duration-300 py-2 lg:py-2.5"
         style={{
           background: scrolled ? 'rgba(255, 255, 255, 0.95)' : '#ffffff',
           backdropFilter: scrolled ? 'blur(12px)' : 'none',
@@ -107,10 +107,10 @@ export default function Navbar() {
             </div>
             <div className="flex flex-col">
               <span
-                className="text-[20px] font-semibold leading-none tracking-[0.02em] font-serif"
+                className="text-[26px] font-semibold leading-none tracking-[0.02em] font-serif"
                 style={{ fontFamily: "'Cormorant Garamond', serif", color: C.primary, fontWeight: 700 }}
               >
-                Sutradhar Hub
+                Kaaya Fabrics
               </span>
             </div>
           </Link>
@@ -123,10 +123,10 @@ export default function Navbar() {
                 <Link
                   key={item.name}
                   to={item.path}
-                  className="px-1 pb-1 mx-2 text-[10.5px] xl:text-[11px] font-bold tracking-widest transition-all duration-300 whitespace-nowrap shrink-0"
-                  style={{ 
-                    color: C.primary,
-                    borderBottom: active ? `2px solid ${C.primary}` : '2px solid transparent',
+                  className="px-1 pb-1 mx-2 text-[12px] xl:text-[13px] font-bold tracking-widest transition-all duration-300 whitespace-nowrap shrink-0"
+                  style={{
+                    color: active ? C.primaryDark : C.stone,
+                    borderBottom: '2px solid transparent',
                     borderRadius: 0,
                   }}
                 >
@@ -142,10 +142,10 @@ export default function Navbar() {
               onMouseLeave={() => setDropdownOpen(false)}
             >
               <button
-                className="flex items-center gap-1 px-1 pb-1 mx-2 text-[10.5px] xl:text-[11px] font-bold tracking-widest transition-all duration-300 whitespace-nowrap cursor-pointer bg-transparent border-none"
-                style={{ 
-                  color: C.primary,
-                  borderBottom: isDropdownActive() ? `2px solid ${C.primary}` : '2px solid transparent',
+                className="flex items-center gap-1 px-1 pb-1 mx-2 text-[12px] xl:text-[13px] font-bold tracking-widest transition-all duration-300 whitespace-nowrap cursor-pointer bg-transparent border-none"
+                style={{
+                  color: isDropdownActive() ? C.primaryDark : C.stone,
+                  borderBottom: '2px solid transparent',
                   borderRadius: 0,
                 }}
               >
@@ -174,21 +174,21 @@ export default function Navbar() {
                             key={item.name}
                             to={item.path}
                             onClick={() => setDropdownOpen(false)}
-                            className="flex items-center gap-3 px-6 py-2.5 text-[12px] font-semibold transition-all duration-200"
+                            className="flex items-center gap-3 px-6 py-2.5 text-[14px] font-semibold transition-all duration-200"
                             style={{
-                              color: active ? C.accent : C.primary,
+                              color: active ? C.primaryDark : C.stone,
                               background: active ? 'rgba(67, 83, 61, 0.05)' : 'transparent',
                               textDecoration: 'none',
                               letterSpacing: '0.05em',
                             }}
                             onMouseEnter={e => {
                               e.currentTarget.style.background = 'rgba(67, 83, 61, 0.05)';
-                              e.currentTarget.style.color = C.accent;
+                              e.currentTarget.style.color = C.primaryDark;
                             }}
                             onMouseLeave={e => {
                               if (!active) {
                                 e.currentTarget.style.background = 'transparent';
-                                e.currentTarget.style.color = C.primary;
+                                e.currentTarget.style.color = C.stone;
                               }
                             }}
                           >
@@ -249,13 +249,13 @@ export default function Navbar() {
             style={{ background: '#ffffff', fontFamily: "'Outfit', sans-serif" }}
           >
             {/* Drawer header (Fixed, no shrink) */}
-             <div style={{ flexShrink: 0, padding: '20px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: `1px solid ${C.border}` }}>
+            <div style={{ flexShrink: 0, padding: '20px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: `1px solid ${C.border}` }}>
               <div className="flex-1 flex flex-col text-left">
                 <span
                   className="text-[19px] font-semibold leading-none tracking-wide font-serif"
                   style={{ color: C.primary, fontFamily: "'Cormorant Garamond', serif", fontWeight: 700 }}
                 >
-                  Sutradhar Hub
+                  Kaaya Fabrics
                 </span>
               </div>
               <button
@@ -338,7 +338,7 @@ export default function Navbar() {
                 </div>
               </div>
             </div>
-            
+
             {/* Mobile Socials (Fixed, no shrink) */}
             <div className="px-6 py-6 border-t border-gray-100 flex items-center justify-center gap-4 bg-gray-50/50" style={{ flexShrink: 0 }}>
               {[

@@ -4,7 +4,7 @@ const COLORS = {
   primary: '#25D366',
   bg: '#FAF8F5',
   border: '#E6E4DF',
-  textDark: '#BC4639'
+  textDark: '#D28D7A'
 };
 
 const FloatingWhatsApp = () => {

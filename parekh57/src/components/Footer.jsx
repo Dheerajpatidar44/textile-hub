@@ -2,12 +2,12 @@ import { Link } from 'react-router-dom';
 import { MapPin, Phone, Mail } from 'lucide-react';
 
 const C = {
-  primary: '#BC4639',        // Deep Teal Green
-  primaryDark: '#103636',
-  primaryLight: '#2C6E6E',
-  accent: '#C39A58',         // Luxury Gold Accent
-  gold: '#C39A58',
-  border: '#E6E1D8',
+  primary: '#D28D7A',
+  primaryDark: '#A56453',
+  primaryLight: '#E4B5A5',
+  accent: '#E5A391',
+  gold: '#D28D7A',
+  border: '#EFE9E5',
   bg: '#FAF8F5',
 };
 
@@ -39,8 +39,8 @@ export default function Footer() {
                 </svg>
               </div>
               <div>
-                <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 22, fontWeight: 700, color: 'white', lineHeight: 1.1, letterSpacing: '0.02em' }}>
-                  Sutradhar Hub
+                <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 28, fontWeight: 700, color: 'white', lineHeight: 1.1, letterSpacing: '0.02em' }}>
+                  Kaaya Fabrics
                 </div>
               </div>
             </div>
@@ -149,9 +149,9 @@ export default function Footer() {
             </h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
               {[
-                { icon: MapPin, val: 'Sutradhar Hub, 456, Textile Boulevard, Surat, Gujarat - 395002', href: '#' },
+                { icon: MapPin, val: 'Kaaya Fabrics, 456, Textile Boulevard, Surat, Gujarat - 395002', href: '#' },
                 { icon: Phone, val: '1800 123 4567', href: 'tel:18001234567' },
-                { icon: Mail, val: 'info@sutradharhub.com', href: 'mailto:info@sutradharhub.com' },
+                { icon: Mail, val: 'info@kaayafabrics.com', href: 'mailto:info@kaayafabrics.com' },
               ].map(({ icon: Icon, val, href }, i) => (
                 <a
                   key={i}
@@ -174,7 +174,7 @@ export default function Footer() {
       <div style={{ borderTop: `1px solid rgba(255,255,255,0.05)`, position: 'relative', zIndex: 1, background: 'rgba(0,0,0,0.1)' }}>
         <div className="max-w-[90rem] mx-auto px-6 lg:px-14 py-3 flex items-center justify-center text-center">
           <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.4)', margin: 0, fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase' }}>
-            © 2026 Sutradhar Hub. All Rights Reserved.
+            © 2026 Kaaya Fabrics. All Rights Reserved.
           </p>
         </div>
       </div>

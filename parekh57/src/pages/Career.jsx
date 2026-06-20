@@ -2,14 +2,14 @@ import { motion } from 'framer-motion';
 import { Briefcase, MapPin, Mail, Clock } from 'lucide-react';
 
 const C = {
-  primary: '#BC4639',        // Deep Teal Green
-  primaryDark: '#103636',
-  soil: '#BC4639',
+  primary: '#D28D7A',        // Deep Teal Green
+  primaryDark: '#A56453',
+  soil: '#D28D7A',
   sand: '#FAF8F5',
   bg: '#FAF8F5',
-  border: '#E6E1D8',
-  stone: '#4A5A59',
-  accent: '#C39A58',         // Luxury Gold
+  border: '#EFE9E5',
+  stone: '#6B5B56',
+  accent: '#E5A391',         // Luxury Gold
 };
 
 const jobs = [
@@ -71,7 +71,7 @@ export default function Career() {
                     <div key={val} style={{ color: C.stone }} className="flex items-center gap-2.5 text-[12.5px] font-semibold">
                       <Icon size={14} style={{ color: C.accent }} className="shrink-0" />
                       {href ? (
-                        <a href={href} className="hover:text-[#C39A58] transition-colors">{val}</a>
+                        <a href={href} className="hover:text-[#E5A391] transition-colors">{val}</a>
                       ) : (
                         <span>{val}</span>
                       )}
