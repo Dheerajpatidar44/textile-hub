@@ -1,15 +1,15 @@
 import { motion } from 'framer-motion';
 
 const C = {
-  primary: '#96BADE',       // Dark Classic Blue / Navy
-  primaryLight: '#4B70F5',  // Vibrant Premium Indigo
-  primaryDark: '#000B58',   // Deep Royal Blue
-  accent: '#3FA2F6',        // Bright Sky/Pastel Blue
-  gold: '#3FA2F6',
-  bg: '#F4F8FC',
-  border: '#D0E1FD',
-  stone: '#4A5568',
-  soil: '#96BADE',
+  primary: '#2B2520',       // Dark Charcoal
+  primaryLight: '#4A423F',  // Medium Charcoal
+  primaryDark: '#1E1A17',   // Deep Charcoal
+  accent: '#C5A880',        // Champagne Gold
+  gold: '#C5A880',
+  bg: '#FDFBF7',
+  border: '#EAE5DB',
+  stone: '#6C625C',
+  soil: '#2B2520',
 };
 
 const galleryItems = [
@@ -23,11 +23,14 @@ const galleryItems = [
 
 export default function BusinessMediaGallery() {
   return (
-    <div style={{ fontFamily: "'Outfit', sans-serif", background: C.cream, minHeight: '90vh' }} className="pt-2 pb-16">
+    <div style={{ fontFamily: "'Outfit', sans-serif", background: C.bg, minHeight: '90vh' }} className="pt-2 pb-16">
       <div className="max-w-[90rem] mx-auto px-6 lg:px-14 pt-0">
 
         {/* Page Title Section - minimized top space */}
         <div className="text-center mb-6 mt-2">
+          <span className="text-[11px] font-bold tracking-[0.25em] text-[#C5A880] uppercase mb-2 block">
+            Gallery
+          </span>
           <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '38px', fontWeight: 700, color: C.soil, margin: 0, letterSpacing: '0.02em', textTransform: 'uppercase' }}>
             Media Gallery
           </h1>
@@ -41,19 +44,22 @@ export default function BusinessMediaGallery() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.08 }}
+              className="group"
               style={{ overflow: 'hidden',
                 background: 'white', cursor: 'pointer',
                 border: `1px solid ${C.border}`,
-                borderRadius: 16,
+                borderRadius: 20,
                 display: 'flex', flexDirection: 'column',
-                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                transition: 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease',
               }}
               onMouseEnter={e => {
                 e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 12px 30px rgba(10, 24, 40, 0.04)';
+                e.currentTarget.style.borderColor = C.accent;
+                e.currentTarget.style.boxShadow = '0 12px 30px rgba(197, 168, 128, 0.12)';
               }}
               onMouseLeave={e => {
                 e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.borderColor = C.border;
                 e.currentTarget.style.boxShadow = 'none';
               }}
             >
@@ -61,23 +67,29 @@ export default function BusinessMediaGallery() {
                 <img
                   src={item.image}
                   alt={item.title}
-                  style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.6s ease', display: 'block' }}
-                  onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.03)'}
-                  onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)', display: 'block' }}
+                  className="group-hover:scale-104"
                   loading="lazy"
                 />
+                
+                {/* Centered Overlay Tag */}
                 <div style={{
-                  position: 'absolute', top: 12, left: 12,
-                  background: 'rgba(10, 24, 40, 0.9)', backdropFilter: 'blur(6px)', padding: '4px 12px',
-                  borderRadius: '50px'
-                }}>
-                  <span style={{ fontSize: 9, color: '#ffffff', letterSpacing: '0.15em', textTransform: 'uppercase', fontWeight: 700 }}>
+                  position: 'absolute', top: '50%', left: '50%',
+                  transform: 'translate(-50%, -50%)',
+                  background: 'rgba(43, 37, 32, 0.85)', backdropFilter: 'blur(8px)', padding: '6px 16px',
+                  borderRadius: '50px', border: `1px solid rgba(197, 168, 128, 0.25)`,
+                  opacity: 0, transition: 'opacity 0.4s ease',
+                }} className="group-hover:opacity-100">
+                  <span style={{ fontSize: 9, color: '#ffffff', letterSpacing: '0.18em', textTransform: 'uppercase', fontWeight: 700 }}>
                     {item.category}
                   </span>
                 </div>
               </div>
 
-              <div style={{ padding: '20px', flex: 1, textLeft: 'left', textAlign: 'left' }}>
+              <div style={{ padding: '24px', flex: 1, textAlign: 'left' }}>
+                <span style={{ fontSize: 9, color: C.accent, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', display: 'block', marginBottom: 8 }}>
+                  {item.category}
+                </span>
                 <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 20, fontWeight: 700, color: C.soil, margin: '0 0 8px', lineHeight: 1.4 }}>
                   {item.title}
                 </h3>

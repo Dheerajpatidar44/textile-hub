@@ -10,10 +10,10 @@ export default function Layout() {
   const isHome = location.pathname === '/';
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#F4F8FC] text-[#4A4A4A] relative overflow-x-clip">
+    <div className="flex flex-col min-h-screen bg-[#FDFBF7] text-[#3C3530] relative overflow-x-clip">
       <Navbar />
       <div className="flex flex-col flex-grow w-full">
-        <main className={`flex-grow w-full max-w-screen-2xl mx-auto transition-all duration-300 ${isHome ? 'pt-0' : 'pt-[130px] md:pt-[145px]'}`}>
+        <main className={`flex-grow w-full max-w-screen-2xl mx-auto transition-all duration-300 ${isHome ? 'pt-0' : 'pt-[110px] md:pt-[120px]'}`}>
           <Outlet />
         </main>
         <Footer />

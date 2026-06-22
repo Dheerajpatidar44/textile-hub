@@ -2,9 +2,9 @@ import React from 'react';
 
 const COLORS = { 
   primary: '#25D366',
-  bg: '#F4F8FC',
-  border: '#D0E1FD',
-  textDark: '#96BADE'
+  bg: '#FDFBF7',
+  border: '#EAE5DB',
+  textDark: '#2B2520'
 };
 
 const FloatingWhatsApp = () => {
@@ -18,7 +18,7 @@ const FloatingWhatsApp = () => {
     >
       {/* Tooltip */}
       <span
-        className="absolute right-16 top-1/2 -translate-y-1/2 whitespace-nowrap text-[11px] font-bold tracking-wide px-3 py-1.5 opacity-0 group-hover:opacity-100 pointer-events-none transition-all duration-200 group-hover:-translate-x-1 rounded-lg"
+        className="absolute right-16 top-1/2 -translate-y-1/2 whitespace-nowrap text-[11px] font-bold tracking-wide px-3 py-1.5 opacity-0 group-hover:opacity-100 pointer-events-none transition-all duration-200 group-hover:-translate-x-1 rounded-xl"
         style={{
           background: COLORS.bg,
           color: COLORS.textDark,

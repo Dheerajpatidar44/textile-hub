@@ -2,14 +2,14 @@ import { motion } from 'framer-motion';
 import { Gavel, Clock, UploadCloud, Send, Mail, TrendingUp } from 'lucide-react';
 
 const C = {
-  primary: '#5E3B43',       // Burgundy
-  primaryLight: '#BD9399',  // Accent Rose
-  primaryDark: '#3B2329',   // Deep Burgundy
-  accent: '#BD9399',
-  gold: '#D4B26F',
-  bg: '#FAF6F6',
-  border: '#EFE6E7',
-  stone: '#6E6466',
+  primary: '#2B2520',       // Dark Charcoal
+  primaryLight: '#4A423F',  // Medium Charcoal
+  primaryDark: '#1E1A17',   // Deep Charcoal
+  accent: '#C5A880',        // Champagne Gold
+  gold: '#C5A880',
+  bg: '#FDFBF7',
+  border: '#EAE5DB',
+  stone: '#6C625C',
 };
 
 const upcomingAuctions = [
@@ -43,6 +43,9 @@ export default function EAuction() {
 
         {/* Page Title Section - minimized top space */}
         <div className="text-center mb-6 mt-2">
+          <span className="text-[11px] font-bold tracking-[0.25em] text-[#C5A880] uppercase mb-2 block">
+            Bidding Engine
+          </span>
           <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '38px', fontWeight: 700, color: C.primary, margin: 0, letterSpacing: '0.02em' }}>
             e-Auction
           </h1>
@@ -53,219 +56,277 @@ export default function EAuction() {
           Participate in our transparent bidding platform to procure surplus inventory, special lots, and discontinued lines at competitive prices.
         </p>
 
-        {/* Upcoming Auctions */}
-        <div className="text-left mb-8">
+        {/* Upcoming Auctions Title */}
+        <div className="text-left mb-8 max-w-5xl mx-auto">
           <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 24, fontWeight: 700, color: C.primary, margin: 0, display: 'flex', alignItems: 'center', gap: 12 }}>
             <Clock size={22} color={C.accent} /> Upcoming Auctions
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 text-left mb-20">
+        {/* Upcoming Auctions Grid (Image on top, Details below) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left mb-20 max-w-5xl mx-auto">
           {upcomingAuctions.map((auction) => (
             <motion.div
               key={auction.id}
-              initial={{ opacity: 0, scale: 0.98 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="group flex flex-col sm:flex-row overflow-hidden rounded-2xl"
+              className="group flex flex-col overflow-hidden rounded-2xl animate-fade-in"
               style={{
                 background: 'white',
                 border: `1px solid ${C.border}`,
                 transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                boxShadow: '0 4px 20px rgba(10, 24, 40, 0.02)'
+                boxShadow: '0 4px 20px rgba(43, 37, 32, 0.02)',
+                borderRadius: 24
               }}
               onMouseEnter={e => {
                 e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 12px 30px rgba(10, 24, 40, 0.05)';
+                e.currentTarget.style.boxShadow = '0 12px 30px rgba(43, 37, 32, 0.05)';
+                e.currentTarget.style.borderColor = C.accent;
               }}
               onMouseLeave={e => {
                 e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = '0 4px 20px rgba(10, 24, 40, 0.02)';
+                e.currentTarget.style.boxShadow = '0 4px 20px rgba(43, 37, 32, 0.02)';
+                e.currentTarget.style.borderColor = C.border;
               }}
             >
-              <div className="w-full sm:w-[200px] h-[200px] sm:h-auto overflow-hidden shrink-0 bg-[#FAF6F6]">
-                <img src={auction.image} alt={auction.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-              </div>
-
-              <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column' }}>
-                <div style={{ display: 'flex', alignItems: 'center', justify: 'space-between', marginBottom: 12 }}>
-                  <span style={{ fontSize: 9, padding: '6px 12px', background: 'rgba(94, 59, 67, 0.06)', color: C.primary, fontWeight: 700, letterSpacing: '0.1em', borderRadius: '50px' }}>
+              {/* Top Image block */}
+              <div className="w-full h-[220px] overflow-hidden bg-[#FAF7F2] relative">
+                <img 
+                  src={auction.image} 
+                  alt={auction.title} 
+                  className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-700" 
+                />
+                <div style={{
+                  position: 'absolute', top: 16, left: 16,
+                  background: 'rgba(43, 37, 32, 0.85)', backdropFilter: 'blur(6px)', padding: '6px 14px',
+                  borderRadius: '50px', display: 'flex', alignItems: 'center'
+                }}>
+                  <span style={{ fontSize: 9, color: '#ffffff', letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 700 }}>
                     {auction.id}
                   </span>
-                  <span style={{ fontSize: 12, color: C.gold, fontWeight: 700 }}>{auction.status}</span>
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
+              </div>
+
+              {/* Bottom Details block */}
+              <div style={{ padding: '28px', flex: 1, display: 'flex', flexDirection: 'column' }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 }}>
+                  <span style={{ fontSize: 11, color: C.accent, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+                    {auction.status}
+                  </span>
+                  <span style={{ fontSize: 11, color: C.stone, fontWeight: 600 }}>
+                    Starts: {auction.startDate.split(' - ')[0]}
+                  </span>
                 </div>
 
                 <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 22, fontWeight: 700, color: C.primary, margin: '0 0 10px' }}>
                   {auction.title}
                 </h3>
-                <p style={{ fontSize: 13, color: C.stone, margin: '0 0 16px', lineHeight: 1.6, flex: 1, fontWeight: 500 }}>
+                
+                <p style={{ fontSize: 13.5, color: C.stone, margin: '0 0 20px', lineHeight: 1.6, flex: 1, fontWeight: 500 }}>
                   {auction.description}
                 </p>
 
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 12, marginBottom: 16 }}>
-                  <div style={{ background: C.bg, padding: '10px 14px', borderRadius: 8 }}>
-                    <p style={{ fontSize: 9, color: C.stone, textTransform: 'uppercase', letterSpacing: '0.1em', margin: '0 0 4px', fontWeight: 700 }}>Quantity</p>
-                    <p style={{ fontSize: 14, color: C.primary, fontWeight: 700, margin: 0 }}>{auction.quantity}</p>
+                {/* Info and CTA row */}
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderTop: `1px solid ${C.border}`, paddingTop: 20 }}>
+                  <div>
+                    <span style={{ fontSize: 9, color: C.stone, textTransform: 'uppercase', letterSpacing: '0.05em', display: 'block', fontWeight: 700 }}>Lot Quantity</span>
+                    <span style={{ fontSize: 15, color: C.primary, fontWeight: 700 }}>{auction.quantity}</span>
                   </div>
+                  
+                  <button
+                    onClick={scrollToForm}
+                    style={{
+                      padding: '10px 22px',
+                      background: 'transparent', color: C.primary, border: `1.5px solid ${C.border}`,
+                      borderRadius: 50,
+                      fontSize: 10, fontWeight: 750, fontFamily: "'Outfit', sans-serif",
+                      cursor: 'pointer', transition: 'all 0.2s', textTransform: 'uppercase', letterSpacing: '0.08em',
+                      display: 'flex', alignItems: 'center', gap: 6,
+                    }}
+                    onMouseEnter={e => { e.currentTarget.style.background = C.primary; e.currentTarget.style.color = 'white'; e.currentTarget.style.borderColor = C.primary; }}
+                    onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = C.primary; e.currentTarget.style.borderColor = C.border; }}
+                  >
+                    <TrendingUp size={13} />
+                    <span>Register to Bid</span>
+                  </button>
                 </div>
-
-                <button
-                  onClick={scrollToForm}
-                  style={{
-                    width: '100%', padding: '12px',
-                    background: 'transparent', color: C.primary, border: `1.5px solid ${C.border}`,
-                    borderRadius: 8,
-                    fontSize: 11, fontWeight: 700, fontFamily: "'Outfit', sans-serif",
-                    cursor: 'pointer', transition: 'all 0.2s', textTransform: 'uppercase', letterSpacing: '0.05em',
-                    display: 'flex', alignItems: 'center', justify: 'center', gap: 8,
-                  }}
-                  onMouseEnter={e => { e.currentTarget.style.background = C.primary; e.currentTarget.style.color = 'white'; e.currentTarget.style.borderColor = C.primary; }}
-                  onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = C.primary; e.currentTarget.style.borderColor = C.border; }}
-                >
-                  <TrendingUp size={14} /> Register to Bid
-                </button>
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* ── Registration Form ── */}
+        {/* ── Redesigned Bidding Registration Form ── */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
           id="auction-reg-form"
-          className="max-w-3xl mx-auto scroll-mt-24"
-          style={{
+          className="max-w-4xl mx-auto scroll-mt-24"
+        >
+          <div style={{
             background: 'white',
             border: `1px solid ${C.border}`,
             overflow: 'hidden',
-            borderRadius: 20,
-            boxShadow: '0 12px 40px rgba(10, 24, 40, 0.03)',
-          }}
-        >
+            borderRadius: 24,
+            boxShadow: '0 12px 40px rgba(43, 37, 32, 0.04)',
+          }}>
             {/* Form Header */}
             <div style={{
-              padding: '28px 36px',
-              borderBottom: `1px solid ${C.border}`,
-              background: 'rgba(94, 59, 67, 0.03)',
+              padding: '32px 36px',
+              borderBottom: `2px dashed ${C.accent}`,
+              background: 'rgba(43, 37, 32, 0.01)',
               display: 'flex', alignItems: 'center', gap: 16,
             }} className="text-left">
               <div style={{
                 width: 48, height: 48,
-                background: 'white',
-                border: `1px solid rgba(94, 59, 67, 0.1)`,
-                display: 'flex', alignItems: 'center', justify: 'center',
+                background: '#FAF7F2',
+                border: `1px solid ${C.border}`,
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
                 flexShrink: 0,
                 borderRadius: '50%'
               }}>
                 <Gavel size={20} color={C.accent} />
               </div>
               <div>
-                <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 24, fontWeight: 700, color: C.primary, margin: '0 0 4px' }}>
+                <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 24, fontWeight: 700, color: C.primary, margin: '0 0 4px', textTransform: 'uppercase', letterSpacing: '0.02em' }}>
                   Participation Registration
                 </h2>
                 <p style={{ fontSize: 13, color: C.stone, margin: 0, fontWeight: 600 }}>
-                  Register your interest to participate in upcoming e-Auctions
+                  Register your business details to receive authorization for upcoming active bidding rooms
                 </p>
               </div>
             </div>
 
-            {/* Form Body */}
+            {/* Form Body - Split into 2 columns */}
             <div style={{ padding: '36px' }} className="text-left">
-              <form className="space-y-6" onSubmit={e => e.preventDefault()}>
+              <form className="space-y-8" onSubmit={e => e.preventDefault()}>
+                
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                  
+                  {/* Left Column: Business Metadata */}
+                  <div className="space-y-5">
+                    <h3 style={{ fontSize: 12, fontWeight: 800, color: C.accent, textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: 16, borderLeft: `3px solid ${C.accent}`, paddingLeft: 10 }}>
+                      Company Credentials
+                    </h3>
+                    
+                    {[
+                      { label: 'Name of the Participant *',       type: 'text'  },
+                      { label: 'Legal Name of Business *',        type: 'text'  },
+                      { label: 'Business Address with PIN Code *',type: 'text'  },
+                      { label: 'GST No. (If applicable)',         type: 'text'  },
+                    ].map((f, i) => (
+                      <div key={i}>
+                        <label style={{
+                          fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.15em',
+                          color: C.stone, display: 'block', marginBottom: 8, fontWeight: 700,
+                        }}>
+                          {f.label}
+                        </label>
+                        <input type={f.type} required className="form-input" />
+                      </div>
+                    ))}
+                  </div>
 
-                {/* Text Fields Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {[
-                    { label: 'Name of the Participant *',       type: 'text'  },
-                    { label: 'Legal Name of Business *',        type: 'text'  },
-                    { label: 'Business Address with PIN Code *',type: 'text'  },
-                    { label: 'GST No.',                         type: 'text'  },
-                    { label: 'Mobile No. *',                    type: 'tel'   },
-                    { label: 'Email ID *',                      type: 'email' },
-                  ].map((f, i) => (
-                    <div key={i}>
+                  {/* Right Column: Contact info & File Upload Dropzone */}
+                  <div className="space-y-5">
+                    <h3 style={{ fontSize: 12, fontWeight: 800, color: C.accent, textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: 16, borderLeft: `3px solid ${C.accent}`, paddingLeft: 10 }}>
+                      Verification & Contacts
+                    </h3>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      {[
+                        { label: 'Mobile No. *',                    type: 'tel'   },
+                        { label: 'Email ID *',                      type: 'email' },
+                      ].map((f, i) => (
+                        <div key={i}>
+                          <label style={{
+                            fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.15em',
+                            color: C.stone, display: 'block', marginBottom: 8, fontWeight: 700,
+                          }}>
+                            {f.label}
+                          </label>
+                          <input type={f.type} required className="form-input" />
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* File Upload Dropzone */}
+                    <div>
                       <label style={{
                         fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.15em',
                         color: C.stone, display: 'block', marginBottom: 8, fontWeight: 700,
                       }}>
-                        {f.label}
+                        Upload GST Certificate *
                       </label>
-                      <input type={f.type} required className="form-input" />
+                      <label
+                        style={{
+                          width: '100%', border: `2px dashed ${C.border}`, padding: '24px 20px',
+                          display: 'flex', flexDirection: 'column', alignItems: 'center',
+                          cursor: 'pointer', background: C.bg,
+                          transition: 'all 0.2s ease',
+                          borderRadius: 16
+                        }}
+                        onMouseEnter={e => {
+                          e.currentTarget.style.borderColor = C.accent;
+                          e.currentTarget.style.background = 'rgba(197, 168, 128, 0.05)';
+                        }}
+                        onMouseLeave={e => {
+                          e.currentTarget.style.borderColor = C.border;
+                          e.currentTarget.style.background = C.bg;
+                        }}
+                      >
+                        <input type="file" className="hidden" accept=".pdf,.jpg,.jpeg,.png" required />
+                        <UploadCloud size={28} color={C.accent} strokeWidth={1.5} style={{ marginBottom: 8 }} />
+                        <p style={{ fontSize: 13, color: C.primary, margin: '0 0 2px', fontWeight: 700 }}>
+                          Click to upload GST certificate file
+                        </p>
+                        <p style={{ fontSize: 11, color: C.stone, margin: 0 }}>
+                          PDF, JPG, PNG up to 5MB
+                        </p>
+                      </label>
                     </div>
-                  ))}
+                  </div>
+
                 </div>
 
-                {/* File Upload */}
-                <div className="mt-4">
-                  <label style={{
-                    fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.15em',
-                    color: C.stone, display: 'block', marginBottom: 10, fontWeight: 700,
-                  }}>
-                    Upload GST Certificate
-                  </label>
-                  <label
+                {/* Submit row */}
+                <div className="pt-4 border-t border-[#EAE5DB]">
+                  <button
+                    type="submit"
                     style={{
-                      width: '100%', border: `2px dashed ${C.border}`, padding: '40px 24px',
-                      display: 'flex', flexDirection: 'column', alignItems: 'center',
-                      cursor: 'pointer', background: C.bg,
+                      width: '100%', padding: '14px',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10,
+                      background: C.primary, color: 'white',
+                      border: 'none',
+                      borderRadius: 50,
+                      fontSize: 12, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em',
+                      cursor: 'pointer', fontFamily: "'Outfit', sans-serif",
                       transition: 'all 0.2s ease',
-                      borderRadius: 12
                     }}
-                    onMouseEnter={e => {
-                      e.currentTarget.style.borderColor = C.accent;
-                      e.currentTarget.style.background = 'rgba(94, 59, 67, 0.04)';
-                    }}
-                    onMouseLeave={e => {
-                      e.currentTarget.style.borderColor = C.border;
-                      e.currentTarget.style.background = C.bg;
-                    }}
+                    onMouseEnter={e => { e.currentTarget.style.background = C.accent; }}
+                    onMouseLeave={e => { e.currentTarget.style.background = C.primary; }}
                   >
-                    <input type="file" className="hidden" accept=".pdf,.jpg,.jpeg,.png" />
-                    <UploadCloud size={32} color={C.accent} strokeWidth={1.5} style={{ marginBottom: 12 }} />
-                    <p style={{ fontSize: 14, color: C.primary, margin: '0 0 4px', fontWeight: 700 }}>
-                      Click to upload GST Certificate
-                    </p>
-                    <p style={{ fontSize: 12, color: C.stone, margin: 0, fontWeight: 400 }}>
-                      PDF, JPG, PNG accepted
-                    </p>
-                  </label>
-                </div>
+                    <Send size={16} /> Submit Registration
+                  </button>
 
-                {/* Submit */}
-                <button
-                  type="submit"
-                  style={{
-                    width: '100%', padding: '14px', marginTop: 12,
-                    display: 'flex', alignItems: 'center', justify: 'center', gap: 10,
-                    background: C.primary, color: 'white',
-                    border: 'none',
-                    borderRadius: 8,
-                    fontSize: 12, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em',
-                    cursor: 'pointer', fontFamily: "'Outfit', sans-serif",
-                    transition: 'all 0.2s ease',
-                  }}
-                  onMouseEnter={e => { e.currentTarget.style.background = C.primaryLight; e.currentTarget.style.color = 'white'; }}
-                  onMouseLeave={e => { e.currentTarget.style.background = C.primary; e.currentTarget.style.color = 'white'; }}
-                >
-                  <Send size={16} /> Submit Registration
-                </button>
-
-                {/* Support Email */}
-                <div style={{ textAlign: 'center', display: 'flex', alignItems: 'center', justify: 'center', gap: 8, marginTop: 16 }}>
-                  <Mail size={14} color={C.accent} />
-                  <a
-                    href="mailto:info@navyaveaves.com"
-                    style={{ fontSize: 13, color: C.primary, fontWeight: 600, textDecoration: 'none' }}
-                  >
-                    info@navyaveaves.com
-                  </a>
+                  {/* Support Email */}
+                  <div style={{ textAlign: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, marginTop: 20 }}>
+                    <Mail size={14} color={C.accent} />
+                    <a
+                      href="mailto:info@aarohifabrics.com"
+                      style={{ fontSize: 13, color: C.primary, fontWeight: 600, textDecoration: 'none' }}
+                    >
+                      info@aarohifabrics.com
+                    </a>
+                  </div>
                 </div>
 
               </form>
             </div>
+          </div>
         </motion.div>
 
       </div>

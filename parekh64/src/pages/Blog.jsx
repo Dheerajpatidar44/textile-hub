@@ -2,15 +2,15 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
 const C = {
-  primary: '#96BADE',       // Dark Classic Blue / Navy
-  primaryLight: '#4B70F5',  // Vibrant Premium Indigo
-  primaryDark: '#000B58',   // Deep Royal Blue
-  accent: '#3FA2F6',        // Bright Sky/Pastel Blue
-  gold: '#3FA2F6',
-  bg: '#F4F8FC',
-  border: '#D0E1FD',
-  stone: '#4A5568',
-  soil: '#96BADE',
+  primary: '#2B2520',       // Dark Charcoal
+  primaryLight: '#4A423F',  // Medium Charcoal
+  primaryDark: '#1E1A17',   // Deep Charcoal
+  accent: '#C5A880',        // Champagne Gold
+  gold: '#C5A880',
+  bg: '#FDFBF7',
+  border: '#EAE5DB',
+  stone: '#6C625C',
+  soil: '#2B2520',
 };
 
 const posts = [
@@ -27,6 +27,9 @@ export default function Blog() {
 
         {/* Page Title Section - minimized top space */}
         <div className="text-center mb-6 mt-2">
+          <span className="text-[11px] font-bold tracking-[0.25em] text-[#C5A880] uppercase mb-2 block">
+            Articles
+          </span>
           <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '38px', fontWeight: 700, color: C.soil, margin: 0, letterSpacing: '0.02em', textTransform: 'uppercase' }}>
             Blog & Insights
           </h1>
@@ -34,28 +37,51 @@ export default function Blog() {
         </div>
 
         {/* Introduction */}
-        <p style={{ textAlign: 'center', fontSize: 14.5, color: C.stone, maxWidth: 620, margin: '0 auto 36px', lineHeight: 1.7, fontWeight: 400 }}>
+        <p style={{ textAlign: 'center', fontSize: 14.5, color: C.stone, maxWidth: 620, margin: '0 auto 36px', lineHeight: 1.7, fontWeight: 500 }}>
           Stay updated with the latest trends in the textile industry, design inspirations, and behind-the-scenes stories of traditional handloom crafts from India.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* Magazine-style image overlay grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {posts.map((post, idx) => (
             <motion.div 
               key={idx} 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
-              className="bg-white rounded-2xl border border-[#D0E1FD] overflow-hidden text-left hover:shadow-md transition-shadow cursor-pointer animate-fade-in"
+              transition={{ delay: idx * 0.08 }}
+              className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-sm group border border-[#EAE5DB] cursor-pointer animate-fade-in"
             >
-              <div className="w-full aspect-video bg-[#F4F8FC]">
-                <img src={post.image} alt={post.title} className="w-full h-full object-cover" loading="lazy" />
-              </div>
-              <div className="p-6">
-                <span className="text-[10px] text-[#4A5568] uppercase tracking-wider block mb-2 font-bold">{post.date}</span>
-                <h3 className="text-[16px] font-bold text-[#000B58] mb-4 line-clamp-2 leading-snug font-serif">{post.title}</h3>
-                <span className="text-[11px] font-bold text-[#96BADE] tracking-widest uppercase flex items-center gap-1">
-                  READ MORE <ArrowRight size={12} />
+              {/* Zoom image */}
+              <img 
+                src={post.image} 
+                alt={post.title} 
+                className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700 absolute inset-0" 
+                loading="lazy" 
+              />
+              {/* Warm dark overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1E1A17]/90 via-[#1E1A17]/30 to-transparent flex flex-col justify-end p-6 text-left" />
+
+              {/* Float info */}
+              <div className="absolute inset-x-0 bottom-0 p-6 z-10 flex flex-col items-start">
+                <span style={{
+                  fontSize: 8, textTransform: 'uppercase', letterSpacing: '0.15em',
+                  padding: '4px 8px', background: 'rgba(197, 168, 128, 0.2)',
+                  color: C.accent, fontWeight: 700, borderRadius: '4px', marginBottom: 10
+                }}>
+                  {post.category}
+                </span>
+                
+                <h3 className="text-[18px] font-bold font-serif text-white m-0 tracking-wider leading-snug line-clamp-3">
+                  {post.title}
+                </h3>
+                
+                <span className="text-[10px] text-[#FAF7F2] opacity-75 mt-2 block">
+                  {post.date} · {post.readTime}
+                </span>
+
+                <span className="text-[10px] font-bold text-[#C5A880] group-hover:text-white tracking-widest uppercase flex items-center gap-1 transition-colors mt-4">
+                  READ ARTICLE <ArrowRight size={11} />
                 </span>
               </div>
             </motion.div>

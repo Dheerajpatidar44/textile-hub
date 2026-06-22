@@ -1,16 +1,16 @@
 import { motion } from 'framer-motion';
-import { Briefcase, MapPin, Mail, Clock } from 'lucide-react';
+import { Briefcase, MapPin, Mail, Clock, ArrowRight } from 'lucide-react';
 
 const C = {
-  primary: '#5E3B43',       // Burgundy
-  primaryLight: '#BD9399',  // Accent Rose
-  primaryDark: '#3B2329',   // Deep Burgundy
-  accent: '#BD9399',
-  gold: '#D4B26F',
-  bg: '#FAF6F6',
-  border: '#EFE6E7',
-  stone: '#6E6466',
-  soil: '#5E3B43',
+  primary: '#2B2520',       // Dark Charcoal
+  primaryLight: '#4A423F',  // Medium Charcoal
+  primaryDark: '#1E1A17',   // Deep Charcoal
+  accent: '#C5A880',        // Champagne Gold
+  gold: '#C5A880',
+  bg: '#FDFBF7',
+  border: '#EAE5DB',
+  stone: '#6C625C',
+  soil: '#2B2520',
 };
 
 const jobs = [
@@ -23,78 +23,83 @@ const jobs = [
 export default function Career() {
   return (
     <div style={{ fontFamily: "'Outfit', sans-serif", background: C.bg, minHeight: '90vh' }} className="pt-2 pb-16">
-
-      {/* Main Content */}
       <div className="max-w-[90rem] mx-auto px-6 lg:px-14 pt-0">
 
         {/* Page Title Section - minimized top space */}
         <div className="text-center mb-6 mt-2">
+          <span className="text-[11px] font-bold tracking-[0.25em] text-[#C5A880] uppercase mb-2 block">
+            Careers
+          </span>
           <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '38px', fontWeight: 700, color: C.soil, margin: 0, letterSpacing: '0.02em', textTransform: 'uppercase' }}>
             Career Opportunities
           </h1>
           <div style={{ width: 40, height: 1.5, background: C.accent, margin: '8px auto 0' }} />
         </div>
   
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+        {/* Horizontal vacancy rows */}
+        <div className="flex flex-col gap-5 max-w-5xl mx-auto">
           {jobs.map((job, idx) => (
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.08 }}
               key={job.id}
-              className="flex flex-col justify-between p-8"
+              className="flex flex-col lg:flex-row lg:items-center justify-between p-6 md:p-8 hover:translate-y-[-2px] transition-all"
               style={{
                 background: 'white',
                 border: `1px solid ${C.border}`,
-                borderRadius: 16,
-                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                borderRadius: 20,
               }}
               onMouseEnter={e => {
-                e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 12px 30px rgba(94, 59, 67, 0.04)';
+                e.currentTarget.style.borderColor = C.accent;
+                e.currentTarget.style.boxShadow = '0 12px 30px rgba(43, 37, 32, 0.04)';
               }}
               onMouseLeave={e => {
-                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.borderColor = C.border;
                 e.currentTarget.style.boxShadow = 'none';
               }}
             >
-              <div>
-                <h3 style={{ fontFamily: "'Cormorant Garamond', serif", color: C.soil }} className="text-[20px] font-bold mb-5 leading-snug">
+              {/* Left Column: Job info */}
+              <div className="flex-grow text-left pr-0 lg:pr-8">
+                <h3 style={{ fontFamily: "'Cormorant Garamond', serif", color: C.soil }} className="text-[22px] font-bold mb-3 leading-snug">
                   {job.title}
                 </h3>
-                <div className="flex flex-col gap-3 mb-6">
+                <p style={{ color: C.stone }} className="text-[13.5px] leading-relaxed mb-4 max-w-2xl font-medium">
+                  {job.description}
+                </p>
+
+                {/* Metadata Row */}
+                <div className="flex flex-wrap items-center gap-x-6 gap-y-3 mt-4">
                   {[
                     { icon: MapPin, val: job.location },
                     { icon: Briefcase, val: `${job.type} · ${job.experience}` },
-                    { icon: Clock, val: 'Apply by June 30, 2026' },
-                    { icon: Mail, val: 'careers@navyaveaves.com', href: 'mailto:careers@navyaveaves.com' },
-                  ].map(({ icon: Icon, val, href }) => (
-                    <div key={val} style={{ color: C.stone }} className="flex items-center gap-2.5 text-[12.5px] font-semibold">
-                      <Icon size={14} style={{ color: C.accent }} className="shrink-0" />
+                    { icon: Clock, val: 'Closing: June 30, 2026' },
+                    { icon: Mail, val: 'careers@aarohifabrics.com', href: 'mailto:careers@aarohifabrics.com' },
+                  ].map(({ icon: Icon, val, href }, i) => (
+                    <div key={i} style={{ color: C.stone }} className="flex items-center gap-2 text-[12px] font-semibold">
+                      <Icon size={13} style={{ color: C.accent }} className="shrink-0" />
                       {href ? (
-                        <a href={href} style={{ color: C.primary }} className="hover:text-[#D4B26F] transition-colors">{val}</a>
+                        <a href={href} style={{ color: C.primary }} className="hover:text-[#C5A880] transition-colors">{val}</a>
                       ) : (
                         <span>{val}</span>
                       )}
                     </div>
                   ))}
                 </div>
-                <p style={{ color: C.stone }} className="text-[13px] leading-relaxed mb-4 font-medium">
-                  {job.description}
-                </p>
               </div>
 
-              <div className="pt-6 mt-4 flex flex-col gap-3" style={{ borderTop: `1px solid ${C.border}` }}>
+              {/* Right Column: Apply CTA Button */}
+              <div className="shrink-0 mt-6 lg:mt-0 border-t lg:border-none pt-4 lg:pt-0" style={{ borderColor: C.border }}>
                 <button
-                  className="w-full py-3 rounded-lg font-bold text-xs uppercase tracking-widest text-white transition-colors cursor-pointer"
+                  className="px-8 py-3 rounded-full font-bold text-xs uppercase tracking-widest text-white transition-all duration-300 cursor-pointer border-none flex items-center gap-2"
                   style={{
                     background: C.primary,
-                    border: 'none'
                   }}
                   onMouseEnter={e => e.currentTarget.style.background = C.accent}
                   onMouseLeave={e => e.currentTarget.style.background = C.primary}
                 >
-                  Apply Now
+                  <span>Apply Now</span>
+                  <ArrowRight size={13} />
                 </button>
               </div>
             </motion.div>

@@ -1,17 +1,17 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Plus, Minus } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 
 const C = {
-  primary: '#5E3B43',       // Burgundy
-  primaryLight: '#BD9399',  // Accent Rose
-  primaryDark: '#3B2329',   // Deep Burgundy
-  accent: '#BD9399',
-  gold: '#D4B26F',
-  bg: '#FAF6F6',
-  border: '#EFE6E7',
-  stone: '#6E6466',
-  soil: '#5E3B43',
+  primary: '#2B2520',       // Dark Charcoal
+  primaryLight: '#4A423F',  // Medium Charcoal
+  primaryDark: '#1E1A17',   // Deep Charcoal
+  accent: '#C5A880',        // Champagne Gold
+  gold: '#C5A880',
+  bg: '#FDFBF7',
+  border: '#EAE5DB',
+  stone: '#6C625C',
+  soil: '#2B2520',
 };
 
 const faqs = [
@@ -33,7 +33,7 @@ const faqs = [
   },
   {
     question: "Do you ship internationally?",
-    answer: "Yes, Navya Weaves ships globally. International shipping charges and delivery times vary based on the destination and order volume."
+    answer: "Yes, Aarohi Fabrics ships globally. International shipping charges and delivery times vary based on the destination and order volume."
   },
   {
     question: "Can I request custom fabric weaving or dyeing?",
@@ -54,13 +54,16 @@ export default function FAQ() {
 
         {/* Page Title Section - minimized top space */}
         <div className="text-center mb-6 mt-2">
+          <span className="text-[11px] font-bold tracking-[0.25em] text-[#C5A880] uppercase mb-2 block">
+            Questions
+          </span>
           <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '38px', fontWeight: 700, color: C.soil, margin: 0, letterSpacing: '0.02em', textTransform: 'uppercase' }}>
             Frequently Asked Questions
           </h1>
           <div style={{ width: 40, height: 1.5, background: C.accent, margin: '8px auto 0' }} />
         </div>
   
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
             return (
@@ -76,6 +79,12 @@ export default function FAQ() {
                   borderRadius: 16,
                   transition: 'all 0.3s ease',
                 }}
+                onMouseEnter={e => {
+                  if (!isOpen) e.currentTarget.style.borderColor = C.accent;
+                }}
+                onMouseLeave={e => {
+                  if (!isOpen) e.currentTarget.style.borderColor = C.border;
+                }}
               >
                 <button
                   onClick={() => toggleFAQ(index)}
@@ -89,17 +98,22 @@ export default function FAQ() {
                     border: 'none',
                   }}
                 >
-                  <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 18, fontWeight: isOpen ? 700 : 600, color: C.soil, margin: 0, lineHeight: 1.4, transition: 'all 0.2s ease' }}>
+                  <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 19, fontWeight: isOpen ? 700 : 600, color: C.soil, margin: 0, lineHeight: 1.4, transition: 'all 0.2s ease' }}>
                     {faq.question}
                   </h3>
                   <div style={{
                     flexShrink: 0, width: 32, height: 32,
-                    display: 'flex', alignItems: 'center', justify: 'center',
-                    background: isOpen ? C.accent : 'rgba(94, 59, 67, 0.08)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    background: isOpen ? C.accent : 'rgba(43, 37, 32, 0.04)',
+                    color: isOpen ? 'white' : C.accent,
                     transition: 'all 0.3s ease',
                     borderRadius: '50%'
-                  }} className="flex items-center justify-center">
-                    {isOpen ? <Minus size={14} color="white" /> : <Plus size={14} color={C.accent} />}
+                  }}>
+                    <ChevronDown 
+                      size={16} 
+                      className="transition-transform duration-300"
+                      style={{ transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)' }} 
+                    />
                   </div>
                 </button>
 
@@ -109,9 +123,9 @@ export default function FAQ() {
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.2 }}
+                      transition={{ duration: 0.25, ease: 'easeInOut' }}
                     >
-                      <div style={{ padding: '16px 22px 20px', borderTop: `1px solid ${C.border}` }}>
+                      <div style={{ padding: '16px 22px 24px', borderTop: `1px solid ${C.border}`, background: 'rgba(43, 37, 32, 0.01)' }}>
                         <p style={{ fontSize: 13.5, color: C.stone, lineHeight: 1.75, margin: 0, fontWeight: 500 }}>
                           {faq.answer}
                         </p>

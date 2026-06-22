@@ -2,14 +2,14 @@ import { motion } from 'framer-motion';
 import { ClipboardCheck, FileText, Send, Mail, Calendar, Package } from 'lucide-react';
 
 const C = {
-  primary: '#5E3B43',       // Burgundy
-  primaryLight: '#BD9399',  // Accent Rose
-  primaryDark: '#3B2329',   // Deep Burgundy
-  accent: '#BD9399',
-  gold: '#D4B26F',
-  bg: '#FAF6F6',
-  border: '#EFE6E7',
-  stone: '#6E6466',
+  primary: '#2B2520',       // Dark Charcoal
+  primaryLight: '#4A423F',  // Medium Charcoal
+  primaryDark: '#1E1A17',   // Deep Charcoal
+  accent: '#C5A880',        // Champagne Gold
+  gold: '#C5A880',
+  bg: '#FDFBF7',
+  border: '#EAE5DB',
+  stone: '#6C625C',
 };
 
 const quotations = [
@@ -43,6 +43,9 @@ export default function EQuotation() {
 
         {/* Page Title Section - minimized top space */}
         <div className="text-center mb-6 mt-2">
+          <span className="text-[11px] font-bold tracking-[0.25em] text-[#C5A880] uppercase mb-2 block">
+            Procurement
+          </span>
           <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '38px', fontWeight: 700, color: C.primary, margin: 0, letterSpacing: '0.02em' }}>
             e-Quotation
           </h1>
@@ -53,8 +56,8 @@ export default function EQuotation() {
           Digital procurement and transparent quotation system across our corporate ecosystem.
         </p>
 
-        {/* Active Quotations */}
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+        {/* Active Quotations - Horizontal Lists */}
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-20">
           <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 28 }} className="text-left">
             <ClipboardCheck size={22} color={C.accent} />
             <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 24, fontWeight: 700, color: C.primary, margin: 0 }}>
@@ -62,87 +65,88 @@ export default function EQuotation() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+          {/* Full-Width Rows Stack */}
+          <div className="flex flex-col gap-5">
             {quotations.map((item) => (
               <div
                 key={item.id}
-                className="text-left group rounded-2xl"
-                style={{ overflow: 'hidden',
+                className="text-left group flex flex-col lg:flex-row lg:items-center gap-6 p-6 md:p-8 hover:translate-y-[-2px] transition-all"
+                style={{ 
                   background: 'white',
                   border: `1px solid ${C.border}`,
-                  display: 'flex', flexDirection: 'column',
-                  padding: '28px',
-                  transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                  boxShadow: '0 4px 20px rgba(10, 24, 40, 0.02)'
+                  borderRadius: 20,
+                  boxShadow: '0 4px 20px rgba(43, 37, 32, 0.02)'
                 }}
                 onMouseEnter={e => {
-                  e.currentTarget.style.transform = 'translateY(-4px)';
-                  e.currentTarget.style.boxShadow = '0 12px 30px rgba(10, 24, 40, 0.05)';
+                  e.currentTarget.style.boxShadow = '0 12px 30px rgba(43, 37, 32, 0.05)';
+                  e.currentTarget.style.borderColor = C.accent;
                 }}
                 onMouseLeave={e => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = '0 4px 20px rgba(10, 24, 40, 0.02)';
+                  e.currentTarget.style.boxShadow = '0 4px 20px rgba(43, 37, 32, 0.02)';
+                  e.currentTarget.style.borderColor = C.border;
                 }}
               >
-                {/* ID + date row */}
-                <div style={{ display: 'flex', alignItems: 'center', justify: 'space-between', marginBottom: 16 }}>
+                {/* ID & Closing Date (Left Segment) */}
+                <div className="lg:w-1/5 shrink-0 flex flex-col gap-2">
                   <span style={{
                     fontSize: 9, textTransform: 'uppercase', letterSpacing: '0.15em',
                     padding: '6px 12px',
-                    background: 'rgba(94, 59, 67, 0.06)',
+                    background: 'rgba(197, 168, 128, 0.12)',
                     color: C.primary, fontWeight: 700,
-                    borderRadius: '50px'
+                    borderRadius: '50px',
+                    width: 'fit-content'
                   }}>
                     {item.id}
                   </span>
-                  <div className="flex-1" />
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                    <Calendar size={14} color={C.stone} />
-                    <span style={{ fontSize: 12, color: C.stone, fontWeight: 500 }}>{item.closingDate}</span>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginTop: 4 }}>
+                    <Calendar size={13} color={C.accent} />
+                    <span style={{ fontSize: 12, color: C.stone, fontWeight: 600 }}>Closes: {item.closingDate}</span>
                   </div>
                 </div>
 
-                <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 22, fontWeight: 700, color: C.primary, margin: '0 0 12px' }}>
-                  {item.title}
-                </h3>
-                <p style={{ fontSize: 13, color: C.stone, lineHeight: 1.6, margin: '0 0 20px', fontWeight: 500, flex: 1 }}>
-                  {item.specifications}
-                </p>
-
-                <div style={{
-                  display: 'flex', alignItems: 'center', justify: 'space-between',
-                  padding: '12px 16px',
-                  background: C.bg, marginBottom: 20,
-                  borderRadius: 8
-                }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                    <Package size={16} color={C.accent} />
-                    <span style={{ fontSize: 11, color: C.stone, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Required</span>
-                  </div>
-                  <span style={{ fontSize: 14, color: C.primary, fontWeight: 700 }}>{item.quantity}</span>
+                {/* Title & Specifications (Center Segment) */}
+                <div className="flex-grow">
+                  <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 20, fontWeight: 700, color: C.primary, margin: '0 0 8px' }}>
+                    {item.title}
+                  </h3>
+                  <p style={{ fontSize: 13, color: C.stone, lineHeight: 1.6, margin: 0, fontWeight: 500 }}>
+                    {item.specifications}
+                  </p>
                 </div>
 
-                <button
-                  onClick={() => document.getElementById('quote-form-section')?.scrollIntoView({ behavior: 'smooth' })}
-                  style={{
-                    width: '100%', padding: '12px',
-                    background: 'transparent', color: C.primary, border: `1.5px solid ${C.border}`,
-                    borderRadius: 8,
-                    fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em',
-                    cursor: 'pointer', fontFamily: "'Outfit', sans-serif",
-                    transition: 'all 0.2s ease',
-                  }}
-                  onMouseEnter={e => { e.currentTarget.style.background = C.primary; e.currentTarget.style.color = 'white'; e.currentTarget.style.borderColor = C.primary; }}
-                  onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = C.primary; e.currentTarget.style.borderColor = C.border; }}
-                >
-                  Submit Bid
-                </button>
+                {/* Quantity Required (Middle Right Segment) */}
+                <div className="lg:w-1/5 shrink-0 flex flex-col justify-center bg-[#FAF7F2] p-4 rounded-xl border border-[#EAE5DB]">
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 4 }}>
+                    <Package size={14} color={C.accent} />
+                    <span style={{ fontSize: 9, color: C.stone, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Volume Required</span>
+                  </div>
+                  <span style={{ fontSize: 16, color: C.primary, fontWeight: 700 }}>{item.quantity}</span>
+                </div>
+
+                {/* Submit Bid Button (Right Segment) */}
+                <div className="lg:w-1/6 shrink-0">
+                  <button
+                    onClick={() => document.getElementById('quote-form-section')?.scrollIntoView({ behavior: 'smooth' })}
+                    style={{
+                      width: '100%', padding: '12px 20px',
+                      background: 'transparent', color: C.primary, border: `1.5px solid ${C.border}`,
+                      borderRadius: 50,
+                      fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em',
+                      cursor: 'pointer', fontFamily: "'Outfit', sans-serif",
+                      transition: 'all 0.2s ease',
+                    }}
+                    onMouseEnter={e => { e.currentTarget.style.background = C.primary; e.currentTarget.style.color = 'white'; e.currentTarget.style.borderColor = C.primary; }}
+                    onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = C.primary; e.currentTarget.style.borderColor = C.border; }}
+                  >
+                    Submit Bid
+                  </button>
+                </div>
               </div>
             ))}
           </div>
         </motion.div>
 
-        {/* Form */}
+        {/* ── Redesigned Form ── */}
         <motion.div
           initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
@@ -153,100 +157,121 @@ export default function EQuotation() {
             background: 'white',
             border: `1px solid ${C.border}`,
             overflow: 'hidden',
-            borderRadius: 20,
-            boxShadow: '0 12px 40px rgba(10, 24, 40, 0.03)',
+            borderRadius: 24,
+            boxShadow: '0 12px 40px rgba(43, 37, 32, 0.04)',
           }}>
-            {/* Form header */}
+            {/* Form Header with Double border and gold highlight */}
             <div style={{
-              padding: '28px 36px',
-              borderBottom: `1px solid ${C.border}`,
-              background: 'rgba(94, 59, 67, 0.03)',
+              padding: '32px 36px',
+              background: 'rgba(43, 37, 32, 0.01)',
+              borderBottom: `2px dashed ${C.accent}`,
               display: 'flex', alignItems: 'center', gap: 16,
             }} className="text-left">
               <div style={{
                 width: 48, height: 48,
-                background: 'white',
-                border: `1px solid rgba(94, 59, 67, 0.1)`,
+                background: '#FAF7F2',
+                border: `1px solid ${C.border}`,
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 borderRadius: '50%'
               }}>
                 <FileText size={20} color={C.accent} />
               </div>
               <div>
-                <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 24, fontWeight: 700, color: C.primary, margin: '0 0 4px' }}>
+                <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 24, fontWeight: 700, color: C.primary, margin: '0 0 4px', textTransform: 'uppercase', letterSpacing: '0.02em' }}>
                   Request an e-quotation
                 </h2>
                 <p style={{ fontSize: 13, color: C.stone, margin: 0, fontWeight: 600 }}>
-                  Fill in your details below to receive a quotation
+                  Fill in your details below to receive a custom quotation from our trade managers
                 </p>
               </div>
             </div>
 
+            {/* Divided Form Body */}
             <div style={{ padding: '36px' }} className="text-left">
-              <form className="space-y-6" onSubmit={e => e.preventDefault()}>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {[
-                    { label: 'Name of the Trader *', type: 'text' },
-                    { label: 'Business Name *', type: 'text' },
-                    { label: 'Business Address with PIN Code *', type: 'text' },
-                    { label: 'GST No.', type: 'text' },
-                    { label: 'Mobile No. *', type: 'tel' },
-                    { label: 'Email ID *', type: 'email' },
-                  ].map((f, i) => (
-                    <div key={i}>
+              <form className="space-y-8" onSubmit={e => e.preventDefault()}>
+                
+                {/* Section 1: Business Metadata */}
+                <div>
+                  <h3 style={{ fontSize: 12, fontWeight: 800, color: C.accent, textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: 20, borderLeft: `3px solid ${C.accent}`, paddingLeft: 10 }}>
+                    1. Business Metadata
+                  </h3>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {[
+                      { label: 'Name of the Trader *', type: 'text' },
+                      { label: 'Business Name *', type: 'text' },
+                      { label: 'Business Address with PIN Code *', type: 'text' },
+                      { label: 'GST No.', type: 'text' },
+                      { label: 'Mobile No. *', type: 'tel' },
+                      { label: 'Email ID *', type: 'email' },
+                    ].map((f, i) => (
+                      <div key={i}>
+                        <label style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.15em', color: C.stone, display: 'block', marginBottom: 8, fontWeight: 700 }}>
+                          {f.label}
+                        </label>
+                        <input type={f.type} className="form-input" required />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Section 2: Material Specifications */}
+                <div>
+                  <h3 style={{ fontSize: 12, fontWeight: 800, color: C.accent, textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: 20, borderLeft: `3px solid ${C.accent}`, paddingLeft: 10 }}>
+                    2. Material Specifications
+                  </h3>
+
+                  <div className="space-y-6">
+                    <div>
                       <label style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.15em', color: C.stone, display: 'block', marginBottom: 8, fontWeight: 700 }}>
-                        {f.label}
+                        Select Category *
                       </label>
-                      <input type={f.type} className="form-input" required />
+                      <select className="form-input" style={{ appearance: 'none' }}>
+                        <option value="" disabled>Select Option</option>
+                        <option>Textile Products</option>
+                        <option>Raw Materials</option>
+                        <option>Corporate Gifting</option>
+                      </select>
                     </div>
-                  ))}
+
+                    <div>
+                      <label style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.15em', color: C.stone, display: 'block', marginBottom: 8, fontWeight: 700 }}>
+                        Particulars of the Products *
+                      </label>
+                      <textarea
+                        rows={4}
+                        placeholder="Enter detailed description: GSM, weave pattern, target dimensions, quantity metrics, and color codes..."
+                        className="form-input" style={{ resize: 'none', borderRadius: 0 }}
+                        required
+                      />
+                    </div>
+                  </div>
                 </div>
 
-                <div>
-                  <label style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.15em', color: C.stone, display: 'block', marginBottom: 8, fontWeight: 700 }}>
-                    Options *
-                  </label>
-                  <select className="form-input" style={{ appearance: 'none' }}>
-                    <option value="" disabled>Select Option</option>
-                    <option>Textile Products</option>
-                    <option>Raw Materials</option>
-                    <option>Corporate Gifting</option>
-                  </select>
-                </div>
+                {/* Action button & footer info */}
+                <div className="pt-4 border-t border-[#EAE5DB]">
+                  <button type="submit" style={{
+                    width: '100%', padding: '14px',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10,
+                    background: C.primary, color: 'white',
+                    border: 'none',
+                    borderRadius: 50,
+                    fontSize: 12, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em',
+                    cursor: 'pointer', fontFamily: "'Outfit', sans-serif",
+                    transition: 'all 0.2s ease',
+                  }}
+                    onMouseEnter={e => { e.currentTarget.style.background = C.accent; }}
+                    onMouseLeave={e => { e.currentTarget.style.background = C.primary; }}
+                  >
+                    <Send size={16} /> Submit Quotation Request
+                  </button>
 
-                <div>
-                  <label style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.15em', color: C.stone, display: 'block', marginBottom: 8, fontWeight: 700 }}>
-                    Particulars of the Products *
-                  </label>
-                  <textarea
-                    rows={4}
-                    placeholder="Enter product details, GSM, quantity, color, specifications..."
-                    className="form-input" style={{ resize: 'none', borderRadius: 0 }}
-                    required
-                  />
-                </div>
-
-                <button type="submit" style={{
-                  width: '100%', padding: '14px', marginTop: 12,
-                  display: 'flex', alignItems: 'center', justify: 'center', gap: 10,
-                  background: C.primary, color: 'white',
-                  border: 'none',
-                  borderRadius: 8,
-                  fontSize: 12, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em',
-                  cursor: 'pointer', fontFamily: "'Outfit', sans-serif",
-                  transition: 'all 0.2s ease',
-                }}
-                  onMouseEnter={e => { e.currentTarget.style.background = C.primaryLight; e.currentTarget.style.color = 'white'; }}
-                  onMouseLeave={e => { e.currentTarget.style.background = C.primary; e.currentTarget.style.color = 'white'; }}
-                >
-                  <Send size={16} /> Submit Quotation Request
-                </button>
-
-                <div style={{ textAlign: 'center', display: 'flex', alignItems: 'center', justify: 'center', gap: 8, marginTop: 16 }}>
-                  <Mail size={14} color={C.accent} />
-                  <a href="mailto:info@navyaveaves.com" style={{ fontSize: 13, color: C.primary, fontWeight: 600, textDecoration: 'none' }}>
-                    info@navyaveaves.com
-                  </a>
+                  <div style={{ textAlign: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, marginTop: 20 }}>
+                    <Mail size={14} color={C.accent} />
+                    <a href="mailto:info@aarohifabrics.com" style={{ fontSize: 13, color: C.primary, fontWeight: 600, textDecoration: 'none' }}>
+                      info@aarohifabrics.com
+                    </a>
+                  </div>
                 </div>
               </form>
             </div>

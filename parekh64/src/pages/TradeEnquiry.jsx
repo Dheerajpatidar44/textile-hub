@@ -2,15 +2,15 @@ import { motion } from 'framer-motion';
 import { Send, Building2, ShoppingBag } from 'lucide-react';
 
 const C = {
-  primary: '#96BADE',       // Dark Classic Blue / Navy
-  primaryLight: '#4B70F5',  // Vibrant Premium Indigo
-  primaryDark: '#000B58',   // Deep Royal Blue
-  accent: '#3FA2F6',        // Bright Sky/Pastel Blue
-  gold: '#3FA2F6',
-  bg: '#F4F8FC',
-  border: '#D0E1FD',
-  stone: '#4A5568',
-  soil: '#96BADE',
+  primary: '#2B2520',       // Dark Charcoal
+  primaryLight: '#4A423F',  // Medium Charcoal
+  primaryDark: '#1E1A17',   // Deep Charcoal
+  accent: '#C5A880',        // Champagne Gold
+  gold: '#C5A880',
+  bg: '#FDFBF7',
+  border: '#EAE5DB',
+  stone: '#6C625C',
+  soil: '#2B2520',
 };
 
 const categories = [
@@ -22,18 +22,21 @@ const categories = [
 
 export default function TradeEnquiry() {
   return (
-    <div style={{ fontFamily: "'Outfit', sans-serif", background: C.cream, minHeight: '90vh' }} className="pt-2 pb-16">
+    <div style={{ fontFamily: "'Outfit', sans-serif", background: C.bg, minHeight: '90vh' }} className="pt-2 pb-16">
       <div className="max-w-3xl mx-auto px-6 pt-0">
 
         {/* Page Title Section - minimized top space */}
         <div className="text-center mb-6 mt-2">
+          <span className="text-[11px] font-bold tracking-[0.25em] text-[#C5A880] uppercase mb-2 block">
+            Wholesale
+          </span>
           <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '38px', fontWeight: 700, color: C.soil, margin: 0, letterSpacing: '0.02em', textTransform: 'uppercase' }}>
             Trade Enquiry
           </h1>
           <div style={{ width: 40, height: 1.5, background: C.accent, margin: '8px auto 0' }} />
         </div>
   
-        <p style={{ textAlign: 'center', fontSize: 15, lineHeight: 1.8, color: C.stone, marginBottom: 36, fontWeight: 400 }}>
+        <p style={{ textAlign: 'center', fontSize: 15, lineHeight: 1.8, color: C.stone, marginBottom: 36, fontWeight: 500 }}>
           We welcome bulk orders, wholesale partnerships, and custom textile manufacturing requests. Fill out the form below to begin our collaboration.
         </p>
 
@@ -46,13 +49,13 @@ export default function TradeEnquiry() {
             border: `1px solid ${C.border}`,
             overflow: 'hidden',
             borderRadius: 20,
-            boxShadow: '0 12px 40px rgba(10, 24, 40, 0.03)',
+            boxShadow: '0 12px 40px rgba(43, 37, 32, 0.03)',
           }}
         >
           <div style={{
             padding: '24px 32px',
             borderBottom: `1px solid ${C.border}`,
-            background: 'rgba(10, 24, 40, 0.03)',
+            background: 'rgba(43, 37, 32, 0.02)',
           }} className="text-left">
             <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 22, fontWeight: 700, color: C.soil, margin: '0 0 4px' }}>
               Enquiry Form
@@ -130,11 +133,11 @@ export default function TradeEnquiry() {
                 type="submit"
                 style={{
                   width: '100%', padding: '12px',
-                  display: 'flex', alignItems: 'center', justify: 'center', gap: 8,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
                   background: C.primary, color: 'white',
                   border: 'none',
                   fontSize: 12, fontWeight: 700,
-                  borderRadius: 8,
+                  borderRadius: 50,
                   cursor: 'pointer', fontFamily: "'Outfit', sans-serif",
                   transition: 'all 0.2s ease',
                   letterSpacing: '0.05em',

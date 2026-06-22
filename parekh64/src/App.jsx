@@ -64,14 +64,14 @@ function WelcomePopup() {
             transition={{ type: 'spring', stiffness: 280, damping: 26 }}
             style={{
               position: 'relative',
-              background: '#FAF6F6',
+              background: '#FDFBF7',
               maxWidth: 420,
               width: '100%',
               overflow: 'hidden',
               borderRadius: '24px',
               zIndex: 10,
-              border: '1px solid #EFE6E7',
-              boxShadow: '0 40px 80px rgba(59, 35, 41, 0.15)',
+              border: '1px solid #EAE5DB',
+              boxShadow: '0 40px 80px rgba(43, 37, 32, 0.15)',
               fontFamily: "'Outfit', sans-serif",
             }}
           >
@@ -83,7 +83,7 @@ function WelcomePopup() {
                 width: 32, height: 32,
                 background: 'transparent', border: 'none',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                cursor: 'pointer', color: '#6E6466', transition: 'all 0.2s',
+                cursor: 'pointer', color: '#6C625C', transition: 'all 0.2s',
                 borderRadius: '50%',
                 zIndex: 5,
               }}
@@ -100,11 +100,11 @@ function WelcomePopup() {
                 width: 64, height: 64, margin: '0 auto 20px',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 borderRadius: '50%',
-                background: 'rgba(94, 59, 67, 0.08)', }}>
-                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#5E3B43" strokeWidth="1.5">
-                  <circle cx="12" cy="12" r="9" stroke="#5E3B43" strokeWidth="1.5" />
-                  <path d="M12 2v20M2 12h20M5 5l14 14M5 19L14 10" stroke="#D4B26F" strokeWidth="1.5" />
-                  <circle cx="12" cy="12" r="4" fill="#5E3B43" />
+                background: 'rgba(197, 168, 128, 0.08)', }}>
+                <svg width="36" height="36" viewBox="0 0 100 100" fill="none">
+                  <path d="M50 15 L56 38 L80 38 L60 52 L68 76 L50 62 L32 76 L40 52 L20 38 L44 38 Z" stroke="#C5A880" strokeWidth="2" fill="none" strokeLinejoin="round" />
+                  <circle cx="50" cy="50" r="10" stroke="#2B2520" strokeWidth="1.5" />
+                  <circle cx="50" cy="50" r="3" fill="#C5A880" />
                 </svg>
               </div>
 
@@ -112,7 +112,7 @@ function WelcomePopup() {
               <h2 style={{
                 fontFamily: "'Cormorant Garamond', serif",
                 fontSize: 16, fontWeight: 600,
-                color: '#5E3B43', margin: '0 0 6px', lineHeight: 1.25,
+                color: '#2B2520', margin: '0 0 6px', lineHeight: 1.25,
                 letterSpacing: '0.15em',
                 textTransform: 'uppercase'
               }}>
@@ -121,24 +121,24 @@ function WelcomePopup() {
               <h2 style={{
                 fontFamily: "'Cormorant Garamond', serif",
                 fontSize: 26, fontWeight: 700,
-                color: '#5E3B43', margin: '0 0 6px', lineHeight: 1.2,
+                color: '#2B2520', margin: '0 0 6px', lineHeight: 1.2,
                 letterSpacing: '0.04em',
               }}>
-                NAVYA WEAVES
+                AAROHI FABRICS
               </h2>
               <h3 style={{
                 fontFamily: "'Outfit', sans-serif",
                 fontSize: 10, fontWeight: 700,
-                color: '#6E6466', margin: '0 0 18px', lineHeight: 1.2,
+                color: '#6C625C', margin: '0 0 18px', lineHeight: 1.2,
                 letterSpacing: '0.25em',
                 textTransform: 'uppercase'
               }}>
                 Premium Textile House
               </h3>
 
-              <div style={{ width: 48, height: 1.5, background: '#D4B26F', margin: '0 auto 20px' }} />
+              <div style={{ width: 48, height: 1.5, background: '#C5A880', margin: '0 auto 20px' }} />
 
-              <p style={{ color: '#6E6466', fontSize: 13.5, lineHeight: 1.6, margin: '0 0 32px', fontWeight: 500 }}>
+              <p style={{ color: '#6C625C', fontSize: 13.5, lineHeight: 1.6, margin: '0 0 32px', fontWeight: 500 }}>
                 Discover our premium collections, customized e-auctions, and e-quotations. Explore heritage crafted textiles.
               </p>
 
@@ -147,7 +147,7 @@ function WelcomePopup() {
                 onClick={() => { setIsOpen(false); navigate('/products'); }}
                 style={{
                   width: '100%', padding: '14px 20px',
-                  background: '#5E3B43',
+                  background: '#2B2520',
                   color: '#ffffff',
                   border: 'none',
                   fontSize: 11, fontWeight: 700,
@@ -157,8 +157,8 @@ function WelcomePopup() {
                   transition: 'all 0.25s',
                   borderRadius: '50px',
                 }}
-                onMouseEnter={e => { e.currentTarget.style.background = '#8C5E6B'; }}
-                onMouseLeave={e => { e.currentTarget.style.background = '#5E3B43'; }}
+                onMouseEnter={e => { e.currentTarget.style.background = '#C5A880'; }}
+                onMouseLeave={e => { e.currentTarget.style.background = '#2B2520'; }}
               >
                 Explore Collection
               </button>

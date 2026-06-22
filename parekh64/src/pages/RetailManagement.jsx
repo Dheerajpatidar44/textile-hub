@@ -2,15 +2,15 @@ import { motion } from 'framer-motion';
 import { Mail } from 'lucide-react';
 
 const C = {
-  primary: '#5E3B43',       // Burgundy
-  primaryLight: '#BD9399',  // Accent Rose
-  primaryDark: '#3B2329',   // Deep Burgundy
-  accent: '#BD9399',
-  gold: '#D4B26F',
-  bg: '#FAF6F6',
-  border: '#EFE6E7',
-  stone: '#6E6466',
-  soil: '#5E3B43',
+  primary: '#2B2520',       // Dark Charcoal
+  primaryLight: '#4A423F',  // Medium Charcoal
+  primaryDark: '#1E1A17',   // Deep Charcoal
+  accent: '#C5A880',        // Champagne Gold
+  gold: '#C5A880',
+  bg: '#FDFBF7',
+  border: '#EAE5DB',
+  stone: '#6C625C',
+  soil: '#2B2520',
 };
 
 const teamMembers = [
@@ -26,6 +26,9 @@ export default function RetailManagement() {
 
         {/* Page Title Section - minimized top space */}
         <div className="text-center mb-6 mt-2">
+          <span className="text-[11px] font-bold tracking-[0.25em] text-[#C5A880] uppercase mb-2 block">
+            Leadership
+          </span>
           <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '38px', fontWeight: 700, color: C.soil, margin: 0, letterSpacing: '0.02em', textTransform: 'uppercase' }}>
             Our Retail Management
           </h1>
@@ -33,14 +36,14 @@ export default function RetailManagement() {
         </div>
   
         <p style={{ textAlign: 'center', fontSize: 14, color: C.stone, marginBottom: 40, fontWeight: 600, maxWidth: 560, margin: '0 auto 40px', lineHeight: 1.6 }}>
-          Navya Weaves is administered and governed by highly skilled, experienced and qualified Management with decades of expertise in the textile industry.
+          Aarohi Fabrics is administered and governed by highly skilled, experienced and qualified Management with decades of expertise in the textile industry.
         </p>
 
-        {/* Team Cards */}
+        {/* Team Cards - Horizontal Layout Stack */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto"
+          className="flex flex-col gap-6 max-w-3xl mx-auto"
         >
           {teamMembers.map((member, i) => (
             <motion.div
@@ -48,64 +51,81 @@ export default function RetailManagement() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
-              style={{ background: 'white',
+              className="flex flex-col sm:flex-row items-center gap-6 p-6 md:p-8 hover:translate-y-[-2px] transition-all"
+              style={{ 
+                background: 'white',
                 border: `1px solid ${C.border}`,
-                padding: '28px 22px',
-                borderRadius: 20,
-                textAlign: 'center',
-                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                borderRadius: 24,
+                textAlign: 'left',
               }}
               onMouseEnter={e => {
-                e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 12px 30px rgba(94, 59, 67, 0.05)';
+                e.currentTarget.style.boxShadow = '0 12px 30px rgba(43, 37, 32, 0.06)';
               }}
               onMouseLeave={e => {
-                e.currentTarget.style.transform = 'translateY(0)';
                 e.currentTarget.style.boxShadow = 'none';
               }}
             >
-              <div style={{ position: 'relative', display: 'inline-block', marginBottom: 18 }}>
-                <img
-                  src={member.image}
-                  alt={member.name}
+              {/* Profile Image Column (Left) - Arched top shape */}
+              <div className="shrink-0 relative">
+                <div 
                   style={{
-                    width: 90, height: 90,
-                    objectFit: 'cover',
-                    borderRadius: '50%',
-                    border: `3px solid rgba(94, 59, 67, 0.15)`,
-                    display: 'block',
+                    width: 110, height: 140,
+                    borderRadius: '50px 50px 12px 12px',
+                    overflow: 'hidden',
+                    border: `2px solid ${C.border}`,
+                    background: '#FAF7F2',
                   }}
-                />
+                >
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    style={{
+                      width: '100%', height: '100%',
+                      objectFit: 'cover',
+                      display: 'block',
+                    }}
+                  />
+                </div>
               </div>
 
-              <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 20, fontWeight: 700, color: C.soil, margin: '0 0 4px' }}>
-                {member.name}
-              </h3>
-              <p style={{ fontSize: 9, textTransform: 'uppercase', letterSpacing: '0.18em', color: C.accent, margin: '0 0 8px', fontWeight: 700 }}>
-                {member.role}
-              </p>
-              <p style={{ fontSize: 12, color: C.stone, margin: '0 0 18px', fontWeight: 500, lineHeight: 1.5 }}>
-                {member.expertise}
-              </p>
+              {/* Profile Content Column (Right) */}
+              <div className="flex-grow flex flex-col justify-between py-1">
+                <div>
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-2">
+                    <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 24, fontWeight: 700, color: C.soil, margin: 0 }}>
+                      {member.name}
+                    </h3>
+                    <span 
+                      className="px-3 py-1 text-[9px] font-bold tracking-widest uppercase rounded-full shrink-0 text-center"
+                      style={{ 
+                        background: 'rgba(197, 168, 128, 0.12)', 
+                        color: C.accent,
+                        maxWidth: 'fit-content'
+                      }}
+                    >
+                      {member.role}
+                    </span>
+                  </div>
+                  <p style={{ fontSize: 13.5, color: C.stone, margin: '0 0 16px', fontWeight: 500, lineHeight: 1.5 }}>
+                    <strong>Expertise:</strong> {member.expertise}
+                  </p>
+                </div>
 
-              <a
-                href={`mailto:${member.name.toLowerCase().replace(' ', '')}@navyaveaves.com`}
-                style={{
-                  display: 'inline-flex', alignItems: 'center', gap: 6,
-                  padding: '8px 16px',
-                  fontSize: 11, color: C.primary, textDecoration: 'none', fontWeight: 700,
-                  background: 'rgba(94, 59, 67, 0.05)',
-                  border: `1px solid rgba(94, 59, 67, 0.1)`,
-                  borderRadius: 8,
-                  transition: 'all 0.2s ease',
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.05em'
-                }}
-                onMouseEnter={e => { e.currentTarget.style.background = C.primary; e.currentTarget.style.color = 'white'; e.currentTarget.style.borderColor = C.primary; }}
-                onMouseLeave={e => { e.currentTarget.style.background = 'rgba(94, 59, 67, 0.05)'; e.currentTarget.style.color = C.primary; e.currentTarget.style.borderColor = 'rgba(94, 59, 67, 0.1)'; }}
-              >
-                <Mail size={12} /> Contact
-              </a>
+                <div>
+                  <a
+                    href={`mailto:${member.name.toLowerCase().replace(' ', '')}@aarohifabrics.com`}
+                    className="inline-flex items-center gap-2 px-5 py-2 text-[10px] font-bold text-white uppercase tracking-widest transition-all duration-300 rounded-full hover:shadow-md cursor-pointer border-none"
+                    style={{
+                      background: C.primary,
+                    }}
+                    onMouseEnter={e => { e.currentTarget.style.background = C.accent; }}
+                    onMouseLeave={e => { e.currentTarget.style.background = C.primary; }}
+                  >
+                    <Mail size={12} />
+                    <span>Contact {member.name.split(' ')[0]}</span>
+                  </a>
+                </div>
+              </div>
             </motion.div>
           ))}
         </motion.div>

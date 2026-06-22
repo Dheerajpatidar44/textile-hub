@@ -1,16 +1,16 @@
 import { motion } from 'framer-motion';
-import { FileText, Eye, Printer } from 'lucide-react';
+import { FileText, Eye, Printer, Calendar } from 'lucide-react';
 
 const C = {
-  primary: '#96BADE',       // Dark Classic Blue / Navy
-  primaryLight: '#4B70F5',  // Vibrant Premium Indigo
-  primaryDark: '#000B58',   // Deep Royal Blue
-  accent: '#3FA2F6',        // Bright Sky/Pastel Blue
-  gold: '#3FA2F6',
-  bg: '#F4F8FC',
-  border: '#D0E1FD',
-  stone: '#4A5568',
-  soil: '#96BADE',
+  primary: '#2B2520',       // Dark Charcoal
+  primaryLight: '#4A423F',  // Medium Charcoal
+  primaryDark: '#1E1A17',   // Deep Charcoal
+  accent: '#C5A880',        // Champagne Gold
+  gold: '#C5A880',
+  bg: '#FDFBF7',
+  border: '#EAE5DB',
+  stone: '#6C625C',
+  soil: '#2B2520',
 };
 
 const circulars = [
@@ -22,63 +22,103 @@ const circulars = [
 
 const TradeCircular = () => {
   return (
-    <div style={{ fontFamily: "'Outfit', sans-serif", background: C.cream, minHeight: '90vh' }} className="pt-2 pb-16">
+    <div style={{ fontFamily: "'Outfit', sans-serif", background: C.bg, minHeight: '90vh' }} className="pt-2 pb-16">
       <div className="max-w-[90rem] mx-auto px-6 lg:px-14 pt-0">
 
         {/* Page Title Section - minimized top space */}
         <div className="text-center mb-6 mt-2">
+          <span className="text-[11px] font-bold tracking-[0.25em] text-[#C5A880] uppercase mb-2 block">
+            Updates
+          </span>
           <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '38px', fontWeight: 700, color: C.soil, margin: 0, letterSpacing: '0.02em', textTransform: 'uppercase' }}>
             Trade Circular
           </h1>
           <div style={{ width: 40, height: 1.5, background: C.accent, margin: '8px auto 0' }} />
         </div>
   
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
+        {/* Full-width stack */}
+        <div className="flex flex-col gap-4 max-w-5xl mx-auto">
           {circulars.map((circular) => (
             <motion.div
               key={circular.id}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="group flex flex-col justify-between"
+              className="group flex flex-col md:flex-row md:items-center justify-between p-5 md:p-6 hover:translate-y-[-2px] transition-all"
               style={{
                 background: 'white',
                 border: `1px solid ${C.border}`,
-                padding: '24px',
                 borderRadius: 16,
-                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
               }}
               onMouseEnter={e => {
-                e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 12px 30px rgba(10, 24, 40, 0.04)';
+                e.currentTarget.style.borderColor = C.accent;
+                e.currentTarget.style.boxShadow = '0 8px 24px rgba(43, 37, 32, 0.04)';
               }}
               onMouseLeave={e => {
-                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.borderColor = C.border;
                 e.currentTarget.style.boxShadow = 'none';
               }}
             >
-              <div className="flex flex-col items-start gap-4 mb-5">
-                <div style={{ width: 42, height: 42, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(10, 24, 40, 0.08)', borderRadius: '50%' }}>
-                  <FileText size={18} color={C.accent} />
+              {/* Left Side: Icon & Title */}
+              <div className="flex items-center gap-4 flex-grow text-left">
+                <div style={{ 
+                  width: 44, height: 44, 
+                  display: 'flex', alignItems: 'center', justifyContent: 'center', 
+                  background: 'rgba(197, 168, 128, 0.08)', 
+                  borderRadius: '50%',
+                  color: C.accent
+                }} className="shrink-0">
+                  <FileText size={20} />
                 </div>
                 <div>
-                  <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 18, fontWeight: 700, color: C.soil, margin: '0 0 6px' }}>{circular.title}</h3>
-                  <div style={{ fontSize: 11, color: C.stone, fontWeight: 500 }}>Date: {circular.date}</div>
+                  <div className="flex items-center gap-3 flex-wrap">
+                    <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 20, fontWeight: 700, color: C.soil, margin: 0 }}>
+                      {circular.title}
+                    </h3>
+                    <span style={{
+                      fontSize: 9, textTransform: 'uppercase', letterSpacing: '0.1em',
+                      padding: '3px 8px', background: '#FAF7F2', border: `1px solid ${C.border}`,
+                      color: C.stone, fontWeight: 700, borderRadius: '4px'
+                    }}>
+                      Ref: {circular.ref}
+                    </span>
+                  </div>
+                  
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginTop: 6 }}>
+                    <Calendar size={12} color={C.stone} />
+                    <span style={{ fontSize: 12, color: C.stone, fontWeight: 500 }}>Published: {circular.date}</span>
+                  </div>
                 </div>
               </div>
 
-              <div className="flex items-center gap-2 pt-4 mt-auto border-t" style={{ borderColor: C.border }}>
-                <button style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6, padding: '8px 12px', fontSize: 11, cursor: 'pointer', border: `1.5px solid ${C.border}`, color: C.primary, background: 'transparent', fontFamily: "'Outfit', sans-serif", transition: 'all 0.2s ease', borderRadius: 8, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}
+              {/* Right Side: Action Buttons */}
+              <div className="flex items-center gap-3 mt-4 md:mt-0 shrink-0 border-t md:border-none pt-4 md:pt-0" style={{ borderColor: C.border }}>
+                <button style={{ 
+                  display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6, 
+                  padding: '9px 18px', fontSize: 11, cursor: 'pointer', 
+                  border: `1.5px solid ${C.border}`, color: C.primary, 
+                  background: 'transparent', fontFamily: "'Outfit', sans-serif", 
+                  transition: 'all 0.2s ease', borderRadius: 50, 
+                  fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' 
+                }}
                   onMouseEnter={e => { e.currentTarget.style.background = C.primary; e.currentTarget.style.color = 'white'; e.currentTarget.style.borderColor = C.primary; }}
                   onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = C.primary; e.currentTarget.style.borderColor = C.border; }}>
-                  <Eye size={12} /> View
+                  <Eye size={12} /> <span>View Circular</span>
                 </button>
-                <button style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6, padding: '8px 12px', fontSize: 11, cursor: 'pointer', border: `1.5px solid ${C.border}`, color: C.stone, background: 'transparent', fontFamily: "'Outfit', sans-serif", transition: 'all 0.2s ease', borderRadius: 8, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}
+                <button style={{ 
+                  display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6, 
+                  padding: '9px 18px', fontSize: 11, cursor: 'pointer', 
+                  border: `1.5px solid ${C.border}`, color: C.stone, 
+                  background: 'transparent', fontFamily: "'Outfit', sans-serif", 
+                  transition: 'all 0.2s ease', borderRadius: 50, 
+                  fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' 
+                }}
                   onMouseEnter={e => { e.currentTarget.style.borderColor = C.accent; e.currentTarget.style.color = C.accent; }}
                   onMouseLeave={e => { e.currentTarget.style.borderColor = C.border; e.currentTarget.style.color = C.stone; }}>
-                  <Printer size={12} /> Print
+                  <Printer size={12} /> <span>Print</span>
                 </button>
               </div>
+
             </motion.div>
           ))}
         </div>

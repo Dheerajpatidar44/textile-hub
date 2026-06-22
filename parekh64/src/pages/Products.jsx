@@ -4,14 +4,14 @@ import { motion } from 'framer-motion';
 import { ShoppingBag, Filter } from 'lucide-react';
 
 const C = {
-  primary: '#5E3B43',       // Burgundy
-  primaryLight: '#BD9399',  // Accent Rose
-  primaryDark: '#3B2329',   // Deep Burgundy
-  accent: '#BD9399',
-  gold: '#D4B26F',
-  bg: '#FAF6F6',
-  border: '#EFE6E7',
-  stone: '#6E6466',
+  primary: '#2B2520',       // Dark Charcoal
+  primaryLight: '#4A423F',  // Medium Charcoal
+  primaryDark: '#1E1A17',   // Deep Charcoal
+  accent: '#C5A880',        // Champagne Gold
+  gold: '#C5A880',
+  bg: '#FDFBF7',
+  border: '#EAE5DB',
+  stone: '#6C625C',
 };
 
 const categories = [
@@ -145,7 +145,7 @@ export default function Products() {
 
         {/* Product Grid Area */}
         <div className="w-full">
-          <div className="flex items-center justify-between mb-8 pb-4 border-b border-[#EFE6E7]">
+          <div className="flex items-center justify-between mb-8 pb-4 border-b animate-fade-in" style={{ borderColor: C.border }}>
             <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 24, fontWeight: 700, color: C.primary, margin: 0 }}>
               {activeCategory === "All" ? "All Products" : activeCategory}
             </h2>
@@ -163,8 +163,10 @@ export default function Products() {
                   initial={{ opacity: 0, y: 14 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: Math.min(index * 0.04, 0.3) }}
-                  className="text-left group rounded-2xl bg-white border border-[#EFE6E7] shadow-sm hover:translate-y-[-4px] hover:shadow-md transition-all duration-300"
-                  style={{ overflow: 'hidden' }}
+                  className="group rounded-2xl bg-white border shadow-sm hover:translate-y-[-4px] hover:shadow-md transition-all duration-300"
+                  style={{ overflow: 'hidden', borderColor: C.border }}
+                  onMouseEnter={e => { e.currentTarget.style.borderColor = C.accent; }}
+                  onMouseLeave={e => { e.currentTarget.style.borderColor = C.border; }}
                 >
                   <div style={{ height: 280, overflow: 'hidden', position: 'relative' }}>
                     <img src={product.image} alt={product.name} loading="lazy"
@@ -172,7 +174,7 @@ export default function Products() {
                       className="transition-transform duration-1000 ease-in-out transform group-hover:scale-105"
                     />
                   </div>
-                  <div style={{ padding: '24px' }}>
+                  <div style={{ padding: '24px', textAlign: 'center' }}>
                     <span style={{ fontSize: 9, textTransform: 'uppercase', letterSpacing: '0.15em', color: C.accent, fontWeight: 700, display: 'block', marginBottom: 8 }}>
                       {product.category}
                     </span>
@@ -184,7 +186,7 @@ export default function Products() {
                         width: '100%', padding: '12px 14px', fontSize: 11, fontWeight: 700,
                         cursor: 'pointer', fontFamily: "'Outfit', sans-serif",
                         border: `1.5px solid ${C.border}`,
-                        borderRadius: 8,
+                        borderRadius: 50,
                         background: 'transparent', color: C.primary,
                         transition: 'all 0.2s ease',
                         textTransform: 'uppercase', letterSpacing: '0.05em'
@@ -209,7 +211,7 @@ export default function Products() {
                 style={{
                   padding: '12px 28px',
                   background: C.primary, color: 'white',
-                  borderRadius: 8,
+                  borderRadius: 50,
                   border: 'none', fontSize: 13, fontWeight: 700,
                   cursor: 'pointer', fontFamily: "'Outfit', sans-serif",
                   transition: 'all 0.2s ease', textTransform: 'uppercase', letterSpacing: '0.05em'

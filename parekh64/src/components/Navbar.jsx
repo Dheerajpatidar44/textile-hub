@@ -16,14 +16,14 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const C = {
-  primary: '#5E3B43',       // Burgundy
-  primaryLight: '#8C5E6B',  // Medium Burgundy
-  primaryDark: '#3B2329',   // Deep Burgundy
-  accent: '#BD9399',        // Pastel Rose
-  gold: '#D4B26F',          // Champagne Gold
-  bg: '#FAF6F6',            // Background
-  border: '#EFE6E7',        // Soft Rose Gray Border
-  stone: '#6E6466',         // Muted gray-rose text
+  primary: '#2B2520',       // Dark Charcoal
+  primaryLight: '#4A423F',  // Medium Charcoal
+  primaryDark: '#1E1A17',   // Deep Charcoal
+  accent: '#C5A880',        // Champagne Gold
+  gold: '#C5A880',          // Champagne Gold
+  bg: '#FDFBF7',            // Background Cream
+  border: '#EAE5DB',        // Soft Gold Gray Border
+  stone: '#6C625C',         // Muted warm stone text
 };
 
 export default function Navbar() {
@@ -122,23 +122,23 @@ export default function Navbar() {
         className="w-full transition-all duration-300 py-2.5 lg:py-3.5"
         style={{
           background: scrolled ? 'rgba(255, 255, 255, 0.95)' : '#FFFFFF',
-          borderBottom: scrolled ? `1px solid ${C.border}` : `1px solid rgba(94, 59, 67, 0.06)`,
-          boxShadow: scrolled ? '0 10px 30px rgba(94, 59, 67, 0.05)' : 'none',
+          borderBottom: scrolled ? `1px solid ${C.border}` : `1px solid rgba(197, 168, 128, 0.1)`,
+          boxShadow: scrolled ? '0 10px 30px rgba(43, 37, 32, 0.05)' : 'none',
           backdropFilter: scrolled ? 'blur(10px)' : 'none'
         }}
       >
         <div className="max-w-[95rem] mx-auto px-4 sm:px-8 lg:pl-6 lg:pr-14 flex justify-between items-center">
 
-          {/* Logo Brand: Navya Weaves */}
+          {/* Logo Brand: Aarohi Fabrics */}
           <Link to="/" className="flex items-center gap-3 group shrink-0 text-left">
             <div style={{
               width: 38, height: 38,
-              display: 'flex', alignItems: 'center', justify: 'center',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
             }}>
-              <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke={C.primary} strokeWidth="1.5">
-                <circle cx="12" cy="12" r="9" stroke={C.primary} strokeWidth="1.5" />
-                <path d="M12 2v20M2 12h20M5 5l14 14M5 19L14 10" stroke={C.gold} strokeWidth="1.5" />
-                <circle cx="12" cy="12" r="4" fill={C.primary} />
+              <svg width="34" height="34" viewBox="0 0 100 100" fill="none" className="transition-transform group-hover:rotate-45 duration-700">
+                <path d="M50 15 L56 38 L80 38 L60 52 L68 76 L50 62 L32 76 L40 52 L20 38 L44 38 Z" stroke={C.gold} strokeWidth="2" fill="none" strokeLinejoin="round" />
+                <circle cx="50" cy="50" r="10" stroke={C.primary} strokeWidth="1.5" />
+                <circle cx="50" cy="50" r="3" fill={C.gold} />
               </svg>
             </div>
             <div className="flex flex-col">
@@ -146,7 +146,7 @@ export default function Navbar() {
                 className="text-[20px] font-bold leading-none tracking-[0.05em] font-serif uppercase whitespace-nowrap"
                 style={{ fontFamily: "'Cormorant Garamond', serif", color: C.primary }}
               >
-                Navya Weaves
+                Aarohi Fabrics
               </span>
               <span
                 className="text-[8.5px] font-semibold tracking-[0.18em] uppercase mt-0.5 whitespace-nowrap"
@@ -165,14 +165,14 @@ export default function Navbar() {
                 <Link
                   key={item.name}
                   to={item.path}
-                  className="px-1 mx-2 text-[12px] xl:text-[13.5px] font-bold tracking-widest transition-all duration-300 relative py-1 hover:text-[#D4B26F] whitespace-nowrap"
+                  className="px-1 mx-2 text-[12px] xl:text-[13.5px] font-bold tracking-widest transition-all duration-300 relative py-1 hover:text-[#C5A880] whitespace-nowrap"
                   style={{
-                    color: active ? C.primary : 'rgba(94, 59, 67, 0.8)',
+                    color: active ? C.primary : C.stone,
                   }}
                 >
                   {item.name}
                   <span 
-                    className="absolute bottom-0 left-0 h-[2px] bg-[#D4B26F] transition-all duration-300"
+                    className="absolute bottom-0 left-0 h-[2px] bg-[#C5A880] transition-all duration-300"
                     style={{
                       width: active ? '100%' : '0%',
                     }}
@@ -188,13 +188,13 @@ export default function Navbar() {
               onMouseLeave={() => setDropdownOpen(false)}
             >
               <button
-                className="flex items-center gap-1.5 px-1 mx-2 text-[12px] xl:text-[13.5px] font-bold tracking-widest transition-all duration-300 cursor-pointer bg-transparent border-none py-1 hover:text-[#D4B26F] whitespace-nowrap"
+                className="flex items-center gap-1.5 px-1 mx-2 text-[12px] xl:text-[13.5px] font-bold tracking-widest transition-all duration-300 cursor-pointer bg-transparent border-none py-1 hover:text-[#C5A880] whitespace-nowrap"
                 style={{
-                  color: isDropdownActive() ? C.primary : 'rgba(94, 59, 67, 0.8)',
+                  color: isDropdownActive() ? C.primary : C.stone,
                 }}
               >
                 <span>PAGES</span>
-                <ChevronDown size={12} className={`transition-transform duration-350 ${dropdownOpen ? 'rotate-180 text-[#D4B26F]' : ''}`} />
+                <ChevronDown size={12} className={`transition-transform duration-350 ${dropdownOpen ? 'rotate-180 text-[#C5A880]' : ''}`} />
               </button>
 
               {/* 3-Column Mega Dropdown Menu */}
@@ -208,12 +208,12 @@ export default function Navbar() {
                     className="absolute top-full right-[-80px] mt-4 w-[630px] shadow-2xl z-[999] rounded-[24px] p-5 border text-left overflow-hidden"
                     style={{
                       background: 'rgba(255, 255, 255, 0.97)',
-                      borderColor: '#EFE6E7',
+                      borderColor: C.border,
                       backdropFilter: 'blur(16px)',
                     }}
                   >
                     {/* Visual Gold accents */}
-                    <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-[#5E3B43] via-[#D4B26F] to-[#5E3B43]" />
+                    <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-[#2B2520] via-[#C5A880] to-[#2B2520]" />
 
                     <div className="grid grid-cols-3 gap-3">
                       {dropdownNavItems.map((item) => {
@@ -226,25 +226,25 @@ export default function Navbar() {
                             onClick={() => setDropdownOpen(false)}
                             className="flex items-center gap-3 p-2.5 rounded-xl transition-all duration-300 group/item text-decoration-none"
                             style={{
-                              background: active ? 'rgba(94, 59, 67, 0.04)' : 'transparent',
+                              background: active ? 'rgba(197, 168, 128, 0.08)' : 'transparent',
                             }}
                           >
                             {/* Icon Wrapper */}
                             <div 
-                              className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 border transition-colors duration-300"
+                              className="w-8 h-8 rounded-xl flex items-center justify-center shrink-0 border transition-colors duration-300"
                               style={{
-                                background: active ? '#5E3B43' : 'rgba(94, 59, 67, 0.03)',
-                                borderColor: active ? '#5E3B43' : '#EFE6E7',
+                                background: active ? C.accent : 'rgba(197, 168, 128, 0.04)',
+                                borderColor: active ? C.accent : C.border,
                                 color: active ? '#FFFFFF' : C.primary
                               }}
                             >
-                              <IconComponent size={14} className="group-hover/item:text-[#D4B26F] transition-colors" />
+                              <IconComponent size={14} className="group-hover/item:text-[#C5A880] transition-colors" />
                             </div>
 
                             {/* Label */}
                             <span 
-                              className="text-[12px] font-bold tracking-wider group-hover/item:text-[#D4B26F] transition-colors"
-                              style={{ color: active ? C.primary : '#3B2329' }}
+                              className="text-[12px] font-bold tracking-wider group-hover/item:text-[#C5A880] transition-colors"
+                              style={{ color: active ? C.primary : C.stone }}
                             >
                               {item.name.toLowerCase().startsWith('e-') ? (
                                 <>
@@ -268,12 +268,13 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center gap-4 shrink-0">
             <Link
               to="/trade-enquiry"
-              className="px-6 py-2.5 text-[11px] font-bold tracking-widest text-white uppercase rounded-full transition-all duration-300 hover:shadow-md hover:bg-[#D4B26F]"
+              className="px-6 py-2.5 text-[11px] font-bold tracking-widest text-white uppercase rounded-full transition-all duration-300 hover:shadow-md hover:bg-[#2B2520] flex items-center gap-2"
               style={{
-                background: C.primary,
+                background: C.accent,
               }}
             >
-              TRADE ENQUIRY
+              <span>TRADE ENQUIRY</span>
+              <span>&rarr;</span>
             </Link>
           </div>
 
@@ -282,9 +283,9 @@ export default function Navbar() {
             <Link
               to="/trade-enquiry"
               className="px-4 py-2 text-[10px] font-bold tracking-widest text-white uppercase rounded-full"
-              style={{ background: C.primary }}
+              style={{ background: C.accent }}
             >
-              ENQUIRY
+              TRADE ENQUIRY
             </Link>
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -329,7 +330,7 @@ export default function Navbar() {
                     fontFamily: "'Cormorant Garamond', serif" 
                   }}
                 >
-                  Navya Weaves
+                  Aarohi Fabrics
                 </span>
                 <span
                   className="text-[7.5px] font-semibold tracking-wider uppercase mt-1"
@@ -342,7 +343,7 @@ export default function Navbar() {
                 onClick={() => setIsOpen(false)}
                 style={{
                   width: 36, height: 36,
-                  background: 'rgba(94, 59, 67, 0.05)',
+                  background: 'rgba(197, 168, 128, 0.06)',
                   border: 'none',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   color: C.primary, 
@@ -365,7 +366,7 @@ export default function Navbar() {
                       onClick={() => setIsOpen(false)}
                       className="flex items-center justify-between px-4 py-3.5 text-[13px] font-bold tracking-wider rounded-xl transition-all"
                       style={{
-                        background: active ? 'rgba(94, 59, 67, 0.05)' : 'transparent',
+                        background: active ? 'rgba(197, 168, 128, 0.08)' : 'transparent',
                         color: active ? C.primaryLight : C.primary,
                       }}
                     >
@@ -405,7 +406,7 @@ export default function Navbar() {
                               onClick={() => { setIsOpen(false); setMobileResourcesOpen(false); }}
                               className="flex items-center justify-between px-4 py-3 text-[12px] font-bold tracking-wider rounded-xl transition-all"
                               style={{
-                                background: active ? 'rgba(94, 59, 67, 0.04)' : 'transparent',
+                                background: active ? 'rgba(197, 168, 128, 0.08)' : 'transparent',
                                 color: active ? C.primaryLight : C.stone,
                               }}
                             >
@@ -446,7 +447,7 @@ export default function Navbar() {
                   className="w-9 h-9 rounded-full flex items-center justify-center transition-all duration-200 border cursor-pointer shrink-0"
                   style={{
                     color: C.primary,
-                    borderColor: 'rgba(94, 59, 67, 0.2)',
+                    borderColor: C.border,
                     background: 'transparent',
                   }}
                   onMouseEnter={e => {
@@ -454,7 +455,7 @@ export default function Navbar() {
                     e.currentTarget.style.color = C.gold;
                   }}
                   onMouseLeave={e => {
-                    e.currentTarget.style.borderColor = 'rgba(94, 59, 67, 0.2)';
+                    e.currentTarget.style.borderColor = C.border;
                     e.currentTarget.style.color = C.primary;
                   }}
                 >

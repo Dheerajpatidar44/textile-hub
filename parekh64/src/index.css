@@ -1,19 +1,19 @@
 @import "tailwindcss";
 
 @theme {
-  /* ── Navya Weaves Color Palette ── */
-  --color-primary: #5E3B43;        /* Elegant Wine / Burgundy */
-  --color-primary-light: #8C5E6B;  /* Medium Wine / Rose */
-  --color-primary-dark: #3B2329;   /* Deep Charcoal Burgundy */
-  --color-accent: #B59298;         /* Pastel Dusty Rose */
-  --color-accent-light: #FDFBFB;   /* Very light rose linen tint */
-  --color-gold: #D4B26F;           /* Champagne Gold highlight */
-  --color-sand: #FAF6F6;           /* Elegant light rose-tinted background */
+  /* ── Aarohi Fabrics Color Palette ── */
+  --color-primary: #2B2520;        /* Elegant Dark Charcoal */
+  --color-primary-light: #4A423F;  /* Medium Charcoal / Warm Grey */
+  --color-primary-dark: #1E1A17;   /* Deep Dark Charcoal */
+  --color-accent: #C5A880;         /* Champagne Gold */
+  --color-accent-light: #FDFBF7;   /* Very light warm cream background tint */
+  --color-gold: #C5A880;           /* Champagne Gold highlight */
+  --color-sand: #FDFBF7;           /* Elegant light cream background */
   --color-linen: #FFFFFF;          /* Pure White */
-  --color-cream: #F5EFEF;          /* Soft Cream Rose */
-  --color-mist: #EFE6E7;           /* Soft rose-gray border */
-  --color-stone: #6E6466;          /* Muted rose-stone text color */
-  --color-soil: #5E3B43;           /* Primary burgundy */
+  --color-cream: #FAF7F2;          /* Soft Cream / Eggshell */
+  --color-mist: #EAE5DB;           /* Soft golden-gray border */
+  --color-stone: #6C625C;          /* Muted warm-stone text color */
+  --color-soil: #2B2520;           /* Primary charcoal */
 
   /* ── Font Family ── */
   --font-display: 'Cormorant Garamond', serif;
@@ -24,8 +24,8 @@
 @layer base {
   body {
     font-family: 'Outfit', sans-serif;
-    background-color: #FAF6F6;
-    color: #3B2329;
+    background-color: #FDFBF7;
+    color: #3C3530;
     margin: 0;
     padding: 0;
     -webkit-font-smoothing: antialiased;
@@ -35,7 +35,7 @@
   h1, h2, h3, h4, h5, h6, .display-title {
     font-family: 'Cormorant Garamond', serif !important;
     font-weight: 600;
-    color: #5E3B43;
+    color: #2B2520;
   }
 
   * {
