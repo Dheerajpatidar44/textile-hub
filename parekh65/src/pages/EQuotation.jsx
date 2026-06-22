@@ -2,14 +2,11 @@ import { motion } from 'framer-motion';
 import { ClipboardCheck, FileText, Send, Mail, Calendar, Package } from 'lucide-react';
 
 const C = {
-  primary: '#5E3B43',       // Burgundy
-  primaryLight: '#BD9399',  // Accent Rose
-  primaryDark: '#3B2329',   // Deep Burgundy
-  accent: '#BD9399',
-  gold: '#D4B26F',
-  bg: '#FAF6F6',
-  border: '#EFE6E7',
-  stone: '#6E6466',
+  primary: '#6B4226',
+  accent: '#C8966A',
+  bg: '#F7F2EC',
+  border: '#E8DDD0',
+  stone: '#7A6558',
 };
 
 const quotations = [
@@ -49,7 +46,7 @@ export default function EQuotation() {
           <div style={{ width: 40, height: 1.5, background: C.accent, margin: '8px auto 0' }} />
         </div>
   
-        <p style={{ textAlign: 'center', fontSize: 14, color: C.stone, marginBottom: 40, fontWeight: 600, maxWidth: 560, margin: '0 auto 40px', lineHeight: 1.6 }}>
+        <p style={{ textAlign: 'center', fontSize: 14, color: C.stone, marginBottom: 40, fontWeight: 500, maxWidth: 560, margin: '0 auto 40px', lineHeight: 1.6 }}>
           Digital procurement and transparent quotation system across our corporate ecosystem.
         </p>
 
@@ -66,22 +63,22 @@ export default function EQuotation() {
             {quotations.map((item) => (
               <div
                 key={item.id}
-                className="text-left group rounded-2xl"
+                className="text-left group rounded-[24px]"
                 style={{ overflow: 'hidden',
                   background: 'white',
                   border: `1px solid ${C.border}`,
                   display: 'flex', flexDirection: 'column',
                   padding: '28px',
                   transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                  boxShadow: '0 4px 20px rgba(10, 24, 40, 0.02)'
+                  boxShadow: '0 4px 20px rgba(107, 66, 38, 0.02)'
                 }}
                 onMouseEnter={e => {
                   e.currentTarget.style.transform = 'translateY(-4px)';
-                  e.currentTarget.style.boxShadow = '0 12px 30px rgba(10, 24, 40, 0.05)';
+                  e.currentTarget.style.boxShadow = '0 12px 30px rgba(107, 66, 38, 0.08)';
                 }}
                 onMouseLeave={e => {
                   e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = '0 4px 20px rgba(10, 24, 40, 0.02)';
+                  e.currentTarget.style.boxShadow = '0 4px 20px rgba(107, 66, 38, 0.02)';
                 }}
               >
                 {/* ID + date row */}
@@ -89,7 +86,7 @@ export default function EQuotation() {
                   <span style={{
                     fontSize: 9, textTransform: 'uppercase', letterSpacing: '0.15em',
                     padding: '6px 12px',
-                    background: 'rgba(94, 59, 67, 0.06)',
+                    background: 'rgba(107, 66, 38, 0.06)',
                     color: C.primary, fontWeight: 700,
                     borderRadius: '50px'
                   }}>
@@ -113,7 +110,7 @@ export default function EQuotation() {
                   display: 'flex', alignItems: 'center', justify: 'space-between',
                   padding: '12px 16px',
                   background: C.bg, marginBottom: 20,
-                  borderRadius: 8
+                  borderRadius: 12
                 }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                     <Package size={16} color={C.accent} />
@@ -127,7 +124,7 @@ export default function EQuotation() {
                   style={{
                     width: '100%', padding: '12px',
                     background: 'transparent', color: C.primary, border: `1.5px solid ${C.border}`,
-                    borderRadius: 8,
+                    borderRadius: 12,
                     fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em',
                     cursor: 'pointer', fontFamily: "'Outfit', sans-serif",
                     transition: 'all 0.2s ease',
@@ -153,21 +150,21 @@ export default function EQuotation() {
             background: 'white',
             border: `1px solid ${C.border}`,
             overflow: 'hidden',
-            borderRadius: 20,
-            boxShadow: '0 12px 40px rgba(10, 24, 40, 0.03)',
+            borderRadius: 24,
+            boxShadow: '0 12px 40px rgba(107, 66, 38, 0.05)',
           }}>
             {/* Form header */}
             <div style={{
               padding: '28px 36px',
               borderBottom: `1px solid ${C.border}`,
-              background: 'rgba(94, 59, 67, 0.03)',
+              background: 'rgba(107, 66, 38, 0.03)',
               display: 'flex', alignItems: 'center', gap: 16,
             }} className="text-left">
               <div style={{
                 width: 48, height: 48,
                 background: 'white',
-                border: `1px solid rgba(94, 59, 67, 0.1)`,
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                border: `1px solid rgba(107, 66, 38, 0.1)`,
+                display: 'flex', alignItems: 'center', justify: 'center',
                 borderRadius: '50%'
               }}>
                 <FileText size={20} color={C.accent} />
@@ -176,7 +173,7 @@ export default function EQuotation() {
                 <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 24, fontWeight: 700, color: C.primary, margin: '0 0 4px' }}>
                   Request an e-quotation
                 </h2>
-                <p style={{ fontSize: 13, color: C.stone, margin: 0, fontWeight: 600 }}>
+                <p style={{ fontSize: 13, color: C.stone, margin: 0, fontWeight: 500 }}>
                   Fill in your details below to receive a quotation
                 </p>
               </div>
@@ -231,21 +228,21 @@ export default function EQuotation() {
                   display: 'flex', alignItems: 'center', justify: 'center', gap: 10,
                   background: C.primary, color: 'white',
                   border: 'none',
-                  borderRadius: 8,
+                  borderRadius: 12,
                   fontSize: 12, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em',
                   cursor: 'pointer', fontFamily: "'Outfit', sans-serif",
                   transition: 'all 0.2s ease',
                 }}
-                  onMouseEnter={e => { e.currentTarget.style.background = C.primaryLight; e.currentTarget.style.color = 'white'; }}
-                  onMouseLeave={e => { e.currentTarget.style.background = C.primary; e.currentTarget.style.color = 'white'; }}
+                  onMouseEnter={e => { e.currentTarget.style.background = C.accent; }}
+                  onMouseLeave={e => { e.currentTarget.style.background = C.primary; }}
                 >
                   <Send size={16} /> Submit Quotation Request
                 </button>
 
                 <div style={{ textAlign: 'center', display: 'flex', alignItems: 'center', justify: 'center', gap: 8, marginTop: 16 }}>
                   <Mail size={14} color={C.accent} />
-                  <a href="mailto:info@navyaveaves.com" style={{ fontSize: 13, color: C.primary, fontWeight: 600, textDecoration: 'none' }}>
-                    info@navyaveaves.com
+                  <a href="mailto:info@merakiethnic.com" style={{ fontSize: 13, color: C.primary, fontWeight: 600, textDecoration: 'none' }}>
+                    info@merakiethnic.com
                   </a>
                 </div>
               </form>

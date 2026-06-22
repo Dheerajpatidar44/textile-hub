@@ -1,15 +1,11 @@
 import { motion } from 'framer-motion';
 
 const C = {
-  primary: '#96BADE',       // Dark Classic Blue / Navy
-  primaryLight: '#4B70F5',  // Vibrant Premium Indigo
-  primaryDark: '#000B58',   // Deep Royal Blue
-  accent: '#3FA2F6',        // Bright Sky/Pastel Blue
-  gold: '#3FA2F6',
-  bg: '#F4F8FC',
-  border: '#D0E1FD',
-  stone: '#4A5568',
-  soil: '#96BADE',
+  primary: '#6B4226',
+  accent: '#C8966A',
+  bg: '#F7F2EC',
+  border: '#E8DDD0',
+  stone: '#7A6558',
 };
 
 const galleryItems = [
@@ -23,12 +19,12 @@ const galleryItems = [
 
 export default function BusinessMediaGallery() {
   return (
-    <div style={{ fontFamily: "'Outfit', sans-serif", background: C.cream, minHeight: '90vh' }} className="pt-2 pb-16">
+    <div style={{ fontFamily: "'Outfit', sans-serif", background: C.bg, minHeight: '90vh' }} className="pt-2 pb-16">
       <div className="max-w-[90rem] mx-auto px-6 lg:px-14 pt-0">
 
         {/* Page Title Section - minimized top space */}
         <div className="text-center mb-6 mt-2">
-          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '38px', fontWeight: 700, color: C.soil, margin: 0, letterSpacing: '0.02em', textTransform: 'uppercase' }}>
+          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '38px', fontWeight: 700, color: C.primary, margin: 0, letterSpacing: '0.02em', textTransform: 'uppercase' }}>
             Media Gallery
           </h1>
           <div style={{ width: 40, height: 1.5, background: C.accent, margin: '8px auto 0' }} />
@@ -44,13 +40,13 @@ export default function BusinessMediaGallery() {
               style={{ overflow: 'hidden',
                 background: 'white', cursor: 'pointer',
                 border: `1px solid ${C.border}`,
-                borderRadius: 16,
+                borderRadius: 20,
                 display: 'flex', flexDirection: 'column',
                 transition: 'transform 0.3s ease, box-shadow 0.3s ease',
               }}
               onMouseEnter={e => {
                 e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 12px 30px rgba(10, 24, 40, 0.04)';
+                e.currentTarget.style.boxShadow = '0 12px 30px rgba(107, 66, 38, 0.04)';
               }}
               onMouseLeave={e => {
                 e.currentTarget.style.transform = 'translateY(0)';
@@ -68,7 +64,7 @@ export default function BusinessMediaGallery() {
                 />
                 <div style={{
                   position: 'absolute', top: 12, left: 12,
-                  background: 'rgba(10, 24, 40, 0.9)', backdropFilter: 'blur(6px)', padding: '4px 12px',
+                  background: 'rgba(107, 66, 38, 0.9)', backdropFilter: 'blur(6px)', padding: '4px 12px',
                   borderRadius: '50px'
                 }}>
                   <span style={{ fontSize: 9, color: '#ffffff', letterSpacing: '0.15em', textTransform: 'uppercase', fontWeight: 700 }}>
@@ -78,7 +74,7 @@ export default function BusinessMediaGallery() {
               </div>
 
               <div style={{ padding: '20px', flex: 1, textLeft: 'left', textAlign: 'left' }}>
-                <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 20, fontWeight: 700, color: C.soil, margin: '0 0 8px', lineHeight: 1.4 }}>
+                <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 20, fontWeight: 700, color: C.primary, margin: '0 0 8px', lineHeight: 1.4 }}>
                   {item.title}
                 </h3>
                 <p style={{ fontSize: 13, color: C.stone, lineHeight: 1.6, margin: 0, fontWeight: 500 }}>

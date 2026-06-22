@@ -2,15 +2,11 @@ import { motion } from 'framer-motion';
 import { Bell, ChevronRight, Calendar } from 'lucide-react';
 
 const C = {
-  primary: '#96BADE',       // Dark Classic Blue / Navy
-  primaryLight: '#4B70F5',  // Vibrant Premium Indigo
-  primaryDark: '#000B58',   // Deep Royal Blue
-  accent: '#3FA2F6',        // Bright Sky/Pastel Blue
-  gold: '#3FA2F6',
-  bg: '#F4F8FC',
-  border: '#D0E1FD',
-  stone: '#4A5568',
-  soil: '#96BADE',
+  primary: '#6B4226',
+  accent: '#C8966A',
+  bg: '#F7F2EC',
+  border: '#E8DDD0',
+  stone: '#7A6558',
 };
 
 const notices = [
@@ -22,12 +18,12 @@ const notices = [
 
 export default function NoticeBoard() {
   return (
-    <div style={{ fontFamily: "'Outfit', sans-serif", background: C.cream, minHeight: '90vh' }} className="pt-2 pb-16">
+    <div style={{ fontFamily: "'Outfit', sans-serif", background: C.bg, minHeight: '90vh' }} className="pt-2 pb-16">
       <div className="max-w-[90rem] mx-auto px-6 lg:px-14 pt-0">
 
         {/* Page Title Section - minimized top space */}
         <div className="text-center mb-6 mt-2">
-          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '38px', fontWeight: 700, color: C.soil, margin: 0, letterSpacing: '0.02em', textTransform: 'uppercase' }}>
+          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '38px', fontWeight: 700, color: C.primary, margin: 0, letterSpacing: '0.02em', textTransform: 'uppercase' }}>
             Notice Board
           </h1>
           <div style={{ width: 40, height: 1.5, background: C.accent, margin: '8px auto 0' }} />
@@ -46,14 +42,14 @@ export default function NoticeBoard() {
                 background: 'white',
                 cursor: 'pointer',
                 display: 'flex', flexDirection: 'column',
-                borderRadius: 16,
+                borderRadius: 20,
                 border: `1px solid ${C.border}`,
                 transition: 'all 0.3s ease',
               }}
               onMouseEnter={e => {
-                e.currentTarget.style.background = 'rgba(10, 24, 40, 0.04)';
+                e.currentTarget.style.background = 'rgba(107, 66, 38, 0.04)';
                 e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 12px 30px rgba(10, 24, 40, 0.05)';
+                e.currentTarget.style.boxShadow = '0 12px 30px rgba(107, 66, 38, 0.05)';
               }}
               onMouseLeave={e => {
                 e.currentTarget.style.background = 'white';
@@ -62,8 +58,8 @@ export default function NoticeBoard() {
               }}
             >
               <div>
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 16 }}>
-                  <div style={{ width: 40, height: 40, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(10, 24, 40, 0.08)', borderRadius: '50%' }}>
+                <div style={{ display: 'flex', alignItems: 'center', justify: 'space-between', marginBottom: 16 }}>
+                  <div style={{ width: 40, height: 40, display: 'flex', alignItems: 'center', justify: 'center', background: 'rgba(107, 66, 38, 0.08)', borderRadius: '50%' }}>
                     <Bell size={16} color={C.accent} />
                   </div>
                 </div>
@@ -71,7 +67,7 @@ export default function NoticeBoard() {
                   <Calendar size={12} color={C.stone} />
                   <span style={{ fontSize: 11, color: C.stone, fontWeight: 500 }}>{notice.date}</span>
                 </div>
-                <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 18, fontWeight: 700, color: C.soil, lineHeight: 1.45, margin: '0 0 16px' }}>
+                <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 18, fontWeight: 700, color: C.primary, lineHeight: 1.45, margin: '0 0 16px' }}>
                   {notice.title}
                 </h3>
               </div>

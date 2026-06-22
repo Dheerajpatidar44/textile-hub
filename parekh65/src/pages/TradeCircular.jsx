@@ -2,15 +2,11 @@ import { motion } from 'framer-motion';
 import { FileText, Eye, Printer } from 'lucide-react';
 
 const C = {
-  primary: '#96BADE',       // Dark Classic Blue / Navy
-  primaryLight: '#4B70F5',  // Vibrant Premium Indigo
-  primaryDark: '#000B58',   // Deep Royal Blue
-  accent: '#3FA2F6',        // Bright Sky/Pastel Blue
-  gold: '#3FA2F6',
-  bg: '#F4F8FC',
-  border: '#D0E1FD',
-  stone: '#4A5568',
-  soil: '#96BADE',
+  primary: '#6B4226',
+  accent: '#C8966A',
+  bg: '#F7F2EC',
+  border: '#E8DDD0',
+  stone: '#7A6558',
 };
 
 const circulars = [
@@ -22,12 +18,12 @@ const circulars = [
 
 const TradeCircular = () => {
   return (
-    <div style={{ fontFamily: "'Outfit', sans-serif", background: C.cream, minHeight: '90vh' }} className="pt-2 pb-16">
+    <div style={{ fontFamily: "'Outfit', sans-serif", background: C.bg, minHeight: '90vh' }} className="pt-2 pb-16">
       <div className="max-w-[90rem] mx-auto px-6 lg:px-14 pt-0">
 
         {/* Page Title Section - minimized top space */}
         <div className="text-center mb-6 mt-2">
-          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '38px', fontWeight: 700, color: C.soil, margin: 0, letterSpacing: '0.02em', textTransform: 'uppercase' }}>
+          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '38px', fontWeight: 700, color: C.primary, margin: 0, letterSpacing: '0.02em', textTransform: 'uppercase' }}>
             Trade Circular
           </h1>
           <div style={{ width: 40, height: 1.5, background: C.accent, margin: '8px auto 0' }} />
@@ -45,12 +41,12 @@ const TradeCircular = () => {
                 background: 'white',
                 border: `1px solid ${C.border}`,
                 padding: '24px',
-                borderRadius: 16,
+                borderRadius: 20,
                 transition: 'transform 0.3s ease, box-shadow 0.3s ease',
               }}
               onMouseEnter={e => {
                 e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 12px 30px rgba(10, 24, 40, 0.04)';
+                e.currentTarget.style.boxShadow = '0 12px 30px rgba(107, 66, 38, 0.04)';
               }}
               onMouseLeave={e => {
                 e.currentTarget.style.transform = 'translateY(0)';
@@ -58,22 +54,22 @@ const TradeCircular = () => {
               }}
             >
               <div className="flex flex-col items-start gap-4 mb-5">
-                <div style={{ width: 42, height: 42, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(10, 24, 40, 0.08)', borderRadius: '50%' }}>
+                <div style={{ width: 42, height: 42, display: 'flex', alignItems: 'center', justify: 'center', background: 'rgba(107, 66, 38, 0.08)', borderRadius: '50%' }}>
                   <FileText size={18} color={C.accent} />
                 </div>
                 <div>
-                  <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 18, fontWeight: 700, color: C.soil, margin: '0 0 6px' }}>{circular.title}</h3>
+                  <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 18, fontWeight: 700, color: C.primary, margin: '0 0 6px' }}>{circular.title}</h3>
                   <div style={{ fontSize: 11, color: C.stone, fontWeight: 500 }}>Date: {circular.date}</div>
                 </div>
               </div>
 
               <div className="flex items-center gap-2 pt-4 mt-auto border-t" style={{ borderColor: C.border }}>
-                <button style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6, padding: '8px 12px', fontSize: 11, cursor: 'pointer', border: `1.5px solid ${C.border}`, color: C.primary, background: 'transparent', fontFamily: "'Outfit', sans-serif", transition: 'all 0.2s ease', borderRadius: 8, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}
+                <button style={{ flex: 1, display: 'flex', alignItems: 'center', justify: 'center', gap: 6, padding: '8px 12px', fontSize: 11, cursor: 'pointer', border: `1.5px solid ${C.border}`, color: C.primary, background: 'transparent', fontFamily: "'Outfit', sans-serif", transition: 'all 0.2s ease', borderRadius: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}
                   onMouseEnter={e => { e.currentTarget.style.background = C.primary; e.currentTarget.style.color = 'white'; e.currentTarget.style.borderColor = C.primary; }}
                   onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = C.primary; e.currentTarget.style.borderColor = C.border; }}>
                   <Eye size={12} /> View
                 </button>
-                <button style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6, padding: '8px 12px', fontSize: 11, cursor: 'pointer', border: `1.5px solid ${C.border}`, color: C.stone, background: 'transparent', fontFamily: "'Outfit', sans-serif", transition: 'all 0.2s ease', borderRadius: 8, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}
+                <button style={{ flex: 1, display: 'flex', alignItems: 'center', justify: 'center', gap: 6, padding: '8px 12px', fontSize: 11, cursor: 'pointer', border: `1.5px solid ${C.border}`, color: C.stone, background: 'transparent', fontFamily: "'Outfit', sans-serif", transition: 'all 0.2s ease', borderRadius: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}
                   onMouseEnter={e => { e.currentTarget.style.borderColor = C.accent; e.currentTarget.style.color = C.accent; }}
                   onMouseLeave={e => { e.currentTarget.style.borderColor = C.border; e.currentTarget.style.color = C.stone; }}>
                   <Printer size={12} /> Print

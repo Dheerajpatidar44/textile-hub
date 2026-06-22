@@ -2,15 +2,11 @@ import { motion } from 'framer-motion';
 import { Send, Building2, ShoppingBag } from 'lucide-react';
 
 const C = {
-  primary: '#96BADE',       // Dark Classic Blue / Navy
-  primaryLight: '#4B70F5',  // Vibrant Premium Indigo
-  primaryDark: '#000B58',   // Deep Royal Blue
-  accent: '#3FA2F6',        // Bright Sky/Pastel Blue
-  gold: '#3FA2F6',
-  bg: '#F4F8FC',
-  border: '#D0E1FD',
-  stone: '#4A5568',
-  soil: '#96BADE',
+  primary: '#6B4226',
+  accent: '#C8966A',
+  bg: '#F7F2EC',
+  border: '#E8DDD0',
+  stone: '#7A6558',
 };
 
 const categories = [
@@ -22,12 +18,12 @@ const categories = [
 
 export default function TradeEnquiry() {
   return (
-    <div style={{ fontFamily: "'Outfit', sans-serif", background: C.cream, minHeight: '90vh' }} className="pt-2 pb-16">
+    <div style={{ fontFamily: "'Outfit', sans-serif", background: C.bg, minHeight: '90vh' }} className="pt-2 pb-16">
       <div className="max-w-3xl mx-auto px-6 pt-0">
 
         {/* Page Title Section - minimized top space */}
         <div className="text-center mb-6 mt-2">
-          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '38px', fontWeight: 700, color: C.soil, margin: 0, letterSpacing: '0.02em', textTransform: 'uppercase' }}>
+          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '38px', fontWeight: 700, color: C.primary, margin: 0, letterSpacing: '0.02em', textTransform: 'uppercase' }}>
             Trade Enquiry
           </h1>
           <div style={{ width: 40, height: 1.5, background: C.accent, margin: '8px auto 0' }} />
@@ -46,15 +42,15 @@ export default function TradeEnquiry() {
             border: `1px solid ${C.border}`,
             overflow: 'hidden',
             borderRadius: 20,
-            boxShadow: '0 12px 40px rgba(10, 24, 40, 0.03)',
+            boxShadow: '0 12px 40px rgba(107, 66, 38, 0.03)',
           }}
         >
           <div style={{
             padding: '24px 32px',
             borderBottom: `1px solid ${C.border}`,
-            background: 'rgba(10, 24, 40, 0.03)',
+            background: 'rgba(107, 66, 38, 0.03)',
           }} className="text-left">
-            <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 22, fontWeight: 700, color: C.soil, margin: '0 0 4px' }}>
+            <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 22, fontWeight: 700, color: C.primary, margin: '0 0 4px' }}>
               Enquiry Form
             </h2>
             <p style={{ fontSize: 12, color: C.stone, margin: 0, fontWeight: 500 }}>
@@ -66,7 +62,7 @@ export default function TradeEnquiry() {
             <form style={{ display: 'flex', flexDirection: 'column', gap: 20 }} onSubmit={e => e.preventDefault()}>
 
               <div>
-                <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 18, fontWeight: 700, color: C.soil, margin: '0 0 16px', paddingBottom: 12, borderBottom: `1px solid ${C.border}`, display: 'flex', alignItems: 'center', gap: 8 }}>
+                <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 18, fontWeight: 700, color: C.primary, margin: '0 0 16px', paddingBottom: 12, borderBottom: `1px solid ${C.border}`, display: 'flex', alignItems: 'center', gap: 8 }}>
                   <Building2 size={16} color={C.accent} /> Company Details
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -87,7 +83,7 @@ export default function TradeEnquiry() {
               </div>
 
               <div>
-                <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 18, fontWeight: 700, color: C.soil, margin: '0 0 16px', paddingBottom: 12, borderBottom: `1px solid ${C.border}`, display: 'flex', alignItems: 'center', gap: 8 }}>
+                <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 18, fontWeight: 700, color: C.primary, margin: '0 0 16px', paddingBottom: 12, borderBottom: `1px solid ${C.border}`, display: 'flex', alignItems: 'center', gap: 8 }}>
                   <ShoppingBag size={16} color={C.accent} /> Enquiry Details
                 </h3>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>

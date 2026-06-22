@@ -4,14 +4,12 @@ import { motion } from 'framer-motion';
 import { ShoppingBag, Filter } from 'lucide-react';
 
 const C = {
-  primary: '#5E3B43',       // Burgundy
-  primaryLight: '#BD9399',  // Accent Rose
-  primaryDark: '#3B2329',   // Deep Burgundy
-  accent: '#BD9399',
-  gold: '#D4B26F',
-  bg: '#FAF6F6',
-  border: '#EFE6E7',
-  stone: '#6E6466',
+  primary: '#6B4226',
+  accent: '#C8966A',
+  gold: '#C8966A',
+  bg: '#F7F2EC',
+  border: '#E8DDD0',
+  stone: '#7A6558',
 };
 
 const categories = [
@@ -23,10 +21,10 @@ const categories = [
   { name: "Hosiery Items", image: "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=300&auto=format&fit=crop&q=60" },
   { name: "Suiting", image: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=300&auto=format&fit=crop&q=60" },
   { name: "Shirting", image: "/images/popular_cotton_fabric.png" },
-  { name: "Formal & Ethnic Wear for Women", image: "/images/popular_lehenga.png" },
-  { name: "Formal & Ethnic Wear for Men", image: "/images/men_ethnic_wear.png" },
-  { name: "Formal & Ethnic Wear for Children", image: "/images/children_ethnic_wear.png" },
-  { name: "Home Upholstery & Furnishing", image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=300&auto=format&fit=crop&q=60" }
+  { name: "Women Ethnic", image: "/images/popular_lehenga.png" },
+  { name: "Men Ethnic", image: "/images/men_ethnic_wear.png" },
+  { name: "Kids Ethnic", image: "/images/children_ethnic_wear.png" },
+  { name: "Home Furnishing", image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=300&auto=format&fit=crop&q=60" }
 ];
 
 const allProducts = [
@@ -38,10 +36,10 @@ const allProducts = [
   { id: 106, name: "Soft Premium Cotton Hosiery Set", category: "Hosiery Items", image: "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=600&auto=format&fit=crop&q=60" },
   { id: 107, name: "Italian Wool Blend Suiting Fabric", category: "Suiting", image: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&auto=format&fit=crop&q=60" },
   { id: 108, name: "Fine Egyptian Giza Cotton Shirting", category: "Shirting", image: "/images/popular_cotton_fabric.png" },
-  { id: 109, name: "Designer Georgette Lehenga Choli", category: "Formal & Ethnic Wear for Women", image: "/images/popular_lehenga.png" },
-  { id: 110, name: "Premium Silk Sherwani Set", category: "Formal & Ethnic Wear for Men", image: "/images/men_ethnic_wear.png" },
-  { id: 111, name: "Kid's Festive Cotton Dhoti Kurta", category: "Formal & Ethnic Wear for Children", image: "/images/children_ethnic_wear.png" },
-  { id: 112, name: "Premium Velvet Upholstery Fabric", category: "Home Upholstery & Furnishing", image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=600&auto=format&fit=crop&q=60" },
+  { id: 109, name: "Designer Georgette Lehenga Choli", category: "Women Ethnic", image: "/images/popular_lehenga.png" },
+  { id: 110, name: "Premium Silk Sherwani Set", category: "Men Ethnic", image: "/images/men_ethnic_wear.png" },
+  { id: 111, name: "Kid's Festive Cotton Dhoti Kurta", category: "Kids Ethnic", image: "/images/children_ethnic_wear.png" },
+  { id: 112, name: "Premium Velvet Upholstery Fabric", category: "Home Furnishing", image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=600&auto=format&fit=crop&q=60" },
 ];
 
 export default function Products() {
@@ -83,7 +81,7 @@ export default function Products() {
               className="group flex flex-col items-center gap-3 shrink-0 border-none bg-transparent cursor-pointer"
             >
               <div 
-                className="w-20 h-20 sm:w-24 sm:h-24 rounded-full flex items-center justify-center border-2 transition-all duration-300 shadow-sm"
+                className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl flex items-center justify-center border-2 transition-all duration-300 shadow-sm"
                 style={{
                   background: activeCategory === "All" ? C.primary : '#FFFFFF',
                   borderColor: activeCategory === "All" ? C.gold : C.border,
@@ -117,7 +115,7 @@ export default function Products() {
                   className="group flex flex-col items-center gap-3 shrink-0 border-none bg-transparent cursor-pointer"
                 >
                   <div 
-                    className="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden border-2 transition-all duration-300 shadow-sm bg-white"
+                    className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border-2 transition-all duration-300 shadow-sm bg-white"
                     style={{
                       borderColor: active ? C.gold : C.border,
                       transform: active ? 'scale(1.05)' : 'none',
@@ -145,7 +143,7 @@ export default function Products() {
 
         {/* Product Grid Area */}
         <div className="w-full">
-          <div className="flex items-center justify-between mb-8 pb-4 border-b border-[#EFE6E7]">
+          <div className="flex items-center justify-between mb-8 pb-4 border-b border-[#E8DDD0]">
             <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 24, fontWeight: 700, color: C.primary, margin: 0 }}>
               {activeCategory === "All" ? "All Products" : activeCategory}
             </h2>
@@ -163,8 +161,16 @@ export default function Products() {
                   initial={{ opacity: 0, y: 14 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: Math.min(index * 0.04, 0.3) }}
-                  className="text-left group rounded-2xl bg-white border border-[#EFE6E7] shadow-sm hover:translate-y-[-4px] hover:shadow-md transition-all duration-300"
-                  style={{ overflow: 'hidden' }}
+                  className="text-left group rounded-2xl bg-white border shadow-sm transition-all duration-300"
+                  style={{ overflow: 'hidden', borderColor: C.border }}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.transform = 'translateY(-4px)';
+                    e.currentTarget.style.boxShadow = '0 12px 36px rgba(107, 66, 38, 0.12)';
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.boxShadow = '0 1px 2px 0 rgba(0, 0, 0, 0.05)';
+                  }}
                 >
                   <div style={{ height: 280, overflow: 'hidden', position: 'relative' }}>
                     <img src={product.image} alt={product.name} loading="lazy"
@@ -184,7 +190,7 @@ export default function Products() {
                         width: '100%', padding: '12px 14px', fontSize: 11, fontWeight: 700,
                         cursor: 'pointer', fontFamily: "'Outfit', sans-serif",
                         border: `1.5px solid ${C.border}`,
-                        borderRadius: 8,
+                        borderRadius: 12,
                         background: 'transparent', color: C.primary,
                         transition: 'all 0.2s ease',
                         textTransform: 'uppercase', letterSpacing: '0.05em'
@@ -200,7 +206,7 @@ export default function Products() {
             </div>
           ) : (
             <div style={{ textAlign: 'center', padding: '100px 24px', background: 'white', borderRadius: 20, border: `1px solid ${C.border}` }}>
-              <Filter size={48} style={{ margin: '0 auto 16px', color: C.primaryLight, display: 'block', opacity: 0.6 }} />
+              <Filter size={48} style={{ margin: '0 auto 16px', color: C.accent, display: 'block', opacity: 0.6 }} />
               <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 24, color: C.primary, marginBottom: 24 }}>
                 No products found for "{activeCategory}"
               </p>
@@ -209,7 +215,7 @@ export default function Products() {
                 style={{
                   padding: '12px 28px',
                   background: C.primary, color: 'white',
-                  borderRadius: 8,
+                  borderRadius: 12,
                   border: 'none', fontSize: 13, fontWeight: 700,
                   cursor: 'pointer', fontFamily: "'Outfit', sans-serif",
                   transition: 'all 0.2s ease', textTransform: 'uppercase', letterSpacing: '0.05em'

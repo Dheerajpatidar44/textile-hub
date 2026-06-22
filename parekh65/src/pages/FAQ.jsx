@@ -3,15 +3,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus } from 'lucide-react';
 
 const C = {
-  primary: '#5E3B43',       // Burgundy
-  primaryLight: '#BD9399',  // Accent Rose
-  primaryDark: '#3B2329',   // Deep Burgundy
-  accent: '#BD9399',
-  gold: '#D4B26F',
-  bg: '#FAF6F6',
-  border: '#EFE6E7',
-  stone: '#6E6466',
-  soil: '#5E3B43',
+  primary: '#6B4226',
+  accent: '#C8966A',
+  bg: '#F7F2EC',
+  border: '#E8DDD0',
+  stone: '#7A6558',
 };
 
 const faqs = [
@@ -33,7 +29,7 @@ const faqs = [
   },
   {
     question: "Do you ship internationally?",
-    answer: "Yes, Navya Weaves ships globally. International shipping charges and delivery times vary based on the destination and order volume."
+    answer: "Yes, Meraki Ethnic ships globally. International shipping charges and delivery times vary based on the destination and order volume."
   },
   {
     question: "Can I request custom fabric weaving or dyeing?",
@@ -54,7 +50,7 @@ export default function FAQ() {
 
         {/* Page Title Section - minimized top space */}
         <div className="text-center mb-6 mt-2">
-          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '38px', fontWeight: 700, color: C.soil, margin: 0, letterSpacing: '0.02em', textTransform: 'uppercase' }}>
+          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '38px', fontWeight: 700, color: C.primary, margin: 0, letterSpacing: '0.02em', textTransform: 'uppercase' }}>
             Frequently Asked Questions
           </h1>
           <div style={{ width: 40, height: 1.5, background: C.accent, margin: '8px auto 0' }} />
@@ -73,7 +69,7 @@ export default function FAQ() {
                   background: 'white',
                   border: `1px solid ${isOpen ? C.accent : C.border}`,
                   overflow: 'hidden',
-                  borderRadius: 16,
+                  borderRadius: 20,
                   transition: 'all 0.3s ease',
                 }}
               >
@@ -89,13 +85,13 @@ export default function FAQ() {
                     border: 'none',
                   }}
                 >
-                  <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 18, fontWeight: isOpen ? 700 : 600, color: C.soil, margin: 0, lineHeight: 1.4, transition: 'all 0.2s ease' }}>
+                  <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 18, fontWeight: isOpen ? 700 : 600, color: C.primary, margin: 0, lineHeight: 1.4, transition: 'all 0.2s ease' }}>
                     {faq.question}
                   </h3>
                   <div style={{
                     flexShrink: 0, width: 32, height: 32,
                     display: 'flex', alignItems: 'center', justify: 'center',
-                    background: isOpen ? C.accent : 'rgba(94, 59, 67, 0.08)',
+                    background: isOpen ? C.accent : 'rgba(107, 66, 38, 0.08)',
                     transition: 'all 0.3s ease',
                     borderRadius: '50%'
                   }} className="flex items-center justify-center">
@@ -124,7 +120,7 @@ export default function FAQ() {
           })}
         </div>
 
-        <div style={{ marginTop: 40, textAlign: 'center', padding: '24px', background: 'white', border: `1px solid ${C.border}`, borderRadius: 16 }}>
+        <div style={{ marginTop: 40, textAlign: 'center', padding: '24px', background: 'white', border: `1px solid ${C.border}`, borderRadius: 20 }}>
           <p style={{ fontSize: 13.5, color: C.stone, margin: 0, fontWeight: 500 }}>
             Still have questions?{' '}
             <a href="/contact" style={{ color: C.accent, fontWeight: 700, textDecoration: 'none', borderBottom: `1.5px solid ${C.accent}` }}>

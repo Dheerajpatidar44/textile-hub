@@ -2,15 +2,11 @@ import { motion } from 'framer-motion';
 import { Mail } from 'lucide-react';
 
 const C = {
-  primary: '#5E3B43',       // Burgundy
-  primaryLight: '#BD9399',  // Accent Rose
-  primaryDark: '#3B2329',   // Deep Burgundy
-  accent: '#BD9399',
-  gold: '#D4B26F',
-  bg: '#FAF6F6',
-  border: '#EFE6E7',
-  stone: '#6E6466',
-  soil: '#5E3B43',
+  primary: '#6B4226',
+  accent: '#C8966A',
+  bg: '#F7F2EC',
+  border: '#E8DDD0',
+  stone: '#7A6558',
 };
 
 const teamMembers = [
@@ -26,14 +22,14 @@ export default function RetailManagement() {
 
         {/* Page Title Section - minimized top space */}
         <div className="text-center mb-6 mt-2">
-          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '38px', fontWeight: 700, color: C.soil, margin: 0, letterSpacing: '0.02em', textTransform: 'uppercase' }}>
+          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '38px', fontWeight: 700, color: C.primary, margin: 0, letterSpacing: '0.02em', textTransform: 'uppercase' }}>
             Our Retail Management
           </h1>
           <div style={{ width: 40, height: 1.5, background: C.accent, margin: '8px auto 0' }} />
         </div>
   
         <p style={{ textAlign: 'center', fontSize: 14, color: C.stone, marginBottom: 40, fontWeight: 600, maxWidth: 560, margin: '0 auto 40px', lineHeight: 1.6 }}>
-          Navya Weaves is administered and governed by highly skilled, experienced and qualified Management with decades of expertise in the textile industry.
+          Meraki Ethnic is administered and governed by highly skilled, experienced and qualified Management with decades of expertise in the textile industry.
         </p>
 
         {/* Team Cards */}
@@ -57,7 +53,7 @@ export default function RetailManagement() {
               }}
               onMouseEnter={e => {
                 e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 12px 30px rgba(94, 59, 67, 0.05)';
+                e.currentTarget.style.boxShadow = '0 12px 30px rgba(107, 66, 38, 0.05)';
               }}
               onMouseLeave={e => {
                 e.currentTarget.style.transform = 'translateY(0)';
@@ -72,13 +68,13 @@ export default function RetailManagement() {
                     width: 90, height: 90,
                     objectFit: 'cover',
                     borderRadius: '50%',
-                    border: `3px solid rgba(94, 59, 67, 0.15)`,
+                    border: `3px solid rgba(107, 66, 38, 0.15)`,
                     display: 'block',
                   }}
                 />
               </div>
 
-              <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 20, fontWeight: 700, color: C.soil, margin: '0 0 4px' }}>
+              <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 20, fontWeight: 700, color: C.primary, margin: '0 0 4px' }}>
                 {member.name}
               </h3>
               <p style={{ fontSize: 9, textTransform: 'uppercase', letterSpacing: '0.18em', color: C.accent, margin: '0 0 8px', fontWeight: 700 }}>
@@ -89,20 +85,20 @@ export default function RetailManagement() {
               </p>
 
               <a
-                href={`mailto:${member.name.toLowerCase().replace(' ', '')}@navyaveaves.com`}
+                href={`mailto:${member.name.toLowerCase().replace(' ', '')}@merakiethnic.com`}
                 style={{
                   display: 'inline-flex', alignItems: 'center', gap: 6,
                   padding: '8px 16px',
                   fontSize: 11, color: C.primary, textDecoration: 'none', fontWeight: 700,
-                  background: 'rgba(94, 59, 67, 0.05)',
-                  border: `1px solid rgba(94, 59, 67, 0.1)`,
+                  background: 'rgba(107, 66, 38, 0.05)',
+                  border: `1px solid rgba(107, 66, 38, 0.1)`,
                   borderRadius: 8,
                   transition: 'all 0.2s ease',
                   textTransform: 'uppercase',
                   letterSpacing: '0.05em'
                 }}
                 onMouseEnter={e => { e.currentTarget.style.background = C.primary; e.currentTarget.style.color = 'white'; e.currentTarget.style.borderColor = C.primary; }}
-                onMouseLeave={e => { e.currentTarget.style.background = 'rgba(94, 59, 67, 0.05)'; e.currentTarget.style.color = C.primary; e.currentTarget.style.borderColor = 'rgba(94, 59, 67, 0.1)'; }}
+                onMouseLeave={e => { e.currentTarget.style.background = 'rgba(107, 66, 38, 0.05)'; e.currentTarget.style.color = C.primary; e.currentTarget.style.borderColor = 'rgba(107, 66, 38, 0.1)'; }}
               >
                 <Mail size={12} /> Contact
               </a>

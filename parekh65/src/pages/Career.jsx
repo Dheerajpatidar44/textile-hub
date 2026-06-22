@@ -2,15 +2,11 @@ import { motion } from 'framer-motion';
 import { Briefcase, MapPin, Mail, Clock } from 'lucide-react';
 
 const C = {
-  primary: '#5E3B43',       // Burgundy
-  primaryLight: '#BD9399',  // Accent Rose
-  primaryDark: '#3B2329',   // Deep Burgundy
-  accent: '#BD9399',
-  gold: '#D4B26F',
-  bg: '#FAF6F6',
-  border: '#EFE6E7',
-  stone: '#6E6466',
-  soil: '#5E3B43',
+  primary: '#6B4226',
+  accent: '#C8966A',
+  bg: '#F7F2EC',
+  border: '#E8DDD0',
+  stone: '#7A6558',
 };
 
 const jobs = [
@@ -29,7 +25,7 @@ export default function Career() {
 
         {/* Page Title Section - minimized top space */}
         <div className="text-center mb-6 mt-2">
-          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '38px', fontWeight: 700, color: C.soil, margin: 0, letterSpacing: '0.02em', textTransform: 'uppercase' }}>
+          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '38px', fontWeight: 700, color: C.primary, margin: 0, letterSpacing: '0.02em', textTransform: 'uppercase' }}>
             Career Opportunities
           </h1>
           <div style={{ width: 40, height: 1.5, background: C.accent, margin: '8px auto 0' }} />
@@ -46,12 +42,12 @@ export default function Career() {
               style={{
                 background: 'white',
                 border: `1px solid ${C.border}`,
-                borderRadius: 16,
+                borderRadius: 24,
                 transition: 'transform 0.3s ease, box-shadow 0.3s ease',
               }}
               onMouseEnter={e => {
                 e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 12px 30px rgba(94, 59, 67, 0.04)';
+                e.currentTarget.style.boxShadow = '0 12px 30px rgba(107, 66, 38, 0.04)';
               }}
               onMouseLeave={e => {
                 e.currentTarget.style.transform = 'translateY(0)';
@@ -59,7 +55,7 @@ export default function Career() {
               }}
             >
               <div>
-                <h3 style={{ fontFamily: "'Cormorant Garamond', serif", color: C.soil }} className="text-[20px] font-bold mb-5 leading-snug">
+                <h3 style={{ fontFamily: "'Cormorant Garamond', serif", color: C.primary }} className="text-[20px] font-bold mb-5 leading-snug">
                   {job.title}
                 </h3>
                 <div className="flex flex-col gap-3 mb-6">
@@ -67,12 +63,12 @@ export default function Career() {
                     { icon: MapPin, val: job.location },
                     { icon: Briefcase, val: `${job.type} · ${job.experience}` },
                     { icon: Clock, val: 'Apply by June 30, 2026' },
-                    { icon: Mail, val: 'careers@navyaveaves.com', href: 'mailto:careers@navyaveaves.com' },
+                    { icon: Mail, val: 'careers@merakiethnic.com', href: 'mailto:careers@merakiethnic.com' },
                   ].map(({ icon: Icon, val, href }) => (
                     <div key={val} style={{ color: C.stone }} className="flex items-center gap-2.5 text-[12.5px] font-semibold">
                       <Icon size={14} style={{ color: C.accent }} className="shrink-0" />
                       {href ? (
-                        <a href={href} style={{ color: C.primary }} className="hover:text-[#D4B26F] transition-colors">{val}</a>
+                        <a href={href} style={{ color: C.primary }} className="hover:text-[#C8966A] transition-colors">{val}</a>
                       ) : (
                         <span>{val}</span>
                       )}
@@ -86,7 +82,7 @@ export default function Career() {
 
               <div className="pt-6 mt-4 flex flex-col gap-3" style={{ borderTop: `1px solid ${C.border}` }}>
                 <button
-                  className="w-full py-3 rounded-lg font-bold text-xs uppercase tracking-widest text-white transition-colors cursor-pointer"
+                  className="w-full py-3 rounded-[12px] font-bold text-xs uppercase tracking-widest text-white transition-colors cursor-pointer"
                   style={{
                     background: C.primary,
                     border: 'none'

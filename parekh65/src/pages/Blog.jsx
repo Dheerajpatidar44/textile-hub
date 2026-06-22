@@ -2,15 +2,11 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
 const C = {
-  primary: '#96BADE',       // Dark Classic Blue / Navy
-  primaryLight: '#4B70F5',  // Vibrant Premium Indigo
-  primaryDark: '#000B58',   // Deep Royal Blue
-  accent: '#3FA2F6',        // Bright Sky/Pastel Blue
-  gold: '#3FA2F6',
-  bg: '#F4F8FC',
-  border: '#D0E1FD',
-  stone: '#4A5568',
-  soil: '#96BADE',
+  primary: '#6B4226',
+  accent: '#C8966A',
+  bg: '#F7F2EC',
+  border: '#E8DDD0',
+  stone: '#7A6558',
 };
 
 const posts = [
@@ -27,7 +23,7 @@ export default function Blog() {
 
         {/* Page Title Section - minimized top space */}
         <div className="text-center mb-6 mt-2">
-          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '38px', fontWeight: 700, color: C.soil, margin: 0, letterSpacing: '0.02em', textTransform: 'uppercase' }}>
+          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '38px', fontWeight: 700, color: C.primary, margin: 0, letterSpacing: '0.02em', textTransform: 'uppercase' }}>
             Blog & Insights
           </h1>
           <div style={{ width: 40, height: 1.5, background: C.accent, margin: '8px auto 0' }} />
@@ -46,15 +42,15 @@ export default function Blog() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="bg-white rounded-2xl border border-[#D0E1FD] overflow-hidden text-left hover:shadow-md transition-shadow cursor-pointer animate-fade-in"
+              className="bg-white rounded-[24px] border border-[#E8DDD0] overflow-hidden text-left hover:shadow-md transition-shadow cursor-pointer animate-fade-in"
             >
-              <div className="w-full aspect-video bg-[#F4F8FC]">
+              <div className="w-full aspect-video bg-[#F7F2EC]">
                 <img src={post.image} alt={post.title} className="w-full h-full object-cover" loading="lazy" />
               </div>
               <div className="p-6">
-                <span className="text-[10px] text-[#4A5568] uppercase tracking-wider block mb-2 font-bold">{post.date}</span>
-                <h3 className="text-[16px] font-bold text-[#000B58] mb-4 line-clamp-2 leading-snug font-serif">{post.title}</h3>
-                <span className="text-[11px] font-bold text-[#96BADE] tracking-widest uppercase flex items-center gap-1">
+                <span className="text-[10px] text-[#7A6558] uppercase tracking-wider block mb-2 font-bold">{post.date}</span>
+                <h3 className="text-[16px] font-bold text-[#6B4226] mb-4 line-clamp-2 leading-snug font-serif" style={{ fontFamily: "'Cormorant Garamond', serif" }}>{post.title}</h3>
+                <span className="text-[11px] font-bold text-[#C8966A] tracking-widest uppercase flex items-center gap-1">
                   READ MORE <ArrowRight size={12} />
                 </span>
               </div>

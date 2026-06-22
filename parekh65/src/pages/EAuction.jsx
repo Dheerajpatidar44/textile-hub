@@ -2,14 +2,11 @@ import { motion } from 'framer-motion';
 import { Gavel, Clock, UploadCloud, Send, Mail, TrendingUp } from 'lucide-react';
 
 const C = {
-  primary: '#5E3B43',       // Burgundy
-  primaryLight: '#BD9399',  // Accent Rose
-  primaryDark: '#3B2329',   // Deep Burgundy
-  accent: '#BD9399',
-  gold: '#D4B26F',
-  bg: '#FAF6F6',
-  border: '#EFE6E7',
-  stone: '#6E6466',
+  primary: '#6B4226',
+  accent: '#C8966A',
+  bg: '#F7F2EC',
+  border: '#E8DDD0',
+  stone: '#7A6558',
 };
 
 const upcomingAuctions = [
@@ -20,7 +17,7 @@ const upcomingAuctions = [
     quantity: "450 Meters",
     startDate: "Oct 20, 2026 - 10:00 AM",
     status: "Upcoming",
-    image: "/images/ethnic_wear.png"
+    image: "/images/popular_lehenga.png"
   },
   {
     id: "AUC-26-082",
@@ -29,7 +26,7 @@ const upcomingAuctions = [
     quantity: "1,200 Meters",
     startDate: "Oct 25, 2026 - 11:30 AM",
     status: "Upcoming",
-    image: "/images/premium_fabrics.png"
+    image: "/images/popular_bedsheet.png"
   }
 ];
 
@@ -67,32 +64,32 @@ export default function EAuction() {
               initial={{ opacity: 0, scale: 0.98 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="group flex flex-col sm:flex-row overflow-hidden rounded-2xl"
+              className="group flex flex-col sm:flex-row overflow-hidden rounded-[24px]"
               style={{
                 background: 'white',
                 border: `1px solid ${C.border}`,
                 transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                boxShadow: '0 4px 20px rgba(10, 24, 40, 0.02)'
+                boxShadow: '0 4px 20px rgba(107, 66, 38, 0.02)'
               }}
               onMouseEnter={e => {
                 e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 12px 30px rgba(10, 24, 40, 0.05)';
+                e.currentTarget.style.boxShadow = '0 12px 30px rgba(107, 66, 38, 0.05)';
               }}
               onMouseLeave={e => {
                 e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = '0 4px 20px rgba(10, 24, 40, 0.02)';
+                e.currentTarget.style.boxShadow = '0 4px 20px rgba(107, 66, 38, 0.02)';
               }}
             >
-              <div className="w-full sm:w-[200px] h-[200px] sm:h-auto overflow-hidden shrink-0 bg-[#FAF6F6]">
+              <div className="w-full sm:w-[200px] h-[200px] sm:h-auto overflow-hidden shrink-0 bg-[#F7F2EC]">
                 <img src={auction.image} alt={auction.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               </div>
 
               <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column' }}>
                 <div style={{ display: 'flex', alignItems: 'center', justify: 'space-between', marginBottom: 12 }}>
-                  <span style={{ fontSize: 9, padding: '6px 12px', background: 'rgba(94, 59, 67, 0.06)', color: C.primary, fontWeight: 700, letterSpacing: '0.1em', borderRadius: '50px' }}>
+                  <span style={{ fontSize: 9, padding: '6px 12px', background: 'rgba(107, 66, 38, 0.06)', color: C.primary, fontWeight: 700, letterSpacing: '0.1em', borderRadius: '50px' }}>
                     {auction.id}
                   </span>
-                  <span style={{ fontSize: 12, color: C.gold, fontWeight: 700 }}>{auction.status}</span>
+                  <span style={{ fontSize: 12, color: C.accent, fontWeight: 700 }}>{auction.status}</span>
                 </div>
 
                 <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 22, fontWeight: 700, color: C.primary, margin: '0 0 10px' }}>
@@ -103,7 +100,7 @@ export default function EAuction() {
                 </p>
 
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 12, marginBottom: 16 }}>
-                  <div style={{ background: C.bg, padding: '10px 14px', borderRadius: 8 }}>
+                  <div style={{ background: C.bg, padding: '10px 14px', borderRadius: 12 }}>
                     <p style={{ fontSize: 9, color: C.stone, textTransform: 'uppercase', letterSpacing: '0.1em', margin: '0 0 4px', fontWeight: 700 }}>Quantity</p>
                     <p style={{ fontSize: 14, color: C.primary, fontWeight: 700, margin: 0 }}>{auction.quantity}</p>
                   </div>
@@ -114,7 +111,7 @@ export default function EAuction() {
                   style={{
                     width: '100%', padding: '12px',
                     background: 'transparent', color: C.primary, border: `1.5px solid ${C.border}`,
-                    borderRadius: 8,
+                    borderRadius: 12,
                     fontSize: 11, fontWeight: 700, fontFamily: "'Outfit', sans-serif",
                     cursor: 'pointer', transition: 'all 0.2s', textTransform: 'uppercase', letterSpacing: '0.05em',
                     display: 'flex', alignItems: 'center', justify: 'center', gap: 8,
@@ -141,21 +138,21 @@ export default function EAuction() {
             background: 'white',
             border: `1px solid ${C.border}`,
             overflow: 'hidden',
-            borderRadius: 20,
-            boxShadow: '0 12px 40px rgba(10, 24, 40, 0.03)',
+            borderRadius: 24,
+            boxShadow: '0 12px 40px rgba(107, 66, 38, 0.03)',
           }}
         >
             {/* Form Header */}
             <div style={{
               padding: '28px 36px',
               borderBottom: `1px solid ${C.border}`,
-              background: 'rgba(94, 59, 67, 0.03)',
+              background: 'rgba(107, 66, 38, 0.03)',
               display: 'flex', alignItems: 'center', gap: 16,
             }} className="text-left">
               <div style={{
                 width: 48, height: 48,
                 background: 'white',
-                border: `1px solid rgba(94, 59, 67, 0.1)`,
+                border: `1px solid rgba(107, 66, 38, 0.1)`,
                 display: 'flex', alignItems: 'center', justify: 'center',
                 flexShrink: 0,
                 borderRadius: '50%'
@@ -216,7 +213,7 @@ export default function EAuction() {
                     }}
                     onMouseEnter={e => {
                       e.currentTarget.style.borderColor = C.accent;
-                      e.currentTarget.style.background = 'rgba(94, 59, 67, 0.04)';
+                      e.currentTarget.style.background = 'rgba(107, 66, 38, 0.04)';
                     }}
                     onMouseLeave={e => {
                       e.currentTarget.style.borderColor = C.border;
@@ -242,13 +239,13 @@ export default function EAuction() {
                     display: 'flex', alignItems: 'center', justify: 'center', gap: 10,
                     background: C.primary, color: 'white',
                     border: 'none',
-                    borderRadius: 8,
+                    borderRadius: 12,
                     fontSize: 12, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em',
                     cursor: 'pointer', fontFamily: "'Outfit', sans-serif",
                     transition: 'all 0.2s ease',
                   }}
-                  onMouseEnter={e => { e.currentTarget.style.background = C.primaryLight; e.currentTarget.style.color = 'white'; }}
-                  onMouseLeave={e => { e.currentTarget.style.background = C.primary; e.currentTarget.style.color = 'white'; }}
+                  onMouseEnter={e => { e.currentTarget.style.background = C.accent; }}
+                  onMouseLeave={e => { e.currentTarget.style.background = C.primary; }}
                 >
                   <Send size={16} /> Submit Registration
                 </button>
@@ -257,10 +254,10 @@ export default function EAuction() {
                 <div style={{ textAlign: 'center', display: 'flex', alignItems: 'center', justify: 'center', gap: 8, marginTop: 16 }}>
                   <Mail size={14} color={C.accent} />
                   <a
-                    href="mailto:info@navyaveaves.com"
+                    href="mailto:info@merakiethnic.com"
                     style={{ fontSize: 13, color: C.primary, fontWeight: 600, textDecoration: 'none' }}
                   >
-                    info@navyaveaves.com
+                    info@merakiethnic.com
                   </a>
                 </div>
 
