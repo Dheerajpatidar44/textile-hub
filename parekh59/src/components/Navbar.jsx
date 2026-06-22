@@ -19,13 +19,17 @@ export default function Navbar() {
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [pastHero, setPastHero] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [mobileResourcesOpen, setMobileResourcesOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 20);
+      setPastHero(window.scrollY > window.innerHeight - 80);
     };
+    
+    onScroll(); // Check initial scroll position
 
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
@@ -75,7 +79,7 @@ export default function Navbar() {
   const isDropdownActive = () => dropdownNavItems.some(item => isItemActive(item));
 
   const isHome = location.pathname === '/';
-  const useWhiteText = isHome;
+  const useWhiteText = isHome && !pastHero;
 
   return (
     <header

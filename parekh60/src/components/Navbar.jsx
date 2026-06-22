@@ -19,20 +19,14 @@ export default function Navbar() {
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [isPastHero, setIsPastHero] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [mobileResourcesOpen, setMobileResourcesOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => {
-      const currentScrollY = window.scrollY;
-      setScrolled(currentScrollY > 20);
-      
-      const heroHeight = window.innerHeight * 0.85;
-      setIsPastHero(currentScrollY >= heroHeight);
+      setScrolled(window.scrollY > 20);
     };
 
-    onScroll();
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
@@ -81,8 +75,7 @@ export default function Navbar() {
   const isDropdownActive = () => dropdownNavItems.some(item => isItemActive(item));
 
   const isHome = location.pathname === '/';
-  const useWhiteText = isHome && !isPastHero;
-  const showBg = isHome ? isPastHero : scrolled;
+  const useWhiteText = isHome;
 
   return (
     <header
@@ -93,12 +86,16 @@ export default function Navbar() {
       <div
         className="w-full transition-all duration-300 py-2 lg:py-2.5"
         style={{
-          background: showBg ? 'rgba(250, 246, 240, 0.95)' : 'transparent',
-          backdropFilter: showBg ? 'blur(12px)' : 'none',
+          background: scrolled
+            ? (useWhiteText ? 'rgba(12, 25, 41, 0.95)' : 'rgba(250, 246, 240, 0.95)')
+            : 'transparent',
+          backdropFilter: scrolled ? 'blur(12px)' : 'none',
           borderBottom: `1px solid ${
-            showBg ? 'rgba(12, 25, 41, 0.08)' : 'transparent'
+            scrolled
+              ? (useWhiteText ? 'rgba(255, 255, 255, 0.1)' : 'rgba(12, 25, 41, 0.08)')
+              : 'transparent'
           }`,
-          boxShadow: showBg ? '0 10px 30px rgba(0, 0, 0, 0.08)' : 'none',
+          boxShadow: scrolled ? '0 10px 30px rgba(0, 0, 0, 0.08)' : 'none',
         }}
       >
         <div className="max-w-[95rem] mx-auto px-4 sm:px-8 lg:pl-6 lg:pr-14 flex justify-between items-center">
