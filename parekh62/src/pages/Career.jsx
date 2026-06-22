@@ -2,15 +2,15 @@ import { motion } from 'framer-motion';
 import { Briefcase, MapPin, Mail, Clock } from 'lucide-react';
 
 const C = {
-  primary: '#8C6239',       // Warm Camel Brown
-  primaryLight: '#B08B6B',
-  primaryDark: '#5E4023',
-  accent: '#5B84B1',        // Slate/Dusty Blue
-  gold: '#8C6239',          // Warm Camel Brown
-  bg: '#FAF6F0',
-  border: '#E8DFD8',
-  stone: '#4A4A4A',
-  soil: '#8C6239',
+  primary: '#96BADE',       // Dark Classic Blue / Navy
+  primaryLight: '#4B70F5',  // Vibrant Premium Indigo
+  primaryDark: '#000B58',   // Deep Royal Blue
+  accent: '#3FA2F6',        // Bright Sky/Pastel Blue
+  gold: '#3FA2F6',
+  bg: '#F4F8FC',
+  border: '#D0E1FD',
+  stone: '#4A5568',
+  soil: '#96BADE',
 };
 
 const jobs = [
@@ -67,12 +67,12 @@ export default function Career() {
                     { icon: MapPin, val: job.location },
                     { icon: Briefcase, val: `${job.type} · ${job.experience}` },
                     { icon: Clock, val: 'Apply by June 30, 2026' },
-                    { icon: Mail, val: 'careers@tanabana.com', href: 'mailto:careers@tanabana.com' },
+                    { icon: Mail, val: 'careers@saanjhtextiles.com', href: 'mailto:careers@saanjhtextiles.com' },
                   ].map(({ icon: Icon, val, href }) => (
                     <div key={val} style={{ color: C.stone }} className="flex items-center gap-2.5 text-[12.5px] font-semibold">
                       <Icon size={14} style={{ color: C.accent }} className="shrink-0" />
                       {href ? (
-                        <a href={href} style={{ color: C.primary }} className="hover:text-[#5B84B1] transition-colors">{val}</a>
+                        <a href={href} style={{ color: C.primary }} className="hover:text-[#3FA2F6] transition-colors">{val}</a>
                       ) : (
                         <span>{val}</span>
                       )}

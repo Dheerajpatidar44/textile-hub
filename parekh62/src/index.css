@@ -1,19 +1,19 @@
 @import "tailwindcss";
 
 @theme {
-  /* ── TANABANA Textile Retail Mall Color Palette ── */
-  --color-primary: #8C6239;        /* Warm Camel Brown */
-  --color-primary-light: #B08B6B;  /* Lighter Camel Brown */
-  --color-primary-dark: #5E4023;   /* Dark Warm Brown */
-  --color-accent: #5B84B1;         /* Slate/Dusty Blue */
-  --color-accent-light: #D2DEEC;   /* Very light slate blue */
-  --color-gold: #8C6239;           /* Warm Brown Highlight */
-  --color-sand: #FAF6F0;           /* Cream/Off-white background */
-  --color-linen: #FDFBFA;          /* Secondary background tint */
-  --color-cream: #FAF6F0;          
-  --color-mist: #E8DFD8;           /* Warm Soft border */
-  --color-stone: #4A4A4A;          /* Charcoal grey */
-  --color-soil: #8C6239;           /* Warm Camel Brown */
+  /* ── Saanjh Textiles Color Palette ── */
+  --color-primary: #96BADE;        /* Dark Classic Blue / Navy */
+  --color-primary-light: #4B70F5;  /* Vibrant Premium Indigo */
+  --color-primary-dark: #000B58;   /* Deep Royal Blue */
+  --color-accent: #3FA2F6;         /* Bright Sky/Pastel Blue */
+  --color-accent-light: #E6F0FA;   /* Very light soft pastel sky blue */
+  --color-gold: #3FA2F6;           /* Blue Highlight replacing gold */
+  --color-sand: #F4F8FC;           /* Elegant light blue-gray tinted background */
+  --color-linen: #FFFFFF;          /* Pure White */
+  --color-cream: #E6F0FA;          
+  --color-mist: #D0E1FD;           /* Soft pastel border */
+  --color-stone: #4A5568;          /* Muted slate text color */
+  --color-soil: #96BADE;           /* Primary blue */
 
   /* ── Font Family ── */
   --font-display: 'Cormorant Garamond', serif;
@@ -24,8 +24,8 @@
 @layer base {
   body {
     font-family: 'Outfit', sans-serif;
-    background-color: #FAF6F0;
-    color: #4A4A4A;
+    background-color: #F4F8FC;
+    color: #334155;
     margin: 0;
     padding: 0;
     -webkit-font-smoothing: antialiased;
@@ -35,7 +35,7 @@
   h1, h2, h3, h4, h5, h6, .display-title {
     font-family: 'Cormorant Garamond', serif !important;
     font-weight: 600;
-    color: #5E4023; /* Dark brown instead of dark navy */
+    color: #96BADE;
   }
 
   * {

@@ -2,15 +2,15 @@ import { motion } from 'framer-motion';
 import { Mail } from 'lucide-react';
 
 const C = {
-  primary: '#8C6239',       // Warm Camel Brown
-  primaryLight: '#B08B6B',
-  primaryDark: '#5E4023',
-  accent: '#5B84B1',        // Slate/Dusty Blue
-  gold: '#8C6239',          // Warm Camel Brown
-  bg: '#FAF6F0',
-  border: '#E8DFD8',
-  stone: '#4A4A4A',
-  soil: '#8C6239',
+  primary: '#96BADE',       // Dark Classic Blue / Navy
+  primaryLight: '#4B70F5',  // Vibrant Premium Indigo
+  primaryDark: '#000B58',   // Deep Royal Blue
+  accent: '#3FA2F6',        // Bright Sky/Pastel Blue
+  gold: '#3FA2F6',
+  bg: '#F4F8FC',
+  border: '#D0E1FD',
+  stone: '#4A5568',
+  soil: '#96BADE',
 };
 
 const teamMembers = [
@@ -33,7 +33,7 @@ export default function RetailManagement() {
         </div>
   
         <p style={{ textAlign: 'center', fontSize: 14, color: C.stone, marginBottom: 40, fontWeight: 600, maxWidth: 560, margin: '0 auto 40px', lineHeight: 1.6 }}>
-          TANABANA Textile Retail Mall is administered and governed by highly skilled, experienced and qualified Management with decades of expertise in the textile industry.
+          Saanjh Textiles is administered and governed by highly skilled, experienced and qualified Management with decades of expertise in the textile industry.
         </p>
 
         {/* Team Cards */}
@@ -57,7 +57,7 @@ export default function RetailManagement() {
               }}
               onMouseEnter={e => {
                 e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 12px 30px rgba(140, 98, 57, 0.05)';
+                e.currentTarget.style.boxShadow = '0 12px 30px rgba(30, 62, 98, 0.05)';
               }}
               onMouseLeave={e => {
                 e.currentTarget.style.transform = 'translateY(0)';
@@ -72,7 +72,7 @@ export default function RetailManagement() {
                     width: 90, height: 90,
                     objectFit: 'cover',
                     borderRadius: '50%',
-                    border: `3px solid rgba(140, 98, 57, 0.15)`,
+                    border: `3px solid rgba(30, 62, 98, 0.15)`,
                     display: 'block',
                   }}
                 />
@@ -89,20 +89,20 @@ export default function RetailManagement() {
               </p>
 
               <a
-                href={`mailto:${member.name.toLowerCase().replace(' ', '')}@tanabana.com`}
+                href={`mailto:${member.name.toLowerCase().replace(' ', '')}@saanjhtextiles.com`}
                 style={{
                   display: 'inline-flex', alignItems: 'center', gap: 6,
                   padding: '8px 16px',
                   fontSize: 11, color: C.primary, textDecoration: 'none', fontWeight: 700,
-                  background: 'rgba(140, 98, 57, 0.05)',
-                  border: `1px solid rgba(140, 98, 57, 0.1)`,
+                  background: 'rgba(30, 62, 98, 0.05)',
+                  border: `1px solid rgba(30, 62, 98, 0.1)`,
                   borderRadius: 8,
                   transition: 'all 0.2s ease',
                   textTransform: 'uppercase',
                   letterSpacing: '0.05em'
                 }}
                 onMouseEnter={e => { e.currentTarget.style.background = C.primary; e.currentTarget.style.color = 'white'; e.currentTarget.style.borderColor = C.primary; }}
-                onMouseLeave={e => { e.currentTarget.style.background = 'rgba(140, 98, 57, 0.05)'; e.currentTarget.style.color = C.primary; e.currentTarget.style.borderColor = 'rgba(140, 98, 57, 0.1)'; }}
+                onMouseLeave={e => { e.currentTarget.style.background = 'rgba(30, 62, 98, 0.05)'; e.currentTarget.style.color = C.primary; e.currentTarget.style.borderColor = 'rgba(30, 62, 98, 0.1)'; }}
               >
                 <Mail size={12} /> Contact
               </a>

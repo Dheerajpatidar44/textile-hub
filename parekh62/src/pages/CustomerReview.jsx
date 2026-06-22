@@ -2,19 +2,19 @@ import { motion } from 'framer-motion';
 import { Star, User } from 'lucide-react';
 
 const C = {
-  primary: '#8C6239',       // Warm Camel Brown
-  primaryLight: '#B08B6B',
-  primaryDark: '#5E4023',
-  accent: '#5B84B1',        // Slate/Dusty Blue
-  gold: '#8C6239',          // Warm Camel Brown
-  bg: '#FAF6F0',
-  border: '#E8DFD8',
-  stone: '#4A4A4A',
-  soil: '#8C6239',
+  primary: '#96BADE',       // Dark Classic Blue / Navy
+  primaryLight: '#4B70F5',  // Vibrant Premium Indigo
+  primaryDark: '#000B58',   // Deep Royal Blue
+  accent: '#3FA2F6',        // Bright Sky/Pastel Blue
+  gold: '#3FA2F6',
+  bg: '#F4F8FC',
+  border: '#D0E1FD',
+  stone: '#4A5568',
+  soil: '#96BADE',
 };
 
 const reviews = [
-  { text: "TANABANA Textile Retail Mall has been our trusted partner for years. The quality, and B2B quotation services are unmatched in the entire industry.", name: "Rajesh Sharma", role: "Retailer, Delhi", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80" },
+  { text: "Saanjh Textiles has been our trusted partner for years. The quality, and B2B quotation services are unmatched in the entire industry.", name: "Rajesh Sharma", role: "Retailer, Delhi", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80" },
   { text: "The export compliance and material quality are world-class. Their zero-defect policy has secured our global supply chain perfectly.", name: "Ahmed Al-Sayed", role: "Gulf Textiles, UAE", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80" },
   { text: "Highly impressed with their R&D. The custom high-tenacity fabric they developed exceeded all our durability benchmarks.", name: "Vikas Kulkarni", role: "National Solutions", avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&auto=format&fit=crop&q=80" },
   { text: "Incredible attention to detail. Every batch of fabric we receive is consistently perfect, saving us a lot of time and rework.", name: "Anita Desai", role: "Design Head, Mumbai", avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80" },
@@ -27,7 +27,7 @@ export default function CustomerReview() {
 
         {/* Page Title Section - minimized top space */}
         <div className="text-center mb-10 mt-2">
-          <span className="text-[10px] font-bold tracking-[0.25em] text-[#5B84B1] uppercase block mb-1">REVIEWS</span>
+          <span className="text-[10px] font-bold tracking-[0.25em] text-[#3FA2F6] uppercase block mb-1">REVIEWS</span>
           <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '38px', fontWeight: 700, color: C.soil, margin: 0, letterSpacing: '0.02em', textTransform: 'uppercase' }}>
             Customer Reviews
           </h1>
@@ -41,29 +41,29 @@ export default function CustomerReview() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.08 }}
-              className="bg-white rounded-2xl border border-[#E8DFD8] p-8 text-left shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow duration-300"
+              className="bg-white rounded-2xl border border-[#D0E1FD] p-8 text-left shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow duration-300"
             >
               <div className="space-y-4">
                 {/* 5 Stars */}
-                <div className="flex items-center gap-0.5 text-[#8C6239]">
+                <div className="flex items-center gap-0.5 text-[#3FA2F6]">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} size={15} fill="currentColor" stroke="none" />
                   ))}
                 </div>
 
                 {/* Quote Text */}
-                <p className="text-[13px] text-[#4A4A4A] leading-relaxed font-semibold italic">
+                <p className="text-[13px] text-[#4A5568] leading-relaxed font-semibold italic">
                   "{review.text}"
                 </p>
               </div>
 
               {/* User Profile Footer */}
-              <div className="flex items-center gap-3.5 pt-6 mt-6 border-t border-[#E8DFD8]/45">
+              <div className="flex items-center gap-3.5 pt-6 mt-6 border-t border-[#D0E1FD]/45">
                 {review.avatar ? (
                   <img
                     src={review.avatar}
                     alt={review.name}
-                    className="w-10 h-10 rounded-full object-cover border border-[#E8DFD8]"
+                    className="w-10 h-10 rounded-full object-cover border border-[#D0E1FD]"
                   />
                 ) : (
                   <div 
@@ -74,8 +74,8 @@ export default function CustomerReview() {
                   </div>
                 )}
                 <div>
-                  <h4 className="text-[12.5px] font-bold text-[#5E4023] m-0">{review.name}</h4>
-                  <p className="text-[11px] text-[#4A4A4A] font-medium m-0">{review.role}</p>
+                  <h4 className="text-[12.5px] font-bold text-[#000B58] m-0">{review.name}</h4>
+                  <p className="text-[11px] text-[#4A5568] font-medium m-0">{review.role}</p>
                 </div>
               </div>
             </motion.div>

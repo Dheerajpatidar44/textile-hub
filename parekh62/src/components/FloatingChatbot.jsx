@@ -2,15 +2,15 @@ import { useState } from 'react';
 import { MessageSquareText, X, Send, Sparkles } from 'lucide-react';
 
 const C = {
-  primary: '#8C6239',       // Warm Camel Brown
-  primaryLight: '#B08B6B',
-  primaryDark: '#5E4023',
-  accent: '#5B84B1',        // Slate/Dusty Blue
-  gold: '#8C6239',          // Warm Camel Brown
-  bg: '#FAF6F0',
-  border: '#E8DFD8',
-  stone: '#4A4A4A',
-  soil: '#8C6239',
+  primary: '#96BADE',       // Dark Classic Blue / Navy
+  primaryLight: '#4B70F5',  // Vibrant Premium Indigo
+  primaryDark: '#000B58',   // Deep Royal Blue
+  accent: '#3FA2F6',        // Bright Sky/Pastel Blue
+  gold: '#3FA2F6',
+  bg: '#F4F8FC',
+  border: '#D0E1FD',
+  stone: '#4A5568',
+  soil: '#96BADE',
 };
 
 const FloatingChatbot = () => {
@@ -38,7 +38,7 @@ const FloatingChatbot = () => {
               </div>
               <div className="text-left">
                 <p className="text-white text-[13px] font-bold tracking-wide leading-tight">
-                  TANABANA Assistant
+                  Saanjh Assistant
                 </p>
                 <div className="flex items-center gap-1.5 mt-0.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
@@ -71,7 +71,7 @@ const FloatingChatbot = () => {
                 style={{ borderColor: C.border }}
               >
                 <p className="text-[13px] leading-relaxed" style={{ color: C.stone }}>
-                  Namaste! 🙏 Welcome to <strong>TANABANA Textile Retail Mall</strong>. How can I assist you today?
+                  Namaste! 🙏 Welcome to <strong>Saanjh Textiles</strong>. How can I assist you today?
                 </p>
               </div>
             </div>

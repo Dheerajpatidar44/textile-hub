@@ -2,15 +2,15 @@ import { motion } from 'framer-motion';
 import { ClipboardCheck, FileText, Send, Mail, Calendar, Package } from 'lucide-react';
 
 const C = {
-  primary: '#8C6239',       // Warm Camel Brown
-  primaryLight: '#B08B6B',
-  primaryDark: '#5E4023',
-  accent: '#5B84B1',        // Slate/Dusty Blue
-  gold: '#8C6239',          // Warm Camel Brown
-  bg: '#FAF6F0',
-  border: '#E8DFD8',
-  stone: '#4A4A4A',
-  soil: '#8C6239',
+  primary: '#96BADE',       // Dark Classic Blue / Navy
+  primaryLight: '#4B70F5',  // Vibrant Premium Indigo
+  primaryDark: '#000B58',   // Deep Royal Blue
+  accent: '#3FA2F6',        // Bright Sky/Pastel Blue
+  gold: '#3FA2F6',
+  bg: '#F4F8FC',
+  border: '#D0E1FD',
+  stone: '#4A5568',
+  soil: '#96BADE',
 };
 
 const quotations = [
@@ -168,7 +168,7 @@ export default function EQuotation() {
                 width: 48, height: 48,
                 background: 'white',
                 border: `1px solid rgba(10, 24, 40, 0.1)`,
-                display: 'flex', alignItems: 'center', justifycontent: 'center',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
                 borderRadius: '50%'
               }}>
                 <FileText size={20} color={C.accent} />
@@ -245,8 +245,8 @@ export default function EQuotation() {
 
                 <div style={{ textAlign: 'center', display: 'flex', alignItems: 'center', justify: 'center', gap: 8, marginTop: 16 }}>
                   <Mail size={14} color={C.accent} />
-                  <a href="mailto:info@tanabana.com" style={{ fontSize: 13, color: C.primary, fontWeight: 600, textDecoration: 'none' }}>
-                    info@tanabana.com
+                  <a href="mailto:info@saanjhtextiles.com" style={{ fontSize: 13, color: C.primary, fontWeight: 600, textDecoration: 'none' }}>
+                    info@saanjhtextiles.com
                   </a>
                 </div>
               </form>

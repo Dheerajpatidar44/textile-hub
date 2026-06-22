@@ -2,14 +2,14 @@ import { motion } from 'framer-motion';
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 
 const C = {
-  primary: '#8C6239',       // Warm Camel Brown
-  primaryLight: '#B08B6B',
-  primaryDark: '#5E4023',
-  accent: '#5B84B1',        // Slate/Dusty Blue
-  bg: '#FAF6F0',
-  border: '#E8DFD8',
-  stone: '#4A4A4A',
-  soil: '#8C6239',
+  primary: '#96BADE',       // Dark Classic Blue / Navy
+  primaryLight: '#3FA2F6',  // Bright Sky/Pastel Blue
+  primaryDark: '#000B58',   // Deep Royal Blue
+  accent: '#3FA2F6',        // Bright Sky/Pastel Blue
+  bg: '#F4F8FC',
+  border: '#D0E1FD',
+  stone: '#4A5568',
+  soil: '#96BADE',
 };
 
 export default function Contact() {
@@ -38,9 +38,9 @@ export default function Contact() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
-            className="bg-white border border-[#E8DFD8] rounded-[20px] p-8 text-center flex flex-col items-center shadow-sm hover:translate-y-[-2px] transition-transform"
+            className="bg-white border border-[#D0E1FD] rounded-[20px] p-8 text-center flex flex-col items-center shadow-sm hover:translate-y-[-2px] transition-transform"
           >
-            <div className="w-12 h-12 rounded-full bg-[#FAF6F0] flex items-center justify-center text-[#8C6239] mb-4 border border-[#E8DFD8]">
+            <div className="w-12 h-12 rounded-full bg-[#F4F8FC] flex items-center justify-center text-[#96BADE] mb-4 border border-[#D0E1FD]">
               <MapPin size={20} />
             </div>
             <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 20, fontWeight: 700, color: C.primaryDark, margin: '0 0 10px' }}>
@@ -58,9 +58,9 @@ export default function Contact() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.1 }}
-            className="bg-white border border-[#E8DFD8] rounded-[20px] p-8 text-center flex flex-col items-center shadow-sm hover:translate-y-[-2px] transition-transform"
+            className="bg-white border border-[#D0E1FD] rounded-[20px] p-8 text-center flex flex-col items-center shadow-sm hover:translate-y-[-2px] transition-transform"
           >
-            <div className="w-12 h-12 rounded-full bg-[#FAF6F0] flex items-center justify-center text-[#8C6239] mb-4 border border-[#E8DFD8]">
+            <div className="w-12 h-12 rounded-full bg-[#F4F8FC] flex items-center justify-center text-[#96BADE] mb-4 border border-[#D0E1FD]">
               <Phone size={20} />
             </div>
             <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 20, fontWeight: 700, color: C.primaryDark, margin: '0 0 10px' }}>
@@ -69,9 +69,9 @@ export default function Contact() {
             <div className="flex flex-col gap-1">
               <a href="tel:+919876543210" style={{ fontSize: 13.5, color: C.stone, textDecoration: 'none', fontWeight: 500, hover: { color: C.primary } }}>+91 98765 43210</a>
               <a href="tel:+918765432109" style={{ fontSize: 13.5, color: C.stone, textDecoration: 'none', fontWeight: 500, hover: { color: C.primary } }}>+91 87654 32109</a>
-              <div style={{ width: 30, height: 1, background: '#E8DFD8', margin: '8px auto' }} />
-              <a href="mailto:info@tanabana.com" style={{ fontSize: 13.5, color: C.primary, textDecoration: 'none', fontWeight: 600 }}>info@tanabana.com</a>
-              <a href="mailto:sales@tanabana.com" style={{ fontSize: 13.5, color: C.primary, textDecoration: 'none', fontWeight: 600 }}>sales@tanabana.com</a>
+              <div style={{ width: 30, height: 1, background: '#D0E1FD', margin: '8px auto' }} />
+              <a href="mailto:info@saanjhtextiles.com" style={{ fontSize: 13.5, color: C.primary, textDecoration: 'none', fontWeight: 600 }}>info@saanjhtextiles.com</a>
+              <a href="mailto:sales@saanjhtextiles.com" style={{ fontSize: 13.5, color: C.primary, textDecoration: 'none', fontWeight: 600 }}>sales@saanjhtextiles.com</a>
             </div>
           </motion.div>
 
@@ -80,9 +80,9 @@ export default function Contact() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.2 }}
-            className="bg-white border border-[#E8DFD8] rounded-[20px] p-8 text-center flex flex-col items-center shadow-sm hover:translate-y-[-2px] transition-transform"
+            className="bg-white border border-[#D0E1FD] rounded-[20px] p-8 text-center flex flex-col items-center shadow-sm hover:translate-y-[-2px] transition-transform"
           >
-            <div className="w-12 h-12 rounded-full bg-[#FAF6F0] flex items-center justify-center text-[#8C6239] mb-4 border border-[#E8DFD8]">
+            <div className="w-12 h-12 rounded-full bg-[#F4F8FC] flex items-center justify-center text-[#96BADE] mb-4 border border-[#D0E1FD]">
               <Clock size={20} />
             </div>
             <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 20, fontWeight: 700, color: C.primaryDark, margin: '0 0 10px' }}>
@@ -102,7 +102,7 @@ export default function Contact() {
           initial={{ opacity: 0, scale: 0.99 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="w-full h-[400px] rounded-[24px] overflow-hidden shadow-sm border border-[#E8DFD8] bg-white relative"
+          className="w-full h-[400px] rounded-[24px] overflow-hidden shadow-sm border border-[#D0E1FD] bg-white relative"
         >
           <iframe
             src="https://maps.google.com/maps?q=Surat%20Textile%20Market&t=&z=14&ie=UTF8&iwloc=&output=embed"
@@ -111,7 +111,7 @@ export default function Contact() {
             frameBorder="0"
             allowFullScreen loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            title="TANABANA Textile Retail Mall Location Map"
+            title="Saanjh Textiles Location Map"
           />
         </motion.div>
       </div>

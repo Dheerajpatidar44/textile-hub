@@ -4,33 +4,29 @@ import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const C = {
-  primary: '#8C6239',       // Warm Camel Brown
-  primaryLight: '#B08B6B',
-  primaryDark: '#5E4023',
-  accent: '#5B84B1',        // Slate/Dusty Blue
-  gold: '#8C6239',          // Warm Camel Brown
-  bg: '#FAF6F0',
-  border: '#E8DFD8',
-  stone: '#4A4A4A',
-  soil: '#8C6239',
+  primary: '#96BADE',       // Deep Indigo Blue
+  primaryLight: '#4B70F5',
+  primaryDark: '#000B58',
+  accent: '#3FA2F6',        // Sky Blue
+  gold: '#3FA2F6',          
+  bg: '#F4F8FC',
+  border: '#D0E1FD',
+  stone: '#4A5568',
+  soil: '#96BADE',
 };
 
 export default function Navbar() {
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [pastHero, setPastHero] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [mobileResourcesOpen, setMobileResourcesOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 20);
-      setPastHero(window.scrollY > window.innerHeight - 80);
     };
-    
-    onScroll(); // Check initial scroll position
-
+    onScroll();
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
@@ -78,9 +74,6 @@ export default function Navbar() {
 
   const isDropdownActive = () => dropdownNavItems.some(item => isItemActive(item));
 
-  const isHome = location.pathname === '/';
-  const useWhiteText = false; // Hero section now has light background
-
   return (
     <header
       className="w-full fixed top-0 left-0 z-50 transition-all duration-300"
@@ -88,7 +81,7 @@ export default function Navbar() {
     >
       {/* ── Top Notification Bar ── */}
       <div 
-        className="w-full py-1.5 text-white flex justify-between items-center px-4 sm:px-8 lg:px-16"
+        className="w-full py-1.5 text-[#000B58] flex justify-between items-center px-4 sm:px-8 lg:px-16"
         style={{ background: C.primary, fontSize: '11px', fontWeight: 600, letterSpacing: '0.05em' }}
       >
         <div className="hidden sm:block text-left opacity-90">
@@ -105,7 +98,7 @@ export default function Navbar() {
               key={social.name}
               href="#"
               aria-label={social.name}
-              className="opacity-90 hover:opacity-100 text-white transition-opacity flex items-center justify-center"
+              className="opacity-90 hover:opacity-100 text-[#000B58] transition-opacity flex items-center justify-center"
             >
               {social.svg}
             </a>
@@ -117,39 +110,37 @@ export default function Navbar() {
       <div
         className="w-full transition-all duration-300 py-2 lg:py-2.5"
         style={{
-          background: '#FAF6F0',
-          backdropFilter: 'none',
-          borderBottom: `1px solid rgba(140, 98, 57, 0.08)`,
+          background: '#FFFFFF',
+          borderBottom: `1px solid rgba(30, 62, 98, 0.08)`,
           boxShadow: scrolled ? '0 10px 30px rgba(0, 0, 0, 0.08)' : 'none',
         }}
       >
         <div className="max-w-[95rem] mx-auto px-4 sm:px-8 lg:pl-6 lg:pr-14 flex justify-between items-center">
 
-          {/* Logo Brand: TANABANA Textile Retail Mall */}
+          {/* Logo Brand: Saanjh Textiles */}
           <Link to="/" className="flex items-center gap-3 group shrink-0 text-left">
-            {/* Logo Icon - Floral Mandala style */}
             <div style={{
               width: 38, height: 38,
               display: 'flex', alignItems: 'center', justifyContent: 'center',
             }}>
-              <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke={C.gold} strokeWidth="1.5">
-                <circle cx="12" cy="12" r="9" stroke={C.gold} strokeWidth="1.5" />
-                <path d="M12 2v20M2 12h20M5 5l14 14M5 19L14 10" stroke={C.primary} strokeWidth="1" />
-                <circle cx="12" cy="12" r="4" fill={C.primary} />
+              <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#000B58" strokeWidth="1.5">
+                <circle cx="12" cy="12" r="9" stroke="#000B58" strokeWidth="1.5" />
+                <path d="M12 2v20M2 12h20M5 5l14 14M5 19L14 10" stroke={C.accent} strokeWidth="1" />
+                <circle cx="12" cy="12" r="4" fill="#000B58" />
               </svg>
             </div>
             <div className="flex flex-col">
               <span
                 className="text-[20px] font-bold leading-none tracking-[0.05em] font-serif uppercase"
-                style={{ fontFamily: "'Cormorant Garamond', serif", color: C.primary }}
+                style={{ fontFamily: "'Cormorant Garamond', serif", color: '#000B58' }}
               >
-                TANABANA
+                Saanjh Textiles
               </span>
               <span
                 className="text-[8.5px] font-semibold tracking-[0.18em] uppercase mt-0.5"
                 style={{ color: C.stone }}
               >
-                Textile Retail Mall
+                Premium Textile House
               </span>
             </div>
           </Link>
@@ -166,10 +157,10 @@ export default function Navbar() {
                   style={{
                     borderBottom: '2px solid transparent',
                     borderRadius: 0,
-                    color: active ? C.gold : (useWhiteText ? 'rgba(255, 255, 255, 0.8)' : 'rgba(12, 25, 41, 0.8)'),
+                    color: active ? C.primaryLight : 'rgba(12, 25, 41, 0.8)',
                   }}
-                  onMouseEnter={e => { e.currentTarget.style.color = C.gold; }}
-                  onMouseLeave={e => { if (!active) e.currentTarget.style.color = useWhiteText ? 'rgba(255, 255, 255, 0.8)' : 'rgba(12, 25, 41, 0.8)'; }}
+                  onMouseEnter={e => { e.currentTarget.style.color = C.primaryLight; }}
+                  onMouseLeave={e => { if (!active) e.currentTarget.style.color = 'rgba(12, 25, 41, 0.8)'; }}
                 >
                   {item.name}
                 </Link>
@@ -187,10 +178,10 @@ export default function Navbar() {
                 style={{
                   borderBottom: '2px solid transparent',
                   borderRadius: 0,
-                  color: isDropdownActive() ? C.gold : (useWhiteText ? 'rgba(255, 255, 255, 0.8)' : 'rgba(12, 25, 41, 0.8)'),
+                  color: isDropdownActive() ? C.primaryLight : 'rgba(12, 25, 41, 0.8)',
                 }}
-                onMouseEnter={e => { e.currentTarget.style.color = C.gold; }}
-                onMouseLeave={e => { if (!isDropdownActive()) e.currentTarget.style.color = useWhiteText ? 'rgba(255, 255, 255, 0.8)' : 'rgba(12, 25, 41, 0.8)'; }}
+                onMouseEnter={e => { e.currentTarget.style.color = C.primaryLight; }}
+                onMouseLeave={e => { if (!isDropdownActive()) e.currentTarget.style.color = 'rgba(12, 25, 41, 0.8)'; }}
               >
                 <span>PAGES</span>
                 <ChevronDown size={12} className={`transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`} />
@@ -205,9 +196,9 @@ export default function Navbar() {
                     transition={{ duration: 0.18, ease: 'easeOut' }}
                     className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-64 shadow-2xl z-[999] text-left overflow-hidden rounded-[20px]"
                     style={{
-                      background: useWhiteText ? C.primaryDark : 'rgba(255, 255, 255, 0.98)',
-                      border: useWhiteText ? '1px solid rgba(255, 255, 255, 0.1)' : `1px solid ${C.border}`,
-                      backdropFilter: useWhiteText ? 'none' : 'blur(8px)',
+                      background: 'rgba(255, 255, 255, 0.98)',
+                      border: `1px solid ${C.border}`,
+                      backdropFilter: 'blur(8px)',
                     }}
                   >
                     <div style={{ padding: '8px 0', position: 'relative', zIndex: 1 }}>
@@ -220,19 +211,19 @@ export default function Navbar() {
                             onClick={() => setDropdownOpen(false)}
                             className="flex items-center gap-3 px-6 py-2.5 text-[14px] font-semibold transition-all duration-200"
                             style={{
-                              color: active ? C.gold : (useWhiteText ? 'rgba(255, 255, 255, 0.8)' : C.stone),
-                              background: active ? (useWhiteText ? 'rgba(255, 255, 255, 0.08)' : 'rgba(12, 25, 41, 0.04)') : 'transparent',
+                              color: active ? C.primaryLight : C.stone,
+                              background: active ? 'rgba(12, 25, 41, 0.04)' : 'transparent',
                               textDecoration: 'none',
                               letterSpacing: '0.05em',
                             }}
                             onMouseEnter={e => {
-                              e.currentTarget.style.background = useWhiteText ? 'rgba(255, 255, 255, 0.08)' : 'rgba(12, 25, 41, 0.04)';
-                              e.currentTarget.style.color = C.gold;
+                              e.currentTarget.style.background = 'rgba(12, 25, 41, 0.04)';
+                              e.currentTarget.style.color = C.primaryLight;
                             }}
                             onMouseLeave={e => {
                               if (!active) {
                                 e.currentTarget.style.background = 'transparent';
-                                e.currentTarget.style.color = useWhiteText ? 'rgba(255, 255, 255, 0.8)' : C.stone;
+                                e.currentTarget.style.color = C.stone;
                               }
                             }}
                           >
@@ -253,7 +244,7 @@ export default function Navbar() {
               to="/trade-enquiry"
               className="px-4 py-2 xl:px-6 xl:py-2.5 text-[10.5px] xl:text-[11px] font-bold tracking-widest text-white uppercase rounded-full transition-all duration-300 hover:shadow-md hover:scale-[1.02]"
               style={{
-                background: C.accent,
+                background: C.primary,
               }}
             >
               TRADE ENQUIRY
@@ -265,14 +256,14 @@ export default function Navbar() {
             <Link
               to="/trade-enquiry"
               className="px-4 py-2 text-[10px] font-bold tracking-widest text-white uppercase rounded-full"
-              style={{ background: C.accent }}
+              style={{ background: C.primary }}
             >
               ENQUIRY
             </Link>
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="p-2 transition-all border-none bg-transparent cursor-pointer"
-              style={{ color: useWhiteText ? '#ffffff' : C.primary }}
+              style={{ color: C.primary }}
               aria-label="Toggle menu"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -291,7 +282,7 @@ export default function Navbar() {
             transition={{ type: 'tween', duration: 0.25, ease: 'easeInOut' }}
             className="lg:hidden fixed top-0 left-0 right-0 z-40 flex flex-col h-[100dvh]"
             style={{ 
-              background: useWhiteText ? C.primary : C.bg, 
+              background: C.bg, 
               fontFamily: "'Outfit', sans-serif" 
             }}
           >
@@ -302,7 +293,7 @@ export default function Navbar() {
               display: 'flex', 
               alignItems: 'center', 
               justifyContent: 'space-between', 
-              borderBottom: useWhiteText ? '1px solid rgba(255, 255, 255, 0.1)' : `1px solid ${C.border}` 
+              borderBottom: `1px solid ${C.border}` 
             }}>
               <div className="flex-grow flex flex-col text-left">
                 <span
@@ -312,23 +303,23 @@ export default function Navbar() {
                     fontFamily: "'Cormorant Garamond', serif" 
                   }}
                 >
-                  TANABANA
+                  Saanjh Textiles
                 </span>
                 <span
                   className="text-[7.5px] font-semibold tracking-wider uppercase mt-1"
                   style={{ color: C.stone }}
                 >
-                  Textile Retail Mall
+                  Premium Textile House
                 </span>
               </div>
               <button
                 onClick={() => setIsOpen(false)}
                 style={{
                   width: 36, height: 36,
-                  background: useWhiteText ? 'rgba(255, 255, 255, 0.1)' : 'rgba(12, 25, 41, 0.05)',
+                  background: 'rgba(12, 25, 41, 0.05)',
                   border: 'none',
-                  display: 'flex', alignItems: 'center', justify: 'center',
-                  color: useWhiteText ? '#ffffff' : C.primary, 
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  color: C.primary, 
                   cursor: 'pointer',
                   borderRadius: '50%',
                 }}
@@ -348,8 +339,8 @@ export default function Navbar() {
                       onClick={() => setIsOpen(false)}
                       className="flex items-center justify-between px-4 py-3.5 text-[13px] font-bold tracking-wider rounded-xl transition-all"
                       style={{
-                        background: active ? (useWhiteText ? 'rgba(255, 255, 255, 0.1)' : 'rgba(12, 25, 41, 0.05)') : 'transparent',
-                        color: active ? C.gold : (useWhiteText ? 'rgba(255, 255, 255, 0.85)' : C.primary),
+                        background: active ? 'rgba(12, 25, 41, 0.05)' : 'transparent',
+                        color: active ? C.primaryLight : C.primary,
                       }}
                     >
                       <span>{item.name}</span>
@@ -363,7 +354,7 @@ export default function Navbar() {
                     onClick={() => setMobileResourcesOpen(!mobileResourcesOpen)}
                     className="w-full flex items-center justify-between px-4 py-3.5 text-[13px] font-bold tracking-wider transition-all cursor-pointer border-none bg-transparent"
                     style={{
-                      color: isDropdownActive() ? C.gold : (useWhiteText ? 'rgba(255, 255, 255, 0.85)' : C.primary),
+                      color: isDropdownActive() ? C.primaryLight : C.primary,
                     }}
                   >
                     <span>PAGES</span>
@@ -388,8 +379,8 @@ export default function Navbar() {
                               onClick={() => { setIsOpen(false); setMobileResourcesOpen(false); }}
                               className="flex items-center justify-between px-4 py-3 text-[12px] font-bold tracking-wider rounded-xl transition-all"
                               style={{
-                                background: active ? (useWhiteText ? 'rgba(255, 255, 255, 0.08)' : 'rgba(12, 25, 41, 0.04)') : 'transparent',
-                                color: active ? C.gold : (useWhiteText ? 'rgba(255, 255, 255, 0.7)' : C.stone),
+                                background: active ? 'rgba(12, 25, 41, 0.04)' : 'transparent',
+                                color: active ? C.primaryLight : C.stone,
                               }}
                             >
                               <span>{item.name}</span>
@@ -404,9 +395,9 @@ export default function Navbar() {
             </div>
 
             {/* Mobile Socials (Fixed, no shrink) */}
-            <div className="px-6 py-6 border-t border-white/10 flex items-center justify-center gap-4 bg-black/10" style={{ 
+            <div className="px-6 py-6 border-t flex items-center justify-center gap-4 bg-black/5" style={{ 
               flexShrink: 0,
-              borderTop: useWhiteText ? '1px solid rgba(255, 255, 255, 0.1)' : `1px solid ${C.border}`
+              borderTop: `1px solid ${C.border}`
             }}>
               {[
                 { name: 'Facebook', svg: (<svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" /></svg>) },
@@ -420,8 +411,8 @@ export default function Navbar() {
                   aria-label={social.name}
                   className="w-9 h-9 rounded-full flex items-center justify-center transition-all duration-200 border cursor-pointer shrink-0"
                   style={{
-                    color: useWhiteText ? '#ffffff' : C.primary,
-                    borderColor: useWhiteText ? 'rgba(255, 255, 255, 0.2)' : 'rgba(12, 25, 41, 0.2)',
+                    color: C.primary,
+                    borderColor: 'rgba(12, 25, 41, 0.2)',
                     background: 'transparent',
                   }}
                   onMouseEnter={e => {
@@ -429,8 +420,8 @@ export default function Navbar() {
                     e.currentTarget.style.color = C.gold;
                   }}
                   onMouseLeave={e => {
-                    e.currentTarget.style.borderColor = useWhiteText ? 'rgba(255, 255, 255, 0.2)' : 'rgba(12, 25, 41, 0.2)';
-                    e.currentTarget.style.color = useWhiteText ? '#ffffff' : C.primary;
+                    e.currentTarget.style.borderColor = 'rgba(12, 25, 41, 0.2)';
+                    e.currentTarget.style.color = C.primary;
                   }}
                 >
                   {social.svg}

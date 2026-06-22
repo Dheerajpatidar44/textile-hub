@@ -5,51 +5,26 @@ import {
   ArrowRight,
   ChevronLeft,
   ChevronRight,
-  Shield,
-  Layers,
-  Truck,
-  Heart,
-  Headphones,
+  Star,
 } from 'lucide-react';
 
 const C = {
-  primary: '#8C6239',       // Warm Camel Brown
-  primaryLight: '#B08B6B',
-  primaryDark: '#5E4023',
-  accent: '#5B84B1',        // Slate/Dusty Blue
-  gold: '#8C6239',          // Warm Camel Brown
-  bg: '#FAF6F0',
-  border: '#E8DFD8',
-  stone: '#4A4A4A',
-  soil: '#8C6239',
+  primary: '#96BADE',       // Dark Classic Blue
+  primaryLight: '#4B70F5',
+  primaryDark: '#000B58',
+  accent: '#3FA2F6',        // Sky Blue
+  gold: '#96BADE',          
+  bg: '#F4F8FC',
+  border: '#D0E1FD',
+  stone: '#4A5568',
+  soil: '#96BADE',
 };
 
-// Blog posts
-const blogPosts = [
-  {
-    id: 1,
-    title: "The Future of Sustainable Weaving",
-    date: "June 10, 2026",
-    image: "https://images.unsplash.com/photo-1705412877691-70f6913aaa1e?w=600&auto=format&fit=crop&q=60",
-  },
-  {
-    id: 2,
-    title: "Elegance in Threads: The Fall Collection",
-    date: "May 28, 2026",
-    image: "https://images.unsplash.com/photo-1599753931952-654e960af582?w=600&auto=format&fit=crop&q=60",
-  },
-  {
-    id: 3,
-    title: "Behind the Scenes: Crafting the Perfect Saree",
-    date: "May 15, 2026",
-    image: "https://plus.unsplash.com/premium_photo-1669977749819-d8737b4408f7?w=600&auto=format&fit=crop&q=60",
-  },
-  {
-    id: 4,
-    title: "Trends to Watch in Home Furnishing",
-    date: "Apr 22, 2026",
-    image: "https://images.unsplash.com/photo-1616046229478-9901c5536a45?w=600&auto=format&fit=crop&q=60",
-  }
+const reviews = [
+  { text: "Saanjh Textiles has been our trusted partner for years. The quality, and B2B quotation services are unmatched in the entire industry.", name: "Rajesh Sharma", role: "Retailer, Delhi", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80" },
+  { text: "The export compliance and material quality are world-class. Their zero-defect policy has secured our global supply chain perfectly.", name: "Ahmed Al-Sayed", role: "Gulf Textiles, UAE", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80" },
+  { text: "Highly impressed with their R&D. The custom high-tenacity fabric they developed exceeded all our durability benchmarks.", name: "Vikas Kulkarni", role: "National Solutions", avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&auto=format&fit=crop&q=80" },
+  { text: "Incredible attention to detail. Every batch of fabric we receive is consistently perfect, saving us a lot of time and rework.", name: "Anita Desai", role: "Design Head, Mumbai", avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80" },
 ];
 
 // All products list from Products page
@@ -73,11 +48,11 @@ export default function Home() {
   const heroIdx = page;
 
   const heroImages = [
-    "/images/tanaban_hero.png",
-    "/images/popular_banarasi_saree.png",
-    "/images/ethnic_wear.png",
-    "/images/premium_fabrics.png",
-    "/images/discover_kurtis.png"
+    "/images/image.png",
+    "/images/image copy.png",
+    "/images/image copy 2.png",
+    "/images/image copy 3.png",
+    "/images/image copy 4.png"
   ];
 
   useEffect(() => {
@@ -118,7 +93,7 @@ export default function Home() {
   };
 
   return (
-    <div style={{ background: '#FAF6F0', fontFamily: "'Outfit', sans-serif" }} className="w-full overflow-x-hidden pt-12 md:pt-16 pb-16">
+    <div style={{ background: '#F4F8FC', fontFamily: "'Outfit', sans-serif" }} className="w-full overflow-x-hidden pt-12 md:pt-16 pb-16">
       
       {/* ── 1. HERO SECTION (3D STACKED CAROUSEL) ── */}
       <section className="w-full py-4 md:py-6 relative z-10 px-0 overflow-hidden">
@@ -126,19 +101,19 @@ export default function Home() {
         {/* Absolute Left & Right Navigation Chevrons */}
         <button 
           onClick={handlePrevHero}
-          className="absolute left-2 sm:left-4 md:left-6 top-[45%] md:top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/90 hover:bg-white flex items-center justify-center shadow-lg text-stone-700 hover:text-stone-900 hover:scale-105 active:scale-95 transition-all z-30 border-none cursor-pointer"
+          className="absolute left-2 sm:left-4 md:left-6 top-[45%] md:top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/90 hover:bg-white flex items-center justify-center shadow-lg text-[#96BADE] hover:text-[#4B70F5] hover:scale-105 active:scale-95 transition-all z-30 border-none cursor-pointer"
         >
           <ChevronLeft size={24} />
         </button>
         <button 
           onClick={handleNextHero}
-          className="absolute right-2 sm:right-4 md:right-6 top-[45%] md:top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/90 hover:bg-white flex items-center justify-center shadow-lg text-stone-700 hover:text-stone-900 hover:scale-105 active:scale-95 transition-all z-30 border-none cursor-pointer"
+          className="absolute right-2 sm:right-4 md:right-6 top-[45%] md:top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/90 hover:bg-white flex items-center justify-center shadow-lg text-[#96BADE] hover:text-[#4B70F5] hover:scale-105 active:scale-95 transition-all z-30 border-none cursor-pointer"
         >
           <ChevronRight size={24} />
         </button>
 
         {/* Carousel Container */}
-        <div className="relative w-full h-[260px] sm:h-[380px] lg:h-[520px] perspective-[1000px] mt-2 mb-4">
+        <div className="relative w-full h-[230px] sm:h-[320px] lg:h-[450px] perspective-[1000px] mt-2 mb-4">
           {heroImages.map((src, index) => {
             return (
               <motion.div
@@ -146,7 +121,7 @@ export default function Home() {
                 animate={getPosition(index, heroIdx)}
                 variants={slideVariants}
                 transition={{ type: "spring", stiffness: 260, damping: 28 }}
-                className="absolute left-0 right-0 mx-auto top-0 w-[75%] sm:w-[60%] lg:w-[45%] h-full rounded-2xl md:rounded-[32px] overflow-hidden shadow-2xl bg-[#E8DFD8]"
+                className="absolute left-0 right-0 mx-auto top-0 w-[82%] sm:w-[70%] lg:w-[58%] h-full rounded-2xl md:rounded-[32px] overflow-hidden shadow-2xl bg-[#D0E1FD]"
                 onClick={() => setPage([index, index > heroIdx ? 1 : -1])}
                 style={{ cursor: getPosition(index, heroIdx) === 'center' ? 'default' : 'pointer' }}
               >
@@ -170,176 +145,61 @@ export default function Home() {
               className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full border-none cursor-pointer transition-all"
               style={{
                 background: heroIdx === idx 
-                  ? '#8C6239' 
-                  : '#E0D8D0'
+                  ? '#96BADE' 
+                  : '#D0E1FD'
               }}
             />
           ))}
         </div>
       </section>
 
-      {/* ── 2. VALUE PROPOSITIONS SECTION ── */}
+
+      {/* ── 3. RETAIL MANAGEMENT PROMO BANNER ── */}
       <section className="max-w-[95rem] mx-auto px-4 sm:px-8 lg:px-14 py-8">
-        <div className="bg-[#FAF6F0] border border-[#E8DFD8] rounded-[24px] py-8 px-6 shadow-sm">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 text-center">
-            
-            {/* Prop 1 */}
-            <div className="flex flex-col items-center">
-              <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-[#8C6239] shadow-sm mb-3">
-                <Shield size={20} />
-              </div>
-              <h4 className="text-[12px] font-bold tracking-widest text-[#5E4023] uppercase mb-1">PREMIUM QUALITY</h4>
-              <p className="text-[11px] text-stone-500 max-w-[160px] leading-tight m-0">Finest fabrics, unmatched quality</p>
-            </div>
-
-            {/* Prop 2 */}
-            <div className="flex flex-col items-center">
-              <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-[#8C6239] shadow-sm mb-3">
-                <Layers size={20} />
-              </div>
-              <h4 className="text-[12px] font-bold tracking-widest text-[#5E4023] uppercase mb-1">WIDE RANGE</h4>
-              <p className="text-[11px] text-stone-500 max-w-[160px] leading-tight m-0">Thousands of fabrics for every need</p>
-            </div>
-
-            {/* Prop 3 */}
-            <div className="flex flex-col items-center">
-              <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-[#8C6239] shadow-sm mb-3">
-                <Truck size={20} />
-              </div>
-              <h4 className="text-[12px] font-bold tracking-widest text-[#5E4023] uppercase mb-1">PAN INDIA DELIVERY</h4>
-              <p className="text-[11px] text-stone-500 max-w-[160px] leading-tight m-0">Timely delivery across India</p>
-            </div>
-
-            {/* Prop 4 */}
-            <div className="flex flex-col items-center">
-              <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-[#8C6239] shadow-sm mb-3">
-                <Heart size={20} />
-              </div>
-              <h4 className="text-[12px] font-bold tracking-widest text-[#5E4023] uppercase mb-1">CUSTOMER FIRST</h4>
-              <p className="text-[11px] text-stone-500 max-w-[160px] leading-tight m-0">Your satisfaction is our priority</p>
-            </div>
-
-            {/* Prop 5 */}
-            <div className="flex flex-col items-center col-span-2 md:col-span-1 mx-auto lg:mx-0">
-              <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-[#8C6239] shadow-sm mb-3">
-                <Headphones size={20} />
-              </div>
-              <h4 className="text-[12px] font-bold tracking-widest text-[#5E4023] uppercase mb-1">DEDICATED SUPPORT</h4>
-              <p className="text-[11px] text-stone-500 max-w-[160px] leading-tight m-0">We are here to help you anytime</p>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-
-
-      {/* ── 4. TRADE SERVICES PROMO BLOCKS (3 COLUMNS) ── */}
-      <section className="max-w-[95rem] mx-auto px-4 sm:px-8 lg:px-14 py-10">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <Link 
+          to="/retail-management"
+          className="relative w-full h-[260px] sm:h-[340px] rounded-[24px] overflow-hidden shadow-md group block"
+        >
+          {/* Background Image */}
+          <img 
+            src="/images/image copy 2.png" 
+            alt="Retail Management background" 
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          {/* Overlay color */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#000B58]/80 via-[#96BADE]/75 to-transparent transition-opacity duration-300" />
           
-          {/* Card 1: Live e-Auction */}
-          <div className="bg-[#FAF6F0] border border-[#E8DFD8] rounded-[24px] p-8 flex flex-col justify-between text-left relative overflow-hidden group shadow-sm h-full">
-            <div className="relative z-10 flex flex-col h-full justify-between">
-              <div>
-                <span className="text-[10px] font-bold tracking-[0.2em] text-[#8C6239]  block mb-2">LIVE e-AUCTION</span>
-                <h3 className="text-[22px] font-bold font-serif text-[#5E4023] m-0 mb-3 leading-snug">Bid. Win. Grow.</h3>
-                <p className="text-[13px] text-[#4A4A4A] leading-relaxed mb-6 font-medium">
-                  Participate in live auctions and win the best deals.
-                </p>
-              </div>
-              <Link 
-                to="/e-auction" 
-                className="px-6 py-3 text-white text-[11px] font-bold tracking-widest uppercase rounded-full w-fit border-none shadow-sm hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center gap-1.5"
-                style={{ background: '#8C6239' }}
-              >
-                <span>JOIN LIVE AUCTIONS</span>
-                <ArrowRight size={12} />
-              </Link>
-            </div>
-            
-            {/* Blurry background image */}
-            <div className="absolute inset-0 z-0 pointer-events-none">
-              <img 
-                src="/images/ethnic_wear.png" 
-                alt="" 
-                className="w-full h-full object-cover filter blur-[8px] opacity-[0.1] transition-transform duration-700 group-hover:scale-105" 
-              />
+          {/* Content */}
+          <div className="absolute inset-0 p-6 sm:p-10 flex flex-col justify-center items-start text-left z-10">
+            <span className="text-[12px] sm:text-[13px] font-bold tracking-[0.2em] text-[#3FA2F6] uppercase mb-2">
+              OUR RETAIL MANAGEMENT
+            </span>
+            <h3 className="text-[24px] sm:text-[34px] font-bold text-white font-serif m-0 mb-3 leading-tight">
+              Decades of Textile Excellence
+            </h3>
+            <p className="text-[14px] sm:text-[17px] text-[#E6F0FA] max-w-[420px] sm:max-w-[580px] leading-relaxed mb-0 font-medium opacity-95">
+              Administered by highly skilled management to govern our retail outlets. Discover our operations, goals, and values.
+            </p>
+          </div>
+          
+          {/* CTA icon / link indicator */}
+          <div className="absolute right-6 sm:right-10 bottom-6 sm:bottom-10 z-10">
+            <div className="w-10 h-10 rounded-full bg-white/10 group-hover:bg-white text-white group-hover:text-[#96BADE] flex items-center justify-center transition-all duration-300 shadow-md">
+              <ArrowRight size={18} />
             </div>
           </div>
-
-          {/* Card 2: e-Quotation */}
-          <div className="bg-[#FAF6F0] border border-[#E8DFD8] rounded-[24px] p-8 flex flex-col justify-between text-left relative overflow-hidden group shadow-sm h-full">
-            <div className="relative z-10 flex flex-col h-full justify-between">
-              <div>
-                <span className="text-[10px] font-bold tracking-[0.2em] text-[#5B84B1]  block mb-2">e-QUOTATION</span>
-                <h3 className="text-[22px] font-bold font-serif text-[#5E4023] m-0 mb-3 leading-snug">Get Instant Quotes.</h3>
-                <p className="text-[13px] text-[#4A4A4A] leading-relaxed mb-6 font-medium">
-                  Request a quote and get the best pricing for bulk orders.
-                </p>
-              </div>
-              <Link 
-                to="/e-quotation" 
-                className="px-6 py-3 text-white text-[11px] font-bold tracking-widest uppercase rounded-full w-fit border-none shadow-sm hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center gap-1.5"
-                style={{ background: '#5B84B1' }}
-              >
-                <span>REQUEST QUOTE</span>
-                <ArrowRight size={12} />
-              </Link>
-            </div>
-            
-            {/* Blurry background image */}
-            <div className="absolute inset-0 z-0 pointer-events-none">
-              <img 
-                src="/images/popular_cotton_fabric.png" 
-                alt="" 
-                className="w-full h-full object-cover filter blur-[8px] opacity-[0.1] transition-transform duration-700 group-hover:scale-105" 
-              />
-            </div>
-          </div>
-
-          {/* Card 3: Trade Services */}
-          <div className="bg-[#FAF6F0] border border-[#E8DFD8] rounded-[24px] p-8 flex flex-col justify-between text-left relative overflow-hidden group shadow-sm h-full">
-            <div className="relative z-10 flex flex-col h-full justify-between">
-              <div>
-                <span className="text-[10px] font-bold tracking-[0.2em] text-[#777777] uppercase block mb-2">TRADE SERVICES</span>
-                <h3 className="text-[22px] font-bold font-serif text-[#5E4023] m-0 mb-3 leading-snug">Everything You Need.</h3>
-                <p className="text-[13px] text-[#4A4A4A] leading-relaxed mb-6 font-medium">
-                  End-to-end solutions for your business operations.
-                </p>
-              </div>
-              <Link 
-                to="/retail-management" 
-                className="px-6 py-3 text-white text-[11px] font-bold tracking-widest uppercase rounded-full w-fit border-none shadow-sm hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center gap-1.5"
-                style={{ background: '#777777' }}
-              >
-                <span>EXPLORE SERVICES</span>
-                <ArrowRight size={12} />
-              </Link>
-            </div>
-            
-            {/* Blurry background image */}
-            <div className="absolute inset-0 z-0 pointer-events-none">
-              <img 
-                src="/images/premium_fabrics.png" 
-                alt="" 
-                className="w-full h-full object-cover filter blur-[8px] opacity-[0.1] transition-transform duration-700 group-hover:scale-105" 
-              />
-            </div>
-          </div>
-
-        </div>
+        </Link>
       </section>
 
       {/* ── 5. FEATURED COLLECTION SECTION (NO PRICES OR CARTS) ── */}
       <section className="max-w-[95rem] mx-auto px-4 sm:px-8 lg:px-14 py-10">
-        <div className="flex justify-between items-end mb-8 border-b border-[#E8DFD8] pb-4">
-          <h2 className="text-[22px] sm:text-[26px] font-bold text-[#5E4023] font-serif uppercase tracking-wider m-0">
+        <div className="flex justify-between items-end mb-8 border-b border-[#D0E1FD] pb-4">
+          <h2 className="text-[22px] sm:text-[26px] font-bold text-[#000B58] font-serif uppercase tracking-wider m-0">
             FEATURED COLLECTION
           </h2>
           <Link 
             to="/products"
-            className="text-[11px] font-bold text-[#8C6239] hover:text-[#5B84B1] tracking-widest uppercase transition-colors flex items-center gap-1.5 text-decoration-none"
+            className="text-[11px] font-bold text-[#96BADE] hover:text-[#3FA2F6] tracking-widest uppercase transition-colors flex items-center gap-1.5 text-decoration-none"
           >
             <span>VIEW ALL PRODUCTS</span>
             <ArrowRight size={13} />
@@ -351,10 +211,10 @@ export default function Home() {
           {allProducts.slice(0, 6).map((prod, idx) => (
             <div 
               key={prod.id || idx}
-              className="group flex flex-col text-left rounded-2xl overflow-hidden bg-white border border-[#E8DFD8] shadow-sm hover:translate-y-[-4px] hover:shadow-md transition-all duration-300"
+              className="group flex flex-col text-left rounded-2xl overflow-hidden bg-white border border-[#D0E1FD] shadow-sm hover:translate-y-[-4px] hover:shadow-md transition-all duration-300"
             >
               {/* Image */}
-              <div className="aspect-[4/5] overflow-hidden bg-[#FAF6F0] relative">
+              <div className="aspect-[4/5] overflow-hidden bg-[#F4F8FC] relative">
                 <img 
                   src={prod.image} 
                   alt={prod.name} 
@@ -364,15 +224,15 @@ export default function Home() {
 
               {/* Body (NO price and NO cart icons) */}
               <div className="p-4 flex flex-col flex-grow bg-white">
-                <span className="text-[9px] font-bold text-[#5B84B1] uppercase tracking-wider mb-1">
+                <span className="text-[9px] font-bold text-[#3FA2F6] uppercase tracking-wider mb-1">
                   {prod.category}
                 </span>
-                <h4 className="text-[13px] font-bold text-[#5E4023] m-0 mb-3 leading-snug font-serif line-clamp-1">
+                <h4 className="text-[13px] font-bold text-[#000B58] m-0 mb-3 leading-snug font-serif line-clamp-1">
                   {prod.name}
                 </h4>
                 <Link
                   to={`/products?category=${encodeURIComponent(prod.category)}`}
-                  className="w-full py-2 bg-transparent text-[#8C6239] hover:bg-[#8C6239] hover:text-white border border-[#E8DFD8] rounded-xl text-[10px] font-bold tracking-widest uppercase text-center text-decoration-none transition-all duration-200"
+                  className="w-full py-2 bg-transparent text-[#96BADE] hover:bg-[#96BADE] hover:text-white border border-[#D0E1FD] rounded-xl text-[10px] font-bold tracking-widest uppercase text-center text-decoration-none transition-all duration-200"
                 >
                   View Details
                 </Link>
@@ -382,52 +242,55 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── 7. FROM OUR BLOG SECTION ── */}
+      {/* ── 7. CUSTOMER REVIEWS SECTION ── */}
       <section className="max-w-[95rem] mx-auto px-4 sm:px-8 lg:px-14 py-10 pb-16">
-        <div className="flex justify-between items-end mb-8 border-b border-[#E8DFD8] pb-4">
-          <h2 className="text-[22px] sm:text-[26px] font-bold text-[#5E4023] font-serif uppercase tracking-wider m-0">
-            FROM OUR BLOG
+        <div className="flex justify-between items-end mb-8 border-b border-[#D0E1FD] pb-4">
+          <h2 className="text-[22px] sm:text-[26px] font-bold text-[#000B58] font-serif uppercase tracking-wider m-0">
+            Customer Reviews
           </h2>
           <Link 
-            to="/blog"
-            className="text-[11px] font-bold text-[#8C6239] hover:text-[#5B84B1] tracking-widest uppercase transition-colors flex items-center gap-1.5 text-decoration-none"
+            to="/reviews"
+            className="text-[11px] font-bold text-[#96BADE] hover:text-[#3FA2F6] tracking-widest uppercase transition-colors flex items-center gap-1.5 text-decoration-none"
           >
-            <span>VIEW ALL ARTICLES</span>
+            <span>VIEW ALL REVIEWS</span>
             <ArrowRight size={13} />
           </Link>
         </div>
 
-        {/* 4 Cards */}
+        {/* 4 Review Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {blogPosts.map((post) => (
+          {reviews.map((review, idx) => (
             <div 
-              key={post.id}
-              className="group flex flex-col text-left rounded-2xl overflow-hidden bg-white border border-[#E8DFD8] shadow-sm hover:translate-y-[-4px] hover:shadow-md transition-all duration-300"
+              key={idx}
+              className="group flex flex-col justify-between text-left rounded-2xl overflow-hidden bg-white border border-[#D0E1FD] shadow-sm p-6 hover:translate-y-[-4px] hover:shadow-md transition-all duration-300"
             >
-              {/* Image */}
-              <div className="aspect-[16/10] overflow-hidden bg-[#FAF6F0]">
-                <img 
-                  src={post.image} 
-                  alt={post.title} 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
-                />
+              <div className="space-y-4">
+                {/* 5 Stars */}
+                <div className="flex items-center gap-0.5 text-[#3FA2F6]">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} size={14} fill="currentColor" stroke="none" />
+                  ))}
+                </div>
+
+                {/* Quote Text */}
+                <p className="text-[13px] text-[#4A5568] leading-relaxed font-semibold italic">
+                  "{review.text}"
+                </p>
               </div>
 
-              {/* Info */}
-              <div className="p-5 flex flex-col flex-grow">
-                <span className="text-[10px] font-bold text-[#5B84B1] uppercase tracking-wider mb-2">
-                  {post.date}
-                </span>
-                <h4 className="text-[14px] font-bold text-[#5E4023] m-0 mb-4 font-serif leading-snug line-clamp-2">
-                  {post.title}
-                </h4>
-                <Link
-                  to="/blog"
-                  className="text-[10.5px] font-bold text-[#8C6239] hover:text-[#5B84B1] tracking-widest uppercase text-decoration-none transition-colors mt-auto flex items-center gap-1"
-                >
-                  <span>READ MORE</span>
-                  <ArrowRight size={11} />
-                </Link>
+              {/* User Profile Footer */}
+              <div className="flex items-center gap-3.5 pt-4 mt-6 border-t border-[#D0E1FD]/45">
+                {review.avatar && (
+                  <img
+                    src={review.avatar}
+                    alt={review.name}
+                    className="w-9 h-9 rounded-full object-cover border border-[#D0E1FD]"
+                  />
+                )}
+                <div>
+                  <h4 className="text-[12px] font-bold text-[#000B58] m-0">{review.name}</h4>
+                  <p className="text-[11px] text-[#4A5568] font-medium m-0">{review.role}</p>
+                </div>
               </div>
             </div>
           ))}

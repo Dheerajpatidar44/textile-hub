@@ -2,12 +2,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
 const C = {
-  primary: '#8C6239',
-  primaryLight: '#B08B6B',
-  primaryDark: '#5E4023',
-  accent: '#5B84B1',
-  bg: '#FAF6F0',
-  stone: '#4A4A4A',
+  primary: '#96BADE',
+  primaryLight: '#4B70F5',
+  primaryDark: '#000B58',
+  accent: '#3FA2F6',
+  bg: '#F4F8FC',
+  stone: '#4A5568',
 };
 
 export default function Preloader({ onComplete, onStartOut }) {
@@ -39,27 +39,43 @@ export default function Preloader({ onComplete, onStartOut }) {
     };
   }, [onComplete, onStartOut]);
 
-  const letters = ["T", "A", "N", "A", "B", "A", "N", "A"];
+  const letters = "SAANJH TEXTILES".split("");
 
   return (
     <AnimatePresence>
       {!startOut && (
         <div className="fixed inset-0 z-[9999] overflow-hidden flex items-center justify-center">
           
-          {/* Left Curtain Panel */}
+          {/* Top Left Panel */}
           <motion.div
-            initial={{ x: 0 }}
-            exit={{ x: '-100%' }}
-            transition={{ duration: 0.95, ease: [0.76, 0, 0.24, 1] }}
-            className="absolute top-0 left-0 w-1/2 h-full bg-[#FAF6F0]"
+            initial={{ x: 0, y: 0 }}
+            exit={{ x: '-100%', y: '-100%' }}
+            transition={{ duration: 1.1, ease: [0.76, 0, 0.24, 1] }}
+            className="absolute top-0 left-0 w-1/2 h-1/2 bg-[#F4F8FC]"
           />
 
-          {/* Right Curtain Panel */}
+          {/* Top Right Panel */}
           <motion.div
-            initial={{ x: 0 }}
-            exit={{ x: '100%' }}
-            transition={{ duration: 0.95, ease: [0.76, 0, 0.24, 1] }}
-            className="absolute top-0 right-0 w-1/2 h-full bg-[#FAF6F0]"
+            initial={{ x: 0, y: 0 }}
+            exit={{ x: '100%', y: '-100%' }}
+            transition={{ duration: 1.1, ease: [0.76, 0, 0.24, 1] }}
+            className="absolute top-0 right-0 w-1/2 h-1/2 bg-[#F4F8FC]"
+          />
+
+          {/* Bottom Left Panel */}
+          <motion.div
+            initial={{ x: 0, y: 0 }}
+            exit={{ x: '-100%', y: '100%' }}
+            transition={{ duration: 1.1, ease: [0.76, 0, 0.24, 1] }}
+            className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-[#F4F8FC]"
+          />
+
+          {/* Bottom Right Panel */}
+          <motion.div
+            initial={{ x: 0, y: 0 }}
+            exit={{ x: '100%', y: '100%' }}
+            transition={{ duration: 1.1, ease: [0.76, 0, 0.24, 1] }}
+            className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-[#F4F8FC]"
           />
 
           {/* Central Logo & Loading Content */}
@@ -97,16 +113,16 @@ export default function Preloader({ onComplete, onStartOut }) {
             </div>
 
             {/* Staggered Brand Text Reveal */}
-            <div className="flex gap-2 mb-2 pointer-events-auto">
+            <div className="flex flex-wrap justify-center gap-1 sm:gap-2 mb-2 pointer-events-auto px-4">
               {letters.map((char, index) => (
                 <motion.span
                   key={index}
                   initial={{ opacity: 0, scale: 0.8, filter: 'blur(4px)' }}
                   animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
-                  transition={{ delay: index * 0.08, duration: 0.5 }}
-                  className="text-3xl sm:text-4xl font-bold font-serif tracking-widest text-[#8C6239]"
+                  transition={{ delay: index * 0.05, duration: 0.4 }}
+                  className="text-2xl sm:text-4xl font-bold font-serif tracking-wide text-[#000B58]"
                 >
-                  {char}
+                  {char === " " ? "\u00A0" : char}
                 </motion.span>
               ))}
             </div>
@@ -116,19 +132,19 @@ export default function Preloader({ onComplete, onStartOut }) {
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.7 }}
               transition={{ delay: 0.8, duration: 0.8 }}
-              className="text-[10px] uppercase font-bold mb-8 tracking-[0.25em] text-[#4A4A4A]"
+              className="text-[10px] uppercase font-bold mb-8 tracking-[0.25em] text-[#4A5568]"
             >
-              Textile Retail Mall
+              Premium Textile House
             </motion.p>
 
             {/* Progress Percentage & Bar */}
             <div className="flex flex-col items-center w-48">
-              <span className="text-[10px] font-bold tracking-widest text-[#8C6239] mb-2">
+              <span className="text-[10px] font-bold tracking-widest text-[#000B58] mb-2">
                 {Math.floor(progress)}%
               </span>
-              <div className="w-full h-[2.5px] bg-[#E8DFD8] overflow-hidden rounded-full">
+              <div className="w-full h-[2.5px] bg-[#D0E1FD] overflow-hidden rounded-full">
                 <motion.div
-                  className="h-full bg-[#8C6239]"
+                  className="h-full bg-[#96BADE]"
                   style={{ width: `${progress}%` }}
                 />
               </div>
