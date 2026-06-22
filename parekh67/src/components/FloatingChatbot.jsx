@@ -2,15 +2,15 @@ import { useState } from 'react';
 import { MessageSquareText, X, Send, Sparkles } from 'lucide-react';
 
 const C = {
-  primary: '#6B4226',       // Deep Warm Brown
-  primaryLight: '#9B6B4A',  // Medium Warm Brown
-  primaryDark: '#3D2010',   // Deep Dark Brown
-  accent: '#C8966A',        // Warm Terracotta Gold
-  gold: '#C8966A',          // Gold
-  bg: '#F7F2EC',            // Warm Cream Background
-  border: '#E8DDD0',        // Warm Beige Border
-  stone: '#7A6558',         // Muted Warm text
-  soil: '#6B4226',          // Primary Brown
+  primary: '#6B2D3E',       // Charcoal
+  primaryLight: '#8B4455',  // Medium Charcoal
+  primaryDark: '#4A1E2B',   // Deep Charcoal
+  accent: '#C4706A',        // Gold
+  gold: '#C4706A',
+  bg: '#F8F0EC',
+  border: '#E0C8C0',
+  stone: '#8A5D65',
+  soil: '#6B2D3E',
 };
 
 const FloatingChatbot = () => {
@@ -18,11 +18,11 @@ const FloatingChatbot = () => {
   const [message, setMessage] = useState('');
 
   return (
-    <div className="fixed bottom-6 right-5 z-50 flex flex-col items-end" style={{ fontFamily: "'Outfit', sans-serif" }}>
+    <div className="fixed bottom-6 right-5 z-50 flex flex-col items-end" style={{ fontFamily: "'DM Sans', sans-serif" }}>
       {isOpen && (
         <div
           className="mb-4 w-[340px] sm:w-[370px] overflow-hidden border rounded-2xl animate-fade-in"
-          style={{ borderColor: C.border, background: '#FAF6F0', boxShadow: '0 16px 48px rgba(107, 66, 38, 0.12)' }}
+          style={{ borderColor: C.border, background: '#F8F0EC', boxShadow: '0 16px 48px rgba(43, 37, 32, 0.12)' }}
         >
           {/* Header */}
           <div
@@ -38,7 +38,7 @@ const FloatingChatbot = () => {
               </div>
               <div className="text-left">
                 <p className="text-white text-[13px] font-bold tracking-wide leading-tight">
-                  Meraki Assistant
+                  Pravaah Assistant
                 </p>
                 <div className="flex items-center gap-1.5 mt-0.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
@@ -67,11 +67,11 @@ const FloatingChatbot = () => {
                 <Sparkles size={11} color="white" />
               </div>
               <div
-                className="px-4 py-3 rounded-xl rounded-tl-none max-w-[82%] bg-[#FAF6F0] text-left border"
+                className="px-4 py-3 rounded-xl rounded-tl-none max-w-[82%] bg-white text-left border"
                 style={{ borderColor: C.border }}
               >
                 <p className="text-[13px] leading-relaxed" style={{ color: C.stone }}>
-                  Namaste! 🙏 Welcome to <strong>Meraki Ethnic</strong>. How can I assist you today?
+                  Namaste! 🙏 Welcome to <strong>Pravaah Fabrics</strong>. How can I assist you today?
                 </p>
               </div>
             </div>
@@ -124,7 +124,7 @@ const FloatingChatbot = () => {
         style={{
           background: isOpen ? C.soil : C.primary,
           borderColor: C.border,
-          boxShadow: '0 4px 16px rgba(107, 66, 38, 0.2)'
+          boxShadow: '0 4px 16px rgba(43, 37, 32, 0.2)'
         }}
       >
         {isOpen ? (

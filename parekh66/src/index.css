@@ -1,0 +1,320 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+
+@theme {
+  /* ── Pravaah Fabrics Color Palette ── */
+  --color-primary: #6B2D3E;        /* Deep Wine / Maroon */
+  --color-primary-light: #8B4455;  /* Medium Wine */
+  --color-primary-dark: #4A1E2B;   /* Very Deep Wine */
+  --color-accent: #C4706A;         /* Dusty Rose / Terracotta */
+  --color-accent-light: #E8C4B8;   /* Pale Rose Blush */
+  --color-bg: #F8F0EC;             /* Warm Cream Blush Background */
+  --color-bg-alt: #F2E6E0;         /* Slightly darker blush */
+  --color-card: #FDFAF8;           /* Near-white card background */
+  --color-border: #E0C8C0;         /* Soft rose border */
+  --color-stone: #8A5D65;          /* Muted rose-brown text */
+  --color-text: #3D1F28;           /* Deep wine text */
+
+  /* ── Font Family ── */
+  --font-display: 'Playfair Display', serif;
+  --font-sans: 'DM Sans', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+
+@layer base {
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: #F8F0EC;
+    color: #3D1F28;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 400;
+  }
+
+  h1, h2, h3, h4, h5, h6, .display-title {
+    font-family: 'Playfair Display', serif !important;
+    font-weight: 600;
+    color: #3D1F28;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  p, span, a, button, input, textarea, select, label {
+    font-family: 'DM Sans', sans-serif;
+  }
+}
+
+/* ── Custom Scrollbar ── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F2E6E0;
+}
+::-webkit-scrollbar-thumb {
+  background: #C4706A;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #6B2D3E;
+}
+
+/* ── Keyframe Animations ── */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInScale {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes floatUp {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes drawLine {
+  from { stroke-dashoffset: 200; }
+  to   { stroke-dashoffset: 0; }
+}
+@keyframes expandWidth {
+  from { width: 0%; }
+  to   { width: 100%; }
+}
+@keyframes roseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(196, 112, 106, 0.3); }
+  50%       { box-shadow: 0 0 20px 8px rgba(196, 112, 106, 0); }
+}
+@keyframes ticker {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes revealContent {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes weavePulse {
+  0%, 100% { opacity: 0.4; transform: scaleX(0.8); }
+  50%       { opacity: 1; transform: scaleX(1); }
+}
+@keyframes pulseRose {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+@keyframes loaderLine {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+@keyframes fabricWeave {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0.7; }
+  50% { transform: translateY(-12px) rotate(2deg); opacity: 1; }
+  100% { transform: translateY(0) rotate(0deg); opacity: 0.7; }
+}
+@keyframes ripple {
+  0% { transform: scale(0); opacity: 1; }
+  100% { transform: scale(4); opacity: 0; }
+}
+
+.shimmer-text {
+  background: linear-gradient(90deg, #6B2D3E 0%, #C4706A 40%, #6B2D3E 60%, #E8C4B8 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 2.5s linear infinite;
+}
+.fade-in-up { animation: fadeInUp 0.7s ease forwards; }
+.fade-in-scale { animation: fadeInScale 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+.float-up { animation: floatUp 3s ease-in-out infinite; }
+.rose-glow { animation: roseGlow 2.5s ease-in-out infinite; }
+.display-title { font-family: 'Playfair Display', serif !important; }
+.serif-title { font-family: 'Playfair Display', serif !important; }
+
+/* ── Announcement Ticker ── */
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker 28s linear infinite;
+}
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
+/* ── Navbar Active State ── */
+.nav-link-active::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: #C4706A;
+  border-radius: 2px;
+  margin-top: 2px;
+}
+
+/* ── Button Styles ── */
+.btn-primary {
+  background: #6B2D3E;
+  color: #ffffff;
+  transition: all 0.3s ease;
+  border: 1.5px solid #6B2D3E;
+  border-radius: 50px;
+}
+.btn-primary:hover {
+  background: #C4706A;
+  color: #ffffff;
+  border-color: #C4706A;
+  transform: translateY(-1px);
+}
+
+.btn-accent {
+  background: #C4706A;
+  color: #ffffff;
+  transition: all 0.3s ease;
+  border: 1.5px solid #C4706A;
+  border-radius: 50px;
+}
+.btn-accent:hover {
+  background: #6B2D3E;
+  color: #ffffff;
+  border-color: #6B2D3E;
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: #6B2D3E;
+  border: 1.5px solid #6B2D3E;
+  transition: all 0.3s ease;
+  border-radius: 50px;
+}
+.btn-outline:hover {
+  background: #6B2D3E;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+/* ── Card Hover ── */
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(107, 45, 62, 0.12);
+}
+
+/* ── Custom Divider ── */
+.divider-rose {
+  width: 48px;
+  height: 2px;
+  background: linear-gradient(90deg, #6B2D3E, #C4706A);
+  border-radius: 2px;
+}
+
+/* ── Section Label ── */
+.section-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #C4706A;
+}
+
+/* ── Preloader ── */
+.weave-line {
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+  animation: drawLine 1.5s ease forwards;
+}
+
+/* ── Form Inputs ── */
+.form-input {
+  width: 100%;
+  padding: 12px 0px;
+  border: none;
+  border-bottom: 2px solid rgba(107, 45, 62, 0.2);
+  background: transparent;
+  color: #3D1F28;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  outline: none;
+  border-radius: 0;
+  transition: border-color 0.3s ease;
+}
+.form-input:focus {
+  border-bottom-color: #C4706A;
+}
+.form-input::placeholder {
+  color: #9ca3af;
+  font-weight: 400;
+}
+
+/* ── Page Hero Banner ── */
+.page-hero {
+  background: linear-gradient(135deg, #6B2D3E 0%, #8B4455 60%, #6B2D3E 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Pulse animation ── */
+@keyframes rosePulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(196, 112, 106, 0.3); }
+  50%       { box-shadow: 0 0 0 10px rgba(196, 112, 106, 0); }
+}
+.green-pulse {
+  animation: rosePulse 2s ease-in-out infinite;
+}
+
+/* ── Category Card ── */
+.category-card {
+  transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.category-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(107, 45, 62, 0.14);
+}
+
+/* ── Product Card ── */
+.product-card {
+  transition: all 0.3s ease;
+}
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 36px rgba(107, 45, 62, 0.12);
+}
+
+/* ── Categories Scrollbar ── */
+.custom-sidebar-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+.custom-sidebar-scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+.custom-sidebar-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+}
+.custom-sidebar-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* ── Hide scrollbar utility ── */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}

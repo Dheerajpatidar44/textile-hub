@@ -1,7 +1,6 @@
-import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, Play } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 const C = {
   primary: '#6B4226',
@@ -29,18 +28,17 @@ const categories = [
   { id: '12', name: "Home Furnishing", sub: "Completing Styles", image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=300&auto=format&fit=crop&q=60" },
 ];
 
-const stats = [
-  { icon: "👑", value: "25+", label: "Years of Legacy" },
-  { icon: "🤝", value: "500+", label: "Retail Partners" },
-  { icon: "😊", value: "1L+", label: "Happy Customers" },
-  { icon: "📍", value: "20+", label: "Cities Connected" },
-];
 
 const services = [
   { 
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1" />
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+        <path d="M12 11h4" />
+        <path d="M12 16h4" />
+        <path d="M8 11h.01" />
+        <path d="M8 16h.01" />
       </svg>
     ), 
     title: "e-Quotation", 
@@ -49,8 +47,12 @@ const services = [
   },
   { 
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="m14 13-5 5" />
+        <path d="m3 21 3-3" />
+        <path d="M9.6 7.4 16.6 14.4l-3 3L6.6 10.4z" />
+        <path d="m16.5 4.5 3 3" />
+        <path d="M6 21h12" />
       </svg>
     ), 
     title: "e-Auction", 
@@ -59,8 +61,9 @@ const services = [
   },
   { 
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M11.6 16.8a3 3 0 1 1-5.8-1.6" />
+        <path d="M3 13.5v-3C3 8.6 4.6 7 6.5 7H13l6-4v18l-6-4H6.5C4.6 17 3 15.4 3 13.5z" />
       </svg>
     ), 
     title: "Trade Circular", 
@@ -69,8 +72,9 @@ const services = [
   },
   { 
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" />
+        <line x1="7" y1="7" x2="7.01" y2="7" strokeWidth="2" strokeLinecap="round" />
       </svg>
     ), 
     title: "Private Label", 
@@ -79,43 +83,7 @@ const services = [
   },
 ];
 
-const testimonials = [
-  { 
-    text: "The quality and consistency Meraki provides is unmatched. Highly recommended!",
-    name: "Meena Collection",
-    location: "Delhi",
-    rating: 5
-  },
-  { 
-    text: "Best variety, best prices and a very professional team. Great experience!",
-    name: "Sagar Textiles",
-    location: "Mumbai",
-    rating: 5
-  },
-  { 
-    text: "A partner we can rely on for every season and every trend.",
-    name: "Rajesh Traders",
-    location: "Surat",
-    rating: 5
-  },
-];
-
-const whyUs = [
-  { icon: "⭐", title: "Premium Quality Assured" },
-  { icon: "🚚", title: "Timely Delivery Across India" },
-  { icon: "🌿", title: "Ethical Sourcing, Sustainable Future" },
-  { icon: "💼", title: "Customer First, Always" },
-];
-
 export default function Home() {
-  const [activeTestimonial, setActiveTestimonial] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveTestimonial(prev => (prev + 1) % testimonials.length);
-    }, 4000);
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <div style={{ background: C.bg, fontFamily: "'Outfit', sans-serif" }} className="w-full overflow-x-hidden">
@@ -196,49 +164,12 @@ export default function Home() {
                   </Link>
                   <Link
                     to="/about"
-                    className="flex items-center gap-3 text-[12px] font-bold tracking-wider uppercase transition-all duration-300 hover:gap-4 text-decoration-none"
+                    className="text-[12px] font-bold tracking-widest uppercase transition-all duration-300 hover:text-[#C8966A] text-decoration-none border-b border-white/30 hover:border-[#C8966A] pb-1 ml-4"
                     style={{ color: 'rgba(255,255,255,0.9)' }}
                   >
-                    <div className="w-10 h-10 rounded-full flex items-center justify-center border border-white/30 bg-white/10 hover:bg-white/20 transition-all">
-                      <Play size={12} fill="white" />
-                    </div>
                     Watch Our Story
                   </Link>
                 </motion.div>
-              </motion.div>
-
-              {/* Right: Stats Cards */}
-              <motion.div
-                initial={{ opacity: 0, x: 40 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.5, duration: 0.7 }}
-                className="hidden lg:flex flex-col gap-4"
-              >
-                {stats.map((stat, idx) => (
-                  <motion.div
-                    key={idx}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.6 + idx * 0.1 }}
-                    className="flex items-center gap-4 px-5 py-4 rounded-2xl"
-                    style={{
-                      background: 'rgba(255,255,255,0.1)',
-                      backdropFilter: 'blur(12px)',
-                      border: '1px solid rgba(255,255,255,0.15)',
-                      minWidth: 200,
-                    }}
-                  >
-                    <span className="text-2xl">{stat.icon}</span>
-                    <div>
-                      <div className="text-[22px] font-bold text-white" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
-                        {stat.value}
-                      </div>
-                      <div className="text-[11px] font-semibold tracking-wide" style={{ color: 'rgba(255,255,255,0.7)' }}>
-                        {stat.label}
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
               </motion.div>
             </div>
           </div>
@@ -282,10 +213,7 @@ export default function Home() {
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>
-                <div className="absolute -top-1 -left-1 w-6 h-6 rounded-full flex items-center justify-center text-[9px] font-bold text-white"
-                  style={{ background: C.accent }}>
-                  {cat.id}
-                </div>
+
               </div>
               <div className="text-center">
                 <span className="text-[11px] sm:text-[12px] font-bold tracking-wider uppercase block transition-colors"
@@ -309,8 +237,22 @@ export default function Home() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
           {/* About Column */}
-          <div className="bg-white rounded-2xl p-8 border text-left flex flex-col justify-between" style={{ borderColor: C.border }}>
+          <div className="rounded-2xl p-8 border text-left flex flex-col justify-between transition-all duration-300 hover:shadow-md" 
+            style={{ 
+              borderColor: C.border, 
+              borderTop: `4px solid ${C.accent}`,
+              background: 'linear-gradient(180deg, #FFFFFF 0%, #FAF6F0 100%)' 
+            }}
+          >
             <div>
+              {/* Premium Ornament */}
+              <div className="mb-4" style={{ color: C.accent }}>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
+                  <path d="M12 6a6 6 0 0 0-6 6c0 3.3 2.7 6 6 6s6-2.7 6-6a6 6 0 0 0-6-6z" />
+                  <circle cx="12" cy="12" r="2" fill="currentColor" />
+                </svg>
+              </div>
               <span className="text-[10px] font-bold tracking-[0.2em] uppercase block mb-3" style={{ color: C.accent }}>About Meraki Ethnic</span>
               <h2 className="text-[28px] font-bold leading-tight mb-4" style={{ fontFamily: "'Cormorant Garamond', serif", color: C.primary }}>
                 Where Craftsmanship<br />Meets Commitment.
@@ -321,12 +263,16 @@ export default function Home() {
             </div>
             <Link
               to="/about"
-              className="flex items-center gap-2 text-[11px] font-bold tracking-wider uppercase text-decoration-none transition-colors"
-              style={{ color: C.primary }}
-              onMouseEnter={e => e.currentTarget.style.color = C.accent}
-              onMouseLeave={e => e.currentTarget.style.color = C.primary}
+              className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full text-[11px] font-bold tracking-widest uppercase text-decoration-none transition-all duration-300 self-start"
+              style={{
+                background: C.primary,
+                color: '#FFFFFF',
+                boxShadow: '0 4px 12px rgba(107, 66, 38, 0.15)',
+              }}
+              onMouseEnter={e => { e.currentTarget.style.background = C.accent; e.currentTarget.style.transform = 'translateY(-2px)'; }}
+              onMouseLeave={e => { e.currentTarget.style.background = C.primary; e.currentTarget.style.transform = 'translateY(0)'; }}
             >
-              Know More <ArrowRight size={13} />
+              Know More <ArrowRight size={12} />
             </Link>
           </div>
 
@@ -355,7 +301,13 @@ export default function Home() {
           </div>
 
           {/* Network Column */}
-          <div className="bg-white rounded-2xl p-8 border text-left flex flex-col justify-between" style={{ borderColor: C.border }}>
+          <div className="rounded-2xl p-8 border text-left flex flex-col justify-between transition-all duration-300 hover:shadow-md" 
+            style={{ 
+              borderColor: C.border,
+              borderTop: `4px solid ${C.accent}`,
+              background: 'linear-gradient(180deg, #FFFFFF 0%, #FAF6F0 100%)'
+            }}
+          >
             <div>
               <span className="text-[10px] font-bold tracking-[0.2em] uppercase block mb-3" style={{ color: C.accent }}>Our Network</span>
               <h2 className="text-[28px] font-bold leading-tight mb-4" style={{ fontFamily: "'Cormorant Garamond', serif", color: C.primary }}>
@@ -364,27 +316,28 @@ export default function Home() {
               <p className="text-[13px] leading-relaxed mb-4" style={{ color: C.stone }}>
                 Connecting businesses across the nation.
               </p>
-              {/* India map placeholder */}
-              <div className="rounded-xl overflow-hidden" style={{ background: 'rgba(107,66,38,0.05)', padding: '20px', textAlign: 'center' }}>
-                <svg viewBox="0 0 200 220" width="120" style={{ margin: '0 auto', display: 'block', opacity: 0.4 }}>
-                  <path d="M100 10 L130 30 L150 20 L160 50 L180 60 L175 90 L190 110 L170 130 L175 160 L150 175 L130 200 L100 210 L70 200 L50 175 L25 160 L30 130 L10 110 L25 90 L20 60 L40 50 L50 20 L70 30 Z" 
-                    fill="none" stroke="#C8966A" strokeWidth="2" />
-                  <circle cx="100" cy="110" r="4" fill="#C8966A" />
-                  <circle cx="80" cy="90" r="3" fill="#6B4226" />
-                  <circle cx="120" cy="130" r="3" fill="#6B4226" />
-                  <circle cx="60" cy="140" r="3" fill="#6B4226" />
-                  <circle cx="140" cy="80" r="3" fill="#6B4226" />
-                </svg>
+              {/* Network Map Image */}
+              <div className="rounded-xl overflow-hidden shadow-inner border border-[#E8DDD0] relative" style={{ height: 160 }}>
+                <img 
+                  src="/images/meraki_network_map.png" 
+                  alt="Meraki Network Map" 
+                  className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
               </div>
             </div>
             <Link
               to="/contact"
-              className="flex items-center gap-2 text-[11px] font-bold tracking-wider uppercase text-decoration-none transition-colors mt-4"
-              style={{ color: C.primary }}
-              onMouseEnter={e => e.currentTarget.style.color = C.accent}
-              onMouseLeave={e => e.currentTarget.style.color = C.primary}
+              className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full text-[11px] font-bold tracking-widest uppercase text-decoration-none transition-all duration-300 self-start mt-4"
+              style={{
+                background: C.primary,
+                color: '#FFFFFF',
+                boxShadow: '0 4px 12px rgba(107, 66, 38, 0.15)',
+              }}
+              onMouseEnter={e => { e.currentTarget.style.background = C.accent; e.currentTarget.style.transform = 'translateY(-2px)'; }}
+              onMouseLeave={e => { e.currentTarget.style.background = C.primary; e.currentTarget.style.transform = 'translateY(0)'; }}
             >
-              View All Locations <ArrowRight size={13} />
+              View All Locations <ArrowRight size={12} />
             </Link>
           </div>
         </div>
@@ -392,181 +345,129 @@ export default function Home() {
 
       {/* ── 4. PROMO BANNER (Designed for every mood) ── */}
       <section className="max-w-[95rem] mx-auto px-4 sm:px-6 lg:px-8 pb-16">
-        <div className="relative w-full rounded-2xl overflow-hidden" style={{ minHeight: 340 }}>
+        <div 
+          className="relative w-full rounded-[32px] overflow-hidden border border-[#E8DDD0] shadow-xl flex items-center" 
+          style={{ minHeight: 480 }}
+        >
+          {/* Background Image */}
           <img
             src="/images/meraki_promo_banner.png"
-            alt="Meraki Ethnic Promo"
+            alt="Meraki Ethnic Promo Background"
             className="absolute inset-0 w-full h-full object-cover"
             style={{ objectPosition: 'center 30%' }}
           />
+          {/* Overlay gradient */}
           <div className="absolute inset-0" style={{
-            background: 'linear-gradient(to right, rgba(61,32,16,0.88) 0%, rgba(61,32,16,0.6) 50%, rgba(61,32,16,0.1) 100%)'
+            background: 'linear-gradient(to right, rgba(46, 24, 11, 0.92) 0%, rgba(46, 24, 11, 0.75) 45%, rgba(46, 24, 11, 0.35) 75%, rgba(46, 24, 11, 0.2) 100%)'
           }} />
 
-          {/* Image gallery thumbnails on right */}
-          <div className="absolute inset-0 flex">
-            <div className="flex flex-col justify-center text-left z-10 px-8 sm:px-14 lg:px-16 py-12 max-w-xl">
-              <span className="text-[11px] font-bold tracking-[0.25em] uppercase mb-4" style={{ color: C.accent }}>
-                For Every Mood & Moment
-              </span>
-              <h2 className="text-[34px] sm:text-[42px] font-bold text-white leading-tight m-0 mb-4" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
-                Designed<br />
-                for Every<br />
-                Mood &<br />
-                Moment
+          {/* Banner content */}
+          <div className="relative z-10 w-full px-6 sm:px-12 lg:px-16 py-12 flex flex-col lg:flex-row items-center justify-between gap-12">
+            
+            {/* Left: Premium Glassmorphism Text Card */}
+            <div 
+              className="max-w-[500px] text-left rounded-3xl p-8 sm:p-10 border transition-all duration-300 hover:shadow-2xl"
+              style={{
+                background: 'rgba(255, 255, 255, 0.04)',
+                borderColor: 'rgba(255, 255, 255, 0.1)',
+                backdropFilter: 'blur(20px)',
+                boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
+              }}
+            >
+              <div className="flex items-center gap-2 mb-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#C8966A]" />
+                <span className="text-[10px] font-bold tracking-[0.3em] uppercase" style={{ color: C.accent }}>
+                  For Every Mood & Moment
+                </span>
+              </div>
+              <h2 
+                className="text-[38px] sm:text-[46px] font-bold text-white leading-[1.1] m-0 mb-4" 
+                style={{ fontFamily: "'Cormorant Garamond', serif" }}
+              >
+                Designed for<br />
+                Every Mood<br />
+                <span style={{ color: '#C8966A', fontStyle: 'italic' }}>& Moment.</span>
               </h2>
-              <p className="text-[13px] text-white/80 mb-6 font-medium leading-relaxed">
-                Fabrics that complement your space, your style, your story.
+              <p className="text-[13px] text-white/80 mb-8 font-medium leading-relaxed">
+                Experience the heritage of rich Indian craftsmanship. Fabrics that complement your space, your style, and your unique story.
               </p>
+              
               <Link
                 to="/products"
-                className="inline-flex items-center gap-2 text-[11px] font-bold tracking-wider uppercase text-decoration-none transition-colors"
-                style={{ color: C.accent }}
-                onMouseEnter={e => e.currentTarget.style.color = '#FFFFFF'}
-                onMouseLeave={e => e.currentTarget.style.color = C.accent}
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-[11px] font-bold tracking-widest uppercase text-decoration-none transition-all duration-300"
+                style={{
+                  background: '#C8966A',
+                  color: '#FFFFFF',
+                  boxShadow: '0 4px 15px rgba(200, 150, 106, 0.3)',
+                }}
+                onMouseEnter={e => { e.currentTarget.style.background = '#FFFFFF'; e.currentTarget.style.color = '#6B4226'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
+                onMouseLeave={e => { e.currentTarget.style.background = '#C8966A'; e.currentTarget.style.color = '#FFFFFF'; e.currentTarget.style.transform = 'translateY(0)'; }}
               >
-                View Lookbook <ArrowRight size={13} />
+                View Lookbook <ArrowRight size={12} />
               </Link>
             </div>
 
-            {/* Right photo collage */}
-            <div className="hidden lg:flex flex-1 items-center justify-end pr-12 gap-4">
-              <div className="flex flex-col gap-4">
-                <div className="rounded-xl overflow-hidden shadow-lg" style={{ width: 160, height: 200 }}>
-                  <img src="/images/navya_hero_left.png" alt="lookbook 1" className="w-full h-full object-cover" />
-                </div>
-                <div className="rounded-xl overflow-hidden shadow-lg" style={{ width: 160, height: 150 }}>
-                  <img src="/images/navya_hero_right.png" alt="lookbook 2" className="w-full h-full object-cover" />
-                </div>
-              </div>
-              <div className="flex flex-col gap-4">
-                <div className="rounded-xl overflow-hidden shadow-lg" style={{ width: 160, height: 150 }}>
-                  <img src="/images/navya_hero_mid.png" alt="lookbook 3" className="w-full h-full object-cover" />
-                </div>
-                <div className="rounded-xl overflow-hidden shadow-lg" style={{ width: 160, height: 200 }}>
-                  <img src="/images/popular_lehenga.png" alt="lookbook 4" className="w-full h-full object-cover" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── 5. WHY PARTNER + TESTIMONIALS + IMPACT (3-column) ── */}
-      <section className="max-w-[95rem] mx-auto px-4 sm:px-6 lg:px-8 pb-16">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-
-          {/* Why Partner Us */}
-          <div className="bg-white rounded-2xl p-8 border text-left" style={{ borderColor: C.border }}>
-            <span className="text-[10px] font-bold tracking-[0.2em] uppercase block mb-4" style={{ color: C.accent }}>
-              Why Partner With Us?
-            </span>
-            <div className="flex flex-col gap-4">
-              {whyUs.map((item, idx) => (
-                <div key={idx} className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-xl flex items-center justify-center text-lg shrink-0"
-                    style={{ background: 'rgba(200,150,106,0.1)' }}>
-                    {item.icon}
-                  </div>
-                  <span className="text-[13px] font-semibold" style={{ color: C.primary }}>
-                    {item.title}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Testimonials */}
-          <div className="bg-white rounded-2xl p-8 border text-left" style={{ borderColor: C.border }}>
-            <span className="text-[10px] font-bold tracking-[0.2em] uppercase block mb-6 text-center" style={{ color: C.accent }}>
-              What Our Clients Say
-            </span>
-            <div className="relative min-h-[180px]">
-              {testimonials.map((t, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: activeTestimonial === idx ? 1 : 0, y: activeTestimonial === idx ? 0 : 10 }}
-                  transition={{ duration: 0.4 }}
-                  className="absolute inset-0"
-                  style={{ display: activeTestimonial === idx ? 'block' : 'none' }}
-                >
-                  <div className="flex gap-0.5 mb-4">
-                    {[...Array(t.rating)].map((_, i) => (
-                      <span key={i} className="text-[14px]" style={{ color: C.accent }}>★</span>
-                    ))}
-                  </div>
-                  <p className="text-[13.5px] leading-relaxed mb-5 italic" style={{ color: C.stone }}>
-                    "{t.text}"
-                  </p>
-                  <div>
-                    <span className="text-[13px] font-bold block" style={{ color: C.primary }}>{t.name}</span>
-                    <span className="text-[11px]" style={{ color: C.stone }}>{t.location}</span>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-            <div className="flex gap-2 mt-4">
-              {testimonials.map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setActiveTestimonial(idx)}
-                  className="transition-all duration-300 border-none cursor-pointer"
-                  style={{
-                    width: activeTestimonial === idx ? 24 : 8,
-                    height: 8,
-                    borderRadius: 4,
-                    background: activeTestimonial === idx ? C.accent : 'rgba(107,66,38,0.2)',
+            {/* Right: Floating Artistic Lookbook Collage */}
+            <div className="hidden lg:flex flex-1 items-center justify-end gap-6 pr-6">
+              
+              {/* Column 1 */}
+              <div className="flex flex-col gap-6 transform translate-y-4">
+                <div 
+                  className="rounded-2xl overflow-hidden shadow-2xl transition-all duration-500 hover:scale-105 group" 
+                  style={{ 
+                    width: 170, 
+                    height: 220, 
+                    border: '1px solid rgba(255,255,255,0.15)',
+                    transform: 'rotate(-2deg)'
                   }}
-                />
-              ))}
-            </div>
-          </div>
+                >
+                  <img src="/images/navya_hero_left.png" alt="lookbook 1" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                </div>
+                <div 
+                  className="rounded-2xl overflow-hidden shadow-2xl transition-all duration-500 hover:scale-105 group" 
+                  style={{ 
+                    width: 170, 
+                    height: 170, 
+                    border: '1px solid rgba(255,255,255,0.15)',
+                    transform: 'rotate(1deg)'
+                  }}
+                >
+                  <img src="/images/navya_hero_right.png" alt="lookbook 2" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                </div>
+              </div>
 
-          {/* Our Impact */}
-          <div className="rounded-2xl p-8 text-left flex flex-col justify-between" style={{ background: C.primary }}>
-            <div>
-              <span className="text-[10px] font-bold tracking-[0.2em] uppercase block mb-4" style={{ color: '#C8966A' }}>
-                Our Impact
-              </span>
-              <h3 className="text-[22px] font-bold text-white leading-snug mb-4" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
-                Sustainable choices<br />for a better tomorrow.
-              </h3>
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="rounded-xl p-4" style={{ background: 'rgba(255,255,255,0.08)' }}>
-                <div className="text-[30px] font-bold text-white mb-1" style={{ fontFamily: "'Cormorant Garamond', serif" }}>100+</div>
-                <div className="text-[11px] font-semibold" style={{ color: 'rgba(255,255,255,0.65)' }}>Ethical Vendors</div>
+              {/* Column 2 */}
+              <div className="flex flex-col gap-6 transform -translate-y-4">
+                <div 
+                  className="rounded-2xl overflow-hidden shadow-2xl transition-all duration-500 hover:scale-105 group" 
+                  style={{ 
+                    width: 170, 
+                    height: 170, 
+                    border: '1px solid rgba(255,255,255,0.15)',
+                    transform: 'rotate(2deg)'
+                  }}
+                >
+                  <img src="/images/navya_hero_mid.png" alt="lookbook 3" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                </div>
+                <div 
+                  className="rounded-2xl overflow-hidden shadow-2xl transition-all duration-500 hover:scale-105 group" 
+                  style={{ 
+                    width: 170, 
+                    height: 220, 
+                    border: '1px solid rgba(255,255,255,0.15)',
+                    transform: 'rotate(-1deg)'
+                  }}
+                >
+                  <img src="/images/popular_lehenga.png" alt="lookbook 4" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                </div>
               </div>
-              <div className="rounded-xl p-4" style={{ background: 'rgba(255,255,255,0.08)' }}>
-                <div className="text-[30px] font-bold text-white mb-1" style={{ fontFamily: "'Cormorant Garamond', serif" }}>1M+</div>
-                <div className="text-[11px] font-semibold" style={{ color: 'rgba(255,255,255,0.65)' }}>Meters of Fabric Delivered</div>
-              </div>
+
             </div>
+
           </div>
         </div>
       </section>
 
-      {/* ── 6. BOTTOM TRUST BADGES ── */}
-      <section className="border-t" style={{ borderColor: C.border, background: 'rgba(107,66,38,0.03)' }}>
-        <div className="max-w-[95rem] mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
-            {[
-              { icon: "🏆", title: "Premium Fabrics", sub: "Handpicked Quality" },
-              { icon: "✨", title: "Modern Designs", sub: "Trend Collections" },
-              { icon: "🌏", title: "Pan India Network", sub: "Widespread Presence" },
-              { icon: "🤝", title: "Trusted Partnerships", sub: "Growing Together" },
-              { icon: "💡", title: "Innovation & Style", sub: "Redefining Textiles" },
-            ].map((badge, idx) => (
-              <div key={idx} className="flex flex-col items-center text-center gap-2">
-                <span className="text-2xl">{badge.icon}</span>
-                <span className="text-[12px] font-bold" style={{ color: C.primary }}>{badge.title}</span>
-                <span className="text-[10px] font-medium" style={{ color: C.stone }}>{badge.sub}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
     </div>
   );
 }
