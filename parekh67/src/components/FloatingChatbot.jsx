@@ -2,15 +2,15 @@ import { useState } from 'react';
 import { MessageSquareText, X, Send, Sparkles } from 'lucide-react';
 
 const C = {
-  primary: '#6B2D3E',       // Charcoal
-  primaryLight: '#8B4455',  // Medium Charcoal
-  primaryDark: '#4A1E2B',   // Deep Charcoal
-  accent: '#C4706A',        // Gold
-  gold: '#C4706A',
-  bg: '#F8F0EC',
-  border: '#E0C8C0',
-  stone: '#8A5D65',
-  soil: '#6B2D3E',
+  primary: '#0b3329',       // Charcoal
+  primaryLight: '#15473b',  // Medium Charcoal
+  primaryDark: '#062c22',   // Deep Charcoal
+  accent: '#bca374',        // Gold
+  gold: '#bca374',
+  bg: '#fcf8f2',
+  border: '#eadacc',
+  stone: '#4d5d59',
+  soil: '#0b3329',
 };
 
 const FloatingChatbot = () => {
@@ -18,11 +18,11 @@ const FloatingChatbot = () => {
   const [message, setMessage] = useState('');
 
   return (
-    <div className="fixed bottom-6 right-5 z-50 flex flex-col items-end" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+    <div className="fixed bottom-6 right-5 z-50 flex flex-col items-end" style={{ fontFamily: "'Outfit', sans-serif" }}>
       {isOpen && (
         <div
           className="mb-4 w-[340px] sm:w-[370px] overflow-hidden border rounded-2xl animate-fade-in"
-          style={{ borderColor: C.border, background: '#F8F0EC', boxShadow: '0 16px 48px rgba(43, 37, 32, 0.12)' }}
+          style={{ borderColor: C.border, background: '#fcf8f2', boxShadow: '0 16px 48px rgba(43, 37, 32, 0.12)' }}
         >
           {/* Header */}
           <div
@@ -38,7 +38,7 @@ const FloatingChatbot = () => {
               </div>
               <div className="text-left">
                 <p className="text-white text-[13px] font-bold tracking-wide leading-tight">
-                  Pravaah Assistant
+                  Zariya House Assistant
                 </p>
                 <div className="flex items-center gap-1.5 mt-0.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
@@ -71,7 +71,7 @@ const FloatingChatbot = () => {
                 style={{ borderColor: C.border }}
               >
                 <p className="text-[13px] leading-relaxed" style={{ color: C.stone }}>
-                  Namaste! 🙏 Welcome to <strong>Pravaah Fabrics</strong>. How can I assist you today?
+                  Namaste! 🙏 Welcome to <strong>Zariya House</strong>. How can I assist you today?
                 </p>
               </div>
             </div>

@@ -2,14 +2,14 @@ import { motion } from 'framer-motion';
 import { Gavel, Clock, UploadCloud, Send, Mail, TrendingUp } from 'lucide-react';
 
 const C = {
-  primary: '#6B2D3E',       // Dark Charcoal
-  primaryLight: '#8B4455',  // Medium Charcoal
-  primaryDark: '#4A1E2B',   // Deep Charcoal
-  accent: '#C4706A',        // Champagne Gold
-  gold: '#C4706A',
-  bg: '#F8F0EC',
-  border: '#E0C8C0',
-  stone: '#8A5D65',
+  primary: '#0b3329',       // Dark Charcoal
+  primaryLight: '#15473b',  // Medium Charcoal
+  primaryDark: '#062c22',   // Deep Charcoal
+  accent: '#bca374',        // Champagne Gold
+  gold: '#bca374',
+  bg: '#fcf8f2',
+  border: '#eadacc',
+  stone: '#4d5d59',
 };
 
 const upcomingAuctions = [
@@ -38,15 +38,15 @@ const scrollToForm = () =>
 
 export default function EAuction() {
   return (
-    <div style={{ fontFamily: "'DM Sans', sans-serif", background: C.bg, minHeight: '90vh' }} className="pt-2 pb-16">
+    <div style={{ fontFamily: "'Outfit', sans-serif", background: C.bg, minHeight: '90vh' }} className="pt-2 pb-16">
       <div className="max-w-[90rem] mx-auto px-6 lg:px-12 pt-0">
 
         {/* Page Title Section - minimized top space */}
         <div className="text-center mb-6 mt-2">
-          <span className="text-[11px] font-bold tracking-[0.25em] text-[#C4706A] uppercase mb-2 block">
+          <span className="text-[11px] font-bold tracking-[0.25em] text-[#bca374] uppercase mb-2 block">
             Bidding Engine
           </span>
-          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: '38px', fontWeight: 700, color: C.primary, margin: 0, letterSpacing: '0.02em' }}>
+          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '38px', fontWeight: 700, color: C.primary, margin: 0, letterSpacing: '0.02em' }}>
             e-Auction
           </h1>
           <div style={{ width: 40, height: 1.5, background: C.accent, margin: '8px auto 0' }} />
@@ -58,7 +58,7 @@ export default function EAuction() {
 
         {/* Upcoming Auctions Title */}
         <div className="text-left mb-8 max-w-5xl mx-auto">
-          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 24, fontWeight: 700, color: C.primary, margin: 0, display: 'flex', alignItems: 'center', gap: 12 }}>
+          <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 24, fontWeight: 700, color: C.primary, margin: 0, display: 'flex', alignItems: 'center', gap: 12 }}>
             <Clock size={22} color={C.accent} /> Upcoming Auctions
           </h2>
         </div>
@@ -91,7 +91,7 @@ export default function EAuction() {
               }}
             >
               {/* Top Image block */}
-              <div className="w-full h-[220px] overflow-hidden bg-[#F2E6E0] relative">
+              <div className="w-full h-[220px] overflow-hidden bg-[#f5eee6] relative">
                 <img 
                   src={auction.image} 
                   alt={auction.title} 
@@ -120,7 +120,7 @@ export default function EAuction() {
                   </span>
                 </div>
 
-                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, fontWeight: 700, color: C.primary, margin: '0 0 10px' }}>
+                <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 22, fontWeight: 700, color: C.primary, margin: '0 0 10px' }}>
                   {auction.title}
                 </h3>
                 
@@ -141,7 +141,7 @@ export default function EAuction() {
                       padding: '10px 22px',
                       background: 'transparent', color: C.primary, border: `1.5px solid ${C.border}`,
                       borderRadius: 50,
-                      fontSize: 10, fontWeight: 750, fontFamily: "'DM Sans', sans-serif",
+                      fontSize: 10, fontWeight: 750, fontFamily: "'Outfit', sans-serif",
                       cursor: 'pointer', transition: 'all 0.2s', textTransform: 'uppercase', letterSpacing: '0.08em',
                       display: 'flex', alignItems: 'center', gap: 6,
                     }}
@@ -182,7 +182,7 @@ export default function EAuction() {
             }} className="text-left">
               <div style={{
                 width: 48, height: 48,
-                background: '#F2E6E0',
+                background: '#f5eee6',
                 border: `1px solid ${C.border}`,
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 flexShrink: 0,
@@ -191,7 +191,7 @@ export default function EAuction() {
                 <Gavel size={20} color={C.accent} />
               </div>
               <div>
-                <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 24, fontWeight: 700, color: C.primary, margin: '0 0 4px', textTransform: 'uppercase', letterSpacing: '0.02em' }}>
+                <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 24, fontWeight: 700, color: C.primary, margin: '0 0 4px', textTransform: 'uppercase', letterSpacing: '0.02em' }}>
                   Participation Registration
                 </h2>
                 <p style={{ fontSize: 13, color: C.stone, margin: 0, fontWeight: 600 }}>
@@ -293,7 +293,7 @@ export default function EAuction() {
                 </div>
 
                 {/* Submit row */}
-                <div className="pt-4 border-t border-[#E0C8C0]">
+                <div className="pt-4 border-t border-[#eadacc]">
                   <button
                     type="submit"
                     style={{
@@ -303,7 +303,7 @@ export default function EAuction() {
                       border: 'none',
                       borderRadius: 50,
                       fontSize: 12, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em',
-                      cursor: 'pointer', fontFamily: "'DM Sans', sans-serif",
+                      cursor: 'pointer', fontFamily: "'Outfit', sans-serif",
                       transition: 'all 0.2s ease',
                     }}
                     onMouseEnter={e => { e.currentTarget.style.background = C.accent; }}

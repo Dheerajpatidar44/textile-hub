@@ -4,16 +4,16 @@ import { motion } from 'framer-motion';
 import { LayoutGrid } from 'lucide-react';
 
 const C = {
-  primary: '#6B2D3E',
-  primaryLight: '#8B4455',
-  accent: '#C4706A',
-  accentLight: '#E8C4B8',
-  bg: '#F8F0EC',
-  bgAlt: '#F2E6E0',
-  border: '#E0C8C0',
-  stone: '#8A5D65',
-  card: '#FDFAF8',
-  text: '#3D1F28',
+  primary: '#0b3329',
+  primaryLight: '#15473b',
+  accent: '#bca374',
+  accentLight: '#f2ece1',
+  bg: '#fcf8f2',
+  bgAlt: '#f5eee6',
+  border: '#eadacc',
+  stone: '#4d5d59',
+  card: '#ffffff',
+  text: '#0d241f',
 };
 
 const categories = [
@@ -65,34 +65,34 @@ export default function Products() {
   });
 
   return (
-    <div style={{ fontFamily: "'DM Sans', sans-serif", background: C.bg, minHeight: '90vh' }} className="pt-2 pb-16">
+    <div style={{ fontFamily: "'Outfit', sans-serif", background: C.bg, minHeight: '90vh' }} className="pt-2 pb-16">
       <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14">
 
-        {/* Page Title */}
-        <div className="text-center mb-6 mt-2">
-          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: '36px', fontWeight: 700, color: C.primary, margin: 0, letterSpacing: '0.02em', textTransform: 'uppercase' }}>
+        {/* Page Title with minimal gap */}
+        <div className="text-center mb-6 mt-1">
+          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '32px', fontWeight: 700, color: C.primary, margin: 0, letterSpacing: '0.02em', textTransform: 'uppercase' }}>
             Collections
           </h1>
-          <div style={{ width: 40, height: 2, background: `linear-gradient(90deg, ${C.primary}, ${C.accent})`, margin: '8px auto 0', borderRadius: 2 }} />
+          <div style={{ width: 40, height: 1.5, background: C.accent, margin: '6px auto 0', borderRadius: 2 }} />
         </div>
         
         {/* Categories */}
         <div className="w-full mb-10 text-center">
           <div className="flex flex-wrap items-center justify-center gap-x-6 sm:gap-x-8 gap-y-6 max-w-6xl mx-auto">
-            {/* "All" Category Badge */}
+            {/* "All" Badge */}
             <button
               onClick={() => handleCategoryChange("All")}
               className="group flex flex-col items-center gap-3 shrink-0 border-none bg-transparent cursor-pointer"
             >
               <div 
-                className="w-20 h-20 sm:w-24 sm:h-24 rounded-full flex items-center justify-center border-2 transition-all duration-300 shadow-sm"
+                className="w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center border-2 transition-all duration-300 shadow-sm"
                 style={{
                   background: activeCategory === "All" ? C.primary : C.card,
                   borderColor: activeCategory === "All" ? C.accent : C.border,
                 }}
               >
                 <LayoutGrid 
-                  size={activeCategory === "All" ? 28 : 24} 
+                  size={activeCategory === "All" ? 22 : 18} 
                   style={{ 
                     color: activeCategory === "All" ? '#FFFFFF' : C.primary,
                     transition: 'all 0.3s ease'
@@ -100,7 +100,7 @@ export default function Products() {
                 />
               </div>
               <span 
-                className="text-[11px] sm:text-[12px] font-bold tracking-wider uppercase transition-colors"
+                className="text-[10px] font-bold tracking-wider uppercase transition-colors"
                 style={{ color: activeCategory === "All" ? C.accent : C.text }}
               >
                 All Products
@@ -117,12 +117,11 @@ export default function Products() {
                   className="group flex flex-col items-center gap-3 shrink-0 border-none bg-transparent cursor-pointer"
                 >
                   <div 
-                    className="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden border-2 transition-all duration-300 shadow-sm"
+                    className="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden border-2 transition-all duration-300 shadow-sm"
                     style={{
                       borderColor: active ? C.accent : C.border,
                       background: C.card,
-                      transform: active ? 'scale(1.08)' : 'none',
-                      boxShadow: active ? `0 8px 24px rgba(196,112,106,0.25)` : '',
+                      transform: active ? 'scale(1.06)' : 'none',
                     }}
                   >
                     <img
@@ -132,7 +131,7 @@ export default function Products() {
                     />
                   </div>
                   <span 
-                    className="text-[11px] sm:text-[12px] font-bold tracking-wider uppercase transition-colors"
+                    className="text-[10px] font-bold tracking-wider uppercase transition-colors"
                     style={{ color: active ? C.accent : C.text }}
                   >
                     {cat.name}
@@ -145,13 +144,13 @@ export default function Products() {
 
         {/* Products Grid */}
         <div className="w-full">
-          <div className="flex items-center justify-between mb-8 pb-4 border-b" style={{ borderColor: C.border }}>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, fontWeight: 700, color: C.primary, margin: 0 }}>
+          <div className="flex items-center justify-between mb-8 pb-4 border-b text-left" style={{ borderColor: C.border }}>
+            <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 22, fontWeight: 700, color: C.primary, margin: 0 }}>
               {activeCategory === "All" ? "All Collections" : activeCategory}
             </h2>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '8px 16px', background: C.card, borderRadius: 20, border: `1px solid ${C.border}` }}>
-              <LayoutGrid size={13} color={C.primary} />
-              <span style={{ fontSize: 12, color: C.stone, fontWeight: 700 }}>{filteredProducts.length} Items</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '6px 14px', background: C.card, borderRadius: 20, border: `1px solid ${C.border}` }}>
+              <LayoutGrid size={12} color={C.primary} />
+              <span style={{ fontSize: 11, color: C.stone, fontWeight: 700 }}>{filteredProducts.length} Items</span>
             </div>
           </div>
 
@@ -166,12 +165,12 @@ export default function Products() {
                   className="group shadow-sm transition-all duration-300"
                   style={{ 
                     overflow: 'hidden', 
-                    borderRadius: 20, 
+                    borderRadius: 16, 
                     background: C.card, 
-                    border: `1px solid ${C.border}` 
+                    border: `1.5px solid ${C.border}` 
                   }}
-                  onMouseEnter={e => { e.currentTarget.style.borderColor = C.accent; e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = `0 16px 40px rgba(107,45,62,0.12)`; }}
-                  onMouseLeave={e => { e.currentTarget.style.borderColor = C.border; e.currentTarget.style.transform = ''; e.currentTarget.style.boxShadow = ''; }}
+                  onMouseEnter={e => { e.currentTarget.style.borderColor = C.accent; e.currentTarget.style.transform = 'translateY(-4px)'; }}
+                  onMouseLeave={e => { e.currentTarget.style.borderColor = C.border; e.currentTarget.style.transform = ''; }}
                 >
                   <div style={{ height: 260, overflow: 'hidden', position: 'relative' }}>
                     <img src={product.image} alt={product.name} loading="lazy"
@@ -183,13 +182,13 @@ export default function Products() {
                     <span style={{ fontSize: 9, textTransform: 'uppercase', letterSpacing: '0.15em', color: C.accent, fontWeight: 700, display: 'block', marginBottom: 6 }}>
                       {product.category}
                     </span>
-                    <h3 style={{ fontSize: 15, fontWeight: 700, color: C.primary, margin: '0 0 16px', lineHeight: 1.4, fontFamily: "'Playfair Display', serif" }}>
+                    <h3 style={{ fontSize: 15, fontWeight: 700, color: C.primary, margin: '0 0 16px', lineHeight: 1.4, fontFamily: "'Cormorant Garamond', serif" }}>
                       {product.name}
                     </h3>
                     <button
                       style={{
-                        width: '100%', padding: '11px 14px', fontSize: 11, fontWeight: 700,
-                        cursor: 'pointer', fontFamily: "'DM Sans', sans-serif",
+                        width: '100%', padding: '10px 14px', fontSize: 11, fontWeight: 700,
+                        cursor: 'pointer', fontFamily: "'Outfit', sans-serif",
                         border: `1.5px solid ${C.border}`,
                         borderRadius: 50,
                         background: 'transparent', color: C.primary,
@@ -206,8 +205,8 @@ export default function Products() {
               ))}
             </div>
           ) : (
-            <div style={{ textAlign: 'center', padding: '80px 24px', background: C.card, borderRadius: 20, border: `1px solid ${C.border}` }}>
-              <p style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, color: C.primary, marginBottom: 24 }}>
+            <div style={{ textAlign: 'center', padding: '80px 24px', background: C.card, borderRadius: 16, border: `1.5px solid ${C.border}` }}>
+              <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 20, color: C.primary, marginBottom: 24 }}>
                 No products found for "{activeCategory}"
               </p>
               <button
@@ -217,7 +216,7 @@ export default function Products() {
                   background: C.primary, color: 'white',
                   borderRadius: 50,
                   border: 'none', fontSize: 12, fontWeight: 700,
-                  cursor: 'pointer', fontFamily: "'DM Sans', sans-serif",
+                  cursor: 'pointer', fontFamily: "'Outfit', sans-serif",
                   transition: 'all 0.2s ease', textTransform: 'uppercase', letterSpacing: '0.06em'
                 }}
                 onMouseEnter={e => e.currentTarget.style.background = C.accent}

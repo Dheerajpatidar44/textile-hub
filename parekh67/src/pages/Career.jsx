@@ -2,15 +2,15 @@ import { motion } from 'framer-motion';
 import { Briefcase, MapPin, Mail, Clock, ArrowRight } from 'lucide-react';
 
 const C = {
-  primary: '#6B2D3E',       // Dark Charcoal
-  primaryLight: '#8B4455',  // Medium Charcoal
-  primaryDark: '#4A1E2B',   // Deep Charcoal
-  accent: '#C4706A',        // Champagne Gold
-  gold: '#C4706A',
-  bg: '#F8F0EC',
-  border: '#E0C8C0',
-  stone: '#8A5D65',
-  soil: '#6B2D3E',
+  primary: '#0b3329',       // Dark Charcoal
+  primaryLight: '#15473b',  // Medium Charcoal
+  primaryDark: '#062c22',   // Deep Charcoal
+  accent: '#bca374',        // Champagne Gold
+  gold: '#bca374',
+  bg: '#fcf8f2',
+  border: '#eadacc',
+  stone: '#4d5d59',
+  soil: '#0b3329',
 };
 
 const jobs = [
@@ -22,15 +22,15 @@ const jobs = [
 
 export default function Career() {
   return (
-    <div style={{ fontFamily: "'DM Sans', sans-serif", background: C.bg, minHeight: '90vh' }} className="pt-2 pb-16">
+    <div style={{ fontFamily: "'Outfit', sans-serif", background: C.bg, minHeight: '90vh' }} className="pt-2 pb-16">
       <div className="max-w-[90rem] mx-auto px-6 lg:px-14 pt-0">
 
         {/* Page Title Section - minimized top space */}
         <div className="text-center mb-6 mt-2">
-          <span className="text-[11px] font-bold tracking-[0.25em] text-[#C4706A] uppercase mb-2 block">
+          <span className="text-[11px] font-bold tracking-[0.25em] text-[#bca374] uppercase mb-2 block">
             Careers
           </span>
-          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: '38px', fontWeight: 700, color: C.soil, margin: 0, letterSpacing: '0.02em', textTransform: 'uppercase' }}>
+          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '38px', fontWeight: 700, color: C.soil, margin: 0, letterSpacing: '0.02em', textTransform: 'uppercase' }}>
             Career Opportunities
           </h1>
           <div style={{ width: 40, height: 1.5, background: C.accent, margin: '8px auto 0' }} />
@@ -61,7 +61,7 @@ export default function Career() {
             >
               {/* Left Column: Job info */}
               <div className="flex-grow text-left pr-0 lg:pr-8">
-                <h3 style={{ fontFamily: "'Playfair Display', serif", color: C.soil }} className="text-[22px] font-bold mb-3 leading-snug">
+                <h3 style={{ fontFamily: "'Cormorant Garamond', serif", color: C.soil }} className="text-[22px] font-bold mb-3 leading-snug">
                   {job.title}
                 </h3>
                 <p style={{ color: C.stone }} className="text-[13.5px] leading-relaxed mb-4 max-w-2xl font-medium">
@@ -79,7 +79,7 @@ export default function Career() {
                     <div key={i} style={{ color: C.stone }} className="flex items-center gap-2 text-[12px] font-semibold">
                       <Icon size={13} style={{ color: C.accent }} className="shrink-0" />
                       {href ? (
-                        <a href={href} style={{ color: C.primary }} className="hover:text-[#C4706A] transition-colors">{val}</a>
+                        <a href={href} style={{ color: C.primary }} className="hover:text-[#bca374] transition-colors">{val}</a>
                       ) : (
                         <span>{val}</span>
                       )}

@@ -2,15 +2,15 @@ import { motion } from 'framer-motion';
 import { FileText, Eye, Printer, Calendar } from 'lucide-react';
 
 const C = {
-  primary: '#6B2D3E',       // Dark Charcoal
-  primaryLight: '#8B4455',  // Medium Charcoal
-  primaryDark: '#4A1E2B',   // Deep Charcoal
-  accent: '#C4706A',        // Champagne Gold
-  gold: '#C4706A',
-  bg: '#F8F0EC',
-  border: '#E0C8C0',
-  stone: '#8A5D65',
-  soil: '#6B2D3E',
+  primary: '#0b3329',       // Dark Charcoal
+  primaryLight: '#15473b',  // Medium Charcoal
+  primaryDark: '#062c22',   // Deep Charcoal
+  accent: '#bca374',        // Champagne Gold
+  gold: '#bca374',
+  bg: '#fcf8f2',
+  border: '#eadacc',
+  stone: '#4d5d59',
+  soil: '#0b3329',
 };
 
 const circulars = [
@@ -22,15 +22,15 @@ const circulars = [
 
 const TradeCircular = () => {
   return (
-    <div style={{ fontFamily: "'DM Sans', sans-serif", background: C.bg, minHeight: '90vh' }} className="pt-2 pb-16">
+    <div style={{ fontFamily: "'Outfit', sans-serif", background: C.bg, minHeight: '90vh' }} className="pt-2 pb-16">
       <div className="max-w-[90rem] mx-auto px-6 lg:px-14 pt-0">
 
         {/* Page Title Section - minimized top space */}
         <div className="text-center mb-6 mt-2">
-          <span className="text-[11px] font-bold tracking-[0.25em] text-[#C4706A] uppercase mb-2 block">
+          <span className="text-[11px] font-bold tracking-[0.25em] text-[#bca374] uppercase mb-2 block">
             Updates
           </span>
-          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: '38px', fontWeight: 700, color: C.soil, margin: 0, letterSpacing: '0.02em', textTransform: 'uppercase' }}>
+          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '38px', fontWeight: 700, color: C.soil, margin: 0, letterSpacing: '0.02em', textTransform: 'uppercase' }}>
             Trade Circular
           </h1>
           <div style={{ width: 40, height: 1.5, background: C.accent, margin: '8px auto 0' }} />
@@ -72,12 +72,12 @@ const TradeCircular = () => {
                 </div>
                 <div>
                   <div className="flex items-center gap-3 flex-wrap">
-                    <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 20, fontWeight: 700, color: C.soil, margin: 0 }}>
+                    <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 20, fontWeight: 700, color: C.soil, margin: 0 }}>
                       {circular.title}
                     </h3>
                     <span style={{
                       fontSize: 9, textTransform: 'uppercase', letterSpacing: '0.1em',
-                      padding: '3px 8px', background: '#F2E6E0', border: `1px solid ${C.border}`,
+                      padding: '3px 8px', background: '#f5eee6', border: `1px solid ${C.border}`,
                       color: C.stone, fontWeight: 700, borderRadius: '4px'
                     }}>
                       Ref: {circular.ref}
@@ -97,7 +97,7 @@ const TradeCircular = () => {
                   display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6, 
                   padding: '9px 18px', fontSize: 11, cursor: 'pointer', 
                   border: `1.5px solid ${C.border}`, color: C.primary, 
-                  background: 'transparent', fontFamily: "'DM Sans', sans-serif", 
+                  background: 'transparent', fontFamily: "'Outfit', sans-serif", 
                   transition: 'all 0.2s ease', borderRadius: 50, 
                   fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' 
                 }}
@@ -109,7 +109,7 @@ const TradeCircular = () => {
                   display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6, 
                   padding: '9px 18px', fontSize: 11, cursor: 'pointer', 
                   border: `1.5px solid ${C.border}`, color: C.stone, 
-                  background: 'transparent', fontFamily: "'DM Sans', sans-serif", 
+                  background: 'transparent', fontFamily: "'Outfit', sans-serif", 
                   transition: 'all 0.2s ease', borderRadius: 50, 
                   fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' 
                 }}

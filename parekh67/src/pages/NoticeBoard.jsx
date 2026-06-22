@@ -2,15 +2,15 @@ import { motion } from 'framer-motion';
 import { Bell, ChevronRight, Calendar } from 'lucide-react';
 
 const C = {
-  primary: '#6B2D3E',       // Dark Charcoal
-  primaryLight: '#8B4455',  // Medium Charcoal
-  primaryDark: '#4A1E2B',   // Deep Charcoal
-  accent: '#C4706A',        // Champagne Gold
-  gold: '#C4706A',
-  bg: '#F8F0EC',
-  border: '#E0C8C0',
-  stone: '#8A5D65',
-  soil: '#6B2D3E',
+  primary: '#0b3329',       // Dark Charcoal
+  primaryLight: '#15473b',  // Medium Charcoal
+  primaryDark: '#062c22',   // Deep Charcoal
+  accent: '#bca374',        // Champagne Gold
+  gold: '#bca374',
+  bg: '#fcf8f2',
+  border: '#eadacc',
+  stone: '#4d5d59',
+  soil: '#0b3329',
 };
 
 const notices = [
@@ -22,15 +22,15 @@ const notices = [
 
 export default function NoticeBoard() {
   return (
-    <div style={{ fontFamily: "'DM Sans', sans-serif", background: C.bg, minHeight: '90vh' }} className="pt-2 pb-16">
+    <div style={{ fontFamily: "'Outfit', sans-serif", background: C.bg, minHeight: '90vh' }} className="pt-2 pb-16">
       <div className="max-w-[90rem] mx-auto px-6 lg:px-14 pt-0">
 
         {/* Page Title Section - minimized top space */}
         <div className="text-center mb-6 mt-2">
-          <span className="text-[11px] font-bold tracking-[0.25em] text-[#C4706A] uppercase mb-2 block">
+          <span className="text-[11px] font-bold tracking-[0.25em] text-[#bca374] uppercase mb-2 block">
             Announcements
           </span>
-          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: '38px', fontWeight: 700, color: C.soil, margin: 0, letterSpacing: '0.02em', textTransform: 'uppercase' }}>
+          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '38px', fontWeight: 700, color: C.soil, margin: 0, letterSpacing: '0.02em', textTransform: 'uppercase' }}>
             Notice Board
           </h1>
           <div style={{ width: 40, height: 1.5, background: C.accent, margin: '8px auto 0' }} />
@@ -74,7 +74,7 @@ export default function NoticeBoard() {
                   <Calendar size={12} color={C.stone} />
                   <span style={{ fontSize: 11, color: C.stone, fontWeight: 500 }}>{notice.date}</span>
                 </div>
-                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, fontWeight: 700, color: C.soil, lineHeight: 1.45, margin: '0 0 16px' }}>
+                <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 18, fontWeight: 700, color: C.soil, lineHeight: 1.45, margin: '0 0 16px' }}>
                   {notice.title}
                 </h3>
               </div>

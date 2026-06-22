@@ -2,15 +2,15 @@ import { motion } from 'framer-motion';
 import { Mail } from 'lucide-react';
 
 const C = {
-  primary: '#6B2D3E',       // Dark Charcoal
-  primaryLight: '#8B4455',  // Medium Charcoal
-  primaryDark: '#4A1E2B',   // Deep Charcoal
-  accent: '#C4706A',        // Champagne Gold
-  gold: '#C4706A',
-  bg: '#F8F0EC',
-  border: '#E0C8C0',
-  stone: '#8A5D65',
-  soil: '#6B2D3E',
+  primary: '#0b3329',       // Dark Charcoal
+  primaryLight: '#15473b',  // Medium Charcoal
+  primaryDark: '#062c22',   // Deep Charcoal
+  accent: '#bca374',        // Champagne Gold
+  gold: '#bca374',
+  bg: '#fcf8f2',
+  border: '#eadacc',
+  stone: '#4d5d59',
+  soil: '#0b3329',
 };
 
 const teamMembers = [
@@ -21,22 +21,22 @@ const teamMembers = [
 
 export default function RetailManagement() {
   return (
-    <div style={{ fontFamily: "'DM Sans', sans-serif", background: C.bg, minHeight: '90vh' }} className="pt-2 pb-16">
+    <div style={{ fontFamily: "'Outfit', sans-serif", background: C.bg, minHeight: '90vh' }} className="pt-2 pb-16">
       <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-14 pt-0">
 
         {/* Page Title Section - minimized top space */}
         <div className="text-center mb-6 mt-2">
-          <span className="text-[11px] font-bold tracking-[0.25em] text-[#C4706A] uppercase mb-2 block">
+          <span className="text-[11px] font-bold tracking-[0.25em] text-[#bca374] uppercase mb-2 block">
             Leadership
           </span>
-          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: '38px', fontWeight: 700, color: C.soil, margin: 0, letterSpacing: '0.02em', textTransform: 'uppercase' }}>
+          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '38px', fontWeight: 700, color: C.soil, margin: 0, letterSpacing: '0.02em', textTransform: 'uppercase' }}>
             Our Retail Management
           </h1>
           <div style={{ width: 40, height: 1.5, background: C.accent, margin: '8px auto 0' }} />
         </div>
   
         <p style={{ textAlign: 'center', fontSize: 14, color: C.stone, marginBottom: 40, fontWeight: 600, maxWidth: 560, margin: '0 auto 40px', lineHeight: 1.6 }}>
-          Pravaah Fabrics is administered and governed by highly skilled, experienced and qualified Management with decades of expertise in the textile industry.
+          Zariya House is administered and governed by highly skilled, experienced and qualified Management with decades of expertise in the textile industry.
         </p>
 
         {/* Team Cards - Horizontal Layout Stack */}
@@ -73,7 +73,7 @@ export default function RetailManagement() {
                     borderRadius: '50px 50px 12px 12px',
                     overflow: 'hidden',
                     border: `2px solid ${C.border}`,
-                    background: '#F2E6E0',
+                    background: '#f5eee6',
                   }}
                 >
                   <img
@@ -92,7 +92,7 @@ export default function RetailManagement() {
               <div className="flex-grow flex flex-col justify-between py-1">
                 <div>
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-2">
-                    <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 24, fontWeight: 700, color: C.soil, margin: 0 }}>
+                    <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 24, fontWeight: 700, color: C.soil, margin: 0 }}>
                       {member.name}
                     </h3>
                     <span 

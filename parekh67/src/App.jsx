@@ -22,14 +22,14 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 
 const C = {
-  primary: '#6B2D3E',
-  primaryDark: '#4A1E2B',
-  accent: '#C4706A',
-  accentLight: '#E8C4B8',
-  bg: '#F8F0EC',
-  border: '#E0C8C0',
-  stone: '#8A5D65',
-  card: '#FDFAF8',
+  primary: '#0b3329',
+  primaryDark: '#062c22',
+  accent: '#bca374',
+  accentLight: '#f2ece1',
+  bg: '#fcf8f2',
+  border: '#eadacc',
+  stone: '#4d5d59',
+  card: '#ffffff',
 };
 
 // ─── Welcome Popup ───
@@ -64,7 +64,7 @@ function WelcomePopup() {
             exit={{ opacity: 0 }}
             onClick={() => setIsOpen(false)}
             className="absolute inset-0"
-            style={{ background: 'rgba(74, 30, 43, 0.5)', backdropFilter: 'blur(8px)' }}
+            style={{ background: 'rgba(6, 44, 34, 0.4)', backdropFilter: 'blur(8px)' }}
           />
 
           {/* Modal */}
@@ -79,11 +79,11 @@ function WelcomePopup() {
               maxWidth: 400,
               width: '100%',
               overflow: 'hidden',
-              borderRadius: '28px',
+              borderRadius: '24px',
               zIndex: 10,
               border: `1px solid ${C.border}`,
-              boxShadow: '0 40px 80px rgba(74, 30, 43, 0.2)',
-              fontFamily: "'DM Sans', sans-serif",
+              boxShadow: '0 40px 80px rgba(6, 44, 34, 0.15)',
+              fontFamily: "'Outfit', sans-serif",
             }}
           >
             {/* Top accent bar */}
@@ -129,7 +129,7 @@ function WelcomePopup() {
 
               {/* Title */}
               <p style={{
-                fontFamily: "'DM Sans', sans-serif",
+                fontFamily: "'Outfit', sans-serif",
                 fontSize: 11, fontWeight: 600,
                 color: C.stone, margin: '0 0 8px',
                 letterSpacing: '0.2em',
@@ -138,15 +138,15 @@ function WelcomePopup() {
                 Welcome to
               </p>
               <h2 style={{
-                fontFamily: "'Playfair Display', serif",
-                fontSize: 28, fontWeight: 700,
+                fontFamily: "'Cormorant Garamond', serif",
+                fontSize: 32, fontWeight: 700,
                 color: C.primary, margin: '0 0 4px', lineHeight: 1.2,
                 letterSpacing: '0.02em',
               }}>
-                Pravaah Fabrics
+                Zariya House
               </h2>
               <p style={{
-                fontFamily: "'DM Sans', sans-serif",
+                fontFamily: "'Outfit', sans-serif",
                 fontSize: 11, fontWeight: 600,
                 color: C.accent, margin: '0 0 20px',
                 letterSpacing: '0.18em',
@@ -157,7 +157,7 @@ function WelcomePopup() {
 
               <div style={{ width: 50, height: 1.5, background: `linear-gradient(90deg, ${C.primary}, ${C.accent})`, margin: '0 auto 20px', borderRadius: 2 }} />
 
-              <p style={{ color: C.stone, fontSize: 13.5, lineHeight: 1.65, margin: '0 0 28px', fontWeight: 400 }}>
+              <p style={{ color: C.stone, fontSize: 14, lineHeight: 1.6, margin: '0 0 28px', fontWeight: 400 }}>
                 Discover our premium collections, customized e-auctions, and e-quotations. Explore heritage crafted textiles.
               </p>
 
@@ -169,13 +169,13 @@ function WelcomePopup() {
                   background: C.primary,
                   color: '#ffffff',
                   border: 'none',
-                  fontSize: 11, fontWeight: 700,
+                  fontSize: 11.5, fontWeight: 700,
                   cursor: 'pointer',
                   letterSpacing: '0.12em',
                   textTransform: 'uppercase',
                   transition: 'all 0.25s',
                   borderRadius: '50px',
-                  fontFamily: "'DM Sans', sans-serif",
+                  fontFamily: "'Outfit', sans-serif",
                 }}
                 onMouseEnter={e => { e.currentTarget.style.background = C.accent; }}
                 onMouseLeave={e => { e.currentTarget.style.background = C.primary; }}
@@ -203,7 +203,7 @@ function App() {
           <div
             key="main-app-content"
             className="w-full min-h-screen"
-            style={{ background: '#F8F0EC' }}
+            style={{ background: '#fcf8f2' }}
           >
             <Routes>
               <Route path="/" element={<Layout />}>

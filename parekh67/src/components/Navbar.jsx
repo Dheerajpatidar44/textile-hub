@@ -17,15 +17,15 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const C = {
-  primary: '#6B2D3E',
-  primaryLight: '#8B4455',
-  primaryDark: '#4A1E2B',
-  accent: '#C4706A',
-  accentLight: '#E8C4B8',
-  bg: '#F8F0EC',
-  border: '#E0C8C0',
-  stone: '#8A5D65',
-  card: '#FDFAF8',
+  primary: '#0b3329',
+  primaryLight: '#15473b',
+  primaryDark: '#062c22',
+  accent: '#bca374',
+  accentLight: '#f2ece1',
+  bg: '#fcf8f2',
+  border: '#eadacc',
+  stone: '#4d5d59',
+  card: '#ffffff',
   navBg: 'rgba(255,255,255,0.96)',
 };
 
@@ -33,7 +33,7 @@ export default function Navbar() {
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(null); // 'pages' | null
+  const [dropdownOpen, setDropdownOpen] = useState(null); // 'pages' | 'collections' | 'services' | null
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
@@ -47,15 +47,32 @@ export default function Navbar() {
     return () => { document.body.style.overflow = ''; };
   }, [isOpen]);
 
-  // Main nav items — keeping existing names as requested
   const mainNavItems = [
-    { name: 'HOME', path: '/', icon: HomeIcon },
+    { name: 'HOME', path: '/' },
     { name: 'ABOUT US', path: '/about' },
     { name: 'CONTACT US', path: '/contact' },
     { name: 'PRODUCTS', path: '/products' },
     { name: 'OUR RETAIL MANAGEMENT', path: '/retail-management' },
   ];
 
+  // Specific categoric dropdown options
+  const collectionsDropdownItems = [
+    { name: 'Sarees', path: '/products?category=Sarees' },
+    { name: 'Leggings', path: '/products?category=Leggings' },
+    { name: 'Kurtis', path: '/products?category=Kurtis' },
+    { name: 'Dress Suits', path: '/products?category=Dress Suits' },
+    { name: 'Bedsheets & Linen', path: '/products?category=Bedsheets & Linen' },
+    { name: 'Hosiery Items', path: '/products?category=Hosiery Items' },
+  ];
+
+  const tradeServicesItems = [
+    { name: 'e-Quotation', path: '/e-quotation', desc: 'Request material quotations', icon: FileText },
+    { name: 'e-Auction', path: '/e-auction', desc: 'Procure materials via bidding', icon: Gavel },
+    { name: 'TRADE CIRCULAR', path: '/trade-circular', desc: 'Official trade notifications', icon: FileText },
+    { name: 'RETAIL MANAGEMENT', path: '/retail-management', desc: 'Store & retail operations', icon: ClipboardList },
+  ];
+
+  // Remaining pages go into a 'More Pages' style logic or we keep the list consistent
   const dropdownNavItems = [
     { name: 'e-Quotation', path: '/e-quotation', desc: 'Request material quotations', icon: FileText },
     { name: 'e-Auction', path: '/e-auction', desc: 'Procure materials via bidding', icon: Gavel },
@@ -74,139 +91,199 @@ export default function Navbar() {
     return false;
   };
 
-  const isDropdownActive = () => dropdownNavItems.some(item => isActive(item.path));
-
   return (
     <header
       className="w-full fixed top-0 left-0 z-50"
-      style={{ fontFamily: "'DM Sans', sans-serif" }}
+      style={{ fontFamily: "'Outfit', sans-serif" }}
     >
       {/* ── Main Navbar ── */}
       <div
         className="w-full transition-all duration-300"
         style={{
-          background: scrolled ? 'rgba(248,240,236,0.98)' : 'transparent',
+          background: scrolled ? 'rgba(252,248,242,0.98)' : 'transparent',
           backdropFilter: scrolled ? 'blur(12px)' : 'none',
-          boxShadow: scrolled ? '0 2px 20px rgba(107,45,62,0.08)' : 'none',
-          padding: scrolled ? '10px 0' : '16px 0',
+          boxShadow: scrolled ? '0 2px 20px rgba(6,44,34,0.06)' : 'none',
+          padding: scrolled ? '0' : '0',
         }}
       >
         <div
           className="max-w-[95rem] mx-auto flex items-center justify-between"
           style={{ padding: '0 24px' }}
         >
+          {/* ── LEFT: Logo Banner with custom background shape ── */}
+          <div style={{
+            background: C.primaryDark,
+            padding: scrolled ? '12px 32px 12px 24px' : '20px 40px 20px 24px',
+            borderRadius: '0 0 100px 0',
+            marginLeft: '-24px',
+            display: 'flex',
+            alignItems: 'center',
+            gap: 12,
+            transition: 'all 0.3s ease',
+            boxShadow: '0 4px 20px rgba(6,44,34,0.15)',
+          }}>
+            <Link to="/" className="flex items-center gap-2.5 shrink-0 group" style={{ textDecoration: 'none' }}>
+              <div style={{ width: 36, height: 36, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(255,255,255,0.08)', borderRadius: '50%' }}>
+                <svg width="24" height="24" viewBox="0 0 100 100" fill="none" className="transition-transform group-hover:rotate-[30deg] duration-700">
+                  <circle cx="50" cy="50" r="44" stroke={C.accent} strokeWidth="2.5" fill="none" />
+                  <path
+                    d="M50 18 L54 40 L76 40 L59 54 L65 76 L50 63 L35 76 L41 54 L24 40 L46 40 Z"
+                    stroke={C.accent} strokeWidth="3"
+                    fill={C.accent} fillOpacity="0.25"
+                    strokeLinejoin="round"
+                  />
+                  <circle cx="50" cy="50" r="6" fill={C.accent} />
+                </svg>
+              </div>
+              <div className="flex flex-col leading-none">
+                <span
+                  style={{
+                    fontFamily: "'Cormorant Garamond', serif",
+                    fontSize: 21,
+                    fontWeight: 700,
+                    color: '#ffffff',
+                    letterSpacing: '0.04em',
+                    lineHeight: 1.1,
+                    whiteSpace: 'nowrap',
+                  }}
+                >
+                  ZARIYA
+                </span>
+                <span
+                  style={{
+                    fontSize: 8.5,
+                    fontWeight: 600,
+                    letterSpacing: '0.22em',
+                    color: C.accent,
+                    textTransform: 'uppercase',
+                    marginTop: 2,
+                    fontFamily: "'Outfit', sans-serif",
+                  }}
+                >
+                  HOUSE
+                </span>
+              </div>
+            </Link>
+          </div>
 
-          {/* ── LEFT: Logo ── */}
-          <Link to="/" className="flex items-center gap-2.5 shrink-0 group" style={{ textDecoration: 'none' }}>
-            <div style={{ width: 44, height: 44, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <svg width="42" height="42" viewBox="0 0 100 100" fill="none" className="transition-transform group-hover:rotate-[30deg] duration-700">
-                <circle cx="50" cy="50" r="44" stroke={C.accent} strokeWidth="1.5" fill={C.bg} />
-                <path
-                  d="M50 18 L54 40 L76 40 L59 54 L65 76 L50 63 L35 76 L41 54 L24 40 L46 40 Z"
-                  stroke={C.primary} strokeWidth="2"
-                  fill={C.accent} fillOpacity="0.25"
-                  strokeLinejoin="round"
-                />
-                <circle cx="50" cy="50" r="5" fill={C.primary} />
-              </svg>
-            </div>
-            <div className="flex flex-col leading-none">
-              <span
-                style={{
-                  fontFamily: "'Playfair Display', serif",
-                  fontSize: 19,
-                  fontWeight: 700,
-                  color: C.primary,
-                  letterSpacing: '0.03em',
-                  lineHeight: 1.1,
-                  whiteSpace: 'nowrap',
-                }}
-              >
-                PRAVAAH
-              </span>
-              <span
-                style={{
-                  fontSize: 9,
-                  fontWeight: 600,
-                  letterSpacing: '0.16em',
-                  color: C.stone,
-                  textTransform: 'uppercase',
-                  marginTop: 2,
-                  fontFamily: "'DM Sans', sans-serif",
-                }}
-              >
-                TEXTILE HOUSE
-              </span>
-            </div>
-          </Link>
-
-          {/* ── CENTER: Floating Pill Navbar (Desktop) ── */}
+          {/* ── CENTER: Floating Pill Navbar ── */}
           <nav
             className="hidden lg:flex items-center"
             style={{
               background: C.navBg,
               borderRadius: 50,
               padding: '6px 8px',
-              boxShadow: '0 4px 24px rgba(107,45,62,0.10), 0 1px 4px rgba(107,45,62,0.06)',
-              border: `1px solid rgba(224,200,192,0.6)`,
+              boxShadow: '0 8px 30px rgba(11,51,41,0.06), 0 2px 8px rgba(11,51,41,0.04)',
+              border: `1px solid rgba(234,218,204,0.8)`,
               gap: 2,
             }}
           >
-            {/* Home with icon */}
+            {/* C            {/* HOME */}
             <Link
               to="/"
               style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: 5,
-                padding: '7px 14px',
+                padding: '10px 24px',
                 borderRadius: 50,
-                fontSize: 12,
+                fontSize: 11.5,
                 fontWeight: 700,
-                letterSpacing: '0.06em',
+                letterSpacing: '0.08em',
                 textDecoration: 'none',
-                transition: 'all 0.2s ease',
                 background: isActive('/') ? C.primary : 'transparent',
                 color: isActive('/') ? '#fff' : C.stone,
+                transition: 'all 0.25s ease',
                 whiteSpace: 'nowrap',
               }}
-              onMouseEnter={e => { if (!isActive('/')) { e.currentTarget.style.background = C.bg; e.currentTarget.style.color = C.primary; } }}
-              onMouseLeave={e => { if (!isActive('/')) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = C.stone; } }}
+              onMouseEnter={e => { if (!isActive('/')) { e.currentTarget.style.color = C.accent; } }}
+              onMouseLeave={e => { if (!isActive('/')) { e.currentTarget.style.color = C.stone; } }}
             >
-              <HomeIcon size={12} />
               HOME
             </Link>
 
-            {/* Other main nav items */}
-            {mainNavItems.slice(1).map((item) => {
-              const active = isActive(item.path);
-              return (
-                <Link
-                  key={item.name}
-                  to={item.path}
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    padding: '7px 14px',
-                    borderRadius: 50,
-                    fontSize: 12,
-                    fontWeight: 700,
-                    letterSpacing: '0.06em',
-                    textDecoration: 'none',
-                    transition: 'all 0.2s ease',
-                    background: active ? C.primary : 'transparent',
-                    color: active ? '#fff' : C.stone,
-                    whiteSpace: 'nowrap',
-                  }}
-                  onMouseEnter={e => { if (!active) { e.currentTarget.style.background = C.bg; e.currentTarget.style.color = C.primary; } }}
-                  onMouseLeave={e => { if (!active) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = C.stone; } }}
-                >
-                  {item.name}
-                </Link>
-              );
-            })}
+            {/* ABOUT US */}
+            <Link
+              to="/about"
+              style={{
+                padding: '10px 24px',
+                borderRadius: 50,
+                fontSize: 11.5,
+                fontWeight: 700,
+                letterSpacing: '0.08em',
+                textDecoration: 'none',
+                background: isActive('/about') ? C.primary : 'transparent',
+                color: isActive('/about') ? '#fff' : C.stone,
+                transition: 'all 0.25s ease',
+                whiteSpace: 'nowrap',
+              }}
+              onMouseEnter={e => { if (!isActive('/about')) { e.currentTarget.style.color = C.accent; } }}
+              onMouseLeave={e => { if (!isActive('/about')) { e.currentTarget.style.color = C.stone; } }}
+            >
+              ABOUT US
+            </Link>
 
-            {/* PAGES dropdown */}
+            {/* CONTACT US */}
+            <Link
+              to="/contact"
+              style={{
+                padding: '10px 24px',
+                borderRadius: 50,
+                fontSize: 11.5,
+                fontWeight: 700,
+                letterSpacing: '0.08em',
+                textDecoration: 'none',
+                background: isActive('/contact') ? C.primary : 'transparent',
+                color: isActive('/contact') ? '#fff' : C.stone,
+                transition: 'all 0.25s ease',
+                whiteSpace: 'nowrap',
+              }}
+              onMouseEnter={e => { if (!isActive('/contact')) { e.currentTarget.style.color = C.accent; } }}
+              onMouseLeave={e => { if (!isActive('/contact')) { e.currentTarget.style.color = C.stone; } }}
+            >
+              CONTACT US
+            </Link>
+
+            {/* PRODUCTS */}
+            <Link
+              to="/products"
+              style={{
+                padding: '10px 24px',
+                borderRadius: 50,
+                fontSize: 11.5,
+                fontWeight: 700,
+                letterSpacing: '0.08em',
+                textDecoration: 'none',
+                background: isActive('/products') ? C.primary : 'transparent',
+                color: isActive('/products') ? '#fff' : C.stone,
+                transition: 'all 0.25s ease',
+                whiteSpace: 'nowrap',
+              }}
+              onMouseEnter={e => { if (!isActive('/products')) { e.currentTarget.style.color = C.accent; } }}
+              onMouseLeave={e => { if (!isActive('/products')) { e.currentTarget.style.color = C.stone; } }}
+            >
+              PRODUCTS
+            </Link>
+
+            {/* OUR RETAIL MANAGEMENT */}
+            <Link
+              to="/retail-management"
+              style={{
+                padding: '10px 24px',
+                borderRadius: 50,
+                fontSize: 11.5,
+                fontWeight: 700,
+                letterSpacing: '0.08em',
+                textDecoration: 'none',
+                background: isActive('/retail-management') ? C.primary : 'transparent',
+                color: isActive('/retail-management') ? '#fff' : C.stone,
+                transition: 'all 0.25s ease',
+                whiteSpace: 'nowrap',
+              }}
+              onMouseEnter={e => { if (!isActive('/retail-management')) { e.currentTarget.style.color = C.accent; } }}
+              onMouseLeave={e => { if (!isActive('/retail-management')) { e.currentTarget.style.color = C.stone; } }}
+            >
+              OUR RETAIL MANAGEMENT
+            </Link>
+
+            {/* PAGES dropdown (remaining subpages) */}
             <div
               className="relative"
               onMouseEnter={() => setDropdownOpen('pages')}
@@ -217,21 +294,19 @@ export default function Navbar() {
                   display: 'flex',
                   alignItems: 'center',
                   gap: 4,
-                  padding: '7px 14px',
+                  padding: '10px 24px',
                   borderRadius: 50,
-                  fontSize: 12,
+                  fontSize: 11.5,
                   fontWeight: 700,
-                  letterSpacing: '0.06em',
-                  background: isDropdownActive() ? C.primary : 'transparent',
-                  color: isDropdownActive() ? '#fff' : C.stone,
+                  letterSpacing: '0.08em',
+                  background: 'transparent',
+                  color: C.stone,
                   border: 'none',
                   cursor: 'pointer',
-                  transition: 'all 0.2s ease',
+                  transition: 'all 0.25s ease',
                   whiteSpace: 'nowrap',
-                  fontFamily: "'DM Sans', sans-serif",
+                  fontFamily: "'Outfit', sans-serif",
                 }}
-                onMouseEnter={e => { if (!isDropdownActive()) { e.currentTarget.style.background = C.bg; e.currentTarget.style.color = C.primary; } }}
-                onMouseLeave={e => { if (!isDropdownActive()) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = C.stone; } }}
               >
                 PAGES
                 <ChevronDown
@@ -243,7 +318,6 @@ export default function Navbar() {
                 />
               </button>
 
-              {/* Dropdown Panel */}
               <AnimatePresence>
                 {dropdownOpen === 'pages' && (
                   <motion.div
@@ -255,74 +329,50 @@ export default function Navbar() {
                       position: 'absolute',
                       top: 'calc(100% + 12px)',
                       right: 0,
-                      left: 'auto',
-                      transform: 'none',
-                      width: 580,
-                      background: 'rgba(253,250,248,0.98)',
-                      borderRadius: 20,
-                      boxShadow: '0 20px 60px rgba(107,45,62,0.14), 0 4px 16px rgba(107,45,62,0.06)',
+                      width: 240,
+                      background: 'rgba(255,255,255,0.98)',
+                      borderRadius: 16,
+                      boxShadow: '0 16px 40px rgba(11,51,41,0.12)',
                       border: `1px solid ${C.border}`,
                       backdropFilter: 'blur(16px)',
                       overflow: 'hidden',
                       zIndex: 999,
+                      padding: '8px',
                     }}
                   >
-                    {/* Top accent */}
-                    <div style={{ height: 3, background: `linear-gradient(90deg, ${C.primaryDark}, ${C.accent}, ${C.primaryDark})` }} />
-                    <div style={{ padding: '16px', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8 }}>
-                      {dropdownNavItems.map((item) => {
-                        const IconComp = item.icon;
-                        const active = isActive(item.path);
-                        return (
-                          <Link
-                            key={item.name}
-                            to={item.path}
-                            onClick={() => setDropdownOpen(null)}
-                            style={{
-                              display: 'flex',
-                              alignItems: 'center',
-                              gap: 10,
-                              padding: '10px 12px',
-                              borderRadius: 12,
-                              textDecoration: 'none',
-                              background: active ? `rgba(196,112,106,0.1)` : 'transparent',
-                              transition: 'background 0.15s ease',
-                            }}
-                            onMouseEnter={e => e.currentTarget.style.background = `rgba(196,112,106,0.08)`}
-                            onMouseLeave={e => e.currentTarget.style.background = active ? `rgba(196,112,106,0.1)` : 'transparent'}
-                          >
-                            <div style={{
-                              width: 32, height: 32, borderRadius: 10,
-                              background: active ? C.accent : `rgba(196,112,106,0.08)`,
-                              border: `1px solid ${active ? C.accent : C.border}`,
-                              display: 'flex', alignItems: 'center', justifyContent: 'center',
-                              flexShrink: 0,
-                              color: active ? '#fff' : C.primary,
-                            }}>
-                              <IconComp size={13} />
-                            </div>
-                            <span style={{
-                              fontSize: 11.5,
-                              fontWeight: 700,
-                              color: active ? C.primary : C.stone,
-                              letterSpacing: '0.04em',
-                              fontFamily: "'DM Sans', sans-serif",
-                            }}>
-                              {item.name.toLowerCase().startsWith('e-')
-                                ? <><span style={{ textTransform: 'lowercase' }}>e</span>{item.name.slice(1).toUpperCase()}</>
-                                : item.name}
-                            </span>
-                          </Link>
-                        );
-                      })}
-                    </div>
+                    {dropdownNavItems.map((item) => (
+                      <Link
+                        key={item.name}
+                        to={item.path}
+                        onClick={() => setDropdownOpen(null)}
+                        style={{
+                          display: 'block',
+                          padding: '10px 14px',
+                          borderRadius: 10,
+                          textDecoration: 'none',
+                          fontSize: 12,
+                          fontWeight: 600,
+                          color: C.stone,
+                          transition: 'all 0.15s ease',
+                          textAlign: 'left',
+                        }}
+                        onMouseEnter={e => { e.currentTarget.style.background = C.accentLight; e.currentTarget.style.color = C.primary; }}
+                        onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = C.stone; }}
+                      >
+                        {item.name.toLowerCase().startsWith('e-') ? (
+                          <><span style={{ textTransform: 'lowercase' }}>e</span>-{item.name.slice(2)}</>
+                        ) : (
+                          item.name
+                        )}
+                      </Link>
+                    ))}
                   </motion.div>
                 )}
               </AnimatePresence>
             </div>
           </nav>
 
-          {/* ── RIGHT: E-Quotation + Hamburger (Desktop) ── */}
+          {/* ── RIGHT: TRADE ENQUIRY Button (Desktop) ── */}
           <div className="hidden lg:flex items-center gap-3 shrink-0">
             <Link
               to="/trade-enquiry"
@@ -330,29 +380,29 @@ export default function Navbar() {
                 display: 'flex',
                 alignItems: 'center',
                 gap: 8,
-                padding: '9px 20px',
+                padding: scrolled ? '10px 24px' : '12px 28px',
                 borderRadius: 50,
                 background: C.primary,
                 color: '#fff',
-                fontSize: 12,
+                fontSize: 11.5,
                 fontWeight: 700,
                 letterSpacing: '0.08em',
                 textDecoration: 'none',
                 textTransform: 'uppercase',
                 transition: 'all 0.25s ease',
-                boxShadow: '0 4px 16px rgba(107,45,62,0.25)',
+                boxShadow: '0 4px 16px rgba(6,44,34,0.2)',
                 whiteSpace: 'nowrap',
-                fontFamily: "'DM Sans', sans-serif",
+                fontFamily: "'Outfit', sans-serif",
+                border: `1px solid ${C.accent}`,
               }}
-              onMouseEnter={e => { e.currentTarget.style.background = C.accent; e.currentTarget.style.boxShadow = '0 6px 20px rgba(196,112,106,0.35)'; }}
-              onMouseLeave={e => { e.currentTarget.style.background = C.primary; e.currentTarget.style.boxShadow = '0 4px 16px rgba(107,45,62,0.25)'; }}
+              onMouseEnter={e => { e.currentTarget.style.background = C.accent; e.currentTarget.style.boxShadow = '0 6px 20px rgba(188,163,116,0.3)'; }}
+              onMouseLeave={e => { e.currentTarget.style.background = C.primary; e.currentTarget.style.boxShadow = '0 4px 16px rgba(6,44,34,0.2)'; }}
             >
-              Trade Enquiry
-              <span style={{ fontSize: 14, lineHeight: 1 }}>→</span>
+              TRADE ENQUIRY →
             </Link>
           </div>
 
-          {/* Mobile right */}
+          {/* Mobile Right */}
           <div className="flex items-center gap-2 lg:hidden shrink-0">
             <Link
               to="/trade-enquiry"
@@ -366,9 +416,10 @@ export default function Navbar() {
                 letterSpacing: '0.08em',
                 textDecoration: 'none',
                 textTransform: 'uppercase',
+                border: `1.5px solid ${C.accent}`,
               }}
             >
-              Trade Enquiry
+              ENQUIRY
             </Link>
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -384,11 +435,10 @@ export default function Navbar() {
               {isOpen ? <X size={16} /> : <Menu size={16} />}
             </button>
           </div>
-
         </div>
       </div>
 
-      {/* ── Mobile / Full-Screen Menu ── */}
+      {/* ── Mobile Menu ── */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -404,19 +454,20 @@ export default function Navbar() {
               zIndex: 40,
               display: 'flex',
               flexDirection: 'column',
-              fontFamily: "'DM Sans', sans-serif",
+              fontFamily: "'Outfit', sans-serif",
             }}
           >
             {/* Header */}
             <div style={{
-              display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+              display: 'flex', alignItems: 'center', justifyParagraph: 'space-between',
               padding: '20px 24px',
               borderBottom: `1px solid ${C.border}`,
               flexShrink: 0,
+              justifyContent: 'space-between'
             }}>
               <div className="flex flex-col">
-                <span style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, fontWeight: 700, color: C.primary }}>
-                  Pravaah Fabrics
+                <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 20, fontWeight: 700, color: C.primary }}>
+                  Zariya House
                 </span>
                 <span style={{ fontSize: 8, fontWeight: 600, letterSpacing: '0.18em', textTransform: 'uppercase', color: C.stone, marginTop: 2 }}>
                   Premium Textile House
@@ -426,7 +477,7 @@ export default function Navbar() {
                 onClick={() => setIsOpen(false)}
                 style={{
                   width: 36, height: 36, borderRadius: '50%',
-                  background: `rgba(196,112,106,0.1)`, border: 'none',
+                  background: `rgba(188,163,116,0.1)`, border: 'none',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   color: C.primary, cursor: 'pointer',
                 }}
@@ -453,41 +504,20 @@ export default function Navbar() {
                       fontWeight: 700,
                       letterSpacing: '0.06em',
                       color: active ? C.primary : C.stone,
-                      background: active ? `rgba(196,112,106,0.1)` : 'transparent',
+                      background: active ? `rgba(188,163,116,0.1)` : 'transparent',
                       textDecoration: 'none',
                       marginBottom: 4,
                       transition: 'all 0.15s ease',
                     }}
                   >
-                    {item.name.toLowerCase().startsWith('e-')
-                      ? <><span style={{ textTransform: 'lowercase' }}>e</span>{item.name.slice(1)}</>
-                      : item.name}
+                    {item.name.toLowerCase().startsWith('e-') ? (
+                      <><span style={{ textTransform: 'lowercase' }}>e</span>-{item.name.slice(2)}</>
+                    ) : (
+                      item.name
+                    )}
                   </Link>
                 );
               })}
-            </div>
-
-            {/* Bottom social */}
-            <div style={{
-              padding: '16px 24px',
-              borderTop: `1px solid ${C.border}`,
-              flexShrink: 0,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: 12,
-            }}>
-              {[
-                { n: 'Facebook', svg: <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" /></svg> },
-                { n: 'Instagram', svg: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" /></svg> },
-                { n: 'Pinterest', svg: <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.162 0 7.397 2.967 7.397 6.93 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z" /></svg> },
-              ].map(s => (
-                <a key={s.n} href="#" aria-label={s.n}
-                  style={{ width: 36, height: 36, borderRadius: '50%', border: `1px solid ${C.border}`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: C.stone, textDecoration: 'none' }}
-                >
-                  {s.svg}
-                </a>
-              ))}
             </div>
           </motion.div>
         )}

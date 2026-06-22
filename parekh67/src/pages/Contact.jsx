@@ -2,32 +2,32 @@ import { motion } from 'framer-motion';
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 
 const C = {
-  primary: '#6B2D3E',
-  primaryDark: '#4A1E2B',
-  accent: '#C4706A',
-  accentLight: '#E8C4B8',
-  bg: '#F8F0EC',
-  bgAlt: '#F2E6E0',
-  border: '#E0C8C0',
-  stone: '#8A5D65',
-  card: '#FDFAF8',
-  text: '#3D1F28',
+  primary: '#0b3329',
+  primaryDark: '#062c22',
+  accent: '#bca374',
+  accentLight: '#f2ece1',
+  bg: '#fcf8f2',
+  bgAlt: '#f5eee6',
+  border: '#eadacc',
+  stone: '#4d5d59',
+  card: '#ffffff',
+  text: '#0d241f',
 };
 
 export default function Contact() {
   return (
-    <div style={{ fontFamily: "'DM Sans', sans-serif", background: C.bg, minHeight: '85vh' }} className="pt-2 pb-16">
-      <div className="max-w-[85rem] mx-auto px-6 lg:px-12">
+    <div style={{ fontFamily: "'Outfit', sans-serif", background: C.bg, minHeight: '85vh' }} className="pt-2 pb-12">
+      <div className="max-w-[80rem] mx-auto px-6 lg:px-12">
         
-        {/* Page Title */}
-        <div className="text-center mb-8 mt-2">
-          <span className="text-[11px] font-bold tracking-[0.25em] uppercase mb-2 block" style={{ color: C.accent }}>
+        {/* Minimal gap Page Title */}
+        <div className="text-center mb-6 mt-1">
+          <span className="text-[10px] font-bold tracking-[0.25em] uppercase mb-1 block" style={{ color: C.accent }}>
             Get in Touch
           </span>
-          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: '36px', fontWeight: 700, color: C.primary, margin: 0, letterSpacing: '0.02em', textTransform: 'uppercase' }}>
+          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '32px', fontWeight: 700, color: C.primary, margin: 0, letterSpacing: '0.02em', textTransform: 'uppercase' }}>
             Contact Us
           </h1>
-          <div style={{ width: 40, height: 2, background: `linear-gradient(90deg, ${C.primary}, ${C.accent})`, margin: '10px auto 0', borderRadius: 2 }} />
+          <div style={{ width: 40, height: 1.5, background: C.accent, margin: '6px auto 0', borderRadius: 2 }} />
         </div>
 
         {/* Main Layout: Map Left + Contact Details Right */}
@@ -35,14 +35,14 @@ export default function Contact() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="grid grid-cols-1 lg:grid-cols-5 gap-6 items-stretch mb-8"
+          className="grid grid-cols-1 lg:grid-cols-5 gap-6 items-stretch"
         >
           {/* Google Map — takes 3/5 width */}
           <div 
             className="lg:col-span-3 overflow-hidden shadow-sm"
             style={{ 
-              borderRadius: 22, 
-              border: `1px solid ${C.border}`,
+              borderRadius: 18, 
+              border: `1.5px solid ${C.border}`,
               minHeight: 420,
             }}
           >
@@ -53,7 +53,7 @@ export default function Contact() {
               frameBorder="0"
               allowFullScreen loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Pravaah Fabrics Location Map"
+              title="Zariya House Location Map"
             />
           </div>
 
@@ -65,19 +65,19 @@ export default function Contact() {
               initial={{ opacity: 0, x: 16 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.1 }}
-              className="flex gap-4 items-start p-6 transition-all duration-300"
-              style={{ background: C.card, borderRadius: 18, border: `1px solid ${C.border}` }}
-              onMouseEnter={e => { e.currentTarget.style.borderColor = C.accent; e.currentTarget.style.boxShadow = `0 8px 24px rgba(196,112,106,0.1)`; }}
-              onMouseLeave={e => { e.currentTarget.style.borderColor = C.border; e.currentTarget.style.boxShadow = ''; }}
+              className="flex gap-4 items-start p-5 transition-all duration-300"
+              style={{ background: C.card, borderRadius: 16, border: `1.5px solid ${C.border}` }}
+              onMouseEnter={e => { e.currentTarget.style.borderColor = C.accent; }}
+              onMouseLeave={e => { e.currentTarget.style.borderColor = C.border; }}
             >
-              <div style={{ width: 44, height: 44, borderRadius: 14, background: C.bgAlt, border: `1px solid ${C.border}`, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: C.accent }}>
-                <MapPin size={20} />
+              <div style={{ width: 40, height: 40, borderRadius: 10, background: C.bgAlt, border: `1.5px solid ${C.border}`, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: C.primary }}>
+                <MapPin size={18} />
               </div>
-              <div>
-                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 17, fontWeight: 700, color: C.primary, margin: '0 0 8px' }}>
+              <div className="text-left">
+                <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 18, fontWeight: 700, color: C.primary, margin: '0 0 4px' }}>
                   Head Office
                 </h3>
-                <p style={{ fontSize: 13.5, color: C.stone, lineHeight: 1.65, margin: 0, fontWeight: 400 }}>
+                <p style={{ fontSize: 13, color: C.stone, lineHeight: 1.6, margin: 0, fontWeight: 400 }}>
                   123, Textile Market,<br/>
                   Ring Road, Surat,<br/>
                   Gujarat - 395002, India
@@ -85,30 +85,30 @@ export default function Contact() {
               </div>
             </motion.div>
 
-            {/* Phone & Email Card */}
+            {/* Phone Card */}
             <motion.div
               initial={{ opacity: 0, x: 16 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.18 }}
-              className="flex gap-4 items-start p-6 transition-all duration-300"
-              style={{ background: C.card, borderRadius: 18, border: `1px solid ${C.border}` }}
-              onMouseEnter={e => { e.currentTarget.style.borderColor = C.accent; e.currentTarget.style.boxShadow = `0 8px 24px rgba(196,112,106,0.1)`; }}
-              onMouseLeave={e => { e.currentTarget.style.borderColor = C.border; e.currentTarget.style.boxShadow = ''; }}
+              className="flex gap-4 items-start p-5 transition-all duration-300"
+              style={{ background: C.card, borderRadius: 16, border: `1.5px solid ${C.border}` }}
+              onMouseEnter={e => { e.currentTarget.style.borderColor = C.accent; }}
+              onMouseLeave={e => { e.currentTarget.style.borderColor = C.border; }}
             >
-              <div style={{ width: 44, height: 44, borderRadius: 14, background: C.bgAlt, border: `1px solid ${C.border}`, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: C.accent }}>
-                <Phone size={20} />
+              <div style={{ width: 40, height: 40, borderRadius: 10, background: C.bgAlt, border: `1.5px solid ${C.border}`, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: C.primary }}>
+                <Phone size={18} />
               </div>
-              <div>
-                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 17, fontWeight: 700, color: C.primary, margin: '0 0 8px' }}>
+              <div className="text-left">
+                <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 18, fontWeight: 700, color: C.primary, margin: '0 0 4px' }}>
                   Call Us
                 </h3>
-                <div className="flex flex-col gap-1.5">
-                  <a href="tel:+919876543210" style={{ fontSize: 13.5, color: C.stone, textDecoration: 'none', fontWeight: 500, transition: 'color 0.2s' }}
+                <div className="flex flex-col gap-1">
+                  <a href="tel:+919876543210" style={{ fontSize: 13, color: C.stone, textDecoration: 'none', fontWeight: 500 }}
                     onMouseEnter={e => e.currentTarget.style.color = C.primary}
                     onMouseLeave={e => e.currentTarget.style.color = C.stone}>
                     +91 98765 43210
                   </a>
-                  <a href="tel:+918765432109" style={{ fontSize: 13.5, color: C.stone, textDecoration: 'none', fontWeight: 500, transition: 'color 0.2s' }}
+                  <a href="tel:+918765432109" style={{ fontSize: 13, color: C.stone, textDecoration: 'none', fontWeight: 500 }}
                     onMouseEnter={e => e.currentTarget.style.color = C.primary}
                     onMouseLeave={e => e.currentTarget.style.color = C.stone}>
                     +91 87654 32109
@@ -122,28 +122,28 @@ export default function Contact() {
               initial={{ opacity: 0, x: 16 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.24 }}
-              className="flex gap-4 items-start p-6 transition-all duration-300"
-              style={{ background: C.card, borderRadius: 18, border: `1px solid ${C.border}` }}
-              onMouseEnter={e => { e.currentTarget.style.borderColor = C.accent; e.currentTarget.style.boxShadow = `0 8px 24px rgba(196,112,106,0.1)`; }}
-              onMouseLeave={e => { e.currentTarget.style.borderColor = C.border; e.currentTarget.style.boxShadow = ''; }}
+              className="flex gap-4 items-start p-5 transition-all duration-300"
+              style={{ background: C.card, borderRadius: 16, border: `1.5px solid ${C.border}` }}
+              onMouseEnter={e => { e.currentTarget.style.borderColor = C.accent; }}
+              onMouseLeave={e => { e.currentTarget.style.borderColor = C.border; }}
             >
-              <div style={{ width: 44, height: 44, borderRadius: 14, background: C.bgAlt, border: `1px solid ${C.border}`, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: C.accent }}>
-                <Mail size={20} />
+              <div style={{ width: 40, height: 40, borderRadius: 10, background: C.bgAlt, border: `1.5px solid ${C.border}`, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: C.primary }}>
+                <Mail size={18} />
               </div>
-              <div>
-                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 17, fontWeight: 700, color: C.primary, margin: '0 0 8px' }}>
+              <div className="text-left">
+                <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 18, fontWeight: 700, color: C.primary, margin: '0 0 4px' }}>
                   Email Us
                 </h3>
-                <div className="flex flex-col gap-1.5">
-                  <a href="mailto:info@pravaahfabrics.com" style={{ fontSize: 13.5, color: C.primary, textDecoration: 'none', fontWeight: 600, transition: 'color 0.2s' }}
+                <div className="flex flex-col gap-1">
+                  <a href="mailto:info@zariyahouse.com" style={{ fontSize: 13, color: C.primary, textDecoration: 'none', fontWeight: 600 }}
                     onMouseEnter={e => e.currentTarget.style.color = C.accent}
                     onMouseLeave={e => e.currentTarget.style.color = C.primary}>
-                    info@pravaahfabrics.com
+                    info@zariyahouse.com
                   </a>
-                  <a href="mailto:sales@pravaahfabrics.com" style={{ fontSize: 13.5, color: C.primary, textDecoration: 'none', fontWeight: 600, transition: 'color 0.2s' }}
+                  <a href="mailto:sales@zariyahouse.com" style={{ fontSize: 13, color: C.primary, textDecoration: 'none', fontWeight: 600 }}
                     onMouseEnter={e => e.currentTarget.style.color = C.accent}
                     onMouseLeave={e => e.currentTarget.style.color = C.primary}>
-                    sales@pravaahfabrics.com
+                    sales@zariyahouse.com
                   </a>
                 </div>
               </div>
@@ -154,19 +154,19 @@ export default function Contact() {
               initial={{ opacity: 0, x: 16 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3 }}
-              className="flex gap-4 items-start p-6 transition-all duration-300"
-              style={{ background: C.primaryDark, borderRadius: 18, border: `1px solid rgba(232,196,184,0.15)` }}
+              className="flex gap-4 items-start p-5 transition-all duration-300 animate-fade-in"
+              style={{ background: C.primaryDark, borderRadius: 16, border: `1.5px solid rgba(188,163,116,0.15)` }}
             >
-              <div style={{ width: 44, height: 44, borderRadius: 14, background: 'rgba(196,112,106,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: C.accentLight }}>
-                <Clock size={20} />
+              <div style={{ width: 40, height: 40, borderRadius: 10, background: 'rgba(188,163,116,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: C.accentLight }}>
+                <Clock size={18} />
               </div>
-              <div>
-                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 17, fontWeight: 700, color: '#FDFAF8', margin: '0 0 8px' }}>
+              <div className="text-left">
+                <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 18, fontWeight: 700, color: '#ffffff', margin: '0 0 4px' }}>
                   Business Hours
                 </h3>
-                <p style={{ fontSize: 13.5, color: C.accentLight, lineHeight: 1.65, margin: 0, fontWeight: 400, opacity: 0.85 }}>
+                <p style={{ fontSize: 13, color: C.accentLight, lineHeight: 1.6, margin: 0, fontWeight: 400, opacity: 0.85 }}>
                   Monday – Saturday: 9:00 AM – 8:00 PM<br/>
-                  <span style={{ color: '#FDFAF8', fontWeight: 600 }}>Sunday: Closed</span>
+                  <span style={{ color: '#ffffff', fontWeight: 600 }}>Sunday: Closed</span>
                 </p>
               </div>
             </motion.div>

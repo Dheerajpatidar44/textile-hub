@@ -2,29 +2,29 @@ import { Link } from 'react-router-dom';
 import { MapPin, Phone, Mail } from 'lucide-react';
 
 const C = {
-  primary: '#6B2D3E',
-  primaryDark: '#4A1E2B',
-  accent: '#C4706A',
-  accentLight: '#E8C4B8',
-  bg: '#F2E6E0',
-  border: '#E0C8C0',
-  stone: '#8A5D65',
-  card: '#FDFAF8',
+  primary: '#0b3329',
+  primaryDark: '#062c22',
+  accent: '#bca374',
+  accentLight: '#f2ece1',
+  bg: '#f5eee6',
+  border: '#eadacc',
+  stone: '#4d5d59',
+  card: '#ffffff',
 };
 
 export default function Footer() {
   return (
     <footer style={{
       background: C.primaryDark,
-      borderTop: `1px solid rgba(232,196,184,0.15)`,
-      color: '#FDFAF8',
-      fontFamily: "'DM Sans', sans-serif",
+      borderTop: `1px solid rgba(188,163,116,0.15)`,
+      color: '#ffffff',
+      fontFamily: "'Outfit', sans-serif",
       position: 'relative',
       overflow: 'hidden',
     }}>
       {/* Decorative glow */}
-      <div style={{ position: 'absolute', top: 0, right: 0, width: 400, height: 400, background: `radial-gradient(circle, rgba(196, 112, 106, 0.08) 0%, transparent 70%)`, filter: 'blur(60px)', pointerEvents: 'none' }} />
-      <div style={{ position: 'absolute', bottom: 0, left: 0, width: 300, height: 300, background: `radial-gradient(circle, rgba(232, 196, 184, 0.05) 0%, transparent 70%)`, filter: 'blur(50px)', pointerEvents: 'none' }} />
+      <div style={{ position: 'absolute', top: 0, right: 0, width: 400, height: 400, background: `radial-gradient(circle, rgba(188, 163, 116, 0.08) 0%, transparent 70%)`, filter: 'blur(60px)', pointerEvents: 'none' }} />
+      <div style={{ position: 'absolute', bottom: 0, left: 0, width: 300, height: 300, background: `radial-gradient(circle, rgba(242, 236, 225, 0.05) 0%, transparent 70%)`, filter: 'blur(50px)', pointerEvents: 'none' }} />
 
       <div className="max-w-[95rem] mx-auto px-6 lg:px-14 pt-14 pb-6" style={{ position: 'relative', zIndex: 1 }}>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-10 lg:gap-12 text-left">
@@ -33,16 +33,16 @@ export default function Footer() {
           <div className="col-span-1">
             {/* Logo */}
             <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 18 }}>
-              <div style={{ width: 42, height: 42, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <svg width="38" height="38" viewBox="0 0 100 100" fill="none">
+              <div style={{ width: 42, height: 42, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(255,255,255,0.08)', borderRadius: '50%' }}>
+                <svg width="26" height="26" viewBox="0 0 100 100" fill="none">
                   <circle cx="50" cy="50" r="45" stroke={C.accent} strokeWidth="1.5" fill="none" />
                   <path d="M50 18 L54 40 L76 40 L59 54 L65 76 L50 63 L35 76 L41 54 L24 40 L46 40 Z" stroke={C.accentLight} strokeWidth="2" fill={C.accent} fillOpacity="0.2" strokeLinejoin="round" />
                   <circle cx="50" cy="50" r="5" fill={C.accentLight} />
                 </svg>
               </div>
               <div>
-                <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, fontWeight: 700, color: '#FDFAF8', lineHeight: 1.1, letterSpacing: '0.02em' }}>
-                  Pravaah Fabrics
+                <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 24, fontWeight: 700, color: '#ffffff', lineHeight: 1.1, letterSpacing: '0.02em' }}>
+                  Zariya House
                 </div>
                 <div style={{ fontSize: 9, color: C.accentLight, fontWeight: 600, letterSpacing: '0.15em', textTransform: 'uppercase', marginTop: 3 }}>
                   Premium Textile House
@@ -50,7 +50,7 @@ export default function Footer() {
               </div>
             </div>
 
-            <p style={{ fontSize: 13, color: C.accentLight, lineHeight: 1.7, maxWidth: 300, marginBottom: 20, fontWeight: 400, opacity: 0.85 }}>
+            <p style={{ fontSize: 13.5, color: C.accentLight, lineHeight: 1.7, maxWidth: 300, marginBottom: 20, fontWeight: 400, opacity: 0.85 }}>
               Woven with pride. Delivered with purpose. Delivering unmatched variety, quality & value across India.
             </p>
 
@@ -66,15 +66,15 @@ export default function Footer() {
                   href="#"
                   aria-label={social.name}
                   style={{ 
-                    width: 32, height: 32, borderRadius: '50%', 
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    border: `1px solid rgba(232,196,184,0.2)`,
-                    color: C.accentLight,
-                    textDecoration: 'none',
-                    transition: 'all 0.2s ease',
+                     width: 32, height: 32, borderRadius: '50%', 
+                     display: 'flex', alignItems: 'center', justifyContent: 'center',
+                     border: `1px solid rgba(188,163,116,0.2)`,
+                     color: C.accentLight,
+                     textDecoration: 'none',
+                     transition: 'all 0.2s ease',
                   }}
-                  onMouseEnter={e => { e.currentTarget.style.borderColor = C.accent; e.currentTarget.style.color = '#fff'; e.currentTarget.style.background = `rgba(196,112,106,0.15)`; }}
-                  onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(232,196,184,0.2)'; e.currentTarget.style.color = C.accentLight; e.currentTarget.style.background = 'transparent'; }}
+                  onMouseEnter={e => { e.currentTarget.style.borderColor = C.accent; e.currentTarget.style.color = '#fff'; e.currentTarget.style.background = `rgba(188,163,116,0.15)`; }}
+                  onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(188,163,116,0.2)'; e.currentTarget.style.color = C.accentLight; e.currentTarget.style.background = 'transparent'; }}
                 >
                   {social.svg}
                 </a>
@@ -84,7 +84,7 @@ export default function Footer() {
 
           {/* ── COMPANY Column (Column 2) ── */}
           <div className="col-span-1">
-            <h4 style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 12, fontWeight: 700, color: C.accentLight, marginBottom: 18, letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+            <h4 style={{ fontFamily: "'Outfit', sans-serif", fontSize: 12, fontWeight: 700, color: C.accent, marginBottom: 18, letterSpacing: '0.1em', textTransform: 'uppercase' }}>
               Company
             </h4>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 11 }}>
@@ -98,9 +98,9 @@ export default function Footer() {
                 <li key={link.name}>
                   <Link
                     to={link.path}
-                    style={{ fontSize: 13, color: `rgba(232,196,184,0.75)`, textDecoration: 'none', display: 'flex', alignItems: 'center', transition: 'all 0.2s ease', fontWeight: 500, letterSpacing: '0.01em' }}
-                    onMouseEnter={e => { e.currentTarget.style.color = '#FDFAF8'; e.currentTarget.style.paddingLeft = '4px'; }}
-                    onMouseLeave={e => { e.currentTarget.style.color = 'rgba(232,196,184,0.75)'; e.currentTarget.style.paddingLeft = '0'; }}
+                    style={{ fontSize: 13, color: `rgba(242,236,225,0.75)`, textDecoration: 'none', display: 'flex', alignItems: 'center', transition: 'all 0.2s ease', fontWeight: 500, letterSpacing: '0.01em' }}
+                    onMouseEnter={e => { e.currentTarget.style.color = '#ffffff'; e.currentTarget.style.paddingLeft = '4px'; }}
+                    onMouseLeave={e => { e.currentTarget.style.color = 'rgba(242,236,225,0.75)'; e.currentTarget.style.paddingLeft = '0'; }}
                   >
                     {link.name}
                   </Link>
@@ -111,7 +111,7 @@ export default function Footer() {
 
           {/* ── TRADE SERVICES Column (Column 3) ── */}
           <div className="col-span-1">
-            <h4 style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 12, fontWeight: 700, color: C.accentLight, marginBottom: 18, letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+            <h4 style={{ fontFamily: "'Outfit', sans-serif", fontSize: 12, fontWeight: 700, color: C.accent, marginBottom: 18, letterSpacing: '0.1em', textTransform: 'uppercase' }}>
               Trade Services
             </h4>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 11 }}>
@@ -125,9 +125,9 @@ export default function Footer() {
                 <li key={link.name}>
                   <Link
                     to={link.path}
-                    style={{ fontSize: 13, color: `rgba(232,196,184,0.75)`, textDecoration: 'none', display: 'flex', alignItems: 'center', transition: 'all 0.2s ease', fontWeight: 500, letterSpacing: '0.01em' }}
-                    onMouseEnter={e => { e.currentTarget.style.color = '#FDFAF8'; e.currentTarget.style.paddingLeft = '4px'; }}
-                    onMouseLeave={e => { e.currentTarget.style.color = 'rgba(232,196,184,0.75)'; e.currentTarget.style.paddingLeft = '0'; }}
+                    style={{ fontSize: 13, color: `rgba(242,236,225,0.75)`, textDecoration: 'none', display: 'flex', alignItems: 'center', transition: 'all 0.2s ease', fontWeight: 500, letterSpacing: '0.01em' }}
+                    onMouseEnter={e => { e.currentTarget.style.color = '#ffffff'; e.currentTarget.style.paddingLeft = '4px'; }}
+                    onMouseLeave={e => { e.currentTarget.style.color = 'rgba(242,236,225,0.75)'; e.currentTarget.style.paddingLeft = '0'; }}
                   >
                     {link.name.toLowerCase().startsWith('e-') ? (
                       <>
@@ -144,25 +144,25 @@ export default function Footer() {
 
           {/* ── CONTACT US Column (Column 4) ── */}
           <div className="col-span-1">
-            <h4 style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 12, fontWeight: 700, color: C.accentLight, marginBottom: 18, letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+            <h4 style={{ fontFamily: "'Outfit', sans-serif", fontSize: 12, fontWeight: 700, color: C.accent, marginBottom: 18, letterSpacing: '0.1em', textTransform: 'uppercase' }}>
               Contact Us
             </h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
               <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10, fontSize: 13, lineHeight: 1.5, fontWeight: 500 }}>
                 <MapPin size={15} style={{ color: C.accent, flexShrink: 0, marginTop: 2 }} />
-                <span style={{ color: 'rgba(232,196,184,0.85)' }}>123, Textile Market, Surat, Gujarat - 395002</span>
+                <span style={{ color: 'rgba(242,236,225,0.85)' }}>123, Textile Market, Surat, Gujarat - 395002</span>
               </div>
-              <a href="tel:+919876543210" style={{ display: 'flex', alignItems: 'flex-start', gap: 10, fontSize: 13, color: 'rgba(232,196,184,0.85)', textDecoration: 'none', lineHeight: 1.5, transition: 'color 0.2s ease', fontWeight: 500 }}
+              <a href="tel:+919876543210" style={{ display: 'flex', alignItems: 'flex-start', gap: 10, fontSize: 13, color: 'rgba(242,236,225,0.85)', textDecoration: 'none', lineHeight: 1.5, transition: 'color 0.2s ease', fontWeight: 500 }}
                 onMouseEnter={e => e.currentTarget.style.color = '#fff'}
-                onMouseLeave={e => e.currentTarget.style.color = 'rgba(232,196,184,0.85)'}>
+                onMouseLeave={e => e.currentTarget.style.color = 'rgba(242,236,225,0.85)'}>
                 <Phone size={15} style={{ color: C.accent, flexShrink: 0, marginTop: 2 }} />
                 <span>+91 98765 43210</span>
               </a>
-              <a href="mailto:info@pravaahfabrics.com" style={{ display: 'flex', alignItems: 'flex-start', gap: 10, fontSize: 13, color: 'rgba(232,196,184,0.85)', textDecoration: 'none', lineHeight: 1.5, transition: 'color 0.2s ease', fontWeight: 500 }}
+              <a href="mailto:info@zariyahouse.com" style={{ display: 'flex', alignItems: 'flex-start', gap: 10, fontSize: 13, color: 'rgba(242,236,225,0.85)', textDecoration: 'none', lineHeight: 1.5, transition: 'color 0.2s ease', fontWeight: 500 }}
                 onMouseEnter={e => e.currentTarget.style.color = '#fff'}
-                onMouseLeave={e => e.currentTarget.style.color = 'rgba(232,196,184,0.85)'}>
+                onMouseLeave={e => e.currentTarget.style.color = 'rgba(242,236,225,0.85)'}>
                 <Mail size={15} style={{ color: C.accent, flexShrink: 0, marginTop: 2 }} />
-                <span>info@pravaahfabrics.com</span>
+                <span>info@zariyahouse.com</span>
               </a>
             </div>
           </div>
@@ -171,16 +171,16 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div style={{ borderTop: `1px solid rgba(232,196,184,0.12)`, position: 'relative', zIndex: 1 }}>
+      <div style={{ borderTop: `1px solid rgba(188,163,116,0.12)`, position: 'relative', zIndex: 1 }}>
         <div className="max-w-[95rem] mx-auto px-6 lg:px-14 py-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left">
-          <p style={{ fontSize: 11.5, color: 'rgba(232,196,184,0.55)', margin: 0, fontWeight: 500, letterSpacing: '0.04em' }}>
-            © 2026 Pravaah Fabrics. All Rights Reserved.
+          <p style={{ fontSize: 11.5, color: 'rgba(242,236,225,0.55)', margin: 0, fontWeight: 500, letterSpacing: '0.04em' }}>
+            © 2026 Zariya House. All Rights Reserved.
           </p>
           <div style={{ display: 'flex', gap: 20 }}>
             {['Privacy Policy', 'Terms & Conditions'].map(item => (
-              <a key={item} href="#" style={{ fontSize: 11, color: 'rgba(232,196,184,0.45)', textDecoration: 'none', fontWeight: 500, transition: 'color 0.2s ease' }}
-                onMouseEnter={e => e.currentTarget.style.color = 'rgba(232,196,184,0.85)'}
-                onMouseLeave={e => e.currentTarget.style.color = 'rgba(232,196,184,0.45)'}
+              <a key={item} href="#" style={{ fontSize: 11, color: 'rgba(242,236,225,0.45)', textDecoration: 'none', fontWeight: 500, transition: 'color 0.2s ease' }}
+                onMouseEnter={e => e.currentTarget.style.color = 'rgba(242,236,225,0.85)'}
+                onMouseLeave={e => e.currentTarget.style.color = 'rgba(242,236,225,0.45)'}
               >
                 {item}
               </a>
