@@ -2,14 +2,14 @@ import { motion } from 'framer-motion';
 import { ClipboardCheck, FileText, Send, Mail, Calendar, Package } from 'lucide-react';
 
 const C = {
-  primary: '#0b3329',       // Dark Charcoal
-  primaryLight: '#15473b',  // Medium Charcoal
-  primaryDark: '#062c22',   // Deep Charcoal
-  accent: '#bca374',        // Champagne Gold
-  gold: '#bca374',
-  bg: '#fcf8f2',
-  border: '#eadacc',
-  stone: '#4d5d59',
+  primary: '#3F5241',
+  primaryLight: '#536755',
+  primaryDark: '#2C3A2D',
+  accent: '#BBA178',
+  gold: '#BBA178',
+  bg: '#FAF8F5',
+  border: '#E3DAD0',
+  stone: '#5A665B',
 };
 
 const quotations = [
@@ -43,9 +43,6 @@ export default function EQuotation() {
 
         {/* Page Title Section - minimized top space */}
         <div className="text-center mb-6 mt-2">
-          <span className="text-[11px] font-bold tracking-[0.25em] text-[#bca374] uppercase mb-2 block">
-            Procurement
-          </span>
           <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '38px', fontWeight: 700, color: C.primary, margin: 0, letterSpacing: '0.02em' }}>
             e-Quotation
           </h1>
@@ -115,7 +112,7 @@ export default function EQuotation() {
                 </div>
 
                 {/* Quantity Required (Middle Right Segment) */}
-                <div className="lg:w-1/5 shrink-0 flex flex-col justify-center bg-[#f5eee6] p-4 rounded-xl border border-[#eadacc]">
+                <div className="lg:w-1/5 shrink-0 flex flex-col justify-center bg-[#F5EFE6] p-4 rounded-xl border border-[#E3DAD0]">
                   <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 4 }}>
                     <Package size={14} color={C.accent} />
                     <span style={{ fontSize: 9, color: C.stone, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Volume Required</span>
@@ -169,7 +166,7 @@ export default function EQuotation() {
             }} className="text-left">
               <div style={{
                 width: 48, height: 48,
-                background: '#f5eee6',
+                background: '#F5EFE6',
                 border: `1px solid ${C.border}`,
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 borderRadius: '50%'
@@ -249,7 +246,7 @@ export default function EQuotation() {
                 </div>
 
                 {/* Action button & footer info */}
-                <div className="pt-4 border-t border-[#eadacc]">
+                <div className="pt-4 border-t border-[#E3DAD0]">
                   <button type="submit" style={{
                     width: '100%', padding: '14px',
                     display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10,
@@ -268,8 +265,8 @@ export default function EQuotation() {
 
                   <div style={{ textAlign: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, marginTop: 20 }}>
                     <Mail size={14} color={C.accent} />
-                    <a href="mailto:info@pravaahfabrics.com" style={{ fontSize: 13, color: C.primary, fontWeight: 600, textDecoration: 'none' }}>
-                      info@pravaahfabrics.com
+                    <a href="mailto:info@alankritthreads.com" style={{ fontSize: 13, color: C.primary, fontWeight: 600, textDecoration: 'none' }}>
+                      info@alankritthreads.com
                     </a>
                   </div>
                 </div>

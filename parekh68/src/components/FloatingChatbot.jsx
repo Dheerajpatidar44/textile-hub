@@ -2,15 +2,15 @@ import { useState } from 'react';
 import { MessageSquareText, X, Send, Sparkles } from 'lucide-react';
 
 const C = {
-  primary: '#0b3329',       // Charcoal
-  primaryLight: '#15473b',  // Medium Charcoal
-  primaryDark: '#062c22',   // Deep Charcoal
-  accent: '#bca374',        // Gold
-  gold: '#bca374',
-  bg: '#fcf8f2',
-  border: '#eadacc',
-  stone: '#4d5d59',
-  soil: '#0b3329',
+  primary: '#3F5241',       // Charcoal
+  primaryLight: '#536755',  // Medium Charcoal
+  primaryDark: '#2C3A2D',   // Deep Charcoal
+  accent: '#BBA178',        // Gold
+  gold: '#BBA178',
+  bg: '#FAF8F5',
+  border: '#E3DAD0',
+  stone: '#5A665B',
+  soil: '#3F5241',
 };
 
 const FloatingChatbot = () => {
@@ -22,7 +22,7 @@ const FloatingChatbot = () => {
       {isOpen && (
         <div
           className="mb-4 w-[340px] sm:w-[370px] overflow-hidden border rounded-2xl animate-fade-in"
-          style={{ borderColor: C.border, background: '#fcf8f2', boxShadow: '0 16px 48px rgba(43, 37, 32, 0.12)' }}
+          style={{ borderColor: C.border, background: '#FAF8F5', boxShadow: '0 16px 48px rgba(43, 37, 32, 0.12)' }}
         >
           {/* Header */}
           <div
@@ -38,7 +38,7 @@ const FloatingChatbot = () => {
               </div>
               <div className="text-left">
                 <p className="text-white text-[13px] font-bold tracking-wide leading-tight">
-                  Zariya House Assistant
+                  Alankrit Threads Assistant
                 </p>
                 <div className="flex items-center gap-1.5 mt-0.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
@@ -71,7 +71,7 @@ const FloatingChatbot = () => {
                 style={{ borderColor: C.border }}
               >
                 <p className="text-[13px] leading-relaxed" style={{ color: C.stone }}>
-                  Namaste! 🙏 Welcome to <strong>Zariya House</strong>. How can I assist you today?
+                  Namaste! 🙏 Welcome to <strong>Alankrit Threads</strong>. How can I assist you today?
                 </p>
               </div>
             </div>

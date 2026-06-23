@@ -1,0 +1,322 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
+
+@theme {
+  /* ── Meraki Ethnic Color Palette (Navy / Burgundy / Gold) ── */
+  --color-primary: #1B2A4A;          /* Deep Navy Blue */
+  --color-primary-light: #2E4070;    /* Medium Navy */
+  --color-primary-dark: #0D1828;     /* Very Dark Navy */
+  --color-accent: #D4A842;           /* Rich Gold */
+  --color-accent-light: #F5F0E8;     /* Warm Light Gold Tint */
+  --color-crimson: #8B1A2D;          /* Deep Burgundy / Crimson */
+  --color-crimson-light: #B52540;    /* Lighter Crimson */
+  --color-bg: #F8F7F4;               /* Off-White Background */
+  --color-sand: #F8F7F4;             /* Warm Off-White */
+  --color-linen: #FFFFFF;            /* Pure White */
+  --color-cream: #F0EDE8;            /* Soft Cream */
+  --color-mist: #E2DDDA;             /* Light Border */
+  --color-stone: #5A5560;            /* Muted Neutral Text */
+
+  /* ── Font Family ── */
+  --font-display: 'Playfair Display', serif;
+  --font-sans: 'DM Sans', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+
+@layer base {
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: #F8F7F4;
+    color: #1B2A4A;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 400;
+  }
+
+  h1, h2, h3, h4, h5, h6, .display-title {
+    font-family: 'Playfair Display', serif !important;
+    font-weight: 700;
+    color: #1B2A4A;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  p, span, a, button, input, textarea, select, label {
+    font-family: 'DM Sans', sans-serif;
+  }
+}
+
+/* ── Custom Scrollbar ── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F8F7F4;
+}
+::-webkit-scrollbar-thumb {
+  background: #D4A842;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #8B1A2D;
+}
+
+/* ── Keyframe Animations ── */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInScale {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes floatUp {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes drawLine {
+  from { stroke-dashoffset: 200; }
+  to   { stroke-dashoffset: 0; }
+}
+@keyframes expandWidth {
+  from { width: 0%; }
+  to   { width: 100%; }
+}
+@keyframes goldGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(212, 168, 66, 0.3); }
+  50%       { box-shadow: 0 0 20px 8px rgba(212, 168, 66, 0); }
+}
+@keyframes ticker {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes revealContent {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes weavePulse {
+  0%, 100% { opacity: 0.4; transform: scaleX(0.8); }
+  50%       { opacity: 1; transform: scaleX(1); }
+}
+@keyframes pulseGold {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+@keyframes loaderLine {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+@keyframes rotateFabric {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+@keyframes weaveIn {
+  0% { stroke-dashoffset: 300; opacity: 0; }
+  100% { stroke-dashoffset: 0; opacity: 1; }
+}
+@keyframes fadeSlideUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.shimmer-text {
+  background: linear-gradient(90deg, #1B2A4A 0%, #D4A842 40%, #8B1A2D 60%, #D4A842 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 2.5s linear infinite;
+}
+.fade-in-up { animation: fadeInUp 0.7s ease forwards; }
+.fade-in-scale { animation: fadeInScale 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+.float-up { animation: floatUp 3s ease-in-out infinite; }
+.gold-glow { animation: goldGlow 2.5s ease-in-out infinite; }
+.display-title { font-family: 'Playfair Display', serif !important; }
+.serif-title { font-family: 'Playfair Display', serif !important; }
+
+/* ── Announcement Ticker ── */
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker 28s linear infinite;
+}
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
+/* ── Navbar Active State ── */
+.nav-link-active::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: #D4A842;
+  border-radius: 2px;
+  margin-top: 2px;
+}
+
+/* ── Button Styles ── */
+.btn-primary {
+  background: #1B2A4A;
+  color: #ffffff;
+  transition: all 0.3s ease;
+  border: 1.5px solid #1B2A4A;
+}
+.btn-primary:hover {
+  background: #D4A842;
+  color: #ffffff;
+  border-color: #D4A842;
+  transform: translateY(-1px);
+}
+
+.btn-accent {
+  background: #D4A842;
+  color: #ffffff;
+  transition: all 0.3s ease;
+  border: 1.5px solid #D4A842;
+}
+.btn-accent:hover {
+  background: #8B1A2D;
+  color: #ffffff;
+  border-color: #8B1A2D;
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: #1B2A4A;
+  border: 1.5px solid #1B2A4A;
+  transition: all 0.3s ease;
+}
+.btn-outline:hover {
+  background: #1B2A4A;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+/* ── Card Hover ── */
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(27, 42, 74, 0.12);
+}
+
+/* ── Custom Divider ── */
+.divider-gold {
+  width: 48px;
+  height: 2px;
+  background: linear-gradient(90deg, #8B1A2D, #D4A842);
+  border-radius: 2px;
+}
+
+/* ── Section Label ── */
+.section-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #D4A842;
+}
+
+/* ── Preloader ── */
+.weave-line {
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+  animation: drawLine 1.5s ease forwards;
+}
+
+/* ── Form Inputs ── */
+.form-input {
+  width: 100%;
+  padding: 12px 0px;
+  border: none;
+  border-bottom: 2px solid rgba(27, 42, 74, 0.2);
+  background: transparent;
+  color: #1B2A4A;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  outline: none;
+  border-radius: 0;
+  transition: border-color 0.3s ease;
+}
+.form-input:focus {
+  border-bottom-color: #D4A842;
+}
+.form-input::placeholder {
+  color: #9ca3af;
+  font-weight: 400;
+}
+
+/* ── Page Hero Banner ── */
+.page-hero {
+  background: linear-gradient(135deg, #1B2A4A 0%, #2E4070 60%, #1B2A4A 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Pulse animation ── */
+@keyframes goldPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(212, 168, 66, 0.3); }
+  50%       { box-shadow: 0 0 0 10px rgba(212, 168, 66, 0); }
+}
+.green-pulse {
+  animation: goldPulse 2s ease-in-out infinite;
+}
+
+/* ── Category Card ── */
+.category-card {
+  transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.category-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(27, 42, 74, 0.14);
+}
+
+/* ── Product Card ── */
+.product-card {
+  transition: all 0.3s ease;
+}
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 36px rgba(27, 42, 74, 0.12);
+}
+
+/* ── Categories Scrollbar ── */
+.custom-sidebar-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+.custom-sidebar-scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+.custom-sidebar-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+}
+.custom-sidebar-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* ── Hide scrollbar utility ── */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

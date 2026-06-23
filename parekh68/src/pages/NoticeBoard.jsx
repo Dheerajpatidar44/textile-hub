@@ -2,15 +2,15 @@ import { motion } from 'framer-motion';
 import { Bell, ChevronRight, Calendar } from 'lucide-react';
 
 const C = {
-  primary: '#0b3329',       // Dark Charcoal
-  primaryLight: '#15473b',  // Medium Charcoal
-  primaryDark: '#062c22',   // Deep Charcoal
-  accent: '#bca374',        // Champagne Gold
-  gold: '#bca374',
-  bg: '#fcf8f2',
-  border: '#eadacc',
-  stone: '#4d5d59',
-  soil: '#0b3329',
+  primary: '#3F5241',       // Dark Charcoal
+  primaryLight: '#536755',  // Medium Charcoal
+  primaryDark: '#2C3A2D',   // Deep Charcoal
+  accent: '#BBA178',        // Champagne Gold
+  gold: '#BBA178',
+  bg: '#FAF8F5',
+  border: '#E3DAD0',
+  stone: '#5A665B',
+  soil: '#3F5241',
 };
 
 const notices = [
@@ -27,9 +27,6 @@ export default function NoticeBoard() {
 
         {/* Page Title Section - minimized top space */}
         <div className="text-center mb-6 mt-2">
-          <span className="text-[11px] font-bold tracking-[0.25em] text-[#bca374] uppercase mb-2 block">
-            Announcements
-          </span>
           <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '38px', fontWeight: 700, color: C.soil, margin: 0, letterSpacing: '0.02em', textTransform: 'uppercase' }}>
             Notice Board
           </h1>

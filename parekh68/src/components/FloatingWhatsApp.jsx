@@ -2,9 +2,9 @@ import React from 'react';
 
 const COLORS = { 
   primary: '#25D366',
-  bg: '#fcf8f2',
-  border: '#eadacc',
-  textDark: '#0b3329'
+  bg: '#FAF8F5',
+  border: '#E3DAD0',
+  textDark: '#3F5241'
 };
 
 const FloatingWhatsApp = () => {

@@ -2,15 +2,15 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
 const C = {
-  primary: '#0b3329',       // Dark Charcoal
-  primaryLight: '#15473b',  // Medium Charcoal
-  primaryDark: '#062c22',   // Deep Charcoal
-  accent: '#bca374',        // Champagne Gold
-  gold: '#bca374',
-  bg: '#fcf8f2',
-  border: '#eadacc',
-  stone: '#4d5d59',
-  soil: '#0b3329',
+  primary: '#3F5241',       // Dark Charcoal
+  primaryLight: '#536755',  // Medium Charcoal
+  primaryDark: '#2C3A2D',   // Deep Charcoal
+  accent: '#BBA178',        // Champagne Gold
+  gold: '#BBA178',
+  bg: '#FAF8F5',
+  border: '#E3DAD0',
+  stone: '#5A665B',
+  soil: '#3F5241',
 };
 
 const posts = [
@@ -27,9 +27,6 @@ export default function Blog() {
 
         {/* Page Title Section - minimized top space */}
         <div className="text-center mb-6 mt-2">
-          <span className="text-[11px] font-bold tracking-[0.25em] text-[#bca374] uppercase mb-2 block">
-            Articles
-          </span>
           <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '38px', fontWeight: 700, color: C.soil, margin: 0, letterSpacing: '0.02em', textTransform: 'uppercase' }}>
             Blog & Insights
           </h1>
@@ -50,7 +47,7 @@ export default function Blog() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.08 }}
-              className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-sm group border border-[#eadacc] cursor-pointer animate-fade-in"
+              className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-sm group border border-[#E3DAD0] cursor-pointer animate-fade-in"
             >
               {/* Zoom image */}
               <img 
@@ -60,7 +57,7 @@ export default function Blog() {
                 loading="lazy" 
               />
               {/* Warm dark overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#062c22]/90 via-[#062c22]/30 to-transparent flex flex-col justify-end p-6 text-left" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#2C3A2D]/90 via-[#2C3A2D]/30 to-transparent flex flex-col justify-end p-6 text-left" />
 
               {/* Float info */}
               <div className="absolute inset-x-0 bottom-0 p-6 z-10 flex flex-col items-start">
@@ -76,11 +73,11 @@ export default function Blog() {
                   {post.title}
                 </h3>
                 
-                <span className="text-[10px] text-[#f5eee6] opacity-75 mt-2 block">
+                <span className="text-[10px] text-[#F5EFE6] opacity-75 mt-2 block">
                   {post.date} · {post.readTime}
                 </span>
 
-                <span className="text-[10px] font-bold text-[#bca374] group-hover:text-white tracking-widest uppercase flex items-center gap-1 transition-colors mt-4">
+                <span className="text-[10px] font-bold text-[#BBA178] group-hover:text-white tracking-widest uppercase flex items-center gap-1 transition-colors mt-4">
                   READ ARTICLE <ArrowRight size={11} />
                 </span>
               </div>

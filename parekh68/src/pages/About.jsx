@@ -21,11 +21,8 @@ export default function About() {
 
         {/* Minimal gap Page Title */}
         <div className="text-center mb-6 mt-1">
-          <span className="text-[10px] font-bold tracking-[0.25em] uppercase mb-1 block" style={{ color: C.accent }}>
-            Our Journey
-          </span>
           <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '32px', fontWeight: 700, color: C.primary, margin: 0, letterSpacing: '0.02em', textTransform: 'uppercase' }}>
-            About Zariya House
+            About Alankrit Threads
           </h1>
           <div style={{ width: 40, height: 1.5, background: C.accent, margin: '6px auto 0', borderRadius: 2 }} />
         </div>
@@ -52,7 +49,7 @@ export default function About() {
             </h2>
             
             <p style={{ fontSize: 14, lineHeight: 1.7, color: C.stone, fontWeight: 400, margin: '0 0 24px' }}>
-              <strong style={{ color: C.primary, fontWeight: 700 }}>Zariya House</strong> is India's leading destination for premium, handcrafted textiles and elegant apparel. We combine generations of traditional craftsmanship with contemporary aesthetics to offer premium sarees, suitings, home fabrics, and children's collections that represent style, substance, and heritage.
+              <strong style={{ color: C.primary, fontWeight: 700 }}>Alankrit Threads</strong> is India's leading destination for premium, handcrafted textiles and elegant apparel. We combine generations of traditional craftsmanship with contemporary aesthetics to offer premium sarees, suitings, home fabrics, and children's collections that represent style, substance, and heritage.
             </p>
 
             {/* Bullet Points */}
@@ -99,29 +96,39 @@ export default function About() {
           </div>
 
           {/* Image Side: 5 columns with a beautiful arched cutout style */}
-          <div className="lg:col-span-5 relative min-h-[380px] lg:min-h-full overflow-hidden">
-            <img
-              src="/images/premium_fabrics.png"
-              alt="Zariya House Premium Fabrics"
-              style={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover',
-                display: 'block',
-              }}
-              className="absolute inset-0"
-            />
-            {/* Visual gradient overlay matching dark green theme */}
-            <div className="absolute inset-0" style={{ background: `linear-gradient(to bottom, rgba(6,44,34,0.1), rgba(6,44,34,0.4))` }} />
-            
-            {/* Styled Badge */}
-            <div className="absolute bottom-6 left-6 right-6 p-5" style={{ background: 'rgba(255,255,255,0.92)', borderRadius: 16, border: `1px solid ${C.border}`, textAlign: 'left' }}>
-              <h4 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 20, fontWeight: 700, color: C.primary, margin: 0 }}>
-                Premium Fabrics
-              </h4>
-              <p style={{ fontSize: 11, color: C.stone, margin: '4px 0 0', fontWeight: 500 }}>
-                Finest raw materials woven with heritage expertise.
-              </p>
+          <div className="lg:col-span-5 relative min-h-[380px] lg:min-h-full overflow-hidden p-8 flex items-center justify-center bg-zinc-50">
+            <div style={{
+              width: '100%',
+              height: '100%',
+              minHeight: 340,
+              maxHeight: 520,
+              borderRadius: '240px 240px 24px 24px', // Unique arched shape cutout
+              overflow: 'hidden',
+              position: 'relative',
+              border: `1.5px solid ${C.border}`
+            }}>
+              <img
+                src="/images/ethnic_wear.png"
+                alt="Alankrit Threads Premium Fabrics"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  display: 'block',
+                }}
+              />
+              {/* Visual gradient overlay matching dark green theme */}
+              <div className="absolute inset-0" style={{ background: `linear-gradient(to bottom, rgba(44,58,45,0.05), rgba(44,58,45,0.3))` }} />
+              
+              {/* Styled Badge */}
+              <div className="absolute bottom-6 left-6 right-6 p-5" style={{ background: 'rgba(255,255,255,0.92)', borderRadius: 16, border: `1px solid ${C.border}`, textAlign: 'left' }}>
+                <h4 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 20, fontWeight: 700, color: C.primary, margin: 0 }}>
+                  Premium Fabrics
+                </h4>
+                <p style={{ fontSize: 11, color: C.stone, margin: '4px 0 0', fontWeight: 500 }}>
+                  Finest raw materials woven with heritage expertise.
+                </p>
+              </div>
             </div>
           </div>
         </motion.div>

@@ -4,16 +4,16 @@ import { motion } from 'framer-motion';
 import { LayoutGrid } from 'lucide-react';
 
 const C = {
-  primary: '#0b3329',
-  primaryLight: '#15473b',
-  accent: '#bca374',
-  accentLight: '#f2ece1',
-  bg: '#fcf8f2',
-  bgAlt: '#f5eee6',
-  border: '#eadacc',
-  stone: '#4d5d59',
+  primary: '#3F5241',
+  primaryLight: '#536755',
+  accent: '#BBA178',
+  accentLight: '#FAF5EB',
+  bg: '#FAF8F5',
+  bgAlt: '#F5EFE6',
+  border: '#E3DAD0',
+  stone: '#5A665B',
   card: '#ffffff',
-  text: '#0d241f',
+  text: '#2C2520',
 };
 
 const categories = [

@@ -2,15 +2,15 @@ import { motion } from 'framer-motion';
 import { Mail } from 'lucide-react';
 
 const C = {
-  primary: '#0b3329',       // Dark Charcoal
-  primaryLight: '#15473b',  // Medium Charcoal
-  primaryDark: '#062c22',   // Deep Charcoal
-  accent: '#bca374',        // Champagne Gold
-  gold: '#bca374',
-  bg: '#fcf8f2',
-  border: '#eadacc',
-  stone: '#4d5d59',
-  soil: '#0b3329',
+  primary: '#3F5241',       // Dark Charcoal
+  primaryLight: '#536755',  // Medium Charcoal
+  primaryDark: '#2C3A2D',   // Deep Charcoal
+  accent: '#BBA178',        // Champagne Gold
+  gold: '#BBA178',
+  bg: '#FAF8F5',
+  border: '#E3DAD0',
+  stone: '#5A665B',
+  soil: '#3F5241',
 };
 
 const teamMembers = [
@@ -26,9 +26,6 @@ export default function RetailManagement() {
 
         {/* Page Title Section - minimized top space */}
         <div className="text-center mb-6 mt-2">
-          <span className="text-[11px] font-bold tracking-[0.25em] text-[#bca374] uppercase mb-2 block">
-            Leadership
-          </span>
           <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '38px', fontWeight: 700, color: C.soil, margin: 0, letterSpacing: '0.02em', textTransform: 'uppercase' }}>
             Our Retail Management
           </h1>
@@ -36,7 +33,7 @@ export default function RetailManagement() {
         </div>
   
         <p style={{ textAlign: 'center', fontSize: 14, color: C.stone, marginBottom: 40, fontWeight: 600, maxWidth: 560, margin: '0 auto 40px', lineHeight: 1.6 }}>
-          Zariya House is administered and governed by highly skilled, experienced and qualified Management with decades of expertise in the textile industry.
+          Alankrit Threads is administered and governed by highly skilled, experienced and qualified Management with decades of expertise in the textile industry.
         </p>
 
         {/* Team Cards - Horizontal Layout Stack */}
@@ -73,7 +70,7 @@ export default function RetailManagement() {
                     borderRadius: '50px 50px 12px 12px',
                     overflow: 'hidden',
                     border: `2px solid ${C.border}`,
-                    background: '#f5eee6',
+                    background: '#F5EFE6',
                   }}
                 >
                   <img
@@ -113,7 +110,7 @@ export default function RetailManagement() {
 
                 <div>
                   <a
-                    href={`mailto:${member.name.toLowerCase().replace(' ', '')}@pravaahfabrics.com`}
+                    href={`mailto:${member.name.toLowerCase().replace(' ', '')}@alankritthreads.com`}
                     className="inline-flex items-center gap-2 px-5 py-2 text-[10px] font-bold text-white uppercase tracking-widest transition-all duration-300 rounded-full hover:shadow-md cursor-pointer border-none"
                     style={{
                       background: C.primary,

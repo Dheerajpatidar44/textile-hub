@@ -1,0 +1,160 @@
+@import "tailwindcss";
+
+@theme {
+  --color-sapphire-900: #0C2E3A; /* Deep Dark Slate Blue - Headers / main text */
+  --color-sapphire-800: #0A5F73; /* Primary Teal - Accents & Primary actions */
+  --color-sapphire-700: #10859F; /* Accent Teal - Secondary accents */
+
+  --color-rosegold-500: #0A5F73; /* Primary Teal */
+  --color-rosegold-400: #10859F; /* Accent Teal */
+  --color-rosegold-300: #E9F2F5; /* Soft Ice-Blue / Light Grey-Blue */
+
+  --color-pearl-50: #FFFFFF;   /* Clean White for Cards */
+  --color-pearl-100: #F4F8F9;  /* Soft Ice-Blue for Page Backgrounds */
+
+  --font-playfair: 'Cormorant Garamond', serif;
+  --font-outfit: 'Outfit', sans-serif;
+}
+
+@layer base {
+  body {
+    @apply font-outfit bg-pearl-100 text-sapphire-900 m-0 p-0;
+  }
+
+  /* Unify headings style, font-weight, color, and layout on all pages */
+  h1 {
+    @apply font-playfair font-bold text-2xl lg:text-3xl text-sapphire-900 tracking-wider uppercase mb-1 border-b border-rosegold-400/20 pb-2 block w-full;
+  }
+
+  h2, h3, h4, h5, h6 {
+    @apply font-playfair font-semibold text-sapphire-900;
+  }
+}
+
+/* Custom Scrollbar for sidebar and general */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+@media (max-width: 1024px) {
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #10859F;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #0A5F73;
+}
+
+/* Tailwind Overrides for translating hardcoded styles into the Ice-Blue / Teal Theme */
+.bg-white {
+  background-color: #FFFFFF !important;
+}
+
+.bg-\[\#fcfbf9\] {
+  background-color: #F4F8F9 !important;
+}
+
+.bg-pearl-50 {
+  background-color: #FFFFFF !important;
+}
+
+.bg-pearl-100 {
+  background-color: #F4F8F9 !important;
+}
+
+.text-\[\#2d0a4e\] {
+  color: #10859F !important;
+}
+
+.bg-\[\#2d0a4e\] {
+  background-color: #E9F2F5 !important;
+  border-color: #10859F !important;
+}
+
+.hover\:bg-\[\#2d0a4e\]:hover {
+  background-color: #DCEBEF !important;
+}
+
+.hover\:text-\[\#2d0a4e\]:hover {
+  color: #0C2E3A !important;
+}
+
+.border-\[\#2d0a4e\] {
+  border-color: #10859F !important;
+}
+
+.bg-\[\#d8a5ad\] {
+  background-color: #0A5F73 !important;
+}
+
+.hover\:bg-\[\#d8a5ad\]:hover {
+  background-color: #084E5F !important;
+}
+
+.text-\[\#d8a5ad\] {
+  color: #10859F !important;
+}
+
+.hover\:text-\[\#d8a5ad\]:hover {
+  color: #E9F2F5 !important;
+}
+
+.border-\[\#d8a5ad\] {
+  border-color: #0A5F73 !important;
+}
+
+.hover\:border-\[\#d8a5ad\]:hover {
+  border-color: #10859F !important;
+}
+
+.bg-\[\#d8a5ad\]\/10 {
+  background-color: rgba(16, 133, 159, 0.1) !important;
+}
+
+.border-gray-100,
+.border-gray-200,
+.border-pearl-100 {
+  border-color: #DDE8EB !important;
+}
+
+.text-gray-900,
+.text-gray-850,
+.text-gray-800,
+.text-gray-700 {
+  color: #0C2E3A !important;
+}
+
+.text-gray-650,
+.text-gray-600,
+.text-gray-500,
+.text-gray-400 {
+  color: #4F6D7A !important;
+}
+
+/* Ensure form controls have readable text in light mode */
+input, select, textarea {
+  color: #0C2E3A !important;
+}
+
+.hover\:text-gray-900:hover,
+.hover\:text-gray-800:hover {
+  color: #0C2E3A !important;
+}
+
+.bg-sapphire-900 {
+  background-color: #0C2E3A !important;
+}
+
+.bg-sapphire-800 {
+  background-color: #0A5F73 !important;
+}

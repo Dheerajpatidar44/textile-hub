@@ -100,7 +100,7 @@ export default function Navbar() {
       <div
         className="w-full transition-all duration-300"
         style={{
-          background: scrolled ? 'rgba(252,248,242,0.98)' : 'transparent',
+          background: scrolled ? 'rgba(250,248,245,0.98)' : 'transparent',
           backdropFilter: scrolled ? 'blur(12px)' : 'none',
           boxShadow: scrolled ? '0 2px 20px rgba(6,44,34,0.06)' : 'none',
           padding: scrolled ? '0' : '0',
